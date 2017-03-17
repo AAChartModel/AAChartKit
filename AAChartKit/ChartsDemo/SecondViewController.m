@@ -60,20 +60,17 @@
 }
 
 -(void)configTheChartView:(NSString *)chartType{
-    AAChartView *chartView = [[AAChartView alloc]init];
+    self.chartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
-    chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
-    [self.view addSubview:chartView];
-    
-    
-    AAChartModel *chartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeColumn)//设置图表的类型
-    .titleSet(@"编程语言热度")//设置图表标题
-    .subtitleSet(@"虚拟数据")//设置图表副标题
-    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])//设置图表横轴的内容
-    .yAxisTitleSet(@"摄氏度")//设置图表 y 轴的单位
-    .seriesSet(@[
-                 AAObject(AASeriesElement)
+    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
+    [self.view addSubview:self.chartView];
+    self.chartModel= AAObject(AAChartModel)
+    .chartTypeSet(chartType)
+    .titleSet(@"编程语言热度")
+    .subtitleSet(@"虚拟数据")
+    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])
+    .yAxisTitleSet(@"摄氏度")
+    .seriesSet(@[AAObject(AASeriesElement)
                  .nameSet(@"2017")
                  .dataSet(@[@45,@56,@34,@43,@65,@56,@47,@28,@49]),
                  
@@ -91,7 +88,7 @@
                  ])
     ;
     
-    [chartView aa_drawChartWithChartModel:chartModel];
+    [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 
 -(void)configTheChartModel{
@@ -131,8 +128,8 @@
             
         }
             break;
-  
-         case 1:
+            
+        case 1:
         {
             NSArray *symbolArr = @[AAChartSymbolTypeCircle,AAChartSymbolTypeSquare,AAChartSymbolTypeDiamond,AAChartSymbolTypeTriangle,AAChartSymbolTypeTriangle_down];
             self.chartModel.symbol = symbolArr[segmentedControl.selectedSegmentIndex];
