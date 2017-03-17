@@ -12,15 +12,14 @@
 ```objective-c
 #import "AAChartView.h"
 ```
-2. 创建视图
+2. 创建视图AAChartView
 ```objective-c
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
 chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
 [self.view addSubview:chartView];
 ```
-3. 配置视图模型
-
+3. 配置视图模型AAChartModel
 ```objective-c
 AAChartModel *chartModel= AAObject(AAChartModel)
 .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
