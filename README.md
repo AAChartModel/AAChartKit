@@ -1,7 +1,7 @@
 ## 使用方法
 
 ### 准备工作
-1. 将项目demo中的文件夹==AAChartKit==拖入到所需项目中.
+1. 将项目demo中的文件夹==AAChartKitFiles==拖入到所需项目中.
 1. 在你的项目的 ==pch== 全局宏定义文件中添加
 ```
 #import "AAGlobalMacro.h"
