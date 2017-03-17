@@ -9,11 +9,11 @@
 
 ### 正式开始
 1. 在你的视图控制器文件中添加
-```
+```objective-c
 #import "AAChartView.h"
 ```
 2. 创建视图
-```
+```objective-c
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
 chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
@@ -21,7 +21,7 @@ chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.
 ```
 3. 配置视图模型
 
-```
+```objective-c
 AAChartModel *chartModel= AAObject(AAChartModel)
 .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
 .titleSet(@"编程语言热度")//设置图表标题
@@ -49,7 +49,7 @@ AAObject(AASeriesElement)
 ```
 4.  绘制图形
 
-```
+```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];
 ```
 
