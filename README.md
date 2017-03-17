@@ -52,7 +52,7 @@ AAObject(AASeriesElement)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];
 ```
-5. AAChartModel 属性配置
+###AAChartModel 属性配置
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
@@ -93,7 +93,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 ```
-6. 更多图形效果
+###更多图形效果
 
  ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKit功能演示.gif)
 
