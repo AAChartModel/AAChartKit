@@ -52,7 +52,7 @@ AAObject(AASeriesElement)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];
 ```
-
+ ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKit功能演示.gif)
 
 
 
