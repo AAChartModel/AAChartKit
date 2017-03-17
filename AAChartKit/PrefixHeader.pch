@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  AAChartKit
+//
+//  Created by An An on 17/1/5.
+//  Copyright © 2017年 An An. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "AAGlobalMacro.h"
+
+
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+///Users/jinyindao/Downloads/图表试炼 2/图表试炼/PrefixHeader.pch
+//$(SRCROOT)/图表试炼/PrefixHeader.pch
