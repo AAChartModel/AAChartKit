@@ -25,6 +25,7 @@
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
 chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
+chartView.contentHeight =self.view.frame.size.height-220;
 [self.view addSubview:chartView];
 ```
 3. 配置视图模型AAChartModel
