@@ -25,7 +25,7 @@
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
 chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
-chartView.contentHeight =self.view.frame.size.height-220;
+chartView.contentHeight =self.view.frame.size.height-220;//设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
 [self.view addSubview:chartView];
 ```
 3. 配置视图模型AAChartModel
@@ -58,7 +58,7 @@ AAObject(AASeriesElement)
 4.  绘制图形
 
 ```objective-c
-[chartView aa_drawChartWithChartModel:chartModel];
+[chartView aa_drawChartWithChartModel:chartModel];//绘制图形
 ```
 ### AAChartModel 属性配置
 ```objective-c
