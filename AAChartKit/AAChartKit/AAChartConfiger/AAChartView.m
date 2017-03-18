@@ -28,19 +28,26 @@
     options = [AAOptionsConstructor configColumnAndBarAndSoONChartOptionsWithAAChartModel:chartModel];
     self.json = [AAJsonConverter getPureOptionsString:options];
 }
+-(NSString *)configTheJavaScriptString{
+    
+    CGFloat chartViewContentWidth = self.contentWidth;;
+     
+    CGFloat charViewContentHeight;
+    if (self.contentHeight ==0) {
+        charViewContentHeight = self.frame.size.height;
+    }else{
+        charViewContentHeight = self.contentHeight;
+    }
+    
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",self.json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:charViewContentHeight]];
+    return javaScriptStr;
+}
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    NSNumber *charViewContentHeight;
-    if (self.contentHeight ==0) {
-        charViewContentHeight = [NSNumber numberWithFloat:self.frame.size.height];
-    }else{
-        charViewContentHeight = [NSNumber numberWithFloat:self.contentHeight];
-    }
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@');",self.json,charViewContentHeight];
+    NSString *javaScriptStr = [self configTheJavaScriptString];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {
-            //            [AAHelperTools warningView:@"加载JavaScript文件出现错误了"];
             NSLog(@"%@",self.json);
             NSLog(@"%@",error);
             
@@ -62,7 +69,7 @@
 }
 ///UIWebView页面加载完成之后调用
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@');",self.json];
+    NSString *javaScriptStr =[self configTheJavaScriptString];
     [self  stringByEvaluatingJavaScriptFromString:javaScriptStr];
 }
 #endif

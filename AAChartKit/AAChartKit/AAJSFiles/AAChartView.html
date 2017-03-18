@@ -25,9 +25,12 @@
         <div id="container" style="width:min-450px; height: 200px; margin: 0 auto">
         </div>
         <script >
-            function loadTheHighChartView(sender,receivedHeght){
+            function loadTheHighChartView(sender,receivedWidth,receivedHeight){
                 var o=document.getElementById('container');//获得元素
-                o.style.height=receivedHeght;//设置宽度
+                if(receivedWidth!=0){
+                    o.style.width=receivedWidth;//设置宽度
+                 }
+                o.style.height=receivedHeight;//设置高度
                 var JavaScriptObject = JSON.parse(sender);
                 var themeColor = JavaScriptObject.colorsTheme;
                 if(JavaScriptObject.gradientColorEnable ==true){
