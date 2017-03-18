@@ -62,7 +62,8 @@
 -(void)configTheChartView:(NSString *)chartType{
     self.chartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
+    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60);
+    self.chartView.contentHeight =self.view.frame.size.height+200;
     [self.view addSubview:self.chartView];
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)

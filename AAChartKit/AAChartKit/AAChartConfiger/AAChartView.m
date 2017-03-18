@@ -31,7 +31,7 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@');",self.json,[NSNumber numberWithFloat:self.frame.size.height]];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@');",self.json,[NSNumber numberWithFloat:self.contentHeight]];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {
             //            [AAHelperTools warningView:@"加载JavaScript文件出现错误了"];

@@ -11,6 +11,7 @@
 @interface AAChartView : AAWebView<AAWebViewDelegate>
 @property(nonatomic,copy)NSString *json;
 @property(nonatomic,strong)NSDictionary *optionsDic;
+@property(nonatomic,assign)CGFloat contentHeight;
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;
 @end
 
