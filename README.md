@@ -58,7 +58,7 @@ AAObject(AASeriesElement)
 4.  绘制图形
 
 ```objective-c
-[chartView aa_drawChartWithChartModel:chartModel];//绘制图形
+[chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
 ### AAChartModel 属性配置
 ```objective-c
