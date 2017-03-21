@@ -14,7 +14,6 @@
 		713191141E80B32000382A09 /* IMG_1867.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191131E80B32000382A09 /* IMG_1867.JPG */; };
 		713191161E80B32800382A09 /* IMG_1866.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191151E80B32800382A09 /* IMG_1866.JPG */; };
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
-		7131911A1E80B33300382A09 /* IMG_1864.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191191E80B33300382A09 /* IMG_1864.JPG */; };
 		7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911B1E80B33700382A09 /* IMG_1863.JPG */; };
 		7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911D1E80B6AE00382A09 /* IMG_1873.JPG */; };
 		713F543B1E7B71C000D506C7 /* AAChartKit使用说明.md in Sources */ = {isa = PBXBuildFile; fileRef = 713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */; };
@@ -90,7 +89,6 @@
 		713191131E80B32000382A09 /* IMG_1867.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1867.JPG; sourceTree = "<group>"; };
 		713191151E80B32800382A09 /* IMG_1866.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1866.JPG; sourceTree = "<group>"; };
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
-		713191191E80B33300382A09 /* IMG_1864.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1864.JPG; sourceTree = "<group>"; };
 		7131911B1E80B33700382A09 /* IMG_1863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1863.JPG; sourceTree = "<group>"; };
 		7131911D1E80B6AE00382A09 /* IMG_1873.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1873.JPG; sourceTree = "<group>"; };
 		713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "AAChartKit使用说明.md"; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				713191131E80B32000382A09 /* IMG_1867.JPG */,
 				713191151E80B32800382A09 /* IMG_1866.JPG */,
 				713191171E80B32C00382A09 /* IMG_1865.JPG */,
-				713191191E80B33300382A09 /* IMG_1864.JPG */,
 				7131911B1E80B33700382A09 /* IMG_1863.JPG */,
 				7131911D1E80B6AE00382A09 /* IMG_1873.JPG */,
 				713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */,
@@ -495,7 +492,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7131911A1E80B33300382A09 /* IMG_1864.JPG in Resources */,
 				713F548B1E7B71CB00D506C7 /* AAHighchartsMore.js in Resources */,
 				7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */,
 				713F548A1E7B71CB00D506C7 /* AAHighChartsLibrary.js in Resources */,
