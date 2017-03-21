@@ -62,25 +62,25 @@ AAObject(AASeriesElement)
 ```
 
 - 常规折线图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1873.JPG)
 - 常规柱形图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
 -  y 轴翻转的堆积曲线填充图 
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1871.JPG)
 -  x 轴翻转的堆积曲线填充图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1869.JPG)
 -  x 轴翻转的百分比堆积曲线填充图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1863.JPG)
 
 -   辐射化堆积折线填充图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1870.JPG)
 -   辐射化百分比堆积折线填充图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1868.JPG)
 
 - 头部为椭圆形的百分比堆积柱形图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1866.JPG)
 - 头部为楔形的百分比堆积条形图
-![image]()
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1865.JPG)
 ### AAChartModel 属性配置
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
