@@ -60,6 +60,27 @@ AAObject(AASeriesElement)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
+
+- 常规折线图
+![image]()
+- 常规柱形图
+![image]()
+-  y 轴翻转的堆积曲线填充图 
+![image]()
+-  x 轴翻转的堆积曲线填充图
+![image]()
+-  x 轴翻转的百分比堆积曲线填充图
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1863.JPG)
+
+-   辐射化堆积折线填充图
+![image]()
+-   辐射化百分比堆积折线填充图
+![image]()
+
+- 头部为椭圆形的百分比堆积柱形图
+![image]()
+- 头部为楔形的百分比堆积条形图
+![image]()
 ### AAChartModel 属性配置
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
@@ -102,6 +123,9 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
 ```
+
+
+
 ### 更多图形效果
 
  ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKit功能演示.gif)
