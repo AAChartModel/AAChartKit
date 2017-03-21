@@ -68,9 +68,9 @@ AAObject(AASeriesElement)
 
 -  y 轴翻转的堆积曲线填充图 
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1871.JPG)
--  x 轴翻转的堆积曲线填充图
+-  x 轴直立并且 y 轴翻转的堆积曲线填充图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1869.JPG)
--  x 轴翻转的百分比堆积曲线填充图
+-  x 轴直立并且 y 轴翻转的百分比堆积曲线填充图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1863.JPG)
 
 -   辐射化堆积折线填充图
