@@ -60,11 +60,12 @@ AAObject(AASeriesElement)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
-
+###  AAChartModel一些重要属性经过配置之后的图形示例如下
 - 常规折线图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1873.JPG)
-- 常规柱形图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
+ - 常规柱形图
+![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1873.JPG)
+
 -  y 轴翻转的堆积曲线填充图 
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1871.JPG)
 -  x 轴翻转的堆积曲线填充图
@@ -81,7 +82,7 @@ AAObject(AASeriesElement)
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1866.JPG)
 - 头部为楔形的百分比堆积条形图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1865.JPG)
-### AAChartModel 属性配置
+### AAChartModel 属性配置列表
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
