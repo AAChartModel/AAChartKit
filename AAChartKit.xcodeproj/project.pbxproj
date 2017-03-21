@@ -16,6 +16,7 @@
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
 		7131911A1E80B33300382A09 /* IMG_1864.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191191E80B33300382A09 /* IMG_1864.JPG */; };
 		7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911B1E80B33700382A09 /* IMG_1863.JPG */; };
+		7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911D1E80B6AE00382A09 /* IMG_1873.JPG */; };
 		713F543B1E7B71C000D506C7 /* AAChartKit使用说明.md in Sources */ = {isa = PBXBuildFile; fileRef = 713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */; };
 		713F543C1E7B71C000D506C7 /* AAChartKit功能演示.gif in Resources */ = {isa = PBXBuildFile; fileRef = 713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */; };
 		713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* FirstViewController.m */; };
@@ -91,6 +92,7 @@
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
 		713191191E80B33300382A09 /* IMG_1864.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1864.JPG; sourceTree = "<group>"; };
 		7131911B1E80B33700382A09 /* IMG_1863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1863.JPG; sourceTree = "<group>"; };
+		7131911D1E80B6AE00382A09 /* IMG_1873.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1873.JPG; sourceTree = "<group>"; };
 		713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "AAChartKit使用说明.md"; sourceTree = "<group>"; };
 		713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "AAChartKit功能演示.gif"; sourceTree = "<group>"; };
 		713F54371E7B71C000D506C7 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				713191171E80B32C00382A09 /* IMG_1865.JPG */,
 				713191191E80B33300382A09 /* IMG_1864.JPG */,
 				7131911B1E80B33700382A09 /* IMG_1863.JPG */,
+				7131911D1E80B6AE00382A09 /* IMG_1873.JPG */,
 				713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */,
 				713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */,
 				713F54371E7B71C000D506C7 /* FirstViewController.h */,
@@ -510,6 +513,7 @@
 				713191161E80B32800382A09 /* IMG_1866.JPG in Resources */,
 				713F54881E7B71CB00D506C7 /* AAChartView.html in Resources */,
 				7172A3E11E763EA6000D5B99 /* Main.storyboard in Resources */,
+				7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */,
 				713F548C1E7B71CB00D506C7 /* AAJQueryLibrary.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
