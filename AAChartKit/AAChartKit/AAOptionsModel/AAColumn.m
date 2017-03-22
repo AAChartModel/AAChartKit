@@ -14,5 +14,6 @@ AAPropSetFuncImplementation(AAColumn, NSNumber *, borderWidth);
 AAPropSetFuncImplementation(AAColumn, BOOL , colorByPoint);
 AAPropSetFuncImplementation(AAColumn, AADataLabels *, dataLabels);
 AAPropSetFuncImplementation(AAColumn, NSString *, stacking);
+AAPropSetFuncImplementation(AAColumn, NSNumber *, borderRadius);
 
 @end

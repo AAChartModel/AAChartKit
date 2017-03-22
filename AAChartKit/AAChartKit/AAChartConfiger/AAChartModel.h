@@ -57,7 +57,7 @@ AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副�
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, chartType);//图表类型
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, stacking);//堆积样式
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, zoomType);//缩放类型
+AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, zoomType);//缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, inverted);//x 轴是否垂直
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, xAxisReversed);// x 轴翻转
@@ -87,7 +87,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);//3D图形深度
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状)
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
 
