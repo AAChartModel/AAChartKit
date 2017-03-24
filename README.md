@@ -60,6 +60,100 @@ AAObject(AASeriesElement)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
+5. 特别说明
+```objective-c
+AAChartModel *chartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypePie)
+        .titleSet(@"编程语言热度")
+        .subtitleSet(@"虚拟数据")
+        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+        .yAxisTitleSet(@"摄氏度")
+        .seriesSet(
+                   @[AAObject(AASeriesElement)
+                     .nameSet(@"语言热度占比")
+                     .dataSet(@[
+                                @[@"Java"  , @67],
+                                @[@"Swift" , @44],
+                                @[@"Python", @83],
+                                @[@"OC"    , @11],
+                                @[@"Ruby"  , @42],
+                                @[@"PHP"   , @31],
+                                @[@"Go"    , @63],
+                                @[@"C"     , @24],
+                                @[@"C#"    , @888],
+                                @[@"C++"   , @66],
+                                ]),
+                     ]
+                   
+                   )
+        ;
+```
+- 想要绘制气泡图,你需要这杨你需要这样配置模型 AAChartModel
+
+
+```objective-c
+
+
+ AAChartModel *chartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeBubble)
+        .titleSet(@"编程语言热度")
+        .subtitleSet(@"虚拟数据")
+        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+        .yAxisTitleSet(@"摄氏度")
+        .seriesSet(
+                   @[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2017")
+                     .dataSet(
+                              @[
+                                @[@97, @36, @79],
+                                @[@94, @74, @60],
+                                @[@68, @76, @58],
+                                @[@64, @87, @56],
+                                @[@68, @27, @73],
+                                @[@74, @99, @42],
+                                @[@7,  @93, @87],
+                                @[@51, @69, @40],
+                                @[@38, @23, @33],
+                                @[@57, @86, @31]
+                                ]),
+                     
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2018")
+                     .dataSet(
+                              @[
+                                @[@25, @10, @87],
+                                @[@2, @75, @59],
+                                @[@11, @54, @8],
+                                @[@86, @55, @93],
+                                @[@5, @3, @58],
+                                @[@90, @63, @44],
+                                @[@91, @33, @17],
+                                @[@97, @3, @56],
+                                @[@15, @67, @48],
+                                @[@54, @25, @81]
+                                ]),
+                     
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2019")
+                     .dataSet(
+                              @[
+                                @[@47, @47, @21],
+                                @[@20, @12, @4],
+                                @[@6, @76, @91],
+                                @[@38, @30, @60],
+                                @[@57, @98, @64],
+                                @[@61, @17, @80],
+                                @[@83, @60, @13],
+                                @[@67, @78, @75],
+                                @[@64, @12, @10],
+                                @[@30, @77, @82]
+                                ]),
+                     
+                     ]
+                   )
+        ;
+```
 ###  AAChartModel一些重要属性经过配置之后的图形示例如下
 - 常规折线图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
