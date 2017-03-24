@@ -101,9 +101,8 @@ AAChartModel *chartModel= AAObject(AAChartModel)
  AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
-        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
-        .yAxisTitleSet(@"摄氏度")
+        .subtitleSet(@"虚拟数据")
+        .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
