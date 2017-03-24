@@ -25,6 +25,8 @@ static AAChartType const AAChartTypeLine        = @"line";
 static AAChartType const AAChartTypeSpline      = @"spline";
 static AAChartType const AAChartTypeScatter     = @"scatter";
 static AAChartType const AAChartTypePie         = @"pie";
+static AAChartType const AAChartTypeBubble      = @"bubble";
+
 
 static AAChartZoomType const AAChartZoomTypeX   = @"x";
 static AAChartZoomType const AAChartZoomTypeY   = @"y";

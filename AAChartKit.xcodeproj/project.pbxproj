@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
 		7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910B1E80B2F400382A09 /* IMG_1871.JPG */; };
 		7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910D1E80B30300382A09 /* IMG_1870.JPG */; };
 		713191101E80B31200382A09 /* IMG_1869.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910F1E80B31200382A09 /* IMG_1869.JPG */; };
@@ -82,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
+		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		7131910B1E80B2F400382A09 /* IMG_1871.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1871.JPG; sourceTree = "<group>"; };
 		7131910D1E80B30300382A09 /* IMG_1870.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1870.JPG; sourceTree = "<group>"; };
 		7131910F1E80B31200382A09 /* IMG_1869.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1869.JPG; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				713F54381E7B71C000D506C7 /* FirstViewController.m */,
 				713F54391E7B71C000D506C7 /* SecondViewController.h */,
 				713F543A1E7B71C000D506C7 /* SecondViewController.m */,
+				645E59531E8403710039A0A1 /* SpecialChartVC.h */,
+				645E59541E8403710039A0A1 /* SpecialChartVC.m */,
 			);
 			path = ChartsDemo;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				713F54921E7B71CB00D506C7 /* AAColumn.m in Sources */,
 				713F549C1E7B71CB00D506C7 /* AAPlotLinesElement.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
+				645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */,
 				713F54A41E7B71CB00D506C7 /* AATooltip.m in Sources */,
 				713F549A1E7B71CB00D506C7 /* AAOptions3d.m in Sources */,
 				713F54981E7B71CB00D506C7 /* AAMarker.m in Sources */,

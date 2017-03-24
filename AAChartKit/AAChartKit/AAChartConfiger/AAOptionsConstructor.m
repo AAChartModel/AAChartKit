@@ -128,8 +128,9 @@
                            .depthSet(chartModel.options3dDepth)//设置3d 图形阴影深度
                            .dataLabelsSet(AAObject(AADataLabels)
                                           .enabledSet(chartModel.dataLabelEnabled)
+                                          .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
                                           .styleSet(AAObject(AAStyle)
-                                                    .colorSet(@"white")
+                                                    .colorSet(@"black")
                                                     )
                                           )
                            .showInLegendSet(true)

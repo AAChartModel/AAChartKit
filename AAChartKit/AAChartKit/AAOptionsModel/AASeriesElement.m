@@ -11,6 +11,7 @@
 
 @implementation AASeriesElement
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius);
+AAPropSetFuncImplementation(AASeriesElement, NSString *, type);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *,data);
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker);

@@ -10,4 +10,5 @@
 
 @implementation AALabels
 AAPropSetFuncImplementation(AALabels, BOOL , enabled);
+
 @end

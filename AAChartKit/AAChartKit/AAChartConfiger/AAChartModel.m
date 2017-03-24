@@ -22,7 +22,6 @@
         self.colorsTheme =  @[@"#b5282a",@"#e7a701",@"#50c18d",@"#c37779",@"#f1c6c5"];
         self.gradientColorEnable = NO;
         self.polar = NO;
-        self.symbol= AAChartSymbolTypeCircle;
         self.options3dEnable = NO;
         self.crosshairs = YES;
         self.xAxisLabelsEnabled = YES;

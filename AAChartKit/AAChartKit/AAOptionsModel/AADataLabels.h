@@ -11,4 +11,6 @@
 @interface AADataLabels : NSObject
 AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL , enabled);
 AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle *, style);
+AAPropStatementAndFuncStatement(copy, AADataLabels, NSString *, format);
+
 @end

@@ -10,6 +10,7 @@
 @class AAMarker;
 @interface AASeriesElement : NSObject
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius);
+AAPropStatementAndFuncStatement(copy, AASeriesElement, NSString *, type);
 AAPropStatementAndFuncStatement(copy, AASeriesElement, NSString *, name);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray *,data);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, AAMarker *, marker);

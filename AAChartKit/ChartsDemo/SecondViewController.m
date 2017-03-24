@@ -71,7 +71,8 @@
     .subtitleSet(@"虚拟数据")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])
     .yAxisTitleSet(@"摄氏度")
-    .seriesSet(@[AAObject(AASeriesElement)
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
                  .nameSet(@"2017")
                  .dataSet(@[@45,@56,@34,@43,@65,@56,@47,@28,@49]),
                  
@@ -86,7 +87,8 @@
                  AAObject(AASeriesElement)
                  .nameSet(@"2020")
                  .dataSet(@[@21,@22,@53,@24,@65,@26,@37,@28,@49]),
-                 ])
+                 ]
+               )
     ;
     
     [self.chartView aa_drawChartWithChartModel:_chartModel];

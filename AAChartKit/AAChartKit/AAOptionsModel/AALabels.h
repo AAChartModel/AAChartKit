@@ -10,4 +10,5 @@
 
 @interface AALabels : NSObject
 AAPropStatementAndFuncStatement(assign, AALabels, BOOL, enabled);
+
 @end
