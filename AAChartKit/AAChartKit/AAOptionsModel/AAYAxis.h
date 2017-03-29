@@ -10,7 +10,7 @@
 @class AATitle,AALabels;
 
 @interface AAYAxis : NSObject
-AAPropStatementAndFuncStatement(assign, AAYAxis, BOOL,       min);
+//AAPropStatementAndFuncStatement(assign, AAYAxis, BOOL,       min);
 AAPropStatementAndFuncStatement(strong, AAYAxis, AATitle  *, title);
 AAPropStatementAndFuncStatement(strong, AAYAxis, NSArray  *, plotLines);
 AAPropStatementAndFuncStatement(assign, AAYAxis, BOOL,       reversed);

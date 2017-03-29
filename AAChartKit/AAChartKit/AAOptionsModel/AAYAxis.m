@@ -10,7 +10,7 @@
 #import "AATitle.h"
 #import "AALabels.h"
 @implementation AAYAxis
-AAPropSetFuncImplementation(AAYAxis, BOOL, min);
+//AAPropSetFuncImplementation(AAYAxis, BOOL, min);
 AAPropSetFuncImplementation(AAYAxis, AATitle *, title);
 AAPropSetFuncImplementation(AAYAxis, NSArray *, plotLines);
 AAPropSetFuncImplementation(AAYAxis, BOOL, reversed);
