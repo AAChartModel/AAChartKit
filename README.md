@@ -1,5 +1,5 @@
 # AAChartKit 2.0
-###中文使用说明链接
+### 中文使用说明书地址
 https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocument.md
 
 ## Features:
