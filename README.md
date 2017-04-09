@@ -1,3 +1,5 @@
+# English document https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocument.md
+
 # AAChartKit 2.0
 ###### AAChartKit项目,是在流行的开源前端图表库*Highcharts*的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制控件.
 1. 适配 `iOS 7`,  支持`ARC`,支持 `OC`语言,配置简单.
