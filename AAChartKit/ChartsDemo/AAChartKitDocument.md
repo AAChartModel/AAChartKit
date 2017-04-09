@@ -104,8 +104,6 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 
 
 ```objective-c
-
-
 AAChartModel *chartModel= AAObject(AAChartModel)
 .chartTypeSet(AAChartTypeBubble)
 .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
@@ -164,8 +162,11 @@ AAObject(AASeriesElement)
 ]
 )
 ;
+
+
+ 
 ```
-##Samples
+## Samples
 - line chart
 
 ![IMG_1867.JPG](http://upload-images.jianshu.io/upload_images/2412088-98b871988b57d435.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -247,6 +248,6 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 
 
-###More graphics
+### More graphics
 
 ![AAChartKit功能演示.gif](http://upload-images.jianshu.io/upload_images/2412088-7b8595c810fc3bb5.gif?imageMogr2/auto-orient/strip)
