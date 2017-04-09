@@ -1,7 +1,7 @@
 # AAChartKit 2.0
 
 
-##Features:
+## Features:
 1. Support `iOS 7`、`ARC` & `Objective C`.
 2. Powerful,support the  `column chart` `bar chart` `line chart` `spline chart` `pie chart` `polar chart` `radar chart` and other graphics.
 3. Interactive、Animated,the `animation` is exquisite and deligate.
