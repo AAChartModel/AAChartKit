@@ -10,8 +10,7 @@ https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAC
 4. Support `chain programming syntax` like *Masonry* 
 5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  
 
-*PORTRAL*
-*https://github.com/AAChartModel/AAChartKit*
+ 
 
 ## Method of use:
 
