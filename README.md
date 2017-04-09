@@ -73,7 +73,7 @@ AAObject(AASeriesElement)
 
 5.Special instructions
 
-Pie chart and bubble chart are special in AAChartKit,if you want to draw These charts,you should do some different things for AAChartModel,for example
+Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
 - To draw a pie chart,you should config the properties of `AAChartModel` like this:
 ```objective-c
