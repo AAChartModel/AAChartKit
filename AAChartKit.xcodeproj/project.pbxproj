@@ -17,7 +17,7 @@
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
 		7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911B1E80B33700382A09 /* IMG_1863.JPG */; };
 		7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911D1E80B6AE00382A09 /* IMG_1873.JPG */; };
-		713F543B1E7B71C000D506C7 /* AAChartKit使用说明.md in Sources */ = {isa = PBXBuildFile; fileRef = 713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */; };
+		713F543B1E7B71C000D506C7 /* AAChartKitDocument.md in Sources */ = {isa = PBXBuildFile; fileRef = 713F54351E7B71C000D506C7 /* AAChartKitDocument.md */; };
 		713F543C1E7B71C000D506C7 /* AAChartKit功能演示.gif in Resources */ = {isa = PBXBuildFile; fileRef = 713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */; };
 		713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* FirstViewController.m */; };
 		713F543E1E7B71C000D506C7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F543A1E7B71C000D506C7 /* SecondViewController.m */; };
@@ -94,7 +94,7 @@
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
 		7131911B1E80B33700382A09 /* IMG_1863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1863.JPG; sourceTree = "<group>"; };
 		7131911D1E80B6AE00382A09 /* IMG_1873.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1873.JPG; sourceTree = "<group>"; };
-		713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "AAChartKit使用说明.md"; sourceTree = "<group>"; };
+		713F54351E7B71C000D506C7 /* AAChartKitDocument.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = AAChartKitDocument.md; sourceTree = "<group>"; };
 		713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "AAChartKit功能演示.gif"; sourceTree = "<group>"; };
 		713F54371E7B71C000D506C7 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		713F54381E7B71C000D506C7 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 				713191171E80B32C00382A09 /* IMG_1865.JPG */,
 				7131911B1E80B33700382A09 /* IMG_1863.JPG */,
 				7131911D1E80B6AE00382A09 /* IMG_1873.JPG */,
-				713F54351E7B71C000D506C7 /* AAChartKit使用说明.md */,
+				713F54351E7B71C000D506C7 /* AAChartKitDocument.md */,
 				713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */,
 				713F54371E7B71C000D506C7 /* FirstViewController.h */,
 				713F54381E7B71C000D506C7 /* FirstViewController.m */,
@@ -555,7 +555,7 @@
 				713F54A31E7B71CB00D506C7 /* AATitle.m in Sources */,
 				713F549E1E7B71CB00D506C7 /* AASeries.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
-				713F543B1E7B71C000D506C7 /* AAChartKit使用说明.md in Sources */,
+				713F543B1E7B71C000D506C7 /* AAChartKitDocument.md in Sources */,
 				713F54921E7B71CB00D506C7 /* AAColumn.m in Sources */,
 				713F549C1E7B71CB00D506C7 /* AAPlotLinesElement.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
