@@ -1,5 +1,6 @@
 # AAChartKit 2.0
-
+###中文使用说明链接
+https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocument.md
 
 ## Features:
 1. Support `iOS 7`、`ARC` & `Objective C`.
