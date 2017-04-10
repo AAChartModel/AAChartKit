@@ -74,7 +74,7 @@ AAObject(AASeriesElement)
 
 Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
-- To draw a pie chart,you should Configure the properties of `AAChartModel` like this:
+- To draw a pie chart,you should configure the properties of `AAChartModel` like this:
 ```objective-c
 AAChartModel *chartModel= AAObject(AAChartModel)
 .chartTypeSet(AAChartTypePie)
@@ -101,7 +101,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 )
 ;
 ```
--  To draw a bubble chart,you should Configure the properties of `AAChartModel` like this:
+-  To draw a bubble chart,you should configure the properties of `AAChartModel` like this:
 
 
 ```objective-c
