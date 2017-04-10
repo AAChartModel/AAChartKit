@@ -101,7 +101,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 )
 ;
 ```
-- To draw a  AAChartModel
+-  To draw a bubble chart,you should config the properties of `AAChartModel` like this:
 
 
 ```objective-c
