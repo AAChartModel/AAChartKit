@@ -11,11 +11,11 @@
 @interface AAChartView : AAWebView<AAWebViewDelegate>
 @property(nonatomic,copy)NSString *json;
 @property(nonatomic,strong)NSDictionary *optionsDic;
-@property(nonatomic,assign)CGFloat contentWidth;
-@property(nonatomic,assign)CGFloat contentHeight;
 
-
--(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;
+@property(nonatomic,assign)CGFloat contentWidth;//content width of AAChartView
+@property(nonatomic,assign)CGFloat contentHeight;//content height of AAChartView
+-(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
+-(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing chart view
 @end
 
 

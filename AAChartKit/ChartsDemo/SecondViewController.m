@@ -145,7 +145,7 @@
     [self refreshTheChartView];
 }
 -(void)refreshTheChartView{
-    [self.chartView aa_drawChartWithChartModel:self.chartModel];
+    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
 }
 
 -(void)configTheSwitch{

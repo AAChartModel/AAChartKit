@@ -42,9 +42,22 @@
     NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",self.json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:charViewContentHeight]];
     return javaScriptStr;
 }
+-(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel{
+    [self configTheOptionsWithChartModel:chartModel];
+    NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
+    [self loadRequest:URLRequest];
+    
+}
+-(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel{
+    [self configTheOptionsWithChartModel:chartModel];
+    [self drawChart];
+}
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [self drawChart];
+}
+-(void)drawChart{
     NSString *javaScriptStr = [self configTheJavaScriptString];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {
@@ -54,21 +67,13 @@
         }
     }];
 }
--(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel{
-    [self configTheOptionsWithChartModel:chartModel];
-    NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    [self loadRequest:URLRequest];
-    
-}
 
 #elif __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
--(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel{
-    [self configTheOptionsWithChartModel:chartModel];
-    NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    [self loadRequest:URLRequest];
-}
 ///UIWebView页面加载完成之后调用
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self drawChart];
+}
+-(void)drawChart{
     NSString *javaScriptStr =[self configTheJavaScriptString];
     [self  stringByEvaluatingJavaScriptFromString:javaScriptStr];
 }
