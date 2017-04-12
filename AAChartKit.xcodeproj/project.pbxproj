@@ -31,7 +31,7 @@
 		713F548A1E7B71CB00D506C7 /* AAHighChartsLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */; };
 		713F548B1E7B71CB00D506C7 /* AAHighchartsMore.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */; };
 		713F548C1E7B71CB00D506C7 /* AAJQueryLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */; };
-		713F548D1E7B71CB00D506C7 /* funnel.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F54501E7B71CB00D506C7 /* funnel.js */; };
+		713F548D1E7B71CB00D506C7 /* AAFunnel.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F54501E7B71CB00D506C7 /* AAFunnel.js */; };
 		713F548E1E7B71CB00D506C7 /* AAArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54531E7B71CB00D506C7 /* AAArea.m */; };
 		713F548F1E7B71CB00D506C7 /* AAAreaspline.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54551E7B71CB00D506C7 /* AAAreaspline.m */; };
 		713F54901E7B71CB00D506C7 /* AABar.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54571E7B71CB00D506C7 /* AABar.m */; };
@@ -116,7 +116,7 @@
 		713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighChartsLibrary.js; sourceTree = "<group>"; };
 		713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsMore.js; sourceTree = "<group>"; };
 		713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAJQueryLibrary.js; sourceTree = "<group>"; };
-		713F54501E7B71CB00D506C7 /* funnel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = funnel.js; sourceTree = "<group>"; };
+		713F54501E7B71CB00D506C7 /* AAFunnel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAFunnel.js; sourceTree = "<group>"; };
 		713F54521E7B71CB00D506C7 /* AAArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAArea.h; sourceTree = "<group>"; };
 		713F54531E7B71CB00D506C7 /* AAArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAArea.m; sourceTree = "<group>"; };
 		713F54541E7B71CB00D506C7 /* AAAreaspline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAreaspline.h; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 				713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */,
 				713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */,
 				713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */,
-				713F54501E7B71CB00D506C7 /* funnel.js */,
+				713F54501E7B71CB00D506C7 /* AAFunnel.js */,
 			);
 			path = AAJSFiles;
 			sourceTree = "<group>";
@@ -513,7 +513,7 @@
 				713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */,
 				713191121E80B31800382A09 /* IMG_1868.JPG in Resources */,
 				7172A3E31E763EA6000D5B99 /* Assets.xcassets in Resources */,
-				713F548D1E7B71CB00D506C7 /* funnel.js in Resources */,
+				713F548D1E7B71CB00D506C7 /* AAFunnel.js in Resources */,
 				6458F4A01E9A76C700770AA9 /* LICENSE in Resources */,
 				713191161E80B32800382A09 /* IMG_1866.JPG in Resources */,
 				713F54881E7B71CB00D506C7 /* AAChartView.html in Resources */,
