@@ -61,7 +61,13 @@ AAObject(AASeriesElement)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
-5. 特别说明
+5.  刷新图形
+
+```objective-c
+ [self.chartView aa_refreshChartWithChartModel:self.chartModel];//更新 AAChartModel 数据,刷新图表
+```
+
+6. 特别说明
 
 AAChartKit 中扇形图、气泡图都归属为特殊类型,所以想要绘制扇形图、气泡图,图表模型 AAChartModel 设置稍有不同,示例如下
 
