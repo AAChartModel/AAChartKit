@@ -64,7 +64,7 @@ AAObject(AASeriesElement)
 5.  刷新图形
 
 ```objective-c
- [self.chartView aa_refreshChartWithChartModel:self.chartModel];//更新 AAChartModel 数据,刷新图表
+ [chartView aa_refreshChartWithChartModel:chartModel];//更新 AAChartModel 数据,刷新图表
 ```
 
 6. 特别说明
