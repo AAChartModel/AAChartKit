@@ -7,6 +7,18 @@
 //
 #import "AAChartModel.h"
 #import "AAOptions.h"
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0
+#import <WebKit/WebKit.h>
+#define AAWebView WKWebView
+#define AAWebViewDelegate WKNavigationDelegate
+#define AASelfWebViewDelegate navigationDelegate
+
+#elif  __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_9_0
+#import <UIKit/UIKit.h>
+#define AAWebView UIWebView
+#define AAWebViewDelegate UIWebViewDelegate
+#define AASelfWebViewDelegate delegate
+#endif
 
 @interface AAChartView : AAWebView<AAWebViewDelegate>
 @property(nonatomic,copy)NSString *json;
