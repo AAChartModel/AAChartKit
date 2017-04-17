@@ -52,7 +52,7 @@
     [self configTheOptionsWithChartModel:chartModel];
     [self drawChart];
 }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     [self drawChart];
@@ -68,7 +68,7 @@
     }];
 }
 
-#elif __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
+#elif __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_9_0
 ///UIWebView页面加载完成之后调用
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
