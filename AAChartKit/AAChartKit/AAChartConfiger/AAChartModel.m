@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.chartType = AAChartTypeColumn;
+        self.subtitleAlign = AAChartSubtitleAlignTypeLeft;
         self.inverted = NO;
         self.stacking = AAChartStackingTypeFalse;
         self.xAxisReversed = NO;
@@ -42,7 +43,8 @@
 }
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
-
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+    
 AAPropSetFuncImplementation(AAChartModel, NSString *, chartType);//图表类型
 AAPropSetFuncImplementation(AAChartModel, NSString *, stacking);//堆积类型
 AAPropSetFuncImplementation(AAChartModel, NSString *, symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"

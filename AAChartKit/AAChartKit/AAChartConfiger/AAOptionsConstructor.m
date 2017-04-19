@@ -33,6 +33,7 @@
     
     AASubtitle *subtitle = AAObject(AASubtitle)
     .textSet(chartModel.subtitle)//副标题内容
+    .alignSet(chartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
     .styleSet(AAObject(AAStyle)
               .colorSet(@"#000000")
               .fontSizeSet(@"9px"));

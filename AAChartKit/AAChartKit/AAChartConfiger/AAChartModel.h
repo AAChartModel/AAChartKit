@@ -10,6 +10,8 @@
 #import "AASeriesElement.h"
 
 typedef NSString *AAChartType;
+
+typedef NSString *AAChartSubtitleAlignType;
 typedef NSString *AAChartZoomType;
 typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
@@ -26,6 +28,10 @@ static AAChartType const AAChartTypeSpline      = @"spline";
 static AAChartType const AAChartTypeScatter     = @"scatter";
 static AAChartType const AAChartTypePie         = @"pie";
 static AAChartType const AAChartTypeBubble      = @"bubble";
+
+static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft = @"left";
+static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
+static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight = @"right";
 
 
 static AAChartZoomType const AAChartZoomTypeX   = @"x";
@@ -55,6 +61,9 @@ static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeBottom
 @interface AAChartModel : NSObject
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
+AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+
+
 
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, chartType);//图表类型
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, stacking);//堆积样式

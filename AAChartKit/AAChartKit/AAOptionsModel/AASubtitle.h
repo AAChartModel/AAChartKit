@@ -10,5 +10,6 @@
 @class AAStyle;
 @interface AASubtitle : NSObject
 AAPropStatementAndFuncStatement(copy, AASubtitle, NSString *, text);
+AAPropStatementAndFuncStatement(copy, AASubtitle, NSString *, align);
 AAPropStatementAndFuncStatement(strong, AASubtitle, AAStyle *, style);
 @end
