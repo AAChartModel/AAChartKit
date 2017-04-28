@@ -73,11 +73,32 @@
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
                .stackingSet(chartModelStacking)//设置是否百分比堆叠显示图形
-               .markerSet(AAObject(AAMarker)
-                          .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
-                          .symbolSet(chartModel.symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                          )
+//               .markerSet(AAObject(AAMarker)
+//                          .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
+//                          .symbolSet(chartModel.symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+//                          .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+//                          .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+//                          .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
+//                          )
                );
+    
+    //数据点标记相关配置，只有线性图才有数据点标记。
+    if (  chartModel.chartType==AAChartTypeArea
+        ||chartModel.chartType==AAChartTypeAreaspline
+        ||chartModel.chartType==AAChartTypeLine
+        ||chartModel.chartType==AAChartTypeSpline) {
+        plotOptions.seriesSet(AAObject(AASeries)
+                              .stackingSet(chartModelStacking)//设置是否百分比堆叠显示图形
+                              .markerSet(AAObject(AAMarker)
+                                         .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
+                                         .symbolSet(chartModel.symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                                         .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+                                         .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                                         .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
+                                         )
+                              );
+    }
+    
     
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
         plotOptions.columnSet(AAObject(AAColumn)
@@ -93,7 +114,7 @@
                            .pointPaddingSet(@0.2)
                            .borderWidthSet(@0)
                            .colorByPointSet(false)
-                        .borderRadiusSet(chartModel.borderRadius)
+                           .borderRadiusSet(chartModel.borderRadius)
                            .dataLabelsSet(AAObject(AADataLabels)
                                           .enabledSet(chartModel.dataLabelEnabled)
                                           )

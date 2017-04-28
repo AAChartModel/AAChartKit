@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.AASelfWebViewDelegate =self;
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
