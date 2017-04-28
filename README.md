@@ -38,7 +38,6 @@ chartView.contentHeight =self.view.frame.size.height-220;
 
 
 ```objective-c
-    
     AAChartModel *chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
@@ -101,7 +100,6 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                
                )
     ;
-
 ```
 -  To draw a bubble chart,you should configure the properties of `AAChartModel` like this:
 
@@ -165,8 +163,6 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                  ]
                )
     ;
-
- 
 ```
 ## Samples
 - line chart
