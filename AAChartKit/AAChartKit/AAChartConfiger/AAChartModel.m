@@ -16,6 +16,7 @@
     if (self) {
         self.chartType = AAChartTypeColumn;
         self.subtitleAlign = AAChartSubtitleAlignTypeLeft;
+        self.pointHollow =YES;
         self.inverted = NO;
         self.stacking = AAChartStackingTypeFalse;
         self.xAxisReversed = NO;
@@ -51,6 +52,7 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, stacking);//堆积类型
 AAPropSetFuncImplementation(AAChartModel, NSString *, symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropSetFuncImplementation(AAChartModel, NSString *, zoomType);//缩放类型
 
+AAPropSetFuncImplementation(AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropSetFuncImplementation(AAChartModel, BOOL , inverted);
 AAPropSetFuncImplementation(AAChartModel, BOOL, xAxisReversed);
 AAPropSetFuncImplementation(AAChartModel, BOOL, yAxisReversed);
