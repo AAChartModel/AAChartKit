@@ -38,30 +38,31 @@ chartView.contentHeight =self.view.frame.size.height-220;
 
 
 ```objective-c
-AAChartModel *chartModel= AAObject(AAChartModel)
-.chartTypeSet(AAChartTypeColumn) 
-.titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE") 
-.subtitleSet(@"Virtual Data") 
-.categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"]) 
-.yAxisTitleSet(@"Degrees Celsius")
-.seriesSet(@[
-AAObject(AASeriesElement)
-.nameSet(@"2017")
-.dataSet(@[@45,@56,@34,@43,@65,@56,@47,@28,@49]),
-
-AAObject(AASeriesElement)
-.nameSet(@"2018")
-.dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19]),
-
-AAObject(AASeriesElement)
-.nameSet(@"2019")
-.dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39]),
-
-AAObject(AASeriesElement)
-.nameSet(@"2020")
-.dataSet(@[@21,@22,@53,@24,@65,@26,@37,@28,@49]),
-])
-;
+    
+    AAChartModel *chartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
+    .subtitleSet(@"Virtual Data")
+    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])
+    .yAxisTitleSet(@"Degrees Celsius")
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2017")
+                 .dataSet(@[@45,@56,@34,@43,@65,@56,@47,@28,@49]),
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2018")
+                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19]),
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2019")
+                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39]),
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2020")
+                 .dataSet(@[@21,@22,@53,@24,@65,@26,@37,@28,@49]),
+                 ])
+    ;
 ```
 4.Draw the chart 
 
@@ -76,94 +77,94 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
 
 - To draw a pie chart,you should configure the properties of `AAChartModel` like this:
 ```objective-c
-AAChartModel *chartModel= AAObject(AAChartModel)
-.chartTypeSet(AAChartTypePie)
-.titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
-       .subtitleSet(@"Virtual Data")
-      .yAxisTitleSet(@"Degrees Celsius")
-.seriesSet(
-@[AAObject(AASeriesElement)
-.nameSet(@"Percent")
-.dataSet(@[
-@[@"Java"  , @67],
-@[@"Swift" , @44],
-@[@"Python", @83],
-@[@"OC"    , @11],
-@[@"Ruby"  , @42],
-@[@"PHP"   , @31],
-@[@"Go"    , @63],
-@[@"C"     , @24],
-@[@"C#"    , @888],
-@[@"C++"   , @66],
-]),
-]
+   AAChartModel *chartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypePie)
+    .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
+    .subtitleSet(@"Virtual Data")
+    .yAxisTitleSet(@"Degrees Celsius")
+    .seriesSet(
+               @[AAObject(AASeriesElement)
+                 .nameSet(@"Percent")
+                 .dataSet(@[
+                            @[@"Java"  , @67],
+                            @[@"Swift" , @44],
+                            @[@"Python", @83],
+                            @[@"OC"    , @11],
+                            @[@"Ruby"  , @42],
+                            @[@"PHP"   , @31],
+                            @[@"Go"    , @63],
+                            @[@"C"     , @24],
+                            @[@"C#"    , @888],
+                            @[@"C++"   , @66],
+                            ]),
+                 ]
+               
+               )
+    ;
 
-)
-;
 ```
 -  To draw a bubble chart,you should configure the properties of `AAChartModel` like this:
 
 
 ```objective-c
-AAChartModel *chartModel= AAObject(AAChartModel)
-.chartTypeSet(AAChartTypeBubble)
-.titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
-       .subtitleSet(@"Virtual Data")
-      .yAxisTitleSet(@"Degrees Celsius")
-.seriesSet(
-@[
-AAObject(AASeriesElement)
-.nameSet(@"2017")
-.dataSet(
-@[
-@[@97, @36, @79],
-@[@94, @74, @60],
-@[@68, @76, @58],
-@[@64, @87, @56],
-@[@68, @27, @73],
-@[@74, @99, @42],
-@[@7,  @93, @87],
-@[@51, @69, @40],
-@[@38, @23, @33],
-@[@57, @86, @31]
-]),
-
-AAObject(AASeriesElement)
-.nameSet(@"2018")
-.dataSet(
-@[
-@[@25, @10, @87],
-@[@2, @75, @59],
-@[@11, @54, @8],
-@[@86, @55, @93],
-@[@5, @3, @58],
-@[@90, @63, @44],
-@[@91, @33, @17],
-@[@97, @3, @56],
-@[@15, @67, @48],
-@[@54, @25, @81]
-]),
-
-AAObject(AASeriesElement)
-.nameSet(@"2019")
-.dataSet(
-@[
-@[@47, @47, @21],
-@[@20, @12, @4],
-@[@6, @76, @91],
-@[@38, @30, @60],
-@[@57, @98, @64],
-@[@61, @17, @80],
-@[@83, @60, @13],
-@[@67, @78, @75],
-@[@64, @12, @10],
-@[@30, @77, @82]
-]),
-
-]
-)
-;
-
+   AAChartModel *chartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeBubble)
+    .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
+    .subtitleSet(@"Virtual Data")
+    .yAxisTitleSet(@"Degrees Celsius")
+    .seriesSet(
+               @[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2017")
+                 .dataSet(
+                          @[
+                            @[@97, @36, @79],
+                            @[@94, @74, @60],
+                            @[@68, @76, @58],
+                            @[@64, @87, @56],
+                            @[@68, @27, @73],
+                            @[@74, @99, @42],
+                            @[@7,  @93, @87],
+                            @[@51, @69, @40],
+                            @[@38, @23, @33],
+                            @[@57, @86, @31]
+                            ]),
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2018")
+                 .dataSet(
+                          @[
+                            @[@25, @10, @87],
+                            @[@2, @75, @59],
+                            @[@11, @54, @8],
+                            @[@86, @55, @93],
+                            @[@5, @3, @58],
+                            @[@90, @63, @44],
+                            @[@91, @33, @17],
+                            @[@97, @3, @56],
+                            @[@15, @67, @48],
+                            @[@54, @25, @81]
+                            ]),
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2019")
+                 .dataSet(
+                          @[
+                            @[@47, @47, @21],
+                            @[@20, @12, @4],
+                            @[@6, @76, @91],
+                            @[@38, @30, @60],
+                            @[@57, @98, @64],
+                            @[@61, @17, @80],
+                            @[@83, @60, @13],
+                            @[@67, @78, @75],
+                            @[@64, @12, @10],
+                            @[@30, @77, @82]
+                            ]),
+                 
+                 ]
+               )
+    ;
 
  
 ```
