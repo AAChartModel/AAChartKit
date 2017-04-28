@@ -16,7 +16,7 @@
     if (self) {
         self.chartType = AAChartTypeColumn;
         self.subtitleAlign = AAChartSubtitleAlignTypeLeft;
-        self.pointHollow =YES;
+        self.pointHollow =NO;
         self.inverted = NO;
         self.stacking = AAChartStackingTypeFalse;
         self.xAxisReversed = NO;
