@@ -65,7 +65,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 5.  刷新图形
 
 ```objective-c
- [chartView aa_refreshChartWithChartModel:chartModel];//更新 AAChartModel 数据,刷新图表
+ [chartView aa_refreshChartWithChartModel:chartModel];//更新 AAChartModel 数据之后,刷新图表
 ```
 
 6. 特别说明
