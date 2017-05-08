@@ -71,6 +71,7 @@
     .chartTypeSet(chartType)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
+    .pointHollowSet(true)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[

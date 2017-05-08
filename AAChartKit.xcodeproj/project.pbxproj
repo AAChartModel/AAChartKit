@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		6458F4A01E9A76C700770AA9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6458F49F1E9A76C700770AA9 /* LICENSE */; };
 		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
 		7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910B1E80B2F400382A09 /* IMG_1871.JPG */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
 		6458F49F1E9A76C700770AA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				713191171E80B32C00382A09 /* IMG_1865.JPG */,
 				7131911B1E80B33700382A09 /* IMG_1863.JPG */,
 				7131911D1E80B6AE00382A09 /* IMG_1873.JPG */,
+				64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */,
 				6458F49F1E9A76C700770AA9 /* LICENSE */,
 				713F54351E7B71C000D506C7 /* AAChartKitDocument.md */,
 				713F54361E7B71C000D506C7 /* AAChartKit功能演示.gif */,
@@ -501,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				713F548B1E7B71CB00D506C7 /* AAHighchartsMore.js in Resources */,
+				64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */,
 				7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */,
 				713F548A1E7B71CB00D506C7 /* AAHighChartsLibrary.js in Resources */,
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
