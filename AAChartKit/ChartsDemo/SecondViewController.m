@@ -58,6 +58,7 @@
     }
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     [self configTheChartView:chartType];
+ 
 }
 
 -(void)configTheChartView:(NSString *)chartType{
@@ -70,24 +71,24 @@
     .chartTypeSet(chartType)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
-    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])
+    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
-                 .dataSet(@[@45,@56,@34,@43,@65,@56,@47,@28,@49]),
+                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
                  
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
-                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19]),
+                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
                  
                  AAObject(AASeriesElement)
                  .nameSet(@"2019")
-                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39]),
+                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
                  
                  AAObject(AASeriesElement)
                  .nameSet(@"2020")
-                 .dataSet(@[@21,@22,@53,@24,@65,@26,@37,@28,@49]),
+                 .dataSet(@[@21,@22,@24,@27,@25,@26,@37,@28,@49,@56,@31,@11]),
                  ]
                )
     ;

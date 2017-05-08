@@ -35,7 +35,9 @@
                           @"Scatter Chart(散点图)"],
                         
                         @[@"Pie Chart(扇形图)",
-                          @"Bubble Chart(气泡图)"]
+                          @"Bubble Chart(气泡图)",
+                          @"Pyramid Chart(金字塔图)",
+                          @"Funnel Chart(漏斗图)"]
                         ];
     
     [self configTheTableView];

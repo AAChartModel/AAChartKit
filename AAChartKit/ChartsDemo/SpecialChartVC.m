@@ -24,8 +24,16 @@
             [self configTheChartView:AAChartTypePie];
             break;
             
-            case 1:
+        case 1:
             [self configTheChartView:AAChartTypeBubble];
+            break;
+            
+        case 2:
+            [self configTheChartView:AAChartTypePyramid];
+            break;
+            
+        case 3:
+            [self configTheChartView:AAChartTypeFunnel];
             break;
             
         default:
@@ -33,7 +41,7 @@
     }
     
     
- }
+}
 
 
 -(void)configTheChartView:(NSString *)chartType{
@@ -42,7 +50,7 @@
     self.chartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.chartView.contentHeight = self.view.frame.size.height-60;
     [self.view addSubview:self.chartView];
-
+    
     
     self.chartModel = [self configTheChartModel:chartType];
     
@@ -74,7 +82,6 @@
                                 @[@"C++"   , @66],
                                 ]),
                      ]
-                   
                    )
         ;
         return chartModel;
@@ -134,13 +141,53 @@
                                 @[@64, @12, @10],
                                 @[@30, @77, @82]
                                 ]),
-                     
                      ]
                    )
         ;
         return chartModel;
         
-    }else{
+    }else if ([chartType isEqualToString:AAChartTypePyramid]){
+        AAChartModel *chartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypePyramid)
+        .titleSet(@"编程语言热度")
+        .subtitleSet(@"虚拟数据")
+        .yAxisTitleSet(@"摄氏度")
+        .seriesSet(
+                   @[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[
+                                @[@"Swift",       @15654],
+                                @[@"Objective-C", @4064],
+                                @[@"JavaScript",  @1987],
+                                @[@"GO",          @976],
+                                @[@"Python",      @846]]),
+                     ]
+                   )
+        ;
+        return chartModel;
+    }else if ([chartType isEqualToString:AAChartTypeFunnel]){
+        AAChartModel *chartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeFunnel)
+        .titleSet(@"编程语言热度")
+        .subtitleSet(@"虚拟数据")
+        .yAxisTitleSet(@"摄氏度")
+        .seriesSet(
+                   @[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[
+                                @[@"Swift",       @15654],
+                                @[@"Objective-C", @4064],
+                                @[@"JavaScript",  @1987],
+                                @[@"GO",          @976],
+                                @[@"Python",      @846]]),
+                     ]
+                   )
+        ;
+        return chartModel;
+    }
+    else {
         return nil;
     }
 }

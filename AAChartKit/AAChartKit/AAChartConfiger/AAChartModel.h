@@ -28,6 +28,8 @@ static AAChartType const AAChartTypeSpline      = @"spline";
 static AAChartType const AAChartTypeScatter     = @"scatter";
 static AAChartType const AAChartTypePie         = @"pie";
 static AAChartType const AAChartTypeBubble      = @"bubble";
+static AAChartType const AAChartTypePyramid     = @"pyramid";
+static AAChartType const AAChartTypeFunnel      = @"funnel";
 
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft = @"left";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
