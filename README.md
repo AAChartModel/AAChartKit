@@ -174,7 +174,7 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
 
 -  special area chart one 
 
-![IMG_1871.JPG](http://upload-images.jianshu.io/upload_images/2412088-199de612208c6a17.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1874.JPG)
 -  special area chart two
 
 ![IMG_1869.JPG](http://upload-images.jianshu.io/upload_images/2412088-d089326452b19a11.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
