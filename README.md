@@ -186,6 +186,11 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
 
 ![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1877.JPG
 )
+
+-   polar chart
+
+![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1879.JPG
+)
 -   pie chart
 
 ![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1878.JPG
