@@ -182,9 +182,10 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
 
 ![IMG_1863.JPG](http://upload-images.jianshu.io/upload_images/2412088-dbbcf79f7946bb96.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
--   stacked polar chart
+-   radar chart
 
-![IMG_1870.JPG](http://upload-images.jianshu.io/upload_images/2412088-2d08fb7437c80e40.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1877.JPG
+)
 -   percent stacked polar chart
 
 ![IMG_1868.JPG](http://upload-images.jianshu.io/upload_images/2412088-db06aeb086a41209.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -192,9 +193,10 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
 - the oval style column chart
 
 ![IMG_1866.JPG](http://upload-images.jianshu.io/upload_images/2412088-4e2e142fc4bae5c2.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- the wedge syle column chart
+- bubble chart
 
-![IMG_1865.JPG](http://upload-images.jianshu.io/upload_images/2412088-aaed41eb3c989d48.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1875.JPG
+)
 ### AAChartModel:chart attribute list
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);
