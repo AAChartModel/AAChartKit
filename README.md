@@ -186,9 +186,10 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
 
 ![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1877.JPG
 )
--   percent stacked polar chart
+-   pie chart
 
-![IMG_1868.JPG](http://upload-images.jianshu.io/upload_images/2412088-db06aeb086a41209.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1878.JPG
+)
 
 - the oval style column chart
 
