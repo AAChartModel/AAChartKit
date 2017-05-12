@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger,ENUM_SpecialChartVC_chartType) {
     ENUM_SpecialChartVC_chartTypeTreeMap,
     ENUM_SpecialChartVC_chartTypePyramid,
     ENUM_SpecialChartVC_chartTypeFunnel,
+    ENUM_SpecialChartVC_chartTypeColumnrange,
 };
 @interface SpecialChartVC : UIViewController
 @property(copy,nonatomic)NSString *receivedChartType;

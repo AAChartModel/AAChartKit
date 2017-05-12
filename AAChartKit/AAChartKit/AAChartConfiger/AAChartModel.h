@@ -30,6 +30,7 @@ static AAChartType const AAChartTypePie         = @"pie";
 static AAChartType const AAChartTypeBubble      = @"bubble";
 static AAChartType const AAChartTypePyramid     = @"pyramid";
 static AAChartType const AAChartTypeFunnel      = @"funnel";
+static AAChartType const AAChartTypeColumnrange = @"columnrange";
 
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft = @"left";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
