@@ -164,6 +164,21 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                )
     ;
 ```
+7. Supported chart for now 
+```objective-c
+typedef NSString *AAChartType;
+static AAChartType const AAChartTypeColumn      = @"column";      //column chart
+static AAChartType const AAChartTypeBar         = @"bar";         //bar chart 
+static AAChartType const AAChartTypeArea        = @"area";        //area chart 
+static AAChartType const AAChartTypeAreaspline  = @"areaspline";  //areaspline chart
+static AAChartType const AAChartTypeLine        = @"line";        //line chart
+static AAChartType const AAChartTypeSpline      = @"spline";      //spline chart
+static AAChartType const AAChartTypeScatter     = @"scatter";     //scatter chart 
+static AAChartType const AAChartTypePie         = @"pie";         //pie chart
+static AAChartType const AAChartTypeBubble      = @"bubble";      //bubble chart  
+static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid chart
+static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
+```
 ## Samples
 - line chart
 
