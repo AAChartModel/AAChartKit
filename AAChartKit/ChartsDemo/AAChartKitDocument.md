@@ -165,6 +165,21 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                    )
         ;
 ```
+7. 当前已支持的图表类型有十种以上,说明如下
+```objective-c
+typedef NSString *AAChartType;
+static AAChartType const AAChartTypeColumn      = @"column";//柱形图
+static AAChartType const AAChartTypeBar         = @"bar";//条形图
+static AAChartType const AAChartTypeArea        = @"area";//折线区域填充图
+static AAChartType const AAChartTypeAreaspline  = @"areaspline";//曲线区域填充图
+static AAChartType const AAChartTypeLine        = @"line";//折线图
+static AAChartType const AAChartTypeSpline      = @"spline";//曲线图
+static AAChartType const AAChartTypeScatter     = @"scatter";//散点图
+static AAChartType const AAChartTypePie         = @"pie";//扇形图
+static AAChartType const AAChartTypeBubble      = @"bubble";//气泡图
+static AAChartType const AAChartTypePyramid     = @"pyramid";//金字塔图
+static AAChartType const AAChartTypeFunnel      = @"funnel";//漏斗图
+```
 ###  AAChartModel一些重要属性经过配置之后的图形示例如下
 - 常规折线图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
