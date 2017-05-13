@@ -70,7 +70,11 @@ chartView.contentHeight =self.view.frame.size.height-220;
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
-5.Special instructions
+5.Refresh the chart 
+```objective-c
+[chartView aa_refreshChartWithChartModel:chartModel];
+```
+6.Special instructions
 
 Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
