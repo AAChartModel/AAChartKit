@@ -48,9 +48,9 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内�
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
     
 AAPropSetFuncImplementation(AAChartModel, AAChartType, chartType);//图表类型
-AAPropSetFuncImplementation(AAChartModel, NSString *, stacking);//堆积类型
-AAPropSetFuncImplementation(AAChartModel, NSString *, symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-AAPropSetFuncImplementation(AAChartModel, NSString *, zoomType);//缩放类型
+AAPropSetFuncImplementation(AAChartModel, AAChartStackingType , stacking);//堆积类型
+AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType , symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropSetFuncImplementation(AAChartModel, AAChartZoomType , zoomType);//缩放类型
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropSetFuncImplementation(AAChartModel, BOOL , inverted);
@@ -73,9 +73,9 @@ AAPropSetFuncImplementation(AAChartModel, NSArray *, colorsTheme);
 AAPropSetFuncImplementation(AAChartModel, NSArray *, series);
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, legendEnabled);//是否显示图例
-AAPropSetFuncImplementation(AAChartModel, NSString *, legendLayout);
-AAPropSetFuncImplementation(AAChartModel, NSString *, legendAlign);
-AAPropSetFuncImplementation(AAChartModel, NSString *, legendVerticalAlign);
+AAPropSetFuncImplementation(AAChartModel, AAChartLegendLayoutType , legendLayout);
+AAPropSetFuncImplementation(AAChartModel, AAChartLegendAlignType , legendAlign);
+AAPropSetFuncImplementation(AAChartModel, AAChartLegendVerticalAlignType , legendVerticalAlign);
 
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);
