@@ -286,31 +286,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 ### More graphics
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKit功能演示.gif)
-{%raw%} 
-<html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
-<script src="http://code.highcharts.com/highcharts.js">
-</script>
-
-</head>
-<body>
-<div id="container" style="width:min-450px; height: 800px; margin: 0 auto">
-</div>
-<script >
-$(document).ready(function() {
-});
-
-var JavaScriptObject = {"subtitle":{"style":{"fontWeight":"bold","color":"#000000","textOutline":"1px 1px contrast","fontSize":"10px"},"text":""},"series":[{"name":"2015","data":[144,262,79,90,249,325,103,74,175],"borderRadius":0},{"name":"2016","data":[258,130,113,210,206,113,126,217,151],"borderRadius":0},{"name":"2017","data":[187,118,242,148,87,248,264,293,102],"borderRadius":0},{"name":"2018","data":[688,122,200,497,336,999,878,398,444],"borderRadius":0},{"name":"2019","data":[68,145,163,177,245,288,438,688,1088],"borderRadius":0}],"colorsTheme":["#c85dec","#e9a8ff","#de4770","#f56991","#ff9f80","#ffc48c","#effab4","#d1f2a5"],"xAxis":{"labels":{"enabled":true},"reversed":false,"gridLineWidth":0},"chart":{"spacingBottom":0,"options3d":{"enabled":false,"alpha":-15},"polar":true,"type":"area","marginBottom":40,"inverted":true,"plotShadow":false,"animation":true,"zoomType":"xy","panning":true},"plotOptions":{"bar":{"pointPadding":0.2,"borderWidth":0,"dataLabels":{"enabled":true},"colorByPoint":false},"column":{"pointPadding":0.2,"borderWidth":0,"dataLabels":{"enabled":true},"colorByPoint":false},"series":{"stacking":"percent","marker":{"radius":9,"symbol":"square"}},"spline":{"dataLabels":{"enabled":true},"enableMouseTracking":false},"line":{"dataLabels":{"enabled":true},"enableMouseTracking":false}},"title":{"style":{"fontWeight":"bold","color":"#3E576F","textOutline":"1px 1px contrast","fontSize":"13px"},"text":""},"gradientColorEnable":false,"yAxis":{"labels":{"enabled":true},"title":{"text":""},"reversed":false,"gridLineWidth":0,"min":false},"toolTip":{"shared":true,"footerFormat":"<table>","valueSuffix":"摄氏度"},"legend":{"layout":"horizontal","verticalAlign":"bottom","borderWidth":0,"enabled":true,"align":"center"}};
-$('#container').highcharts(JavaScriptObject);
-</script>
-</body>
-</html>
-{%endraw%}
 
 ### Created By:
 

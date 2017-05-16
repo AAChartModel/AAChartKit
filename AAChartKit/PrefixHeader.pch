@@ -20,4 +20,5 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif /* PrefixHeader_pch */
-
+///Users/jinyindao/Downloads/图表试炼 2/图表试炼/PrefixHeader.pch
+//$(SRCROOT)/图表试炼/PrefixHeader.pch
