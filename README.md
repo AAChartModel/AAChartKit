@@ -1,15 +1,21 @@
 # AAChartKit 2.0
 #### An elegant and friendly chart library for iOS developer
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)&nbsp;
+[![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+
 ### 中文使用说明书地址
+
 https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocument.md
+
 ==============
+
 ## Features:
-1. Support `iOS 7`、`ARC` & `Objective C`.
+1. Support `iOS 6`、`ARC` & `Objective C`.
 2. Powerful,support the  `column chart` `bar chart` `line chart` `spline chart` `pie chart` `polar chart` `radar chart` and other graphics.
 3. Interactive、Animated,the `animation` is exquisite and deligate.
 4. Support `chain programming syntax` like *Masonry* 
 5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  
+
 ==============
  
 
