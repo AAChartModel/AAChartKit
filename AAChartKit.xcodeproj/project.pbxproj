@@ -272,10 +272,10 @@
 			isa = PBXGroup;
 			children = (
 				713F544B1E7B71CB00D506C7 /* AAChartView.html */,
-				713F544C1E7B71CB00D506C7 /* AAHighCharts-3d.js */,
+				713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */,
 				713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */,
 				713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */,
-				713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */,
+				713F544C1E7B71CB00D506C7 /* AAHighCharts-3d.js */,
 				713F54501E7B71CB00D506C7 /* AAFunnel.js */,
 			);
 			path = AAJSFiles;
