@@ -52,6 +52,7 @@
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                )
+    .allowDecimalsSet(chartModel.yAllowDecimals)
     .reversedSet(chartModel.yAxisReversed)
     .gridLineWidthSet(chartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)

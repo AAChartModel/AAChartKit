@@ -21,4 +21,5 @@ AAPropSetFuncImplementation(AAYAxis, AALabels *, labels);
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, lineWidth);//y轴线宽度
 AAPropSetFuncImplementation(AAYAxis, NSString *, lineColor);// y 轴线颜色
 
+AAPropSetFuncImplementation(AAYAxis, BOOL, allowDecimals); //y轴是否允许显示小数
 @end
