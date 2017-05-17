@@ -267,11 +267,11 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 ``` html
 <script src="AAJQueryLibrary.js">
 </script>
-<script src="AAHighChartsLibrary.js">
+<script src="AAHighchartsLibrary.js">
 </script>
 <script src="AAHighchartsMore.js">
 </script>
-<script src="AAHighCharts-3d.js">
+<script src="AAHighcharts-3d.js">
 </script>
 <script src="AAFunnel.js">
 </script>

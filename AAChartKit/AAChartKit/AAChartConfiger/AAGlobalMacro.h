@@ -13,11 +13,11 @@
 
 #define AAObject(objectName) [[objectName alloc]init]
 
-#define AAPropStatementAndFuncStatement(propertyModifyWord,className, propertyPointerType, propertyName)        \
+#define AAPropStatementAndFuncStatement(propertyModifyWord,className, propertyPointerType, propertyName)                \
 @property(nonatomic,propertyModifyWord)propertyPointerType  propertyName;                                               \
 - (className * (^) (propertyPointerType propertyName)) propertyName##Set;
 
-#define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                               \
+#define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
 - (className * (^) (propertyPointerType propertyName))propertyName##Set{                                                \
 return ^(propertyPointerType propertyName) {                                                                            \
 self.propertyName = propertyName;                                                                                       \
