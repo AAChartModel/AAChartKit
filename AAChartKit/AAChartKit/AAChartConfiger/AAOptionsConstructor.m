@@ -48,11 +48,14 @@
     .categoriesSet(chartModel.categories);
     
     AAYAxis *yAxis = AAObject(AAYAxis)
-    //            .minSet(@0)//设置 y 轴最小值,最小值等于零就不能显示负值了
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                )
-    .allowDecimalsSet(chartModel.yAllowDecimals)
+    .minSet(chartModel.yMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
+    .maxSet(chartModel.yMax)//y轴最大值
+    .tickPositionsSet(chartModel.yTickPositions)//自定义Y轴坐标
+    .allowDecimalsSet(chartModel.yAllowDecimals)//是否允许显示小数
+    .plotLinesSet(chartModel.yPlotLines) //基准线设置
     .reversedSet(chartModel.yAxisReversed)
     .gridLineWidthSet(chartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)

@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AASeriesElement.h"
+#import "AAPlotLinesElement.h"
 
 typedef NSString *AAChartType;
 typedef NSString *AAChartSubtitleAlignType;
@@ -107,7 +108,10 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAllowDecimals);//是否允许y轴显示小数
-
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, yPlotLines);//y轴基线的配置
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMax);//y轴最大值
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);//y轴最小值（设置为0就不会有负数）
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, yTickPositions);//自定义Y轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
 
 

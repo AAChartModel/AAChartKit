@@ -87,11 +87,9 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, yAllowDecimals);//是否允许y轴显示小数（默认显示）
-
-
-
-
-
-
+AAPropSetFuncImplementation(AAChartModel, NSArray *, yPlotLines);//y轴基线的配置
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yMax);//y轴最大值
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yMin);//y轴最小值（设置为0就不会有负数）
+AAPropSetFuncImplementation(AAChartModel, NSArray *, yTickPositions);//自定义Y轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
 @end
