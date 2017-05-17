@@ -10,7 +10,9 @@
 #import <Foundation/Foundation.h>
 
 @interface AAPlotLinesElement : NSObject
-AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, value);
-AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, width);
-AAPropStatementAndFuncStatement(copy, AAPlotLinesElement, NSString *, color);
+AAPropStatementAndFuncStatement(copy, AAPlotLinesElement, NSString *, color);//基线颜色
+AAPropStatementAndFuncStatement(copy, AAPlotLinesElement, NSString *, dashStyle);//基线样式Dash,Dot,Solid,默认Solid
+AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, width);//基线宽度
+AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, value);//显示位置
+AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, zIndex);
 @end

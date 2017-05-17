@@ -92,8 +92,33 @@
                  .dataSet(@[@21,@22,@24,@27,@25,@26,@37,@28,@49,@56,@31,@11]),
                  ]
                )
+//    //基准线的设置
+//    .yPlotLinesSet(@[AAObject(AAPlotLinesElement)
+//                     .colorSet(@"#F05353")//颜色
+//                     .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid,默认Solid
+//                     .widthSet(@(1)) //基准线粗细
+//                     .valueSet(@(20)) //所在位置
+//                     ,AAObject(AAPlotLinesElement)
+//                     .colorSet(@"#33BDFD")
+//                     .dashStyleSet(@"Dash")
+//                     .widthSet(@(1))
+//                     .valueSet(@(40))
+//                     ,AAObject(AAPlotLinesElement)
+//                     .colorSet(@"#ADFF2F")
+//                     .dashStyleSet(@"Dash")
+//                     .widthSet(@(1))
+//                     .valueSet(@(60))
+//                     ]
+//                   )
+//    //Y轴最大值
+//    .yMaxSet(@(100))
+//    //Y轴最小值
+//    .yMinSet(@(1))
+//    //是否允许Y轴坐标值小数
+//    .yAllowDecimalsSet(NO)
+//    //指定y轴坐标
+//    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
-    
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 

@@ -496,7 +496,7 @@
 				TargetAttributes = {
 					7172A3D21E763EA6000D5B99 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					7172A3EB1E763EA6000D5B99 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -771,6 +771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKit/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKit/Info.plist;
@@ -785,6 +786,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKit/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKit/Info.plist;

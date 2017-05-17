@@ -10,7 +10,9 @@
 #import "AAPlotLinesElement.h"
 
 @implementation AAPlotLinesElement
-AAPropSetFuncImplementation(AAPlotLinesElement, NSNumber *, value);
-AAPropSetFuncImplementation(AAPlotLinesElement, NSNumber *, width);
-AAPropSetFuncImplementation(AAPlotLinesElement, NSString *, color);
+AAPropSetFuncImplementation(AAPlotLinesElement, NSString *, color);//基线颜色
+AAPropSetFuncImplementation(AAPlotLinesElement, NSString *, dashStyle);//基线样式Dash,Dot,Solid,默认Solid
+AAPropSetFuncImplementation(AAPlotLinesElement, NSNumber *, width);//基线宽度
+AAPropSetFuncImplementation(AAPlotLinesElement, NSNumber *, value);//显示位置
+AAPropSetFuncImplementation(AAPlotLinesElement, NSNumber *, zIndex);
 @end
