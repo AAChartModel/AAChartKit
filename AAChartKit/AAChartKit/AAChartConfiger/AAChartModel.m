@@ -86,7 +86,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
-
+AAPropSetFuncImplementation(AAChartModel, BOOL, yAllowDecimals);//是否允许y轴显示小数（默认显示）
 
 
 

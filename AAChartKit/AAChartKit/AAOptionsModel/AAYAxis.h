@@ -20,4 +20,6 @@ AAPropStatementAndFuncStatement(copy,   AAYAxis, NSString *, gridLineColor);// y
 AAPropStatementAndFuncStatement(strong, AAYAxis, AALabels *, labels);//用于设置 y 轴是否显示
 AAPropStatementAndFuncStatement(strong, AAYAxis, NSNumber *, lineWidth);//y轴线宽度
 AAPropStatementAndFuncStatement(copy,   AAYAxis, NSString *, lineColor);// y 轴线颜色
+
+AAPropStatementAndFuncStatement(assign, AAYAxis,BOOL,allowDecimals); //y轴是否允许显示小数
 @end
