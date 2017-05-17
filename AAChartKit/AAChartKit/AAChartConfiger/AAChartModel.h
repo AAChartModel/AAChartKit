@@ -106,7 +106,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAllowDecimals);//是否允许y轴显示小数
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAxisAllowDecimals);//是否允许y轴显示小数
 
 
 
