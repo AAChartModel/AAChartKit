@@ -101,7 +101,7 @@
 		64245AD71EC37495005B8021 /* IMG_1880.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1880.JPG; sourceTree = "<group>"; };
 		64245AD91EC4BA44005B8021 /* IMG_1882.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1882.JPG; sourceTree = "<group>"; };
 		64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartKitDocumentLive.html; sourceTree = "<group>"; };
-		6458F49F1E9A76C700770AA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6458F49F1E9A76C700770AA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../ChartsDemo/LICENSE; sourceTree = "<group>"; };
 		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		7131910B1E80B2F400382A09 /* IMG_1871.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1871.JPG; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 				713F54401E7B71CB00D506C7 /* AAChartConfiger */,
 				713F544A1E7B71CB00D506C7 /* AAJSFiles */,
 				713F54511E7B71CB00D506C7 /* AAOptionsModel */,
+				6458F49F1E9A76C700770AA9 /* LICENSE */,
 			);
 			name = AAChartKitFiles;
 			path = AAChartKit;
@@ -421,7 +422,6 @@
 				64245AD91EC4BA44005B8021 /* IMG_1882.JPG */,
 				713F54361E7B71C000D506C7 /* AAChartKitShow.gif */,
 				64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */,
-				6458F49F1E9A76C700770AA9 /* LICENSE */,
 			);
 			name = ChartSamples;
 			sourceTree = "<group>";
