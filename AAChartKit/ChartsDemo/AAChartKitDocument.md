@@ -1,11 +1,14 @@
 # AAChartKit 2.0
 
-### 查看网页版说明书(附有交互式图表)请点击链接
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)&nbsp;
+[![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+
+### 查看网页版说明书`(附有交互式图表)`请点击链接
 http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocumentLive.html
 ***
 ## 前言
 ###### AAChartKit项目,是在流行的开源前端图表库*Highcharts*的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制控件.
-1. 适配 `iOS 7`,  支持`ARC`,支持 `OC`语言,配置简单.
+1. 适配 `iOS 6`,  支持`ARC`,支持 `OC`语言,配置简单.
 2. 功能强大,支持`柱状图`  `条形图`  `折线图`  `填充图` `雷达图` `扇形图` `气泡图`等多种图形
 3. `动画`效果细腻精致,流畅优美.
 4. 支持类 *Masonry* `链式编程语法`
