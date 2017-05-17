@@ -13,7 +13,7 @@
 #import "AASubtitle.h"
 #import "AAXAxis.h"
 #import "AAYAxis.h"
-#import "AAToolTip.h"
+#import "AATooltip.h"
 #import "AAPlotOptions.h"
 #import "AAColumn.h"
 //#import "AASeries.h"
