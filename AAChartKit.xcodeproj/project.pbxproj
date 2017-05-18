@@ -242,7 +242,7 @@
 		713F543F1E7B71CB00D506C7 /* AAChartKitFiles */ = {
 			isa = PBXGroup;
 			children = (
-				713F54401E7B71CB00D506C7 /* AAChartConfiger */,
+				713F54401E7B71CB00D506C7 /* AAChartConfigurator */,
 				713F544A1E7B71CB00D506C7 /* AAJSFiles */,
 				713F54511E7B71CB00D506C7 /* AAOptionsModel */,
 				6458F49F1E9A76C700770AA9 /* LICENSE */,
@@ -251,7 +251,7 @@
 			path = AAChartKit;
 			sourceTree = "<group>";
 		};
-		713F54401E7B71CB00D506C7 /* AAChartConfiger */ = {
+		713F54401E7B71CB00D506C7 /* AAChartConfigurator */ = {
 			isa = PBXGroup;
 			children = (
 				713F54451E7B71CB00D506C7 /* AAGlobalMacro.h */,
@@ -264,6 +264,7 @@
 				713F54481E7B71CB00D506C7 /* AAOptionsConstructor.h */,
 				713F54491E7B71CB00D506C7 /* AAOptionsConstructor.m */,
 			);
+			name = AAChartConfigurator;
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
