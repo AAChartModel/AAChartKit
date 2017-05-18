@@ -15,4 +15,5 @@ AAPropStatementAndFuncStatement(copy, AAPlotLinesElement, NSString *, dashStyle)
 AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, width);//基线宽度
 AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, value);//显示位置
 AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSNumber *, zIndex);
+AAPropStatementAndFuncStatement(strong, AAPlotLinesElement, NSDictionary *, label);//标示线的文字标签，用来描述标示线
 @end
