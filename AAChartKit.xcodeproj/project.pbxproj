@@ -27,7 +27,6 @@
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
 		7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911B1E80B33700382A09 /* IMG_1863.JPG */; };
 		7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911D1E80B6AE00382A09 /* IMG_1873.JPG */; };
-		713F543B1E7B71C000D506C7 /* AAChartKitDocument.md in Sources */ = {isa = PBXBuildFile; fileRef = 713F54351E7B71C000D506C7 /* AAChartKitDocument.md */; };
 		713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 713F54361E7B71C000D506C7 /* AAChartKitShow.gif */; };
 		713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* FirstViewController.m */; };
 		713F543E1E7B71C000D506C7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F543A1E7B71C000D506C7 /* SecondViewController.m */; };
@@ -36,8 +35,8 @@
 		713F54861E7B71CB00D506C7 /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54471E7B71CB00D506C7 /* AAJsonConverter.m */; };
 		713F54871E7B71CB00D506C7 /* AAOptionsConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54491E7B71CB00D506C7 /* AAOptionsConstructor.m */; };
 		713F54881E7B71CB00D506C7 /* AAChartView.html in Resources */ = {isa = PBXBuildFile; fileRef = 713F544B1E7B71CB00D506C7 /* AAChartView.html */; };
-		713F54891E7B71CB00D506C7 /* AAHighCharts-3d.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544C1E7B71CB00D506C7 /* AAHighCharts-3d.js */; };
-		713F548A1E7B71CB00D506C7 /* AAHighChartsLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */; };
+		713F54891E7B71CB00D506C7 /* AAHighcharts-3d.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544C1E7B71CB00D506C7 /* AAHighcharts-3d.js */; };
+		713F548A1E7B71CB00D506C7 /* AAHighchartsLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544D1E7B71CB00D506C7 /* AAHighchartsLibrary.js */; };
 		713F548B1E7B71CB00D506C7 /* AAHighchartsMore.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */; };
 		713F548C1E7B71CB00D506C7 /* AAJQueryLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */; };
 		713F548D1E7B71CB00D506C7 /* AAFunnel.js in Resources */ = {isa = PBXBuildFile; fileRef = 713F54501E7B71CB00D506C7 /* AAFunnel.js */; };
@@ -102,7 +101,7 @@
 		64245AD71EC37495005B8021 /* IMG_1880.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1880.JPG; sourceTree = "<group>"; };
 		64245AD91EC4BA44005B8021 /* IMG_1882.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1882.JPG; sourceTree = "<group>"; };
 		64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartKitDocumentLive.html; sourceTree = "<group>"; };
-		6458F49F1E9A76C700770AA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6458F49F1E9A76C700770AA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../ChartsDemo/LICENSE; sourceTree = "<group>"; };
 		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		7131910B1E80B2F400382A09 /* IMG_1871.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1871.JPG; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
 		7131911B1E80B33700382A09 /* IMG_1863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1863.JPG; sourceTree = "<group>"; };
 		7131911D1E80B6AE00382A09 /* IMG_1873.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1873.JPG; sourceTree = "<group>"; };
-		713F54351E7B71C000D506C7 /* AAChartKitDocument.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = AAChartKitDocument.md; sourceTree = "<group>"; };
 		713F54361E7B71C000D506C7 /* AAChartKitShow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AAChartKitShow.gif; sourceTree = "<group>"; };
 		713F54371E7B71C000D506C7 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		713F54381E7B71C000D506C7 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
@@ -130,8 +128,8 @@
 		713F54481E7B71CB00D506C7 /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
 		713F54491E7B71CB00D506C7 /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
 		713F544B1E7B71CB00D506C7 /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
-		713F544C1E7B71CB00D506C7 /* AAHighCharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "AAHighCharts-3d.js"; sourceTree = "<group>"; };
-		713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighChartsLibrary.js; sourceTree = "<group>"; };
+		713F544C1E7B71CB00D506C7 /* AAHighcharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "AAHighcharts-3d.js"; sourceTree = "<group>"; };
+		713F544D1E7B71CB00D506C7 /* AAHighchartsLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsLibrary.js; sourceTree = "<group>"; };
 		713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsMore.js; sourceTree = "<group>"; };
 		713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAJQueryLibrary.js; sourceTree = "<group>"; };
 		713F54501E7B71CB00D506C7 /* AAFunnel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAFunnel.js; sourceTree = "<group>"; };
@@ -244,15 +242,16 @@
 		713F543F1E7B71CB00D506C7 /* AAChartKitFiles */ = {
 			isa = PBXGroup;
 			children = (
-				713F54401E7B71CB00D506C7 /* AAChartConfiger */,
+				713F54401E7B71CB00D506C7 /* AAChartConfigurator */,
 				713F544A1E7B71CB00D506C7 /* AAJSFiles */,
 				713F54511E7B71CB00D506C7 /* AAOptionsModel */,
+				6458F49F1E9A76C700770AA9 /* LICENSE */,
 			);
 			name = AAChartKitFiles;
 			path = AAChartKit;
 			sourceTree = "<group>";
 		};
-		713F54401E7B71CB00D506C7 /* AAChartConfiger */ = {
+		713F54401E7B71CB00D506C7 /* AAChartConfigurator */ = {
 			isa = PBXGroup;
 			children = (
 				713F54451E7B71CB00D506C7 /* AAGlobalMacro.h */,
@@ -265,6 +264,7 @@
 				713F54481E7B71CB00D506C7 /* AAOptionsConstructor.h */,
 				713F54491E7B71CB00D506C7 /* AAOptionsConstructor.m */,
 			);
+			name = AAChartConfigurator;
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
@@ -272,10 +272,10 @@
 			isa = PBXGroup;
 			children = (
 				713F544B1E7B71CB00D506C7 /* AAChartView.html */,
-				713F544C1E7B71CB00D506C7 /* AAHighCharts-3d.js */,
-				713F544D1E7B71CB00D506C7 /* AAHighChartsLibrary.js */,
-				713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */,
 				713F544F1E7B71CB00D506C7 /* AAJQueryLibrary.js */,
+				713F544D1E7B71CB00D506C7 /* AAHighchartsLibrary.js */,
+				713F544E1E7B71CB00D506C7 /* AAHighchartsMore.js */,
+				713F544C1E7B71CB00D506C7 /* AAHighcharts-3d.js */,
 				713F54501E7B71CB00D506C7 /* AAFunnel.js */,
 			);
 			path = AAJSFiles;
@@ -422,9 +422,7 @@
 				64245AD71EC37495005B8021 /* IMG_1880.JPG */,
 				64245AD91EC4BA44005B8021 /* IMG_1882.JPG */,
 				713F54361E7B71C000D506C7 /* AAChartKitShow.gif */,
-				713F54351E7B71C000D506C7 /* AAChartKitDocument.md */,
 				64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */,
-				6458F49F1E9A76C700770AA9 /* LICENSE */,
 			);
 			name = ChartSamples;
 			sourceTree = "<group>";
@@ -496,6 +494,7 @@
 				TargetAttributes = {
 					7172A3D21E763EA6000D5B99 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BPAYP34L8N;
 						ProvisioningStyle = Automatic;
 					};
 					7172A3EB1E763EA6000D5B99 = {
@@ -540,7 +539,7 @@
 				64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */,
 				64245AD41EC3706E005B8021 /* IMG_1878.JPG in Resources */,
 				7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */,
-				713F548A1E7B71CB00D506C7 /* AAHighChartsLibrary.js in Resources */,
+				713F548A1E7B71CB00D506C7 /* AAHighchartsLibrary.js in Resources */,
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
@@ -548,7 +547,7 @@
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
 				7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */,
 				713191101E80B31200382A09 /* IMG_1869.JPG in Resources */,
-				713F54891E7B71CB00D506C7 /* AAHighCharts-3d.js in Resources */,
+				713F54891E7B71CB00D506C7 /* AAHighcharts-3d.js in Resources */,
 				64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */,
 				713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */,
 				7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */,
@@ -603,7 +602,6 @@
 				713F54A31E7B71CB00D506C7 /* AATitle.m in Sources */,
 				713F549E1E7B71CB00D506C7 /* AASeries.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
-				713F543B1E7B71C000D506C7 /* AAChartKitDocument.md in Sources */,
 				713F54921E7B71CB00D506C7 /* AAColumn.m in Sources */,
 				713F549C1E7B71CB00D506C7 /* AAPlotLinesElement.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
@@ -771,12 +769,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BPAYP34L8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKit/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKit;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -785,12 +784,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BPAYP34L8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKit/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKit;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

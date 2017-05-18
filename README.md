@@ -5,7 +5,7 @@
 
 ### 中文使用说明书地址
 
-https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocument.md
+https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md
 
 ***
 ## Features:
