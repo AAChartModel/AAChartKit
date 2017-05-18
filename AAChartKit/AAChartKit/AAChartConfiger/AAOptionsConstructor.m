@@ -55,7 +55,7 @@
     .maxSet(chartModel.yMax)//y轴最大值
     .tickPositionsSet(chartModel.yTickPositions)//自定义Y轴坐标
     .allowDecimalsSet(chartModel.yAllowDecimals)//是否允许显示小数
-    .plotLinesSet(chartModel.yPlotLines) //基准线设置
+    .plotLinesSet(chartModel.yPlotLines) //标示线设置
     .reversedSet(chartModel.yAxisReversed)
     .gridLineWidthSet(chartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)
@@ -65,7 +65,7 @@
     
     AATooltip *tooltip = AAObject(AATooltip)
     .sharedSet(true)
-    .crosshairsSet(true);
+    .crosshairsSet(chartModel.crosshairs);
     //        .useHTMLSet(true)
     //    .valueSuffixSet(@"摄氏度");
     
