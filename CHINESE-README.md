@@ -187,6 +187,7 @@ static AAChartType const AAChartTypePie         = @"pie";        //扇形图
 static AAChartType const AAChartTypeBubble      = @"bubble";     //气泡图
 static AAChartType const AAChartTypePyramid     = @"pyramid";    //金字塔图
 static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
+static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
 ```
 ###  AAChartModel一些重要属性经过配置之后的图形示例如下
 - 常规折线图

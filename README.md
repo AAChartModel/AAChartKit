@@ -187,6 +187,7 @@ static AAChartType const AAChartTypePie         = @"pie";         //pie 
 static AAChartType const AAChartTypeBubble      = @"bubble";      //bubble chart  
 static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid chart
 static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
+static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 ```
 ## Samples
 - line chart

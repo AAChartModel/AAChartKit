@@ -140,8 +140,6 @@
         segmentControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
         segmentControl.selectedSegmentIndex = 0;
         segmentControl.tag = i;
-        //        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor redColor],UITextAttributeTextColor,  [UIFont fontWithName:@"Helvetica" size:11],UITextAttributeFont ,[UIColor whiteColor],UITextAttributeTextShadowColor ,nil];
-        //        [segmentControl setTitleTextAttributes:dic forState:UIControlStateNormal];
         [segmentControl addTarget:self action:@selector(customSegmentControlCellValueBeChanged:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:segmentControl];
         
