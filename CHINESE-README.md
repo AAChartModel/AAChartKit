@@ -259,9 +259,8 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 ### 作者
 An An 
-```
-/////////////////////////////////////////////////////////
- code is far away from bug with the animal protecting
+``` java
+ "CODE IS FAR AWAY FROM BUG WITH THE ANIMAL PROTECTING"
  * 
  *      ┏┓　　　┏┓
  *    ┏┛┻━━━┛┻┓
@@ -282,8 +281,7 @@ An An
  *    　　　┗┻┛　┗┻┛
  *
  *
-/////////////////////////////////////////////////////////
- 
+ "CODE IS FAR AWAY FROM BUG WITH THE ANIMAL PROTECTING"
  ```
 
 ### 许可证
