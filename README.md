@@ -286,7 +286,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 ### More graphics
 
-![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKit功能演示.gif)
+![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitShow.gif)
 
 
 ### Created By:
