@@ -261,24 +261,25 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 An An 
 ``` java
  "CODE IS FAR AWAY FROM BUG WITH THE ANIMAL PROTECTING"
- * 
- *      ┏┓　　　┏┓
- *    ┏┛┻━━━┛┻┓
- *    ┃　　　　　　　┃ 　
- *    ┃　　　━　　　┃
- *    ┃　┳┛　┗┳　┃
- *    ┃　　　　　　　┃
- *    ┃　　　┻　　　┃
- *    ┃　　　　　　　┃
- *    ┗━┓　　　┏━┛
+ *          %%       %%
+ *         ##       ##
+ *       ┏-##┓　  ┏-##┓
+ *    ┏_┛ ┻---━┛_┻━━┓
+ *    ┃　　　        ┃　　　　 
+ *    ┃　　 ━　      ┃　　　 
+ *    ┃ @^　  @^    ┃　　 
+ *    ┃　　　　　　  ┃
+ *    ┃　　 ┻　　　 ┃
+ *    ┃_　　　　　 _┃
+ *     ┗━┓　　　┏━┛
  *    　　┃　　　┃神兽保佑
  *    　　┃　　　┃永无BUG！
- *    　　┃　　　┗━━━┓
- *    　　┃　　　　　　　┣┓
- *    　　┃　　　　　　　┏┛
- *    　　┗┓┓┏━┳┓┏┛
- *    　　　┃┫┫　┃┫┫
- *    　　　┗┻┛　┗┻┛
+ *    　　┃　　　┗━━━┓----|
+ *    　　┃　　　　　　　  ┣┓}}}
+ *    　　┃　　　　　　　  ┏┛
+ *    　　┗┓&&&┓-┏&&&┓┏┛-|
+ *    　　　┃┫┫　 ┃┫┫
+ *    　　　┗┻┛　 ┗┻┛
  *
  *
  "CODE IS FAR AWAY FROM BUG WITH THE ANIMAL PROTECTING"
