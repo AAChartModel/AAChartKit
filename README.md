@@ -189,6 +189,44 @@ static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid 
 static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 ```
+8. Supported animation type 
+```objective-c
+typedef NS_ENUM(NSInteger,AAChartAnimationType){
+    AAChartAnimationTypeLinear =0,
+    AAChartAnimationTypeSwing,
+    AAChartAnimationTypeEaseInQuad,
+    AAChartAnimationTypeEaseOutQuad,
+    AAChartAnimationTypeEaseInOutQuad,
+    AAChartAnimationTypeEaseInCubic,
+    AAChartAnimationTypeEaseOutCubic,
+    AAChartAnimationTypeEaseInOutCubic,
+    AAChartAnimationTypeEaseInQuart,
+    AAChartAnimationTypeEaseOutQuart,
+    AAChartAnimationTypeEaseInOutQuart,
+    AAChartAnimationTypeEaseInQuint,
+    AAChartAnimationTypeEaseOutQuint,
+    AAChartAnimationTypeEaseInOutQuint,
+    AAChartAnimationTypeEaseInExpo,
+    AAChartAnimationTypeEaseOutExpo,
+    AAChartAnimationTypeEaseInOutExpo,
+    AAChartAnimationTypeEaseInSine,
+    AAChartAnimationTypeEaseOutSine,
+    AAChartAnimationTypeEaseInOutSine,
+    AAChartAnimationTypeEaseInCirc,
+    AAChartAnimationTypeEaseOutCirc,
+    AAChartAnimationTypeEaseInOutCirc,
+    AAChartAnimationTypeEaseInElastic,
+    AAChartAnimationTypeEaseOutElastic,
+    AAChartAnimationTypeEaseInOutElastic,
+    AAChartAnimationTypeEaseInBack,
+    AAChartAnimationTypeEaseOutBack,
+    AAChartAnimationTypeEaseInOutBack,
+    AAChartAnimationTypeEaseInBounce,
+    AAChartAnimationTypeEaseOutBounce,
+    AAChartAnimationTypeEaseInOutBounce,
+};
+
+```
 ## Samples
 - line chart
 

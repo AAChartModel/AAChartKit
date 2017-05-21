@@ -189,6 +189,45 @@ static AAChartType const AAChartTypePyramid     = @"pyramid";    //金字塔图
 static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
 static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
 ```
+
+8. 支持的图表渲染动画类型
+```objective-c
+typedef NS_ENUM(NSInteger,AAChartAnimationType){
+    AAChartAnimationTypeLinear =0,
+    AAChartAnimationTypeSwing,
+    AAChartAnimationTypeEaseInQuad,
+    AAChartAnimationTypeEaseOutQuad,
+    AAChartAnimationTypeEaseInOutQuad,
+    AAChartAnimationTypeEaseInCubic,
+    AAChartAnimationTypeEaseOutCubic,
+    AAChartAnimationTypeEaseInOutCubic,
+    AAChartAnimationTypeEaseInQuart,
+    AAChartAnimationTypeEaseOutQuart,
+    AAChartAnimationTypeEaseInOutQuart,
+    AAChartAnimationTypeEaseInQuint,
+    AAChartAnimationTypeEaseOutQuint,
+    AAChartAnimationTypeEaseInOutQuint,
+    AAChartAnimationTypeEaseInExpo,
+    AAChartAnimationTypeEaseOutExpo,
+    AAChartAnimationTypeEaseInOutExpo,
+    AAChartAnimationTypeEaseInSine,
+    AAChartAnimationTypeEaseOutSine,
+    AAChartAnimationTypeEaseInOutSine,
+    AAChartAnimationTypeEaseInCirc,
+    AAChartAnimationTypeEaseOutCirc,
+    AAChartAnimationTypeEaseInOutCirc,
+    AAChartAnimationTypeEaseInElastic,
+    AAChartAnimationTypeEaseOutElastic,
+    AAChartAnimationTypeEaseInOutElastic,
+    AAChartAnimationTypeEaseInBack,
+    AAChartAnimationTypeEaseOutBack,
+    AAChartAnimationTypeEaseInOutBack,
+    AAChartAnimationTypeEaseInBounce,
+    AAChartAnimationTypeEaseOutBounce,
+    AAChartAnimationTypeEaseInOutBounce,
+};
+
+```
 ###  AAChartModel一些重要属性经过配置之后的图形示例如下
 - 常规折线图
 ![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)

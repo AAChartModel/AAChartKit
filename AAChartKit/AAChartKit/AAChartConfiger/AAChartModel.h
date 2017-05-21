@@ -99,7 +99,6 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 };
 
 @interface AAChartModel : NSObject
-AAPropStatementAndFuncStatement(assign, AAChartModel, NSUInteger, animationType);
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
@@ -110,6 +109,8 @@ AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartType, chartType);//�
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartStackingType, stacking);//堆积样式
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSymbolType, symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartZoomType, zoomType);//缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
+AAPropStatementAndFuncStatement(assign, AAChartModel, NSUInteger, animationType);//设置图表的渲染动画类型
+
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, inverted);//x 轴是否垂直

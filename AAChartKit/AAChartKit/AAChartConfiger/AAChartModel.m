@@ -44,7 +44,6 @@
     }
     return self;
 }
-AAPropSetFuncImplementation(AAChartModel, NSUInteger, animationType);
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
@@ -53,6 +52,7 @@ AAPropSetFuncImplementation(AAChartModel, AAChartType, chartType);//图表类型
 AAPropSetFuncImplementation(AAChartModel, AAChartStackingType , stacking);//堆积类型
 AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType , symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropSetFuncImplementation(AAChartModel, AAChartZoomType , zoomType);//缩放类型
+AAPropSetFuncImplementation(AAChartModel, NSUInteger, animationType);//设置图表的渲染动画类型
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropSetFuncImplementation(AAChartModel, BOOL , inverted);
