@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         self.chartType = AAChartTypeColumn;
+        self.animationType = AAChartAnimationTypeLinear;
         self.subtitleAlign = AAChartSubtitleAlignTypeLeft;
         self.pointHollow =NO;
         self.inverted = NO;
@@ -43,6 +44,7 @@
     }
     return self;
 }
+AAPropSetFuncImplementation(AAChartModel, NSUInteger, animationType);
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.

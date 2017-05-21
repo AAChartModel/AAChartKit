@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "AAOptions.h"
 #import "AAChart.h"
+#import "AAAnimation.h"
 #import "AATitle.h"
 #import "AASubtitle.h"
 #import "AAXAxis.h"

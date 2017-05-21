@@ -62,7 +62,44 @@ static AAChartLegendAlignType const AAChartLegendAlignTypeRight    = @"right";
 static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeTop     = @"top";
 static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeMiddle  = @"middle";
 static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeBottom  = @"bottom";
+
+typedef NS_ENUM(NSInteger,AAChartAnimationType){
+    AAChartAnimationTypeLinear =0,
+    AAChartAnimationTypeSwing,
+    AAChartAnimationTypeEaseInQuad,
+    AAChartAnimationTypeEaseOutQuad,
+    AAChartAnimationTypeEaseInOutQuad,
+    AAChartAnimationTypeEaseInCubic,
+    AAChartAnimationTypeEaseOutCubic,
+    AAChartAnimationTypeEaseInOutCubic,
+    AAChartAnimationTypeEaseInQuart,
+    AAChartAnimationTypeEaseOutQuart,
+    AAChartAnimationTypeEaseInOutQuart,
+    AAChartAnimationTypeEaseInQuint,
+    AAChartAnimationTypeEaseOutQuint,
+    AAChartAnimationTypeEaseInOutQuint,
+    AAChartAnimationTypeEaseInExpo,
+    AAChartAnimationTypeEaseOutExpo,
+    AAChartAnimationTypeEaseInOutExpo,
+    AAChartAnimationTypeEaseInSine,
+    AAChartAnimationTypeEaseOutSine,
+    AAChartAnimationTypeEaseInOutSine,
+    AAChartAnimationTypeEaseInCirc,
+    AAChartAnimationTypeEaseOutCirc,
+    AAChartAnimationTypeEaseInOutCirc,
+    AAChartAnimationTypeEaseInElastic,
+    AAChartAnimationTypeEaseOutElastic,
+    AAChartAnimationTypeEaseInOutElastic,
+    AAChartAnimationTypeEaseInBack,
+    AAChartAnimationTypeEaseOutBack,
+    AAChartAnimationTypeEaseInOutBack,
+    AAChartAnimationTypeEaseInBounce,
+    AAChartAnimationTypeEaseOutBounce,
+    AAChartAnimationTypeEaseInOutBounce,
+};
+
 @interface AAChartModel : NSObject
+AAPropStatementAndFuncStatement(assign, AAChartModel, NSUInteger, animationType);
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.

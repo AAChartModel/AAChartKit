@@ -38,7 +38,7 @@ AAPropSetFuncImplementation(AAChart, NSNumber *, plotBorderWidth);
 AAPropSetFuncImplementation(AAChart, BOOL, plotShadow);
 AAPropSetFuncImplementation(AAChart, BOOL , polar);
 AAPropSetFuncImplementation(AAChart, AAOptions3d *, options3d);
-AAPropSetFuncImplementation(AAChart, BOOL , animation);
+AAPropSetFuncImplementation(AAChart, AAAnimation * , animation);
 AAPropSetFuncImplementation(AAChart, BOOL , inverted);
 //AAPropSetFuncImplementation(AAChart, NSArray *, spacing);
 AAPropSetFuncImplementation(AAChart, NSNumber *, spacingBottom);

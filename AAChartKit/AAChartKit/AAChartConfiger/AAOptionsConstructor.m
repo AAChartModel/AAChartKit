@@ -11,11 +11,49 @@
 
 @implementation AAOptionsConstructor
 +(AAOptions *)configColumnAndBarAndSoONChartOptionsWithAAChartModel:(AAChartModel *)chartModel{
+    
+    NSArray *chartAnimationTypeArr =@[
+                                      @"linear",
+                                      @"swing",
+                                      @"easeInQuad",
+                                      @"easeInOutQuad",
+                                      @"easeInCubic",
+                                      @"easeOutCubic",
+                                      @"easeInOutCubic",
+                                      @"easeInQuart",
+                                      @"easeOutQuart",
+                                      @"easeInOutQuart",
+                                      @"easeInQuint",
+                                      @"easeOutQuint",
+                                      @"easeInOutQuint",
+                                      @"easeInExpo",
+                                      @"easeOutExpo",
+                                      @"easeInOutExpo",
+                                      @"easeInSine",
+                                      @"easeOutSine",
+                                      @"easeInOutSine",
+                                      @"easeInCirc",
+                                      @"easeOutCirc",
+                                      @"easeInOutCirc",
+                                      @"easeInElastic",
+                                      @"easeOutElastic",
+                                      @"easeInOutElastic",
+                                      @"easeInBack",
+                                      @"easeOutBack",
+                                      @"easeInOutBack",
+                                      @"easeInBounce",
+                                      @"easeOutBounce",
+                                      @"easeInOutBounce",
+                                      ];
+    NSString *chartAnimationType = chartAnimationTypeArr[chartModel.animationType];
+    
     AAChart *chart = AAObject(AAChart)
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
     .backgroundColorSet(chartModel.backgroundColor)
-    .animationSet(true)//设置是否启用动画(不过我好像记得这里的动画指的是点击 legend 的时候的动画)
+    .animationSet(AAObject(AAAnimation)
+                  .durationSet(@100)
+                  .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar)
@@ -82,7 +120,7 @@
     AAMarker *marker =AAObject(AAMarker)
     .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
     .symbolSet(chartModel.symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-
+    
     ;
     
     if (chartModel.pointHollow==YES) {
@@ -162,7 +200,7 @@
                                                     )
                                           )
                            .showInLegendSet(true)
-                            );
+                           );
     }
     
     

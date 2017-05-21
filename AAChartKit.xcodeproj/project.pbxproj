@@ -18,6 +18,7 @@
 		64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */ = {isa = PBXBuildFile; fileRef = 64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */; };
 		6458F4A01E9A76C700770AA9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6458F49F1E9A76C700770AA9 /* LICENSE */; };
 		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
+		649025A51ED1A515009EA1A7 /* AAAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 649025A41ED1A515009EA1A7 /* AAAnimation.m */; };
 		7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910B1E80B2F400382A09 /* IMG_1871.JPG */; };
 		7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910D1E80B30300382A09 /* IMG_1870.JPG */; };
 		713191101E80B31200382A09 /* IMG_1869.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910F1E80B31200382A09 /* IMG_1869.JPG */; };
@@ -104,6 +105,8 @@
 		6458F49F1E9A76C700770AA9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../ChartsDemo/LICENSE; sourceTree = "<group>"; };
 		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
+		649025A31ED1A515009EA1A7 /* AAAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAnimation.h; sourceTree = "<group>"; };
+		649025A41ED1A515009EA1A7 /* AAAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAnimation.m; sourceTree = "<group>"; };
 		7131910B1E80B2F400382A09 /* IMG_1871.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1871.JPG; sourceTree = "<group>"; };
 		7131910D1E80B30300382A09 /* IMG_1870.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1870.JPG; sourceTree = "<group>"; };
 		7131910F1E80B31200382A09 /* IMG_1869.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1869.JPG; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 			children = (
 				713F54581E7B71CB00D506C7 /* AAChart.h */,
 				713F54591E7B71CB00D506C7 /* AAChart.m */,
+				649025A31ED1A515009EA1A7 /* AAAnimation.h */,
+				649025A41ED1A515009EA1A7 /* AAAnimation.m */,
 				713F547C1E7B71CB00D506C7 /* AATitle.h */,
 				713F547D1E7B71CB00D506C7 /* AATitle.m */,
 				713F547A1E7B71CB00D506C7 /* AASubtitle.h */,
@@ -596,6 +601,7 @@
 				713F54A01E7B71CB00D506C7 /* AASpline.m in Sources */,
 				713F54931E7B71CB00D506C7 /* AADataLabels.m in Sources */,
 				713F543E1E7B71C000D506C7 /* SecondViewController.m in Sources */,
+				649025A51ED1A515009EA1A7 /* AAAnimation.m in Sources */,
 				713F54A11E7B71CB00D506C7 /* AAStyle.m in Sources */,
 				713F54961E7B71CB00D506C7 /* AALegend.m in Sources */,
 				713F54851E7B71CB00D506C7 /* AAChartView.m in Sources */,
