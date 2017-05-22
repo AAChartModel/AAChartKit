@@ -190,7 +190,7 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
 static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
 ```
 
-8. 支持的图表渲染动画类型
+8. 当前已支持的图表渲染动画类型有十种以上,说明如下
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,
@@ -325,7 +325,7 @@ An An
  ```
 
 ### 许可证
-本项目使用 MIT许可证,详情请点击[MIT license](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)
+本项目使用 MIT许可证,详情请点击[MIT LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)
 
 ### 附言
 在 `AAChartKit` 封装库的初始设计中,为提升`.js`文件的加载速度,故将所依赖的`.js`文件放置在本地.然而由于本项目功能较多,故放置于本地的附加`JavaScript`文件库体积较大,整个`AAJSFiles`文件夹下所有的`.js`文件体积合计共有`5.3M左右`,若对工程文件体积大小较为敏感的使用者,可使用以下建议的替代方案

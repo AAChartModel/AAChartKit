@@ -173,7 +173,7 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                )
     ;
 ```
-7. Supported chart for now 
+7. Supported chart type for now 
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";      //column chart
@@ -189,7 +189,7 @@ static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid 
 static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 ```
-8. Supported animation type 
+8. Supported animation type for now
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,
@@ -358,9 +358,44 @@ An An
                    BUDDHA_BLESS_YOU       
                       AWAY_FROM
                          BUG
+
 ```
 
-### License
+### LICENSE
 
-AAChartKit is Copyright (c) 2017 An An and released as open source under the attached [MIT license](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE).
+AAChartKit is Copyright (c) 2017 An An and released as open source under the attached [MIT LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE).
+
+### Postscript
+If you want to shrink the size of the `AAChartKit` lib ,you should do something like this:
+1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`,The names of multiple files that need to be deleted are as follows
+
+* AAJQueryLibrary.js 
+* AAHighChartsLibrary.js
+* AAHighchartsMore.js
+* AAHighCharts-3d.js
+* AAFunnel.js
+
+2.Change the content of `AAChartView.html` file 
+``` html
+<script src="AAJQueryLibrary.js">
+</script>
+<script src="AAHighchartsLibrary.js">
+</script>
+<script src="AAHighchartsMore.js">
+</script>
+<script src="AAHighcharts-3d.js">
+</script>
+<script src="AAFunnel.js">
+</script>
+```
+to be 
+
+``` html
+<script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js">
+</script>
+<script src="https://img.hcharts.cn/highcharts/highcharts.js">
+</script>
+<script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
+</script>
+```
 
