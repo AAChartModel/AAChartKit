@@ -370,9 +370,9 @@ If you want to shrink the size of the `AAChartKit` lib ,you should do something 
 1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`,The names of multiple files that need to be deleted are as follows
 
 * AAJQueryLibrary.js 
-* AAHighChartsLibrary.js
+* AAHighchartsLibrary.js
 * AAHighchartsMore.js
-* AAHighCharts-3d.js
+* AAHighcharts-3d.js
 * AAFunnel.js
 
 2.Change the content of `AAChartView.html` file 
