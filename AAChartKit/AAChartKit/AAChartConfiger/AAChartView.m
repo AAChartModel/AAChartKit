@@ -75,6 +75,13 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
 }
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
+    if (error) {
+        NSLog(@"%@",self.json);
+        NSLog(@"%@",error);
+     }
+}
+
 -(void)drawChart{
     NSString *javaScriptStr =[self configTheJavaScriptString];
     [self  stringByEvaluatingJavaScriptFromString:javaScriptStr];
