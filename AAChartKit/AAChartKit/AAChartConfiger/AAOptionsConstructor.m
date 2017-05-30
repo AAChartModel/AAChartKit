@@ -51,9 +51,9 @@
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
     .backgroundColorSet(chartModel.backgroundColor)
-    .animationSet(AAObject(AAAnimation)
-                  .durationSet(@100)
-                  .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型
+//    .animationSet(AAObject(AAAnimation)
+//                  .durationSet(@100)
+//                  .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar)
@@ -115,6 +115,10 @@
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
                .stackingSet(chartModelStacking)//设置是否百分比堆叠显示图形
+               .animationSet(AAObject(AAAnimation)
+                             .easingSet(chartAnimationType)
+                             .durationSet(chartModel.animationDuration)
+                             )
                );
     
     AAMarker *marker =AAObject(AAMarker)

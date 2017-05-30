@@ -15,7 +15,8 @@
     self = [super init];
     if (self) {
         self.chartType = AAChartTypeColumn;
-        self.animationType = AAChartAnimationTypeLinear;
+        self.animationType = AAChartAnimationTypeSwing;//默认使用jQuery easing的'swing'效果
+        self.animationDuration = @500;//默认动画时长为500毫秒
         self.subtitleAlign = AAChartSubtitleAlignTypeLeft;
         self.pointHollow =NO;
         self.inverted = NO;
@@ -52,7 +53,9 @@ AAPropSetFuncImplementation(AAChartModel, AAChartType, chartType);//图表类型
 AAPropSetFuncImplementation(AAChartModel, AAChartStackingType , stacking);//堆积类型
 AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType , symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropSetFuncImplementation(AAChartModel, AAChartZoomType , zoomType);//缩放类型
-AAPropSetFuncImplementation(AAChartModel, NSUInteger, animationType);//设置图表的渲染动画类型
+AAPropSetFuncImplementation(AAChartModel, AAChartAnimationType, animationType);//设置图表的渲染动画类型
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//x轴网格线的宽度
+
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropSetFuncImplementation(AAChartModel, BOOL , inverted);

@@ -9,10 +9,13 @@
 
 #import "AASeries.h"
 #import "AAMarker.h"
+#import "AAAnimation.h"
 
 
 @implementation AASeries
 AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadius);
 AAPropSetFuncImplementation(AASeries, AAMarker *, marker);
 AAPropSetFuncImplementation(AASeries, NSString *, stacking);
+AAPropSetFuncImplementation(AASeries,  AAAnimation*, animation);
+
 @end
