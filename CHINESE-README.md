@@ -190,7 +190,7 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
 static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
 ```
 
-8. 当前已支持的图表渲染动画类型有十种以上,说明如下
+8. 当前已支持的图表渲染动画类型有三十种以上,说明如下
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,
