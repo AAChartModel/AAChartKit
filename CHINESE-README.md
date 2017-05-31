@@ -3,8 +3,9 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)&nbsp;
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
-### 查看网页版说明书`(附有交互式图表)`请点击链接
-http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocumentLive.html
+### 您所喜爱的 AAChartKit 开源图表库现在更有`swift`版本可供使用,详情请点击以下链接
+传送门
+https://github.com/AAChartModel/AAChartKit-Swift
 ***
 ## 前言
 ###### AAChartKit项目,是在流行的开源前端图表库*Highcharts*的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制控件.

@@ -2,6 +2,8 @@
 #### An elegant and friendly chart library for iOS developer
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE)&nbsp;
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
+### There is the link of Swift version of AAChartKit as follow
+https://github.com/AAChartModel/AAChartKit-Swift
 
 ### 中文使用说明书地址
 
