@@ -229,27 +229,54 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 
 ```
 ###  AAChartModel一些重要属性经过配置之后的图形示例如下
-- 常规折线图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
-- 常规柱形图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1873.JPG)
+- line chart - 折线图
 
--  y 轴翻转的堆积曲线填充图 
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1871.JPG)
--  x 轴直立并且 y 轴翻转的堆积曲线填充图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1869.JPG)
--  x 轴直立并且 y 轴翻转的百分比堆积曲线填充图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1863.JPG)
+![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
+- column chart - 柱形图
+ 
+![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
 
--   辐射化堆积折线填充图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1870.JPG)
--   辐射化百分比堆积折线填充图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1868.JPG)
+-   bar chart - 条形图
 
-- 头部为椭圆形的百分比堆积柱形图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1866.JPG)
-- 头部为楔形的百分比堆积条形图
-![image]( https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1865.JPG)
+![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1880.JPG
+)
+
+-  special area chart one - 区域填充图一
+
+![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
+-  special area chart two - 区域填充图二
+![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1874.JPG)
+
+
+-  special area chart three - 区域填充图三
+
+![IMG_1863.JPG](http://upload-images.jianshu.io/upload_images/2412088-dbbcf79f7946bb96.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+-   radar chart - 雷达图
+
+![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1877.JPG
+)
+
+-   polar chart - 极地图
+
+![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1879.JPG
+)
+-   pie chart - 扇形图
+
+![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1878.JPG
+)
+
+- the oval style column chart - 头部为椭圆形的柱形图
+
+![IMG_1866.JPG](http://upload-images.jianshu.io/upload_images/2412088-4e2e142fc4bae5c2.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- bubble chart - 气泡图
+
+![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1875.JPG
+)
+
+- mixed chart - 混合图形
+![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1882.JPG)
+
 ### AAChartModel 属性配置列表
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
