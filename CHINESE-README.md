@@ -250,7 +250,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 
 -  special area chart three - 区域填充图三
 
-![IMG_1863.JPG](http://upload-images.jianshu.io/upload_images/2412088-dbbcf79f7946bb96.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_1863.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1863.JPG)
 
 -   radar chart - 雷达图
 
@@ -268,7 +268,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 
 - the oval style column chart - 头部为椭圆形的柱形图
 
-![IMG_1866.JPG](http://upload-images.jianshu.io/upload_images/2412088-4e2e142fc4bae5c2.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1866.JPG)
 - bubble chart - 气泡图
 
 ![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1875.JPG
