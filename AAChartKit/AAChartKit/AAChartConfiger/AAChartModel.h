@@ -110,7 +110,7 @@ AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartStackingType, stackin
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSymbolType, symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartZoomType, zoomType);//缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
 AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimationType, animationType);//设置图表的渲染动画类型
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//x轴网格线的宽度
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
 
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的

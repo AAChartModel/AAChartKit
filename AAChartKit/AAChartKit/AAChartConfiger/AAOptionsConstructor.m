@@ -143,6 +143,10 @@
                               .stackingSet(chartModelStacking)
                               .markerSet(marker
                                          )
+                              .animationSet(AAObject(AAAnimation)
+                                            .easingSet(chartAnimationType)
+                                            .durationSet(chartModel.animationDuration)
+                                            )
                               );
     }
     
