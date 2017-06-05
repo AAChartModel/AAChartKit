@@ -10,7 +10,10 @@
 #import "AAChartView.h"
 #import "AAJsonConverter.h"
 #import "AAOptionsConstructor.h"
-@implementation AAChartView
+@implementation AAChartView{
+    NSString *_json;
+    NSString *_optionsDic;
+}
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -28,7 +31,7 @@
 -(void)configTheOptionsWithChartModel:(AAChartModel *)chartModel{
     AAOptions *options =AAObject(AAOptions);
     options = [AAOptionsConstructor configColumnAndBarAndSoONChartOptionsWithAAChartModel:chartModel];
-    self.json = [AAJsonConverter getPureOptionsString:options];
+    _json = [AAJsonConverter getPureOptionsString:options];
 }
 -(NSString *)configTheJavaScriptString{
     
@@ -41,7 +44,7 @@
         charViewContentHeight = self.contentHeight;
     }
     
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",self.json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:charViewContentHeight]];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",_json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:charViewContentHeight]];
     return javaScriptStr;
 }
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel{
@@ -64,7 +67,7 @@
     NSString *javaScriptStr = [self configTheJavaScriptString];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"%@",self.json);
+            NSLog(@"%@",_json);
             NSLog(@"%@",error);
             
         }

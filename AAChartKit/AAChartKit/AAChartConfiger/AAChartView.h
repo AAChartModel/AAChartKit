@@ -22,8 +22,6 @@
 #endif
 
 @interface AAChartView : AAWebView<AAWebViewDelegate>
-@property(nonatomic,copy)NSString *json;
-@property(nonatomic,strong)NSDictionary *optionsDic;
 
 @property(nonatomic,assign)CGFloat contentWidth;//content width of AAChartView
 @property(nonatomic,assign)CGFloat contentHeight;//content height of AAChartView
