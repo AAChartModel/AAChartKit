@@ -35,16 +35,16 @@
 }
 -(NSString *)configTheJavaScriptString{
     
-    CGFloat chartViewContentWidth = self.contentWidth;;
+    CGFloat chartViewContentWidth = self.contentWidth;
      
-    CGFloat charViewContentHeight;
+    CGFloat chartViewContentHeight;
     if (self.contentHeight ==0) {
-        charViewContentHeight = self.frame.size.height;
+        chartViewContentHeight = self.frame.size.height;
     }else{
-        charViewContentHeight = self.contentHeight;
+        chartViewContentHeight = self.contentHeight;
     }
     
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",_json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:charViewContentHeight]];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",_json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight]];
     return javaScriptStr;
 }
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel{
