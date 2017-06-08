@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AAItemStyle : NSObject
 AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, color);

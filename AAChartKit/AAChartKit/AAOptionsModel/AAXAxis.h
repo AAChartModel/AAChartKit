@@ -10,6 +10,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 @class AALabels;
 @interface AAXAxis : NSObject
 AAPropStatementAndFuncStatement(strong, AAXAxis, id, categories);

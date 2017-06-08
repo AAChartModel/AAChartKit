@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AAJsonConverter : NSObject
 +(NSString *)getPureOptionsString:(id)optionsObject;

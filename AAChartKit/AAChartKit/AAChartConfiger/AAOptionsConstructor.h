@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 #import "AAOptions.h"
 #import "AAChart.h"
 #import "AAAnimation.h"

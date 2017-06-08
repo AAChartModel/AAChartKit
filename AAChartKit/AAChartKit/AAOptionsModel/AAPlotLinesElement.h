@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AAPlotLinesElement : NSObject
 AAPropStatementAndFuncStatement(copy, AAPlotLinesElement, NSString *, color);//基线颜色

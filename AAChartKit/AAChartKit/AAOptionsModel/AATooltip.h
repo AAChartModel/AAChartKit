@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AATooltip : NSObject
 AAPropStatementAndFuncStatement(copy, AATooltip, NSString *, headerFormat);
