@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
     s.source_files = 'AAChartKit/**/*.{h,m}'
     s.resource     = 'AAChartKit/AAChartKit.bundle'
     s.requires_arc = true
-end
+    s.prefix_header_contents = '#import "AAGlobalMacro.h"'
+ end
