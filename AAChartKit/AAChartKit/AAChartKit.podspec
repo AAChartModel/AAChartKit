@@ -9,5 +9,4 @@ Pod::Spec.new do |s|
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.source_files = 'AAChartKit', 'AAChartKit/**/*.{h,m}'
     s.requires_arc = true
-    s.prefix_header_contents = '#import "AAGlobalMacro.h"'
  end
