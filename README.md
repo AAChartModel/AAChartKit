@@ -25,11 +25,8 @@ https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md
 ## Method of use:
 
 ### The need of preparation
-1. Drag the folder `AAChartKitFiles` into your project.
-1. Add the following content into your `.pch` file.
-```objective-c
-#import "AAGlobalMacro.h"
-```
+* Drag the folder `AAChartKitFiles` into your project.
+ 
 
 ### The offical start of the work 
 1.Add the following content into `your view controller` file.
