@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = 'AAChartKit'
-    s.version      = '2.0.0'
+    s.version      = '2.0.1'
     s.summary      = 'An elegant and friendly chart library for iOS developer'
     s.homepage     = 'https://github.com/AAChartModel/AAChartKit'
     s.license      = 'MIT'
