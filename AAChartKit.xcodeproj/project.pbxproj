@@ -15,44 +15,44 @@
 		64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AD71EC37495005B8021 /* IMG_1880.JPG */; };
 		64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AD91EC4BA44005B8021 /* IMG_1882.JPG */; };
 		64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */ = {isa = PBXBuildFile; fileRef = 64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */; };
-		643141AB1EF43A390042B3CB /* AAChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141651EF43A390042B3CB /* AAChartModel.m */; };
-		643141AC1EF43A390042B3CB /* AAChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141671EF43A390042B3CB /* AAChartView.m */; };
-		643141AD1EF43A390042B3CB /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431416A1EF43A390042B3CB /* AAJsonConverter.m */; };
-		643141AE1EF43A390042B3CB /* AAOptionsConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431416C1EF43A390042B3CB /* AAOptionsConstructor.m */; };
-		643141AF1EF43A390042B3CB /* AAChartKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6431416D1EF43A390042B3CB /* AAChartKit.podspec */; };
-		643141B01EF43A390042B3CB /* AAChartView.html in Resources */ = {isa = PBXBuildFile; fileRef = 6431416F1EF43A390042B3CB /* AAChartView.html */; };
-		643141B11EF43A390042B3CB /* AAFunnel.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141701EF43A390042B3CB /* AAFunnel.js */; };
-		643141B21EF43A390042B3CB /* AAHighcharts-3d.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141711EF43A390042B3CB /* AAHighcharts-3d.js */; };
-		643141B31EF43A390042B3CB /* AAHighchartsLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141721EF43A390042B3CB /* AAHighchartsLibrary.js */; };
-		643141B41EF43A390042B3CB /* AAHighchartsMore.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141731EF43A390042B3CB /* AAHighchartsMore.js */; };
-		643141B51EF43A390042B3CB /* AAJQueryLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141741EF43A390042B3CB /* AAJQueryLibrary.js */; };
-		643141B61EF43A390042B3CB /* AAAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141771EF43A390042B3CB /* AAAnimation.m */; };
-		643141B71EF43A390042B3CB /* AAArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141791EF43A390042B3CB /* AAArea.m */; };
-		643141B81EF43A390042B3CB /* AAAreaspline.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431417B1EF43A390042B3CB /* AAAreaspline.m */; };
-		643141B91EF43A390042B3CB /* AABar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431417D1EF43A390042B3CB /* AABar.m */; };
-		643141BA1EF43A390042B3CB /* AAChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431417F1EF43A390042B3CB /* AAChart.m */; };
-		643141BB1EF43A390042B3CB /* AAColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141811EF43A390042B3CB /* AAColumn.m */; };
-		643141BC1EF43A390042B3CB /* AADataLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141831EF43A390042B3CB /* AADataLabels.m */; };
-		643141BD1EF43A390042B3CB /* AAItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141851EF43A390042B3CB /* AAItemStyle.m */; };
-		643141BE1EF43A390042B3CB /* AALabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141871EF43A390042B3CB /* AALabels.m */; };
-		643141BF1EF43A390042B3CB /* AALegend.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141891EF43A390042B3CB /* AALegend.m */; };
-		643141C01EF43A390042B3CB /* AALine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431418B1EF43A390042B3CB /* AALine.m */; };
-		643141C11EF43A390042B3CB /* AAMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431418D1EF43A390042B3CB /* AAMarker.m */; };
-		643141C21EF43A390042B3CB /* AAOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431418F1EF43A390042B3CB /* AAOptions.m */; };
-		643141C31EF43A390042B3CB /* AAOptions3d.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141911EF43A390042B3CB /* AAOptions3d.m */; };
-		643141C41EF43A390042B3CB /* AAPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141931EF43A390042B3CB /* AAPie.m */; };
-		643141C51EF43A390042B3CB /* AAPlotLinesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141951EF43A390042B3CB /* AAPlotLinesElement.m */; };
-		643141C61EF43A390042B3CB /* AAPlotOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141971EF43A390042B3CB /* AAPlotOptions.m */; };
-		643141C71EF43A390042B3CB /* AASeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141991EF43A390042B3CB /* AASeries.m */; };
-		643141C81EF43A390042B3CB /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431419B1EF43A390042B3CB /* AASeriesElement.m */; };
-		643141C91EF43A390042B3CB /* AASpline.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431419D1EF43A390042B3CB /* AASpline.m */; };
-		643141CA1EF43A390042B3CB /* AAStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431419F1EF43A390042B3CB /* AAStyle.m */; };
-		643141CB1EF43A390042B3CB /* AASubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141A11EF43A390042B3CB /* AASubtitle.m */; };
-		643141CC1EF43A390042B3CB /* AATitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141A31EF43A390042B3CB /* AATitle.m */; };
-		643141CD1EF43A390042B3CB /* AATooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141A51EF43A390042B3CB /* AATooltip.m */; };
-		643141CE1EF43A390042B3CB /* AAXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141A71EF43A390042B3CB /* AAXAxis.m */; };
-		643141CF1EF43A390042B3CB /* AAYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141A91EF43A390042B3CB /* AAYAxis.m */; };
-		643141D01EF43A390042B3CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 643141AA1EF43A390042B3CB /* LICENSE */; };
+		6431421A1EF43CDA0042B3CB /* AAChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141D41EF43CDA0042B3CB /* AAChartModel.m */; };
+		6431421B1EF43CDA0042B3CB /* AAChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141D61EF43CDA0042B3CB /* AAChartView.m */; };
+		6431421C1EF43CDA0042B3CB /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141D91EF43CDA0042B3CB /* AAJsonConverter.m */; };
+		6431421D1EF43CDA0042B3CB /* AAOptionsConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141DB1EF43CDA0042B3CB /* AAOptionsConstructor.m */; };
+		6431421E1EF43CDA0042B3CB /* AAChartKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 643141DC1EF43CDA0042B3CB /* AAChartKit.podspec */; };
+		6431421F1EF43CDA0042B3CB /* AAChartView.html in Resources */ = {isa = PBXBuildFile; fileRef = 643141DE1EF43CDA0042B3CB /* AAChartView.html */; };
+		643142201EF43CDA0042B3CB /* AAFunnel.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141DF1EF43CDA0042B3CB /* AAFunnel.js */; };
+		643142211EF43CDA0042B3CB /* AAHighcharts-3d.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141E01EF43CDA0042B3CB /* AAHighcharts-3d.js */; };
+		643142221EF43CDA0042B3CB /* AAHighchartsLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141E11EF43CDA0042B3CB /* AAHighchartsLibrary.js */; };
+		643142231EF43CDA0042B3CB /* AAHighchartsMore.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141E21EF43CDA0042B3CB /* AAHighchartsMore.js */; };
+		643142241EF43CDA0042B3CB /* AAJQueryLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 643141E31EF43CDA0042B3CB /* AAJQueryLibrary.js */; };
+		643142251EF43CDA0042B3CB /* AAAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141E61EF43CDA0042B3CB /* AAAnimation.m */; };
+		643142261EF43CDA0042B3CB /* AAArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141E81EF43CDA0042B3CB /* AAArea.m */; };
+		643142271EF43CDA0042B3CB /* AAAreaspline.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141EA1EF43CDA0042B3CB /* AAAreaspline.m */; };
+		643142281EF43CDA0042B3CB /* AABar.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141EC1EF43CDA0042B3CB /* AABar.m */; };
+		643142291EF43CDA0042B3CB /* AAChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141EE1EF43CDA0042B3CB /* AAChart.m */; };
+		6431422A1EF43CDA0042B3CB /* AAColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141F01EF43CDA0042B3CB /* AAColumn.m */; };
+		6431422B1EF43CDA0042B3CB /* AADataLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141F21EF43CDA0042B3CB /* AADataLabels.m */; };
+		6431422C1EF43CDA0042B3CB /* AAItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141F41EF43CDA0042B3CB /* AAItemStyle.m */; };
+		6431422D1EF43CDA0042B3CB /* AALabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141F61EF43CDA0042B3CB /* AALabels.m */; };
+		6431422E1EF43CDA0042B3CB /* AALegend.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141F81EF43CDA0042B3CB /* AALegend.m */; };
+		6431422F1EF43CDA0042B3CB /* AALine.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141FA1EF43CDA0042B3CB /* AALine.m */; };
+		643142301EF43CDA0042B3CB /* AAMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141FC1EF43CDA0042B3CB /* AAMarker.m */; };
+		643142311EF43CDA0042B3CB /* AAOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 643141FE1EF43CDA0042B3CB /* AAOptions.m */; };
+		643142321EF43CDA0042B3CB /* AAOptions3d.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142001EF43CDA0042B3CB /* AAOptions3d.m */; };
+		643142331EF43CDA0042B3CB /* AAPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142021EF43CDA0042B3CB /* AAPie.m */; };
+		643142341EF43CDA0042B3CB /* AAPlotLinesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142041EF43CDA0042B3CB /* AAPlotLinesElement.m */; };
+		643142351EF43CDA0042B3CB /* AAPlotOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142061EF43CDA0042B3CB /* AAPlotOptions.m */; };
+		643142361EF43CDA0042B3CB /* AASeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142081EF43CDA0042B3CB /* AASeries.m */; };
+		643142371EF43CDA0042B3CB /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431420A1EF43CDA0042B3CB /* AASeriesElement.m */; };
+		643142381EF43CDA0042B3CB /* AASpline.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431420C1EF43CDA0042B3CB /* AASpline.m */; };
+		643142391EF43CDA0042B3CB /* AAStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431420E1EF43CDA0042B3CB /* AAStyle.m */; };
+		6431423A1EF43CDA0042B3CB /* AASubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142101EF43CDA0042B3CB /* AASubtitle.m */; };
+		6431423B1EF43CDA0042B3CB /* AATitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142121EF43CDA0042B3CB /* AATitle.m */; };
+		6431423C1EF43CDA0042B3CB /* AATooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142141EF43CDA0042B3CB /* AATooltip.m */; };
+		6431423D1EF43CDA0042B3CB /* AAXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142161EF43CDA0042B3CB /* AAXAxis.m */; };
+		6431423E1EF43CDA0042B3CB /* AAYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 643142181EF43CDA0042B3CB /* AAYAxis.m */; };
+		6431423F1EF43CDA0042B3CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 643142191EF43CDA0042B3CB /* LICENSE */; };
 		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
 		7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910B1E80B2F400382A09 /* IMG_1871.JPG */; };
 		7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910D1E80B30300382A09 /* IMG_1870.JPG */; };
@@ -101,75 +101,75 @@
 		64245AD71EC37495005B8021 /* IMG_1880.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1880.JPG; sourceTree = "<group>"; };
 		64245AD91EC4BA44005B8021 /* IMG_1882.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1882.JPG; sourceTree = "<group>"; };
 		64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartKitDocumentLive.html; sourceTree = "<group>"; };
-		643141641EF43A390042B3CB /* AAChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartModel.h; sourceTree = "<group>"; };
-		643141651EF43A390042B3CB /* AAChartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChartModel.m; sourceTree = "<group>"; };
-		643141661EF43A390042B3CB /* AAChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartView.h; sourceTree = "<group>"; };
-		643141671EF43A390042B3CB /* AAChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChartView.m; sourceTree = "<group>"; };
-		643141681EF43A390042B3CB /* AAGlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAGlobalMacro.h; sourceTree = "<group>"; };
-		643141691EF43A390042B3CB /* AAJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAJsonConverter.h; sourceTree = "<group>"; };
-		6431416A1EF43A390042B3CB /* AAJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAJsonConverter.m; sourceTree = "<group>"; };
-		6431416B1EF43A390042B3CB /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
-		6431416C1EF43A390042B3CB /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
-		6431416D1EF43A390042B3CB /* AAChartKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AAChartKit.podspec; sourceTree = "<group>"; };
-		6431416F1EF43A390042B3CB /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
-		643141701EF43A390042B3CB /* AAFunnel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAFunnel.js; sourceTree = "<group>"; };
-		643141711EF43A390042B3CB /* AAHighcharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "AAHighcharts-3d.js"; sourceTree = "<group>"; };
-		643141721EF43A390042B3CB /* AAHighchartsLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsLibrary.js; sourceTree = "<group>"; };
-		643141731EF43A390042B3CB /* AAHighchartsMore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsMore.js; sourceTree = "<group>"; };
-		643141741EF43A390042B3CB /* AAJQueryLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAJQueryLibrary.js; sourceTree = "<group>"; };
-		643141761EF43A390042B3CB /* AAAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAnimation.h; sourceTree = "<group>"; };
-		643141771EF43A390042B3CB /* AAAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAnimation.m; sourceTree = "<group>"; };
-		643141781EF43A390042B3CB /* AAArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAArea.h; sourceTree = "<group>"; };
-		643141791EF43A390042B3CB /* AAArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAArea.m; sourceTree = "<group>"; };
-		6431417A1EF43A390042B3CB /* AAAreaspline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAreaspline.h; sourceTree = "<group>"; };
-		6431417B1EF43A390042B3CB /* AAAreaspline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAreaspline.m; sourceTree = "<group>"; };
-		6431417C1EF43A390042B3CB /* AABar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABar.h; sourceTree = "<group>"; };
-		6431417D1EF43A390042B3CB /* AABar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABar.m; sourceTree = "<group>"; };
-		6431417E1EF43A390042B3CB /* AAChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChart.h; sourceTree = "<group>"; };
-		6431417F1EF43A390042B3CB /* AAChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChart.m; sourceTree = "<group>"; };
-		643141801EF43A390042B3CB /* AAColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAColumn.h; sourceTree = "<group>"; };
-		643141811EF43A390042B3CB /* AAColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAColumn.m; sourceTree = "<group>"; };
-		643141821EF43A390042B3CB /* AADataLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADataLabels.h; sourceTree = "<group>"; };
-		643141831EF43A390042B3CB /* AADataLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADataLabels.m; sourceTree = "<group>"; };
-		643141841EF43A390042B3CB /* AAItemStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAItemStyle.h; sourceTree = "<group>"; };
-		643141851EF43A390042B3CB /* AAItemStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAItemStyle.m; sourceTree = "<group>"; };
-		643141861EF43A390042B3CB /* AALabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALabels.h; sourceTree = "<group>"; };
-		643141871EF43A390042B3CB /* AALabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALabels.m; sourceTree = "<group>"; };
-		643141881EF43A390042B3CB /* AALegend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALegend.h; sourceTree = "<group>"; };
-		643141891EF43A390042B3CB /* AALegend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALegend.m; sourceTree = "<group>"; };
-		6431418A1EF43A390042B3CB /* AALine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALine.h; sourceTree = "<group>"; };
-		6431418B1EF43A390042B3CB /* AALine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALine.m; sourceTree = "<group>"; };
-		6431418C1EF43A390042B3CB /* AAMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAMarker.h; sourceTree = "<group>"; };
-		6431418D1EF43A390042B3CB /* AAMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAMarker.m; sourceTree = "<group>"; };
-		6431418E1EF43A390042B3CB /* AAOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptions.h; sourceTree = "<group>"; };
-		6431418F1EF43A390042B3CB /* AAOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptions.m; sourceTree = "<group>"; };
-		643141901EF43A390042B3CB /* AAOptions3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptions3d.h; sourceTree = "<group>"; };
-		643141911EF43A390042B3CB /* AAOptions3d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptions3d.m; sourceTree = "<group>"; };
-		643141921EF43A390042B3CB /* AAPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPie.h; sourceTree = "<group>"; };
-		643141931EF43A390042B3CB /* AAPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPie.m; sourceTree = "<group>"; };
-		643141941EF43A390042B3CB /* AAPlotLinesElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPlotLinesElement.h; sourceTree = "<group>"; };
-		643141951EF43A390042B3CB /* AAPlotLinesElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPlotLinesElement.m; sourceTree = "<group>"; };
-		643141961EF43A390042B3CB /* AAPlotOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPlotOptions.h; sourceTree = "<group>"; };
-		643141971EF43A390042B3CB /* AAPlotOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPlotOptions.m; sourceTree = "<group>"; };
-		643141981EF43A390042B3CB /* AASeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASeries.h; sourceTree = "<group>"; };
-		643141991EF43A390042B3CB /* AASeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASeries.m; sourceTree = "<group>"; };
-		6431419A1EF43A390042B3CB /* AASeriesElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASeriesElement.h; sourceTree = "<group>"; };
-		6431419B1EF43A390042B3CB /* AASeriesElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASeriesElement.m; sourceTree = "<group>"; };
-		6431419C1EF43A390042B3CB /* AASpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASpline.h; sourceTree = "<group>"; };
-		6431419D1EF43A390042B3CB /* AASpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASpline.m; sourceTree = "<group>"; };
-		6431419E1EF43A390042B3CB /* AAStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAStyle.h; sourceTree = "<group>"; };
-		6431419F1EF43A390042B3CB /* AAStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAStyle.m; sourceTree = "<group>"; };
-		643141A01EF43A390042B3CB /* AASubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASubtitle.h; sourceTree = "<group>"; };
-		643141A11EF43A390042B3CB /* AASubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASubtitle.m; sourceTree = "<group>"; };
-		643141A21EF43A390042B3CB /* AATitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATitle.h; sourceTree = "<group>"; };
-		643141A31EF43A390042B3CB /* AATitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATitle.m; sourceTree = "<group>"; };
-		643141A41EF43A390042B3CB /* AATooltip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATooltip.h; sourceTree = "<group>"; };
-		643141A51EF43A390042B3CB /* AATooltip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATooltip.m; sourceTree = "<group>"; };
-		643141A61EF43A390042B3CB /* AAXAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAXAxis.h; sourceTree = "<group>"; };
-		643141A71EF43A390042B3CB /* AAXAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAXAxis.m; sourceTree = "<group>"; };
-		643141A81EF43A390042B3CB /* AAYAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAYAxis.h; sourceTree = "<group>"; };
-		643141A91EF43A390042B3CB /* AAYAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAYAxis.m; sourceTree = "<group>"; };
-		643141AA1EF43A390042B3CB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		643141D31EF43CDA0042B3CB /* AAChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartModel.h; sourceTree = "<group>"; };
+		643141D41EF43CDA0042B3CB /* AAChartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChartModel.m; sourceTree = "<group>"; };
+		643141D51EF43CDA0042B3CB /* AAChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartView.h; sourceTree = "<group>"; };
+		643141D61EF43CDA0042B3CB /* AAChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChartView.m; sourceTree = "<group>"; };
+		643141D71EF43CDA0042B3CB /* AAGlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAGlobalMacro.h; sourceTree = "<group>"; };
+		643141D81EF43CDA0042B3CB /* AAJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAJsonConverter.h; sourceTree = "<group>"; };
+		643141D91EF43CDA0042B3CB /* AAJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAJsonConverter.m; sourceTree = "<group>"; };
+		643141DA1EF43CDA0042B3CB /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
+		643141DB1EF43CDA0042B3CB /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
+		643141DC1EF43CDA0042B3CB /* AAChartKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AAChartKit.podspec; sourceTree = "<group>"; };
+		643141DE1EF43CDA0042B3CB /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
+		643141DF1EF43CDA0042B3CB /* AAFunnel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAFunnel.js; sourceTree = "<group>"; };
+		643141E01EF43CDA0042B3CB /* AAHighcharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "AAHighcharts-3d.js"; sourceTree = "<group>"; };
+		643141E11EF43CDA0042B3CB /* AAHighchartsLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsLibrary.js; sourceTree = "<group>"; };
+		643141E21EF43CDA0042B3CB /* AAHighchartsMore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAHighchartsMore.js; sourceTree = "<group>"; };
+		643141E31EF43CDA0042B3CB /* AAJQueryLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAJQueryLibrary.js; sourceTree = "<group>"; };
+		643141E51EF43CDA0042B3CB /* AAAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAnimation.h; sourceTree = "<group>"; };
+		643141E61EF43CDA0042B3CB /* AAAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAnimation.m; sourceTree = "<group>"; };
+		643141E71EF43CDA0042B3CB /* AAArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAArea.h; sourceTree = "<group>"; };
+		643141E81EF43CDA0042B3CB /* AAArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAArea.m; sourceTree = "<group>"; };
+		643141E91EF43CDA0042B3CB /* AAAreaspline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAreaspline.h; sourceTree = "<group>"; };
+		643141EA1EF43CDA0042B3CB /* AAAreaspline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAreaspline.m; sourceTree = "<group>"; };
+		643141EB1EF43CDA0042B3CB /* AABar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABar.h; sourceTree = "<group>"; };
+		643141EC1EF43CDA0042B3CB /* AABar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABar.m; sourceTree = "<group>"; };
+		643141ED1EF43CDA0042B3CB /* AAChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChart.h; sourceTree = "<group>"; };
+		643141EE1EF43CDA0042B3CB /* AAChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChart.m; sourceTree = "<group>"; };
+		643141EF1EF43CDA0042B3CB /* AAColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAColumn.h; sourceTree = "<group>"; };
+		643141F01EF43CDA0042B3CB /* AAColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAColumn.m; sourceTree = "<group>"; };
+		643141F11EF43CDA0042B3CB /* AADataLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADataLabels.h; sourceTree = "<group>"; };
+		643141F21EF43CDA0042B3CB /* AADataLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADataLabels.m; sourceTree = "<group>"; };
+		643141F31EF43CDA0042B3CB /* AAItemStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAItemStyle.h; sourceTree = "<group>"; };
+		643141F41EF43CDA0042B3CB /* AAItemStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAItemStyle.m; sourceTree = "<group>"; };
+		643141F51EF43CDA0042B3CB /* AALabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALabels.h; sourceTree = "<group>"; };
+		643141F61EF43CDA0042B3CB /* AALabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALabels.m; sourceTree = "<group>"; };
+		643141F71EF43CDA0042B3CB /* AALegend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALegend.h; sourceTree = "<group>"; };
+		643141F81EF43CDA0042B3CB /* AALegend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALegend.m; sourceTree = "<group>"; };
+		643141F91EF43CDA0042B3CB /* AALine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALine.h; sourceTree = "<group>"; };
+		643141FA1EF43CDA0042B3CB /* AALine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALine.m; sourceTree = "<group>"; };
+		643141FB1EF43CDA0042B3CB /* AAMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAMarker.h; sourceTree = "<group>"; };
+		643141FC1EF43CDA0042B3CB /* AAMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAMarker.m; sourceTree = "<group>"; };
+		643141FD1EF43CDA0042B3CB /* AAOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptions.h; sourceTree = "<group>"; };
+		643141FE1EF43CDA0042B3CB /* AAOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptions.m; sourceTree = "<group>"; };
+		643141FF1EF43CDA0042B3CB /* AAOptions3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptions3d.h; sourceTree = "<group>"; };
+		643142001EF43CDA0042B3CB /* AAOptions3d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptions3d.m; sourceTree = "<group>"; };
+		643142011EF43CDA0042B3CB /* AAPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPie.h; sourceTree = "<group>"; };
+		643142021EF43CDA0042B3CB /* AAPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPie.m; sourceTree = "<group>"; };
+		643142031EF43CDA0042B3CB /* AAPlotLinesElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPlotLinesElement.h; sourceTree = "<group>"; };
+		643142041EF43CDA0042B3CB /* AAPlotLinesElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPlotLinesElement.m; sourceTree = "<group>"; };
+		643142051EF43CDA0042B3CB /* AAPlotOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPlotOptions.h; sourceTree = "<group>"; };
+		643142061EF43CDA0042B3CB /* AAPlotOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPlotOptions.m; sourceTree = "<group>"; };
+		643142071EF43CDA0042B3CB /* AASeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASeries.h; sourceTree = "<group>"; };
+		643142081EF43CDA0042B3CB /* AASeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASeries.m; sourceTree = "<group>"; };
+		643142091EF43CDA0042B3CB /* AASeriesElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASeriesElement.h; sourceTree = "<group>"; };
+		6431420A1EF43CDA0042B3CB /* AASeriesElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASeriesElement.m; sourceTree = "<group>"; };
+		6431420B1EF43CDA0042B3CB /* AASpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASpline.h; sourceTree = "<group>"; };
+		6431420C1EF43CDA0042B3CB /* AASpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASpline.m; sourceTree = "<group>"; };
+		6431420D1EF43CDA0042B3CB /* AAStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAStyle.h; sourceTree = "<group>"; };
+		6431420E1EF43CDA0042B3CB /* AAStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAStyle.m; sourceTree = "<group>"; };
+		6431420F1EF43CDA0042B3CB /* AASubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASubtitle.h; sourceTree = "<group>"; };
+		643142101EF43CDA0042B3CB /* AASubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASubtitle.m; sourceTree = "<group>"; };
+		643142111EF43CDA0042B3CB /* AATitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATitle.h; sourceTree = "<group>"; };
+		643142121EF43CDA0042B3CB /* AATitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATitle.m; sourceTree = "<group>"; };
+		643142131EF43CDA0042B3CB /* AATooltip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATooltip.h; sourceTree = "<group>"; };
+		643142141EF43CDA0042B3CB /* AATooltip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATooltip.m; sourceTree = "<group>"; };
+		643142151EF43CDA0042B3CB /* AAXAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAXAxis.h; sourceTree = "<group>"; };
+		643142161EF43CDA0042B3CB /* AAXAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAXAxis.m; sourceTree = "<group>"; };
+		643142171EF43CDA0042B3CB /* AAYAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAYAxis.h; sourceTree = "<group>"; };
+		643142181EF43CDA0042B3CB /* AAYAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAYAxis.m; sourceTree = "<group>"; };
+		643142191EF43CDA0042B3CB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		7131910B1E80B2F400382A09 /* IMG_1871.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1871.JPG; sourceTree = "<group>"; };
@@ -228,103 +228,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		643141621EF43A390042B3CB /* AAChartKitFiles */ = {
+		643141D11EF43CDA0042B3CB /* AAChartKit */ = {
 			isa = PBXGroup;
 			children = (
-				643141631EF43A390042B3CB /* AAChartConfiger */,
-				6431416E1EF43A390042B3CB /* AAJSFiles */,
-				643141751EF43A390042B3CB /* AAOptionsModel */,
-				643141AA1EF43A390042B3CB /* LICENSE */,
-				6431416D1EF43A390042B3CB /* AAChartKit.podspec */,
+				643141D21EF43CDA0042B3CB /* AAChartConfiger */,
+				643141DD1EF43CDA0042B3CB /* AAJSFiles */,
+				643141E41EF43CDA0042B3CB /* AAOptionsModel */,
+				643142191EF43CDA0042B3CB /* LICENSE */,
+				643141DC1EF43CDA0042B3CB /* AAChartKit.podspec */,
 			);
-			name = AAChartKitFiles;
-			path = AAChartKit/AAChartKitFiles;
+			name = AAChartKit;
+			path = AAChartKit/AAChartKit;
 			sourceTree = "<group>";
 		};
-		643141631EF43A390042B3CB /* AAChartConfiger */ = {
+		643141D21EF43CDA0042B3CB /* AAChartConfiger */ = {
 			isa = PBXGroup;
 			children = (
-				643141641EF43A390042B3CB /* AAChartModel.h */,
-				643141651EF43A390042B3CB /* AAChartModel.m */,
-				643141661EF43A390042B3CB /* AAChartView.h */,
-				643141671EF43A390042B3CB /* AAChartView.m */,
-				643141681EF43A390042B3CB /* AAGlobalMacro.h */,
-				643141691EF43A390042B3CB /* AAJsonConverter.h */,
-				6431416A1EF43A390042B3CB /* AAJsonConverter.m */,
-				6431416B1EF43A390042B3CB /* AAOptionsConstructor.h */,
-				6431416C1EF43A390042B3CB /* AAOptionsConstructor.m */,
+				643141D31EF43CDA0042B3CB /* AAChartModel.h */,
+				643141D41EF43CDA0042B3CB /* AAChartModel.m */,
+				643141D51EF43CDA0042B3CB /* AAChartView.h */,
+				643141D61EF43CDA0042B3CB /* AAChartView.m */,
+				643141D71EF43CDA0042B3CB /* AAGlobalMacro.h */,
+				643141D81EF43CDA0042B3CB /* AAJsonConverter.h */,
+				643141D91EF43CDA0042B3CB /* AAJsonConverter.m */,
+				643141DA1EF43CDA0042B3CB /* AAOptionsConstructor.h */,
+				643141DB1EF43CDA0042B3CB /* AAOptionsConstructor.m */,
 			);
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
-		6431416E1EF43A390042B3CB /* AAJSFiles */ = {
+		643141DD1EF43CDA0042B3CB /* AAJSFiles */ = {
 			isa = PBXGroup;
 			children = (
-				6431416F1EF43A390042B3CB /* AAChartView.html */,
-				643141701EF43A390042B3CB /* AAFunnel.js */,
-				643141711EF43A390042B3CB /* AAHighcharts-3d.js */,
-				643141721EF43A390042B3CB /* AAHighchartsLibrary.js */,
-				643141731EF43A390042B3CB /* AAHighchartsMore.js */,
-				643141741EF43A390042B3CB /* AAJQueryLibrary.js */,
+				643141DE1EF43CDA0042B3CB /* AAChartView.html */,
+				643141E31EF43CDA0042B3CB /* AAJQueryLibrary.js */,
+				643141E11EF43CDA0042B3CB /* AAHighchartsLibrary.js */,
+				643141E21EF43CDA0042B3CB /* AAHighchartsMore.js */,
+				643141E01EF43CDA0042B3CB /* AAHighcharts-3d.js */,
+				643141DF1EF43CDA0042B3CB /* AAFunnel.js */,
 			);
 			path = AAJSFiles;
 			sourceTree = "<group>";
 		};
-		643141751EF43A390042B3CB /* AAOptionsModel */ = {
+		643141E41EF43CDA0042B3CB /* AAOptionsModel */ = {
 			isa = PBXGroup;
 			children = (
-				643141761EF43A390042B3CB /* AAAnimation.h */,
-				643141771EF43A390042B3CB /* AAAnimation.m */,
-				643141781EF43A390042B3CB /* AAArea.h */,
-				643141791EF43A390042B3CB /* AAArea.m */,
-				6431417A1EF43A390042B3CB /* AAAreaspline.h */,
-				6431417B1EF43A390042B3CB /* AAAreaspline.m */,
-				6431417C1EF43A390042B3CB /* AABar.h */,
-				6431417D1EF43A390042B3CB /* AABar.m */,
-				6431417E1EF43A390042B3CB /* AAChart.h */,
-				6431417F1EF43A390042B3CB /* AAChart.m */,
-				643141801EF43A390042B3CB /* AAColumn.h */,
-				643141811EF43A390042B3CB /* AAColumn.m */,
-				643141821EF43A390042B3CB /* AADataLabels.h */,
-				643141831EF43A390042B3CB /* AADataLabels.m */,
-				643141841EF43A390042B3CB /* AAItemStyle.h */,
-				643141851EF43A390042B3CB /* AAItemStyle.m */,
-				643141861EF43A390042B3CB /* AALabels.h */,
-				643141871EF43A390042B3CB /* AALabels.m */,
-				643141881EF43A390042B3CB /* AALegend.h */,
-				643141891EF43A390042B3CB /* AALegend.m */,
-				6431418A1EF43A390042B3CB /* AALine.h */,
-				6431418B1EF43A390042B3CB /* AALine.m */,
-				6431418C1EF43A390042B3CB /* AAMarker.h */,
-				6431418D1EF43A390042B3CB /* AAMarker.m */,
-				6431418E1EF43A390042B3CB /* AAOptions.h */,
-				6431418F1EF43A390042B3CB /* AAOptions.m */,
-				643141901EF43A390042B3CB /* AAOptions3d.h */,
-				643141911EF43A390042B3CB /* AAOptions3d.m */,
-				643141921EF43A390042B3CB /* AAPie.h */,
-				643141931EF43A390042B3CB /* AAPie.m */,
-				643141941EF43A390042B3CB /* AAPlotLinesElement.h */,
-				643141951EF43A390042B3CB /* AAPlotLinesElement.m */,
-				643141961EF43A390042B3CB /* AAPlotOptions.h */,
-				643141971EF43A390042B3CB /* AAPlotOptions.m */,
-				643141981EF43A390042B3CB /* AASeries.h */,
-				643141991EF43A390042B3CB /* AASeries.m */,
-				6431419A1EF43A390042B3CB /* AASeriesElement.h */,
-				6431419B1EF43A390042B3CB /* AASeriesElement.m */,
-				6431419C1EF43A390042B3CB /* AASpline.h */,
-				6431419D1EF43A390042B3CB /* AASpline.m */,
-				6431419E1EF43A390042B3CB /* AAStyle.h */,
-				6431419F1EF43A390042B3CB /* AAStyle.m */,
-				643141A01EF43A390042B3CB /* AASubtitle.h */,
-				643141A11EF43A390042B3CB /* AASubtitle.m */,
-				643141A21EF43A390042B3CB /* AATitle.h */,
-				643141A31EF43A390042B3CB /* AATitle.m */,
-				643141A41EF43A390042B3CB /* AATooltip.h */,
-				643141A51EF43A390042B3CB /* AATooltip.m */,
-				643141A61EF43A390042B3CB /* AAXAxis.h */,
-				643141A71EF43A390042B3CB /* AAXAxis.m */,
-				643141A81EF43A390042B3CB /* AAYAxis.h */,
-				643141A91EF43A390042B3CB /* AAYAxis.m */,
+				643141E51EF43CDA0042B3CB /* AAAnimation.h */,
+				643141E61EF43CDA0042B3CB /* AAAnimation.m */,
+				643141E71EF43CDA0042B3CB /* AAArea.h */,
+				643141E81EF43CDA0042B3CB /* AAArea.m */,
+				643141E91EF43CDA0042B3CB /* AAAreaspline.h */,
+				643141EA1EF43CDA0042B3CB /* AAAreaspline.m */,
+				643141EB1EF43CDA0042B3CB /* AABar.h */,
+				643141EC1EF43CDA0042B3CB /* AABar.m */,
+				643141ED1EF43CDA0042B3CB /* AAChart.h */,
+				643141EE1EF43CDA0042B3CB /* AAChart.m */,
+				643141EF1EF43CDA0042B3CB /* AAColumn.h */,
+				643141F01EF43CDA0042B3CB /* AAColumn.m */,
+				643141F11EF43CDA0042B3CB /* AADataLabels.h */,
+				643141F21EF43CDA0042B3CB /* AADataLabels.m */,
+				643141F31EF43CDA0042B3CB /* AAItemStyle.h */,
+				643141F41EF43CDA0042B3CB /* AAItemStyle.m */,
+				643141F51EF43CDA0042B3CB /* AALabels.h */,
+				643141F61EF43CDA0042B3CB /* AALabels.m */,
+				643141F71EF43CDA0042B3CB /* AALegend.h */,
+				643141F81EF43CDA0042B3CB /* AALegend.m */,
+				643141F91EF43CDA0042B3CB /* AALine.h */,
+				643141FA1EF43CDA0042B3CB /* AALine.m */,
+				643141FB1EF43CDA0042B3CB /* AAMarker.h */,
+				643141FC1EF43CDA0042B3CB /* AAMarker.m */,
+				643141FD1EF43CDA0042B3CB /* AAOptions.h */,
+				643141FE1EF43CDA0042B3CB /* AAOptions.m */,
+				643141FF1EF43CDA0042B3CB /* AAOptions3d.h */,
+				643142001EF43CDA0042B3CB /* AAOptions3d.m */,
+				643142011EF43CDA0042B3CB /* AAPie.h */,
+				643142021EF43CDA0042B3CB /* AAPie.m */,
+				643142031EF43CDA0042B3CB /* AAPlotLinesElement.h */,
+				643142041EF43CDA0042B3CB /* AAPlotLinesElement.m */,
+				643142051EF43CDA0042B3CB /* AAPlotOptions.h */,
+				643142061EF43CDA0042B3CB /* AAPlotOptions.m */,
+				643142071EF43CDA0042B3CB /* AASeries.h */,
+				643142081EF43CDA0042B3CB /* AASeries.m */,
+				643142091EF43CDA0042B3CB /* AASeriesElement.h */,
+				6431420A1EF43CDA0042B3CB /* AASeriesElement.m */,
+				6431420B1EF43CDA0042B3CB /* AASpline.h */,
+				6431420C1EF43CDA0042B3CB /* AASpline.m */,
+				6431420D1EF43CDA0042B3CB /* AAStyle.h */,
+				6431420E1EF43CDA0042B3CB /* AAStyle.m */,
+				6431420F1EF43CDA0042B3CB /* AASubtitle.h */,
+				643142101EF43CDA0042B3CB /* AASubtitle.m */,
+				643142111EF43CDA0042B3CB /* AATitle.h */,
+				643142121EF43CDA0042B3CB /* AATitle.m */,
+				643142131EF43CDA0042B3CB /* AATooltip.h */,
+				643142141EF43CDA0042B3CB /* AATooltip.m */,
+				643142151EF43CDA0042B3CB /* AAXAxis.h */,
+				643142161EF43CDA0042B3CB /* AAXAxis.m */,
+				643142171EF43CDA0042B3CB /* AAYAxis.h */,
+				643142181EF43CDA0042B3CB /* AAYAxis.m */,
 			);
 			path = AAOptionsModel;
 			sourceTree = "<group>";
@@ -346,8 +346,8 @@
 		7172A3CA1E763EA6000D5B99 = {
 			isa = PBXGroup;
 			children = (
-				643141621EF43A390042B3CB /* AAChartKitFiles */,
-				7172A3D51E763EA6000D5B99 /* AAChartKit */,
+				643141D11EF43CDA0042B3CB /* AAChartKit */,
+				7172A3D51E763EA6000D5B99 /* AAChartKitDemo */,
 				7172A3EF1E763EA6000D5B99 /* AAChartKitTests */,
 				7172A3FA1E763EA6000D5B99 /* AAChartKitUITests */,
 				7172A3D41E763EA6000D5B99 /* Products */,
@@ -364,7 +364,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7172A3D51E763EA6000D5B99 /* AAChartKit */ = {
+		7172A3D51E763EA6000D5B99 /* AAChartKitDemo */ = {
 			isa = PBXGroup;
 			children = (
 				7172A4581E763FDB000D5B99 /* PrefixHeader.pch */,
@@ -377,6 +377,7 @@
 				7172A3E71E763EA6000D5B99 /* Info.plist */,
 				7172A3D61E763EA6000D5B99 /* Supporting Files */,
 			);
+			name = AAChartKitDemo;
 			path = AAChartKit;
 			sourceTree = "<group>";
 		};
@@ -542,13 +543,13 @@
 				64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */,
 				64245AD41EC3706E005B8021 /* IMG_1878.JPG in Resources */,
 				7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */,
-				643141D01EF43A390042B3CB /* LICENSE in Resources */,
+				6431423F1EF43CDA0042B3CB /* LICENSE in Resources */,
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
-				643141B41EF43A390042B3CB /* AAHighchartsMore.js in Resources */,
+				643142231EF43CDA0042B3CB /* AAHighchartsMore.js in Resources */,
 				7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */,
 				713191101E80B31200382A09 /* IMG_1869.JPG in Resources */,
 				64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */,
@@ -556,15 +557,15 @@
 				7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */,
 				7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */,
 				713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */,
-				643141B11EF43A390042B3CB /* AAFunnel.js in Resources */,
+				643142201EF43CDA0042B3CB /* AAFunnel.js in Resources */,
 				713191121E80B31800382A09 /* IMG_1868.JPG in Resources */,
 				7172A3E31E763EA6000D5B99 /* Assets.xcassets in Resources */,
-				643141B31EF43A390042B3CB /* AAHighchartsLibrary.js in Resources */,
-				643141AF1EF43A390042B3CB /* AAChartKit.podspec in Resources */,
+				643142221EF43CDA0042B3CB /* AAHighchartsLibrary.js in Resources */,
+				6431421E1EF43CDA0042B3CB /* AAChartKit.podspec in Resources */,
 				713191161E80B32800382A09 /* IMG_1866.JPG in Resources */,
-				643141B21EF43A390042B3CB /* AAHighcharts-3d.js in Resources */,
-				643141B51EF43A390042B3CB /* AAJQueryLibrary.js in Resources */,
-				643141B01EF43A390042B3CB /* AAChartView.html in Resources */,
+				643142211EF43CDA0042B3CB /* AAHighcharts-3d.js in Resources */,
+				643142241EF43CDA0042B3CB /* AAJQueryLibrary.js in Resources */,
+				6431421F1EF43CDA0042B3CB /* AAChartView.html in Resources */,
 				7172A3E11E763EA6000D5B99 /* Main.storyboard in Resources */,
 				7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */,
 			);
@@ -591,41 +592,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				643141BA1EF43A390042B3CB /* AAChart.m in Sources */,
-				643141CE1EF43A390042B3CB /* AAXAxis.m in Sources */,
-				643141B71EF43A390042B3CB /* AAArea.m in Sources */,
-				643141AD1EF43A390042B3CB /* AAJsonConverter.m in Sources */,
-				643141C91EF43A390042B3CB /* AASpline.m in Sources */,
-				643141AE1EF43A390042B3CB /* AAOptionsConstructor.m in Sources */,
-				643141AB1EF43A390042B3CB /* AAChartModel.m in Sources */,
-				643141B91EF43A390042B3CB /* AABar.m in Sources */,
+				643142291EF43CDA0042B3CB /* AAChart.m in Sources */,
+				6431423D1EF43CDA0042B3CB /* AAXAxis.m in Sources */,
+				643142261EF43CDA0042B3CB /* AAArea.m in Sources */,
+				6431421C1EF43CDA0042B3CB /* AAJsonConverter.m in Sources */,
+				643142381EF43CDA0042B3CB /* AASpline.m in Sources */,
+				6431421D1EF43CDA0042B3CB /* AAOptionsConstructor.m in Sources */,
+				6431421A1EF43CDA0042B3CB /* AAChartModel.m in Sources */,
+				643142281EF43CDA0042B3CB /* AABar.m in Sources */,
 				713F543E1E7B71C000D506C7 /* SecondViewController.m in Sources */,
-				643141CC1EF43A390042B3CB /* AATitle.m in Sources */,
-				643141B61EF43A390042B3CB /* AAAnimation.m in Sources */,
-				643141C21EF43A390042B3CB /* AAOptions.m in Sources */,
-				643141BE1EF43A390042B3CB /* AALabels.m in Sources */,
-				643141C01EF43A390042B3CB /* AALine.m in Sources */,
-				643141BC1EF43A390042B3CB /* AADataLabels.m in Sources */,
-				643141CA1EF43A390042B3CB /* AAStyle.m in Sources */,
-				643141AC1EF43A390042B3CB /* AAChartView.m in Sources */,
-				643141C61EF43A390042B3CB /* AAPlotOptions.m in Sources */,
-				643141C31EF43A390042B3CB /* AAOptions3d.m in Sources */,
-				643141C11EF43A390042B3CB /* AAMarker.m in Sources */,
-				643141BB1EF43A390042B3CB /* AAColumn.m in Sources */,
-				643141BD1EF43A390042B3CB /* AAItemStyle.m in Sources */,
-				643141B81EF43A390042B3CB /* AAAreaspline.m in Sources */,
-				643141C51EF43A390042B3CB /* AAPlotLinesElement.m in Sources */,
-				643141C41EF43A390042B3CB /* AAPie.m in Sources */,
-				643141BF1EF43A390042B3CB /* AALegend.m in Sources */,
-				643141CF1EF43A390042B3CB /* AAYAxis.m in Sources */,
+				6431423B1EF43CDA0042B3CB /* AATitle.m in Sources */,
+				643142251EF43CDA0042B3CB /* AAAnimation.m in Sources */,
+				643142311EF43CDA0042B3CB /* AAOptions.m in Sources */,
+				6431422D1EF43CDA0042B3CB /* AALabels.m in Sources */,
+				6431422F1EF43CDA0042B3CB /* AALine.m in Sources */,
+				6431422B1EF43CDA0042B3CB /* AADataLabels.m in Sources */,
+				643142391EF43CDA0042B3CB /* AAStyle.m in Sources */,
+				6431421B1EF43CDA0042B3CB /* AAChartView.m in Sources */,
+				643142351EF43CDA0042B3CB /* AAPlotOptions.m in Sources */,
+				643142321EF43CDA0042B3CB /* AAOptions3d.m in Sources */,
+				643142301EF43CDA0042B3CB /* AAMarker.m in Sources */,
+				6431422A1EF43CDA0042B3CB /* AAColumn.m in Sources */,
+				6431422C1EF43CDA0042B3CB /* AAItemStyle.m in Sources */,
+				643142271EF43CDA0042B3CB /* AAAreaspline.m in Sources */,
+				643142341EF43CDA0042B3CB /* AAPlotLinesElement.m in Sources */,
+				643142331EF43CDA0042B3CB /* AAPie.m in Sources */,
+				6431422E1EF43CDA0042B3CB /* AALegend.m in Sources */,
+				6431423E1EF43CDA0042B3CB /* AAYAxis.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
-				643141C81EF43A390042B3CB /* AASeriesElement.m in Sources */,
+				643142371EF43CDA0042B3CB /* AASeriesElement.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
 				645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */,
-				643141CD1EF43A390042B3CB /* AATooltip.m in Sources */,
-				643141C71EF43A390042B3CB /* AASeries.m in Sources */,
+				6431423C1EF43CDA0042B3CB /* AATooltip.m in Sources */,
+				643142361EF43CDA0042B3CB /* AASeries.m in Sources */,
 				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
-				643141CB1EF43A390042B3CB /* AASubtitle.m in Sources */,
+				6431423A1EF43CDA0042B3CB /* AASubtitle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
