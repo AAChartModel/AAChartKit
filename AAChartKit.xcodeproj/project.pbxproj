@@ -230,7 +230,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27791AAE1EF3EA4900FA8624 /* AAChartKitSource */ = {
+		27791AAE1EF3EA4900FA8624 /* AAChartKitFiles */ = {
 			isa = PBXGroup;
 			children = (
 				27791AAF1EF3EA4900FA8624 /* AAChartConfiger */,
@@ -239,7 +239,7 @@
 				27791AF61EF3EA4A00FA8624 /* LICENSE */,
 				27791AB91EF3EA4900FA8624 /* AAChartKit.podspec */,
 			);
-			name = AAChartKitSource;
+			name = AAChartKitFiles;
 			path = AAChartKit/AAChartKitSource;
 			sourceTree = "<group>";
 		};
@@ -348,7 +348,7 @@
 		7172A3CA1E763EA6000D5B99 = {
 			isa = PBXGroup;
 			children = (
-				27791AAE1EF3EA4900FA8624 /* AAChartKitSource */,
+				27791AAE1EF3EA4900FA8624 /* AAChartKitFiles */,
 				7172A3D51E763EA6000D5B99 /* AAChartKit */,
 				7172A3EF1E763EA6000D5B99 /* AAChartKitTests */,
 				7172A3FA1E763EA6000D5B99 /* AAChartKitUITests */,
