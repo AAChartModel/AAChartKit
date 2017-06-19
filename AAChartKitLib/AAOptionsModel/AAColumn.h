@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 @class AADataLabels;
 @interface AAColumn : NSObject
 AAPropStatementAndFuncStatement(strong, AAColumn, NSNumber *, pointPadding);

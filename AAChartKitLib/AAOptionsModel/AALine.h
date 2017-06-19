@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 @class AADataLabels;
 @interface AALine : NSObject
 AAPropStatementAndFuncStatement(strong, AALine, NSNumber *, lineWidth);//设置折线的宽度
