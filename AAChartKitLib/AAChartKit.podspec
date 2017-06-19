@@ -18,5 +18,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '7.0'
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.source_files = 'AAChartKitLib', 'AAChartKitLib/**/*.{h,m}'
+    s.resource_bundles    = { 'iOS-AAChartKitLib' => 'AAChartKitLib/AAJSFiles/**' }
+    s.prefix_header_contents = '#import "AAGlobalMacro.h"'
     s.requires_arc = true
  end
