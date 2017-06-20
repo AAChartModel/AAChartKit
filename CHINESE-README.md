@@ -23,8 +23,11 @@ https://github.com/AAChartModel/AAChartKit-Swift
 ## 使用方法
 
 ### 准备工作
- * 将项目demo中的文件夹`AAChartKitFiles`拖入到所需项目中.
-
+1. 将项目demo中的文件夹`AAChartKitFiles`拖入到所需项目中.
+1. 在你的项目的 `.pch` 全局宏定义文件中添加
+```objective-c
+#import "AAGlobalMacro.h"
+```
 
 ### 正式开始
 1. 在你的视图控制器文件中添加
