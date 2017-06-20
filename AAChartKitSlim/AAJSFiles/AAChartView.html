@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+            
+            <script src="AAJQueryLibrary.js">
+                </script>
+            <script src="AAHighchartsLibrary.js">
+                </script>
+            <script src="AAHighchartsMore.js">
+                </script>
+            <script src="AAHighcharts-3d.js">
+                </script>
+            <script src="AAFunnel.js">
+                </script>
+            <!--    若介意本地js代码体积(5M左右)过大，可换用加载网络js代码 -->
+<!--            <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js">-->
+<!--                </script>-->
+<!--            <script src="https://img.hcharts.cn/highcharts/highcharts.js">-->
+<!--                </script>-->
+<!--            <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">-->
+
+            <style>
+                *{
+                    -webkit-user-select: none;
+                    user-select: none;
+                }
+            </style>
+            
+            </head>
+    <body>
+        <div id="container" style="width:min-450px; height: 200px; margin: 0 auto">
+        </div>
+        <script >
+            function loadTheHighChartView(sender,receivedWidth,receivedHeight){
+                var o=document.getElementById('container');//获得元素
+                if(receivedWidth!=0){
+                    o.style.width=receivedWidth;//设置宽度
+                 }
+                o.style.height=receivedHeight;//设置高度
+                var JavaScriptObject = JSON.parse(sender);
+                var themeColor = JavaScriptObject.colorsTheme;
+                if(JavaScriptObject.gradientColorEnable ==true){
+                    //cy 如果是负值 则表示从上到下的渐变，如果是正值则表示上边是浅色，下面是深色
+                    //brighten(14)正数表示变浅，负值是加深
+                    var colors = themeColor;
+                    Highcharts.getOptions().colors = Highcharts.map(colors, function (color) {
+                                                                    return {
+                                                                    radialGradient: { cx:0, cy: -0.8,r:2.3 },
+                                                                    stops: [
+                                                                            [0, color],
+                                                                            [2, Highcharts
+                                                                             .Color(color)
+                                                                             .brighten(0.3)
+                                                                             .get('rgb')] // darken
+                                                                            ]
+                                                                    };
+                                                                    });
+                }else {
+                    JavaScriptObject.colors = themeColor;//如果再设置 colors, 则渐进色会功能就会被覆盖
+                }
+                JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
+                $('#container').highcharts(JavaScriptObject);
+            }
+        </script>
+    </body>
+</html>
