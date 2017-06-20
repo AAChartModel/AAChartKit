@@ -8,7 +8,7 @@
 //
 
 #import "SecondViewController.h"
-#import "AAChartView.h"
+#import "AAChartKit.h"
 @interface SecondViewController ()
 @property(nonatomic,strong)AAChartModel *chartModel;
 @property(nonatomic,strong)AAChartView *chartView;

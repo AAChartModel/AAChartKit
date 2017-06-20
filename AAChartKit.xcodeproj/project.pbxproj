@@ -162,6 +162,7 @@
 		2707BA941EF7BA47008357AC /* AAYAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAYAxis.h; sourceTree = "<group>"; };
 		2707BA951EF7BA47008357AC /* AAYAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAYAxis.m; sourceTree = "<group>"; };
 		2707BA961EF7BA47008357AC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2707BABF1EF8BAF1008357AC /* AAChartKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartKit.h; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
 		64245ACB1EC36307005B8021 /* IMG_1875.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1875.JPG; sourceTree = "<group>"; };
 		64245ACF1EC36897005B8021 /* IMG_1877.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1877.JPG; sourceTree = "<group>"; };
@@ -243,11 +244,12 @@
 		2707BA4F1EF7BA47008357AC /* AAChartConfiger */ = {
 			isa = PBXGroup;
 			children = (
+				2707BABF1EF8BAF1008357AC /* AAChartKit.h */,
+				2707BA541EF7BA47008357AC /* AAGlobalMacro.h */,
 				2707BA501EF7BA47008357AC /* AAChartModel.h */,
 				2707BA511EF7BA47008357AC /* AAChartModel.m */,
 				2707BA521EF7BA47008357AC /* AAChartView.h */,
 				2707BA531EF7BA47008357AC /* AAChartView.m */,
-				2707BA541EF7BA47008357AC /* AAGlobalMacro.h */,
 				2707BA551EF7BA47008357AC /* AAJsonConverter.h */,
 				2707BA561EF7BA47008357AC /* AAJsonConverter.m */,
 				2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */,
