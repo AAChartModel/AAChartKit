@@ -8,7 +8,6 @@
 //gridLineColor
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 @class AATitle,AALabels;
 
 @interface AAYAxis : NSObject

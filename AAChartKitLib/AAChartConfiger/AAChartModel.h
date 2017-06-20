@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 

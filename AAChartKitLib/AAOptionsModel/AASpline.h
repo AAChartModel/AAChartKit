@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 @class AADataLabels;
 @interface AASpline : NSObject
 AAPropStatementAndFuncStatement(strong, AASpline, AADataLabels *, dataLabels);

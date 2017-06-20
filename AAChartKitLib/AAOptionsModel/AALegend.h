@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 @class AAItemStyle;
 @interface AALegend : NSObject
 AAPropStatementAndFuncStatement(assign, AALegend, BOOL, enabled);

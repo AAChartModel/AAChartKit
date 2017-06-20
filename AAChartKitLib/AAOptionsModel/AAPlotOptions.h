@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 @class AAColumn,AABar,AALine,AASpline,AAArea,AAAreaspline,AAPie,AASeries;
 
 @interface AAPlotOptions : NSObject

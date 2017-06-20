@@ -8,7 +8,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 
 @interface AAOptions3d : NSObject
 AAPropStatementAndFuncStatement(assign, AAOptions3d, BOOL, enabled);
