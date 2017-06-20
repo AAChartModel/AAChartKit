@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AAMarker : NSObject
 AAPropStatementAndFuncStatement(strong, AAMarker, NSNumber *, radius);

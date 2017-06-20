@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 @class AAStyle;
 @interface AASubtitle : NSObject
 AAPropStatementAndFuncStatement(copy, AASubtitle, NSString *, text);

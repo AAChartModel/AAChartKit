@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 @class AAStyle;
 @interface AADataLabels : NSObject
 AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL , enabled);

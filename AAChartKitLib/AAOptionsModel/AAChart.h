@@ -10,6 +10,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 @class AAAnimation;
 @class AAOptions3d;
 @interface AAChart : NSObject

@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AALabels : NSObject
 AAPropStatementAndFuncStatement(assign, AALabels, BOOL, enabled);

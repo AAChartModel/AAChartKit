@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 @class AADataLabels;
 @interface AABar : NSObject
 AAPropStatementAndFuncStatement(strong, AABar, NSNumber *, pointPadding);

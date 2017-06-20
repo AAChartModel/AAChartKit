@@ -9,6 +9,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 @class AAChart,AATitle,AASubtitle,AAXAxis,AAYAxis,AATooltip,AAPlotOptions,AAColumn,AALegend;
 
 
