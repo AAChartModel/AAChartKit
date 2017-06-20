@@ -19,6 +19,24 @@ Pod::Spec.new do |s|
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.source_files = 'AAChartKitLib', 'AAChartKitLib/**/*.{h,m}'
     s.resource_bundles    = { 'iOS-AAChartKitLib' => 'AAChartKitLib/AAJSFiles/**' }
-    s.prefix_header_contents = '#import "AAGlobalMacro.h"'
+    pch_AA = <<-EOS
+
+#define AAObject(objectName) [[objectName alloc]init]
+
+#define AAPropStatementAndFuncStatement(propertyModifyWord,className, propertyPointerType, propertyName)                \
+@property(nonatomic,propertyModifyWord)propertyPointerType  propertyName;                                               \
+- (className * (^) (propertyPointerType propertyName)) propertyName##Set;
+
+#define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
+- (className * (^) (propertyPointerType propertyName))propertyName##Set{                                                \
+return ^(propertyPointerType propertyName) {                                                                            \
+self.propertyName = propertyName;                                                                                       \
+return self;                                                                                                            \
+};                                                                                                                      \
+}
+
+    EOS
+
+    s.prefix_header_contents = pch_AA
     s.requires_arc = true
  end
