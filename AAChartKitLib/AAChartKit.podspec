@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
 ***
                    DESC
     s.homepage     = 'https://github.com/AAChartModel/AAChartKit'
-    s.license      = { :type => "MIT", :file => 'LICENSE.md' }
+    s.license      = { :type => "MIT", :file => 'LICENSE' }
     s.authors      = {'An An' => '18256973864@163.com'}
     s.platform     = :ios, '7.0'
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.source_files = 'AAChartKitLib', 'AAChartKitLib/**/*.{h,m}'
-    s.resource_bundles    = { 'iOS-AAChartKitLib' => 'AAChartKitLib/AAJSFiles/**' }
+    s.resource_bundles    = { 'AAChartKitLib' => 'AAChartKitLib/AAJSFiles/**' }
     pch_AA = <<-EOS
 
 #define AAObject(objectName) [[objectName alloc]init]
