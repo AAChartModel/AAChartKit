@@ -9,7 +9,7 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
-@interface SecondViewController ()
+@interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 @property(nonatomic,strong)AAChartModel *chartModel;
 @property(nonatomic,strong)AAChartView *chartView;
 @end
@@ -63,6 +63,7 @@
 
 -(void)configTheChartView:(NSString *)chartType{
     self.chartView = [[AAChartView alloc]init];
+    self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
     self.chartView.contentHeight = self.view.frame.size.height-220;
@@ -125,7 +126,10 @@
     ;
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
-
+#pragma mark -- AAChartView delegate
+-(void)AAChartViewDidFinishLoad{
+    NSLog(@"图表视图已完成加载");
+}
 -(void)configTheChartModel{
     
 }

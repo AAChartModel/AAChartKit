@@ -62,6 +62,7 @@
 ///WKWebView页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     [self drawChart];
+    [self.delegate AAChartViewDidFinishLoad];
 }
 -(void)drawChart{
     NSString *javaScriptStr = [self configTheJavaScriptString];
@@ -77,6 +78,8 @@
 ///UIWebView页面加载完成之后调用
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
+    [self.delegate AAChartViewDidFinishLoad];
+
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
     if (error) {
