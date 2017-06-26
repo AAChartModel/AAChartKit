@@ -22,15 +22,15 @@
 #endif
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
--(void)AAChartViewDidFinishLoad;
+-(void)AAChartViewDidFinishLoad;//the delegate method of finish loading
 @end
 
 @interface AAChartView : AAWebView<AAWebViewDelegate>
 
+@property(nonatomic,weak)id<AAChartViewDidFinishLoadDelegate>delegate;
+
 @property(nonatomic,assign)CGFloat contentWidth;//content width of AAChartView
 @property(nonatomic,assign)CGFloat contentHeight;//content height of AAChartView
-
-@property(nonatomic,weak)id<AAChartViewDidFinishLoadDelegate>delegate;
 
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
 -(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing chart view
