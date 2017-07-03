@@ -184,7 +184,7 @@
 }
 -(void)refreshTheChartView{
 //    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
-    [self.chartView aa_refreshChartDataInRealTimeWithSeries:nil];
+    [self.chartView aa_onlyRefreshTheChartDataWithSeries:nil];
 }
 
 -(void)configTheSwitch{
@@ -217,49 +217,32 @@
     switch (switchView.tag) {
         case 0:
         {
-            if (switchView.on ==YES) {
-                self.chartModel.xAxisReversed=true;
-            }else{
-                self.chartModel.xAxisReversed=false;
-            }
-        }
+            self.chartModel.xAxisReversed = !switchView.on;
+         }
             break;
             
         case 1:
         {
-            if (switchView.on ==YES) {
-                self.chartModel.yAxisReversed=true;
-            }else{
-                self.chartModel.yAxisReversed=false;
-            }
-        }
+            self.chartModel.yAxisReversed = !switchView.on;
+         }
             break;
             
         case 2:
         {
-            if (switchView.on ==YES) {
-                self.chartModel.inverted=true;
-            }else{
-                self.chartModel.inverted=false;
-            }
+            self.chartModel.inverted = !switchView.on;
         }
             break;
             
         case 3:
         {
-            if (switchView.on ==YES) {
-                self.chartModel.polar=true;
-            }else{
-                self.chartModel.polar=false;
-            }
-            
+            self.chartModel.polar = !switchView.on;
         }
             break;
             
             
         case 4:
         {
-            if (switchView.on ==YES) {
+             if (switchView.on ==YES) {
                 self.chartModel.markerRadius=@0;
             }else{
                 self.chartModel.markerRadius=@5;
@@ -269,12 +252,8 @@
             
         case 5:
         {
-            if (switchView.on ==YES) {
-                self.chartModel.dataLabelEnabled=true;
-            }else{
-                self.chartModel.dataLabelEnabled=false;
-            }
-        }
+            self.chartModel.dataLabelEnabled = !switchView.on;
+         }
             break;
             
         default:
