@@ -24,7 +24,7 @@
     [self configTheSwitch];
     
     NSString *chartType;
-    switch (self.ENUM_secondeViewController_chartType) {
+    switch (self.SecondeViewControllerChartType) {
         case 0:
             chartType = AAChartTypeColumn;
             break;

@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    switch (self.ENUM_SpecialChartVC_chartType) {
+    switch (self.SpecialChartVCChartType) {
         case 0:
             [self configTheChartView:AAChartTypePie];
             break;
