@@ -64,11 +64,12 @@
             }
         
         
-            function refreshChartDataInRealTimeWithSeries(){
+            function onlyRefreshTheChartDataWithSeries(){
                 // 首先获取series
                 var chartSeries =  $('#container').highcharts().series[0];
                 chartSeries.setData(data);
-                
+            }
+        
 <!--                // 加入当前数组有5个元素-->
 <!--                var data = [1, 3, 5, 3, 1];-->
 <!--                // 随机创建一个数字，或从服务器获取一个数字-->

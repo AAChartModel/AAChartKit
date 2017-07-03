@@ -57,9 +57,7 @@
     [self configTheOptionsWithChartModel:chartModel];
     [self drawChart];
 }
--(void)aa_refreshChartDataInRealTimeWithSeries:(AASeries *)series{
-    [self refreshChartDataOnly];
-}
+
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
@@ -73,20 +71,19 @@
         if (error) {
             NSLog(@"%@",_json);
             NSLog(@"%@",error);
-            
         }
     }];
 }
--(void)refreshChartDataOnly{
-    NSString *javaScriptStr = [NSString stringWithFormat:@"refreshChartDataInRealTimeWithSeries()"];
+-(void)aa_onlyRefreshTheChartDataWithSeries:(AASeries *)series{
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries()"];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@",_json);
             NSLog(@"%@",error);
-            
         }
     }];
- }
+}
+
 #elif
 ///UIWebView页面加载完成之后调用
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

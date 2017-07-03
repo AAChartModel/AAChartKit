@@ -22,7 +22,7 @@
 #endif
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
--(void)AAChartViewDidFinishLoad;//the delegate method of finish loading
+-(void)AAChartViewDidFinishLoad;//the delegate method of chart view finish loading
 @end
 
 @interface AAChartView : AAWebView<AAWebViewDelegate>
@@ -34,7 +34,7 @@
 
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
 -(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing whole chart view content
--(void)aa_refreshChartDataInRealTimeWithSeries:(AASeries *)series;
+-(void)aa_onlyRefreshTheChartDataWithSeries:(AASeries *)series;//function of only refresh the chart data
 @end
 
 
