@@ -68,7 +68,8 @@
                 // 首先获取series
                 var chartSeries =  $('#container').highcharts().series[0];
                 var JavaScriptObject = JSON.parse(receivedSeries);
-                var receivedSeriesData = JavaScriptObject[0];
+                var receivedSeriesElement = JavaScriptObject.series[0];
+                var receivedSeriesData =receivedSeriesElement.data;
                 chartSeries.setData(receivedSeriesData);
                 
                 <!--                // 加入当前数组有5个元素-->

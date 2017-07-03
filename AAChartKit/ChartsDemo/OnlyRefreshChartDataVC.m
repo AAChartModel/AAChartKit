@@ -25,6 +25,14 @@
 }
 
 - (void)setUpTheChartView{
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
+    [btn setTitle:@"点击只刷新图表数据内容" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor redColor];
+    [btn addTarget:self action:@selector(onlyRefreshTheChartDataBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
@@ -43,25 +51,51 @@
                  .nameSet(@"2017")
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
                 ]);
+    [self.chartView aa_drawChartWithChartModel:self.chartModel];
+    
+    
+    
+
 }
 
--(void)virtualUpdateTheChartViewDataInRealTime{
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        NSMutableArray *virtualData = [[NSMutableArray alloc]init];
-        for (int i=0; i<9; i++) {
-            NSInteger randomNumber = arc4random()%20;
-            [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
-        }
-        NSArray *series = @[
-                             AAObject(AASeriesElement)
-                             .nameSet(@"2017")
-                             .dataSet(virtualData)
-                             ];
-        [self.chartView aa_onlyRefreshTheChartDataWithSeries:series];
-    }];
+-(void)onlyRefreshTheChartDataBtnClicked{
+    NSMutableArray *virtualData = [[NSMutableArray alloc]init];
+    for (int i=0; i<12; i++) {
+        NSInteger randomNumber = arc4random()%20;
+        [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
+    }
+    NSArray *series = @[
+                        AAObject(AASeriesElement)
+                        .nameSet(@"2017")
+                        .dataSet(virtualData)
+                        ];
+    self.chartModel.series = series;
+    [self.chartView aa_onlyRefreshTheChartDataWithSeries:self.chartModel];
     
-    [timer fire];
+    //    [self virtualUpdateTheChartViewDataInRealTime];
+
 }
+
+//- (void)virtualUpdateTheChartViewDataInRealTime{
+//      NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerStartWork) userInfo:nil repeats:NO];
+//     [timer fire];
+//}
+
+//- (void)timerStartWork{
+//    NSMutableArray *virtualData = [[NSMutableArray alloc]init];
+//    for (int i=0; i<9; i++) {
+//        NSInteger randomNumber = arc4random()%20;
+//        [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
+//    }
+//    NSArray *series = @[
+//                        AAObject(AASeriesElement)
+//                        .nameSet(@"2017")
+//                        .dataSet(virtualData)
+//                        ];
+//    self.chartModel.series = series;
+//    [self.chartView aa_onlyRefreshTheChartDataWithSeries:self.chartModel];
+//    NSLog(@"执行了几次??????");
+//}
 
 # pragma mark AAChartViewDidFinishLoadDelegate
 - (void)AAChartViewDidFinishLoad{

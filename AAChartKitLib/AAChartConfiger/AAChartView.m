@@ -74,9 +74,8 @@
         }
     }];
 }
--(void)aa_onlyRefreshTheChartDataWithSeries:(NSArray *)series{
-    NSData *data=[NSJSONSerialization dataWithJSONObject:series options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *seriesJsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+-(void)aa_onlyRefreshTheChartDataWithSeries:(AAChartModel *)chartModel{
+    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {

@@ -54,7 +54,7 @@
  
 }
 
--(void)configTheChartView:(NSString *)chartType{
+- (void)configTheChartView:(NSString *)chartType{
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
@@ -119,12 +119,11 @@
     ;
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
+
 #pragma mark -- AAChartView delegate
 -(void)AAChartViewDidFinishLoad{
     NSLog(@"图表视图已完成加载");
 }
-
-
 
 -(void)configTheSegmentControl{
     NSArray *segmentedArray = @[@[@"常规",@"堆叠",@"百分比堆叠"],
@@ -147,7 +146,7 @@
     }
 }
 
--(void)customSegmentControlCellValueBeChanged:(UISegmentedControl *)segmentedControl{
+- (void)customSegmentControlCellValueBeChanged:(UISegmentedControl *)segmentedControl{
     switch (segmentedControl.tag) {
         case 0:
         {
@@ -174,12 +173,12 @@
     }
     [self refreshTheChartView];
 }
--(void)refreshTheChartView{
-//    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
-    [self.chartView aa_onlyRefreshTheChartDataWithSeries:nil];
+
+- (void)refreshTheChartView{
+    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
 }
 
--(void)configTheSwitch{
+- (void)configTheSwitch{
     NSArray *nameArr = @[@"x轴翻转",
                          @"y轴翻转",
                          @"x 轴直立",
@@ -205,7 +204,7 @@
     }
 }
 
--(void)switchViewClicked:(UISwitch *)switchView{
+- (void)switchViewClicked:(UISwitch *)switchView{
     switch (switchView.tag) {
         case 0:
             self.chartModel.xAxisReversed = !switchView.on;

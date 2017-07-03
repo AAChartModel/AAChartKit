@@ -34,7 +34,7 @@
 
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing whole chart view content
-- (void)aa_onlyRefreshTheChartDataWithSeries:(NSArray *)series;//function of only refresh the chart data
+- (void)aa_onlyRefreshTheChartDataWithSeries:(AAChartModel *)chartModel;//function of only refresh the chart data
 @end
 
 
