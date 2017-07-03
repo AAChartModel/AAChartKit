@@ -186,10 +186,10 @@
                          @"辐射化图形",
                          @"隐藏连接点",
                          @"显示数字"];
-    CGFloat flo = (self.view.frame.size.width-40)/6;
+    CGFloat switchWidth = (self.view.frame.size.width-40)/6;
     for (int i=0; i<nameArr.count; i++) {
         UISwitch * switchView = [[UISwitch alloc]init];
-        switchView.frame = CGRectMake(flo*i+20, self.view.frame.size.height-70, flo, 20);
+        switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
         switchView.on = NO;
         switchView.tag = i;
         [switchView addTarget:self action:@selector(switchViewClicked:) forControlEvents:UIControlEventValueChanged];
@@ -198,7 +198,7 @@
         UILabel *label = [[UILabel alloc]init];
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 0;
-        label.frame = CGRectMake(flo*i+20,  self.view.frame.size.height-40, flo, 40);
+        label.frame = CGRectMake(switchWidth*i+20,  self.view.frame.size.height-40, switchWidth, 40);
         label.text = nameArr[i];
         label.font = [UIFont systemFontOfSize:10.0f];
         [self.view addSubview:label];
