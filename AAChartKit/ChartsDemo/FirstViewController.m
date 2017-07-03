@@ -42,22 +42,24 @@
                         ];
     
     [self configTheTableView];
-    
 }
+
 -(void)configTheTableView{
     UITableView *tableView = [[UITableView alloc]init];
     tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     tableView.delegate =self;
     tableView.dataSource =self;
     [self.view addSubview:tableView];
-    
 }
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 55;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 40;
 }
@@ -80,6 +82,7 @@
     NSArray *arr =_charTypeNameArr[section];
     return arr.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
@@ -90,14 +93,15 @@
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section ==0) {
         SecondViewController *vc = [[SecondViewController alloc]init];
-        vc.ENUM_secondeViewController_chartType = indexPath.row;
+        vc.SecondeViewControllerChartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         SpecialChartVC *vc = [[SpecialChartVC alloc]init];
-        vc.ENUM_SpecialChartVC_chartType = indexPath.row;
+        vc.SpecialChartVCChartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

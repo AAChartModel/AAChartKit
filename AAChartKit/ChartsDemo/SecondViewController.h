@@ -16,13 +16,11 @@ typedef NS_ENUM(NSInteger,SecondeViewControllerChartType){
     SecondeViewControllerChartTypeLine,
     SecondeViewControllerChartTypeSpline,
     SecondeViewControllerChartTypeScatter,
-    
 };
-
 
 @interface SecondViewController : UIViewController
 @property(nonatomic,assign)NSInteger SecondeViewControllerChartType;
-@property(nonatomic,copy)NSString *receivedChartType;
+@property(nonatomic,copy  )NSString  *receivedChartType;
 
 @end
 
