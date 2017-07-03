@@ -130,9 +130,7 @@
 -(void)AAChartViewDidFinishLoad{
     NSLog(@"图表视图已完成加载");
 }
--(void)configTheChartModel{
-    
-}
+
 
 
 -(void)configTheSegmentControl{
@@ -185,7 +183,8 @@
     [self refreshTheChartView];
 }
 -(void)refreshTheChartView{
-    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
+//    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
+    [self.chartView aa_refreshChartDataInRealTimeWithSeries:nil];
 }
 
 -(void)configTheSwitch{

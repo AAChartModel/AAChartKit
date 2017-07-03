@@ -8,7 +8,7 @@
 //
 #import "AAChartModel.h"
 #import "AAOptions.h"
-
+@class AASeries;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 #import <WebKit/WebKit.h>
 #define AAWebView WKWebView
@@ -33,7 +33,8 @@
 @property(nonatomic,assign)CGFloat contentHeight;//content height of AAChartView
 
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
--(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing chart view
+-(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing whole chart view content
+-(void)aa_refreshChartDataInRealTimeWithSeries:(AASeries *)series;
 @end
 
 
