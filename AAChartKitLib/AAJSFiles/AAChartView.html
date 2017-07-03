@@ -64,10 +64,12 @@
             }
         
         
-            function onlyRefreshTheChartDataWithSeries(){
+            function onlyRefreshTheChartDataWithSeries(receivedSeries){
                 // 首先获取series
                 var chartSeries =  $('#container').highcharts().series[0];
-                chartSeries.setData(data);
+                var JavaScriptObject = JSON.parse(receivedSeries);
+                var receivedSeriesData = JavaScriptObject[0];
+                chartSeries.setData(receivedSeriesData);
                 
                 <!--                // 加入当前数组有5个元素-->
                 <!--                var data = [1, 3, 5, 3, 1];-->

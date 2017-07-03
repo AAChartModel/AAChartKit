@@ -44,7 +44,7 @@
         chartViewContentHeight = self.contentHeight;
     }
     
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@');",_json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight]];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",_json,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight]];
     return javaScriptStr;
 }
 -(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel{
@@ -74,8 +74,10 @@
         }
     }];
 }
--(void)aa_onlyRefreshTheChartDataWithSeries:(AASeries *)series{
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries()"];
+-(void)aa_onlyRefreshTheChartDataWithSeries:(NSArray *)series{
+    NSData *data=[NSJSONSerialization dataWithJSONObject:series options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *seriesJsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@",_json);

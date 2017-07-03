@@ -8,7 +8,7 @@
 //
 #import "AAChartModel.h"
 #import "AAOptions.h"
-@class AASeries;
+
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 #import <WebKit/WebKit.h>
 #define AAWebView WKWebView
@@ -22,7 +22,7 @@
 #endif
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
--(void)AAChartViewDidFinishLoad;//the delegate method of chart view finish loading
+- (void)AAChartViewDidFinishLoad;//the delegate method of chart view finish loading
 @end
 
 @interface AAChartView : AAWebView<AAWebViewDelegate>
@@ -32,9 +32,9 @@
 @property(nonatomic,assign)CGFloat contentWidth;//content width of AAChartView
 @property(nonatomic,assign)CGFloat contentHeight;//content height of AAChartView
 
--(void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
--(void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing whole chart view content
--(void)aa_onlyRefreshTheChartDataWithSeries:(AASeries *)series;//function of only refresh the chart data
+- (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;//function of drawing chart view
+- (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;//function of refreshing whole chart view content
+- (void)aa_onlyRefreshTheChartDataWithSeries:(NSArray *)series;//function of only refresh the chart data
 @end
 
 
