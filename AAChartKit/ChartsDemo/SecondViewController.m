@@ -28,31 +28,24 @@
         case 0:
             chartType = AAChartTypeColumn;
             break;
-            
         case 1:
             chartType = AAChartTypeBar;
             break;
-            
         case 2:
             chartType = AAChartTypeArea;
             break;
-            
         case 3:
             chartType = AAChartTypeAreaspline;
             break;
-            
         case 4:
             chartType = AAChartTypeLine;
             break;
-            
         case 5:
             chartType = AAChartTypeSpline;
             break;
-            
         case 6:
             chartType = AAChartTypeScatter;
             break;
-            
         default:
             break;
     }
@@ -162,7 +155,6 @@
                                      AAChartStackingTypeNormal,
                                      AAChartStackingTypePercent];
             self.chartModel.stacking = stackingArr[segmentedControl.selectedSegmentIndex];
-            
         }
             break;
             
@@ -218,32 +210,21 @@
         case 0:
             self.chartModel.xAxisReversed = !switchView.on;
             break;
-            
         case 1:
             self.chartModel.yAxisReversed = !switchView.on;
             break;
-            
         case 2:
             self.chartModel.inverted = !switchView.on;
             break;
-            
         case 3:
             self.chartModel.polar = !switchView.on;
             break;
-            
-            
         case 4:
-             if (switchView.on ==YES) {
-                self.chartModel.markerRadius=@0;
-            }else{
-                self.chartModel.markerRadius=@5;
-            }
+            self.chartModel.markerRadius = switchView.on?@0:@5;
             break;
-            
         case 5:
             self.chartModel.dataLabelEnabled = !switchView.on;
             break;
-            
         default:
             break;
     }
