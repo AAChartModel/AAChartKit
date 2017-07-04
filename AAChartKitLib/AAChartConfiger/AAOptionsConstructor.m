@@ -10,7 +10,7 @@
 #import "AAOptionsConstructor.h"
 
 @implementation AAOptionsConstructor
-+(AAOptions *)configColumnAndBarAndSoONChartOptionsWithAAChartModel:(AAChartModel *)chartModel{
++(AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)chartModel{
     
     NSArray *chartAnimationTypeArr =@[
                                       @"linear",

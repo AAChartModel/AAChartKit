@@ -36,13 +36,14 @@
 
 @interface AAOptionsConstructor : NSObject
 
+ 
 /**
- 配置柱状图等图表模型内容
+ Configure the chart content and style
 
- @param chartModel 图表模型
- @return 图表模型 Options 选择项
+ @param chartModel The instance object of chart model
+ @return The instance object of chart options
  */
-+(AAOptions *)configColumnAndBarAndSoONChartOptionsWithAAChartModel:(AAChartModel *)chartModel;
++(AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)chartModel;
 
 
 @end

@@ -35,13 +35,12 @@
     
     return dic;
 }
-+ (NSData*)getJSON:(id)obj options:(NSJSONWritingOptions)options error:(NSError**)error
-{
+
++ (NSData*)getJSON:(id)obj options:(NSJSONWritingOptions)options error:(NSError**)error{
     return [NSJSONSerialization dataWithJSONObject:[self getObjectData:obj] options:options error:error];
 }
 
-+ (id)getObjectInternal:(id)obj
-{
++ (id)getObjectInternal:(id)obj{
     if([obj isKindOfClass:[NSString class]]
        || [obj isKindOfClass:[NSNumber class]]
        || [obj isKindOfClass:[NSNull class]]){
@@ -67,6 +66,7 @@
     }
     return [self getObjectData:obj];
 }
+
 +(NSString *)getPureOptionsString:(id)optionsObject{
     NSDictionary *dic = [self getObjectData:optionsObject];
     NSString *str = [self convertDictionaryIntoJson:dic];
