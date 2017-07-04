@@ -38,6 +38,7 @@
                     o.style.width=receivedWidth;//设置宽度
                 }
                 o.style.height=receivedHeight;//设置高度
+                
                 var JavaScriptObject = JSON.parse(sender);
                 var themeColor = JavaScriptObject.colorsTheme;
                 if(JavaScriptObject.gradientColorEnable ==true){
@@ -60,6 +61,7 @@
                     JavaScriptObject.colors = themeColor;//如果再设置 colors, 则渐进色会功能就会被覆盖
                 }
                 JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
+                
                 $('#container').highcharts(JavaScriptObject);
             }
         
@@ -69,6 +71,7 @@
                 var JavaScriptObject = JSON.parse(receivedSeries);
                 var receivedSeriesElement = JavaScriptObject.series[0];
                 var receivedSeriesData =receivedSeriesElement.data;
+                
                 // 获取series
                 var chartSeries =  $('#container').highcharts().series[0];
                 // 执行只刷新数据的函数

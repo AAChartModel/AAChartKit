@@ -56,7 +56,6 @@ AAPropSetFuncImplementation(AAChartModel, AAChartZoomType , zoomType);//缩放�
 AAPropSetFuncImplementation(AAChartModel, AAChartAnimationType, animationType);//设置图表的渲染动画类型
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//x轴网格线的宽度
 
-
 AAPropSetFuncImplementation(AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropSetFuncImplementation(AAChartModel, BOOL , inverted);
 AAPropSetFuncImplementation(AAChartModel, BOOL, xAxisReversed);
@@ -73,15 +72,12 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y轴标题
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//x轴网格线的宽度
 
 AAPropSetFuncImplementation(AAChartModel, NSArray *, colorsTheme);
-
-
 AAPropSetFuncImplementation(AAChartModel, NSArray *, series);
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, legendEnabled);//是否显示图例
 AAPropSetFuncImplementation(AAChartModel, AAChartLegendLayoutType , legendLayout);
 AAPropSetFuncImplementation(AAChartModel, AAChartLegendAlignType , legendAlign);
 AAPropSetFuncImplementation(AAChartModel, AAChartLegendVerticalAlignType , legendVerticalAlign);
-
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);
 AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnable);

@@ -8,13 +8,14 @@
 
 #import "OnlyRefreshChartDataVC.h"
 #import "AAChartKit.h"
+
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define KBlueColor         ColorWithRGB(63, 153,231,1)
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
 
 @property(nonatomic,strong)AAChartModel *chartModel;
-@property(nonatomic,strong)AAChartView *chartView;
+@property(nonatomic,strong)AAChartView  *chartView;
 
 @end
 
@@ -60,7 +61,6 @@
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
                 ]);
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
-    
 
 }
 

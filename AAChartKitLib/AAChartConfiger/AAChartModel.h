@@ -103,15 +103,12 @@ AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题�
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 
-
-
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartType, chartType);//图表类型
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartStackingType, stacking);//堆积样式
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSymbolType, symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartZoomType, zoomType);//缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
 AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimationType, animationType);//设置图表的渲染动画类型
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
-
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, pointHollow);//折线曲线的连接点是否为空心的
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, inverted);//x 轴是否垂直
@@ -145,16 +142,10 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
-
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAllowDecimals);//是否允许y轴显示小数
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, yPlotLines);//y轴基线的配置
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMax);//y轴最大值
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);//y轴最小值（设置为0就不会有负数）
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, yTickPositions);//自定义Y轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
-
-
-
-
-
 
 @end
