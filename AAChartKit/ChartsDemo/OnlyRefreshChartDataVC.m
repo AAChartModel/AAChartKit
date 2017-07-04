@@ -59,21 +59,33 @@
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
-                ]);
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2018")
+                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
+                ]
+               );
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
 
 }
 
 -(void)onlyRefreshTheChartDataBtnClicked{
     NSMutableArray *virtualData = [[NSMutableArray alloc]init];
+        NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     for (int i=0; i<12; i++) {
         NSInteger randomNumber = arc4random()%20;
+        NSInteger randomNumber2 = arc4random()%20;
         [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
+        [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
     }
     NSArray *series = @[
                         AAObject(AASeriesElement)
                         .nameSet(@"2017")
-                        .dataSet(virtualData)
+                        .dataSet(virtualData),
+                        
+                        AAObject(AASeriesElement)
+                        .nameSet(@"2018")
+                        .dataSet(virtualData2)
                         ];
     self.chartModel.series = series;
     [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];

@@ -68,14 +68,40 @@
         
             function onlyRefreshTheChartDataWithSeries(receivedSeries){
              
-                var JavaScriptObject = JSON.parse(receivedSeries);
-                var receivedSeriesElement = JavaScriptObject.series[0];
-                var receivedSeriesData =receivedSeriesElement.data;
+<!--                var JavaScriptObject = JSON.parse(receivedSeries);-->
+<!--                var receivedSeriesElement = JavaScriptObject.series[0];-->
+<!--                var receivedSeriesData =receivedSeriesElement.data;-->
+<!--                -->
+<!--                // 获取series-->
+<!--                var chartSeries =  $('#container').highcharts().series[0];-->
+<!--                // 执行只刷新数据的函数-->
+<!--                chartSeries.setData(receivedSeriesData);-->
+<!--                -->
+<!--                -->
+<!--                var receivedSeriesElement2 = JavaScriptObject.series[1];-->
+<!--                var receivedSeriesData2 =receivedSeriesElement2.data;-->
+<!--                -->
+<!--                // 获取series-->
+<!--                var chartSeries2 =  $('#container').highcharts().series[1];-->
+<!--                // 执行只刷新数据的函数-->
+<!--                chartSeries2.setData(receivedSeriesData2);-->
+
                 
-                // 获取series
-                var chartSeries =  $('#container').highcharts().series[0];
-                // 执行只刷新数据的函数
-                chartSeries.setData(receivedSeriesData);
+                
+                
+                var JavaScriptObject = JSON.parse(receivedSeries);
+                var receivedSeriesElementArr = JavaScriptObject.series;
+         
+                for (var i=0;i<receivedSeriesElementArr.length;i++)
+                {
+                           var receivedSeriesData =receivedSeriesElementArr[i].data;
+                           // 获取series
+                           var chartSeries =  $('#container').highcharts().series[i];
+                           // 执行只刷新数据的函数
+                           chartSeries.setData(receivedSeriesData);
+                }
+                
+                
                 
                 <!--                // 加入当前数组有5个元素-->
                 <!--                var data = [1, 3, 5, 3, 1];-->
