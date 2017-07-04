@@ -8,6 +8,8 @@
 
 #import "OnlyRefreshChartDataVC.h"
 #import "AAChartKit.h"
+#define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define KBlueColor         ColorWithRGB(63, 153,231,1)
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
 
@@ -20,16 +22,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpTheChartView];
+    [self setUpTheView];
 
 }
 
-- (void)setUpTheChartView{
-    
+- (void)setUpTheView{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
+//    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
+    btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-100);
+    btn.bounds = CGRectMake(0, 0, 200, 40);
     [btn setTitle:@"点击只刷新图表数据内容" forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor redColor];
+    btn.backgroundColor = KBlueColor;
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.layer.cornerRadius = 3;
+    btn.layer.masksToBounds = YES;
+    btn.titleLabel.font = [UIFont systemFontOfSize:11];
     [btn addTarget:self action:@selector(onlyRefreshTheChartDataBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
@@ -70,7 +78,7 @@
                         .dataSet(virtualData)
                         ];
     self.chartModel.series = series;
-    [self.chartView aa_onlyRefreshTheChartDataWithSeries:self.chartModel];
+    [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
     
     //    [self virtualUpdateTheChartViewDataInRealTime];
 

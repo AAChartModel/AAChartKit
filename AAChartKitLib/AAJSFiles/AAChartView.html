@@ -65,11 +65,13 @@
         
         
             function onlyRefreshTheChartDataWithSeries(receivedSeries){
-                // 首先获取series
-                var chartSeries =  $('#container').highcharts().series[0];
+             
                 var JavaScriptObject = JSON.parse(receivedSeries);
                 var receivedSeriesElement = JavaScriptObject.series[0];
                 var receivedSeriesData =receivedSeriesElement.data;
+                // 获取series
+                var chartSeries =  $('#container').highcharts().series[0];
+                // 执行只刷新数据的函数
                 chartSeries.setData(receivedSeriesData);
                 
                 <!--                // 加入当前数组有5个元素-->
