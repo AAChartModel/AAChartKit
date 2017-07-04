@@ -12,7 +12,6 @@
 #import "AAOptionsConstructor.h"
 @implementation AAChartView{
     NSString *_json;
-    NSString *_optionsDic;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -64,10 +63,10 @@
 }
 
 -(void)printTheErrorMessageWithError:(NSError *)error{
-    NSLog(@"%@",_json);
-    NSLog(@"%@",error);
+    if (error) {
+        NSLog(@"%@",error);
+    }
 }
-
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
@@ -79,9 +78,7 @@
 -(void)drawChart{
     NSString *javaScriptStr = [self configTheJavaScriptString];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
-        if (error) {
-            [self printTheErrorMessageWithError:error];
-        }
+        [self printTheErrorMessageWithError:error];
     }];
 }
 
@@ -89,9 +86,7 @@
     NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
-        if (error) {
-            [self printTheErrorMessageWithError:error];
-        }
+        [self printTheErrorMessageWithError:error];
     }];
 }
 
@@ -103,9 +98,7 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
-    if (error) {
-        [self printTheErrorMessageWithError:error];
-     }
+    [self printTheErrorMessageWithError:error];
 }
 
 -(void)drawChart{

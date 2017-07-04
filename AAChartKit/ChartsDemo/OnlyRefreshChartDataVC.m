@@ -61,8 +61,6 @@
                 ]);
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
     
-    
-    
 
 }
 
