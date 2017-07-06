@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    }
+
+- (void)configureTheButtons{
     self.view.backgroundColor = [UIColor whiteColor];
     NSArray *chartAnimationTypeArr = @[
                                        @"linear",
@@ -56,7 +59,7 @@
                                        @"easeOutBounce",
                                        @"easeInOutBounce",
                                        ];
-
+    
     CGRect myRect = CGRectMake(15, 17, 3, 20);
     
     float butX = 15;
@@ -81,6 +84,7 @@
         
         butX = CGRectGetMaxX(but.frame)+10;
     }
+
 }
 
 - (void)myAnimationTypeButtonClicked:(UIButton *)sender {

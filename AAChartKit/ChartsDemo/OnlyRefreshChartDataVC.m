@@ -64,6 +64,10 @@
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
                  .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
+                 
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2019")
+                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
                 ]
                );
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
@@ -73,11 +77,16 @@
 - (void)onlyRefreshTheChartDataBtnClicked {
     NSMutableArray *virtualData = [[NSMutableArray alloc]init];
         NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
+    NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
     for (int i=0; i<12; i++) {
-        NSInteger randomNumber = arc4random()%50;
-        NSInteger randomNumber2 = arc4random()%20;
+        NSInteger randomNumber = arc4random()%99;
+        NSInteger randomNumber2 = arc4random()%66;
+        NSInteger randomNumber3 = arc4random()%55;
+
         [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
         [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
+        [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
+
     }
     NSArray *series = @[
                         AAObject(AASeriesElement)
@@ -86,7 +95,11 @@
                         
                         AAObject(AASeriesElement)
                         .nameSet(@"2018")
-                        .dataSet(virtualData2)
+                        .dataSet(virtualData2),
+                        
+                        AAObject(AASeriesElement)
+                        .nameSet(@"2019")
+                        .dataSet(virtualData3),
                         ];
     self.chartModel.series = series;
     [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
