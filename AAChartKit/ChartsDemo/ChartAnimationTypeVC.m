@@ -21,11 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    }
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self configureTheButtons];
+ 
+
+}
 
 - (void)configureTheButtons{
-    self.view.backgroundColor = [UIColor whiteColor];
     NSArray *chartAnimationTypeArr = @[
                                        @"linear",
                                        @"swing",
@@ -88,7 +90,16 @@
 }
 
 - (void)myAnimationTypeButtonClicked:(UIButton *)sender {
+    _lastClickedButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _lastClickedButton.backgroundColor = [UIColor whiteColor];
+    [_lastClickedButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
     
+    
+    sender.layer.borderColor = [[UIColor blueColor] CGColor];
+    sender.backgroundColor = [UIColor blueColor];
+    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _lastClickedButton = sender;
+
 }
 
 
