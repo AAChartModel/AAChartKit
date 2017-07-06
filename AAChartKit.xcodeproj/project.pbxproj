@@ -55,10 +55,6 @@
 		64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */ = {isa = PBXBuildFile; fileRef = 64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */; };
 		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
 		64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */; };
-		7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910B1E80B2F400382A09 /* IMG_1871.JPG */; };
-		7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910D1E80B30300382A09 /* IMG_1870.JPG */; };
-		713191101E80B31200382A09 /* IMG_1869.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131910F1E80B31200382A09 /* IMG_1869.JPG */; };
-		713191121E80B31800382A09 /* IMG_1868.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191111E80B31800382A09 /* IMG_1868.JPG */; };
 		713191141E80B32000382A09 /* IMG_1867.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191131E80B32000382A09 /* IMG_1867.JPG */; };
 		713191161E80B32800382A09 /* IMG_1866.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191151E80B32800382A09 /* IMG_1866.JPG */; };
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
@@ -177,10 +173,6 @@
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyRefreshChartDataVC.h; sourceTree = "<group>"; };
 		64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyRefreshChartDataVC.m; sourceTree = "<group>"; };
-		7131910B1E80B2F400382A09 /* IMG_1871.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1871.JPG; sourceTree = "<group>"; };
-		7131910D1E80B30300382A09 /* IMG_1870.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1870.JPG; sourceTree = "<group>"; };
-		7131910F1E80B31200382A09 /* IMG_1869.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1869.JPG; sourceTree = "<group>"; };
-		713191111E80B31800382A09 /* IMG_1868.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1868.JPG; sourceTree = "<group>"; };
 		713191131E80B32000382A09 /* IMG_1867.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1867.JPG; sourceTree = "<group>"; };
 		713191151E80B32800382A09 /* IMG_1866.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1866.JPG; sourceTree = "<group>"; };
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
@@ -418,10 +410,6 @@
 		719C3E1A1EC94C9A00FAF38E /* ChartSamples */ = {
 			isa = PBXGroup;
 			children = (
-				7131910B1E80B2F400382A09 /* IMG_1871.JPG */,
-				7131910D1E80B30300382A09 /* IMG_1870.JPG */,
-				7131910F1E80B31200382A09 /* IMG_1869.JPG */,
-				713191111E80B31800382A09 /* IMG_1868.JPG */,
 				713191131E80B32000382A09 /* IMG_1867.JPG */,
 				713191151E80B32800382A09 /* IMG_1866.JPG */,
 				713191171E80B32C00382A09 /* IMG_1865.JPG */,
@@ -551,7 +539,6 @@
 				64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */,
 				64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */,
 				64245AD41EC3706E005B8021 /* IMG_1878.JPG in Resources */,
-				7131910C1E80B2F400382A09 /* IMG_1871.JPG in Resources */,
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
 				2707BAA11EF7BA47008357AC /* AAJQueryLibrary.js in Resources */,
@@ -559,17 +546,14 @@
 				2707BA9B1EF7BA47008357AC /* AAChartKit.podspec in Resources */,
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
-				7131910E1E80B30300382A09 /* IMG_1870.JPG in Resources */,
 				2707BA9E1EF7BA47008357AC /* AAHighcharts-3d.js in Resources */,
 				2707BA9F1EF7BA47008357AC /* AAHighchartsLibrary.js in Resources */,
-				713191101E80B31200382A09 /* IMG_1869.JPG in Resources */,
 				64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */,
 				713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */,
 				2707BAA01EF7BA47008357AC /* AAHighchartsMore.js in Resources */,
 				7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */,
 				7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */,
 				713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */,
-				713191121E80B31800382A09 /* IMG_1868.JPG in Resources */,
 				7172A3E31E763EA6000D5B99 /* Assets.xcassets in Resources */,
 				713191161E80B32800382A09 /* IMG_1866.JPG in Resources */,
 				7172A3E11E763EA6000D5B99 /* Main.storyboard in Resources */,
