@@ -11,6 +11,7 @@
 #import "SecondViewController.h"
 #import "SpecialChartVC.h"
 #import "OnlyRefreshChartDataVC.h"
+#import "ChartAnimationTypeVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define KGrayColor        [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -43,7 +44,9 @@
                           @"Funnel Chart(漏斗图)",
                           @"Mixed Chart(混合图)"],
                         
-                        @[@"模拟实时更新数据示例"]
+                        @[@"模拟实时更新数据示例"],
+                        
+                        @[@"图形动画样式相关演示"]
                         ];
     
     [self configTheTableView];
@@ -73,7 +76,7 @@
     UIView *view = [[UIView alloc]init];
     view.backgroundColor = KGrayColor;
     UILabel *label = [[UILabel alloc]init];
-    NSArray *sectionTypeArr = @[@"Basic type(基础类型)",@"Special Type(特别类型)",@"附加说明"];
+    NSArray *sectionTypeArr = @[@"Basic type(基础类型)",@"Special Type(特别类型)",@"即时刷新",@"动画相关"];
     label.frame = CGRectMake(0, 0, self.view.frame.size.width, 40);
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:16.0f];
@@ -104,13 +107,16 @@
         SecondViewController *vc = [[SecondViewController alloc]init];
         vc.SecondeViewControllerChartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if(indexPath.section==1){
+    }else if (indexPath.section==1){
         SpecialChartVC *vc = [[SpecialChartVC alloc]init];
         vc.SpecialChartVCChartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
-    }else{
+    }else if (indexPath.section==2){
         OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
         [self.navigationController  pushViewController:vc animated:YES];
+    }else{
+        ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

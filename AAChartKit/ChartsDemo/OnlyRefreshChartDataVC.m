@@ -74,7 +74,7 @@
     NSMutableArray *virtualData = [[NSMutableArray alloc]init];
         NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     for (int i=0; i<12; i++) {
-        NSInteger randomNumber = arc4random()%20;
+        NSInteger randomNumber = arc4random()%50;
         NSInteger randomNumber2 = arc4random()%20;
         [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
         [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
