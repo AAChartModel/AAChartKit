@@ -11,7 +11,7 @@
 #import "AAChartModel.h"
 
 @implementation AAChartModel
--(instancetype)init{
+-(instancetype)init {
     self = [super init];
     if (self) {
         self.chartType = AAChartTypeColumn;
@@ -41,10 +41,10 @@
         self.borderRadius = @0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
         self.markerRadius = @6;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
         self.yAllowDecimals = YES; //默认y轴显示小数
-        
-    }
+     }
     return self;
 }
+
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.

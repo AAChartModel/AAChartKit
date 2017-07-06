@@ -41,7 +41,7 @@
     }
 }
 
--(void)configTheChartView:(NSString *)chartType{
+- (void)configTheChartView:(NSString *)chartType {
     self.chartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -51,7 +51,7 @@
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 
--(AAChartModel *)configTheChartModel:(NSString *)chartType{
+- (AAChartModel *)configTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:AAChartTypePie]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
@@ -79,7 +79,7 @@
         ;
         return chartModel;
         
-    }else if ([chartType isEqualToString:AAChartTypeBubble]){
+    }else if ([chartType isEqualToString:AAChartTypeBubble]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"编程语言热度")
@@ -139,7 +139,7 @@
         ;
         return chartModel;
         
-    }else if ([chartType isEqualToString:AAChartTypePyramid]){
+    }else if ([chartType isEqualToString:AAChartTypePyramid]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePyramid)
         .titleSet(@"编程语言热度")
@@ -159,7 +159,7 @@
                    )
         ;
         return chartModel;
-    }else if ([chartType isEqualToString:AAChartTypeFunnel]){
+    }else if ([chartType isEqualToString:AAChartTypeFunnel]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"编程语言热度")
@@ -179,7 +179,7 @@
                    )
         ;
         return chartModel;
-    }else if ([chartType isEqualToString:AAChartTypeColumnrange]){
+    }else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"城市气温指数")

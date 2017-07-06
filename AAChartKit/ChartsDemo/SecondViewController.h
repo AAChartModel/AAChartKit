@@ -8,7 +8,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef NS_ENUM(NSInteger,SecondeViewControllerChartType){
+typedef NS_ENUM(NSInteger,SecondeViewControllerChartType) {
     SecondeViewControllerChartTypeColumn =0,
     SecondeViewControllerChartTypeBar,
     SecondeViewControllerChartTypeArea,

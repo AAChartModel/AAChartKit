@@ -43,7 +43,7 @@
  @param chartModel The instance object of chart model
  @return The instance object of chart options
  */
-+(AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)chartModel;
++ (AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)chartModel;
 
 
 @end

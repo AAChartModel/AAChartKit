@@ -32,7 +32,7 @@
         <div id="container" style="width:min-450px; height: 200px; margin: 0 auto">
         </div>
         <script >
-            function loadTheHighChartView(sender,receivedWidth,receivedHeight){
+            function loadTheHighChartView(sender,receivedWidth,receivedHeight) {
                 var o=document.getElementById('container');//获得元素
                 if(receivedWidth!=0){
                     o.style.width=receivedWidth;//设置宽度
@@ -66,7 +66,7 @@
             }
         
         
-            function onlyRefreshTheChartDataWithSeries(receivedSeries){
+            function onlyRefreshTheChartDataWithSeries(receivedSeries) {
              
                 var JavaScriptObject = JSON.parse(receivedSeries);
                 var receivedSeriesElementArr = JavaScriptObject.series;

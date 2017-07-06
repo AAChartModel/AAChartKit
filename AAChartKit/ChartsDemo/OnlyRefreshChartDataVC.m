@@ -27,7 +27,7 @@
 
 }
 
-- (void)setUpTheView{
+- (void)setUpTheView {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
     btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-100);
@@ -48,6 +48,7 @@
     self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
     self.chartView.contentHeight = self.view.frame.size.height-220;
     [self.view addSubview:self.chartView];
+    
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeArea)
     .titleSet(@"编程语言热度")
@@ -69,7 +70,7 @@
 
 }
 
--(void)onlyRefreshTheChartDataBtnClicked{
+- (void)onlyRefreshTheChartDataBtnClicked {
     NSMutableArray *virtualData = [[NSMutableArray alloc]init];
         NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     for (int i=0; i<12; i++) {
@@ -116,7 +117,7 @@
 //}
 
 # pragma mark AAChartViewDidFinishLoadDelegate
-- (void)AAChartViewDidFinishLoad{
+- (void)AAChartViewDidFinishLoad {
     NSLog(@"AAChartView 内容已加载完成");
 }
 
