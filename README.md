@@ -37,7 +37,7 @@ https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md
 ```objective-c
 #import "AAChartView.h"
 ```
-2.Creat the object of chart view:`AAChartView`
+1.Creat the object of chart view:`AAChartView`
 ```objective-c
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
@@ -45,7 +45,7 @@ chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.
 chartView.contentHeight =self.view.frame.size.height-220; 
 [self.view addSubview:chartView];
 ```
-3.Configure the properties of chart model:`AAChartModel`                                          
+1.Configure the properties of chart model:`AAChartModel`                                          
 
 
 ```objective-c
@@ -74,18 +74,19 @@ chartView.contentHeight =self.view.frame.size.height-220;
                  ])
     ;
 ```
-4.Draw the chart 
+1.Draw the chart 
 
 
 ```objective-c
+
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
-5.Refresh the chart 
+1.Refresh the chart 
 ```objective-c
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
-6.Special instructions
+1.Special instructions
 
 Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
@@ -179,7 +180,7 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                )
     ;
 ```
-7. Supported chart type for now 
+1. Supported chart type for now 
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";      //column chart
@@ -195,7 +196,7 @@ static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid 
 static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 ```
-8. Supported animation type for now
+1. Supported animation type for now
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,
@@ -385,7 +386,7 @@ If you want to shrink the size of the `AAChartKit` lib ,you should do something 
 * AAHighcharts-3d.js
 * AAFunnel.js
 
-2.Change the content of `AAChartView.html` file 
+1.Change the content of `AAChartView.html` file 
 ``` html
 <script src="AAJQueryLibrary.js">
 </script>

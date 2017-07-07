@@ -34,7 +34,7 @@ https://github.com/AAChartModel/AAChartKit-Swift
 ```objective-c
 #import "AAChartView.h"
 ```
-2. 创建视图AAChartView
+1. 创建视图AAChartView
 ```objective-c
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
@@ -42,7 +42,7 @@ chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.
 chartView.contentHeight =self.view.frame.size.height-220;//设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
 [self.view addSubview:chartView];
 ```
-3. 配置视图模型AAChartModel
+1. 配置视图模型AAChartModel
 ```objective-c
     AAChartModel *chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
@@ -69,18 +69,20 @@ chartView.contentHeight =self.view.frame.size.height-220;//设置图表视图的
                  ])
     ;
 ```
-4.  绘制图形
+1.  绘制图形
 
 ```objective-c
+//首次绘制图形时调用此方法
 [chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
-5.  刷新图形
+1.  刷新图形
 
 ```objective-c
+//更新图表内容后,调用此方法(倘若是只更新图表数据,不改动图表标题或图表类型不建议使用此方法)
  [chartView aa_refreshChartWithChartModel:chartModel];//更新 AAChartModel 数据之后,刷新图表
 ```
 
-6. 特别说明
+1. 特别说明
 
 AAChartKit 中扇形图、气泡图都归属为特殊类型,所以想要绘制扇形图、气泡图,图表模型 AAChartModel 设置稍有不同,示例如下
 
@@ -177,7 +179,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                    )
         ;
 ```
-7. 当前已支持的图表类型有十种以上,说明如下
+1. 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";     //柱形图
@@ -194,7 +196,7 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
 static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
 ```
 
-8. 当前已支持的图表渲染动画类型有三十种以上,说明如下
+1. 当前已支持的图表渲染动画类型有三十种以上,说明如下
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,
