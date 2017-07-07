@@ -46,14 +46,14 @@
 
 
 /**
- Function of drawing chart view for the first time
+ Function of drawing chart view
 
  @param chartModel The instance object of chart model
  */
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;
 
 /**
- Function of drawing or refreshing whole chart view content
+ Function of refreshing whole chart view content
 
  @param chartModel The instance object of chart model
  */
