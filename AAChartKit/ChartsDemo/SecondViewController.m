@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self configTheSegmentControl];
+    [self configThesegmentedControl];
     [self configTheSwitch];
     
     NSString *chartType;
@@ -125,17 +125,17 @@
     NSLog(@"图表视图已完成加载");
 }
 
-- (void)configTheSegmentControl{
+- (void)configThesegmentedControl{
     NSArray *segmentedArray = @[@[@"常规",@"堆叠",@"百分比堆叠"],
                                 @[@"波点",@"方块",@"钻石",@"正三角",@"倒三角"]];
     NSArray *typeLabelNameArr = @[@"堆叠类型选择",@"折线连接点形状选择"];
     for (int i=0; i<segmentedArray.count; i++) {
-        UISegmentedControl * segmentControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
-        segmentControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
-        segmentControl.selectedSegmentIndex = 0;
-        segmentControl.tag = i;
-        [segmentControl addTarget:self action:@selector(customSegmentControlCellValueBeChanged:) forControlEvents:UIControlEventValueChanged];
-        [self.view addSubview:segmentControl];
+        UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
+        segmentedControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
+        segmentedControl.selectedSegmentIndex = 0;
+        segmentedControl.tag = i;
+        [segmentedControl addTarget:self action:@selector(customsegmentedControlCellValueBeChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:segmentedControl];
         
         UILabel *typeLabel = [[UILabel alloc]init];
         typeLabel.frame =CGRectMake(20, 40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
@@ -146,7 +146,7 @@
     }
 }
 
-- (void)customSegmentControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
+- (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
     switch (segmentedControl.tag) {
         case 0:
         {
