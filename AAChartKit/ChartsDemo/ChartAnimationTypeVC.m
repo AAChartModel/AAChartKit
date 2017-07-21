@@ -15,8 +15,10 @@
 @interface ChartAnimationTypeVC () {
     UIButton *_lastClickedButton;
 }
-@property(nonatomic,strong)AAChartModel *chartModel;
-@property(nonatomic,strong)AAChartView *chartView;
+
+@property (nonatomic, strong) AAChartModel *chartModel;
+@property (nonatomic, strong) AAChartView  *chartView;
+
 @end
 
 @implementation ChartAnimationTypeVC

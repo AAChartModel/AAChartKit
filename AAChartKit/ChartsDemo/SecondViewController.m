@@ -10,8 +10,10 @@
 #import "SecondViewController.h"
 #import "AAChartKit.h"
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
-@property(nonatomic,strong)AAChartModel *chartModel;
-@property(nonatomic,strong)AAChartView *chartView;
+
+@property (nonatomic, strong) AAChartModel *chartModel;
+@property (nonatomic, strong) AAChartView *chartView;
+
 @end
 
 @implementation SecondViewController

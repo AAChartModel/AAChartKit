@@ -14,8 +14,8 @@
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
 
-@property(nonatomic,strong)AAChartModel *chartModel;
-@property(nonatomic,strong)AAChartView  *chartView;
+@property (nonatomic, strong) AAChartModel *chartModel;
+@property (nonatomic, strong) AAChartView  *chartView;
 
 @end
 
