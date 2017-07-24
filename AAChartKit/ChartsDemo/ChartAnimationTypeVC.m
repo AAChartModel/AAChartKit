@@ -13,7 +13,7 @@
 #define CurrentWidth ([UIScreen mainScreen].bounds.size.width)
 
 @interface ChartAnimationTypeVC () {
-    UIButton *_lastClickedButton;
+    UIButton *_lastClickedBtn;
 }
 
 @property (nonatomic, strong) AAChartModel *chartModel;
@@ -69,28 +69,28 @@
     
     CGRect myRect = CGRectMake(15, self.view.frame.size.height-220, 3, 20);
     
-    float butX = 15;
-    float butY = CGRectGetMaxY(myRect)+10;
+    float btnX = 15;
+    float btnY = CGRectGetMaxY(myRect)+10;
     for (int i = 0; i < chartAnimationTypeArr.count; i++) {
         NSDictionary *fontDict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
         CGRect frame_W = [chartAnimationTypeArr[i] boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:fontDict context:nil];
-        if (butX+frame_W.size.width+20>CurrentWidth-15) {
-            butX = 13;
-            butY += 40;
+        if (btnX+frame_W.size.width+20>CurrentWidth-15) {
+            btnX = 13;
+            btnY += 40;
         }
         
-        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(butX, butY, frame_W.size.width+20, 25)];
-        [but setTitle:chartAnimationTypeArr[i] forState:UIControlStateNormal];
-        [but setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-        but.titleLabel.font = [UIFont systemFontOfSize:13];
-        but.layer.cornerRadius = 5;
-        but.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        but.layer.borderWidth = 1;
-        but.tag = i;
-        [but addTarget:self action:@selector(myAnimationTypeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:but];
+        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(btnX, btnY, frame_W.size.width+20, 25)];
+        [btn setTitle:chartAnimationTypeArr[i] forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:13];
+        btn.layer.cornerRadius = 5;
+        btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        btn.layer.borderWidth = 1;
+        btn.tag = i;
+        [btn addTarget:self action:@selector(myAnimationTypeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
         
-        butX = CGRectGetMaxX(but.frame)+10;
+        btnX = CGRectGetMaxX(btn.frame)+10;
     }
     
 }
@@ -137,13 +137,13 @@
 - (void)myAnimationTypeButtonClicked:(UIButton *)sender {
     self.chartModel.animationType = sender.tag;
     [self.chartView aa_refreshChartWithChartModel:self.chartModel];
-    _lastClickedButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _lastClickedButton.backgroundColor = [UIColor whiteColor];
-    [_lastClickedButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+    _lastClickedBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _lastClickedBtn.backgroundColor = [UIColor whiteColor];
+    [_lastClickedBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
     sender.layer.borderColor = [[UIColor blueColor] CGColor];
     sender.backgroundColor = [UIColor blueColor];
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _lastClickedButton = sender;
+    _lastClickedBtn = sender;
     
 }
 
