@@ -39,14 +39,7 @@
 
 - (NSString *)configTheJavaScriptString {
     CGFloat chartViewContentWidth = self.contentWidth;
-     
-    CGFloat chartViewContentHeight;
-    if (self.contentHeight ==0) {
-        chartViewContentHeight = self.frame.size.height;
-    }else{
-        chartViewContentHeight = self.contentHeight;
-    }
-    
+    CGFloat chartViewContentHeight = self.contentHeight == 0?self.frame.size.height:self.contentHeight;
     NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",_optionJson,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight]];
     return javaScriptStr;
 }
@@ -111,7 +104,7 @@
     NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self  stringByEvaluatingJavaScriptFromString:javaScriptStr];
-
+    
 }
 
 #endif

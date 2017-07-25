@@ -87,7 +87,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *arr =_charTypeNameArr[section];
+    NSArray *arr = _charTypeNameArr[section];
     return arr.count;
 }
 
@@ -97,21 +97,21 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.textLabel.textColor = [UIColor darkGrayColor];
-    cell.textLabel.text =_charTypeNameArr[indexPath.section][indexPath.row];
+    cell.textLabel.text = _charTypeNameArr[indexPath.section][indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section ==0) {
+    if (indexPath.section == 0) {
         SecondViewController *vc = [[SecondViewController alloc]init];
         vc.SecondeViewControllerChartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section==1){
+    }else if (indexPath.section == 1){
         SpecialChartVC *vc = [[SpecialChartVC alloc]init];
         vc.SpecialChartVCChartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section==2){
+    }else if (indexPath.section == 2){
         OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
         [self.navigationController  pushViewController:vc animated:YES];
     }else{

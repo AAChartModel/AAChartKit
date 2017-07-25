@@ -11,6 +11,41 @@
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 
+typedef NS_ENUM(NSInteger,AAChartAnimationType){
+    AAChartAnimationTypeLinear =0,
+    AAChartAnimationTypeSwing,
+    AAChartAnimationTypeEaseInQuad,
+    AAChartAnimationTypeEaseOutQuad,
+    AAChartAnimationTypeEaseInOutQuad,
+    AAChartAnimationTypeEaseInCubic,
+    AAChartAnimationTypeEaseOutCubic,
+    AAChartAnimationTypeEaseInOutCubic,
+    AAChartAnimationTypeEaseInQuart,
+    AAChartAnimationTypeEaseOutQuart,
+    AAChartAnimationTypeEaseInOutQuart,
+    AAChartAnimationTypeEaseInQuint,
+    AAChartAnimationTypeEaseOutQuint,
+    AAChartAnimationTypeEaseInOutQuint,
+    AAChartAnimationTypeEaseInExpo,
+    AAChartAnimationTypeEaseOutExpo,
+    AAChartAnimationTypeEaseInOutExpo,
+    AAChartAnimationTypeEaseInSine,
+    AAChartAnimationTypeEaseOutSine,
+    AAChartAnimationTypeEaseInOutSine,
+    AAChartAnimationTypeEaseInCirc,
+    AAChartAnimationTypeEaseOutCirc,
+    AAChartAnimationTypeEaseInOutCirc,
+    AAChartAnimationTypeEaseInElastic,
+    AAChartAnimationTypeEaseOutElastic,
+    AAChartAnimationTypeEaseInOutElastic,
+    AAChartAnimationTypeEaseInBack,
+    AAChartAnimationTypeEaseOutBack,
+    AAChartAnimationTypeEaseInOutBack,
+    AAChartAnimationTypeEaseInBounce,
+    AAChartAnimationTypeEaseOutBounce,
+    AAChartAnimationTypeEaseInOutBounce,
+};
+
 typedef NSString *AAChartType;
 typedef NSString *AAChartSubtitleAlignType;
 typedef NSString *AAChartZoomType;
@@ -63,40 +98,6 @@ static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeTop   
 static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeMiddle  = @"middle";
 static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeBottom  = @"bottom";
 
-typedef NS_ENUM(NSInteger,AAChartAnimationType){
-    AAChartAnimationTypeLinear =0,
-    AAChartAnimationTypeSwing,
-    AAChartAnimationTypeEaseInQuad,
-    AAChartAnimationTypeEaseOutQuad,
-    AAChartAnimationTypeEaseInOutQuad,
-    AAChartAnimationTypeEaseInCubic,
-    AAChartAnimationTypeEaseOutCubic,
-    AAChartAnimationTypeEaseInOutCubic,
-    AAChartAnimationTypeEaseInQuart,
-    AAChartAnimationTypeEaseOutQuart,
-    AAChartAnimationTypeEaseInOutQuart,
-    AAChartAnimationTypeEaseInQuint,
-    AAChartAnimationTypeEaseOutQuint,
-    AAChartAnimationTypeEaseInOutQuint,
-    AAChartAnimationTypeEaseInExpo,
-    AAChartAnimationTypeEaseOutExpo,
-    AAChartAnimationTypeEaseInOutExpo,
-    AAChartAnimationTypeEaseInSine,
-    AAChartAnimationTypeEaseOutSine,
-    AAChartAnimationTypeEaseInOutSine,
-    AAChartAnimationTypeEaseInCirc,
-    AAChartAnimationTypeEaseOutCirc,
-    AAChartAnimationTypeEaseInOutCirc,
-    AAChartAnimationTypeEaseInElastic,
-    AAChartAnimationTypeEaseOutElastic,
-    AAChartAnimationTypeEaseInOutElastic,
-    AAChartAnimationTypeEaseInBack,
-    AAChartAnimationTypeEaseOutBack,
-    AAChartAnimationTypeEaseInOutBack,
-    AAChartAnimationTypeEaseInBounce,
-    AAChartAnimationTypeEaseOutBounce,
-    AAChartAnimationTypeEaseInOutBounce,
-};
 
 @interface AAChartModel : NSObject
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容

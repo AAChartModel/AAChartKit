@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"即时刷新数据";
     [self setUpTheView];
 
 }
@@ -30,7 +31,7 @@
 - (void)setUpTheView {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
-    btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-100);
+    btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50);
     btn.bounds = CGRectMake(0, 0, 200, 40);
     [btn setTitle:@"点击只刷新图表数据内容" forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor redColor];
@@ -45,8 +46,8 @@
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
-    self.chartView.contentHeight = self.view.frame.size.height-220;
+    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-160);
+    self.chartView.contentHeight = self.view.frame.size.height-160;
     [self.view addSubview:self.chartView];
     
     self.chartModel= AAObject(AAChartModel)
@@ -76,17 +77,17 @@
 
 - (void)onlyRefreshTheChartDataBtnClicked {
     NSMutableArray *virtualData = [[NSMutableArray alloc]init];
-        NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
+    NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
     for (int i=0; i<12; i++) {
         NSInteger randomNumber = arc4random()%99;
         NSInteger randomNumber2 = arc4random()%66;
         NSInteger randomNumber3 = arc4random()%55;
-
+        
         [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
         [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
         [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
-
+        
     }
     NSArray *series = @[
                         AAObject(AASeriesElement)
@@ -105,7 +106,7 @@
     [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
     
     //    [self virtualUpdateTheChartViewDataInRealTime];
-
+    
 }
 
 //- (void)virtualUpdateTheChartViewDataInRealTime{

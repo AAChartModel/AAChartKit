@@ -139,8 +139,7 @@
         ||chartModel.chartType == AAChartTypeSpline) {
         plotOptions.seriesSet(AAObject(AASeries)
                               .stackingSet(chartModelStacking)
-                              .markerSet(marker
-                                         )
+                              .markerSet(marker)
                               .animationSet(AAObject(AAAnimation)
                                             .easingSet(chartAnimationType)
                                             .durationSet(chartModel.animationDuration)

@@ -99,7 +99,7 @@
 		2707BA561EF7BA47008357AC /* AAJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAJsonConverter.m; sourceTree = "<group>"; };
 		2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
 		2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
-		2707BA591EF7BA47008357AC /* AAChartKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AAChartKit.podspec; sourceTree = "<group>"; };
+		2707BA591EF7BA47008357AC /* AAChartKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AAChartKit.podspec; path = ../AAChartKit.podspec; sourceTree = "<group>"; };
 		2707BA5B1EF7BA47008357AC /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
 		2707BA5C1EF7BA47008357AC /* AAFunnel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAFunnel.js; sourceTree = "<group>"; };
 		2707BA5D1EF7BA47008357AC /* AAHighcharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "AAHighcharts-3d.js"; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				2707BA4F1EF7BA47008357AC /* AAChartConfiger */,
-				2707BA591EF7BA47008357AC /* AAChartKit.podspec */,
 				2707BA5A1EF7BA47008357AC /* AAJSFiles */,
 				2707BA611EF7BA47008357AC /* AAOptionsModel */,
 			);
@@ -249,6 +248,7 @@
 				2707BA561EF7BA47008357AC /* AAJsonConverter.m */,
 				2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */,
 				2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */,
+				2707BA591EF7BA47008357AC /* AAChartKit.podspec */,
 			);
 			path = AAChartConfiger;
 			sourceTree = "<group>";

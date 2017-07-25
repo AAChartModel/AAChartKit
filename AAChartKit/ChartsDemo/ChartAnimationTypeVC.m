@@ -8,102 +8,80 @@
 
 #import "ChartAnimationTypeVC.h"
 #import "AAChartKit.h"
-//当前屏幕的宽高
+
 #define CurrentHeight ([UIScreen mainScreen].bounds.size.height)
 #define CurrentWidth ([UIScreen mainScreen].bounds.size.width)
-
-@interface ChartAnimationTypeVC () {
+#define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define KBlueColor         ColorWithRGB(63, 153,231,1)
+@interface ChartAnimationTypeVC ()<UITableViewDelegate,UITableViewDataSource> {
     UIButton *_lastClickedBtn;
 }
 
 @property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
+@property (nonatomic, strong) NSArray      *animationTypeArr;
 
 @end
 
 @implementation ChartAnimationTypeVC
 
+- (NSArray *)animationTypeArr {
+    if (!_animationTypeArr) {
+        _animationTypeArr = @[
+                              @"linear",
+                              @"swing",
+                              @"easeInQuad",
+                              @"easeInOutQuad",
+                              @"easeInCubic",
+                              @"easeOutCubic",
+                              @"easeInOutCubic",
+                              @"easeInQuart",
+                              @"easeOutQuart",
+                              @"easeInOutQuart",
+                              @"easeInQuint",
+                              @"easeOutQuint",
+                              @"easeInOutQuint",
+                              @"easeInExpo",
+                              @"easeOutExpo",
+                              @"easeInOutExpo",
+                              @"easeInSine",
+                              @"easeOutSine",
+                              @"easeInOutSine",
+                              @"easeInCirc",
+                              @"easeOutCirc",
+                              @"easeInOutCirc",
+                              @"easeInElastic",
+                              @"easeOutElastic",
+                              @"easeInOutElastic",
+                              @"easeInBack",
+                              @"easeOutBack",
+                              @"easeInOutBack",
+                              @"easeInBounce",
+                              @"easeOutBounce",
+                              @"easeInOutBounce",
+                              ];
+    }
+    return _animationTypeArr;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self configureTheButtons];
+    self.title = @"动画类型";
+    //[self configureTheButtons];
+    [self configureTheAnimationTypeTableView];
     [self configureTheChartView];
-    
-    
+  
 }
-
-- (void)configureTheButtons {
-    NSArray *chartAnimationTypeArr = @[
-                                       @"linear",
-                                       @"swing",
-                                       @"easeInQuad",
-                                       @"easeInOutQuad",
-                                       @"easeInCubic",
-                                       @"easeOutCubic",
-                                       @"easeInOutCubic",
-                                       @"easeInQuart",
-                                       @"easeOutQuart",
-                                       @"easeInOutQuart",
-                                       @"easeInQuint",
-                                       @"easeOutQuint",
-                                       @"easeInOutQuint",
-                                       @"easeInExpo",
-                                       @"easeOutExpo",
-                                       @"easeInOutExpo",
-                                       @"easeInSine",
-                                       @"easeOutSine",
-                                       @"easeInOutSine",
-                                       @"easeInCirc",
-                                       @"easeOutCirc",
-                                       @"easeInOutCirc",
-                                       @"easeInElastic",
-                                       @"easeOutElastic",
-                                       @"easeInOutElastic",
-                                       @"easeInBack",
-                                       @"easeOutBack",
-                                       @"easeInOutBack",
-                                       @"easeInBounce",
-                                       @"easeOutBounce",
-                                       @"easeInOutBounce",
-                                       ];
-    
-    CGRect myRect = CGRectMake(15, self.view.frame.size.height-220, 3, 20);
-    
-    float btnX = 15;
-    float btnY = CGRectGetMaxY(myRect)+10;
-    for (int i = 0; i < chartAnimationTypeArr.count; i++) {
-        NSDictionary *fontDict = @{NSFontAttributeName:[UIFont systemFontOfSize:13]};
-        CGRect frame_W = [chartAnimationTypeArr[i] boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:fontDict context:nil];
-        if (btnX+frame_W.size.width+20>CurrentWidth-15) {
-            btnX = 13;
-            btnY += 40;
-        }
-        
-        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(btnX, btnY, frame_W.size.width+20, 25)];
-        [btn setTitle:chartAnimationTypeArr[i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:13];
-        btn.layer.cornerRadius = 5;
-        btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        btn.layer.borderWidth = 1;
-        btn.tag = i;
-        [btn addTarget:self action:@selector(myAnimationTypeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:btn];
-        
-        btnX = CGRectGetMaxX(btn.frame)+10;
-    }
-    
-}
-
 
 - (void)configureTheChartView  {
     self.chartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
-    self.chartView.contentHeight = self.view.frame.size.height-220;
+    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width-115, self.view.frame.size.height-60);
+   // self.chartView.contentHeight = self.view.frame.size.height-220;
     [self.view addSubview:self.chartView];
     self.chartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeBar)
+    .chartTypeSet(AAChartTypeColumn)
     .animationDurationSet(@1500)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
@@ -131,22 +109,43 @@
     
     ;
     [self.chartView aa_drawChartWithChartModel:_chartModel];
-    
 }
 
-- (void)myAnimationTypeButtonClicked:(UIButton *)sender {
-    self.chartModel.animationType = sender.tag;
-    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
+- (void)configureTheAnimationTypeTableView {
+    UITableView *animationTypeTableView = [[UITableView alloc]init];
+    animationTypeTableView.delegate = self;
+    animationTypeTableView.dataSource = self;
+    animationTypeTableView.frame = CGRectMake(self.view.frame.size.width-115, 0, 115, self.view.frame.size.height-60);
+    [self.view addSubview:animationTypeTableView];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.animationTypeArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifer = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+    }
+    cell.textLabel.text = self.animationTypeArr[indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:11.f];
+    cell.textLabel.textColor = KBlueColor;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AAChartAnimationType animationType = indexPath.row;
+    [self animationTypeTableViewClicked:animationType];
+}
+
+- (void)animationTypeTableViewClicked:(AAChartAnimationType)chartAnimationType {
+    self.chartModel.animationType = chartAnimationType;
+    [self.chartView aa_refreshChartWithChartModel:self.chartModel];//刷新图表数据
     _lastClickedBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _lastClickedBtn.backgroundColor = [UIColor whiteColor];
     [_lastClickedBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-    sender.layer.borderColor = [[UIColor blueColor] CGColor];
-    sender.backgroundColor = [UIColor blueColor];
-    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _lastClickedBtn = sender;
-    
+
 }
-
-
-
 @end

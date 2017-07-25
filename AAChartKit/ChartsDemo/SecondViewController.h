@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger,SecondeViewControllerChartType) {
 
 @interface SecondViewController : UIViewController
 @property (nonatomic, assign) NSInteger SecondeViewControllerChartType;
-@property (nonatomic,  copy ) NSString  *receivedChartType;
+@property (nonatomic, copy  ) NSString  *receivedChartType;
 
 @end
 
