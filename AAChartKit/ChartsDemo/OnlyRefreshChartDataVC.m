@@ -10,6 +10,7 @@
 #import "AAChartKit.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define KGrayColor        [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 #define KBlueColor         ColorWithRGB(63, 153,231,1)
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
@@ -32,14 +33,13 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
     btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50);
-    btn.bounds = CGRectMake(0, 0, 200, 40);
+    btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 40);
     [btn setTitle:@"点击只刷新图表数据内容" forState:UIControlStateNormal];
-    btn.backgroundColor = [UIColor redColor];
-    btn.backgroundColor = KBlueColor;
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.backgroundColor = KGrayColor;
+    [btn setTitleColor:KBlueColor forState:UIControlStateNormal];
     btn.layer.cornerRadius = 3;
     btn.layer.masksToBounds = YES;
-    btn.titleLabel.font = [UIFont systemFontOfSize:11];
+    btn.titleLabel.font = [UIFont systemFontOfSize:13.f];
     [btn addTarget:self action:@selector(onlyRefreshTheChartDataBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
@@ -52,6 +52,11 @@
     
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeArea)
+    .invertedSet(true)
+//    .xAxisReversedSet(true)
+//    .yAxisReversedSet(true)
+    .stackingSet(AAChartStackingTypeNormal)
+//    .polarSet(true)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
     .pointHollowSet(true)

@@ -25,7 +25,7 @@
     [self configThesegmentedControl];
     [self configTheSwitch];
     
-    NSString *chartType;
+    AAChartType chartType;
     switch (self.SecondeViewControllerChartType) {
         case 0:
             chartType = AAChartTypeColumn;
@@ -56,12 +56,12 @@
  
 }
 
-- (void)configTheChartView:(NSString *)chartType {
+- (void)configTheChartView:(AAChartType)chartType {
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
-    self.chartView.contentHeight = self.view.frame.size.height-220;
+    self.chartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.chartView];
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)

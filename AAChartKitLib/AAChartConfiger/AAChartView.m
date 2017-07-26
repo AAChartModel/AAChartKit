@@ -20,7 +20,7 @@
     if (self) {
         self.AASelfWebViewDelegate =self;
         self.backgroundColor = [UIColor whiteColor];
-        self.scrollView.bounces = NO;
+//        self.scrollView.bounces = NO;
     }
     return self;
 }

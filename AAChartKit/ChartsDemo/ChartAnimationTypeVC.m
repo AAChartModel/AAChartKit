@@ -13,6 +13,7 @@
 #define CurrentWidth ([UIScreen mainScreen].bounds.size.width)
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define KBlueColor         ColorWithRGB(63, 153,231,1)
+
 @interface ChartAnimationTypeVC ()<UITableViewDelegate,UITableViewDataSource> {
     UIButton *_lastClickedBtn;
 }
@@ -25,44 +26,6 @@
 
 @implementation ChartAnimationTypeVC
 
-- (NSArray *)animationTypeArr {
-    if (!_animationTypeArr) {
-        _animationTypeArr = @[
-                              @"linear",
-                              @"swing",
-                              @"easeInQuad",
-                              @"easeInOutQuad",
-                              @"easeInCubic",
-                              @"easeOutCubic",
-                              @"easeInOutCubic",
-                              @"easeInQuart",
-                              @"easeOutQuart",
-                              @"easeInOutQuart",
-                              @"easeInQuint",
-                              @"easeOutQuint",
-                              @"easeInOutQuint",
-                              @"easeInExpo",
-                              @"easeOutExpo",
-                              @"easeInOutExpo",
-                              @"easeInSine",
-                              @"easeOutSine",
-                              @"easeInOutSine",
-                              @"easeInCirc",
-                              @"easeOutCirc",
-                              @"easeInOutCirc",
-                              @"easeInElastic",
-                              @"easeOutElastic",
-                              @"easeInOutElastic",
-                              @"easeInBack",
-                              @"easeOutBack",
-                              @"easeInOutBack",
-                              @"easeInBounce",
-                              @"easeOutBounce",
-                              @"easeInOutBounce",
-                              ];
-    }
-    return _animationTypeArr;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -148,4 +111,44 @@
     [_lastClickedBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
 
 }
+
+- (NSArray *)animationTypeArr {
+    if (!_animationTypeArr) {
+        _animationTypeArr = @[
+                              @"linear",
+                              @"swing",
+                              @"easeInQuad",
+                              @"easeInOutQuad",
+                              @"easeInCubic",
+                              @"easeOutCubic",
+                              @"easeInOutCubic",
+                              @"easeInQuart",
+                              @"easeOutQuart",
+                              @"easeInOutQuart",
+                              @"easeInQuint",
+                              @"easeOutQuint",
+                              @"easeInOutQuint",
+                              @"easeInExpo",
+                              @"easeOutExpo",
+                              @"easeInOutExpo",
+                              @"easeInSine",
+                              @"easeOutSine",
+                              @"easeInOutSine",
+                              @"easeInCirc",
+                              @"easeOutCirc",
+                              @"easeInOutCirc",
+                              @"easeInElastic",
+                              @"easeOutElastic",
+                              @"easeInOutElastic",
+                              @"easeInBack",
+                              @"easeOutBack",
+                              @"easeInOutBack",
+                              @"easeInBounce",
+                              @"easeOutBounce",
+                              @"easeInOutBounce",
+                              ];
+    }
+    return _animationTypeArr;
+}
+
 @end

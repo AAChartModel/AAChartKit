@@ -12,3 +12,9 @@
 @interface FirstViewController : UIViewController
 
 @end
+
+@interface customTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) UILabel *label;
+
+@end

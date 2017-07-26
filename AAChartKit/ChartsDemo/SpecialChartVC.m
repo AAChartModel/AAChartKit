@@ -21,39 +21,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AAChartType chartType;
     switch (self.SpecialChartVCChartType) {
         case 0:
-            [self configTheChartView:AAChartTypePie];
+            chartType = AAChartTypePie;
             break;
         case 1:
-            [self configTheChartView:AAChartTypeBubble];
-            break;
+            chartType = AAChartTypeBubble;
+             break;
         case 2:
-            [self configTheChartView:AAChartTypePyramid];
-            break;
+            chartType = AAChartTypePyramid;
+             break;
         case 3:
-            [self configTheChartView:AAChartTypeFunnel];
-            break;
+            chartType = AAChartTypeFunnel;
+             break;
         case 4:
-            [self configTheChartView:AAChartTypeColumnrange];
-            break;
+            chartType = AAChartTypeColumnrange;
+             break;
             
          default:
             break;
     }
+    
+    self.title = [NSString stringWithFormat:@"%@",chartType];
+    [self configureTheChartView:chartType];
 }
 
-- (void)configTheChartView:(NSString *)chartType {
+- (void)configureTheChartView:(AAChartType)chartType {
     self.chartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.chartView.contentHeight = self.view.frame.size.height-60;
     [self.view addSubview:self.chartView];
-    self.chartModel = [self configTheChartModel:chartType];
+    self.chartModel = [self configureTheChartModel:chartType];
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 
-- (AAChartModel *)configTheChartModel:(NSString *)chartType {
+- (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:AAChartTypePie]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
