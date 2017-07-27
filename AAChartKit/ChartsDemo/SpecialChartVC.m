@@ -160,7 +160,8 @@
                                 @[@"Objective-C", @4064],
                                 @[@"JavaScript",  @1987],
                                 @[@"GO",          @976],
-                                @[@"Python",      @846]]),
+                                @[@"Python",      @846]
+                                ]),
                      ]
                    )
         ;
@@ -180,14 +181,14 @@
                                 @[@"Objective-C", @4064],
                                 @[@"JavaScript",  @1987],
                                 @[@"GO",          @976],
-                                @[@"Python",      @846]]),
+                                @[@"Python",      @846]
+                                ]),
                      ]
                    )
         ;
         return chartModel;
     }else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         AAChartModel *chartModel= AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"城市气温指数")
         .subtitleSet(@"虚拟数据")
         .yAxisTitleSet(@"摄氏度")

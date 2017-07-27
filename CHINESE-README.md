@@ -69,18 +69,22 @@ chartView.contentHeight =self.view.frame.size.height-220;//设置图表视图的
                  ])
     ;
 ```
-4.  绘制图形
-
+4.  绘制图形(创建 AAChartView 实例对象后,首次绘制图形调用此方法)
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel];//图表视图对象调用图表模型对象,绘制最终图形
 ```
-5.  刷新图形
+5.  刷新图形(首次绘制图形完成之后,后续刷新均建议调用此方法)
 
 ```objective-c
- [chartView aa_refreshChartWithChartModel:chartModel];//更新 AAChartModel 数据之后,刷新图表
+ [chartView aa_refreshChartWithChartModel:chartModel];//更新 AAChartModel 内容之后,刷新图表
 ```
 
-6. 特别说明
+6.  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
+```objective-c
+  [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];//仅仅更新 AAChartModel 对象的 series 属性时,动态刷新图表
+```
+
+7. 特别说明
 
 AAChartKit 中扇形图、气泡图都归属为特殊类型,所以想要绘制扇形图、气泡图,图表模型 AAChartModel 设置稍有不同,示例如下
 
@@ -177,7 +181,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                    )
         ;
 ```
-7. 当前已支持的图表类型有十种以上,说明如下
+8. 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";     //柱形图
@@ -194,7 +198,7 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
 static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
 ```
 
-8. 当前已支持的图表渲染动画类型有三十种以上,说明如下
+9. 当前已支持的图表渲染动画类型有三十种以上,说明如下
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,

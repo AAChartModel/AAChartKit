@@ -75,8 +75,6 @@ chartView.contentHeight =self.view.frame.size.height-220;
     ;
 ```
 4.Draw the chart 
-
-
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
@@ -85,7 +83,13 @@ chartView.contentHeight =self.view.frame.size.height-220;
 ```objective-c
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
-6.Special instructions
+
+6.Only refresh the chart data 
+```objective-c
+  [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+```
+
+7.Special instructions
 
 Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
@@ -179,7 +183,7 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                )
     ;
 ```
-7. Supported chart type for now 
+8. Supported chart type for now 
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";      //column chart
@@ -195,7 +199,7 @@ static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid 
 static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 ```
-8. Supported animation type for now
+9. Supported animation type for now
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
     AAChartAnimationTypeLinear =0,

@@ -145,7 +145,7 @@
         _label.textAlignment = NSTextAlignmentCenter;
         _label.font = [UIFont systemFontOfSize:14.f];
         _label.textColor = [UIColor darkGrayColor];
-        [self.contentView addSubview:_label];
+        [self addSubview:_label];
     }
     return self;
 }
