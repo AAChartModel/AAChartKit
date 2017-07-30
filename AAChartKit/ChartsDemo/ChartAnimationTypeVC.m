@@ -149,6 +149,8 @@
                               ];
     }
     return _animationTypeArr;
-}
+    }
+
+
 
 @end

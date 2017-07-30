@@ -11,10 +11,13 @@
 typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypePie=0,
     SpecialChartVCChartTypeBubble,
+    SpecialChartVCChartTypeScatter,
     SpecialChartVCChartTypeTreeMap,
     SpecialChartVCChartTypePyramid,
     SpecialChartVCChartTypeFunnel,
+    SpecialChartVCChartTypeArearange,
     SpecialChartVCChartTypeColumnrange,
+    SpecialChartVCChartTypeMixed,
 };
 
 @interface SpecialChartVC : UIViewController

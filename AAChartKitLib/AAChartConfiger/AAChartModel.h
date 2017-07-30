@@ -67,6 +67,7 @@ static AAChartType const AAChartTypeBubble      = @"bubble";
 static AAChartType const AAChartTypePyramid     = @"pyramid";
 static AAChartType const AAChartTypeFunnel      = @"funnel";
 static AAChartType const AAChartTypeColumnrange = @"columnrange";
+static AAChartType const AAChartTypeArearange   = @"arearange";
 
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft = @"left";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
