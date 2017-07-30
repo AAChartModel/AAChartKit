@@ -113,9 +113,11 @@
                             
                             @[@"Pie Chart---扇形图",
                               @"Bubble Chart---气泡图",
+                              @"Scatter Chart--散点图",
                               @"Pyramid Chart---金字塔图",
                               @"Funnel Chart---漏斗图",
-                              @"Arearange chart--区域面积图",
+                              @"Arearange Chart--区域面积图",
+                              @"Columnrange Chart--柱形面积图",
                               @"Mixed Chart---混合图"],
                             
                             @[@"模拟实时更新数据示例"],

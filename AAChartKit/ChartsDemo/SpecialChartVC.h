@@ -12,7 +12,7 @@ typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypePie=0,
     SpecialChartVCChartTypeBubble,
     SpecialChartVCChartTypeScatter,
-    SpecialChartVCChartTypeTreeMap,
+//    SpecialChartVCChartTypeTreeMap,
     SpecialChartVCChartTypePyramid,
     SpecialChartVCChartTypeFunnel,
     SpecialChartVCChartTypeArearange,
