@@ -133,10 +133,10 @@
     }
     
     //数据点标记相关配置，只有线性图才有数据点标记。
-    if (  chartModel.chartType == AAChartTypeArea
-        ||chartModel.chartType == AAChartTypeAreaspline
-        ||chartModel.chartType == AAChartTypeLine
-        ||chartModel.chartType == AAChartTypeSpline) {
+    if (   chartModel.chartType == AAChartTypeArea
+        || chartModel.chartType == AAChartTypeAreaspline
+        || chartModel.chartType == AAChartTypeLine
+        || chartModel.chartType == AAChartTypeSpline) {
         plotOptions.seriesSet(AAObject(AASeries)
                               .stackingSet(chartModelStacking)
                               .markerSet(marker)
