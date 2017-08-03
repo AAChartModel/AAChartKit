@@ -66,7 +66,8 @@
     .textSet(chartModel.title)//标题文本内容
     .styleSet(AAObject(AAStyle)
               .colorSet(@"#000000")//标题颜色
-              .fontSizeSet(@"12px"));//标题字体大小
+              .fontSizeSet(@"12px")//标题字体大小
+              );
     
     
     AASubtitle *subtitle = AAObject(AASubtitle)
@@ -74,7 +75,8 @@
     .alignSet(chartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
     .styleSet(AAObject(AAStyle)
               .colorSet(@"#000000")
-              .fontSizeSet(@"9px"));
+              .fontSizeSet(@"9px")
+              );
     
     AAXAxis *xAxis = AAObject(AAXAxis)
     .labelsSet(AAObject(AALabels)
@@ -104,7 +106,7 @@
     .sharedSet(true)
     .crosshairsSet(chartModel.crosshairs);
     //        .useHTMLSet(true)
-    //    .valueSuffixSet(@"摄氏度");
+//        .valueSuffixSet(@"摄氏度");
     
     NSString *chartModelStacking = chartModel.stacking;
     if ([chartModel.stacking isEqualToString:@"nil"]) {

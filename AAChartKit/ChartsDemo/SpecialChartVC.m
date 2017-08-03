@@ -77,7 +77,8 @@
         .dataLabelEnabledSet(true)//是否直接显示扇形图数据
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
-                   @[AAObject(AASeriesElement)
+                   @[
+                     AAObject(AASeriesElement)
                      .nameSet(@"语言热度占比")
                      .dataSet(@[
                                 @[@"Java"  , @67],

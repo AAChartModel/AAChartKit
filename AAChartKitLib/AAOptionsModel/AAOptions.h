@@ -9,8 +9,8 @@
 
 
 #import <Foundation/Foundation.h>
-@class AAChart,AATitle,AASubtitle,AAXAxis,AAYAxis,AATooltip,AAPlotOptions,AAColumn,AALegend;
 
+@class AAChart,AATitle,AASubtitle,AAXAxis,AAYAxis,AATooltip,AAPlotOptions,AALegend;
 
 @interface AAOptions : NSObject
 AAPropStatementAndFuncStatement(strong, AAOptions, AAChart *, chart);
@@ -20,7 +20,6 @@ AAPropStatementAndFuncStatement(strong, AAOptions, AAXAxis *, xAxis);
 AAPropStatementAndFuncStatement(strong, AAOptions, AAYAxis *, yAxis);
 AAPropStatementAndFuncStatement(strong, AAOptions, AATooltip *, tooltip);
 AAPropStatementAndFuncStatement(strong, AAOptions, AAPlotOptions *, plotOptions);
-AAPropStatementAndFuncStatement(strong, AAOptions, AAColumn *, column);
 AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, series);
 AAPropStatementAndFuncStatement(strong, AAOptions, AALegend *, legend);
 AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, colorsTheme);

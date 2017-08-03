@@ -15,9 +15,8 @@
 #import "AAYAxis.h"
 #import "AATooltip.h"
 #import "AAPlotOptions.h"
-#import "AAColumn.h"
-//#import "AASeries.h"
 #import "AALegend.h"
+
 @implementation AAOptions
 AAPropSetFuncImplementation(AAOptions, AAChart *, chart);
 AAPropSetFuncImplementation(AAOptions, AATitle *, title);
@@ -26,7 +25,6 @@ AAPropSetFuncImplementation(AAOptions, AAXAxis *, xAxis);
 AAPropSetFuncImplementation(AAOptions, AAYAxis *, yAxis);
 AAPropSetFuncImplementation(AAOptions, AATooltip *, tooltip);
 AAPropSetFuncImplementation(AAOptions, AAPlotOptions *, plotOptions);
-AAPropSetFuncImplementation(AAOptions, AAColumn *, column);
 AAPropSetFuncImplementation(AAOptions, NSArray *, series);
 AAPropSetFuncImplementation(AAOptions, AALegend *, legend);
 AAPropSetFuncImplementation(AAOptions, NSArray *, colorsTheme);
