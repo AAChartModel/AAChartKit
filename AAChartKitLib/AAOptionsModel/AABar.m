@@ -8,7 +8,7 @@
 //
 
 #import "AABar.h"
-#import "AADataLabels.h"
+
 @implementation AABar
 AAPropSetFuncImplementation(AABar, NSNumber *, pointPadding);
 AAPropSetFuncImplementation(AABar, NSNumber *, borderWidth);

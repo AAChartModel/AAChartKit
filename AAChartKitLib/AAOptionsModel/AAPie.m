@@ -8,7 +8,7 @@
 //
 
 #import "AAPie.h"
-#import "AADataLabels.h"
+
 @implementation AAPie
 AAPropSetFuncImplementation(AAPie, BOOL, allowPointSelect);
 AAPropSetFuncImplementation(AAPie, NSString *, cursor);

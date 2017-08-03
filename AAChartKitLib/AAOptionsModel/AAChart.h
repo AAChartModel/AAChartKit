@@ -10,7 +10,7 @@
 
 
 #import <Foundation/Foundation.h>
-@class AAAnimation;
+//@class AAAnimation;
 @class AAOptions3d;
 @interface AAChart : NSObject
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString *, type);

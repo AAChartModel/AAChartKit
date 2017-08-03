@@ -8,7 +8,6 @@
 //
 
 #import "AASubtitle.h"
-#import "AAStyle.h"
 
 @implementation AASubtitle
 AAPropSetFuncImplementation(AASubtitle, NSString *, text);

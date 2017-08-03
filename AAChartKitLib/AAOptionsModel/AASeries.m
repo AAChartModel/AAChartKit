@@ -8,9 +8,6 @@
 //
 
 #import "AASeries.h"
-#import "AAMarker.h"
-#import "AAAnimation.h"
-
 
 @implementation AASeries
 AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadius);

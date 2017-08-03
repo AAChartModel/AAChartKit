@@ -8,7 +8,6 @@
 //
 
 #import "AAChart.h"
-#import "AAOptions3d.h"
 
 
 @implementation AAChart

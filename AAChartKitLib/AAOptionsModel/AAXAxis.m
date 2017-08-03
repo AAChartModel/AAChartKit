@@ -8,7 +8,6 @@
 //
 
 #import "AAXAxis.h"
-#import "AALabels.h"
 
 @implementation AAXAxis
 AAPropSetFuncImplementation(AAXAxis,id, categories);

@@ -8,14 +8,14 @@
 //
 
 #import "AAOptions.h"
-#import "AAChart.h"
-#import "AATitle.h"
-#import "AASubtitle.h"
-#import "AAXAxis.h"
-#import "AAYAxis.h"
-#import "AATooltip.h"
-#import "AAPlotOptions.h"
-#import "AALegend.h"
+//#import "AAChart.h"
+//#import "AATitle.h"
+//#import "AASubtitle.h"
+//#import "AAXAxis.h"
+//#import "AAYAxis.h"
+//#import "AATooltip.h"
+//#import "AAPlotOptions.h"
+//#import "AALegend.h"
 
 @implementation AAOptions
 AAPropSetFuncImplementation(AAOptions, AAChart *, chart);

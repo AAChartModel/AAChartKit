@@ -8,7 +8,6 @@
 //
 
 #import "AASpline.h"
-#import "AADataLabels.h"
 
 @implementation AASpline
 AAPropSetFuncImplementation(AASpline, AADataLabels *, dataLabels);

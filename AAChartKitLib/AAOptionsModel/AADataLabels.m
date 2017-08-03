@@ -8,7 +8,6 @@
 //
 
 #import "AADataLabels.h"
-#import "AAStyle.h"
 @implementation AADataLabels
 AAPropSetFuncImplementation(AADataLabels, BOOL , enabled);
 AAPropSetFuncImplementation(AADataLabels, AAStyle *, style);

@@ -7,7 +7,6 @@
 //
 
 #import "AASeriesElement.h"
-#import "AAMarker.h"
 
 @implementation AASeriesElement
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius);

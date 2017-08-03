@@ -8,7 +8,6 @@
 //
 
 #import "AALegend.h"
-#import "AAItemStyle.h"
 
 @implementation AALegend
 AAPropSetFuncImplementation(AALegend, BOOL , enabled);
@@ -17,6 +16,4 @@ AAPropSetFuncImplementation(AALegend, NSString *, align);
 AAPropSetFuncImplementation(AALegend, NSString *, verticalAlign);
 AAPropSetFuncImplementation(AALegend, NSNumber *, borderWidth);
 AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle);
-
-
 @end

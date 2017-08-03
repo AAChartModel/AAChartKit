@@ -8,7 +8,7 @@
 //
 
 #import "AAAreaspline.h"
-#import "AADataLabels.h"
+
 @implementation AAAreaspline
 AAPropSetFuncImplementation(AAAreaspline, AADataLabels *, dataLabels);
 

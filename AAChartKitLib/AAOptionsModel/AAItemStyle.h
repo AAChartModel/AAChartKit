@@ -15,7 +15,4 @@ AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, cursor);
 AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, pointer);
 AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, fontSize);
 AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, fontWeight);
-
-
-
 @end

@@ -8,14 +8,7 @@
 //
 
 #import "AAPlotOptions.h"
-#import "AAColumn.h"
-#import "AALine.h"
-#import "AAPie.h"
-#import "AABar.h"
-#import "AASpline.h"
-#import "AAArea.h"
-#import "AAAreaspline.h"
-#import "AASeries.h"
+
 @implementation AAPlotOptions
 AAPropSetFuncImplementation(AAPlotOptions, AAColumn *, column);
 AAPropSetFuncImplementation(AAPlotOptions, AALine *, line);

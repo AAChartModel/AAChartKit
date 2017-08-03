@@ -8,7 +8,6 @@
 //
 
 #import "AATitle.h"
-#import "AAStyle.h"
 
 @implementation AATitle
 AAPropSetFuncImplementation(AATitle, NSString *, text);

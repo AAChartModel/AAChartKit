@@ -8,8 +8,7 @@
 //
 
 #import "AAYAxis.h"
-#import "AATitle.h"
-#import "AALabels.h"
+
 @implementation AAYAxis
 //AAPropSetFuncImplementation(AAYAxis, BOOL, min);
 AAPropSetFuncImplementation(AAYAxis, AATitle *, title);
