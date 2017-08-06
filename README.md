@@ -412,4 +412,7 @@ to be
 <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
 </script>
 ```
+### Todo list
+- []Support for landscap
+- []Support for creating image
 
