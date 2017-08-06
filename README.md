@@ -413,6 +413,6 @@ to be
 </script>
 ```
 ### Todo list
-- []Support for landscap
-- []Support for creating image
+- [ ] Support for landscap
+- [ ] Support for creating image
 
