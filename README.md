@@ -413,7 +413,25 @@ to be
 </script>
 ```
 ### Todo list
-- [ ] Support for landscap
-- [ ] Support for creating image
-- [ ] Support the user to set the  model freely
-
+  * - [x] Support for the user to add delegate events after the graphics content loading was completed
+  * - [x] Support graphics to refresh global content dynamically
+  * - [x] Support graphics to refresh pure data (`series`) content dynamically
+  * - [x] Support graphics to refresh pure data in real time and scroll dynamically
+  * - [x] Support color layer gradient effects
+  * - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
+  * - [ ] Support horizontal screen (full screen) effect
+  * - [ ] Support free to set graphics rendering animation
+  * - [ ] Support rendered graphics to generate image files
+  * - [ ] Support to generate image files saved to the system album
+  * - [ ] Support for users to configure `AAOptions` model object properties freely
+  * - [x] Support stacking the graphics 
+  * - [x] Support reversing the graphics axis 
+  * - [x] Support rendering scatter chart
+  * - [x] Support render column range map
+  * - [x] Support render area range graph
+  * - [ ] Support rendering the polar chart
+  * - [ ] Support rendering the polyline straight line chart
+  * - [ ] Support rendering the polyline straight area chart
+  * - [ ] Support rendering the rectangular tree hierarchy diagrams
+  * - [ ] Support rendering the circular progress bar chart 
+  * - [ ] Support for adding clicked event callbacks for graphics
