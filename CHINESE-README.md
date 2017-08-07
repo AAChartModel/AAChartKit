@@ -252,7 +252,9 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 -  special area chart one - 区域填充图一
 
 ![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
+
 -  special area chart two - 区域填充图二
+
 ![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1874.JPG)
 
 
@@ -277,12 +279,14 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 - the oval style column chart - 头部为椭圆形的柱形图
 
 ![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1866.JPG)
+
 - bubble chart - 气泡图
 
 ![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1875.JPG
 )
 
 - mixed chart - 混合图形
+
 ![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1882.JPG)
 
 ### AAChartModel 属性配置列表

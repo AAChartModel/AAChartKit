@@ -241,6 +241,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 - line chart
 
 ![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
+
 - column chart
 
 ![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
@@ -253,7 +254,9 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 -  special area chart one 
 
 ![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
+
 -  special area chart two
+
 ![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1874.JPG)
 
 
@@ -278,13 +281,17 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 - the oval style column chart
 
 ![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1866.JPG)
+
 - bubble chart
 
 ![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1875.JPG
 )
 
 - mixed chart
+
 ![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1882.JPG)
+
+
 ### AAChartModel:chart attribute list
 ```objective-c
 AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);
