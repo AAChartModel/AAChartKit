@@ -228,14 +228,14 @@
 		2707BA4E1EF7BA47008357AC /* AAChartKitLib */ = {
 			isa = PBXGroup;
 			children = (
-				2707BA4F1EF7BA47008357AC /* AAChartConfiger */,
+				2707BA4F1EF7BA47008357AC /* AAChartComposer */,
 				2707BA5A1EF7BA47008357AC /* AAJSFiles */,
 				2707BA611EF7BA47008357AC /* AAOptionsModel */,
 			);
 			path = AAChartKitLib;
 			sourceTree = "<group>";
 		};
-		2707BA4F1EF7BA47008357AC /* AAChartConfiger */ = {
+		2707BA4F1EF7BA47008357AC /* AAChartComposer */ = {
 			isa = PBXGroup;
 			children = (
 				2707BABF1EF8BAF1008357AC /* AAChartKit.h */,
@@ -250,6 +250,7 @@
 				2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */,
 				2707BA591EF7BA47008357AC /* AAChartKit.podspec */,
 			);
+			name = AAChartComposer;
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
