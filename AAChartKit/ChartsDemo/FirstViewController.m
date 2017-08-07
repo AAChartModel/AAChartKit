@@ -30,7 +30,7 @@
     [super viewDidLoad];
     self.title = @"AAChartKit 2.0";
     self.view.backgroundColor = [UIColor whiteColor];
-
+    
     
     [self configTheTableView];
 }
@@ -41,6 +41,42 @@
     tableView.delegate =self;
     tableView.dataSource =self;
     [self.view addSubview:tableView];
+    
+    //    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:tableView
+    //                                                                      attribute:NSLayoutAttributeLeft
+    //                                                                      relatedBy:NSLayoutRelationEqual
+    //                                                                         toItem:self.view
+    //                                                                      attribute:NSLayoutAttributeLeft
+    //                                                                     multiplier:1.0
+    //                                                                       constant:1];
+    //    [self.view addConstraint:leftConstraint];
+    //
+    //    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:tableView
+    //                                                                     attribute:NSLayoutAttributeTop
+    //                                                                     relatedBy:NSLayoutRelationEqual
+    //                                                                        toItem:self.view
+    //                                                                     attribute:NSLayoutAttributeTop
+    //                                                                    multiplier:1.0
+    //                                                                      constant:1];
+    //    [self.view addConstraint:topConstraint];
+    //
+    //    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:tableView
+    //                                                                       attribute:NSLayoutAttributeRight
+    //                                                                       relatedBy:NSLayoutRelationEqual
+    //                                                                          toItem:self.view
+    //                                                                       attribute:NSLayoutAttributeRight
+    //                                                                      multiplier:1.0
+    //                                                                        constant:1];
+    //    [self.view addConstraint:rightConstraint];
+    //
+    //    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:tableView
+    //                                                                        attribute:NSLayoutAttributeBottom
+    //                                                                        relatedBy:NSLayoutRelationEqual
+    //                                                                           toItem:self.view
+    //                                                                        attribute:NSLayoutAttributeBottom
+    //                                                                       multiplier:1.0
+    //                                                                         constant:1];
+    //    [self.view addConstraint:bottomConstraint];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -103,27 +139,27 @@
 - (NSArray *)chartTypeNameArr {
     if (!_chartTypeNameArr) {
         _chartTypeNameArr =@[
-                            @[@"Column Chart---柱形图",
-                              @"Bar Chart---条形图",
-                              @"Area Chart---折线填充图",
-                              @"Areaspline Chart---曲线填充图",
-                              @"Line Chart---折线图",
-                              @"Spline Chart---曲线图",
-                              @"Scatter Chart---散点图"],
-                            
-                            @[@"Pie Chart---扇形图",
-                              @"Bubble Chart---气泡图",
-                              @"Scatter Chart--散点图",
-                              @"Pyramid Chart---金字塔图",
-                              @"Funnel Chart---漏斗图",
-                              @"Arearange Chart--区域面积图",
-                              @"Columnrange Chart--柱形面积图",
-                              @"Mixed Chart---混合图"],
-                            
-                            @[@"模拟实时更新数据示例"],
-                            
-                            @[@"图形动画样式相关演示"]
-                            ];
+                             @[@"Column Chart---柱形图",
+                               @"Bar Chart---条形图",
+                               @"Area Chart---折线填充图",
+                               @"Areaspline Chart---曲线填充图",
+                               @"Line Chart---折线图",
+                               @"Spline Chart---曲线图",
+                               @"Scatter Chart---散点图"],
+                             
+                             @[@"Pie Chart---扇形图",
+                               @"Bubble Chart---气泡图",
+                               @"Scatter Chart--散点图",
+                               @"Pyramid Chart---金字塔图",
+                               @"Funnel Chart---漏斗图",
+                               @"Arearange Chart--区域面积图",
+                               @"Columnrange Chart--柱形面积图",
+                               @"Mixed Chart---混合图"],
+                             
+                             @[@"模拟实时更新数据示例"],
+                             
+                             @[@"图形动画样式相关演示"]
+                             ];
     }
     return _chartTypeNameArr;
 }
@@ -134,6 +170,7 @@
     }
     return _sectionTypeArr;
 }
+
 
 @end
 
