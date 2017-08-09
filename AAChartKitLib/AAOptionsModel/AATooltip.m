@@ -10,11 +10,13 @@
 #import "AATooltip.h"
 
 @implementation AATooltip
+
 AAPropSetFuncImplementation(AATooltip, NSString *, headerFormat);
 AAPropSetFuncImplementation(AATooltip, NSString *, pointFormat);
 AAPropSetFuncImplementation(AATooltip, NSString *, footerFormat);
-AAPropSetFuncImplementation(AATooltip, BOOL , shared);
-AAPropSetFuncImplementation(AATooltip, BOOL,  crosshairs);
+AAPropSetFuncImplementation(AATooltip, BOOL ,      shared);
+AAPropSetFuncImplementation(AATooltip, BOOL,       crosshairs);
 //AAPropSetFuncImplementation(AATooltip, BOOL , useHTML);
 AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix);
+
 @end

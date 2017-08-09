@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AAStyle : NSObject
+
 AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, color);
 AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, fontSize);
 AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, fontWeight);

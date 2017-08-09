@@ -10,6 +10,7 @@
 #import "AAAreaspline.h"
 
 @implementation AAAreaspline
+
 AAPropSetFuncImplementation(AAAreaspline, AADataLabels *, dataLabels);
 
 @end

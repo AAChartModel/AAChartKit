@@ -8,8 +8,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class AADataLabels;
+
 @interface AASpline : NSObject
+
 AAPropStatementAndFuncStatement(strong, AASpline, AADataLabels *, dataLabels);
 //AAPropStatementAndFuncStatement(assign, AASpline, BOOL, enableMouseTracking);
+
 @end

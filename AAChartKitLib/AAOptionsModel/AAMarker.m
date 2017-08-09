@@ -10,6 +10,7 @@
 #import "AAMarker.h"
 
 @implementation AAMarker
+
 AAPropSetFuncImplementation( AAMarker, NSNumber *, radius);
 AAPropSetFuncImplementation( AAMarker, NSString *, symbol);
 AAPropSetFuncImplementation( AAMarker, NSString *, fillColor);//点的填充色(用来设置折线连接点的填充色)

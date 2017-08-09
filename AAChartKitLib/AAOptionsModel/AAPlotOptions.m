@@ -10,13 +10,14 @@
 #import "AAPlotOptions.h"
 
 @implementation AAPlotOptions
-AAPropSetFuncImplementation(AAPlotOptions, AAColumn *, column);
-AAPropSetFuncImplementation(AAPlotOptions, AALine *, line);
-AAPropSetFuncImplementation(AAPlotOptions, AAPie *, pie);
-AAPropSetFuncImplementation(AAPlotOptions, AABar *, bar);
-AAPropSetFuncImplementation(AAPlotOptions, AASpline *, spline);
-AAPropSetFuncImplementation(AAPlotOptions, AASeries *, series);
-AAPropSetFuncImplementation(AAPlotOptions, AAArea *, area);
+
+AAPropSetFuncImplementation(AAPlotOptions, AAColumn *,  column);
+AAPropSetFuncImplementation(AAPlotOptions, AALine *,    line);
+AAPropSetFuncImplementation(AAPlotOptions, AAPie *,     pie);
+AAPropSetFuncImplementation(AAPlotOptions, AABar *,     bar);
+AAPropSetFuncImplementation(AAPlotOptions, AASpline *,  spline);
+AAPropSetFuncImplementation(AAPlotOptions, AASeries *,  series);
+AAPropSetFuncImplementation(AAPlotOptions, AAArea *,    area);
 AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline *, areaspline);
 
 @end

@@ -10,6 +10,7 @@
 #import "AALabels.h"
 
 @implementation AALabels
+
 AAPropSetFuncImplementation(AALabels, BOOL , enabled);
 
 @end

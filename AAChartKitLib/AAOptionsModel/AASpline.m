@@ -10,6 +10,8 @@
 #import "AASpline.h"
 
 @implementation AASpline
+
 AAPropSetFuncImplementation(AASpline, AADataLabels *, dataLabels);
 //AAPropSetFuncImplementation(AASpline, BOOL , enableMouseTracking);
+
 @end

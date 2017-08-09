@@ -8,11 +8,14 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class AAMarker,AAAnimation;
+
 @interface AASeries : NSObject
+
 AAPropStatementAndFuncStatement(strong, AASeries, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(strong, AASeries, AAMarker *, marker);
-AAPropStatementAndFuncStatement(copy, AASeries, NSString *, stacking);
+AAPropStatementAndFuncStatement(copy,   AASeries, NSString *, stacking);
 AAPropStatementAndFuncStatement(strong, AASeries, AAAnimation *, animation);
 
 @end

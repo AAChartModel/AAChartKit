@@ -8,7 +8,9 @@
 //
 
 #import "AAArea.h"
+
 @implementation AAArea
+
 AAPropSetFuncImplementation(AAArea, AADataLabels *, dataLabels);
 
 @end

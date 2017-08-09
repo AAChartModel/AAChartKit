@@ -80,6 +80,7 @@
                    @[
                      AAObject(AASeriesElement)
                      .nameSet(@"语言热度占比")
+                     .innerSizeSet(@"35%")
                      .dataSet(@[
                                 @[@"Java"  , @67],
                                 @[@"Swift" , @44],

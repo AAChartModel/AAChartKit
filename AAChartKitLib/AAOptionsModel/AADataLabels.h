@@ -8,9 +8,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class AAStyle;
+
 @interface AADataLabels : NSObject
-AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL , enabled);
-AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle *, style);
-AAPropStatementAndFuncStatement(copy, AADataLabels, NSString *, format);
+
+AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL ,      enabled);
+AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle *,  style);
+AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, format);
+
 @end

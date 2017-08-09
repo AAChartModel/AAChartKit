@@ -13,6 +13,7 @@
 @class AAChart,AATitle,AASubtitle,AAXAxis,AAYAxis,AATooltip,AAPlotOptions,AALegend;
 
 @interface AAOptions : NSObject
+
 AAPropStatementAndFuncStatement(strong, AAOptions, AAChart *, chart);
 AAPropStatementAndFuncStatement(strong, AAOptions, AATitle *, title);
 AAPropStatementAndFuncStatement(strong, AAOptions, AASubtitle *, subtitle);

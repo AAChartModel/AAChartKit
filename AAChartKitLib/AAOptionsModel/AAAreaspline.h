@@ -12,5 +12,7 @@
 @class AADataLabels;
 
 @interface AAAreaspline : NSObject
+
 AAPropStatementAndFuncStatement(strong, AAAreaspline, AADataLabels *, dataLabels);
+
 @end

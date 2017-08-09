@@ -11,6 +11,7 @@
 //Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
 
 @implementation AAStyle
+
 -(instancetype)init{
     self = [super init];
     if (self) {
@@ -21,8 +22,10 @@
     }
     return self;
 }
+
 AAPropSetFuncImplementation(AAStyle, NSString *, color);
 AAPropSetFuncImplementation(AAStyle, NSString *, fontSize);
 AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight);
 AAPropSetFuncImplementation(AAStyle, NSString *, textOutline);
+
 @end

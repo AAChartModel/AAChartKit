@@ -10,10 +10,11 @@
 #import "AAPie.h"
 
 @implementation AAPie
-AAPropSetFuncImplementation(AAPie, BOOL, allowPointSelect);
+
+AAPropSetFuncImplementation(AAPie, BOOL,       allowPointSelect);
 AAPropSetFuncImplementation(AAPie, NSString *, cursor);
 AAPropSetFuncImplementation(AAPie, AADataLabels *, dataLabels);
-AAPropSetFuncImplementation(AAPie, BOOL, showInLegend);
+AAPropSetFuncImplementation(AAPie, BOOL,       showInLegend);
 AAPropSetFuncImplementation(AAPie, NSNumber *, startAngle);
 AAPropSetFuncImplementation(AAPie, NSNumber *, endAngle);
 AAPropSetFuncImplementation(AAPie, NSNumber *, depth);

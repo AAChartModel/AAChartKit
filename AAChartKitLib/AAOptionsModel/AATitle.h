@@ -7,13 +7,13 @@
 //  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
 //
 
-
-
-
 #import <Foundation/Foundation.h>
+
 @class AAStyle;
+
 @interface AATitle : NSObject
-AAPropStatementAndFuncStatement(copy, AATitle, NSString *, text);
-AAPropStatementAndFuncStatement(strong, AATitle, AAStyle *, style);
+
+AAPropStatementAndFuncStatement(copy,   AATitle, NSString *, text);
+AAPropStatementAndFuncStatement(strong, AATitle, AAStyle *,  style);
 
 @end

@@ -31,7 +31,6 @@ AAPropStatementAndFuncStatement(strong, AAChart, NSNumber *, spacingLeft);
 AAPropStatementAndFuncStatement(strong, AAChart, NSNumber *, spacingRight);
 AAPropStatementAndFuncStatement(strong, AAChart, NSNumber *, spacingTop);
 
-
 AAPropStatementAndFuncStatement(strong, AAChart, NSNumber *, marginBottom);//图表底部外边缘和绘图区域之间的边距。另请参见spacingBottom
 AAPropStatementAndFuncStatement(strong, AAChart, NSNumber *, marginLeft);
 AAPropStatementAndFuncStatement(strong, AAChart, NSNumber *, marginRight);

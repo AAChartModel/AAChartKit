@@ -9,8 +9,8 @@
 
 #import "AAChart.h"
 
-
 @implementation AAChart
+
 -(instancetype)init{
     self = [super init];
     if (self) {
@@ -27,15 +27,16 @@
      }
     return self;
 }
+
 AAPropSetFuncImplementation(AAChart, NSString *, type);
-AAPropSetFuncImplementation(AAChart, NSString  *, backgroundColor);
+AAPropSetFuncImplementation(AAChart, NSString *, backgroundColor);
 AAPropSetFuncImplementation(AAChart, NSString *, zoomType);
-AAPropSetFuncImplementation(AAChart, BOOL , panning);
+AAPropSetFuncImplementation(AAChart, BOOL ,      panning);
 AAPropSetFuncImplementation(AAChart, NSString *, panKey);
 AAPropSetFuncImplementation(AAChart, NSString *, plotBackgroundColor);
 AAPropSetFuncImplementation(AAChart, NSNumber *, plotBorderWidth);
-AAPropSetFuncImplementation(AAChart, BOOL, plotShadow);
-AAPropSetFuncImplementation(AAChart, BOOL , polar);
+AAPropSetFuncImplementation(AAChart, BOOL,       plotShadow);
+AAPropSetFuncImplementation(AAChart, BOOL ,      polar);
 AAPropSetFuncImplementation(AAChart, AAOptions3d *, options3d);
 //AAPropSetFuncImplementation(AAChart, AAAnimation * , animation);
 AAPropSetFuncImplementation(AAChart, BOOL , inverted);
@@ -44,9 +45,6 @@ AAPropSetFuncImplementation(AAChart, NSNumber *, spacingBottom);
 AAPropSetFuncImplementation(AAChart, NSNumber *, spacingLeft);
 AAPropSetFuncImplementation(AAChart, NSNumber *, spacingRight);
 AAPropSetFuncImplementation(AAChart, NSNumber *, spacingTop);
-
-
-
 
 AAPropSetFuncImplementation(AAChart, NSNumber *, marginBottom);
 AAPropSetFuncImplementation(AAChart, NSNumber *, marginLeft);

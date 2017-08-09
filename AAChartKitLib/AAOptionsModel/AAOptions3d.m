@@ -10,7 +10,9 @@
 #import "AAOptions3d.h"
 
 @implementation AAOptions3d
+
 AAPropSetFuncImplementation(AAOptions3d, BOOL, enabled);
 AAPropSetFuncImplementation(AAOptions3d, NSNumber *, alpha);
 AAPropSetFuncImplementation(AAOptions3d, NSNumber *, beta);
+
 @end

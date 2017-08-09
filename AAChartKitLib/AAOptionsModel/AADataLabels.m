@@ -8,9 +8,11 @@
 //
 
 #import "AADataLabels.h"
+
 @implementation AADataLabels
-AAPropSetFuncImplementation(AADataLabels, BOOL , enabled);
-AAPropSetFuncImplementation(AADataLabels, AAStyle *, style);
+
+AAPropSetFuncImplementation(AADataLabels, BOOL ,      enabled);
+AAPropSetFuncImplementation(AADataLabels, AAStyle *,  style);
 AAPropSetFuncImplementation(AADataLabels, NSString *, format);
 
 @end

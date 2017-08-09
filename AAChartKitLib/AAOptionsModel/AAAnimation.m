@@ -9,6 +9,8 @@
 #import "AAAnimation.h"
 
 @implementation AAAnimation
+
 AAPropSetFuncImplementation(AAAnimation, NSNumber *, duration);
 AAPropSetFuncImplementation(AAAnimation, NSString *, easing);
+
 @end

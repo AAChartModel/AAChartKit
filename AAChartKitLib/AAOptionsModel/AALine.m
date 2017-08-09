@@ -8,7 +8,9 @@
 //
 
 #import "AALine.h"
+
 @implementation AALine
+
 -(instancetype)init{
     self = [super init];
     if (self ) {
@@ -17,7 +19,9 @@
     }
     return self;
 }
+
 AAPropSetFuncImplementation(AALine, NSNumber *, lineWidth);
 AAPropSetFuncImplementation(AALine, AADataLabels *, dataLabels);
 //AAPropSetFuncImplementation(AALine, BOOL , enableMouseTracking);
+
 @end

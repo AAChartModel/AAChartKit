@@ -8,7 +8,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class AADataLabels;
+
 @interface AAArea : NSObject
+
 AAPropStatementAndFuncStatement(strong, AAArea, AADataLabels *, dataLabels);
+
 @end

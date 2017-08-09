@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface AAAnimation : NSObject
+
 AAPropStatementAndFuncStatement(strong, AAAnimation, NSNumber *, duration);
-AAPropStatementAndFuncStatement(copy, AAAnimation, NSString *, easing);
+AAPropStatementAndFuncStatement(copy,   AAAnimation, NSString *, easing);
+
 @end
