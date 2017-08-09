@@ -159,7 +159,7 @@
                                              .enabledSet(chartModel.dataLabelEnabled)
                                              )
                               );
-    }else if ([chartModel.chartType isEqualToString:AAChartTypeBar]) {
+    } else if ([chartModel.chartType isEqualToString:AAChartTypeBar]) {
         plotOptions.barSet(AAObject(AABar)
                            .pointPaddingSet(@0.2)
                            .borderWidthSet(@0)
@@ -169,13 +169,13 @@
                                           .enabledSet(chartModel.dataLabelEnabled)
                                           )
                            );
-    }else if ([chartModel.chartType isEqualToString:AAChartTypeArea]) {
+    } else if ([chartModel.chartType isEqualToString:AAChartTypeArea]) {
         plotOptions.areaSet(AAObject(AAArea)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(chartModel.dataLabelEnabled)
                                            )
                             );
-    }else if ([chartModel.chartType isEqualToString:AAChartTypeAreaspline]) {
+    } else if ([chartModel.chartType isEqualToString:AAChartTypeAreaspline]) {
         plotOptions.areasplineSet(AAObject(AAAreaspline)
                                   .dataLabelsSet(AAObject(AADataLabels)
                                                  .enabledSet(chartModel.dataLabelEnabled)
@@ -183,18 +183,18 @@
                                   );
         
         
-    }else if ([chartModel.chartType isEqualToString:AAChartTypeLine]) {
+    } else if ([chartModel.chartType isEqualToString:AAChartTypeLine]) {
         plotOptions.lineSet(AAObject(AALine)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(chartModel.dataLabelEnabled)
                                            )
                             );
-    }else if ([chartModel.chartType isEqualToString:AAChartTypeSpline]) {
+    } else if ([chartModel.chartType isEqualToString:AAChartTypeSpline]) {
         plotOptions.splineSet(AAObject(AASpline)
                               .dataLabelsSet(AAObject(AADataLabels)
                                              .enabledSet(chartModel.dataLabelEnabled))
                               );
-    }else if ([chartModel.chartType isEqualToString:AAChartTypePie]) {
+    } else if ([chartModel.chartType isEqualToString:AAChartTypePie]) {
         plotOptions.pieSet(AAObject(AAPie)
                            .allowPointSelectSet(true)
                            .cursorSet(@"pointer")
