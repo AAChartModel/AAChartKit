@@ -147,7 +147,8 @@
                                @"Spline Chart---曲线图",
                                @"Scatter Chart---散点图"],
                              
-                             @[@"Pie Chart---扇形图",
+                             @[@"Mixed Line Chart---虚实线混合折线图",
+                               @"Pie Chart---扇形图",
                                @"Bubble Chart---气泡图",
                                @"Scatter Chart--散点图",
                                @"Pyramid Chart---金字塔图",
