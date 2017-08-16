@@ -33,11 +33,11 @@ https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md
 ```
 
 ### The offical start of the work 
-1.Add the following content into `your view controller` file.
+1. Add the following content into `your view controller` file.
 ```objective-c
 #import "AAChartView.h"
 ```
-2.Creat the object of chart view:`AAChartView`
+2. Creat the object of chart view:`AAChartView`
 ```objective-c
 AAChartView *chartView = [[AAChartView alloc]init];
 self.view.backgroundColor = [UIColor whiteColor];
@@ -45,7 +45,7 @@ chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.
 chartView.contentHeight =self.view.frame.size.height-220; 
 [self.view addSubview:chartView];
 ```
-3.Configure the properties of chart model:`AAChartModel`                                          
+3. Configure the properties of chart model:`AAChartModel`                                          
 
 
 ```objective-c
@@ -74,22 +74,22 @@ chartView.contentHeight =self.view.frame.size.height-220;
                  ])
     ;
 ```
-4.Draw the chart 
+4. Draw the chart 
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
-5.Refresh the chart 
+5. Refresh the chart 
 ```objective-c
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
 
-6.Only refresh the chart data 
+6. Only refresh the chart data 
 ```objective-c
-  [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+ [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
 
-7.Special instructions
+7. Special instructions
 
 Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
