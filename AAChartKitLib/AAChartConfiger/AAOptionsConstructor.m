@@ -139,7 +139,9 @@
         || chartModel.chartType == AAChartTypeAreaspline
         || chartModel.chartType == AAChartTypeLine
         || chartModel.chartType == AAChartTypeSpline) {
+        
         plotOptions.seriesSet(AAObject(AASeries)
+                              .connectNullsSet(chartModel.connectNulls)
                               .stackingSet(chartModelStacking)
                               .markerSet(marker)
                               .animationSet(AAObject(AAAnimation)
@@ -151,6 +153,7 @@
     
     
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
+        
         plotOptions.columnSet(AAObject(AAColumn)
                               .pointPaddingSet(@0.2)
                               .borderWidthSet(@0)
@@ -159,7 +162,9 @@
                                              .enabledSet(chartModel.dataLabelEnabled)
                                              )
                               );
+        
     } else if ([chartModel.chartType isEqualToString:AAChartTypeBar]) {
+        
         plotOptions.barSet(AAObject(AABar)
                            .pointPaddingSet(@0.2)
                            .borderWidthSet(@0)
@@ -169,13 +174,17 @@
                                           .enabledSet(chartModel.dataLabelEnabled)
                                           )
                            );
+        
     } else if ([chartModel.chartType isEqualToString:AAChartTypeArea]) {
+        
         plotOptions.areaSet(AAObject(AAArea)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(chartModel.dataLabelEnabled)
                                            )
                             );
+        
     } else if ([chartModel.chartType isEqualToString:AAChartTypeAreaspline]) {
+        
         plotOptions.areasplineSet(AAObject(AAAreaspline)
                                   .dataLabelsSet(AAObject(AADataLabels)
                                                  .enabledSet(chartModel.dataLabelEnabled)
@@ -184,17 +193,22 @@
         
         
     } else if ([chartModel.chartType isEqualToString:AAChartTypeLine]) {
+        
         plotOptions.lineSet(AAObject(AALine)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(chartModel.dataLabelEnabled)
                                            )
                             );
+        
     } else if ([chartModel.chartType isEqualToString:AAChartTypeSpline]) {
+        
         plotOptions.splineSet(AAObject(AASpline)
                               .dataLabelsSet(AAObject(AADataLabels)
                                              .enabledSet(chartModel.dataLabelEnabled))
                               );
+        
     } else if ([chartModel.chartType isEqualToString:AAChartTypePie]) {
+        
         plotOptions.pieSet(AAObject(AAPie)
                            .allowPointSelectSet(true)
                            .cursorSet(@"pointer")
@@ -232,6 +246,7 @@
     .colorsThemeSet(chartModel.colorsTheme)//设置颜色主题
     .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
     ;
+    
     return options;
 }
 

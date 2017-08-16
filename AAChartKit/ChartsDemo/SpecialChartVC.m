@@ -87,12 +87,13 @@
                                    },
                                
                                @{  @"name":@"所有专业",
-                                   @"data":@[@"",@"",@"",@"",@89,@74,@61,@120,@"",@"",@"",@""],
+                                   @"data":@[@"",@"",@105,@109,@89,@"",@"",@120,@"",@"",@"",@""],
                                    },
                                
                                ];
         
         AAChartModel *chartModel= AAObject(AAChartModel)
+//        .connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")

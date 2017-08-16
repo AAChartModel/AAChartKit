@@ -69,9 +69,9 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";
 static AAChartType const AAChartTypeColumnrange = @"columnrange";
 static AAChartType const AAChartTypeArearange   = @"arearange";
 
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft = @"left";
+static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight = @"right";
+static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
 
 
 static AAChartZoomType const AAChartZoomTypeX   = @"x";
@@ -129,6 +129,8 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineW
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL , connectNulls);//设置折线是否断点重连
+
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, legendEnabled);//是否显示图例
 AAPropStatementAndFuncStatement(copy,   AAChartModel ,AAChartLegendLayoutType, legendLayout);//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.

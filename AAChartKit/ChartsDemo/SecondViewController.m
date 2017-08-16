@@ -150,8 +150,7 @@
 
 - (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
     switch (segmentedControl.tag) {
-        case 0:
-        {
+        case 0: {
             NSArray *stackingArr = @[AAChartStackingTypeFalse,
                                      AAChartStackingTypeNormal,
                                      AAChartStackingTypePercent];
@@ -159,8 +158,7 @@
         }
             break;
             
-        case 1:
-        {
+        case 1: {
             NSArray *symbolArr = @[AAChartSymbolTypeCircle,
                                    AAChartSymbolTypeSquare,
                                    AAChartSymbolTypeDiamond,
@@ -173,6 +171,7 @@
         default:
             break;
     }
+    
     [self refreshTheChartView];
 }
 

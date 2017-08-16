@@ -73,6 +73,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//x轴
 
 AAPropSetFuncImplementation(AAChartModel, NSArray *, colorsTheme);
 AAPropSetFuncImplementation(AAChartModel, NSArray *, series);
+AAPropSetFuncImplementation(AAChartModel, BOOL , connectNulls);//设置折线是否断点重连(是否连接空值点)
 
 AAPropSetFuncImplementation(AAChartModel, BOOL, legendEnabled);//是否显示图例
 AAPropSetFuncImplementation(AAChartModel, AAChartLegendLayoutType , legendLayout);

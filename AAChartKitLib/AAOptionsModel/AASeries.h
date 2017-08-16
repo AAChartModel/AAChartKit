@@ -17,5 +17,8 @@ AAPropStatementAndFuncStatement(strong, AASeries, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(strong, AASeries, AAMarker *, marker);
 AAPropStatementAndFuncStatement(copy,   AASeries, NSString *, stacking);
 AAPropStatementAndFuncStatement(strong, AASeries, AAAnimation *, animation);
+//plotOptions.series.connectNulls
+//https://www.zhihu.com/question/24173311
+AAPropStatementAndFuncStatement(assign, AASeries, BOOL , connectNulls);//设置折线是否断点重连
 
 @end
