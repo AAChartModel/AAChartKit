@@ -6,9 +6,9 @@
 [![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
 [![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
 [![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocumentLive.html) 
-### 您所喜爱的 AAChartKit 开源图表库现在更有`swift`版本可供使用,详情请点击以下链接
-传送门
-https://github.com/AAChartModel/AAChartKit-Swift
+### 您所喜爱的`AAChartKit`开源图表库现在更有`swift`版本可供使用,详情请点击以下链接
+### 传送门
+#### *https://github.com/AAChartModel/AAChartKit-Swift*
 ***
 ## 前言
 ###### AAChartKit项目,是在流行的开源前端图表库*Highcharts*的基础上,封装的面向对象的,一组简单易用,极其精美的图表绘制控件.
