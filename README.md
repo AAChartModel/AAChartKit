@@ -262,7 +262,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 
 -  special area chart three
 
-![IMG_1863.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1863.JPG)
+![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
 
 -   radar chart
 
