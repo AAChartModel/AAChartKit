@@ -10,5 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AAJsonConverter : NSObject
+
 +(NSString *)getPureOptionsString:(id)optionsObject;
+
 @end 

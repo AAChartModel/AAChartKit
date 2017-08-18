@@ -9,6 +9,7 @@
 
 #import "AAJsonConverter.h"
 #import <objc/runtime.h>
+
 @implementation AAJsonConverter
 
 + (NSDictionary*)getObjectData:(id)obj {
@@ -25,7 +26,7 @@
             if (value == nil) {
                 value = [NSNull null];
                 continue;
-            }else{
+            } else {
                 value = [self getObjectInternal:value];
             }
             [dic setObject:value forKey:propName];
@@ -87,4 +88,5 @@
     str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return str;
 }
+
 @end

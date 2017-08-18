@@ -101,14 +101,14 @@ static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeBottom
 
 
 @interface AAChartModel : NSObject
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);//标题内容
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);//副标题内容
-AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 
-AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartType, chartType);//图表类型
-AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartStackingType, stacking);//堆积样式
-AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartSymbolType, symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-AAPropStatementAndFuncStatement(copy, AAChartModel, AAChartZoomType, zoomType);//缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType, chartType);//图表类型
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType, stacking);//堆积样式
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType, symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType, zoomType);//缩放类型 AAChartZoomTypeX表示可沿着 x 轴进行手势缩放
 AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimationType, animationType);//设置图表的渲染动画类型
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
 
