@@ -121,11 +121,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         SecondViewController *vc = [[SecondViewController alloc]init];
-        vc.SecondeViewControllerChartType = indexPath.row;
+        vc.chartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1){
         SpecialChartVC *vc = [[SpecialChartVC alloc]init];
-        vc.SpecialChartVCChartType = indexPath.row;
+        vc.chartType = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 2){
         OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];

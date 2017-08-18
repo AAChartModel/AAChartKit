@@ -24,6 +24,6 @@ typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
 @interface SpecialChartVC : UIViewController
 
 @property (nonatomic, copy  ) NSString  *receivedChartType;
-@property (nonatomic, assign) SpecialChartVCChartType ChartType;
+@property (nonatomic, assign) SpecialChartVCChartType chartType;
 
 @end

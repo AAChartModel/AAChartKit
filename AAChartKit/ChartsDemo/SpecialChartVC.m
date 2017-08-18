@@ -23,7 +23,7 @@
     [super viewDidLoad];
     AAChartType chartType;
 
-    switch (self.ChartType) {
+    switch (self.chartType) {
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
