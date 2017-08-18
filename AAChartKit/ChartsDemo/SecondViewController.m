@@ -26,7 +26,7 @@
     [self configTheSwitch];
     
     AAChartType chartType;
-    switch (self.SecondeViewControllerChartType) {
+    switch (self.chartType) {
         case 0:
             chartType = AAChartTypeColumn;
             break;
@@ -51,18 +51,22 @@
         default:
             break;
     }
+    
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+    
     [self configTheChartView:chartType];
  
 }
 
 - (void)configTheChartView:(AAChartType)chartType {
+    
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
     self.chartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.chartView];
+    
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
     .titleSet(@"编程语言热度")
@@ -124,14 +128,16 @@
 
 #pragma mark -- AAChartView delegate
 -(void)AAChartViewDidFinishLoad {
-    NSLog(@"图表视图已完成加载");
+    NSLog(@"😊😊😊图表视图已完成加载");
 }
 
 - (void)configThesegmentedControl{
     NSArray *segmentedArray = @[@[@"常规",@"堆叠",@"百分比堆叠"],
                                 @[@"波点",@"方块",@"钻石",@"正三角",@"倒三角"]];
     NSArray *typeLabelNameArr = @[@"堆叠类型选择",@"折线连接点形状选择"];
+    
     for (int i=0; i<segmentedArray.count; i++) {
+        
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
         segmentedControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
         segmentedControl.selectedSegmentIndex = 0;
@@ -187,7 +193,9 @@
                          @"隐藏连接点",
                          @"显示数字"];
     CGFloat switchWidth = (self.view.frame.size.width-40)/6;
+    
     for (int i=0; i<nameArr.count; i++) {
+        
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
         switchView.on = NO;
@@ -228,6 +236,7 @@
         default:
             break;
     }
+    
     [self refreshTheChartView];
     
 }

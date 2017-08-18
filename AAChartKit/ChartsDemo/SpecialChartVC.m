@@ -23,7 +23,7 @@
     [super viewDidLoad];
     AAChartType chartType;
 
-    switch (self.SpecialChartVCChartType) {
+    switch (self.ChartType) {
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
@@ -58,21 +58,26 @@
     }
     
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+    
     [self configureTheChartView:chartType];
 }
 
 - (void)configureTheChartView:(AAChartType)chartType {
+    
     self.chartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.chartView.contentHeight = self.view.frame.size.height-60;
     [self.view addSubview:self.chartView];
+    
     self.chartModel = [self configureTheChartModel:chartType];
+    
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:AAChartTypeLine]) {
+        
         NSArray *seriesArr = @[
                                @{  @"name":@"本专业",
                                    @"data": @[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55],
@@ -87,7 +92,7 @@
                                    },
                                
                                @{  @"name":@"所有专业",
-                                   @"data":@[@"",@"",@105,@109,@89,@"",@"",@120,@"",@"",@"",@""],
+                                   @"data":@[@"",@"",@100,@109,@89,@"",@"",@120,@"",@"",@"",@""],
                                    },
                                
                                ];
@@ -105,6 +110,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypePie]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
         .titleSet(@"编程语言热度")
@@ -135,6 +141,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeBubble]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"编程语言热度")
@@ -196,6 +203,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeScatter]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"按性别划分的身高体重分布图")
@@ -321,6 +329,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePyramid)
         .titleSet(@"编程语言热度")
@@ -344,6 +353,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"编程语言热度")
@@ -367,6 +377,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeArearange]) {
+        
         AAChartModel *chartModel = AAObject(AAChartModel)
         .titleSet(@"黄昏别馆日气温起伏图")
         .subtitleSet(@"实时监测")
@@ -761,6 +772,7 @@
         return chartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .titleSet(@"金银岛每月温度变化范围")
         .subtitleSet(@"2020年实测数据")
@@ -793,6 +805,7 @@
         return chartModel;
         
       } else if ([chartType isEqualToString:@"mixed"]) {
+          
         AAChartModel *chartModel= AAObject(AAChartModel)
         .titleSet(@"城市气温指数")
         .subtitleSet(@"虚拟数据")

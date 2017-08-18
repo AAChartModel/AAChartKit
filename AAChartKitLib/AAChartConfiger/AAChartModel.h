@@ -129,7 +129,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineW
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL , connectNulls);//设置折线是否断点重连
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL , connectNulls);//设置折线是否断点重连(是否连接空值点)
 
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, legendEnabled);//是否显示图例
