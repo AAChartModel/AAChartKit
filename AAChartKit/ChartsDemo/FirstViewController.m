@@ -14,8 +14,8 @@
 #import "ChartAnimationTypeVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-#define KGrayColor        [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
-#define KBlueColor         ColorWithRGB(63, 153,231,1)
+#define KGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
+#define KBlueColor            ColorWithRGB(63, 153,231,1)
 
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -37,46 +37,65 @@
 
 - (void)configTheTableView {
     UITableView *tableView = [[UITableView alloc]init];
-    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     tableView.delegate =self;
     tableView.dataSource =self;
     [self.view addSubview:tableView];
     
-    //    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:tableView
-    //                                                                      attribute:NSLayoutAttributeLeft
-    //                                                                      relatedBy:NSLayoutRelationEqual
-    //                                                                         toItem:self.view
-    //                                                                      attribute:NSLayoutAttributeLeft
-    //                                                                     multiplier:1.0
-    //                                                                       constant:1];
-    //    [self.view addConstraint:leftConstraint];
-    //
-    //    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:tableView
-    //                                                                     attribute:NSLayoutAttributeTop
-    //                                                                     relatedBy:NSLayoutRelationEqual
-    //                                                                        toItem:self.view
-    //                                                                     attribute:NSLayoutAttributeTop
-    //                                                                    multiplier:1.0
-    //                                                                      constant:1];
-    //    [self.view addConstraint:topConstraint];
-    //
-    //    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:tableView
-    //                                                                       attribute:NSLayoutAttributeRight
-    //                                                                       relatedBy:NSLayoutRelationEqual
-    //                                                                          toItem:self.view
-    //                                                                       attribute:NSLayoutAttributeRight
-    //                                                                      multiplier:1.0
-    //                                                                        constant:1];
-    //    [self.view addConstraint:rightConstraint];
-    //
-    //    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:tableView
-    //                                                                        attribute:NSLayoutAttributeBottom
-    //                                                                        relatedBy:NSLayoutRelationEqual
-    //                                                                           toItem:self.view
-    //                                                                        attribute:NSLayoutAttributeBottom
-    //                                                                       multiplier:1.0
-    //                                                                         constant:1];
-    //    [self.view addConstraint:bottomConstraint];
+//    
+//    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:tableView
+//                                                                      attribute:NSLayoutAttributeLeft
+//                                                                      relatedBy:NSLayoutRelationEqual
+//                                                                         toItem:self.view
+//                                                                      attribute:NSLayoutAttributeLeft
+//                                                                     multiplier:1.0
+//                                                                       constant:0];
+//    [self.view addConstraint:leftConstraint];
+//    
+//    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:tableView
+//                                                                       attribute:NSLayoutAttributeRight
+//                                                                       relatedBy:NSLayoutRelationEqual
+//                                                                          toItem:self.view
+//                                                                       attribute:NSLayoutAttributeRight
+//                                                                      multiplier:1.0
+//                                                                        constant:0];
+//    [self.view addConstraint:rightConstraint];
+    
+        NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:tableView
+                                                                          attribute:NSLayoutAttributeLeft
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:self.view
+                                                                          attribute:NSLayoutAttributeLeft
+                                                                         multiplier:1.0
+                                                                           constant:0];
+        [self.view addConstraint:leftConstraint];
+    
+        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:tableView
+                                                                         attribute:NSLayoutAttributeTop
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:self.view
+                                                                         attribute:NSLayoutAttributeTop
+                                                                        multiplier:1.0
+                                                                          constant:0];
+        [self.view addConstraint:topConstraint];
+    
+        NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:tableView
+                                                                           attribute:NSLayoutAttributeRight
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.view
+                                                                           attribute:NSLayoutAttributeRight
+                                                                          multiplier:1.0
+                                                                            constant:0];
+        [self.view addConstraint:rightConstraint];
+    
+        NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:tableView
+                                                                            attribute:NSLayoutAttributeBottom
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:self.view
+                                                                            attribute:NSLayoutAttributeBottom
+                                                                           multiplier:1.0
+                                                                             constant:0];
+        [self.view addConstraint:bottomConstraint];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -119,46 +138,46 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        SecondViewController *vc = [[SecondViewController alloc]init];
-        vc.chartType = indexPath.row;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section == 1){
-        SpecialChartVC *vc = [[SpecialChartVC alloc]init];
-        vc.chartType = indexPath.row;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.section == 2){
-        OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
-        [self.navigationController  pushViewController:vc animated:YES];
-    }else{
-        ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
+    
+    switch (indexPath.section) {
+        case 0: {
+            SecondViewController *vc = [[SecondViewController alloc]init];
+            vc.chartType = indexPath.row;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 1: {
+            SpecialChartVC *vc = [[SpecialChartVC alloc]init];
+            vc.chartType = indexPath.row;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 2: {
+            OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
+            [self.navigationController  pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 3: {
+            ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
+
 }
 
 - (NSArray *)chartTypeNameArr {
     if (!_chartTypeNameArr) {
         _chartTypeNameArr =@[
-                             @[@"Column Chart---柱形图",
-                               @"Bar Chart---条形图",
-                               @"Area Chart---折线填充图",
-                               @"Areaspline Chart---曲线填充图",
-                               @"Line Chart---折线图",
-                               @"Spline Chart---曲线图",
-                               @"Scatter Chart---散点图"],
-                             
-                             @[@"Mixed Line Chart---虚实线混合折线图",
-                               @"Pie Chart---扇形图",
-                               @"Bubble Chart---气泡图",
-                               @"Scatter Chart--散点图",
-                               @"Pyramid Chart---金字塔图",
-                               @"Funnel Chart---漏斗图",
-                               @"Arearange Chart--区域面积图",
-                               @"Columnrange Chart--柱形面积图",
-                               @"Mixed Chart---混合图"],
-                             
+                             @[@"Column Chart---柱形图",@"Bar Chart---条形图",@"Area Chart---折线填充图",@"Areaspline Chart---曲线填充图",@"Line Chart---折线图",@"Spline Chart---曲线图",@"Scatter Chart---散点图"],
+                             @[@"Mixed Line Chart---虚实线混合折线图",@"Pie Chart---扇形图",@"Bubble Chart---气泡图",@"Scatter Chart--散点图",@"Pyramid Chart---金字塔图",@"Funnel Chart---漏斗图",@"Arearange Chart--区域面积图",@"Columnrange Chart--柱形面积图",@"Mixed Chart---混合图"],
                              @[@"模拟实时更新数据示例"],
-                             
                              @[@"图形动画样式相关演示"]
                              ];
     }
@@ -171,7 +190,6 @@
     }
     return _sectionTypeArr;
 }
-
 
 @end
 

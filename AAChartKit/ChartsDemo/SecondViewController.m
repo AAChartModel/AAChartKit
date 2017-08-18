@@ -186,12 +186,7 @@
 }
 
 - (void)configTheSwitch {
-    NSArray *nameArr = @[@"x轴翻转",
-                         @"y轴翻转",
-                         @"x 轴直立",
-                         @"辐射化图形",
-                         @"隐藏连接点",
-                         @"显示数字"];
+    NSArray *nameArr = @[@"x轴翻转",@"y轴翻转",@"x 轴直立",@"辐射化图形",@"隐藏连接点",@"显示数字"];
     CGFloat switchWidth = (self.view.frame.size.width-40)/6;
     
     for (int i=0; i<nameArr.count; i++) {
