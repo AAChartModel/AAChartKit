@@ -139,15 +139,9 @@
         || chartModel.chartType == AAChartTypeAreaspline
         || chartModel.chartType == AAChartTypeLine
         || chartModel.chartType == AAChartTypeSpline) {
-        plotOptions.seriesSet(AAObject(AASeries)
-                              .connectNullsSet(chartModel.connectNulls)
-                              .stackingSet(chartModelStacking)
-                              .markerSet(marker)
-                              .animationSet(AAObject(AAAnimation)
-                                            .easingSet(chartAnimationType)
-                                            .durationSet(chartModel.animationDuration)
-                                            )
-                              );
+        AASeries *series = plotOptions.series;
+        series.connectNulls = chartModel.connectNulls;
+        series.marker = marker;
     }
     
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
