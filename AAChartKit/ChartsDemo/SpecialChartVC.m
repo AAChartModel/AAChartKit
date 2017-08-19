@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     AAChartType chartType;
-
+    
     switch (self.chartType) {
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
@@ -98,7 +98,7 @@
                                ];
         
         AAChartModel *chartModel= AAObject(AAChartModel)
-//        .connectNullsSet(true)//设置折线是否断点重连
+        //        .connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
@@ -208,7 +208,7 @@
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"按性别划分的身高体重分布图")
         .yAxisTitleSet(@"千克(kg)")
-         .seriesSet(
+        .seriesSet(
                    @[
                      AAObject(AASeriesElement)
                      .nameSet(@"男")
@@ -321,7 +321,7 @@
                                 @[@170.2, @62.3], @[@177.8, @82.7], @[@179.1, @79.1], @[@190.5, @98.2], @[@177.8, @84.1],
                                 @[@180.3, @83.2], @[@180.3, @83.2]
                                 ])
-                      
+                     
                      ]
                    )
         ;
@@ -804,8 +804,8 @@
         
         return chartModel;
         
-      } else if ([chartType isEqualToString:@"mixed"]) {
-          
+    } else if ([chartType isEqualToString:@"mixed"]) {
+        
         AAChartModel *chartModel= AAObject(AAChartModel)
         .titleSet(@"城市气温指数")
         .subtitleSet(@"虚拟数据")
@@ -853,11 +853,11 @@
                      ]
                    )
         ;
-          
+        
         return chartModel;
-          
+        
     }
-        return nil;
+    return nil;
 }
 
 
