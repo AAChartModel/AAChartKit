@@ -20,5 +20,6 @@ AAPropStatementAndFuncStatement(strong, AASeries, AAAnimation *, animation);
 //plotOptions.series.connectNulls
 //https://www.zhihu.com/question/24173311
 AAPropStatementAndFuncStatement(assign, AASeries, BOOL , connectNulls);//设置折线是否断点重连
+AAPropStatementAndFuncStatement(strong, AASeries, NSDictionary *, events);
 
 @end

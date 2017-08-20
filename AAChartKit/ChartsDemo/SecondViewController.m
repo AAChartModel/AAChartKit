@@ -9,6 +9,8 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
+//#import <JavaScriptCore/JavaScriptCore.h>
+
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 
 @property (nonatomic, strong) AAChartModel *chartModel;
@@ -67,6 +69,17 @@
     self.chartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.chartView];
     
+//    JSContext *context = [self.chartView  valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+// 
+//    context[@"打印"] = ^() {
+//        NSArray *args = [JSContext currentArguments];
+//        for (JSValue *jsVal in args) {
+//            NSLog(@"%@", jsVal);
+//        }
+//        
+//        
+//    };
+    
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
     .titleSet(@"编程语言热度")
@@ -123,6 +136,7 @@
 //    //指定y轴坐标
 //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
+    
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 

@@ -38,12 +38,12 @@
         <div id="container" style="width:min-450px; height: 200px; margin: 0 auto">
         </div>
         <script >
-            function loadTheHighChartView(sender,receivedWidth,receivedHeight) {
+            function loadTheHighChartView (sender,receivedWidth,receivedHeight) {
                 var container = document.getElementById('container');//获得元素
                 if(receivedWidth != 0){
-                    container.style.width=receivedWidth;//设置宽度
+                    container.style.width = receivedWidth;//设置宽度
                 }
-                container.style.height=receivedHeight;//设置高度
+                container.style.height = receivedHeight;//设置高度
                 
                 var JavaScriptObject = JSON.parse(sender);
                 var themeColor = JavaScriptObject.colorsTheme;
@@ -67,12 +67,29 @@
                     JavaScriptObject.colors = themeColor;//如果再设置 colors, 则渐进色会功能就会被覆盖
                 }
                 JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
-                
+                JavaScriptObject.plotOptions.series.events = {
+                    click: function (event) {
+                        // 注意: WKWebView 最坑爹的事情之一就是不支持 JavaScript 中的 alert 提示框功能,在 UIWebView 中则能够正常显示
+                        alert(event.point.category,);
+                        click: JavaScriptCallNativeOC (event.point.category,);
+                    }
+
+
+                };
+
+
+
+
+
                 $('#container').highcharts(JavaScriptObject);
             }
+ 
         
+        function JavaScriptCallNativeOC (OCReceivedMessage) {
+             打印(OCReceivedMessage);
+        }
         
-            function onlyRefreshTheChartDataWithSeries(receivedSeries) {
+            function onlyRefreshTheChartDataWithSeries (receivedSeries) {
              
                 var JavaScriptObject = JSON.parse(receivedSeries);
                 var receivedSeriesElementArr = JavaScriptObject.series;

@@ -203,6 +203,8 @@
                            );
     }
     
+    plotOptions.series.events = @{@"click":@"hahaha"};
+    
     
     AALegend *legend = AAObject(AALegend)
     .enabledSet(chartModel.legendEnabled)//是否显示 legend

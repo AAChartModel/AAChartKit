@@ -37,65 +37,11 @@
 
 - (void)configTheTableView {
     UITableView *tableView = [[UITableView alloc]init];
-//    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     tableView.delegate =self;
     tableView.dataSource =self;
     [self.view addSubview:tableView];
-    
-//    
-//    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:tableView
-//                                                                      attribute:NSLayoutAttributeLeft
-//                                                                      relatedBy:NSLayoutRelationEqual
-//                                                                         toItem:self.view
-//                                                                      attribute:NSLayoutAttributeLeft
-//                                                                     multiplier:1.0
-//                                                                       constant:0];
-//    [self.view addConstraint:leftConstraint];
-//    
-//    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:tableView
-//                                                                       attribute:NSLayoutAttributeRight
-//                                                                       relatedBy:NSLayoutRelationEqual
-//                                                                          toItem:self.view
-//                                                                       attribute:NSLayoutAttributeRight
-//                                                                      multiplier:1.0
-//                                                                        constant:0];
-//    [self.view addConstraint:rightConstraint];
-    
-        NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:tableView
-                                                                          attribute:NSLayoutAttributeLeft
-                                                                          relatedBy:NSLayoutRelationEqual
-                                                                             toItem:self.view
-                                                                          attribute:NSLayoutAttributeLeft
-                                                                         multiplier:1.0
-                                                                           constant:0];
-        [self.view addConstraint:leftConstraint];
-    
-        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:tableView
-                                                                         attribute:NSLayoutAttributeTop
-                                                                         relatedBy:NSLayoutRelationEqual
-                                                                            toItem:self.view
-                                                                         attribute:NSLayoutAttributeTop
-                                                                        multiplier:1.0
-                                                                          constant:0];
-        [self.view addConstraint:topConstraint];
-    
-        NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:tableView
-                                                                           attribute:NSLayoutAttributeRight
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:self.view
-                                                                           attribute:NSLayoutAttributeRight
-                                                                          multiplier:1.0
-                                                                            constant:0];
-        [self.view addConstraint:rightConstraint];
-    
-        NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:tableView
-                                                                            attribute:NSLayoutAttributeBottom
-                                                                            relatedBy:NSLayoutRelationEqual
-                                                                               toItem:self.view
-                                                                            attribute:NSLayoutAttributeBottom
-                                                                           multiplier:1.0
-                                                                             constant:0];
-        [self.view addConstraint:bottomConstraint];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
