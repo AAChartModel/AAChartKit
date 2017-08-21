@@ -26,37 +26,41 @@
     [super viewDidLoad];
     self.title = @"即时刷新数据";
     [self setUpTheView];
-
+    
 }
 
 - (void)setUpTheView {
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(100, self.view.frame.size.height-100, 60, 40);
-    btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50);
-    btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 40);
-    [btn setTitle:@"点击只刷新图表数据内容" forState:UIControlStateNormal];
-    btn.backgroundColor = KGrayColor;
-    [btn setTitleColor:KBlueColor forState:UIControlStateNormal];
-    btn.layer.cornerRadius = 3;
-    btn.layer.masksToBounds = YES;
-    btn.titleLabel.font = [UIFont systemFontOfSize:13.f];
-    [btn addTarget:self action:@selector(onlyRefreshTheChartDataBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    for (int i = 0; i<3; i++) {
+        NSArray *titleNameArr = @[@"点击只刷新图表数据内容",@"点击隐藏图表的 Series 内容",@"随机显示其中某一个"];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50*i-30);
+        btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 40);
+        [btn setTitle:titleNameArr[i] forState:UIControlStateNormal];
+        btn.backgroundColor = KGrayColor;
+        [btn setTitleColor:KBlueColor forState:UIControlStateNormal];
+        btn.layer.cornerRadius = 3;
+        btn.layer.masksToBounds = YES;
+        btn.titleLabel.font = [UIFont systemFontOfSize:13.f];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(oneOfTwoButtonsClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
+    }
+    
+    
     
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-160);
-    self.chartView.contentHeight = self.view.frame.size.height-160;
+    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
     [self.view addSubview:self.chartView];
     
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeArea)
-    .invertedSet(true)
-//    .xAxisReversedSet(true)
-//    .yAxisReversedSet(true)
+    //    .invertedSet(true)
+    //    .xAxisReversedSet(true)
+    //    .yAxisReversedSet(true)
     .stackingSet(AAChartStackingTypeNormal)
-//    .polarSet(true)
+    //    .polarSet(true)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
     .pointHollowSet(true)
@@ -74,41 +78,50 @@
                  AAObject(AASeriesElement)
                  .nameSet(@"2019")
                  .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
-                ]
+                 ]
                );
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
-
+    
 }
 
-- (void)onlyRefreshTheChartDataBtnClicked {
-    NSMutableArray *virtualData = [[NSMutableArray alloc]init];
-    NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
-    NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
-    for (int i=0; i<12; i++) {
-        NSInteger randomNumber = arc4random()%99;
-        NSInteger randomNumber2 = arc4random()%66;
-        NSInteger randomNumber3 = arc4random()%55;
+- (void)oneOfTwoButtonsClicked:(UIButton *)sender {
+    if (sender.tag == 0) {
+        NSMutableArray *virtualData = [[NSMutableArray alloc]init];
+        NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
+        NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
+        for (int i=0; i<12; i++) {
+            NSInteger randomNumber = arc4random()%99;
+            NSInteger randomNumber2 = arc4random()%66;
+            NSInteger randomNumber3 = arc4random()%55;
+            
+            [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
+            [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
+            [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
+            
+        }
+        NSArray *series = @[
+                            AAObject(AASeriesElement)
+                            .nameSet(@"2017")
+                            .dataSet(virtualData),
+                            
+                            AAObject(AASeriesElement)
+                            .nameSet(@"2018")
+                            .dataSet(virtualData2),
+                            
+                            AAObject(AASeriesElement)
+                            .nameSet(@"2019")
+                            .dataSet(virtualData3),
+                            ];
+        self.chartModel.series = series;
+        [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
         
-        [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
-        [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
-        [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
-        
+    } else  if(sender.tag ==1){
+        self.chartView.chartSeriesHidden = YES;
+    } else {
+        [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:arc4random()%3];
     }
-    NSArray *series = @[
-                        AAObject(AASeriesElement)
-                        .nameSet(@"2017")
-                        .dataSet(virtualData),
-                        
-                        AAObject(AASeriesElement)
-                        .nameSet(@"2018")
-                        .dataSet(virtualData2),
-                        
-                        AAObject(AASeriesElement)
-                        .nameSet(@"2019")
-                        .dataSet(virtualData3),
-                        ];
-    self.chartModel.series = series;
-    [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
+    
+    
     
     //    [self virtualUpdateTheChartViewDataInRealTime];
     

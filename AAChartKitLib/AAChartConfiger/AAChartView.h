@@ -32,39 +32,52 @@
 
 @interface AAChartView : AAWebView<AAWebViewDelegate>
 
-@property(nonatomic,weak)id<AAChartViewDidFinishLoadDelegate>delegate;
+@property (nonatomic, weak)   id<AAChartViewDidFinishLoadDelegate> delegate;
 
 /**
  Content width of AAChartView
  */
-@property(nonatomic,assign)CGFloat contentWidth;
+@property (nonatomic, assign) CGFloat  contentWidth;
 
 /**
  Content height of AAChartView
  */
-@property(nonatomic,assign)CGFloat contentHeight;
+@property (nonatomic, assign) CGFloat  contentHeight;
+
+/**
+ Hide chart series content or not
+ */
+@property (nonatomic, assign) BOOL     chartSeriesHidden;
 
 
 /**
  Function of drawing chart view
-
+ 
  @param chartModel The instance object of chart model
  */
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;
 
 /**
  Function of refreshing whole chart view content
-
+ 
  @param chartModel The instance object of chart model
  */
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;
 
 /**
  Function of only refresh the chart data
-
+ 
  @param chartModel  The instance object of chart model
  */
 - (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel;
+
+
+/**
+ Show the series element content with index
+ 
+ @param elementIndex element index
+ */
+- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex;
 
 @end
 

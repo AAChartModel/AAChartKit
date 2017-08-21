@@ -20,7 +20,7 @@
     if (self) {
         self.AASelfWebViewDelegate =self;
         self.backgroundColor = [UIColor whiteColor];
-//        self.scrollView.bounces = NO;
+        //        self.scrollView.bounces = NO;
     }
     return self;
 }
@@ -72,15 +72,28 @@
 
 - (void)drawChart {
     NSString *javaScriptStr = [self configTheJavaScriptString];
-    [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
-        [self printTheErrorMessageWithError:error];
-    }];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel {
     NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
-    [self  evaluateJavaScript:javaScriptStr completionHandler:^(id item, NSError * _Nullable error) {
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
+    _chartSeriesHidden = chartSeriesHidden;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"chartSeriesContentHideOrShow(%d)",_chartSeriesHidden];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex(%ld)",(long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)evaluateJavaScriptWithFunctionNameString:(NSString *)funcitonNameStr {
+    [self  evaluateJavaScript:funcitonNameStr completionHandler:^(id item, NSError * _Nullable error) {
         [self printTheErrorMessageWithError:error];
     }];
 }
@@ -109,6 +122,7 @@
 }
 
 #endif
+
 
 
 @end
