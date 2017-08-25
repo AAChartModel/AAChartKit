@@ -152,13 +152,13 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                  .dataSet(
                           @[
                             @[@25, @10, @87],
-                            @[@2, @75, @59],
-                            @[@11, @54, @8],
+                            @[@2,  @75, @59],
+                            @[@11, @54, @8 ],
                             @[@86, @55, @93],
-                            @[@5, @3, @58],
+                            @[@5,  @3,  @58],
                             @[@90, @63, @44],
                             @[@91, @33, @17],
-                            @[@97, @3, @56],
+                            @[@97, @3,  @56],
                             @[@15, @67, @48],
                             @[@54, @25, @81]
                             ]),
@@ -168,8 +168,8 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                  .dataSet(
                           @[
                             @[@47, @47, @21],
-                            @[@20, @12, @4],
-                            @[@6, @76, @91],
+                            @[@20, @12, @4 ],
+                            @[@6,  @76, @91],
                             @[@38, @30, @60],
                             @[@57, @98, @64],
                             @[@61, @17, @80],
@@ -310,7 +310,7 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, gradientColorEnable)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, polar);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, dataLabelEnabled);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, xAxisLabelsEnabled);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, categories);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAxisLabelsEnabled);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
@@ -320,9 +320,9 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, legendEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel , NSString *, legendLayout);
-AAPropStatementAndFuncStatement(copy,   AAChartModel , NSString *, legendAlign);
-AAPropStatementAndFuncStatement(copy,   AAChartModel , NSString *, legendVerticalAlign);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, legendLayout);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, legendAlign);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, legendVerticalAlign);
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, options3dEnable);
@@ -420,25 +420,25 @@ to be
 </script>
 ```
 ### Todo list
->>>>>>  * - [x] Support for the user to add delegate events after the graphics content loading was completed
+>>>>>>  * - [x] Support user to add delegate events after the graphics content loading was completed
 >>>>>>  * - [x] Support graphics to refresh global content dynamically
 >>>>>>  * - [x] Support graphics to refresh pure data (`series`) content dynamically
 >>>>>>  * - [x] Support graphics to refresh pure data in real time and scroll dynamically
 >>>>>>  * - [x] Support color layer gradient effects
 >>>>>>  * - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
 >>>>  * - [ ] Support horizontal screen (full screen) effect
->>>>  * - [ ] Support free to set graphics rendering animation
+>>>>  * - [ ] Support setting graphics rendering animation freely
 >>>>  * - [ ] Support rendered graphics to generate image files
->>>>  * - [ ] Support to generate image files saved to the system album
->>>>  * - [ ] Support for users to configure `AAOptions` model object properties freely
+>>>>  * - [ ] Support generating image files saved to the system album
+>>>>  * - [ ] Support user to configure `AAOptions` model object properties freely
 >>>>>>  * - [x] Support stacking the graphics 
 >>>>>>  * - [x] Support reversing the graphics axis 
 >>>>>>  * - [x] Support rendering scatter chart
->>>>>>  * - [x] Support render column range map
->>>>>>  * - [x] Support render area range graph
+>>>>>>  * - [x] Support rendering column range map
+>>>>>>  * - [x] Support rendering area range graph
 >>>>  * - [ ] Support rendering the polar chart
 >>>>  * - [ ] Support rendering the polyline straight line chart
 >>>>  * - [ ] Support rendering the polyline straight area chart
 >>>>  * - [ ] Support rendering the rectangular tree hierarchy diagrams
 >>>>  * - [ ] Support rendering the circular progress bar chart 
->>>>  * - [ ] Support for adding clicked event callbacks for graphics
+>>>>  * - [ ] Support adding clicked event callbacks for graphics

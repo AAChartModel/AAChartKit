@@ -150,10 +150,10 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                      .dataSet(
                               @[
                                 @[@25, @10, @87],
-                                @[@2, @75, @59],
+                                @[@2,  @75, @59],
                                 @[@11, @54, @8],
                                 @[@86, @55, @93],
-                                @[@5, @3, @58],
+                                @[@5,  @3, @58],
                                 @[@90, @63, @44],
                                 @[@91, @33, @17],
                                 @[@97, @3, @56],
@@ -167,7 +167,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                               @[
                                 @[@47, @47, @21],
                                 @[@20, @12, @4],
-                                @[@6, @76, @91],
+                                @[@6,  @76, @91],
                                 @[@38, @30, @60],
                                 @[@57, @98, @64],
                                 @[@61, @17, @80],
@@ -315,9 +315,9 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineW
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, legendEnabled);//是否显示图例
-AAPropStatementAndFuncStatement(copy,   AAChartModel ,AAChartLegendLayoutType, legendLayout);//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-AAPropStatementAndFuncStatement(copy,   AAChartModel ,AAChartLegendAlignType, legendAlign);//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-AAPropStatementAndFuncStatement(copy,   AAChartModel ,AAChartLegendVerticalAlignType, legendVerticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendLayoutType, legendLayout);//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendAlignType, legendAlign);//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendVerticalAlignType, legendVerticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, options3dEnable);//是否3D化图形(仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);

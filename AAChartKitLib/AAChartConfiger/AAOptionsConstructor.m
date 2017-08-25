@@ -105,7 +105,7 @@
     AATooltip *tooltip = AAObject(AATooltip)
     .sharedSet(true)
     .crosshairsSet(chartModel.crosshairs);
-    //        .useHTMLSet(true)
+//        .useHTMLSet(true)
 //        .valueSuffixSet(@"摄氏度");//浮动提示框的后缀
     
     NSString *chartModelStacking = chartModel.stacking;
