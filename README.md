@@ -7,11 +7,11 @@
 [![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
 [![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocumentLive.html) 
 ### There is the link of Swift version of AAChartKit as follow
-*https://github.com/AAChartModel/AAChartKit-Swift*
+#### *https://github.com/AAChartModel/AAChartKit-Swift*
 
 ### 中文使用说明书地址
 
-*https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md*
+#### *https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md*
 
 ***
 ## Features:
@@ -23,7 +23,7 @@
 ***
  
 
-## Method of use:
+## Usage:
 
 ### The need of preparation
 1. Drag the folder `AAChartKitLib` into your project.
