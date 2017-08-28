@@ -57,7 +57,7 @@
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     
     [self configTheChartView:chartType];
- 
+    
 }
 
 - (void)configTheChartView:(AAChartType)chartType {
@@ -69,16 +69,16 @@
     self.chartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.chartView];
     
-//    JSContext *context = [self.chartView  valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-// 
-//    context[@"打印"] = ^() {
-//        NSArray *args = [JSContext currentArguments];
-//        for (JSValue *jsVal in args) {
-//            NSLog(@"%@", jsVal);
-//        }
-//        
-//        
-//    };
+    //    JSContext *context = [self.chartView  valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    //
+    //    context[@"打印"] = ^() {
+    //        NSArray *args = [JSContext currentArguments];
+    //        for (JSValue *jsVal in args) {
+    //            NSLog(@"%@", jsVal);
+    //        }
+    //
+    //
+    //    };
     
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
@@ -105,36 +105,36 @@
                  .dataSet(@[@21,@22,@24,@27,@25,@26,@37,@28,@49,@56,@31,@11]),
                  ]
                )
-//    //标示线的设置
-//    .yPlotLinesSet(@[AAObject(AAPlotLinesElement)
-//                     .colorSet(@"#F05353")//颜色值(16进制)
-//                     .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
-//                     .widthSet(@(1)) //标示线粗细
-//                     .valueSet(@(20)) //所在位置
-//                     .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-//                     .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})//这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）
-//                     ,AAObject(AAPlotLinesElement)
-//                     .colorSet(@"#33BDFD")
-//                     .dashStyleSet(@"Dash")
-//                     .widthSet(@(1))
-//                     .valueSet(@(40))
-//                     .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-//                     ,AAObject(AAPlotLinesElement)
-//                     .colorSet(@"#ADFF2F")
-//                     .dashStyleSet(@"Dash")
-//                     .widthSet(@(1))
-//                     .valueSet(@(60))
-//                     .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-//                     ]
-//                   )
-//    //Y轴最大值
-//    .yMaxSet(@(100))
-//    //Y轴最小值
-//    .yMinSet(@(1))
-//    //是否允许Y轴坐标值小数
-//    .yAllowDecimalsSet(NO)
-//    //指定y轴坐标
-//    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
+    //    //标示线的设置
+    //    .yPlotLinesSet(@[AAObject(AAPlotLinesElement)
+    //                     .colorSet(@"#F05353")//颜色值(16进制)
+    //                     .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
+    //                     .widthSet(@(1)) //标示线粗细
+    //                     .valueSet(@(20)) //所在位置
+    //                     .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+    //                     .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})//这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）
+    //                     ,AAObject(AAPlotLinesElement)
+    //                     .colorSet(@"#33BDFD")
+    //                     .dashStyleSet(@"Dash")
+    //                     .widthSet(@(1))
+    //                     .valueSet(@(40))
+    //                     .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+    //                     ,AAObject(AAPlotLinesElement)
+    //                     .colorSet(@"#ADFF2F")
+    //                     .dashStyleSet(@"Dash")
+    //                     .widthSet(@(1))
+    //                     .valueSet(@(60))
+    //                     .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+    //                     ]
+    //                   )
+    //    //Y轴最大值
+    //    .yMaxSet(@(100))
+    //    //Y轴最小值
+    //    .yMinSet(@(1))
+    //    //是否允许Y轴坐标值小数
+    //    .yAllowDecimalsSet(NO)
+    //    //指定y轴坐标
+    //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
     [self.chartView aa_drawChartWithChartModel:_chartModel];

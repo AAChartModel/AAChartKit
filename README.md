@@ -86,7 +86,7 @@ chartView.contentHeight =self.view.frame.size.height-220;
 
 6. Only refresh the chart data 
 ```objective-c
- [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
 
 7. Special instructions
