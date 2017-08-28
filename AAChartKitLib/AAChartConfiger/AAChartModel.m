@@ -24,7 +24,7 @@
         self.xAxisReversed = NO;
         self.yAxisReversed = NO;
         self.zoomType = AAChartZoomTypeX;
-        self.colorsTheme =  @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
+        self.colorsTheme = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
         self.gradientColorEnable = NO;
         self.polar = NO;
         self.options3dEnable = NO;
@@ -71,7 +71,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL, yAxisLabelsEnabled);//y轴是否
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y轴标题
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//x轴网格线的宽度
 
-AAPropSetFuncImplementation(AAChartModel, NSArray *, colorsTheme);
+AAPropSetFuncImplementation(AAChartModel, NSArray <NSString *>*, colorsTheme);
 AAPropSetFuncImplementation(AAChartModel, NSArray *, series);
 AAPropSetFuncImplementation(AAChartModel, BOOL , connectNulls);//设置折线是否断点重连(是否连接空值点)
 

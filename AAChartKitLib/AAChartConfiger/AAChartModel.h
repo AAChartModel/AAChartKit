@@ -127,7 +127,7 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAxisLabelsEnabled);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y轴标题
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);//图表主题颜色数组
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL , connectNulls);//设置折线是否断点重连(是否连接空值点)
 
