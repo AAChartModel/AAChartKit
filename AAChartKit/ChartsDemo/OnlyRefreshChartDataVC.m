@@ -115,7 +115,7 @@
         self.chartModel.series = series;
         [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
         
-    } else  if(sender.tag ==1){
+    } else if(sender.tag ==1){
         self.chartView.chartSeriesHidden = YES;
     } else {
         [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:arc4random()%3];
