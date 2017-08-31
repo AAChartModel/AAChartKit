@@ -93,6 +93,7 @@
     
     switch (indexPath.section) {
         case 0: {
+            /*基础类型图表*/
             SecondViewController *vc = [[SecondViewController alloc]init];
             vc.chartType = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
@@ -100,6 +101,7 @@
             break;
             
         case 1: {
+            /*特殊类型图表*/
             SpecialChartVC *vc = [[SpecialChartVC alloc]init];
             vc.chartType = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
@@ -107,12 +109,14 @@
             break;
             
         case 2: {
+            /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
             
         case 3: {
+            /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -160,6 +164,7 @@
 - (NSArray *)chartTypeNameArr {
     if (!_chartTypeNameArr) {
         _chartTypeNameArr =@[
+                             /*基础类型图表*/
                              @[@"Column Chart---柱形图",
                                @"Bar Chart---条形图",
                                @"Area Chart---折线填充图",
@@ -167,6 +172,7 @@
                                @"Line Chart---折线图",
                                @"Spline Chart---曲线图",
                                @"Scatter Chart---散点图"],
+                             /*特殊类型图表*/
                              @[@"Mixed Line Chart---虚实线混合折线图",
                                @"Pie Chart---扇形图",
                                @"Bubble Chart---气泡图",
@@ -176,7 +182,9 @@
                                @"Arearange Chart--区域面积图",
                                @"Columnrange Chart--柱形面积图",
                                @"Mixed Chart---混合图"],
+                             /*图表数据动态刷新*/
                              @[@"模拟实时更新数据示例"],
+                             /*JQuery动画样式类型演示*/
                              @[@"图形动画样式相关演示"]
                              ];
     }
