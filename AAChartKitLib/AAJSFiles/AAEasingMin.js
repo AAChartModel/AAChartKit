@@ -1,3 +1,9 @@
+
+//
+//  Created by An An on 17/8/31.
+//  Copyright © 2017年 An An. All rights reserved.
+//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
+
 // --------------------------------------------------
 // easing.js v0.5.4
 // Generic set of easing functions with AMD support
