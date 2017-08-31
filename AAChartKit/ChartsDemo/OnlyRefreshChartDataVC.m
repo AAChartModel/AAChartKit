@@ -10,8 +10,8 @@
 #import "AAChartKit.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-#define KGrayColor        [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
-#define KBlueColor         ColorWithRGB(63, 153,231,1)
+#define AAGrayColor        [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
+#define AABlueColor         ColorWithRGB(63, 153,231,1)
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
 
@@ -36,8 +36,8 @@
         btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50*i-30);
         btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 40);
         [btn setTitle:titleNameArr[i] forState:UIControlStateNormal];
-        btn.backgroundColor = KGrayColor;
-        [btn setTitleColor:KBlueColor forState:UIControlStateNormal];
+        btn.backgroundColor = AAGrayColor;
+        [btn setTitleColor:AABlueColor forState:UIControlStateNormal];
         btn.layer.cornerRadius = 3;
         btn.layer.masksToBounds = YES;
         btn.titleLabel.font = [UIFont systemFontOfSize:13.f];
