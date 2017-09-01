@@ -76,7 +76,7 @@ chartView.contentHeight =self.view.frame.size.height-220;
 ```
 4. Draw the chart(This method is called only for the first time after you create an AAChartView instance object) 
 ```objective-c
-//The chart view object calls the instance object of  AAChartModel and draws the final graphic
+//The chart view object calls the instance object of AAChartModel and draws the final graphic
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
@@ -442,7 +442,7 @@ to be
 >>>>>>  * - [x] Support rendering scatter chart
 >>>>>>  * - [x] Support rendering column range map
 >>>>>>  * - [x] Support rendering area range graph
->>>>  * - [ ] Support rendering the polar chart
+>>>>>>  * - [x] Support rendering the polar chart
 >>>>  * - [ ] Support rendering the polyline straight line chart
 >>>>  * - [ ] Support rendering the polyline straight area chart
 >>>>  * - [ ] Support rendering the rectangular tree hierarchy diagrams
