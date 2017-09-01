@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE) 
 [![](https://img.shields.io/badge/language-OC-green.svg)](https://github.com/AAChartModel/AAChartKit) 
 [![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
-[![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift)  
+[![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift)
 [![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocumentLive.html) 
 ### There is the link of Swift version of AAChartKit as follow
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
@@ -84,7 +84,7 @@ chartView.contentHeight =self.view.frame.size.height-220;
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
 
-6. Only refresh the chart data(This method is recommended to be called for updating the series data dynamicly) 
+6. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically) 
 ```objective-c
 [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
