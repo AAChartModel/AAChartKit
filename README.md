@@ -76,19 +76,19 @@ chartView.contentHeight =self.view.frame.size.height-220;
 ```
 4. Draw the chart(This method is called only for the first time after you create an AAChartView instance object) 
 ```objective-c
-/*The chart view object calls the instance object of  AAChartModel and draws the final graphic*/
+//The chart view object calls the instance object of  AAChartModel and draws the final graphic
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
 5. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed) 
 ```objective-c
-/*Refresh the chart after the AAChartModel content is updated*/
+//Refresh the chart after the AAChartModel content is updated
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
 
 6. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically) 
 ```objective-c
-/*Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated*/
+//Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
 [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
 
@@ -297,13 +297,14 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 
 ### AAChartModel:chart attribute list
 ```objective-c
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, title);
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, subtitle);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);
 
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, chartType);
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, stacking);
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, symbol); 
-AAPropStatementAndFuncStatement(copy, AAChartModel, NSString *, zoomType);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType, chartType);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType, stacking);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType, symbol);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType, zoomType);
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, inverted);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, xAxisReversed);
@@ -323,9 +324,9 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, legendEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, legendLayout);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, legendAlign);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, legendVerticalAlign);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendLayoutType, legendLayout);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendAlignType, legendAlign);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendVerticalAlignType, legendVerticalAlign);
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, options3dEnable);
@@ -348,7 +349,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 ### More graphics
 
->>> * Note: The following `DEMO picture'is  the` GIF dynamic picture ` which is the size of * 6M * around, if there is no dynamic results because of that the picture resources are not loaded fully. Please be patient to the picture resources before the contents of the full loaded, then you will finally watch more of the dynamic demonstration of the project results.
+>>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully. Please be patient to the picture resources before the contents of the full loaded, then you will finally watch more of the dynamic demonstration of the project results.
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitShow.gif)
 
