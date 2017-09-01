@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/LICENSE) 
 [![](https://img.shields.io/badge/language-OC-green.svg)](https://github.com/AAChartModel/AAChartKit) 
 [![](https://img.shields.io/badge/support-Animation-yellow.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
-[![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift) 
+[![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift)  
 [![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitDocumentLive.html) 
 ### There is the link of Swift version of AAChartKit as follow
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
@@ -74,17 +74,17 @@ chartView.contentHeight =self.view.frame.size.height-220;
                  ])
     ;
 ```
-4. Draw the chart 
+4. Draw the chart(This method is called only for the first time after you create an AAChartView instance object) 
 ```objective-c
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
-5. Refresh the chart 
+5. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed) 
 ```objective-c
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
 
-6. Only refresh the chart data 
+6. Only refresh the chart data(This method is recommended to be called for updating the series data dynamicly) 
 ```objective-c
 [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
@@ -344,6 +344,8 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 
 ### More graphics
+
+>>> * Note: The following `DEMO picture'is  the` GIF dynamic picture ` which is the size of * 6M * around, if there is no dynamic results because of that the picture resources are not loaded fully. Please be patient to the picture resources before the contents of the full loaded, then you will finally watch more of the dynamic demonstration of the project results.
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitShow.gif)
 
