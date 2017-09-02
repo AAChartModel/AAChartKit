@@ -349,7 +349,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
 ### More graphics
 
->>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully. Please be patient to the picture resources before the contents of the full loaded, then you will finally watch more of the dynamic demonstration of the project results.
+>>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully, please be patient to the picture resources before the contents of the fully loaded, then you will finally watch more of the dynamic demonstration of the project results.
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitShow.gif)
 
