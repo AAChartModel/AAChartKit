@@ -12,6 +12,7 @@
 #import "SpecialChartVC.h"
 #import "OnlyRefreshChartDataVC.h"
 #import "ChartAnimationTypeVC.h"
+#import "DrawChartWithAAOptionsVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -121,7 +122,14 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-            
+        
+        case 4: {
+            /*通过AAOptions实例对象来绘制图形*/
+            DrawChartWithAAOptionsVC *vc = [[DrawChartWithAAOptionsVC alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        break;
+        
         default:
             break;
     }
@@ -185,7 +193,9 @@
                              /*图表数据动态刷新*/
                              @[@"模拟实时更新数据示例"],
                              /*JQuery动画样式类型演示*/
-                             @[@"图形动画样式相关演示"]
+                             @[@"图形动画样式相关演示"],
+                             /*通过AAOptions实例对象来绘制图形*/
+                             @[@"直接通过AAOptions实例对象绘制图形"]
                              ];
     }
     return _chartTypeNameArr;
@@ -196,7 +206,8 @@
         _sectionTypeArr = @[@"Basic Type---基础类型",
                             @"Special Type---特别类型",
                             @"Real-time Refresh---即时刷新",
-                            @"Animation Type---动画相关"];
+                            @"Animation Type---动画相关",
+                            @"Draw chart with AAOptions---AAOptions实例对象绘制图形"];
     }
     return _sectionTypeArr;
 }

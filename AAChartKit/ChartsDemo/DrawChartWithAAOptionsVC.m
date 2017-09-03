@@ -99,6 +99,9 @@
  
 ===============================================================原生 HTML 代码==============================================================*/
     
+   
+/****************************************************参照原生 HTML 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
+
     //标题
     NSDictionary *title =
     @{@"text":@"AAChartKit"};
@@ -118,7 +121,7 @@
     NSDictionary *yAxis =
     @{
       @"title":@{
-              @"text":@"Temperature (\\xB0C)"
+              @"text":@"Temperature (xB0C)"
               },
       @"plotLines":@[@{
                          @"value":@0,
@@ -131,7 +134,7 @@
     //浮动提示框
     NSDictionary *tooltip =
     @{
-      @"valueSuffix": @"\\xB0C"
+      @"valueSuffix": @"xB0C"
       };
     
     //图例
@@ -171,6 +174,12 @@
     options.tooltip = (id)tooltip;
     options.legend = (id)legend;
     options.series = (id)series;
+    
+    
+    AAChartView *chartView =[[AAChartView alloc]init];
+    chartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:chartView];
+    [chartView aa_drawChartWithOptions:options];
  
     
 //    AAOptions *options = AAObject(AAOptions)
@@ -182,22 +191,20 @@
 //    .legendSet((id)legend)
 //    .seriesSet((id)series);
 
+/****************************************************参照原生 HTML 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
+    
+    
+    
+    
+/*###################################################参照原生 HTML 代码仿写构建生成 AAOptions 实例对象(方法2)###################################################*/
  
+ 
+/*###################################################参照原生 HTML 代码仿写构建生成 AAOptions 实例对象(方法2)###################################################*/
+
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
