@@ -226,7 +226,7 @@
     .plotOptionsSet(plotOptions)
     .legendSet(legend)
     .seriesSet(chartModel.series)
-    .colorsThemeSet(chartModel.colorsTheme)//设置颜色主题
+    .colorsSet(chartModel.colorsTheme)//设置颜色主题
     .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
     ;
     

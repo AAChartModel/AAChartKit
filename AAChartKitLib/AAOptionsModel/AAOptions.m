@@ -20,7 +20,7 @@ AAPropSetFuncImplementation(AAOptions, AATooltip *, tooltip);
 AAPropSetFuncImplementation(AAOptions, AAPlotOptions *, plotOptions);
 AAPropSetFuncImplementation(AAOptions, NSArray *, series);
 AAPropSetFuncImplementation(AAOptions, AALegend *, legend);
-AAPropSetFuncImplementation(AAOptions, NSArray *, colorsTheme);
+AAPropSetFuncImplementation(AAOptions, NSArray *, colors);
 AAPropSetFuncImplementation(AAOptions, BOOL , gradientColorEnable);
 
 @end

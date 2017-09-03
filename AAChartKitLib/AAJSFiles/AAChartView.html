@@ -53,11 +53,9 @@
                 container.style.height = receivedHeight;//设置高度
                 
                 var JavaScriptObject = JSON.parse(sender);
-                var themeColor = JavaScriptObject.colorsTheme;
-                if (JavaScriptObject.gradientColorEnable == true) {
-                    //cy 如果是负值 则表示从上到下的渐变，如果是正值则表示上边是浅色，下面是深色
-                    //brighten(14)正数表示变浅，负值是加深
-                    var colors = themeColor;
+                
+                 if (JavaScriptObject.gradientColorEnable == true) {
+                    var colors = JavaScriptObject.colors;
                     Highcharts.getOptions().colors = Highcharts.map(colors, function (color) {
                                                                     return {
                                                                     linearGradient: {
@@ -72,10 +70,9 @@
                                                                             ]
                                                                     };
                                                                     });
-                } else {
-                    JavaScriptObject.colors = themeColor;//如果再设置 colors, 则渐进色会功能就会被覆盖
                 }
-                
+
+
                 JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
                 
 <!--                JavaScriptObject.plotOptions.series.events = {-->

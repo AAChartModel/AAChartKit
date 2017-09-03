@@ -23,7 +23,7 @@ AAPropStatementAndFuncStatement(strong, AAOptions, AATooltip *, tooltip);
 AAPropStatementAndFuncStatement(strong, AAOptions, AAPlotOptions *, plotOptions);
 AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, series);
 AAPropStatementAndFuncStatement(strong, AAOptions, AALegend *, legend);
-AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, colorsTheme);
+AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, colors);
 AAPropStatementAndFuncStatement(assign, AAOptions, BOOL , gradientColorEnable);
 
 @end
