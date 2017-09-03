@@ -60,13 +60,15 @@
                     var colors = themeColor;
                     Highcharts.getOptions().colors = Highcharts.map(colors, function (color) {
                                                                     return {
-                                                                    radialGradient: { cx:0, cy: -0.8,r:2.3 },
+                                                                    linearGradient: {
+                                                                    x1: 0,
+                                                                    y1: 0,
+                                                                    x2: 0,
+                                                                    y2: 1
+                                                                    },
                                                                     stops: [
                                                                             [0, color],
-                                                                            [2, Highcharts
-                                                                             .Color(color)
-                                                                             .brighten(0.3)
-                                                                             .get('rgb')] // darken
+                                                                            [1, Highcharts.Color(color).setOpacity(0.3).get('rgba')]
                                                                             ]
                                                                     };
                                                                     });
