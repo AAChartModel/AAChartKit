@@ -98,8 +98,7 @@
         
         function onlyRefreshTheChartDataWithSeries (receivedSeries) {
             
-            var JavaScriptObject = JSON.parse(receivedSeries);
-            var receivedSeriesElementArr = JavaScriptObject.series;
+            var receivedSeriesElementArr = JSON.parse(receivedSeries);
             
             for (var i = 0; i < receivedSeriesElementArr.length; i++){
                 var receivedSeriesData = receivedSeriesElementArr[i].data;

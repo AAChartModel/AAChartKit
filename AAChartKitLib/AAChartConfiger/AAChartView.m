@@ -32,9 +32,13 @@
     return URLRequest;
 }
 
-- (void)configTheOptionsWithChartModel:(AAChartModel *)chartModel {
+- (void)configTheOptionsJsonWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options =AAObject(AAOptions);
     options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    _optionJson = [AAJsonConverter getPureOptionsString:options];
+}
+    
+- (void)configTheOptionsJsonWithOptions:(AAOptions *)options {
     _optionJson = [AAJsonConverter getPureOptionsString:options];
 }
 
@@ -46,20 +50,45 @@
 }
 
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
-    [self configTheOptionsWithChartModel:chartModel];
+    [self configTheOptionsJsonWithChartModel:chartModel];
     NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
     [self loadRequest:URLRequest];
     
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
-    [self configTheOptionsWithChartModel:chartModel];
+    [self configTheOptionsJsonWithChartModel:chartModel];
     [self drawChart];
+}
+    
+- (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel {
+    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel.series];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+    
+    
+
+- (void)aa_drawChartWithOptions:(AAOptions *)options {
+    [self configTheOptionsJsonWithOptions:options];
+    NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
+    [self loadRequest:URLRequest];
+    }
+ 
+- (void)aa_refreshChartWithOptions:(AAOptions *)options {
+    [self configTheOptionsJsonWithOptions:options];
+    [self drawChart];
+}
+ 
+- (void)aa_onlyRefreshTheChartDataWithOptions:(AAOptions *)options {
+    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:options.series];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
 - (void)printTheErrorMessageWithError:(NSError *)error {
     if (error) {
-        NSLog(@"%@",error);
+        NSLog(@"WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
     }
 }
 
@@ -72,12 +101,6 @@
 
 - (void)drawChart {
     NSString *javaScriptStr = [self configTheJavaScriptString];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
-}
-
-- (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel {
-    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 

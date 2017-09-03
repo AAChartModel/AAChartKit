@@ -70,6 +70,29 @@
  @param chartModel  The instance object of chart model
  */
 - (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel;
+    
+    
+/**
+ Function of drawing chart view
+
+ @param options The instance object of chart options
+ */
+- (void)aa_drawChartWithOptions:(AAOptions *)options;
+    
+/**
+ Function of refreshing whole chart view content
+
+ @param options The instance object of chart options
+ */
+- (void)aa_refreshChartWithOptions:(AAOptions *)options;
+    
+/**
+ Function of only refresh the chart data
+
+ @param options The instance object of chart options
+ */
+- (void)aa_onlyRefreshTheChartDataWithOptions:(AAOptions *)options;
+
 
 
 /**

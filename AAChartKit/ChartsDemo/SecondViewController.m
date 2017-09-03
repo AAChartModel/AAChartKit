@@ -137,6 +137,9 @@
     //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
+    //是否起用渐变色功能
+    _chartModel.gradientColorEnable = YES;
+    
     [self.chartView aa_drawChartWithChartModel:_chartModel];
 }
 
