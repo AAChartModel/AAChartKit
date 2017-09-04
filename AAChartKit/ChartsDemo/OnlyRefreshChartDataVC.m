@@ -9,9 +9,9 @@
 #import "OnlyRefreshChartDataVC.h"
 #import "AAChartKit.h"
 
-#define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-#define AAGrayColor        [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
-#define AABlueColor         ColorWithRGB(63, 153,231,1)
+#define AAColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define AAGrayColor             [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
+#define AABlueColor             AAColorWithRGB(63, 153,231,1)
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
 
@@ -56,11 +56,11 @@
     
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeArea)
-    //    .invertedSet(true)
-    //    .xAxisReversedSet(true)
-    //    .yAxisReversedSet(true)
+    //    .invertedSet(true)//x 轴是否垂直
+    //    .xAxisReversedSet(true)//x 轴是否翻转
+    //    .yAxisReversedSet(true)//y 轴是否翻转
     .stackingSet(AAChartStackingTypeNormal)
-    //    .polarSet(true)
+    //    .polarSet(true)//是否辐射化图形
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
     .pointHollowSet(true)
@@ -100,20 +100,17 @@
             
         }
         NSArray *series = @[
-                            AAObject(AASeriesElement)
-                            .nameSet(@"2017")
-                            .dataSet(virtualData),
+                            @{@"name":@"2017",
+                              @"data":virtualData},
                             
-                            AAObject(AASeriesElement)
-                            .nameSet(@"2018")
-                            .dataSet(virtualData2),
+                            @{@"name":@"2018",
+                              @"data":virtualData2},
                             
-                            AAObject(AASeriesElement)
-                            .nameSet(@"2019")
-                            .dataSet(virtualData3),
+                            @{@"name":@"2019",
+                              @"data":virtualData3},
                             ];
-        self.chartModel.series = series;
-        [self.chartView aa_onlyRefreshTheChartDataWithChartModel:self.chartModel];
+        
+         [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];
         
     } else if(sender.tag ==1){
         self.chartView.chartSeriesHidden = YES;

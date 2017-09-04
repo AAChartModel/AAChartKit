@@ -61,8 +61,8 @@
     [self drawChart];
 }
     
-- (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel {
-    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel.series];
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
+    NSString *seriesJsonStr=[AAJsonConverter getPureSeriesString:series];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
@@ -80,11 +80,11 @@
     [self drawChart];
 }
  
-- (void)aa_onlyRefreshTheChartDataWithOptions:(AAOptions *)options {
-    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:options.series];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
+    [self aa_onlyRefreshTheChartDataWithChartModelSeries:series];
 }
+
+
 
 - (void)printTheErrorMessageWithError:(NSError *)error {
     if (error) {

@@ -150,7 +150,9 @@
 
 - (void)configThesegmentedControl{
     NSArray *segmentedArray = @[@[@"常规",@"堆叠",@"百分比堆叠"],
-                                @[@"波点",@"方块",@"钻石",@"正三角",@"倒三角"]];
+                                @[@"波点",@"方块",@"钻石",@"正三角",@"倒三角"]
+                                ];
+    
     NSArray *typeLabelNameArr = @[@"堆叠类型选择",@"折线连接点形状选择"];
     
     for (int i=0; i<segmentedArray.count; i++) {

@@ -67,11 +67,12 @@
 /**
  Function of only refresh the chart data
  
- @param chartModel  The instance object of chart model
+ @param series  Series array of AAChartModel instance object
  */
-- (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel;
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
     
-    
+
+
 /**
  Function of drawing chart view
 
@@ -89,9 +90,10 @@
 /**
  Function of only refresh the chart data
 
- @param options The instance object of chart options
+ @param series Series array of AAOptions instance object
  */
-- (void)aa_onlyRefreshTheChartDataWithOptions:(AAOptions *)options;
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series;
+
 
 
 
