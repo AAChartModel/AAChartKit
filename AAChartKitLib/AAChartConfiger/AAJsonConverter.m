@@ -68,13 +68,6 @@
     return [self getObjectData:obj];
 }
 
-+ (NSString *)getPureOptionsString:(id)optionsObject {
-    NSDictionary *dic = [self getObjectData:optionsObject];
-    NSString *str = [self convertDictionaryIntoJson:dic];
-    NSString *pureString = [self wipeOffTheLineBreakAndBlankCharacter:str];
-    return pureString;
-}
-
 + (NSString*)convertDictionaryIntoJson:(NSDictionary *)dictionary {
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&parseError];
@@ -87,6 +80,19 @@
     str = [str stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return str;
+}
+
++ (NSString *)getPureOptionsString:(id)optionsObject {
+    NSDictionary *dic = [self getObjectData:optionsObject];
+    NSString *str = [self convertDictionaryIntoJson:dic];
+    return [self wipeOffTheLineBreakAndBlankCharacter:str];
+}
+
++ (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series {
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:series options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSString *seriesStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
 
 @end

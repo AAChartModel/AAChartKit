@@ -11,6 +11,21 @@
 
 @interface AAJsonConverter : NSObject
 
-+(NSString *)getPureOptionsString:(id)optionsObject;
+/**
+ Get pure options string
+
+ @param optionsObject Instance object of AAOptions
+ @return Pure options string without "\r" && "\n"
+ */
++ (NSString *)getPureOptionsString:(id)optionsObject;
+
+
+/**
+ Get pure series string
+
+ @param series Series array of AAOptions
+ @return Pure series string without "\r" && "\n"
+ */
++ (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series;
 
 @end 
