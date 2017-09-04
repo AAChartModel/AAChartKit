@@ -57,6 +57,8 @@
 		64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */ = {isa = PBXBuildFile; fileRef = 64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */; };
 		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
 		64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */; };
+		64F15B5C1F5D907B00DC7A7F /* DrilldownChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */; };
+		64F15B5E1F5D9B0D00DC7A7F /* AADrilldown.js in Resources */ = {isa = PBXBuildFile; fileRef = 64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */; };
 		713191141E80B32000382A09 /* IMG_1867.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191131E80B32000382A09 /* IMG_1867.JPG */; };
 		713191161E80B32800382A09 /* IMG_1866.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191151E80B32800382A09 /* IMG_1866.JPG */; };
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
@@ -178,6 +180,9 @@
 		645E59541E8403710039A0A1 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyRefreshChartDataVC.h; sourceTree = "<group>"; };
 		64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyRefreshChartDataVC.m; sourceTree = "<group>"; };
+		64F15B5A1F5D907B00DC7A7F /* DrilldownChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrilldownChartVC.h; sourceTree = "<group>"; };
+		64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrilldownChartVC.m; sourceTree = "<group>"; };
+		64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AADrilldown.js; sourceTree = "<group>"; };
 		713191131E80B32000382A09 /* IMG_1867.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1867.JPG; sourceTree = "<group>"; };
 		713191151E80B32800382A09 /* IMG_1866.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1866.JPG; sourceTree = "<group>"; };
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
@@ -269,6 +274,7 @@
 				2707BA5D1EF7BA47008357AC /* AAHighcharts-3d.js */,
 				2707BA5C1EF7BA47008357AC /* AAFunnel.js */,
 				27987A461F54324600B03AD9 /* AAEasingMin.js */,
+				64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */,
 			);
 			path = AAJSFiles;
 			sourceTree = "<group>";
@@ -342,6 +348,8 @@
 				713F543A1E7B71C000D506C7 /* SecondViewController.m */,
 				645E59531E8403710039A0A1 /* SpecialChartVC.h */,
 				645E59541E8403710039A0A1 /* SpecialChartVC.m */,
+				64F15B5A1F5D907B00DC7A7F /* DrilldownChartVC.h */,
+				64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */,
 				64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */,
 				64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */,
 				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
@@ -550,6 +558,7 @@
 				64245AD41EC3706E005B8021 /* IMG_1878.JPG in Resources */,
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
+				64F15B5E1F5D9B0D00DC7A7F /* AADrilldown.js in Resources */,
 				2707BAA11EF7BA47008357AC /* AAJQueryLibrary.js in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
 				2707BA9B1EF7BA47008357AC /* AAChartKit.podspec in Resources */,
@@ -628,6 +637,7 @@
 				645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */,
 				2707BAA21EF7BA47008357AC /* AAAnimation.m in Sources */,
 				2707BAA71EF7BA47008357AC /* AAColumn.m in Sources */,
+				64F15B5C1F5D907B00DC7A7F /* DrilldownChartVC.m in Sources */,
 				2707BA991EF7BA47008357AC /* AAJsonConverter.m in Sources */,
 				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
 				2707BAAC1EF7BA47008357AC /* AALine.m in Sources */,

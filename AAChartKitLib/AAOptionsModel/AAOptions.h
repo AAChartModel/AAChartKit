@@ -25,5 +25,7 @@ AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, series);
 AAPropStatementAndFuncStatement(strong, AAOptions, AALegend *, legend);
 AAPropStatementAndFuncStatement(strong, AAOptions, NSArray *, colors);
 AAPropStatementAndFuncStatement(assign, AAOptions, BOOL , gradientColorEnable);
+AAPropStatementAndFuncStatement(assign, AAOptions, NSDictionary *, drilldown);
+
 
 @end

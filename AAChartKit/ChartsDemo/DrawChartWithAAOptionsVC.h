@@ -3,7 +3,7 @@
 //  AAChartKit
 //
 //  Created by An An on 2017/8/9.
-//  Copyright © 2017年 Danny boy. All rights reserved.
+//  Copyright © 2017年An An. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
