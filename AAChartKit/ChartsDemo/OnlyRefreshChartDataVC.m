@@ -13,7 +13,9 @@
 #define AAGrayColor             [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 #define AABlueColor             AAColorWithRGB(63, 153,231,1)
 
-@interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>
+@interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>{
+    NSTimer *_timer;
+}
 
 @property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
@@ -21,6 +23,14 @@
 @end
 
 @implementation OnlyRefreshChartDataVC
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    //取消定时器
+    [_timer invalidate];
+    _timer = nil;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,32 +95,11 @@
 }
 
 - (void)oneOfTwoButtonsClicked:(UIButton *)sender {
+    
+    //关闭定时器
+    [_timer setFireDate:[NSDate distantFuture]];
     if (sender.tag == 0) {
-        NSMutableArray *virtualData = [[NSMutableArray alloc]init];
-        NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
-        NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
-        for (int i=0; i<12; i++) {
-            NSInteger randomNumber = arc4random()%99;
-            NSInteger randomNumber2 = arc4random()%66;
-            NSInteger randomNumber3 = arc4random()%55;
-            
-            [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
-            [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
-            [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
-            
-        }
-        NSArray *series = @[
-                            @{@"name":@"2017",
-                              @"data":virtualData},
-                            
-                            @{@"name":@"2018",
-                              @"data":virtualData2},
-                            
-                            @{@"name":@"2019",
-                              @"data":virtualData3},
-                            ];
-        
-         [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];
+        [self virtualUpdateTheChartViewDataInRealTime];
         
     } else if(sender.tag ==1){
         self.chartView.chartSeriesHidden = YES;
@@ -120,36 +109,55 @@
     
     
     
-    //    [self virtualUpdateTheChartViewDataInRealTime];
     
 }
 
-//- (void)virtualUpdateTheChartViewDataInRealTime{
-//      NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerStartWork) userInfo:nil repeats:NO];
-//     [timer fire];
-//}
+- (void)virtualUpdateTheChartViewDataInRealTime{
+      _timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                        target:self
+                                                      selector:@selector(timerStartWork)
+                                                      userInfo:nil
+                                                       repeats:YES];
+     [_timer fire];
+}
 
-//- (void)timerStartWork{
-//    NSMutableArray *virtualData = [[NSMutableArray alloc]init];
-//    for (int i=0; i<9; i++) {
-//        NSInteger randomNumber = arc4random()%20;
-//        [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
-//    }
-//    NSArray *series = @[
-//                        AAObject(AASeriesElement)
-//                        .nameSet(@"2017")
-//                        .dataSet(virtualData)
-//                        ];
-//    self.chartModel.series = series;
-//    [self.chartView aa_onlyRefreshTheChartDataWithSeries:self.chartModel];
-//    NSLog(@"执行了几次??????");
-//}
+- (void)timerStartWork{
+    [self onlyRefreshTheChartData];
+}
+
+- (void)onlyRefreshTheChartData {
+    NSMutableArray *virtualData = [[NSMutableArray alloc]init];
+    NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
+    NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
+    for (int i=0; i<12; i++) {
+        NSInteger randomNumber = arc4random()%99;
+        NSInteger randomNumber2 = arc4random()%66;
+        NSInteger randomNumber3 = arc4random()%55;
+        
+        [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
+        [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
+        [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
+        
+    }
+    NSArray *series = @[
+                        @{@"name":@"2017",
+                          @"data":virtualData},
+                        
+                        @{@"name":@"2018",
+                          @"data":virtualData2},
+                        
+                        @{@"name":@"2019",
+                          @"data":virtualData3},
+                        ];
+    
+    [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];
+    NSLog(@"刷新了图表的数据内容😆");
+
+}
 
 # pragma mark AAChartViewDidFinishLoadDelegate
 - (void)AAChartViewDidFinishLoad {
     NSLog(@"AAChartView 内容已加载完成");
 }
-
-
 
 @end
