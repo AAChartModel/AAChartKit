@@ -16,8 +16,8 @@
 ***
 ## Features:
 1. Support `iOS 6`、`ARC` & `Objective C`.
-2. Powerful,support the  `column chart` `bar chart` `line chart` `spline chart` `pie chart` `polar chart` `radar chart` and other graphics.
-3. Interactive、animated,the `animation` is exquisite and deligate.
+2.  Powerful,support the  `column chart`、`bar chart`、`area chart`、`areaspline chart`、`line chart`、`spline chart`、`radar chart`、`polar chart`、`pie chart`、`bubble chart`、`pyramid chart`、`funnel chart`、`columnrange chart`and other graphics.
+3. Interactive、animated,the `animation` effect is exquisite 、delicate、 smooth and beautiful.
 4. Support `chain programming syntax` like *Masonry* 
 5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  
 ***
@@ -292,7 +292,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimationType){
 
 - mixed chart
 
-![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1882.JPG)
+![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
 
 
 ### AAChartModel:chart attribute list
