@@ -245,20 +245,16 @@
                                 };
     
     
-    NSDictionary *chart=
-    @{
-      @"type": @"column"
-      };
-    NSDictionary *title=
-    @{
-      @"text": @"2015年1月-5月，各浏览器的市场份额"
-      };
+    NSDictionary *chart= @{
+                           @"type": @"column"
+                           };
+    NSDictionary *title= @{
+                           @"text": @"2015年1月-5月，各浏览器的市场份额"
+                           };
     
-    NSDictionary *xAxis=
-    @{
-      @"type": @"category"
-      };
-    
+    NSDictionary *xAxis= @{
+                           @"type": @"category"
+                           };
     
     AAOptions *options = AAObject(AAOptions);
     options.chart = (id)chart;
@@ -266,7 +262,7 @@
     options.xAxis = (id)xAxis;
     options.series = series;
     options.drilldown = drilldown;
-//    options.colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
+    options.colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
     
     AAChartView *chartView =[[AAChartView alloc]init];

@@ -12,7 +12,7 @@
 #import "AAPlotLinesElement.h"
 
 typedef NS_ENUM(NSInteger,AAChartAnimationType){
-    AAChartAnimationTypeLinear =0,
+    AAChartAnimationTypeLinear = 0,
     AAChartAnimationTypeSwing,
     AAChartAnimationTypeEaseInQuad,
     AAChartAnimationTypeEaseOutQuad,
@@ -137,7 +137,7 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendLayoutType, l
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendAlignType, legendAlign);//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendVerticalAlignType, legendVerticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);

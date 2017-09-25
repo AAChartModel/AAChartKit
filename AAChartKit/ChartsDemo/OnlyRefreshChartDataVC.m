@@ -41,7 +41,12 @@
 
 - (void)setUpTheView {
     for (int i = 0; i<3; i++) {
-        NSArray *titleNameArr = @[@"点击只刷新图表数据内容",@"点击隐藏图表的 Series 内容",@"随机显示其中某一个"];
+        
+        NSArray *titleNameArr = @[
+                                  @"点击只刷新图表数据内容",
+                                  @"点击隐藏图表的 Series 内容",
+                                  @"随机显示其中某一个"];
+        
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50*i-30);
         btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 40);
@@ -55,8 +60,6 @@
         [btn addTarget:self action:@selector(oneOfTwoButtonsClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
-    
-    
     
     self.chartView = [[AAChartView alloc]init];
     self.chartView.delegate = self;
@@ -101,23 +104,19 @@
     if (sender.tag == 0) {
         [self virtualUpdateTheChartViewDataInRealTime];
         
-    } else if(sender.tag ==1){
+    } else if (sender.tag ==1){
         self.chartView.chartSeriesHidden = YES;
     } else {
         [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:arc4random()%3];
     }
-    
-    
-    
-    
 }
 
 - (void)virtualUpdateTheChartViewDataInRealTime{
-      _timer = [NSTimer scheduledTimerWithTimeInterval:2.0
-                                                        target:self
-                                                      selector:@selector(timerStartWork)
-                                                      userInfo:nil
-                                                       repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                              target:self
+                                            selector:@selector(timerStartWork)
+                                            userInfo:nil
+                                             repeats:YES];
      [_timer fire];
 }
 
@@ -126,9 +125,11 @@
 }
 
 - (void)onlyRefreshTheChartData {
+    
     NSMutableArray *virtualData = [[NSMutableArray alloc]init];
     NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
+    
     for (int i=0; i<12; i++) {
         NSInteger randomNumber = arc4random()%99;
         NSInteger randomNumber2 = arc4random()%66;
