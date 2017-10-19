@@ -426,13 +426,16 @@ to be
 <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
 </script>
 ```
-### Todo list
+### To-Do list
 >>>>>>  * - [x] Support user to add delegate events after the graphics content loading was completed
 >>>>>>  * - [x] Support graphics to refresh global content dynamically
 >>>>>>  * - [x] Support graphics to refresh pure data (`series`) content dynamically
 >>>>>>  * - [x] Support graphics to refresh pure data in real time and scroll dynamically
 >>>>>>  * - [x] Support color layer gradient effects
 >>>>>>  * - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
+>>>>  * - [ ] Support `CocoaPods`
+>>>>  * - [ ] Support `Carthage`
+>>>>  * - [ ] Support  code coverage test
 >>>>  * - [ ] Support horizontal screen (full screen) effect
 >>>>  * - [ ] Support setting graphics rendering animation freely
 >>>>  * - [ ] Support rendered graphics to generate image files
@@ -446,6 +449,7 @@ to be
 >>>>>>  * - [x] Support rendering the polar chart
 >>>>  * - [ ] Support rendering the polyline straight line chart
 >>>>  * - [ ] Support rendering the polyline straight area chart
+>>>>  * - [ ] Support rendering the Nightingale rose 🌹chart
 >>>>  * - [ ] Support rendering the rectangular tree hierarchy diagrams
 >>>>  * - [ ] Support rendering the circular progress bar chart 
 >>>>  * - [ ] Support adding clicked event callbacks for graphics
