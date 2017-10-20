@@ -265,8 +265,7 @@
     options.colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
     
-    AAChartView *chartView =[[AAChartView alloc]init];
-    chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height);
+    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:chartView];
     [chartView aa_drawChartWithOptions:options];
     

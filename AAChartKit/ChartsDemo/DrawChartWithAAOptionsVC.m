@@ -171,8 +171,7 @@
     options.series = (id)series;
     
     
-    AAChartView *chartView =[[AAChartView alloc]init];
-    chartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:chartView];
     [chartView aa_drawChartWithOptions:options];
  

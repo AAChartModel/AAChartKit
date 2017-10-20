@@ -10,6 +10,26 @@
 #import "AAChartView.h"
 #import "AAJsonConverter.h"
 #import "AAOptionsConstructor.h"
+#import <WebKit/WebKit.h>
+
+/**
+ *  获得系统版本号
+ */
+#define AASYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+/**
+ *  控制台日志输出
+ */
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define AADetailLog(fmt, ...) NSLog((@"-------> %@ [Line %d] \n"fmt "\n\n"), [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, ##__VA_ARGS__);
+#else // 发布状态, 关闭LOG功能
+#define AADetailLog(...)
+#endif
+
+@interface AAChartView()<WKNavigationDelegate,UIWebViewDelegate> {
+    UIWebView *_uiWebView;
+    WKWebView *_wkWebView;
+}
+@end
 
 @implementation AAChartView {
     NSString *_optionJson;
@@ -18,11 +38,29 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.AASelfWebViewDelegate =self;
         self.backgroundColor = [UIColor whiteColor];
-        //        self.scrollView.bounces = NO;
+        [self setUpBasicWebView];
     }
     return self;
+}
+
+- (void)setUpBasicWebView {
+    if (AASYSTEM_VERSION < 8.0) {
+        _wkWebView = [[WKWebView alloc] init];
+        _wkWebView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        _wkWebView.navigationDelegate = self;
+        _wkWebView.backgroundColor = [UIColor whiteColor];
+//        _wkWebView.scrollView.bounces = NO;
+        [self addSubview:_wkWebView];
+        
+    } else {
+        _uiWebView = [[UIWebView alloc] init];
+        _uiWebView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        _uiWebView.delegate = self;
+        _uiWebView.backgroundColor = [UIColor whiteColor];
+//        _uiWebView.scrollView.bounces = NO;
+        [self addSubview:_uiWebView];
+    }
 }
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
@@ -37,7 +75,7 @@
     options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
     _optionJson = [AAJsonConverter getPureOptionsString:options];
 }
-    
+
 - (void)configTheOptionsJsonWithOptions:(AAOptions *)options {
     _optionJson = [AAJsonConverter getPureOptionsString:options];
 }
@@ -52,56 +90,57 @@
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     [self configTheOptionsJsonWithChartModel:chartModel];
     NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    [self loadRequest:URLRequest];
-    
+    if (AASYSTEM_VERSION < 8.0) {
+        [_wkWebView loadRequest:URLRequest];
+    } else {
+        [_uiWebView loadRequest:URLRequest];
+    }
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
     [self configTheOptionsJsonWithChartModel:chartModel];
     [self drawChart];
 }
-    
+
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
-    NSString *seriesJsonStr=[AAJsonConverter getPureSeriesString:series];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+        NSString *seriesJsonStr=[AAJsonConverter getPureSeriesString:series];
+        NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
+        [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
-    
-    
 
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     [self configTheOptionsJsonWithOptions:options];
     NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    [self loadRequest:URLRequest];
+    if (AASYSTEM_VERSION < 8.0) {
+        [_wkWebView loadRequest:URLRequest];
+    } else {
+        [_uiWebView loadRequest:URLRequest];
     }
- 
+}
+
 - (void)aa_refreshChartWithOptions:(AAOptions *)options {
     [self configTheOptionsJsonWithOptions:options];
     [self drawChart];
 }
- 
+
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
     [self aa_onlyRefreshTheChartDataWithChartModelSeries:series];
 }
 
-
-
-- (void)printTheErrorMessageWithError:(NSError *)error {
-    if (error) {
-        NSLog(@"💀💀💀WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
-    }
+- (void)drawChart {
+    NSString *javaScriptStr = [self configTheJavaScriptString];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_9_0
 ///WKWebView页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
     [self.delegate AAChartViewDidFinishLoad];
 }
 
-- (void)drawChart {
-    NSString *javaScriptStr = [self configTheJavaScriptString];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self drawChart];
+    [self.delegate AAChartViewDidFinishLoad];
 }
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
@@ -116,36 +155,14 @@
 }
 
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)funcitonNameStr {
-    [self  evaluateJavaScript:funcitonNameStr completionHandler:^(id item, NSError * _Nullable error) {
-        [self printTheErrorMessageWithError:error];
-    }];
+    if (AASYSTEM_VERSION < 8.0) {
+        [_wkWebView  evaluateJavaScript:funcitonNameStr completionHandler:^(id item, NSError * _Nullable error) {
+            if (error) {
+                AADetailLog(@"💀💀💀WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
+            }
+        }];
+    } else {
+        [_uiWebView  stringByEvaluatingJavaScriptFromString:funcitonNameStr];
+    }
 }
-
-#elif
-///UIWebView页面加载完成之后调用
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self drawChart];
-    [self.delegate AAChartViewDidFinishLoad];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
-    [self printTheErrorMessageWithError:error];
-}
-
-- (void)drawChart {
-    NSString *javaScriptStr =[self configTheJavaScriptString];
-    [self  stringByEvaluatingJavaScriptFromString:javaScriptStr];
-}
-
-- (void)aa_onlyRefreshTheChartDataWithChartModel:(AAChartModel *)chartModel {
-    NSString *seriesJsonStr=[AAJsonConverter getPureOptionsString:chartModel];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
-    [self  stringByEvaluatingJavaScriptFromString:javaScriptStr];
-    
-}
-
-#endif
-
-
-
 @end
