@@ -38,9 +38,8 @@
 ```
 2. 创建视图AAChartView
 ```objective-c
-AAChartView *chartView = [[AAChartView alloc]init];
+AAChartView *chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
 self.view.backgroundColor = [UIColor whiteColor];
-chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
 chartView.contentHeight =self.view.frame.size.height-220;//设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
 [self.view addSubview:chartView];
 ```

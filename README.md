@@ -40,9 +40,8 @@
 ```
 2. Creat the object of chart view:`AAChartView`
 ```objective-c
-AAChartView *chartView = [[AAChartView alloc]init];
+AAChartView *chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
 self.view.backgroundColor = [UIColor whiteColor];
-chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
 chartView.contentHeight =self.view.frame.size.height-220; 
 [self.view addSubview:chartView];
 ```
