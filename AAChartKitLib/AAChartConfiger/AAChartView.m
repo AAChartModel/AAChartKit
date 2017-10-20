@@ -88,7 +88,7 @@
 
 - (void)printTheErrorMessageWithError:(NSError *)error {
     if (error) {
-        NSLog(@"WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
+        NSLog(@"💀💀💀WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
     }
 }
 

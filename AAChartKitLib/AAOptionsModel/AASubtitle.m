@@ -13,6 +13,6 @@
 
 AAPropSetFuncImplementation(AASubtitle, NSString *, text);
 AAPropSetFuncImplementation(AASubtitle, NSString *, align);
-AAPropSetFuncImplementation(AASubtitle, AAStyle *,  style);
+AAPropSetFuncImplementation(AASubtitle, AAStyle  *, style);
 
 @end

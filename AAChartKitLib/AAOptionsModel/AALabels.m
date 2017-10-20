@@ -11,6 +11,6 @@
 
 @implementation AALabels
 
-AAPropSetFuncImplementation(AALabels, BOOL , enabled);
+AAPropSetFuncImplementation(AALabels, BOOL, enabled);
 
 @end

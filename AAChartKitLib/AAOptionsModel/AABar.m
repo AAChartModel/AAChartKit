@@ -11,10 +11,10 @@
 
 @implementation AABar
 
-AAPropSetFuncImplementation(AABar, NSNumber *, pointPadding);
-AAPropSetFuncImplementation(AABar, NSNumber *, borderWidth);
-AAPropSetFuncImplementation(AABar, BOOL ,      colorByPoint);
+AAPropSetFuncImplementation(AABar, NSNumber *,     pointPadding);
+AAPropSetFuncImplementation(AABar, NSNumber *,     borderWidth);
+AAPropSetFuncImplementation(AABar, BOOL ,          colorByPoint);
 AAPropSetFuncImplementation(AABar, AADataLabels *, dataLabels);
-AAPropSetFuncImplementation(AABar, NSNumber *, borderRadius);
+AAPropSetFuncImplementation(AABar, NSNumber *,     borderRadius);
 
 @end

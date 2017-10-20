@@ -14,6 +14,6 @@
 @interface AATitle : NSObject
 
 AAPropStatementAndFuncStatement(copy,   AATitle, NSString *, text);
-AAPropStatementAndFuncStatement(strong, AATitle, AAStyle *,  style);
+AAPropStatementAndFuncStatement(strong, AATitle, AAStyle  *, style);
 
 @end

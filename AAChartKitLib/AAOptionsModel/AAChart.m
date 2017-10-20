@@ -22,32 +22,30 @@
 //        self.marginLeft = @0;
 //        self.marginRight = @0;
 //        self.marginTop = 0;
-        
-        
      }
     return self;
 }
 
-AAPropSetFuncImplementation(AAChart, NSString *, type);
-AAPropSetFuncImplementation(AAChart, NSString *, backgroundColor);
-AAPropSetFuncImplementation(AAChart, NSString *, zoomType);
-AAPropSetFuncImplementation(AAChart, BOOL ,      panning);
-AAPropSetFuncImplementation(AAChart, NSString *, panKey);
-AAPropSetFuncImplementation(AAChart, NSString *, plotBackgroundColor);
-AAPropSetFuncImplementation(AAChart, NSNumber *, plotBorderWidth);
-AAPropSetFuncImplementation(AAChart, BOOL,       plotShadow);
-AAPropSetFuncImplementation(AAChart, BOOL ,      polar);
+AAPropSetFuncImplementation(AAChart, NSString    *, type);
+AAPropSetFuncImplementation(AAChart, NSString    *, backgroundColor);
+AAPropSetFuncImplementation(AAChart, NSString    *, zoomType);
+AAPropSetFuncImplementation(AAChart, BOOL ,         panning);
+AAPropSetFuncImplementation(AAChart, NSString    *, panKey);
+AAPropSetFuncImplementation(AAChart, NSString    *, plotBackgroundColor);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, plotBorderWidth);
+AAPropSetFuncImplementation(AAChart, BOOL,          plotShadow);
+AAPropSetFuncImplementation(AAChart, BOOL ,         polar);
 AAPropSetFuncImplementation(AAChart, AAOptions3d *, options3d);
-//AAPropSetFuncImplementation(AAChart, AAAnimation * , animation);
-AAPropSetFuncImplementation(AAChart, BOOL , inverted);
-//AAPropSetFuncImplementation(AAChart, NSArray *, spacing);
-AAPropSetFuncImplementation(AAChart, NSNumber *, spacingBottom);
-AAPropSetFuncImplementation(AAChart, NSNumber *, spacingLeft);
-AAPropSetFuncImplementation(AAChart, NSNumber *, spacingRight);
-AAPropSetFuncImplementation(AAChart, NSNumber *, spacingTop);
+AAPropSetFuncImplementation(AAChart, AAAnimation *, animation);
+AAPropSetFuncImplementation(AAChart, BOOL ,         inverted);
+//AAPropSetFuncImplementation(AAChart, NSArray  *, spacing);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingBottom);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingLeft);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingRight);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingTop);
 
-AAPropSetFuncImplementation(AAChart, NSNumber *, marginBottom);
-AAPropSetFuncImplementation(AAChart, NSNumber *, marginLeft);
-AAPropSetFuncImplementation(AAChart, NSNumber *, marginRight);
-AAPropSetFuncImplementation(AAChart, NSNumber *, marginTop);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginBottom);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginLeft);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginRight);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginTop);
 @end

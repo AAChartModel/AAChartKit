@@ -12,6 +12,6 @@
 @implementation AATitle
 
 AAPropSetFuncImplementation(AATitle, NSString *, text);
-AAPropSetFuncImplementation(AATitle, AAStyle *,  style);
+AAPropSetFuncImplementation(AATitle, AAStyle  *, style);
 
 @end
