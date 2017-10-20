@@ -45,7 +45,7 @@
 }
 
 - (void)setUpBasicWebView {
-    if (AASYSTEM_VERSION > 8.0) {
+    if (AASYSTEM_VERSION >= 9.0) {
         _wkWebView = [[WKWebView alloc] init];
         _wkWebView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         _wkWebView.navigationDelegate = self;
@@ -90,7 +90,7 @@
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     [self configTheOptionsJsonWithChartModel:chartModel];
     NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    if (AASYSTEM_VERSION > 8.0) {
+    if (AASYSTEM_VERSION >= 9.0) {
         [_wkWebView loadRequest:URLRequest];
     } else {
         [_uiWebView loadRequest:URLRequest];
@@ -111,7 +111,7 @@
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     [self configTheOptionsJsonWithOptions:options];
     NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    if (AASYSTEM_VERSION > 8.0) {
+    if (AASYSTEM_VERSION >= 9.0) {
         [_wkWebView loadRequest:URLRequest];
     } else {
         [_uiWebView loadRequest:URLRequest];
@@ -155,7 +155,7 @@
 }
 
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)funcitonNameStr {
-    if (AASYSTEM_VERSION > 8.0) {
+    if (AASYSTEM_VERSION >= 9.0) {
         [_wkWebView  evaluateJavaScript:funcitonNameStr completionHandler:^(id item, NSError * _Nullable error) {
             if (error) {
                 AADetailLog(@"💀💀💀WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
