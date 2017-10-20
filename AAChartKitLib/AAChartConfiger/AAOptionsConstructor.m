@@ -131,11 +131,11 @@
     if (chartModel.pointHollow == YES) {
         marker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
         .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-        .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
+        .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
         ;
     }
     
-    //数据点标记相关配置，只有线性图才有数据点标记。
+    //数据点标记相关配置，只有线性图才有数据点标记
     if (   chartModel.chartType == AAChartTypeArea
         || chartModel.chartType == AAChartTypeAreaspline
         || chartModel.chartType == AAChartTypeLine
@@ -145,6 +145,39 @@
         series.marker = marker;
     }
     
+    plotOptions = [self configureTheAAPlotOptionsWithPlotOptions:plotOptions ChartModel:chartModel];
+//   plotOptions.series.events = @{@"click":@"hahaha"};
+    
+    AALegend *legend = AAObject(AALegend)
+    .enabledSet(chartModel.legendEnabled)//是否显示 legend
+    .layoutSet(chartModel.legendLayout)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
+    .alignSet(chartModel.legendAlign)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
+    .verticalAlignSet(chartModel.legendVerticalAlign)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
+    .borderWidthSet(@0);
+    
+    
+    AAOptions *options =AAObject(AAOptions)
+    .chartSet(chart)
+    .titleSet(title)
+    .subtitleSet(subtitle)
+    .xAxisSet(xAxis)
+    .yAxisSet(yAxis)
+    .tooltipSet(tooltip)
+    .plotOptionsSet(plotOptions)
+    .legendSet(legend)
+    .seriesSet(chartModel.series)
+    .colorsSet(chartModel.colorsTheme)//设置颜色主题
+    .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
+    ;
+    
+//  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
+    
+    return options;
+}
+
++ (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
+                                                  ChartModel:(AAChartModel *)chartModel {
+    //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
         plotOptions.columnSet(AAObject(AAColumn)
                               .pointPaddingSet(@0.2)
@@ -202,37 +235,10 @@
                                           )
                            .showInLegendSet(true)
                            );
-//      plotOptions.series.colorByPoint = true;
+        //      plotOptions.series.colorByPoint = true;
     }
     
-//   plotOptions.series.events = @{@"click":@"hahaha"};
-    
-    
-    AALegend *legend = AAObject(AALegend)
-    .enabledSet(chartModel.legendEnabled)//是否显示 legend
-    .layoutSet(chartModel.legendLayout)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    .alignSet(chartModel.legendAlign)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    .verticalAlignSet(chartModel.legendVerticalAlign)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
-    .borderWidthSet(@0);
-    
-    
-    AAOptions *options =AAObject(AAOptions)
-    .chartSet(chart)
-    .titleSet(title)
-    .subtitleSet(subtitle)
-    .xAxisSet(xAxis)
-    .yAxisSet(yAxis)
-    .tooltipSet(tooltip)
-    .plotOptionsSet(plotOptions)
-    .legendSet(legend)
-    .seriesSet(chartModel.series)
-    .colorsSet(chartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
-    ;
-    
-//  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
-    
-    return options;
+    return plotOptions;
 }
 
 @end
