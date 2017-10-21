@@ -9,7 +9,6 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
-//#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 
@@ -65,20 +64,8 @@
     self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.chartView.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220);
     self.chartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.chartView];
-    
-    //    JSContext *context = [self.chartView  valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    //
-    //    context[@"打印"] = ^() {
-    //        NSArray *args = [JSContext currentArguments];
-    //        for (JSValue *jsVal in args) {
-    //            NSLog(@"%@", jsVal);
-    //        }
-    //
-    //
-    //    };
     
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
