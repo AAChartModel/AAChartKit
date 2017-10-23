@@ -13,15 +13,15 @@
 #import <WebKit/WebKit.h>
 
 /**
- *  获得系统版本号
+ *  Get the system version number
  */
 #define AASYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 /**
- *  控制台日志输出
+ *  The console output log
  */
-#ifdef DEBUG // 调试状态, 打开LOG功能
+#ifdef DEBUG // Debug status, open the LOG function
 #define AADetailLog(fmt, ...) NSLog((@"-------> %@ [Line %d] \n"fmt "\n\n"), [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, ##__VA_ARGS__);
-#else // 发布状态, 关闭LOG功能
+#else // Release status, turn off the LOG function
 #define AADetailLog(...)
 #endif
 
@@ -132,21 +132,16 @@
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-///WKWebView页面加载完成之后调用
+///WKWebView did finish load
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
     [self.delegate AAChartViewDidFinishLoad];
 }
 
+//UIWebView did finish load
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
     [self.delegate AAChartViewDidFinishLoad];
-}
-
-- (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
-    _chartSeriesHidden = chartSeriesHidden;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"chartSeriesContentHideOrShow(%d)",_chartSeriesHidden];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
@@ -164,5 +159,12 @@
     } else {
         [_uiWebView  stringByEvaluatingJavaScriptFromString:funcitonNameStr];
     }
+}
+
+#pragma mark -- setter method
+- (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
+    _chartSeriesHidden = chartSeriesHidden;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"chartSeriesContentHideOrShow(%d)",_chartSeriesHidden];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 @end

@@ -79,7 +79,7 @@
                 
 <!--                JavaScriptObject.plotOptions.series.events = {-->
 <!--                    click: function (event) {-->
-<!--                        // 注意: WKWebView 最坑爹的事情之一就是不支持 JavaScript 中的 alert 提示框功能,在 UIWebView 中则能够正常显示-->
+<!--                        // 注意: WKWebView 最坑爹的事情之一就是不支持 JavaScript 中的 alert 提示框功能(需自行在 WKWebView 的代理方法中来捕获并添加 alert 事件),在 UIWebView 中则能够正常显示-->
 <!--                        alert(event.point.category,);-->
 <!--                        click: JavaScriptCallNativeOC (event.point.category,);-->
 <!--                    }-->
