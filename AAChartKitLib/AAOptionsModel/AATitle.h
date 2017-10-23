@@ -10,10 +10,16 @@
 #import <Foundation/Foundation.h>
 
 @class AAStyle;
+typedef NSString * AAChartTitleVerticalAlignType;
+static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeTop    = @"top";
+static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeMiddle = @"middle";
+static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeBottom = @"bottom";
 
 @interface AATitle : NSObject
 
 AAPropStatementAndFuncStatement(copy,   AATitle, NSString *, text);
 AAPropStatementAndFuncStatement(strong, AATitle, AAStyle  *, style);
+AAPropStatementAndFuncStatement(copy,   AATitle, AAChartTitleVerticalAlignType, verticalAlign);
+AAPropStatementAndFuncStatement(strong, AATitle, NSNumber *, y);
 
 @end

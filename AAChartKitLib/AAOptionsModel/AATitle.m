@@ -13,5 +13,7 @@
 
 AAPropSetFuncImplementation(AATitle, NSString *, text);
 AAPropSetFuncImplementation(AATitle, AAStyle  *, style);
+AAPropSetFuncImplementation(AATitle, AAChartTitleVerticalAlignType, verticalAlign);
+AAPropSetFuncImplementation(AATitle, NSNumber *, y);
 
 @end
