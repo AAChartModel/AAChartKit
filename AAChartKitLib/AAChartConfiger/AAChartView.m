@@ -52,6 +52,7 @@
         _wkWebView.backgroundColor = [UIColor whiteColor];
 //        _wkWebView.scrollView.bounces = NO;
         [self addSubview:_wkWebView];
+
         
     } else {
         _uiWebView = [[UIWebView alloc] init];
@@ -166,5 +167,19 @@
     _chartSeriesHidden = chartSeriesHidden;
     NSString *javaScriptStr = [NSString stringWithFormat:@"chartSeriesContentHideOrShow(%d)",_chartSeriesHidden];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
+    _isClearBackgroundColor = isClearBackgroundColor;
+    if (_isClearBackgroundColor == YES) {
+        self.backgroundColor = [UIColor clearColor];
+        if (AASYSTEM_VERSION >= 9.0) {
+            [_wkWebView setBackgroundColor:[UIColor clearColor]];
+            [_wkWebView setOpaque:NO];
+        } else {
+            [_uiWebView setBackgroundColor:[UIColor clearColor]];
+            [_uiWebView setOpaque:NO];
+        }
+    }
 }
 @end

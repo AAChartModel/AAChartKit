@@ -50,7 +50,7 @@
     AAChart *chart = AAObject(AAChart)
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
-    .backgroundColorSet(chartModel.backgroundColor)
+    .backgroundColorSet(@"rgba(0,0,0,0)")
 //  .animationSet(AAObject(AAAnimation)
 //                 .durationSet(@100)
 //                 .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型

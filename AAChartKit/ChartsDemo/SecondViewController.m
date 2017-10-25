@@ -63,10 +63,14 @@
     
     self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
     self.chartView.delegate = self;
-    self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.chartView];
     
+    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
+//    self.chartView.isClearBackgroundColor = YES;
+//    self.view.backgroundColor = [UIColor blueColor];
+    
+
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
     .titleSet(@"编程语言热度")

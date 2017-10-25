@@ -38,7 +38,10 @@
  */
 @property (nonatomic, assign) BOOL     chartSeriesHidden;
 
-
+/**
+ Set the chart view background color be clear
+ */
+@property (nonatomic, assign) BOOL     isClearBackgroundColor;
 /**
  Function of drawing chart view
  
