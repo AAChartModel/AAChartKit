@@ -78,7 +78,7 @@ static AAChartZoomType const AAChartZoomTypeX   = @"x";
 static AAChartZoomType const AAChartZoomTypeY   = @"y";
 static AAChartZoomType const AAChartZoomTypeXY  = @"xy";
 
-static AAChartStackingType const AAChartStackingTypeFalse    = @"nil";
+static AAChartStackingType const AAChartStackingTypeFalse    = @"";
 static AAChartStackingType const AAChartStackingTypeNormal   = @"normal";
 static AAChartStackingType const AAChartStackingTypePercent  = @"percent";
 

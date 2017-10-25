@@ -69,7 +69,6 @@
               .fontSizeSet(@"12px")//标题字体大小
               );
     
-    
     AASubtitle *subtitle = AAObject(AASubtitle)
     .textSet(chartModel.subtitle)//副标题内容
     .alignSet(chartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
@@ -99,54 +98,44 @@
     .gridLineWidthSet(chartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)
               .textSet(chartModel.yAxisTitle))//y 轴标题
-    .lineWidthSet(@0)
-    ;
+    .lineWidthSet(@0);
     
     AATooltip *tooltip = AAObject(AATooltip)
     .sharedSet(true)
     .crosshairsSet(chartModel.crosshairs);
-//  .useHTMLSet(true)
-//  .valueSuffixSet(@"摄氏度");//浮动提示框的后缀
-    
-    NSString *chartModelStacking = chartModel.stacking;
-    if ([chartModel.stacking isEqualToString:@"nil"]) {
-        chartModelStacking = nil;
-    }
+    //  .useHTMLSet(true)
+    //  .valueSuffixSet(@"摄氏度");//浮动提示框的后缀
     
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
-//             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
-               .stackingSet(chartModelStacking)//设置是否百分比堆叠显示图形
-//             .animationSet(AAObject(AAAnimation)
-//                           .easingSet(chartAnimationType)
-//                           .durationSet(chartModel.animationDuration)
-//                            )
+               //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
+               .stackingSet(chartModel.stacking)//设置是否百分比堆叠显示图形
+               //             .animationSet(AAObject(AAAnimation)
+               //                           .easingSet(chartAnimationType)
+               //                           .durationSet(chartModel.animationDuration)
+               //                            )
                );
     
-    AAMarker *marker =AAObject(AAMarker)
-    .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
-    .symbolSet(chartModel.symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-    ;
-    
-    if (chartModel.pointHollow == YES) {
-        marker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
-        .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-        .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-        ;
-    }
-    
-    //数据点标记相关配置，只有线性图才有数据点标记
-    if (   chartModel.chartType == AAChartTypeArea
-        || chartModel.chartType == AAChartTypeAreaspline
-        || chartModel.chartType == AAChartTypeLine
-        || chartModel.chartType == AAChartTypeSpline) {
+    if (   [chartModel.chartType isEqualToString:AAChartTypeArea]
+        || [chartModel.chartType isEqualToString:AAChartTypeAreaspline]
+        || [chartModel.chartType isEqualToString:AAChartTypeLine]
+        || [chartModel.chartType isEqualToString:AAChartTypeSpline]) {
+        AAMarker *marker =AAObject(AAMarker)
+        .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
+        .symbolSet(chartModel.symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+        //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
+        if (chartModel.pointHollow == YES) {
+            marker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+            .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+            .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+        }
         AASeries *series = plotOptions.series;
         series.connectNulls = chartModel.connectNulls;
         series.marker = marker;
     }
     
     plotOptions = [self configureTheAAPlotOptionsWithPlotOptions:plotOptions ChartModel:chartModel];
-//   plotOptions.series.events = @{@"click":@"hahaha"};
+    //   plotOptions.series.events = @{@"click":@"hahaha"};
     
     AALegend *legend = AAObject(AALegend)
     .enabledSet(chartModel.legendEnabled)//是否显示 legend
@@ -154,7 +143,6 @@
     .alignSet(chartModel.legendAlign)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
     .verticalAlignSet(chartModel.legendVerticalAlign)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
     .borderWidthSet(@0);
-    
     
     AAOptions *options =AAObject(AAOptions)
     .chartSet(chart)
@@ -167,16 +155,14 @@
     .legendSet(legend)
     .seriesSet(chartModel.series)
     .colorsSet(chartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
-    ;
+    .gradientColorEnableSet(chartModel.gradientColorEnable);//设置主题颜色是否为渐变色
     
-//  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
-    
+    //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
     return options;
 }
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
-                                                  ChartModel:(AAChartModel *)chartModel {
+                                                 ChartModel:(AAChartModel *)chartModel {
     //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
         plotOptions.columnSet(AAObject(AAColumn)
@@ -242,3 +228,4 @@
 }
 
 @end
+
