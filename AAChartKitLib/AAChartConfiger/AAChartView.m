@@ -52,8 +52,6 @@
         _wkWebView.backgroundColor = [UIColor whiteColor];
 //        _wkWebView.scrollView.bounces = NO;
         [self addSubview:_wkWebView];
-
-        
     } else {
         _uiWebView = [[UIWebView alloc] init];
         _uiWebView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
@@ -71,13 +69,7 @@
     return URLRequest;
 }
 
-- (void)configTheOptionsJsonWithChartModel:(AAChartModel *)chartModel {
-    AAOptions *options =AAObject(AAOptions);
-    options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
-    _optionJson = [AAJsonConverter getPureOptionsString:options];
-}
-
-- (void)configTheOptionsJsonWithOptions:(AAOptions *)options {
+- (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)options {
     _optionJson = [AAJsonConverter getPureOptionsString:options];
 }
 
@@ -88,29 +80,30 @@
     return javaScriptStr;
 }
 
+//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
+//
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
-    [self configTheOptionsJsonWithChartModel:chartModel];
-    NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    if (AASYSTEM_VERSION >= 9.0) {
-        [_wkWebView loadRequest:URLRequest];
-    } else {
-        [_uiWebView loadRequest:URLRequest];
-    }
+    AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    [self aa_drawChartWithOptions:options];
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
-    [self configTheOptionsJsonWithChartModel:chartModel];
-    [self drawChart];
+     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    [self aa_refreshChartWithOptions:options];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
-        NSString *seriesJsonStr=[AAJsonConverter getPureSeriesString:series];
-        NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
-        [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    [self aa_onlyRefreshTheChartDataWithOptionsSeries:series];
 }
+//
+//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 
+
+
+//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+//
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
-    [self configTheOptionsJsonWithOptions:options];
+    [self configureTheOptionsJsonStringWithAAOptions:options];
     NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
     if (AASYSTEM_VERSION >= 9.0) {
         [_wkWebView loadRequest:URLRequest];
@@ -120,13 +113,17 @@
 }
 
 - (void)aa_refreshChartWithOptions:(AAOptions *)options {
-    [self configTheOptionsJsonWithOptions:options];
+    [self configureTheOptionsJsonStringWithAAOptions:options];
     [self drawChart];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
-    [self aa_onlyRefreshTheChartDataWithChartModelSeries:series];
+    NSString *seriesJsonStr=[AAJsonConverter getPureSeriesString:series];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
+//
+//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
 - (void)drawChart {
     NSString *javaScriptStr = [self configTheJavaScriptString];
