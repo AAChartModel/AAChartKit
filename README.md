@@ -204,39 +204,42 @@ static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange 
 ```
 9. Supported animation type for now
 ```objective-c
-typedef NS_ENUM(NSInteger,AAChartAnimationType){
-    AAChartAnimationTypeLinear =0,
-    AAChartAnimationTypeSwing,
-    AAChartAnimationTypeEaseInQuad,
-    AAChartAnimationTypeEaseOutQuad,
-    AAChartAnimationTypeEaseInOutQuad,
-    AAChartAnimationTypeEaseInCubic,
-    AAChartAnimationTypeEaseOutCubic,
-    AAChartAnimationTypeEaseInOutCubic,
-    AAChartAnimationTypeEaseInQuart,
-    AAChartAnimationTypeEaseOutQuart,
-    AAChartAnimationTypeEaseInOutQuart,
-    AAChartAnimationTypeEaseInQuint,
-    AAChartAnimationTypeEaseOutQuint,
-    AAChartAnimationTypeEaseInOutQuint,
-    AAChartAnimationTypeEaseInExpo,
-    AAChartAnimationTypeEaseOutExpo,
-    AAChartAnimationTypeEaseInOutExpo,
-    AAChartAnimationTypeEaseInSine,
-    AAChartAnimationTypeEaseOutSine,
-    AAChartAnimationTypeEaseInOutSine,
-    AAChartAnimationTypeEaseInCirc,
-    AAChartAnimationTypeEaseOutCirc,
-    AAChartAnimationTypeEaseInOutCirc,
-    AAChartAnimationTypeEaseInElastic,
-    AAChartAnimationTypeEaseOutElastic,
-    AAChartAnimationTypeEaseInOutElastic,
-    AAChartAnimationTypeEaseInBack,
-    AAChartAnimationTypeEaseOutBack,
-    AAChartAnimationTypeEaseInOutBack,
-    AAChartAnimationTypeEaseInBounce,
-    AAChartAnimationTypeEaseOutBounce,
-    AAChartAnimationTypeEaseInOutBounce,
+typedef NS_ENUM(NSInteger,AAChartAnimation) {
+    AAChartAnimationLinear = 0,
+    AAChartAnimationEaseInQuad,
+    AAChartAnimationEaseOutQuad,
+    AAChartAnimationEaseInOutQuad,
+    AAChartAnimationEaseInCubic,
+    AAChartAnimationEaseOutCubic,
+    AAChartAnimationEaseInOutCubic,
+    AAChartAnimationEaseInQuart,
+    AAChartAnimationEaseOutQuart,
+    AAChartAnimationEaseInOutQuart,
+    AAChartAnimationEaseInQuint,
+    AAChartAnimationEaseOutQuint,
+    AAChartAnimationEaseInOutQuint,
+    AAChartAnimationEaseInSine,
+    AAChartAnimationEaseOutSine,
+    AAChartAnimationEaseInOutSine,
+    AAChartAnimationEaseInExpo,
+    AAChartAnimationEaseOutExpo,
+    AAChartAnimationEaseInOutExpo,
+    AAChartAnimationEaseInCirc,
+    AAChartAnimationEaseOutCirc,
+    AAChartAnimationEaseInOutCirc,
+    AAChartAnimationEaseOutBounce,
+    AAChartAnimationEaseInBack,
+    AAChartAnimationEaseOutBack,
+    AAChartAnimationEaseInOutBack,
+    AAChartAnimationElastic,
+    AAChartAnimationSwingFromTo,
+    AAChartAnimationSwingFrom,
+    AAChartAnimationSwingTo,
+    AAChartAnimationBounce,
+    AAChartAnimationBouncePast,
+    AAChartAnimationEaseFromTo,
+    AAChartAnimationEaseFrom,
+    AAChartAnimationEaseTo,
 };
 
 ```
@@ -301,35 +304,36 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType, chartType);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType, stacking);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType, symbol);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType, zoomType);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, inverted);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, xAxisReversed);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAxisReversed);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, crosshairs);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, gradientColorEnable);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, polar);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, dataLabelEnabled);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, xAxisLabelsEnabled);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);
+
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       crosshairs);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnable);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, yAxisLabelsEnabled);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, colorsTheme);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *, series);
-
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, legendEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendLayoutType, legendLayout);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendAlignType, legendAlign);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendVerticalAlignType, legendVerticalAlign);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL, options3dEnable);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnable);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);
@@ -337,14 +341,13 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAllowDecimals);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yPlotLines);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMax);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions);
+
 ```
-
-
-
-
-
-
-
 
 
 ### More graphics
