@@ -56,9 +56,9 @@
                 
                 var JavaScriptObject = JSON.parse(sender);
                 
-                if (JavaScriptObject.gradientColorEnable == true) {
+                if (JavaScriptObject.gradientColorEnable == true) { //开启图表渐变色功能
                     var colors = JavaScriptObject.colors;
-                    Highcharts.getOptions().colors = Highcharts.map(colors, function (color) {
+                    JavaScriptObject.colors = Highcharts.map(colors, function (color) {
                                                                     return {
                                                                     linearGradient: {
                                                                     x1: 0,
