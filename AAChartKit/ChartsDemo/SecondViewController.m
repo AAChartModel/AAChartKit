@@ -12,8 +12,8 @@
 
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 
-@property (nonatomic, strong) AAChartModel *chartModel;
-@property (nonatomic, strong) AAChartView *chartView;
+@property (nonatomic, strong) AAChartModel *aaChartModel;
+@property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
@@ -61,21 +61,19 @@
 
 - (void)configTheChartView:(AAChartType)chartType {
     
-    self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
-    self.chartView.delegate = self;
-    self.chartView.contentHeight = self.view.frame.size.height-250;
-    [self.view addSubview:self.chartView];
+    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
+    self.aaChartView.delegate = self;
+    self.aaChartView.contentHeight = self.view.frame.size.height-250;
+    [self.view addSubview:self.aaChartView];
     
     //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
-//    self.chartView.isClearBackgroundColor = YES;
+//    self.aaChartView.isClearBackgroundColor = YES;
 //    self.view.backgroundColor = [UIColor blueColor];
-    
 
-    self.chartModel= AAObject(AAChartModel)
+    self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
-    .pointHollowSet(true)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[
@@ -134,10 +132,18 @@
     //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
-    //是否起用渐变色功能
-    _chartModel.gradientColorEnable = YES;
+    if ([chartType isEqualToString:AAChartTypeLine]
+        || [chartType isEqualToString:AAChartTypeSpline]) {
+        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
+    } else if ([chartType isEqualToString:AAChartTypeArea]
+               || [chartType isEqualToString:AAChartTypeAreaspline]) {
+        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
+    }
     
-    [self.chartView aa_drawChartWithChartModel:_chartModel];
+    //是否起用渐变色功能
+    _aaChartModel.gradientColorEnable = YES;
+    
+    [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
 
 #pragma mark -- AAChartView delegate
@@ -176,7 +182,7 @@
             NSArray *stackingArr = @[AAChartStackingTypeFalse,
                                      AAChartStackingTypeNormal,
                                      AAChartStackingTypePercent];
-            self.chartModel.stacking = stackingArr[segmentedControl.selectedSegmentIndex];
+            self.aaChartModel.stacking = stackingArr[segmentedControl.selectedSegmentIndex];
         }
             break;
             
@@ -186,7 +192,7 @@
                                    AAChartSymbolTypeDiamond,
                                    AAChartSymbolTypeTriangle,
                                    AAChartSymbolTypeTriangle_down];
-            self.chartModel.symbol = symbolArr[segmentedControl.selectedSegmentIndex];
+            self.aaChartModel.symbol = symbolArr[segmentedControl.selectedSegmentIndex];
         }
             break;
             
@@ -198,7 +204,7 @@
 }
 
 - (void)refreshTheChartView {
-    [self.chartView aa_refreshChartWithChartModel:self.chartModel];
+    [self.aaChartView aa_refreshChartWithChartModel:self.aaChartModel];
 }
 
 - (void)configTheSwitch {
@@ -227,22 +233,22 @@
 - (void)switchViewClicked:(UISwitch *)switchView {
     switch (switchView.tag) {
         case 0:
-            self.chartModel.xAxisReversed = switchView.on;
+            self.aaChartModel.xAxisReversed = switchView.on;
             break;
         case 1:
-            self.chartModel.yAxisReversed = switchView.on;
+            self.aaChartModel.yAxisReversed = switchView.on;
             break;
         case 2:
-            self.chartModel.inverted = switchView.on;
+            self.aaChartModel.inverted = switchView.on;
             break;
         case 3:
-            self.chartModel.polar = switchView.on;
+            self.aaChartModel.polar = switchView.on;
             break;
         case 4:
-            self.chartModel.markerRadius = switchView.on?@0:@5;
+            self.aaChartModel.markerRadius = switchView.on?@0:@5;
             break;
         case 5:
-            self.chartModel.dataLabelEnabled = switchView.on;
+            self.aaChartModel.dataLabelEnabled = switchView.on;
             break;
         default:
             break;

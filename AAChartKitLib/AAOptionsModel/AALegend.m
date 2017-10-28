@@ -11,11 +11,11 @@
 
 @implementation AALegend
 
-AAPropSetFuncImplementation(AALegend, BOOL ,      enabled);
-AAPropSetFuncImplementation(AALegend, NSString *, layout);
-AAPropSetFuncImplementation(AALegend, NSString *, align);
-AAPropSetFuncImplementation(AALegend, NSString *, verticalAlign);
-AAPropSetFuncImplementation(AALegend, NSNumber *, borderWidth);
+AAPropSetFuncImplementation(AALegend, AALegendLayoutType,        layout);
+AAPropSetFuncImplementation(AALegend, AALegendAlignType,         align);
+AAPropSetFuncImplementation(AALegend, AALegendVerticalAlignType, verticalAlign);
+AAPropSetFuncImplementation(AALegend, BOOL,          enabled);
+AAPropSetFuncImplementation(AALegend, NSNumber    *, borderWidth);
 AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle);
 
 @end

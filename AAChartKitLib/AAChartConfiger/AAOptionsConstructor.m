@@ -12,48 +12,13 @@
 @implementation AAOptionsConstructor
 + (AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)chartModel {
     
-//    NSArray *chartAnimationTypeArr = @[
-//                                       @"linear",
-//                                       @"swing",
-//                                       @"easeInQuad",
-//                                       @"easeInOutQuad",
-//                                       @"easeInCubic",
-//                                       @"easeOutCubic",
-//                                       @"easeInOutCubic",
-//                                       @"easeInQuart",
-//                                       @"easeOutQuart",
-//                                       @"easeInOutQuart",
-//                                       @"easeInQuint",
-//                                       @"easeOutQuint",
-//                                       @"easeInOutQuint",
-//                                       @"easeInExpo",
-//                                       @"easeOutExpo",
-//                                       @"easeInOutExpo",
-//                                       @"easeInSine",
-//                                       @"easeOutSine",
-//                                       @"easeInOutSine",
-//                                       @"easeInCirc",
-//                                       @"easeOutCirc",
-//                                       @"easeInOutCirc",
-//                                       @"easeInElastic",
-//                                       @"easeOutElastic",
-//                                       @"easeInOutElastic",
-//                                       @"easeInBack",
-//                                       @"easeOutBack",
-//                                       @"easeInOutBack",
-//                                       @"easeInBounce",
-//                                       @"easeOutBounce",
-//                                       @"easeInOutBounce",
-//                                       ];
-//    NSString *chartAnimationType = chartAnimationTypeArr[chartModel.animationType];
-    
     AAChart *chart = AAObject(AAChart)
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
     .backgroundColorSet(@"rgba(0,0,0,0)")
-//  .animationSet(AAObject(AAAnimation)
-//                 .durationSet(@100)
-//                 .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型
+    //  .animationSet(AAObject(AAAnimation)
+    //                 .durationSet(@100)
+    //                 .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar)
@@ -116,18 +81,21 @@
                //                            )
                );
     
+    //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
     if (   [chartModel.chartType isEqualToString:AAChartTypeArea]
         || [chartModel.chartType isEqualToString:AAChartTypeAreaspline]
         || [chartModel.chartType isEqualToString:AAChartTypeLine]
         || [chartModel.chartType isEqualToString:AAChartTypeSpline]) {
-        AAMarker *marker =AAObject(AAMarker)
+        AAMarker *marker = AAObject(AAMarker)
         .radiusSet(chartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(chartModel.symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-        //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
-        if (chartModel.pointHollow == YES) {
+        if (chartModel.symbolStyle == AAChartSymbolStyleTypeInnerBlank) {
             marker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+        } else if (chartModel.symbolStyle == AAChartSymbolStyleTypeBorderBlank) {
+            marker.lineWidthSet(@2)
+            .lineColorSet(@"#ffffff");
         }
         AASeries *series = plotOptions.series;
         series.connectNulls = chartModel.connectNulls;
@@ -139,12 +107,12 @@
     
     AALegend *legend = AAObject(AALegend)
     .enabledSet(chartModel.legendEnabled)//是否显示 legend
-    .layoutSet(chartModel.legendLayout)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    .alignSet(chartModel.legendAlign)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    .verticalAlignSet(chartModel.legendVerticalAlign)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
+    .layoutSet(AALegendLayoutTypeHorizontal)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
+    .alignSet(AALegendAlignTypeCenter)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
+    .verticalAlignSet(AALegendVerticalAlignTypeBottom)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
     .borderWidthSet(@0);
     
-    AAOptions *options =AAObject(AAOptions)
+    AAOptions *options = AAObject(AAOptions)
     .chartSet(chart)
     .titleSet(title)
     .subtitleSet(subtitle)

@@ -12,8 +12,8 @@
 
 @interface SpecialChartVC ()
 
-@property (nonatomic, strong) AAChartModel *chartModel;
-@property (nonatomic, strong) AAChartView  *chartView;
+@property (nonatomic, strong) AAChartModel *aaChartModel;
+@property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
@@ -64,14 +64,14 @@
 
 - (void)configureTheChartView:(AAChartType)chartType {
     
-    self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.chartView.contentHeight = self.view.frame.size.height-60;
-    [self.view addSubview:self.chartView];
+    self.aaChartView.contentHeight = self.view.frame.size.height-60;
+    [self.view addSubview:self.aaChartView];
     
-    self.chartModel = [self configureTheChartModel:chartType];
+    self.aaChartModel = [self configureTheChartModel:chartType];
     
-    [self.chartView aa_drawChartWithChartModel:_chartModel];
+    [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
@@ -96,21 +96,20 @@
                                
                                ];
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         //        .connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
-        .pointHollowSet(true)
         .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(seriesArr);
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
         .titleSet(@"编程语言热度")
@@ -138,11 +137,11 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeBubble]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
@@ -200,11 +199,11 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeScatter]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"按性别划分的身高体重分布图")
         .yAxisTitleSet(@"千克(kg)")
@@ -326,11 +325,11 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePyramid)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
@@ -350,11 +349,11 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
@@ -374,11 +373,11 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeArearange]) {
         
-        AAChartModel *chartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
         .titleSet(@"黄昏别馆日气温起伏图")
         .subtitleSet(@"实时监测")
         .yAxisTitleSet(@"摄氏度")
@@ -769,11 +768,11 @@
                      ]
                    );
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .titleSet(@"金银岛每月温度变化范围")
         .subtitleSet(@"2020年实测数据")
         .yAxisTitleSet(@"℃")
@@ -802,11 +801,11 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     } else if ([chartType isEqualToString:@"mixed"]) {
         
-        AAChartModel *chartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
         .titleSet(@"城市气温指数")
         .subtitleSet(@"虚拟数据")
         .yAxisTitleSet(@"摄氏度")
@@ -854,7 +853,7 @@
                    )
         ;
         
-        return chartModel;
+        return aaChartModel;
         
     }
     return nil;

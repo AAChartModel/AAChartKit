@@ -11,7 +11,7 @@
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 
-typedef NS_ENUM(NSInteger,AAChartAnimationType){
+typedef NS_ENUM(NSInteger,AAChartAnimationType) {
     AAChartAnimationTypeLinear = 0,
     AAChartAnimationTypeSwing,
     AAChartAnimationTypeEaseInQuad,
@@ -51,9 +51,8 @@ typedef NSString *AAChartSubtitleAlignType;
 typedef NSString *AAChartZoomType;
 typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
-typedef NSString *AAChartLegendLayoutType;
-typedef NSString *AAChartLegendAlignType;
-typedef NSString *AAChartLegendVerticalAlignType;
+typedef NSString *AAChartSymbolStyleType;
+
 
 static AAChartType const AAChartTypeColumn      = @"column";
 static AAChartType const AAChartTypeBar         = @"bar";
@@ -73,32 +72,23 @@ static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
 
+static AAChartZoomType const AAChartZoomTypeX  = @"x";
+static AAChartZoomType const AAChartZoomTypeY  = @"y";
+static AAChartZoomType const AAChartZoomTypeXY = @"xy";
 
-static AAChartZoomType const AAChartZoomTypeX   = @"x";
-static AAChartZoomType const AAChartZoomTypeY   = @"y";
-static AAChartZoomType const AAChartZoomTypeXY  = @"xy";
+static AAChartStackingType const AAChartStackingTypeFalse   = @"";
+static AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
+static AAChartStackingType const AAChartStackingTypePercent = @"percent";
 
-static AAChartStackingType const AAChartStackingTypeFalse    = @"";
-static AAChartStackingType const AAChartStackingTypeNormal   = @"normal";
-static AAChartStackingType const AAChartStackingTypePercent  = @"percent";
+static AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";
+static AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";
+static AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";
+static AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";
+static AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down";
 
-static AAChartSymbolType const AAChartSymbolTypeCircle         = @"circle";
-static AAChartSymbolType const AAChartSymbolTypeSquare         = @"square";
-static AAChartSymbolType const AAChartSymbolTypeDiamond        = @"diamond";
-static AAChartSymbolType const AAChartSymbolTypeTriangle       = @"triangle";
-static AAChartSymbolType const AAChartSymbolTypeTriangle_down  = @"triangle-down";
-
-static AAChartLegendLayoutType const AAChartLegendLayoutTypeHorizontal  = @"horizontal";
-static AAChartLegendLayoutType const AAChartLegendLayoutTypeVertical    = @"vertical";
-
-static AAChartLegendAlignType const AAChartLegendAlignTypeLeft     = @"left";
-static AAChartLegendAlignType const AAChartLegendAlignTypeCenter   = @"center";
-static AAChartLegendAlignType const AAChartLegendAlignTypeRight    = @"right";
-
-static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeTop     = @"top";
-static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeMiddle  = @"middle";
-static AAChartLegendVerticalAlignType const AAChartLegendVerticalAlignTypeBottom  = @"bottom";
-
+static AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
+static AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
+static AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
 
 @interface AAChartModel : NSObject
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
@@ -108,11 +98,12 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);//图表类型
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);//堆积样式
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
+
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimationType,     animationType);//设置图表的渲染动画类型
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       pointHollow);//折线曲线的连接点是否为空心的
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
@@ -131,10 +122,6 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*,
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
-
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendLayoutType,        legendLayout);//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendAlignType,         legendAlign);//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartLegendVerticalAlignType, legendVerticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)

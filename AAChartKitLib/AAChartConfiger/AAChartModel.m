@@ -18,7 +18,6 @@
         self.animationType       = AAChartAnimationTypeSwing;//默认使用jQuery easing的'swing'效果
         self.animationDuration   = @500;//默认动画时长为500毫秒
         self.subtitleAlign       = AAChartSubtitleAlignTypeLeft;
-        self.pointHollow         = NO;
         self.inverted            = NO;
         self.stacking            = AAChartStackingTypeFalse;
         self.xAxisReversed       = NO;
@@ -34,11 +33,8 @@
         self.yAxisLabelsEnabled  = YES;
         self.yAxisGridLineWidth  = @1;
         self.legendEnabled       = YES;
-        self.legendLayout        = AAChartLegendLayoutTypeHorizontal;
-        self.legendAlign         = AAChartLegendAlignTypeCenter;
-        self.legendVerticalAlign = AAChartLegendVerticalAlignTypeBottom;
         self.borderRadius        = @0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        self.markerRadius        = @6;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        self.markerRadius        = @5;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
         self.yAllowDecimals      = YES; //默认y轴显示小数
     }
     return self;
@@ -51,11 +47,12 @@ AAPropSetFuncImplementation(AAChartModel, AAChartSubtitleAlignType, subtitleAlig
 AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType);//图表类型
 AAPropSetFuncImplementation(AAChartModel, AAChartStackingType,      stacking);//堆积样式
 AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType,        symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropSetFuncImplementation(AAChartModel, AAChartSymbolStyleType,   symbolStyle);
+
 AAPropSetFuncImplementation(AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropSetFuncImplementation(AAChartModel, AAChartAnimationType,     animationType);//设置图表的渲染动画类型
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
-AAPropSetFuncImplementation(AAChartModel, BOOL,       pointHollow);//折线曲线的连接点是否为空心的
 AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
@@ -74,10 +71,6 @@ AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
-
-AAPropSetFuncImplementation(AAChartModel, AAChartLegendLayoutType,        legendLayout);//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-AAPropSetFuncImplementation(AAChartModel, AAChartLegendAlignType,         legendAlign);//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-AAPropSetFuncImplementation(AAChartModel, AAChartLegendVerticalAlignType, legendVerticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)
