@@ -16,9 +16,6 @@
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
     .backgroundColorSet(@"rgba(0,0,0,0)")
-    //  .animationSet(AAObject(AAAnimation)
-    //                 .durationSet(@100)
-    //                 .easingSet(chartAnimationType))//设置启用的绘制图表的动画类型
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar)
@@ -73,13 +70,21 @@
     
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
-               //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
+//             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
                .stackingSet(chartModel.stacking)//设置是否百分比堆叠显示图形
-               //             .animationSet(AAObject(AAAnimation)
-               //                           .easingSet(chartAnimationType)
-               //                           .durationSet(chartModel.animationDuration)
-               //                            )
+//               .animationSet(AAObject(AAAnimation)
+//                             .easingSet(chartAnimationType)
+//                             .durationSet(chartModel.animationDuration)
+//                             )
                );
+    
+    if (chartModel.animationType != 0) {
+        NSString *chartAnimationType = [self configureTheEasingAnimationType:chartModel.animationType];
+        plotOptions.series.animation = (AAObject(AAAnimation)
+                                        .easingSet(chartAnimationType)
+                                        .durationSet(chartModel.animationDuration)
+                                        );
+    }
     
     //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
     if (   [chartModel.chartType isEqualToString:AAChartTypeArea]
@@ -125,8 +130,50 @@
     .colorsSet(chartModel.colorsTheme)//设置颜色主题
     .gradientColorEnableSet(chartModel.gradientColorEnable);//设置主题颜色是否为渐变色
     
-    //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
+    //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
     return options;
+}
+
++ (NSString *)configureTheEasingAnimationType:(AAChartAnimation)animationType {
+    
+    NSArray *animationTypeArr = @[
+                                  @"linear",
+                                  @"easeInQuad",
+                                  @"easeOutQuad",
+                                  @"easeInOutQuad",
+                                  @"easeInCubic",
+                                  @"easeOutCubic",
+                                  @"easeInOutCubic",
+                                  @"easeInQuart",
+                                  @"easeOutQuart",
+                                  @"easeInOutQuart",
+                                  @"easeInQuint",
+                                  @"easeOutQuint",
+                                  @"easeInOutQuint",
+                                  @"easeInSine",
+                                  @"easeOutSine",
+                                  @"easeInOutSine",
+                                  @"easeInExpo",
+                                  @"easeOutExpo",
+                                  @"easeInOutExpo",
+                                  @"easeInCirc",
+                                  @"easeOutCirc",
+                                  @"easeInOutCirc",
+                                  @"easeOutBounce",
+                                  @"easeInBack",
+                                  @"easeOutBack",
+                                  @"easeInOutBack",
+                                  @"elastic",
+                                  @"swingFromTo",
+                                  @"swingFrom",
+                                  @"swingTo",
+                                  @"bounce",
+                                  @"bouncePast",
+                                  @"easeFromTo",
+                                  @"easeFrom",
+                                  @"easeTo",
+                                  ] ;
+    return animationTypeArr[animationType];
 }
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions

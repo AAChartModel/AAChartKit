@@ -97,11 +97,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AAChartAnimationType animationType = indexPath.row;
+    AAChartAnimation animationType = indexPath.row;
     [self animationTypeTableViewClicked:animationType];
 }
 
-- (void)animationTypeTableViewClicked:(AAChartAnimationType)chartAnimationType {
+- (void)animationTypeTableViewClicked:(AAChartAnimation)chartAnimationType {
     self.chartModel.animationType = chartAnimationType;
     [self.chartView aa_refreshChartWithChartModel:self.chartModel];//刷新图表数据
     _lastClickedBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -114,8 +114,8 @@
     if (!_animationTypeArr) {
         _animationTypeArr = @[
                               @"linear",
-                              @"swing",
                               @"easeInQuad",
+                              @"easeOutQuad",
                               @"easeInOutQuad",
                               @"easeInCubic",
                               @"easeOutCubic",
@@ -126,24 +126,28 @@
                               @"easeInQuint",
                               @"easeOutQuint",
                               @"easeInOutQuint",
-                              @"easeInExpo",
-                              @"easeOutExpo",
-                              @"easeInOutExpo",
                               @"easeInSine",
                               @"easeOutSine",
                               @"easeInOutSine",
+                              @"easeInExpo",
+                              @"easeOutExpo",
+                              @"easeInOutExpo",
                               @"easeInCirc",
                               @"easeOutCirc",
                               @"easeInOutCirc",
-                              @"easeInElastic",
-                              @"easeOutElastic",
-                              @"easeInOutElastic",
+                              @"easeOutBounce",
                               @"easeInBack",
                               @"easeOutBack",
                               @"easeInOutBack",
-                              @"easeInBounce",
-                              @"easeOutBounce",
-                              @"easeInOutBounce",
+                              @"elastic",
+                              @"swingFromTo",
+                              @"swingFrom",
+                              @"swingTo",
+                              @"bounce",
+                              @"bouncePast",
+                              @"easeFromTo",
+                              @"easeFrom",
+                              @"easeTo",
                               ];
     }
     return _animationTypeArr;

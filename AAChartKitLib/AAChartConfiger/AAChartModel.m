@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         self.chartType           = AAChartTypeColumn;
-        self.animationType       = AAChartAnimationTypeSwing;//默认使用jQuery easing的'swing'效果
+        self.animationType       = AAChartAnimationLinear;//默认使用jQuery easing的'linear'线性渐变效果
         self.animationDuration   = @500;//默认动画时长为500毫秒
         self.subtitleAlign       = AAChartSubtitleAlignTypeLeft;
         self.inverted            = NO;
@@ -50,7 +50,7 @@ AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType,        symbol);//�
 AAPropSetFuncImplementation(AAChartModel, AAChartSymbolStyleType,   symbolStyle);
 
 AAPropSetFuncImplementation(AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
-AAPropSetFuncImplementation(AAChartModel, AAChartAnimationType,     animationType);//设置图表的渲染动画类型
+AAPropSetFuncImplementation(AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
 AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
