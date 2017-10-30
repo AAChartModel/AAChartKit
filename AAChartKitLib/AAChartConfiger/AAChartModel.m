@@ -33,7 +33,7 @@
     self = [super init];
     if (self) {
         self.chartType           = AAChartTypeColumn;
-        self.animationType       = AAChartAnimationLinear;//默认使用jQuery easing的'linear'线性渐变效果
+        self.animationType       = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
         self.animationDuration   = @500;//默认动画时长为500毫秒
         self.subtitleAlign       = AAChartSubtitleAlignTypeLeft;
         self.inverted            = NO;
