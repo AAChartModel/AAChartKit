@@ -7,6 +7,24 @@
 //  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
 //
 
+/*
+ 
+ * -------------------------------------------------------------------------------
+ *
+ * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ * Please contact me on GitHub,if there are any problems encountered in use.
+ * GitHub Issues : https://github.com/AAChartModel/AAChartKit-Swift/issues
+ * -------------------------------------------------------------------------------
+ * And if you want to contribute for this project, please contact me as well
+ * GitHub        : https://github.com/AAChartModel
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * JianShu       : http://www.jianshu.com/u/f1e6753d4254
+ * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+ *
+ * -------------------------------------------------------------------------------
+ 
+ */
+
 #import "AAOptionsConstructor.h"
 
 @implementation AAOptionsConstructor
@@ -15,7 +33,7 @@
     AAChart *chart = AAObject(AAChart)
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
-    .backgroundColorSet(@"rgba(0,0,0,0)")
+    .backgroundColorSet(@"rgba(0,0,0,0)")//设置图表的背景色(包含透明度的设置)
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar)
@@ -178,6 +196,7 @@
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
                                                  ChartModel:(AAChartModel *)chartModel {
+    
     //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
         plotOptions.columnSet(AAObject(AAColumn)
