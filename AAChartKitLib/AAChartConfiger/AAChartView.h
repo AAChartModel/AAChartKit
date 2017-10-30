@@ -12,6 +12,7 @@
  * -------------------------------------------------------------------------------
  *
  * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit-Swift/issues
  * -------------------------------------------------------------------------------
@@ -60,6 +61,9 @@
  Set the chart view background color be clear
  */
 @property (nonatomic, assign) BOOL     isClearBackgroundColor;
+
+
+//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 /**
  Function of drawing chart view
  
@@ -80,9 +84,10 @@
  @param series  Series array of AAChartModel instance object
  */
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
-    
+//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 
 
+//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 /**
  Function of drawing chart view
 
@@ -103,7 +108,7 @@
  @param series Series array of AAOptions instance object
  */
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series;
-
+//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
 
 
