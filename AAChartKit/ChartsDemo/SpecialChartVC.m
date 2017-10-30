@@ -132,7 +132,7 @@
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
-        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+//        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
