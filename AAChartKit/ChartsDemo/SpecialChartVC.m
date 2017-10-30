@@ -143,9 +143,9 @@
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBubble)
-        .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
-        .yAxisTitleSet(@"摄氏度")
+        .titleSet(@"Bubble")
+        .subtitleSet(@"Virtual data")
+        .yAxisTitleSet(@"℃")
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)

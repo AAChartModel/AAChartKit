@@ -45,10 +45,11 @@
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)
     .animationDurationSet(@1500)
-    .titleSet(@"编程语言热度")
-    .subtitleSet(@"虚拟数据")
+    .titleSet(@"")
+    .borderRadiusSet(@3)
+    .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
-    .yAxisTitleSet(@"摄氏度")
+    .yAxisTitleSet(@"")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
@@ -92,7 +93,9 @@
     }
     cell.textLabel.text = self.animationTypeArr[indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:11.f];
-    cell.textLabel.textColor = KBlueColor;
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = KBlueColor;
+    
     return cell;
 }
 

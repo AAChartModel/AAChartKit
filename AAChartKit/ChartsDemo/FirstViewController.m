@@ -68,7 +68,8 @@
     UILabel *label = [[UILabel alloc]init];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:16.0f];
-    label.textColor = AABlueColor;
+    label.backgroundColor = AABlueColor;
+    label.textColor = [UIColor whiteColor];
     label.text = self.sectionTypeArr[section];
     [view addSubview:label];
     

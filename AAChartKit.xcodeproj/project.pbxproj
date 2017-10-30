@@ -46,7 +46,6 @@
 		2707BABB1EF7BA47008357AC /* AAYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA951EF7BA47008357AC /* AAYAxis.m */; };
 		272D80B31F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D80B21F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m */; };
 		27746B1F1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27746B1E1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m */; };
-		27987A471F54324600B03AD9 /* AAEasingMin.js in Resources */ = {isa = PBXBuildFile; fileRef = 27987A461F54324600B03AD9 /* AAEasingMin.js */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACB1EC36307005B8021 /* IMG_1875.JPG */; };
@@ -168,7 +167,6 @@
 		272D80B21F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowChartOnTableViewCellVC.m; sourceTree = "<group>"; };
 		27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsVC.h; sourceTree = "<group>"; };
 		27746B1E1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
-		27987A461F54324600B03AD9 /* AAEasingMin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAEasingMin.js; sourceTree = "<group>"; };
 		27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartAnimationTypeVC.h; sourceTree = "<group>"; };
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 				2707BA5F1EF7BA47008357AC /* AAHighchartsMore.js */,
 				2707BA5D1EF7BA47008357AC /* AAHighcharts-3d.js */,
 				2707BA5C1EF7BA47008357AC /* AAFunnel.js */,
-				27987A461F54324600B03AD9 /* AAEasingMin.js */,
 				64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */,
 			);
 			path = AAJSFiles;
@@ -567,7 +564,6 @@
 				2707BAA11EF7BA47008357AC /* AAJQueryLibrary.js in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
 				2707BA9B1EF7BA47008357AC /* AAChartKit.podspec in Resources */,
-				27987A471F54324600B03AD9 /* AAEasingMin.js in Resources */,
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
 				2707BA9E1EF7BA47008357AC /* AAHighcharts-3d.js in Resources */,

@@ -72,10 +72,10 @@
 
     self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
-    .titleSet(@"编程语言热度")
-    .subtitleSet(@"虚拟数据")
+    .titleSet(@"")
+    .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
-    .yAxisTitleSet(@"摄氏度")
+    .yAxisTitleSet(@"")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
@@ -141,7 +141,7 @@
     }
     
     //是否起用渐变色功能
-    _aaChartModel.gradientColorEnable = YES;
+//    _aaChartModel.gradientColorEnable = YES;
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }

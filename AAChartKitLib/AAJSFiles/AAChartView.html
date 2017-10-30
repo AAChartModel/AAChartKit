@@ -21,8 +21,6 @@
                 </script>
             <script src="AADrilldown.js">
                 </script>
-            <!--            <script src="AAEasingMin.js">-->
-            <!--                </script>-->
             <!--    若介意本地js代码体积(5M左右,工程打包压缩后实际体积远小于此)过大，可换用加载网络js代码 -->
             <!--            <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js">-->
             <!--                </script>-->
@@ -49,7 +47,7 @@
             
             function loadTheHighChartView (sender,receivedWidth,receivedHeight) {
                 var container = document.getElementById('container');//获得元素
-                if(receivedWidth != 0){
+                if (receivedWidth != 0) {
                     container.style.width = receivedWidth;//设置宽度
                 }
                 container.style.height = receivedHeight;//设置高度
@@ -88,7 +86,7 @@
         function onlyRefreshTheChartDataWithSeries (receivedSeries) {
             var receivedSeriesElementArr = JSON.parse(receivedSeries);
             
-            for (var i = 0; i < receivedSeriesElementArr.length; i++){
+            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
                 var receivedSeriesData = receivedSeriesElementArr[i].data;
                 // 获取series
                 var chartSeries =  $('#container').highcharts().series[i];
@@ -98,7 +96,7 @@
         }
         
         function chartSeriesContentHideOrShow (hidden) {
-            for (var i = 0; i < chartMax.series.length; i++){
+            for (var i = 0; i < chartMax.series.length; i++) {
                 var series = chartMax.series[i];
                 if (hidden == true) {
                     series.hide();
@@ -188,9 +186,9 @@
                 },
                 
                 easeInOutExpo: function(pos) {
-                    if(pos===0) return 0;
-                    if(pos===1) return 1;
-                    if((pos/=0.5) < 1) return 0.5 * Math.pow(2,10 * (pos-1));
+                    if (pos===0) return 0;
+                    if (pos===1) return 1;
+                    if ((pos/=0.5) < 1) return 0.5 * Math.pow(2,10 * (pos-1));
                     return 0.5 * (-Math.pow(2, -10 * --pos) + 2);
                 },
                 
@@ -203,7 +201,7 @@
                 },
                 
                 easeInOutCirc: function(pos) {
-                    if((pos/=0.5) < 1) return -0.5 * (Math.sqrt(1 - pos*pos) - 1);
+                    if ((pos/=0.5) < 1) return -0.5 * (Math.sqrt(1 - pos*pos) - 1);
                     return 0.5 * (Math.sqrt(1 - (pos-=2)*pos) + 1);
                 },
                 
@@ -231,7 +229,7 @@
                 
                 easeInOutBack: function(pos) {
                     var s = 1.70158;
-                    if((pos/=0.5) < 1) return 0.5*(pos*pos*(((s*=(1.525))+1)*pos -s));
+                    if ((pos/=0.5) < 1) return 0.5*(pos*pos*(((s*=(1.525))+1)*pos -s));
                     return 0.5*((pos-=2)*pos*(((s*=(1.525))+1)*pos +s) +2);
                 },
                 
