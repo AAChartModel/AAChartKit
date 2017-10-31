@@ -392,8 +392,9 @@ An An
 ```
 
 ### LICENSE
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/License_icon-mit-88x31-2.svg/128px-License_icon-mit-88x31-2.svg.png)
+AAChartKit is available under the MIT license. See the [LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE) file for more information.
 
-AAChartKit is Copyright (c) 2017 An An and released as open source under the attached [MIT LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE).
 
 ### Postscript
 If you want to shrink the size of the `AAChartKit` lib ,you should do something like this:
