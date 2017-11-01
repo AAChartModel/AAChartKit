@@ -298,7 +298,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 ![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
 
 
-### AAChartModel:chart attribute list
+## AAChartModel:chart attribute list
 ```objective-c
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);
@@ -350,14 +350,14 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 ```
 
 
-### More graphics
+## More graphics
 
 >>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully, please be patient to the picture resources before the contents of the fully loaded, then you will finally watch more of the dynamic demonstration of the project results.
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/AAChartKitShow.gif)
 
 
-### Created By:
+## Created By:
 
 An An
 
@@ -391,12 +391,25 @@ An An
 
 ```
 
-### LICENSE
+## LICENSE
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/License_icon-mit-88x31-2.svg/128px-License_icon-mit-88x31-2.svg.png)
 AAChartKit is available under the MIT license. See the [LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE) file for more information.
 
+## Contact
+-------------------------------------------------------------------------------
+* ❀❀❀   WARM TIPS!!!   ❀❀❀
+*
+* Please contact me on GitHub,if there are any problems encountered in use.
+* GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
+-------------------------------------------------------------------------------
+* And if you want to contribute for this project, please contact me as well
+* GitHub        : https://github.com/AAChartModel
+* StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+* JianShu       : http://www.jianshu.com/u/f1e6753d4254
+* SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+-------------------------------------------------------------------------------
 
-### Postscript
+## Postscript
 If you want to shrink the size of the `AAChartKit` lib ,you should do something like this:
 1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`,The names of multiple files that need to be deleted are as follows
 
@@ -429,7 +442,7 @@ to be
 <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
 </script>
 ```
-### To-Do list
+## To-Do list
 >>>>>>  * - [x] Support user to add delegate events after the graphics content loading was completed
 >>>>>>  * - [x] Support graphics to refresh global content dynamically
 >>>>>>  * - [x] Support graphics to refresh pure data (`series`) content dynamically

@@ -126,7 +126,7 @@
         series.marker = marker;
     }
     
-    plotOptions = [self configureTheAAPlotOptionsWithPlotOptions:plotOptions ChartModel:chartModel];
+    plotOptions = [self configureTheAAPlotOptionsWithPlotOptions:plotOptions chartModel:chartModel];
     //   plotOptions.series.events = @{@"click":@"hahaha"};
     
     AALegend *legend = AAObject(AALegend)
@@ -196,7 +196,7 @@
 }
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
-                                                 ChartModel:(AAChartModel *)chartModel {
+                                                 chartModel:(AAChartModel *)chartModel {
     
     //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
