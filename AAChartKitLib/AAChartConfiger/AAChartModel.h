@@ -94,9 +94,10 @@ static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
 static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
 
-static AAChartZoomType const AAChartZoomTypeX  = @"x";
-static AAChartZoomType const AAChartZoomTypeY  = @"y";
-static AAChartZoomType const AAChartZoomTypeXY = @"xy";
+static AAChartZoomType const AAChartZoomTypeNone = @"none";
+static AAChartZoomType const AAChartZoomTypeX    = @"x";
+static AAChartZoomType const AAChartZoomTypeY    = @"y";
+static AAChartZoomType const AAChartZoomTypeXY   = @"xy";
 
 static AAChartStackingType const AAChartStackingTypeFalse   = @"";
 static AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
