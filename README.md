@@ -360,7 +360,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 
 ## Created By:
 
-An An
+![](https://avatars1.githubusercontent.com/u/16357599?s=40&v=4)An An
 
 ```java
 

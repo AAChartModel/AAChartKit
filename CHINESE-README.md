@@ -36,7 +36,7 @@
 ```objective-c
 #import "AAChartView.h"
 ```
-2. 创建视图AAChartView
+2. 创建视图`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height;
@@ -45,7 +45,7 @@ self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartView
 self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [self.view addSubview:self.aaChartView];
 ```
-3. 配置视图模型AAChartModel
+3. 配置视图模型`AAChartModel`
 ```objective-c
     AAChartModel *chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
@@ -72,7 +72,7 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
                  ])
     ;
 ```
-4.  绘制图形(创建 AAChartView 实例对象后,首次绘制图形调用此方法)
+4.  绘制图形(创建 `AAChartView` 实例对象后,首次绘制图形调用此方法)
 ```objective-c
 /*图表视图对象调用图表模型对象,绘制最终图形*/
 [chartView aa_drawChartWithChartModel:chartModel];
@@ -91,9 +91,9 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 
 7. 特别说明
 
-***AAChartKit*** 中扇形图、气泡图都归属为特殊类型,所以想要绘制扇形图、气泡图,图表模型 AAChartModel 设置稍有不同,示例如下
+***AAChartKit*** 中扇形图、气泡图都归属为特殊类型,所以想要绘制`扇形图`、`气泡图`,图表模型 `AAChartModel` 设置稍有不同,示例如下
 
-- 绘制扇形图,你需要这样配置模型 AAChartModel
+- 绘制扇形图,你需要这样配置模型 `AAChartModel`
 ```objective-c
 AAChartModel *chartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
@@ -121,7 +121,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                    )
         ;
 ```
-- 绘制气泡图,你需要这样配置模型 AAChartModel
+- 绘制气泡图,你需要这样配置模型 `AAChartModel`
 
 
 ```objective-c
@@ -189,7 +189,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 
 ```
 
-***NOTE:***关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 `Demo` 中的`SpecialChartVC.m`文件内容,查看文件内容详情请点击[这里](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/SpecialChartVC.m),您也可以选择下载 `Demo` 后,在  **Xcode** 中查看***AAChartKit***的`SpecialChartVC.m`内容
+***NOTE:*** 关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 `Demo` 中的`SpecialChartVC.m`文件内容,查看文件内容详情请点击[这里](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/SpecialChartVC.m),您也可以选择下载 `Demo` 后,在  `Xcode` 中查看 ***AAChartKit*** 的`SpecialChartVC.m`内容
   
 8. 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
@@ -249,7 +249,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 };
 
 ```
-###  AAChartModel一些重要属性经过配置之后的图形示例如下
+###  `AAChartModel`一些重要属性经过配置之后的图形示例如下
 - line chart - 折线图
 
 ![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1867.JPG)
@@ -302,7 +302,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/IMG_1882.JPG)
 
-### AAChartModel 属性配置列表
+### `AAChartModel` 属性配置列表
 ```objective-c
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
@@ -362,7 +362,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 
 
 ### 作者
-An An 
+![](https://avatars1.githubusercontent.com/u/16357599?s=40&v=4)An An
 ``` java
  "CODE IS FAR AWAY FROM BUG WITH THE ANIMAL PROTECTING"
  *          %%       %%
@@ -391,7 +391,7 @@ An An
 
 ### 许可证
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/License_icon-mit-88x31-2.svg/128px-License_icon-mit-88x31-2.svg.png)
-本项目 ***AAChartKit***使用 MIT许可证,详情请点击[MIT LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE)
+本项目 ***AAChartKit*** 使用 MIT许可证,详情请点击[MIT LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE)
 
 ### 附言
 在 ***AAChartKit*** 封装库的初始设计中,为提升`.js`文件的加载速度,故将所依赖的`.js`文件放置在本地.然而由于本项目功能较多,故放置于本地的附加`JavaScript`文件库体积较大,整个`AAJSFiles`文件夹下所有的`.js`文件体积合计共有`5.3M左右`(当然,在项目打包为压缩后的`.ipa`工程安装包文件时,是远小于这个体积的),若对工程文件体积大小较为敏感的使用者,可使用以下建议的替代方案
