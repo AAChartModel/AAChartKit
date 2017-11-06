@@ -80,7 +80,9 @@
 
 - (void)configTheChartView:(AAChartType)chartType {
     
-    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
+    CGFloat chartViewWidth  = self.view.frame.size.width;
+    CGFloat chartViewHeight = self.view.frame.size.height;
+    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
     self.aaChartView.delegate = self;
     self.aaChartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.aaChartView];

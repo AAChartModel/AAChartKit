@@ -38,10 +38,12 @@
 ```
 2. 创建视图AAChartView
 ```objective-c
-AAChartView *chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
-self.view.backgroundColor = [UIColor whiteColor];
-chartView.contentHeight =self.view.frame.size.height-220;//设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
-[self.view addSubview:chartView];
+CGFloat chartViewWidth  = self.view.frame.size.width;
+CGFloat chartViewHeight = self.view.frame.size.height;
+self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
+//设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
+self.aaChartView.contentHeight = self.view.frame.size.height-250;
+[self.view addSubview:self.aaChartView];
 ```
 3. 配置视图模型AAChartModel
 ```objective-c
@@ -183,7 +185,12 @@ AAChartModel *chartModel= AAObject(AAChartModel)
                      ]
                    )
         ;
+        
+
 ```
+
+  关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 **Demo** 中的`SpecialChartVC.m`[文件内容](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKit/ChartsDemo/SpecialChartVC.m)
+  
 8. 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
 typedef NSString *AAChartType;

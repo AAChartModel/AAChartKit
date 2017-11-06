@@ -139,7 +139,7 @@
                    @[
                      AAObject(AASeriesElement)
                      .nameSet(@"语言热度值")
-                     .innerSizeSet(@"35%")
+                     .innerSizeSet(@"35%")//内部圆环半径大小占比
                      .dataSet(@[
                                 @[@"Java"  , @67],
                                 @[@"Swift" , @44],

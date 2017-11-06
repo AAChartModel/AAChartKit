@@ -32,6 +32,7 @@
 
 #define AAObject(objectName) [[objectName alloc]init]
 
+
 #define AAPropStatementAndFuncStatement(propertyModifyWord,className, propertyPointerType, propertyName)                \
 @property(nonatomic,propertyModifyWord)propertyPointerType  propertyName;                                               \
 - (className * (^) (propertyPointerType propertyName)) propertyName##Set;
