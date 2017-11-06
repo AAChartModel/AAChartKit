@@ -39,7 +39,7 @@
 2. 创建视图`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
-CGFloat chartViewHeight = self.view.frame.size.height;
+CGFloat chartViewHeight = self.view.frame.size.height-250;
 self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
 //设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
 self.aaChartView.contentHeight = self.view.frame.size.height-250;

@@ -41,7 +41,7 @@
 2. Creat the object of chart view:`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
-CGFloat chartViewHeight = self.view.frame.size.height;
+CGFloat chartViewHeight = self.view.frame.size.height-250;
 self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
 self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [self.view addSubview:self.aaChartView];
