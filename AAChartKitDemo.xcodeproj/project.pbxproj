@@ -396,8 +396,7 @@
 				7172A3E71E763EA6000D5B99 /* Info.plist */,
 				7172A3D61E763EA6000D5B99 /* Supporting Files */,
 			);
-			name = AAChartKitDemo;
-			path = AAChartKit;
+			path = AAChartKitDemo;
 			sourceTree = "<group>";
 		};
 		7172A3D61E763EA6000D5B99 /* Supporting Files */ = {
@@ -793,8 +792,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BPAYP34L8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKit/PrefixHeader.pch";
-				INFOPLIST_FILE = AAChartKit/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit;
@@ -808,8 +807,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BPAYP34L8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKit/PrefixHeader.pch";
-				INFOPLIST_FILE = AAChartKit/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit;
