@@ -44,7 +44,7 @@
 		2707BAB91EF7BA47008357AC /* AATooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA911EF7BA47008357AC /* AATooltip.m */; };
 		2707BABA1EF7BA47008357AC /* AAXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA931EF7BA47008357AC /* AAXAxis.m */; };
 		2707BABB1EF7BA47008357AC /* AAYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA951EF7BA47008357AC /* AAYAxis.m */; };
-		272D80B31F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D80B21F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m */; };
+		272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */; };
 		27746B1F1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27746B1E1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
@@ -163,8 +163,8 @@
 		2707BA941EF7BA47008357AC /* AAYAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAYAxis.h; sourceTree = "<group>"; };
 		2707BA951EF7BA47008357AC /* AAYAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAYAxis.m; sourceTree = "<group>"; };
 		2707BABF1EF8BAF1008357AC /* AAChartKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartKit.h; sourceTree = "<group>"; };
-		272D80B11F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowChartOnTableViewCellVC.h; sourceTree = "<group>"; };
-		272D80B21F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowChartOnTableViewCellVC.m; sourceTree = "<group>"; };
+		272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowManyChartViewVC.h; sourceTree = "<group>"; };
+		272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowManyChartViewVC.m; sourceTree = "<group>"; };
 		27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsVC.h; sourceTree = "<group>"; };
 		27746B1E1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
 		27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartAnimationTypeVC.h; sourceTree = "<group>"; };
@@ -356,8 +356,8 @@
 				27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */,
 				27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */,
 				27746B1E1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m */,
-				272D80B11F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.h */,
-				272D80B21F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m */,
+				272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */,
+				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
 			);
 			path = ChartsDemo;
 			sourceTree = "<group>";
@@ -605,7 +605,7 @@
 				2707BAA51EF7BA47008357AC /* AABar.m in Sources */,
 				2707BAB71EF7BA47008357AC /* AASubtitle.m in Sources */,
 				2707BAA61EF7BA47008357AC /* AAChart.m in Sources */,
-				272D80B31F91EC9E008A2D20 /* ShowChartOnTableViewCellVC.m in Sources */,
+				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
 				2707BAB91EF7BA47008357AC /* AATooltip.m in Sources */,
 				2707BAB21EF7BA47008357AC /* AAPlotOptions.m in Sources */,
 				2707BAB81EF7BA47008357AC /* AATitle.m in Sources */,

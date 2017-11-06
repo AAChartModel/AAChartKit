@@ -33,6 +33,7 @@
 #import "ChartAnimationTypeVC.h"
 #import "DrawChartWithAAOptionsVC.h"
 #import "DrilldownChartVC.h"
+#import "ShowManyChartViewVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -157,6 +158,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
+        case 6: {
+            /*同时显示多个 AAChartView*/
+            ShowManyChartViewVC *vc = [[ShowManyChartViewVC alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
         
         default:
             break;
@@ -225,7 +233,9 @@
                              /*JQuery动画样式类型演示*/
                              @[@"图形动画样式相关演示"],
                              /*通过AAOptions实例对象来绘制图形*/
-                             @[@"直接通过AAOptions实例对象绘制图形"]
+                             @[@"直接通过AAOptions实例对象绘制图形"],
+                             /*同时显示多个 AAChartView*/
+                              @[@"同时显示多个 AAChartView"],
                              ];
     }
     return _chartTypeNameArr;
@@ -238,7 +248,8 @@
                             @"Drilldown chart---钻取图表",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---动画相关",
-                            @"Draw chart with AAOptions---AAOptions实例对象绘制图形"];
+                            @"Draw chart with AAOptions---AAOptions实例对象绘制图形",
+                            @"同时显示多个 AAChartView"];
     }
     return _sectionTypeArr;
 }

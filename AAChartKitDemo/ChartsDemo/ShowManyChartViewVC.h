@@ -1,5 +1,5 @@
 //
-//  ShowChartOnTableViewCellVC.h
+//  ShowManyChartViewVC.h
 //  AAChartKit
 //
 //  Created by An An on 2017/10/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowChartOnTableViewCellVC : UIViewController
+@interface ShowManyChartViewVC : UIViewController
 
 @end
