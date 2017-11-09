@@ -26,7 +26,7 @@
 
 ## Usage:
 
-### The need of preparation
+### Pre-preparation work
 1. Drag the folder `AAChartKitLib` into your project.
 1. Add the following content into your `.pch` file.
 ```objective-c
@@ -38,7 +38,7 @@
 ```objective-c
 #import "AAChartView.h"
 ```
-2. Creat the object of chart view:`AAChartView`
+2. Creat the instance object of chart view:`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
