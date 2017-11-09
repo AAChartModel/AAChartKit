@@ -47,12 +47,11 @@
 @interface AAChartView()<WKNavigationDelegate,UIWebViewDelegate> {
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
+    NSString  *_optionJson;
 }
 @end
 
-@implementation AAChartView {
-    NSString *_optionJson;
-}
+@implementation AAChartView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

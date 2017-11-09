@@ -90,6 +90,10 @@
 //    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
 //    self.aaChartView.isClearBackgroundColor = YES;
 //    self.view.backgroundColor = [UIColor blueColor];
+    
+    
+    
+    
 
     self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
@@ -167,6 +171,19 @@
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
 
+
+- (NSArray *)configureTheRandomColorArray {
+    NSMutableArray *colorStringArr = [[NSMutableArray alloc]init];
+    for (int i=0; i<5; i++) {
+        int R = (arc4random() % 256) ;
+        int G = (arc4random() % 256) ;
+        int B = (arc4random() % 256) ;
+        NSString *colorStr = [NSString stringWithFormat:@"rgba(%d,%d,%d,0.9)",R,G,B];
+        [colorStringArr addObject:colorStr];
+    }
+    return colorStringArr;
+}
+
 #pragma mark -- AAChartView delegate
 -(void)AAChartViewDidFinishLoad {
     NSLog(@"😊😊😊图表视图已完成加载");
@@ -225,6 +242,7 @@
 }
 
 - (void)refreshTheChartView {
+    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];//random colors theme, Just for fun!!!
     [self.aaChartView aa_refreshChartWithChartModel:self.aaChartModel];
 }
 
