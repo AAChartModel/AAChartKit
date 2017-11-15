@@ -29,7 +29,7 @@
 #import "AATooltip.h"
 
 @implementation AATooltip
-
+AAPropSetFuncImplementation(AATooltip, BOOL,       enabled);
 AAPropSetFuncImplementation(AATooltip, NSString *, headerFormat);
 AAPropSetFuncImplementation(AATooltip, NSString *, pointFormat);
 AAPropSetFuncImplementation(AATooltip, NSString *, footerFormat);

@@ -82,10 +82,11 @@
     .lineWidthSet(@0);
     
     AATooltip *tooltip = AAObject(AATooltip)
-    .sharedSet(true)
+    .enabledSet(true)//启用浮动提示框
+    .sharedSet(true)//多组数据公享一个浮动提示框
     .crosshairsSet(chartModel.crosshairs);
     //  .useHTMLSet(true)
-    //  .valueSuffixSet(@"摄氏度");//浮动提示框的后缀
+    //  .valueSuffixSet(@"摄氏度");//浮动提示框的单位名称后缀
     
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)

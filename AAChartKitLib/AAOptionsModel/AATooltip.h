@@ -29,7 +29,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AATooltip : NSObject
-
+AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       enabled);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, headerFormat);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, pointFormat);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, footerFormat);
