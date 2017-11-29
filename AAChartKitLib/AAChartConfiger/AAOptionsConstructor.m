@@ -37,11 +37,14 @@
     .backgroundColorSet(@"rgba(0,0,0,0)")//设置图表的背景色(包含透明度的设置)
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
-    .polarSet(chartModel.polar)
-    .options3dSet(AAObject(AAOptions3d)
-                  .enabledSet(chartModel.options3dEnable)
-                  .alphaSet(@-15)
-                  );
+    .polarSet(chartModel.polar);
+    
+    if (chartModel.options3dEnable == true) {
+        chart.options3d = (AAObject(AAOptions3d)
+                           .enabledSet(chartModel.options3dEnable)
+                           .alphaSet(@-15)
+                           );
+    }
     
     AATitle *title = AAObject(AATitle)
     .textSet(chartModel.title)//标题文本内容
@@ -251,7 +254,6 @@
         plotOptions.pieSet(AAObject(AAPie)
                            .allowPointSelectSet(true)
                            .cursorSet(@"pointer")
-                           .depthSet(chartModel.options3dDepth)//设置3d 图形阴影深度
                            .dataLabelsSet(AAObject(AADataLabels)
                                           .enabledSet(chartModel.dataLabelEnabled)
                                           .formatSet(@"{point.percentage:.1f}%")
@@ -261,6 +263,10 @@
                                           )
                            .showInLegendSet(true)
                            );
+        
+        if (chartModel.options3dEnable ==true) {
+            plotOptions.pie.depth = chartModel.options3dDepth;//设置3d 图形阴影深度
+        }
         //      plotOptions.series.colorByPoint = true;
     }
     
