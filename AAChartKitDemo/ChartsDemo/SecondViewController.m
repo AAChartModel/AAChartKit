@@ -42,8 +42,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self configThesegmentedControl];
-    [self configTheSwitch];
+    [self configureTheSegmentedControls];
+    [self configureTheSwitchs];
     
     AAChartType chartType;
     switch (self.chartType) {
@@ -189,7 +189,7 @@
     NSLog(@"😊😊😊图表视图已完成加载");
 }
 
-- (void)configThesegmentedControl{
+- (void)configureTheSegmentedControls{
     NSArray *segmentedArray = @[@[@"常规",@"堆叠",@"百分比堆叠"],
                                 @[@"波点",@"方块",@"钻石",@"正三角",@"倒三角"]
                                 ];
@@ -246,7 +246,7 @@
     [self.aaChartView aa_refreshChartWithChartModel:self.aaChartModel];
 }
 
-- (void)configTheSwitch {
+- (void)configureTheSwitchs {
     NSArray *nameArr = @[@"x轴翻转",@"y轴翻转",@"x 轴直立",@"辐射化图形",@"隐藏连接点",@"显示数字"];
     CGFloat switchWidth = (self.view.frame.size.width-40)/6;
     

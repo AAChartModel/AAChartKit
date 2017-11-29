@@ -132,10 +132,10 @@
     
     AALegend *legend = AAObject(AALegend)
     .enabledSet(chartModel.legendEnabled)//是否显示 legend
-    .layoutSet(AALegendLayoutTypeHorizontal)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
+    .layoutSet(AALegendLayoutTypeVertical)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
     .alignSet(AALegendAlignTypeCenter)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
     .verticalAlignSet(AALegendVerticalAlignTypeBottom)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
-    .borderWidthSet(@0);
+    .itemMarginTopSet(@0);//图例的每一项的顶部外边距，单位px。 默认是：0.
     
     AAOptions *options = AAObject(AAOptions)
     .chartSet(chart)
@@ -149,6 +149,10 @@
     .seriesSet(chartModel.series)
     .colorsSet(chartModel.colorsTheme)//设置颜色主题
     .gradientColorEnableSet(chartModel.gradientColorEnable);//设置主题颜色是否为渐变色
+    
+//    + (nullable NSData *)dataWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError **)error;
+
+//NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:options options:NSJSONReadingMutableLeaves error:nil];
     
     //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
     return options;

@@ -52,6 +52,7 @@ AAPropStatementAndFuncStatement(copy,   AALegend, AALegendAlignType,         ali
 AAPropStatementAndFuncStatement(copy,   AALegend, AALegendVerticalAlignType, verticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 AAPropStatementAndFuncStatement(assign, AALegend, BOOL,          enabled);
 AAPropStatementAndFuncStatement(strong, AALegend, NSNumber    *, borderWidth);
+AAPropStatementAndFuncStatement(strong, AALegend, NSNumber    *, itemMarginTop);//图例的每一项的顶部外边距，单位px。 默认是：0.
 AAPropStatementAndFuncStatement(strong, AALegend, AAItemStyle *, itemStyle);
 
 @end

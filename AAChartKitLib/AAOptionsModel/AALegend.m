@@ -35,6 +35,7 @@ AAPropSetFuncImplementation(AALegend, AALegendAlignType,         align);
 AAPropSetFuncImplementation(AALegend, AALegendVerticalAlignType, verticalAlign);
 AAPropSetFuncImplementation(AALegend, BOOL,          enabled);
 AAPropSetFuncImplementation(AALegend, NSNumber    *, borderWidth);
+AAPropSetFuncImplementation(AALegend, NSNumber    *, itemMarginTop);
 AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle);
 
 @end
