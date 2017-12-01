@@ -842,7 +842,7 @@
         return aaChartModel;
         
     } else if ([chartType isEqualToString:@"stepLine"]) {
-       AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeLine)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
         .titleSet(@"STEP LINE CHART")//图形标题
@@ -854,17 +854,17 @@
                      @{
                          @"name": @"Berlin",
                          @"data": @[@450, @432, @401, @454, @590, @530, @510],
-                         @"step": @"right"
+                         @"step": @"right" //折线连接点靠右👉
                          },
                      @{
                          @"name": @"New York",
                          @"data": @[@220, @282, @201, @234, @290, @430, @410],
-                         @"step": @"center"
+                         @"step": @"center" //折线连接点居中
                          },
                      @{
                          @"name": @"Tokyo",
                          @"data": @[@120, @132, @101, @134, @90, @230, @210],
-                         @"step": @"left"
+                         @"step": @"left" //折线连接点靠左边👈
                          }, ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"stepArea"]) {
@@ -880,17 +880,17 @@
                      @{
                          @"name": @"Berlin",
                          @"data": @[@450, @432, @401, @454, @590, @530, @510],
-                         @"step": @(true)
+                         @"step": @(true) //设置折线样式为直方折线,连接点位置默认靠左👈
                          },
                      @{
                          @"name": @"New York",
                          @"data": @[@220, @282, @201, @234, @290, @430, @410],
-                         @"step": @(true)
+                         @"step": @(true) //设置折线样式为直方折线,连接点位置默认靠左👈
                          },
                      @{
                          @"name": @"Tokyo",
                          @"data": @[@120, @132, @101, @134, @90, @230, @210],
-                         @"step": @(true)
+                         @"step": @(true) //设置折线样式为直方折线,连接点位置默认靠左👈
                          }, ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"mixed"]) {
