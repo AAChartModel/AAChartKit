@@ -124,23 +124,23 @@
 
 - (void)onlyRefreshTheChartData {
     
-    NSMutableArray *virtualData = [[NSMutableArray alloc]init];
+    NSMutableArray *virtualData1 = [[NSMutableArray alloc]init];
     NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
     
     for (int i=0; i<12; i++) {
-        NSInteger randomNumber = arc4random()%99;
+        NSInteger randomNumber1 = arc4random()%99;
         NSInteger randomNumber2 = arc4random()%66;
         NSInteger randomNumber3 = arc4random()%55;
         
-        [virtualData addObject:[NSNumber numberWithInteger:randomNumber]];
+        [virtualData1 addObject:[NSNumber numberWithInteger:randomNumber1]];
         [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
         [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
         
     }
     NSArray *series = @[
                         @{@"name":@"2017",
-                          @"data":virtualData},
+                          @"data":virtualData1},
                         
                         @{@"name":@"2018",
                           @"data":virtualData2},
