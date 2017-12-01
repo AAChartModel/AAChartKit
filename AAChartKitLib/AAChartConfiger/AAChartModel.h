@@ -114,6 +114,7 @@ static AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerB
 static AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
 
 @interface AAChartModel : NSObject
+
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
 

@@ -67,6 +67,12 @@
         case SpecialChartVCChartTypeColumnrange:
             chartType = AAChartTypeColumnrange;
             break;
+        case SpecialChartVCChartTypeStepLine:
+            chartType = @"stepLine";
+            break;
+        case SpecialChartVCChartTypeStepArea:
+            chartType = @"stepArea";
+            break;
         case SpecialChartVCChartTypeMixed:
             chartType = @"mixed";
             break;
@@ -835,6 +841,58 @@
         
         return aaChartModel;
         
+    } else if ([chartType isEqualToString:@"stepLine"]) {
+       AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeLine)//图形类型
+        .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
+        .titleSet(@"STEP LINE CHART")//图形标题
+        .subtitleSet(@"2020/08/08")//图形副标题
+        .dataLabelEnabledSet(NO)//是否显示数字
+        .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
+        .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
+        .seriesSet(@[
+                     @{
+                         @"name": @"Berlin",
+                         @"data": @[@450, @432, @401, @454, @590, @530, @510],
+                         @"step": @"right"
+                         },
+                     @{
+                         @"name": @"New York",
+                         @"data": @[@220, @282, @201, @234, @290, @430, @410],
+                         @"step": @"center"
+                         },
+                     @{
+                         @"name": @"Tokyo",
+                         @"data": @[@120, @132, @101, @134, @90, @230, @210],
+                         @"step": @"left"
+                         }, ]);
+        return aaChartModel;
+    } else if ([chartType isEqualToString:@"stepArea"]) {
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeArea)//图形类型
+        .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
+        .titleSet(@"STEP AREA CHART")//图形标题
+        .subtitleSet(@"2020/08/08")//图形副标题
+        .dataLabelEnabledSet(YES)//是否显示数字
+        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
+        .markerRadiusSet(@6)//折线连接点半径长度,为0时相当于没有折线连接点
+        .seriesSet(@[
+                     @{
+                         @"name": @"Berlin",
+                         @"data": @[@450, @432, @401, @454, @590, @530, @510],
+                         @"step": @(true)
+                         },
+                     @{
+                         @"name": @"New York",
+                         @"data": @[@220, @282, @201, @234, @290, @430, @410],
+                         @"step": @(true)
+                         },
+                     @{
+                         @"name": @"Tokyo",
+                         @"data": @[@120, @132, @101, @134, @90, @230, @210],
+                         @"step": @(true)
+                         }, ]);
+        return aaChartModel;
     } else if ([chartType isEqualToString:@"mixed"]) {
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
@@ -848,18 +906,18 @@
                      .typeSet(AAChartTypeColumnrange)
                      .nameSet(@"温度")
                      .dataSet(@[
-                                @[@-9.7,  @9.4],
-                                @[@-8.7,  @6.5],
-                                @[@-3.5,  @9.4],
-                                @[@-1.4, @19.9],
-                                @[@0.0 , @22.6],
-                                @[@2.9 , @29.5],
-                                @[@9.2 , @30.7],
-                                @[@7.3 , @26.5],
-                                @[@4.4 , @18.0],
-                                @[@-3.1, @11.4],
-                                @[@-5.2, @10.4],
-                                @[@-9.9, @16.8]
+                                @[@(-9.7), @9.4],
+                                @[@(-8.7), @6.5],
+                                @[@(-3.5), @9.4],
+                                @[@(-1.4),@19.9],
+                                @[@0.0 ,  @22.6],
+                                @[@2.9 ,  @29.5],
+                                @[@9.2 ,  @30.7],
+                                @[@7.3 ,  @26.5],
+                                @[@4.4 ,  @18.0],
+                                @[@(-3.1),@11.4],
+                                @[@(-5.2),@10.4],
+                                @[@(-9.9),@16.8]
                                 ]),
                      
                      AAObject(AASeriesElement)

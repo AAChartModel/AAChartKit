@@ -225,6 +225,8 @@
                                @"Funnel Chart---漏斗图",
                                @"Arearange Chart--区域面积图",
                                @"Columnrange Chart--柱形面积图",
+                               @"Step Line Chart--直方折线图",
+                               @"Step Area Chart--直方折线填充图",
                                @"Mixed Chart---混合图"],
                              /*可向下钻取类型图表*/
                              @[@"Drilldown column chart--向下钻取的柱状图"],

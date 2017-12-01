@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeFunnel,
     SpecialChartVCChartTypeArearange,
     SpecialChartVCChartTypeColumnrange,
+    SpecialChartVCChartTypeStepLine,
+    SpecialChartVCChartTypeStepArea,
     SpecialChartVCChartTypeMixed,
 };
 

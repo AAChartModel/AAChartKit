@@ -208,6 +208,8 @@ static AAChartType const AAChartTypeBubble      = @"bubble";     //气泡图
 static AAChartType const AAChartTypePyramid     = @"pyramid";    //金字塔图
 static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
 static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
+static AAChartType const AAChartTypeArearange   = @"arearange";  //区域范围图
+
 ```
 
 9. 当前已支持的图表渲染动画类型有三十种以上,说明如下

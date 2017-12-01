@@ -205,6 +205,7 @@ static AAChartType const AAChartTypeBubble      = @"bubble";      //bubble 
 static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid chart
 static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
+static AAChartType const AAChartTypeArearange   = @"arearange";   //arearange chart
 ```
 9. Supported animation type for now
 ```objective-c
