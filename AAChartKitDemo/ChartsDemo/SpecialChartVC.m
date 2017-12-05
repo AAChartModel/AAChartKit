@@ -46,6 +46,9 @@
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
+        case SpecialChartVCChartTypeAreaspline:
+            chartType = AAChartTypeAreaspline;
+            break;
         case SpecialChartVCChartTypePie:
             chartType = AAChartTypePie;
             break;
@@ -95,7 +98,9 @@
     [self.view addSubview:self.aaChartView];
     
     self.aaChartModel = [self configureTheChartModel:chartType];
-    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];
+//    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];
+//    self.aaChartModel.colorsTheme = self.colors;
+
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
@@ -134,7 +139,7 @@
                                
                                ];
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
         //        .connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
         .titleSet(@"编程语言热度")
@@ -145,32 +150,71 @@
         
         return aaChartModel;
         
+    } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(chartType)
+        .titleSet(@"带有负数的区域填充图")
+        .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
+        .subtitleSet(@"横屏查看效果更佳")
+        .yAxisGridLineWidthSet(@0)
+        .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
+                         @"Go",@"C",@"C#",@"C++",@"HTML",@"CSS",@"Perl",@"R",@"MATLAB",@"SQL"])
+        .yAxisTitleSet(@"")
+        .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B"])
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2017")
+                     .dataSet(@[@0, @-7.5, @-1.0, @3.7, @0, @-3, @8, @0,@-3.6, @4, @-2, @0]),
+                     
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2018")
+                     .dataSet(@[@0, @-2.2, @2, @-2.2, @0, @-1.5, @0, @2.4, @-1, @3, @-1, @0]),
+                     
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2019")
+                     .dataSet(@[@0, @2.3, @0, @1.2, @-1, @3, @0, @-3.3, @0, @2, @-0.3, @0]),
+                     
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[@0, @10, @0.13,@2,@0, @2, @0, @3.7, @0, @1, @-3, @0]),
+                     
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[@0, @-4.5, @-0.9, @5.5, @-1.9, @1.3, @-2.8, @0, @-1.7, @0, @3, @0, ]),
+                     ]
+                   );
+        
+        return aaChartModel;
+
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
-        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
+//        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
-//        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
                      .nameSet(@"语言热度值")
-                     .innerSizeSet(@"35%")//内部圆环半径大小占比
-                     .dataSet(@[
-                                @[@"Java"  , @67],
-                                @[@"Swift" , @44],
-                                @[@"Python", @83],
-                                @[@"OC"    , @11],
-                                @[@"Ruby"  , @42],
-                                @[@"PHP"   , @31],
-                                @[@"Go"    , @63],
-                                @[@"C"     , @24],
-                                @[@"C#"    , @888],
-                                @[@"C++"   , @66],
-                                ]),
+                     .innerSizeSet(@"20%")//内部圆环半径大小占比
+                     .dataSet(
+                              @[
+                                @[@"Firefox",   @45.0],
+                                @[@"IE",        @26.8],
+                                @{
+                                    @"name":@"Chrome",
+                                    @"y":@100.8,
+                                    @"sliced":@(true),
+                                    @"selected":@(true)
+                                    },
+                                @[@"Safari",    @88.5],
+                                @[@"Opera",     @3336.2],
+                                @[@"Others",    @223]
+                                ]
+                              ),
                      ]
                    )
         ;
@@ -245,6 +289,9 @@
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"按性别划分的身高体重分布图")
         .yAxisTitleSet(@"千克(kg)")
+        .markerRadiusSet(@9)
+        .yAxisGridLineWidthSet(@0)
+        .colorsThemeSet(@[@"#c3b1fb",@"#e70b2d",@"#77ed00",@"#00f3d2",@"#83ddff",])
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
@@ -873,7 +920,7 @@
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
         .titleSet(@"STEP AREA CHART")//图形标题
         .subtitleSet(@"2020/08/08")//图形副标题
-        .dataLabelEnabledSet(YES)//是否显示数字
+        .dataLabelEnabledSet(NO)//是否显示数字
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
         .markerRadiusSet(@6)//折线连接点半径长度,为0时相当于没有折线连接点
         .seriesSet(@[
@@ -899,8 +946,12 @@
         .titleSet(@"城市气温指数")
         .subtitleSet(@"虚拟数据")
         .yAxisTitleSet(@"摄氏度")
+        .markerRadiusSet(@6)
+        .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+        .chartTypeSet(AAChartTypeLine)
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
+        .colorsThemeSet(@[@"#c85dec",@"#e9a8ff",@"#de4770",@"#f56991",@"#ff9f80",@"#ffc48c",@"#effab4",@"#d1f2a5"])
         .seriesSet(@[
                      AAObject(AASeriesElement)
                      .typeSet(AAChartTypeColumnrange)
@@ -921,22 +972,22 @@
                                 ]),
                      
                      AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeSpline)
+                     .typeSet(AAChartTypeLine)
                      .nameSet(@"东京")
                      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
                      
                      AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeSpline)
+                     .typeSet(AAChartTypeLine)
                      .nameSet(@"纽约")
                      .dataSet(@[@-0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
                      
                      AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeSpline)
+                     .typeSet(AAChartTypeLine)
                      .nameSet(@"柏林")
                      .dataSet(@[@-0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
                      
                      AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeSpline)
+                     .typeSet(AAChartTypeLine)
                      .nameSet(@"伦敦")
                      .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                      ]

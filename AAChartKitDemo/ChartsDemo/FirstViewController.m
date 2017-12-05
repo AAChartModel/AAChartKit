@@ -218,6 +218,7 @@
                                @"Scatter Chart---散点图"],
                              /*特殊类型图表*/
                              @[@"Mixed Line Chart---虚实线混合折线图",
+                               @"Area chart with minus--带有负数的区域填充图",
                                @"Pie Chart---扇形图",
                                @"Bubble Chart---气泡图",
                                @"Scatter Chart--散点图",

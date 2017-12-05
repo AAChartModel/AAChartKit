@@ -42,7 +42,7 @@
         self.xAxisReversed       = NO;
         self.yAxisReversed       = NO;
         self.zoomType            = AAChartZoomTypeX;
-        self.colorsTheme         = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
+        self.colorsTheme         = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
         self.gradientColorEnable = NO;
         self.polar               = NO;
         self.options3dEnable     = NO;
