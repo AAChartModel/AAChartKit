@@ -91,7 +91,8 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
 
-7. 特别说明
+## 特别说明
+### 特殊图表配置
 
 ***AAChartKit*** 中`扇形图`、`气泡图`都归属为特殊类型,所以想要绘制`扇形图`、`气泡图`,图表模型 `AAChartModel` 设置稍有不同,示例如下
 
@@ -193,7 +194,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 
 ***NOTE:*** 关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 `Demo` 中的`SpecialChartVC.m`文件内容,查看文件内容详情请点击[这里](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/SpecialChartVC.m),您也可以选择下载 `Demo` 后,在  `Xcode` 中查看 ***AAChartKit*** 的`SpecialChartVC.m`内容
   
-8. 当前已支持的图表类型有十种以上,说明如下
+### 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";     //柱形图
@@ -212,7 +213,7 @@ static AAChartType const AAChartTypeArearange   = @"arearange";  //区域范围�
 
 ```
 
-9. 当前已支持的图表渲染动画类型有三十种以上,说明如下
+### 当前已支持的图表渲染动画类型有三十种以上,说明如下
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationLinear = 0,

@@ -17,8 +17,13 @@
 
 #### *https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md*
 
+## Preface
+
+ ***AAChartKit*** is object-oriented, a set of easy-to-use, extremely elegant graphics drawing controls,based on the popular open source front-end chart library *Highcharts*.
+ 
 ***
-## Features:
+## Features
+
 1. Support `iOS 6`、`ARC` & `Objective C`.
 2.  Powerful,support the  `column chart`、`bar chart`、`area chart`、`areaspline chart`、`line chart`、`spline chart`、`radar chart`、`polar chart`、`pie chart`、`bubble chart`、`pyramid chart`、`funnel chart`、`columnrange chart`and other graphics.
 3. Interactive、animated,the `animation` effect is exquisite 、delicate、 smooth and beautiful.
@@ -27,7 +32,7 @@
 ***
  
 
-## Usage:
+## Usage
 
 ### Pre-preparation work
 1. Drag the folder `AAChartKitLib` into your project.
@@ -96,7 +101,9 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
 ```
 
-7. Special instructions
+## Special instructions
+
+### Special charts in ***AAChartKit***
 
 Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
 
@@ -190,7 +197,7 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                )
     ;
 ```
-8. Supported chart type for now 
+### Supported chart type for now
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";      //column chart
@@ -207,7 +214,7 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel ch
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 static AAChartType const AAChartTypeArearange   = @"arearange";   //arearange chart
 ```
-9. Supported animation type for now
+### Supported animation type for now
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationLinear = 0,
@@ -249,15 +256,16 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ```
 ## Samples
-- line chart
+
+-  line chart
 
 ![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
 
-- column chart
+-  column chart
 
 ![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
 
--   bar chart
+-  bar chart
 
 ![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1880.JPG
 )
@@ -275,30 +283,30 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
 
--   radar chart
+-  radar chart
 
 ![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG
 )
 
--   polar chart
+-  polar chart
 
 ![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG
 )
--   pie chart
+-  pie chart
 
 ![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG
 )
 
-- the oval style column chart
+-  the oval style column chart
 
 ![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
 
-- bubble chart
+-  bubble chart
 
 ![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG
 )
 
-- mixed chart
+-  mixed chart
 
 ![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
 
@@ -397,10 +405,12 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 ```
 
 ## LICENSE
+
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/License_icon-mit-88x31-2.svg/128px-License_icon-mit-88x31-2.svg.png)
 AAChartKit is available under the MIT license. See the [LICENSE](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE) file for more information.
 
 ## Contact
+
 -------------------------------------------------------------------------------
 * ❀❀❀   WARM TIPS!!!   ❀❀❀
 *
@@ -415,6 +425,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 -------------------------------------------------------------------------------
 
 ## Postscript
+
 If you want to shrink the size of the `AAChartKit` lib ,you should do something like this:
 1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`,The names of multiple files that need to be deleted are as follows
 
@@ -448,6 +459,7 @@ to be
 </script>
 ```
 ## To-Do list
+
 >>>>>>  * - [x] Support user to add delegate events after the graphics content loading was completed
 >>>>>>  * - [x] Support graphics to refresh global content dynamically
 >>>>>>  * - [x] Support graphics to refresh pure data (`series`) content dynamically
