@@ -101,6 +101,55 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [_aaChartView aa_refreshChartWithChartModel:chartModel];
 ```
 
+## Samples
+
+-  ### line chart
+
+![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
+
+-  ### column chart
+
+![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
+
+- ###  bar chart
+
+![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1880.JPG)
+
+- ### special area chart one
+
+![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
+
+- ### special area chart two
+
+![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1874.JPG)
+
+- ### special area chart three
+
+![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
+
+- ### radar chart
+
+![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG)
+
+- ### polar chart
+
+![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG)
+
+- ### pie chart
+
+![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG)
+
+- ### the oval style column chart
+
+![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
+
+- ### bubble chart
+
+![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG)
+
+- ### mixed chart
+
+![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
 
 
 ## Special instructions
@@ -257,61 +306,6 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 };
 
 ```
-## Samples
-
--  line chart
-
-![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
-
--  column chart
-
-![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
-
--  bar chart
-
-![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1880.JPG
-)
-
--  special area chart one 
-
-![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
-
--  special area chart two
-
-![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1874.JPG)
-
-
--  special area chart three
-
-![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
-
--  radar chart
-
-![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG
-)
-
--  polar chart
-
-![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG
-)
--  pie chart
-
-![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG
-)
-
--  the oval style column chart
-
-![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
-
--  bubble chart
-
-![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG
-)
-
--  mixed chart
-
-![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
-
 
 ## AAChartModel:chart attribute list
 ```objective-c

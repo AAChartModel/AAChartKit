@@ -96,6 +96,59 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [_aaChartView aa_refreshChartWithChartModel:chartModel];
 ```
 
+###  `AAChartModel`一些重要属性经过配置之后的图形示例如下
+- ### line chart - 折线图
+
+![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
+- ### column chart - 柱形图
+
+![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
+
+- ### bar chart - 条形图
+
+![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1880.JPG
+)
+
+- ### special area chart one - 区域填充图一
+
+![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
+
+- ### special area chart two - 区域填充图二
+
+![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1874.JPG)
+
+
+- ### special area chart three - 区域填充图三
+
+![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
+
+- ### radar chart - 雷达图
+
+![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG
+)
+
+- ### polar chart - 极地图
+
+![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG
+)
+- ###  pie chart - 扇形图
+
+![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG
+)
+
+- ###  the oval style column chart - 头部为椭圆形的柱形图
+
+![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
+
+- ### bubble chart - 气泡图
+
+![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG
+)
+
+- ### mixed chart - 混合图形
+
+![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1882.JPG)
+
 
 ## 特别说明
 
@@ -261,58 +314,6 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 };
 
 ```
-###  `AAChartModel`一些重要属性经过配置之后的图形示例如下
-- line chart - 折线图
-
-![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
-- column chart - 柱形图
- 
-![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
-
--   bar chart - 条形图
-
-![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1880.JPG
-)
-
--  special area chart one - 区域填充图一
-
-![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
-
--  special area chart two - 区域填充图二
-
-![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1874.JPG)
-
-
--  special area chart three - 区域填充图三
-
-![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
-
--   radar chart - 雷达图
-
-![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG
-)
-
--   polar chart - 极地图
-
-![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG
-)
--   pie chart - 扇形图
-
-![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG
-)
-
-- the oval style column chart - 头部为椭圆形的柱形图
-
-![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
-
-- bubble chart - 气泡图
-
-![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG
-)
-
-- mixed chart - 混合图形
-
-![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1882.JPG)
 
 ### `AAChartModel` 属性配置列表
 ```objective-c
