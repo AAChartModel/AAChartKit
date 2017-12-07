@@ -72,18 +72,20 @@
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel;
 
 /**
+ Function of only refresh the chart data
+ 
+ @param series  Series array of AAChartModel instance object
+ */
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
+
+/**
  Function of refreshing whole chart view content
  
  @param chartModel The instance object of chart model
  */
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;
 
-/**
- Function of only refresh the chart data
- 
- @param series  Series array of AAChartModel instance object
- */
-- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
+
 //***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 
 
@@ -94,6 +96,13 @@
  @param options The instance object of chart options
  */
 - (void)aa_drawChartWithOptions:(AAOptions *)options;
+
+/**
+ Function of only refresh the chart data
+ 
+ @param series Series array of AAOptions instance object
+ */
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series;
     
 /**
  Function of refreshing whole chart view content
@@ -102,12 +111,7 @@
  */
 - (void)aa_refreshChartWithOptions:(AAOptions *)options;
     
-/**
- Function of only refresh the chart data
 
- @param series Series array of AAOptions instance object
- */
-- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series;
 //=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
 

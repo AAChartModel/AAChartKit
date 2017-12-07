@@ -53,7 +53,7 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 ```
 3. 配置视图模型`AAChartModel`
 ```objective-c
-    AAChartModel *chartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
     .titleSet(@"编程语言热度")//设置图表标题
     .subtitleSet(@"虚拟数据")//设置图表副标题
@@ -81,19 +81,19 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 4.  绘制图形(创建 `AAChartView` 实例对象后,首次绘制图形调用此方法)
 ```objective-c
 /*图表视图对象调用图表模型对象,绘制最终图形*/
-[chartView aa_drawChartWithChartModel:chartModel];
+[_aaChartView aa_drawChartWithChartModel:chartModel];
 ```
 
 5.  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
 ```objective-c
 /*仅仅更新 AAChartModel 对象的 series 属性时,动态刷新图表*/
-[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+[_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
 6.  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用`aa_onlyRefreshTheChartDataWithChartModel`方法)
 ```objective-c
 /*更新 AAChartModel 内容之后,刷新图表*/
-[chartView aa_refreshChartWithChartModel:chartModel];
+[_aaChartView aa_refreshChartWithChartModel:chartModel];
 ```
 
 
@@ -199,7 +199,7 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 
 ```
 
-***NOTE:*** 关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 `Demo` 中的`SpecialChartVC.m`文件内容,查看文件内容详情请点击[这里](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/SpecialChartVC.m),您也可以选择下载 `Demo` 后,在  `Xcode` 中查看 ***AAChartKit*** 的`SpecialChartVC.m`内容
+***NOTE:*** 关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 `Demo` 中的`SpecialChartVC.m`文件内容,查看文件内容详情请点击[这里]((https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/SpecialChartVC.m)),您也可以选择下载 `Demo` 后,在  `Xcode` 中查看 ***AAChartKit*** 的`SpecialChartVC.m`内容
   
 ### 当前已支持的图表类型有十种以上,说明如下
 ```objective-c

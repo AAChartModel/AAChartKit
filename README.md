@@ -58,7 +58,7 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 
 
 ```objective-c
-    AAChartModel *chartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
     .subtitleSet(@"Virtual Data")
@@ -86,19 +86,19 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 4. Draw the chart(This method is called only for the first time after you create an AAChartView instance object) 
 ```objective-c
 //The chart view object calls the instance object of AAChartModel and draws the final graphic
-[chartView aa_drawChartWithChartModel:chartModel]; 
+[_aaChartView aa_drawChartWithChartModel:chartModel];
 ```
 
 5. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically)
 ```objective-c
 //Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
-[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+[_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
 6. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
-[chartView aa_refreshChartWithChartModel:chartModel];
+[_aaChartView aa_refreshChartWithChartModel:chartModel];
 ```
 
 
