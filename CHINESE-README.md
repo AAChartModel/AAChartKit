@@ -83,17 +83,19 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 /*图表视图对象调用图表模型对象,绘制最终图形*/
 [chartView aa_drawChartWithChartModel:chartModel];
 ```
-5.  刷新图形(首次绘制图形完成之后,后续刷新均建议调用此方法)
+
+5.  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
+```objective-c
+/*仅仅更新 AAChartModel 对象的 series 属性时,动态刷新图表*/
+[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+```
+
+6.  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用`aa_onlyRefreshTheChartDataWithChartModel`方法)
 ```objective-c
 /*更新 AAChartModel 内容之后,刷新图表*/
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
 
-6.  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
-```objective-c
-/*仅仅更新 AAChartModel 对象的 series 属性时,动态刷新图表*/
-[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
-```
 
 ## 特别说明
 

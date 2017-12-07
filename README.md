@@ -89,17 +89,19 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [chartView aa_drawChartWithChartModel:chartModel]; 
 ```
 
-5. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed) 
+5. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically)
+```objective-c
+//Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
+[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
+```
+
+6. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
 [chartView aa_refreshChartWithChartModel:chartModel];
 ```
 
-6. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically) 
-```objective-c
-//Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
-[chartView aa_onlyRefreshTheChartDataWithChartModel:chartModel];
-```
+
 
 ## Special instructions
 
