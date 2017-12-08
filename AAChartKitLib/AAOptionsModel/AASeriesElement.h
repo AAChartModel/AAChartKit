@@ -27,6 +27,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @class AAMarker;
 
