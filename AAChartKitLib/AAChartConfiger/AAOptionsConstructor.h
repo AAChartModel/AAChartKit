@@ -35,7 +35,7 @@
 #import "AAXAxis.h"
 #import "AAYAxis.h"
 #import "AALabels.h"
-#import "AAToolTip.h"
+#import "AATooltip.h"
 #import "AAPlotOptions.h"
 #import "AAColumn.h"
 #import "AABar.h"
