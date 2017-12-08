@@ -21,6 +21,25 @@ Pod::Spec.new do |s|
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.social_media_url = 'https://github.com/AAChartModel'
     s.source_files = 'AAChartKitLib/**/*.{h,m}'
+
+    pch_AF = <<-EOS
+#define AAObject(objectName) [[objectName alloc]init]
+
+
+#define AAPropStatementAndFuncStatement(propertyModifyWord,className, propertyPointerType, propertyName)                \
+@property(nonatomic,propertyModifyWord)propertyPointerType  propertyName;                                               \
+- (className * (^) (propertyPointerType propertyName)) propertyName##Set;
+
+#define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
+- (className * (^) (propertyPointerType propertyName))propertyName##Set{                                                \
+return ^(propertyPointerType propertyName) {                                                                            \
+self.propertyName = propertyName;                                                                                       \
+return self;                                                                                                            \
+};                                                                                                                      \
+}
+EOS
+    s.prefix_header_contents = pch_AF
+
     s.resource_bundles    = { 'AAChartKitLib' => 'AAChartKitLib/AAJSFiles/**' }
     s.requires_arc = true
     s.ios.frameworks = 'UIKit'
