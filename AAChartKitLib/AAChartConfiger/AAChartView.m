@@ -178,9 +178,21 @@
 }
 
 #pragma mark -- setter method
+- (void)setContentWidth:(CGFloat)contentWidth {
+    _contentWidth = contentWidth;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth(%f)",_contentWidth];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)setContentHeight:(CGFloat)contentHeight {
+    _contentHeight = contentHeight;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight(%f)",_contentHeight];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"chartSeriesContentHideOrShow(%d)",_chartSeriesHidden];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
