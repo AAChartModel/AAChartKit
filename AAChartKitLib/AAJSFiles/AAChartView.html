@@ -89,11 +89,14 @@
                 
                 JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
                 
-                var animation = JavaScriptObject.plotOptions.series.animation;
-                if (animation) {
-                    var animationEasingType = animation.easing;
-                    JavaScriptObject.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
+                if (JavaScriptObject.plotOptions) {
+                    var animation = JavaScriptObject.plotOptions.series.animation;
+                    if (animation) {
+                        var animationEasingType = animation.easing;
+                        JavaScriptObject.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
+                    }
                 }
+                
                 chartMax = Highcharts.chart('container', JavaScriptObject );
             }
         

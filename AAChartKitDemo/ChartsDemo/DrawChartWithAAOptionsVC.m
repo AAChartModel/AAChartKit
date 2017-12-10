@@ -103,7 +103,8 @@
     
    
 /****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
-
+    NSDictionary *chart = @{@"type":@"area"};
+    
     //标题
     NSDictionary *title = @{@"text":@"AAChartKit"};
     
@@ -161,7 +162,10 @@
                             }
                         ];
     
+    NSArray *colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
+    
     AAOptions *options = AAObject(AAOptions);
+    options.chart = (id)chart;
     options.title = (id)title;
     options.subtitle = (id)subtitle;
     options.xAxis = (id)xAxis;
@@ -169,21 +173,23 @@
     options.tooltip = (id)tooltip;
     options.legend = (id)legend;
     options.series = (id)series;
-    
-    
-    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:chartView];
-    [chartView aa_drawChartWithOptions:options];
- 
+    options.colors = colors;
     
 //    AAOptions *options = AAObject(AAOptions)
+//    .chartSet((id)chart)
 //    .titleSet((id)title)
 //    .subtitleSet((id)subtitle)
 //    .xAxisSet((id)xAxis)
 //    .yAxisSet((id)yAxis)
 //    .tooltipSet((id)tooltip)
 //    .legendSet((id)legend)
-//    .seriesSet((id)series);
+//    .seriesSet((id)series)
+//    .colorsSet(colors)
+//    ;
+    
+    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:chartView];
+    [chartView aa_drawChartWithOptions:options];
 
 /****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
     
