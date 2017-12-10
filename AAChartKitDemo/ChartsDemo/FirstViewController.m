@@ -83,13 +83,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc]init];
-    view.backgroundColor = AAGrayColor;
+//    view.backgroundColor = AAGrayColor;
     
     UILabel *label = [[UILabel alloc]init];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:16.0f];
-    label.backgroundColor = AABlueColor;
-    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = AAGrayColor;
+    label.textColor = AABlueColor;
     label.text = self.sectionTypeArr[section];
     [view addSubview:label];
     

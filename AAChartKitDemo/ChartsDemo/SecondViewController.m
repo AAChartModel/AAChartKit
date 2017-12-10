@@ -84,7 +84,8 @@
     CGFloat chartViewHeight = self.view.frame.size.height-250;
     self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
     self.aaChartView.delegate = self;
-    self.aaChartView.contentHeight = self.view.frame.size.height-250;
+//    设置aaChartVie 的内容高度(content height)
+//    self.aaChartView.contentHeight = self.view.frame.size.height-250;
     [self.view addSubview:self.aaChartView];
     
 //    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
