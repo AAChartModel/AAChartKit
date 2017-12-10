@@ -48,7 +48,7 @@ CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
 self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
 //设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
-self.aaChartView.contentHeight = self.view.frame.size.height-250;
+//self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [self.view addSubview:self.aaChartView];
 ```
 3. 配置视图模型`AAChartModel`
@@ -148,6 +148,12 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 - ### mixed chart - 混合图形
 
 ![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1882.JPG)
+
+
+### 更多图形效果
+>>> * 注意:如下的这幅`DEMO演示图`为大小*6M*左右的`GIF动态图`,如未显示动态效果则说明图片资源未全部加载。请耐心等待至图片资源内容完全加载结束后，即可最终观赏更多的项目的动态演示效果.
+
+![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitShow.gif)
 
 
 ## 特别说明
@@ -365,14 +371,6 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);//y 轴�
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
 ```
-
-
-
-### 更多图形效果
->>> * 注意:如下的这幅`DEMO演示图`为大小*6M*左右的`GIF动态图`,如未显示动态效果则说明图片资源未全部加载。请耐心等待至图片资源内容完全加载结束后，即可最终观赏更多的项目的动态演示效果.
-
-![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitShow.gif)
-
 
 ## 作者
 ![](https://avatars1.githubusercontent.com/u/16357599?s=40&v=4)An An

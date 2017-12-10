@@ -51,7 +51,8 @@
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
 self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
-self.aaChartView.contentHeight = self.view.frame.size.height-250;
+// set the content height of aaChartView
+// self.aaChartView.contentHeight = self.view.frame.size.height-250;
 [self.view addSubview:self.aaChartView];
 ```
 3. Configure the properties of chart model:`AAChartModel`                                          
@@ -151,6 +152,12 @@ self.aaChartView.contentHeight = self.view.frame.size.height-250;
 
 ![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
 
+
+## More graphics
+
+>>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully, please be patient to the picture resources before the contents of the fully loaded, then you will finally watch more of the dynamic demonstration of the project results.
+
+![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitShow.gif)
 
 ## Special instructions
 
@@ -357,13 +364,6 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions);
 
 ```
-
-
-## More graphics
-
->>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully, please be patient to the picture resources before the contents of the fully loaded, then you will finally watch more of the dynamic demonstration of the project results.
-
-![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitShow.gif)
 
 
 ## Created By:
