@@ -74,6 +74,7 @@
 		7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172A3E41E763EA6000D5B99 /* LaunchScreen.storyboard */; };
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
+		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +211,8 @@
 		7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartKitUITests.m; sourceTree = "<group>"; };
 		7172A3FD1E763EA6000D5B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
+		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,8 @@
 				27746B1E1F3B0224009354A7 /* DrawChartWithAAOptionsVC.m */,
 				272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */,
 				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
+				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
+				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 			);
 			path = ChartsDemo;
 			sourceTree = "<group>";
@@ -515,7 +520,7 @@
 				TargetAttributes = {
 					7172A3D21E763EA6000D5B99 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BPAYP34L8N;
+						DevelopmentTeam = ZFH3GDB85T;
 						ProvisioningStyle = Automatic;
 					};
 					7172A3EB1E763EA6000D5B99 = {
@@ -644,6 +649,7 @@
 				2707BA991EF7BA47008357AC /* AAJsonConverter.m in Sources */,
 				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
 				2707BAAC1EF7BA47008357AC /* AALine.m in Sources */,
+				92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,7 +798,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BPAYP34L8N;
+				DEVELOPMENT_TEAM = ZFH3GDB85T;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
@@ -807,7 +813,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BPAYP34L8N;
+				DEVELOPMENT_TEAM = ZFH3GDB85T;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;

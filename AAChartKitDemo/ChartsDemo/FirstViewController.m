@@ -35,6 +35,9 @@
 #import "DrilldownChartVC.h"
 #import "ShowManyChartViewVC.h"
 
+#warning revise
+#import "MonitorViewController.h"
+
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 #define AABlueColor            ColorWithRGB(63, 153,231,1)
@@ -56,6 +59,15 @@
     
     
     [self configTheTableView];
+    
+#warning revise
+    // 监听点击入口。
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"监听点击" style:UIBarButtonItemStylePlain target:self action:@selector(monitorTap)];
+}
+#warning revise
+- (void)monitorTap {
+    MonitorViewController *monitorVC = [[MonitorViewController alloc] init];
+    [self.navigationController pushViewController:monitorVC animated:YES];
 }
 
 - (void)configTheTableView {
