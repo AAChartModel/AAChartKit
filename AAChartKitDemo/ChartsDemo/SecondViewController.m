@@ -102,7 +102,9 @@
     .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
                      @"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
+    .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
     .yAxisTitleSet(@"")
+    .tooltipValueSuffixSet(@"℃")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
