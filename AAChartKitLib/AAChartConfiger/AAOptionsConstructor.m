@@ -152,10 +152,6 @@
     .colorsSet(chartModel.colorsTheme)//设置颜色主题
     .gradientColorEnableSet(chartModel.gradientColorEnable);//设置主题颜色是否为渐变色
     
-//    + (nullable NSData *)dataWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError **)error;
-
-//NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:options options:NSJSONReadingMutableLeaves error:nil];
-    
     //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
     return options;
 }
@@ -207,24 +203,31 @@
     
     //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
-        plotOptions.columnSet(AAObject(AAColumn)
-                              .pointPaddingSet(@0.2)
-                              .borderWidthSet(@0)
-                              .borderRadiusSet(chartModel.borderRadius)
-                              .dataLabelsSet(AAObject(AADataLabels)
-                                             .enabledSet(chartModel.dataLabelEnabled)
-                                             )
-                              );
+        AAColumn *column = (AAObject(AAColumn)
+                            .borderWidthSet(@0)
+                            .borderRadiusSet(chartModel.borderRadius)
+                            .dataLabelsSet(AAObject(AADataLabels)
+                                           .enabledSet(chartModel.dataLabelEnabled)
+                                           )
+                            );
+        if (chartModel.polar == YES) {
+            column.pointPaddingSet(@0)
+            .groupPaddingSet(@0.005);
+        }
+        plotOptions.columnSet(column);
     } else if ([chartModel.chartType isEqualToString:AAChartTypeBar]) {
-        plotOptions.barSet(AAObject(AABar)
-                           .pointPaddingSet(@0.2)
-                           .borderWidthSet(@0)
-                           .colorByPointSet(false)
-                           .borderRadiusSet(chartModel.borderRadius)
-                           .dataLabelsSet(AAObject(AADataLabels)
-                                          .enabledSet(chartModel.dataLabelEnabled)
-                                          )
-                           );
+        AABar *bar = (AAObject(AABar)
+                      .borderWidthSet(@0)
+                      .borderRadiusSet(chartModel.borderRadius)
+                      .dataLabelsSet(AAObject(AADataLabels)
+                                     .enabledSet(chartModel.dataLabelEnabled)
+                                     )
+                      );
+        if (chartModel.polar == YES) {
+            bar.pointPaddingSet(@0)
+            .groupPaddingSet(@0.005);
+        }
+        plotOptions.barSet(bar);
     } else if ([chartModel.chartType isEqualToString:AAChartTypeArea]) {
         plotOptions.areaSet(AAObject(AAArea)
                             .dataLabelsSet(AAObject(AADataLabels)

@@ -31,6 +31,7 @@
 @implementation AAColumn
 
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPadding);
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     groupPadding);
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderWidth);
 AAPropSetFuncImplementation(AAColumn, BOOL ,          colorByPoint);
 AAPropSetFuncImplementation(AAColumn, AADataLabels *, dataLabels);
