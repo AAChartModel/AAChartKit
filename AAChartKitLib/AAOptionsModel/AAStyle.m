@@ -37,7 +37,7 @@
         self.color = @"#ffffff";
         self.fontSize = @"11px";
         self.fontWeight = @"bold";
-        self.textOutline = @"1px 1px contrast";
+//        self.textOutline = @"1px 1px contrast";
     }
     return self;
 }
@@ -45,6 +45,6 @@
 AAPropSetFuncImplementation(AAStyle, NSString *, color);
 AAPropSetFuncImplementation(AAStyle, NSString *, fontSize);
 AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight);
-AAPropSetFuncImplementation(AAStyle, NSString *, textOutline);
+//AAPropSetFuncImplementation(AAStyle, NSString *, textOutline);
 
 @end
