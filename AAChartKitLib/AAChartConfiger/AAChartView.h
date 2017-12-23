@@ -53,14 +53,19 @@
 @property (nonatomic, assign) CGFloat  contentHeight;
 
 /**
+Set the chart view can scroll or not
+ */
+@property (nonatomic, assign) BOOL scrollEnabled;
+
+/**
  Hide chart series content or not
  */
-@property (nonatomic, assign) BOOL     chartSeriesHidden;
+@property (nonatomic, assign) BOOL chartSeriesHidden;
 
 /**
  Set the chart view background color be clear
  */
-@property (nonatomic, assign) BOOL     isClearBackgroundColor;
+@property (nonatomic, assign) BOOL isClearBackgroundColor;
 
 
 //***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//

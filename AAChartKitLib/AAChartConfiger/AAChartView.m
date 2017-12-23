@@ -236,6 +236,15 @@
     }
 }
 
+- (void)setScrollEnabled:(BOOL)scrollEnabled {
+    _scrollEnabled = scrollEnabled;
+    if (AASYSTEM_VERSION >= 9.0) {
+        _wkWebView.scrollView.scrollEnabled = _scrollEnabled;
+    } else {
+        _uiWebView.scrollView.scrollEnabled = _scrollEnabled;
+    }
+}
+
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
     if (_optionJson) {
