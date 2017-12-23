@@ -301,16 +301,6 @@
             return animationObject[easingType];
         }
         //pragma mark -- setter method
-        function setTheChartViewContentWidth (receivedWidth) {
-            var container = document.getElementById('container');//获得元素
-            container.style.width = receivedWidth;//设置宽度
-        }
-        
-        function setTheChartViewContentHeight (receivedHeight) {
-            var container = document.getElementById('container');//获得元素
-            container.style.height = receivedHeight;//设置高度
-        }
-        
         function setChartSeriesHidden (hidden) {
             for (var i = 0; i < chartMax.series.length; i++) {
                 var series = chartMax.series[i];
