@@ -82,7 +82,10 @@
     
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat chartViewHeight = self.view.frame.size.height-250;
-    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
+//    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
+        self.aaChartView = [[AAChartView alloc]init];
+    self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+
     self.aaChartView.delegate = self;
 //    设置aaChartVie 的内容高度(content height)
 //    self.aaChartView.contentHeight = self.view.frame.size.height-250;
@@ -92,14 +95,12 @@
 //    self.aaChartView.isClearBackgroundColor = YES;
 //    self.view.backgroundColor = [UIColor blueColor];
     
-    
-    
-    
 
     self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)
     .titleSet(@"")
     .subtitleSet(@"")
+    .borderRadiusSet(@5)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
                      @"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
@@ -108,19 +109,19 @@
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
-                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
-                 
+                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
-                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
-                 
+                 .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+
                  AAObject(AASeriesElement)
                  .nameSet(@"2019")
-                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
-                 
+                 .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+
                  AAObject(AASeriesElement)
                  .nameSet(@"2020")
-                 .dataSet(@[@21,@22,@24,@27,@25,@26,@37,@28,@49,@56,@31,@11]),
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ]
                )
     /**
@@ -161,8 +162,11 @@
     //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
-    if ([chartType isEqualToString:AAChartTypeLine]
-        || [chartType isEqualToString:AAChartTypeSpline]) {
+    if ([_aaChartModel.chartType isEqualToString:AAChartTypeColumn]
+        || [_aaChartModel.chartType isEqualToString:AAChartTypeBar]) {
+        self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight+40);
+    } else if ([chartType isEqualToString:AAChartTypeLine]
+               || [chartType isEqualToString:AAChartTypeSpline]) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
     } else if ([chartType isEqualToString:AAChartTypeArea]
                || [chartType isEqualToString:AAChartTypeAreaspline]) {
@@ -190,27 +194,41 @@
 
 #pragma mark -- AAChartView delegate
 -(void)AAChartViewDidFinishLoad {
-    NSLog(@"😊😊😊图表视图已完成加载");
+    NSLog(@"😊😊😊 AAChartView content did finish load!!!");
 }
 
 - (void)configureTheSegmentedControls{
-    NSArray *segmentedArray = @[@[@"常规",@"堆叠",@"百分比堆叠"],
-                                @[@"波点",@"方块",@"钻石",@"正三角",@"倒三角"]
-                                ];
     
-    NSArray *typeLabelNameArr = @[@"堆叠类型选择",@"折线连接点形状选择"];
+    NSArray *segmentedArray;
+    NSArray *typeLabelNameArr;
+    CGFloat segmentedControlFrameY;
+    
+    if (self.chartType == SecondeViewControllerChartTypeColumn
+        ||self.chartType == SecondeViewControllerChartTypeBar) {
+        segmentedArray = @[@[@"No stacking",@"Normal stacking",@"Percent stacking"],
+                           ];
+        typeLabelNameArr = @[@"Stacking type selection",];
+        segmentedControlFrameY = 40;
+    } else {
+        segmentedArray = @[@[@"No stacking",@"Normal stacking",@"Percent stacking"],
+                           @[@"Circle",@"Square",@"Diamond",@"Triangle",@"Triangle-down"]
+                           ];
+        typeLabelNameArr = @[@"Stacking type selection",@"Chart symbol type selection"];
+        segmentedControlFrameY = 0;
+    }
     
     for (int i=0; i<segmentedArray.count; i++) {
         
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
-        segmentedControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
+        segmentedControl.frame = CGRectMake(20, segmentedControlFrameY+40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
+        segmentedControl.tintColor = [UIColor redColor];
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
         [segmentedControl addTarget:self action:@selector(customsegmentedControlCellValueBeChanged:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:segmentedControl];
         
         UILabel *typeLabel = [[UILabel alloc]init];
-        typeLabel.frame =CGRectMake(20, 40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
+        typeLabel.frame =CGRectMake(20, segmentedControlFrameY+40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
         typeLabel.text = typeLabelNameArr[i];
         typeLabel.font = [UIFont systemFontOfSize:11.0f];
         [self.view addSubview:typeLabel];
@@ -246,29 +264,36 @@
 }
 
 - (void)refreshTheChartView {
-    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];//random colors theme, Just for fun!!!
+//    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];//random colors theme, Just for fun!!!
     [self.aaChartView aa_refreshChartWithChartModel:self.aaChartModel];
 }
 
 - (void)configureTheSwitchs {
-    NSArray *nameArr = @[@"x轴翻转",@"y轴翻转",@"x 轴直立",@"辐射化图形",@"隐藏连接点",@"显示数字"];
-    CGFloat switchWidth = (self.view.frame.size.width-40)/6;
+    NSArray *nameArr;
+    if (self.chartType == SecondeViewControllerChartTypeColumn
+        ||self.chartType == SecondeViewControllerChartTypeBar) {
+        nameArr = @[@"xAxisReversed",@"yAxisReversed",@"xAxisInverted",@"Polarization",@"DataLabelShow",];
+    } else {
+        nameArr = @[@"xAxisReversed",@"yAxisReversed",@"xAxisInverted",@"Polarization",@"DataShow",@"HideMarker"];
+    }
+    CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
     
     for (int i=0; i<nameArr.count; i++) {
         
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
+//        switchView.backgroundColor = [UIColor blueColor];
+        switchView.onTintColor = [UIColor colorWithRed:0/255 green:191/255 blue:255/255 alpha:0.6];
         switchView.on = NO;
         switchView.tag = i;
         [switchView addTarget:self action:@selector(switchViewClicked:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:switchView];
         
         UILabel *label = [[UILabel alloc]init];
-        label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 0;
         label.frame = CGRectMake(switchWidth*i+20,  self.view.frame.size.height-40, switchWidth, 40);
         label.text = nameArr[i];
-        label.font = [UIFont systemFontOfSize:10.0f];
+        label.font = [UIFont systemFontOfSize:8.0f];
         [self.view addSubview:label];
     }
 }
@@ -288,10 +313,10 @@
             self.aaChartModel.polar = switchView.on;
             break;
         case 4:
-            self.aaChartModel.markerRadius = switchView.on?@0:@5;
+            self.aaChartModel.dataLabelEnabled = switchView.on;
             break;
         case 5:
-            self.aaChartModel.dataLabelEnabled = switchView.on;
+            self.aaChartModel.markerRadius = switchView.on?@0:@5;
             break;
         default:
             break;

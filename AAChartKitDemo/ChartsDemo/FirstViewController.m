@@ -246,13 +246,13 @@
 
 - (NSArray *)sectionTypeArr {
     if (!_sectionTypeArr) {
-        _sectionTypeArr = @[@"Basic Type---基础类型",
-                            @"Special Type---特别类型",
-                            @"Drilldown chart---钻取图表",
-                            @"Real-time Refresh---即时刷新",
-                            @"Animation Type---动画相关",
-                            @"Draw chart with AAOptions---AAOptions实例对象绘制图形",
-                            @"同时显示多个 AAChartView"];
+        _sectionTypeArr = @[@"---Basic Type---基础类型---",
+                            @"---Special Type---特别类型---",
+                            @"---Drilldown chart---钻取图表---",
+                            @"---Real-time Refresh---即时刷新---",
+                            @"---Animation Type---动画相关---",
+                            @"---Draw chart with AAOptions---AAOptions实例对象绘制图形---",
+                            @"---同时显示多个 AAChartView---"];
     }
     return _sectionTypeArr;
 }
