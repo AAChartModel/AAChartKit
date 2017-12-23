@@ -224,20 +224,24 @@
 #pragma mark -- setter method
 - (void)setContentWidth:(CGFloat)contentWidth {
     _contentWidth = contentWidth;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth(%f)",_contentWidth];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    if (_optionJson) {
+        [self drawChart];
+    }
 }
 
 - (void)setContentHeight:(CGFloat)contentHeight {
     _contentHeight = contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight(%f)",_contentHeight];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    if (_optionJson) {
+        [self drawChart];
+    }
 }
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    if (_optionJson) {
+        NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
+        [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    }
 }
 
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
