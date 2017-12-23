@@ -56,28 +56,72 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+        [self setUpBasicWebView];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
         [self setUpBasicWebView];
     }
     return self;
 }
 
 - (void)setUpBasicWebView {
+    self.backgroundColor = [UIColor whiteColor];
+
     if (AASYSTEM_VERSION >= 9.0) {
         _wkWebView = [[WKWebView alloc] init];
-        _wkWebView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         _wkWebView.navigationDelegate = self;
         _wkWebView.backgroundColor = [UIColor whiteColor];
 //        _wkWebView.scrollView.bounces = NO;
         [self addSubview:_wkWebView];
+        _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
     } else {
         _uiWebView = [[UIWebView alloc] init];
-        _uiWebView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         _uiWebView.delegate = self;
         _uiWebView.backgroundColor = [UIColor whiteColor];
 //        _uiWebView.scrollView.bounces = NO;
         [self addSubview:_uiWebView];
+        _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
     }
+}
+
+- (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView{
+    return  @[[NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeLeft
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeLeft
+                                          multiplier:1.0
+                                            constant:0],
+              [NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeRight
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeRight
+                                          multiplier:1.0
+                                            constant:0],
+              [NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeTop
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeTop
+                                          multiplier:1.0
+                                            constant:0],
+              [NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeBottom
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeBottom
+                                          multiplier:1.0
+                                            constant:0],
+              
+              ];
 }
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
