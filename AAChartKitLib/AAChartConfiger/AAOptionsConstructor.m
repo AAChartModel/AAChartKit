@@ -83,7 +83,8 @@
     .gridLineWidthSet(chartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)
               .textSet(chartModel.yAxisTitle))//y 轴标题
-    .lineWidthSet(@0);
+    .lineWidthSet(@0)
+    .visibleSet(chartModel.yAxisVisible);
     
     AATooltip *tooltip = AAObject(AATooltip)
     .enabledSet(true)//启用浮动提示框

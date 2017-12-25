@@ -46,5 +46,7 @@ AAPropStatementAndFuncStatement(assign, AAYAxis, BOOL,       allowDecimals); //y
 AAPropStatementAndFuncStatement(assign, AAYAxis, NSNumber *, max); //y轴最大值
 AAPropStatementAndFuncStatement(assign, AAYAxis, NSNumber *, min); //y轴最小值（设置为0就不会有负数）
 AAPropStatementAndFuncStatement(strong, AAYAxis, NSArray  *, tickPositions);//自定义Y轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropStatementAndFuncStatement(assign, AAYAxis, BOOL,       visible); //y轴是否允许显示
+
 
 @end

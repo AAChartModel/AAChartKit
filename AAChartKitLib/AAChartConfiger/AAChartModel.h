@@ -138,6 +138,7 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEna
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y 轴标题
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
