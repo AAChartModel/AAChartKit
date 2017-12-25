@@ -49,6 +49,7 @@
         self.tooltipCrosshairs   = YES;
         self.xAxisLabelsEnabled  = YES;
         self.xAxisGridLineWidth  = @0;
+        self.xAxisVisible        = YES;
         self.yAxisLabelsEnabled  = YES;
         self.yAxisGridLineWidth  = @1;
         self.legendEnabled       = YES;
@@ -81,6 +82,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
+AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y 轴标题
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度

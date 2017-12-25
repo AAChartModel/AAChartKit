@@ -67,7 +67,8 @@
                )
     .reversedSet(chartModel.xAxisReversed)
     .gridLineWidthSet(chartModel.xAxisGridLineWidth)//x轴网格线宽度
-    .categoriesSet(chartModel.categories);
+    .categoriesSet(chartModel.categories)
+    .visibleSet(chartModel.xAxisVisible);
     
     AAYAxis *yAxis = AAObject(AAYAxis)
     .labelsSet(AAObject(AALabels)

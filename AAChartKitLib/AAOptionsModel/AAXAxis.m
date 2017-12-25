@@ -25,15 +25,16 @@
  * -------------------------------------------------------------------------------
  
  */
-
 #import "AAXAxis.h"
 
 @implementation AAXAxis
 
-AAPropSetFuncImplementation(AAXAxis, id,         categories);
+AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories);
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      reversed);
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth);
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor);
 AAPropSetFuncImplementation(AAXAxis, AALabels *, labels);
+AAPropSetFuncImplementation(AAXAxis, BOOL ,      visible);
+
 
 @end
