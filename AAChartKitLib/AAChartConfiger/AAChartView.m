@@ -61,8 +61,8 @@
     return self;
 }
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
         [self setUpBasicWebView];
     }
