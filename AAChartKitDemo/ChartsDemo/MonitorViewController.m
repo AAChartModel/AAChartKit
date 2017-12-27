@@ -63,14 +63,6 @@
                  ]
                );
     
-    if ([chartType isEqualToString:AAChartTypeLine]
-        || [chartType isEqualToString:AAChartTypeSpline]) {
-        _aaChartModel.symbol = AAChartSymbolTypeCircle;
-    } else if ([chartType isEqualToString:AAChartTypeArea]
-               || [chartType isEqualToString:AAChartTypeAreaspline]) {
-        _aaChartModel.symbol = AAChartSymbolTypeSquare;
-    }
-    
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
     
 }
@@ -95,7 +87,7 @@
      for (int i=0; i<PostNum; i++) {
          if((gesturePoint.x + _monitorScrollView.contentOffset.x) >= (postWidth*i + 40) &&
             (gesturePoint.x + _monitorScrollView.contentOffset.x) <= (postWidth*(i+1) + 40)){
-             NSLog(@"点击了第%d行柱", i+1);
+             NSLog(@"🖱点击了第%d行柱", i+1);
          }
      }
  }
