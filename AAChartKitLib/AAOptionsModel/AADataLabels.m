@@ -30,6 +30,19 @@
 
 @implementation AADataLabels
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        NSDictionary *styleDic = @{@"color": @"contrast",
+                                   @"fontSize": @"12.5px",
+                                   @"fontWeight": @"bold",
+                                   @"textOutline": @"1px 1px contrast" };
+        self.style = (id)styleDic;
+    }
+    
+    return self;
+}
+
 AAPropSetFuncImplementation(AADataLabels, BOOL,       enabled);
 AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style);
 AAPropSetFuncImplementation(AADataLabels, NSString *, format);
