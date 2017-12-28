@@ -39,5 +39,6 @@ AAPropStatementAndFuncStatement(strong, AAPlotOptions, AASpline     *, spline);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AASeries     *, series);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AAArea       *, area);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline);
+AAPropStatementAndFuncStatement(strong, AAPlotOptions, NSObject     *, columnrange);
 
 @end

@@ -261,19 +261,18 @@
                            .dataLabelsSet(AAObject(AADataLabels)
                                           .enabledSet(chartModel.dataLabelEnabled)
                                           .formatSet(@"{point.percentage:.1f}%")
-                                          .styleSet(AAObject(AAStyle)
-                                                    .colorSet(@"black")
-                                                    )
                                           )
                            .showInLegendSet(true)
                            );
         
-        if (chartModel.options3dEnable ==true) {
+        if (chartModel.options3dEnable == true) {
             plotOptions.pie.depth = chartModel.options3dDepth;//设置3d 图形阴影深度
         }
         //      plotOptions.series.colorByPoint = true;
+    } else if ([chartModel.chartType isEqualToString:AAChartTypeColumnrange]) {
+        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0,@"colorByPoint":@(false)};
+        plotOptions.columnrangeSet(columnrangeDic);
     }
-    
     return plotOptions;
 }
 

@@ -38,5 +38,7 @@ AAPropSetFuncImplementation(AAPlotOptions, AASpline     *, spline);
 AAPropSetFuncImplementation(AAPlotOptions, AASeries     *, series);
 AAPropSetFuncImplementation(AAPlotOptions, AAArea       *, area);
 AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline *, areaspline);
+AAPropSetFuncImplementation(AAPlotOptions, NSObject     *, columnrange);
+
 
 @end

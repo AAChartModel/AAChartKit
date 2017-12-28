@@ -89,6 +89,8 @@
         _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
     }
+    
+    self.scrollEnabled = NO;
 }
 
 - (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView{
