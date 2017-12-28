@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeStepLine,
     SpecialChartVCChartTypeStepArea,
     SpecialChartVCChartTypeMixed,
+    SpecialChartVCChartTypeNightingaleRoseChart,
 };
 
 @interface SpecialChartVC : UIViewController

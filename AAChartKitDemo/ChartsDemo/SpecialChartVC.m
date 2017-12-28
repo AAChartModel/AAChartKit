@@ -80,6 +80,12 @@
             chartType = @"mixed";
             break;
             
+        case SpecialChartVCChartTypeNightingaleRoseChart:
+            chartType = @"NightingaleRoseChart";
+            break;
+            
+            
+            
             
         default:
             break;
@@ -990,6 +996,30 @@
                      .typeSet(AAChartTypeLine)
                      .nameSet(@"伦敦")
                      .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+                     ]
+                   )
+        ;
+        
+        return aaChartModel;
+        
+    } else if ([chartType isEqualToString:@"NightingaleRoseChart"]) {
+    
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        .titleSet(@"南丁格尔玫瑰图")
+        .subtitleSet(@"极地图中的一种")
+        .yAxisTitleSet(@"cm")
+        .chartTypeSet(AAChartTypeColumn)
+        .xAxisVisibleSet(true)//是否显示最外一层圆环
+        .yAxisVisibleSet(false)//是否显示中间的多个圆环
+        .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
+        .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+        .dataLabelEnabledSet(true)
+        .polarSet(true)//极地化图形
+        .colorsThemeSet(@[@"#c85dec",@"#e9a8ff",@"#de4770",@"#f56991",@"#ff9f80",@"#ffc48c",@"#effab4",@"#d1f2a5"])
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"东京")
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2,@26.5, @23.3, @18.3, @13.9, @9.6 ]),
                      ]
                    )
         ;
