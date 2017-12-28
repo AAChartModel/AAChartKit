@@ -202,64 +202,55 @@
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
                                                  chartModel:(AAChartModel *)chartModel {
-    
+    AAChartType chartType = chartModel.chartType;
+    AADataLabels *dataLabels = (AAObject(AADataLabels)
+                                .enabledSet(chartModel.dataLabelEnabled)
+                                );
     //数据点标记相关配置，只有线性图才有数据点标记
-    if ([chartModel.chartType isEqualToString:AAChartTypeColumn]) {
+    if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *column = (AAObject(AAColumn)
                             .borderWidthSet(@0)
                             .borderRadiusSet(chartModel.borderRadius)
-                            .dataLabelsSet(AAObject(AADataLabels)
-                                           .enabledSet(chartModel.dataLabelEnabled)
-                                           )
+                            .dataLabelsSet(dataLabels)
                             );
         if (chartModel.polar == YES) {
             column.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
         plotOptions.columnSet(column);
-    } else if ([chartModel.chartType isEqualToString:AAChartTypeBar]) {
+    } else if ([chartType isEqualToString:AAChartTypeBar]) {
         AABar *bar = (AAObject(AABar)
                       .borderWidthSet(@0)
                       .borderRadiusSet(chartModel.borderRadius)
-                      .dataLabelsSet(AAObject(AADataLabels)
-                                     .enabledSet(chartModel.dataLabelEnabled)
-                                     )
+                      .dataLabelsSet(dataLabels)
                       );
         if (chartModel.polar == YES) {
             bar.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
         plotOptions.barSet(bar);
-    } else if ([chartModel.chartType isEqualToString:AAChartTypeArea]) {
+    } else if ([chartType isEqualToString:AAChartTypeArea]) {
         plotOptions.areaSet(AAObject(AAArea)
-                            .dataLabelsSet(AAObject(AADataLabels)
-                                           .enabledSet(chartModel.dataLabelEnabled)
-                                           )
+                            .dataLabelsSet(dataLabels)
                             );
-    } else if ([chartModel.chartType isEqualToString:AAChartTypeAreaspline]) {
+    } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
         plotOptions.areasplineSet(AAObject(AAAreaspline)
-                                  .dataLabelsSet(AAObject(AADataLabels)
-                                                 .enabledSet(chartModel.dataLabelEnabled)
-                                                 )
+                                  .dataLabelsSet(dataLabels)
                                   );
-    } else if ([chartModel.chartType isEqualToString:AAChartTypeLine]) {
+    } else if ([chartType isEqualToString:AAChartTypeLine]) {
         plotOptions.lineSet(AAObject(AALine)
-                            .dataLabelsSet(AAObject(AADataLabels)
-                                           .enabledSet(chartModel.dataLabelEnabled)
-                                           )
+                            .dataLabelsSet(dataLabels)
                             );
-    } else if ([chartModel.chartType isEqualToString:AAChartTypeSpline]) {
+    } else if ([chartType isEqualToString:AAChartTypeSpline]) {
         plotOptions.splineSet(AAObject(AASpline)
-                              .dataLabelsSet(AAObject(AADataLabels)
-                                             .enabledSet(chartModel.dataLabelEnabled))
+                              .dataLabelsSet(dataLabels)
                               );
         
-    } else if ([chartModel.chartType isEqualToString:AAChartTypePie]) {
+    } else if ([chartType isEqualToString:AAChartTypePie]) {
         plotOptions.pieSet(AAObject(AAPie)
                            .allowPointSelectSet(true)
                            .cursorSet(@"pointer")
-                           .dataLabelsSet(AAObject(AADataLabels)
-                                          .enabledSet(chartModel.dataLabelEnabled)
+                           .dataLabelsSet(dataLabels
                                           .formatSet(@"{point.percentage:.1f}%")
                                           )
                            .showInLegendSet(true)
@@ -269,7 +260,7 @@
             plotOptions.pie.depth = chartModel.options3dDepth;//设置3d 图形阴影深度
         }
         //      plotOptions.series.colorByPoint = true;
-    } else if ([chartModel.chartType isEqualToString:AAChartTypeColumnrange]) {
+    } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0,@"colorByPoint":@(false)};
         plotOptions.columnrangeSet(columnrangeDic);
     }

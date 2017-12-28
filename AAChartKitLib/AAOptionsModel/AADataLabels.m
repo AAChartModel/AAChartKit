@@ -34,7 +34,7 @@
     self = [super init];
     if (self) {
         NSDictionary *styleDic = @{@"color": @"contrast",
-                                   @"fontSize": @"12.5px",
+                                   @"fontSize": @"10.5px",
                                    @"fontWeight": @"bold",
                                    @"textOutline": @"1px 1px contrast" };
         self.style = (id)styleDic;
