@@ -162,8 +162,8 @@
     //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
-    if ([_aaChartModel.chartType isEqualToString:AAChartTypeColumn]
-        || [_aaChartModel.chartType isEqualToString:AAChartTypeBar]) {
+    if ([chartType isEqualToString:AAChartTypeColumn]
+        || [chartType isEqualToString:AAChartTypeBar]) {
         self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight+40);
     } else if ([chartType isEqualToString:AAChartTypeLine]
                || [chartType isEqualToString:AAChartTypeSpline]) {

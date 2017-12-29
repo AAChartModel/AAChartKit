@@ -109,4 +109,5 @@ AAPropSetFuncImplementation(AAChartModel, NSArray  *, yPlotLines);//y 轴基线�
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yMax);//y 轴最大值
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yMin);//y 轴最小值（设置为0就不会有负数）
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+
 @end

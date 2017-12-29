@@ -62,7 +62,7 @@
     
 #warning revise
     // 监听点击入口。
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"监听点击" style:UIBarButtonItemStylePlain target:self action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Touch Delegate" style:UIBarButtonItemStylePlain target:self action:@selector(monitorTap)];
 }
 #warning revise
 - (void)monitorTap {
