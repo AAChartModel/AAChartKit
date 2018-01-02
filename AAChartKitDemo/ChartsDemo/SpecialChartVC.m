@@ -159,6 +159,8 @@
     } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
+        .gradientColorEnableSet(true)
+//        .dataLabelEnabledSet(true)
         .titleSet(@"带有负数的区域填充图")
         .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")

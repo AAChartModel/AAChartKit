@@ -66,8 +66,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.chartView];
     
+    NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeLine,AAChartTypeSpline,];
+    
     self.chartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeArea)
+    .chartTypeSet(chartTypeArr[arc4random()%6])
     //    .invertedSet(true)//x 轴是否垂直
     //    .xAxisReversedSet(true)//x 轴是否翻转
     //    .yAxisReversedSet(true)//y 轴是否翻转

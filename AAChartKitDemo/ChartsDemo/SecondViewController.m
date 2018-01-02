@@ -165,12 +165,13 @@
     if ([chartType isEqualToString:AAChartTypeColumn]
         || [chartType isEqualToString:AAChartTypeBar]) {
         self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight+40);
-    } else if ([chartType isEqualToString:AAChartTypeLine]
-               || [chartType isEqualToString:AAChartTypeSpline]) {
-        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
     } else if ([chartType isEqualToString:AAChartTypeArea]
                || [chartType isEqualToString:AAChartTypeAreaspline]) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
+        _aaChartModel.gradientColorEnable = true;
+    } else if ([chartType isEqualToString:AAChartTypeLine]
+               || [chartType isEqualToString:AAChartTypeSpline]) {
+        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
     }
     
     //是否起用渐变色功能

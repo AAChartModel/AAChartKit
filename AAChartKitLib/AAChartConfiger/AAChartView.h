@@ -43,6 +43,11 @@
 @property (nonatomic, weak)   id<AAChartViewDidFinishLoadDelegate> delegate;
 
 /**
+ Set the chart view can scroll or not
+ */
+@property (nonatomic, assign) BOOL scrollEnabled;
+
+/**
  Content width of AAChartView
  */
 @property (nonatomic, assign) CGFloat  contentWidth;
@@ -51,11 +56,6 @@
  Content height of AAChartView
  */
 @property (nonatomic, assign) CGFloat  contentHeight;
-
-/**
-Set the chart view can scroll or not
- */
-@property (nonatomic, assign) BOOL scrollEnabled;
 
 /**
  Hide chart series content or not

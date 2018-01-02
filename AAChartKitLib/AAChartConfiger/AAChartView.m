@@ -76,7 +76,6 @@
         _wkWebView = [[WKWebView alloc] init];
         _wkWebView.navigationDelegate = self;
         _wkWebView.backgroundColor = [UIColor whiteColor];
-//        _wkWebView.scrollView.bounces = NO;
         [self addSubview:_wkWebView];
         _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
@@ -84,7 +83,6 @@
         _uiWebView = [[UIWebView alloc] init];
         _uiWebView.delegate = self;
         _uiWebView.backgroundColor = [UIColor whiteColor];
-//        _uiWebView.scrollView.bounces = NO;
         [self addSubview:_uiWebView];
         _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
@@ -224,20 +222,6 @@
 }
 
 #pragma mark -- setter method
-- (void)setContentWidth:(CGFloat)contentWidth {
-    _contentWidth = contentWidth;
-    if (_optionJson) {
-        [self drawChart];
-    }
-}
-
-- (void)setContentHeight:(CGFloat)contentHeight {
-    _contentHeight = contentHeight;
-    if (_optionJson) {
-        [self drawChart];
-    }
-}
-
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
     if (AASYSTEM_VERSION >= 9.0) {
@@ -247,11 +231,27 @@
     }
 }
 
+- (void)setContentWidth:(CGFloat)contentWidth {
+    _contentWidth = contentWidth;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth(%f)",_contentWidth];
+    [self evaluateJavaScriptWithSetterMethodNameString:javaScriptStr];
+}
+
+- (void)setContentHeight:(CGFloat)contentHeight {
+    _contentHeight = contentHeight;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight(%f)",_contentHeight];
+    [self evaluateJavaScriptWithSetterMethodNameString:javaScriptStr];
+}
+
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
-    if (_optionJson) {
         NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
-        [self evaluateJavaScriptWithFunctionNameString:jsStr];
+        [self evaluateJavaScriptWithSetterMethodNameString:jsStr];
+}
+
+- (void)evaluateJavaScriptWithSetterMethodNameString:(NSString *)JSFunctionStr {
+    if (_optionJson) {
+          [self evaluateJavaScriptWithFunctionNameString:JSFunctionStr];
     }
 }
 

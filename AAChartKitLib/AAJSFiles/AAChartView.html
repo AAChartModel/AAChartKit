@@ -80,7 +80,7 @@
                                                                     linearGradient:  { x1: 0, y1: 0, x2: 0, y2: 1},
                                                                     stops: [
                                                                             [0, color],
-                                                                            [1, Highcharts.Color(color).setOpacity(0.3).get('rgba')]
+                                                                            [1, Highcharts.Color(color).setOpacity(0.6).get('rgba')]
                                                                             ]
                                                                     };
                                                                     });
@@ -301,6 +301,18 @@
             return animationObject[easingType];
         }
         //pragma mark -- setter method
+        function setTheChartViewContentWidth (receivedWidth) {
+            var container = document.getElementById('container');//获得元素
+            container.style.width = receivedWidth;//设置宽度
+            chartMax.reflow();
+        }
+        
+        function setTheChartViewContentHeight (receivedHeight) {
+            var container = document.getElementById('container');//获得元素
+            container.style.height = receivedHeight;//设置高度
+            chartMax.reflow();
+        }
+        
         function setChartSeriesHidden (hidden) {
             for (var i = 0; i < chartMax.series.length; i++) {
                 var series = chartMax.series[i];
