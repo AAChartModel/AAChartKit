@@ -19,7 +19,7 @@
 
 ## Preface
 
- ***AAChartKit*** is object-oriented, a set of easy-to-use, extremely elegant graphics drawing controls,based on the popular open source front-end chart library *Highcharts*.
+ ***AAChartKit***is the Objective-C language version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which  is object-oriented, a set of easy-to-use, extremely elegant graphics drawing controls,based on the popular open source front-end chart library *Highcharts*.
  
 ***
 ## Features
@@ -28,7 +28,7 @@
 2.  Powerful,support the  `column chart`、`bar chart`、`area chart`、`areaspline chart`、`line chart`、`spline chart`、`radar chart`、`polar chart`、`pie chart`、`bubble chart`、`pyramid chart`、`funnel chart`、`columnrange chart`and other graphics.
 3. Interactive、animated,the `animation` effect is exquisite 、delicate、 smooth and beautiful.
 4. Support `chain programming syntax` like *Masonry* 
-5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  
+5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  Just like the another powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
  
 
