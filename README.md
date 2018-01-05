@@ -19,7 +19,7 @@
 
 ## Preface
 
- ***AAChartKit***is the Objective-C language version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which  is object-oriented, a set of easy-to-use, extremely elegant graphics drawing controls,based on the popular open source front-end chart library *Highcharts*.
+ ***AAChartKit*** is the `Objective-C` language version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which  is object-oriented, a set of easy-to-use, extremely elegant graphics drawing controls,based on the popular open source front-end chart library *Highcharts*.
  
 ***
 ## Features

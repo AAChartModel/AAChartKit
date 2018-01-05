@@ -210,7 +210,7 @@
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *column = (AAObject(AAColumn)
                             .borderWidthSet(@0)
-                            .groupPaddingSet(@0.1)
+//                            .groupPaddingSet(@0.1)
                             .borderRadiusSet(chartModel.borderRadius)
                             .dataLabelsSet(dataLabels)
                             );
@@ -222,7 +222,7 @@
     } else if ([chartType isEqualToString:AAChartTypeBar]) {
         AABar *bar = (AAObject(AABar)
                       .borderWidthSet(@0)
-                      .groupPaddingSet(@0.1)
+//                      .groupPaddingSet(@0.1)
                       .borderRadiusSet(chartModel.borderRadius)
                       .dataLabelsSet(dataLabels)
                       );
