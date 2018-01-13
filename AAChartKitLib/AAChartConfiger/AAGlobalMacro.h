@@ -33,8 +33,8 @@
 #define AAObject(objectName) [[objectName alloc]init]
 
 
-#define AAPropStatementAndFuncStatement(propertyModifyWord,className, propertyPointerType, propertyName)                \
-@property(nonatomic,propertyModifyWord)propertyPointerType  propertyName;                                               \
+#define AAPropStatementAndFuncStatement(propertyModifier,className, propertyPointerType, propertyName)                  \
+@property(nonatomic,propertyModifier)propertyPointerType  propertyName;                                                 \
 - (className * (^) (propertyPointerType propertyName)) propertyName##Set;
 
 #define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
@@ -44,6 +44,7 @@ self.propertyName = propertyName;                                               
 return self;                                                                                                            \
 };                                                                                                                      \
 }
+
 #endif /* AAGlobalMacro_h */
 
 

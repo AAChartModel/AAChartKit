@@ -1,7 +1,7 @@
 
 ![AAChartKit-LOGO](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/IMG_2276(20171115-010154).jpg)
 
-# AAChartKit 2.0
+# AAChartKit
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/) <br>
 [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/AAChartModel/AAChartKit/blob/master/LICENSE) <br>
 [![](https://img.shields.io/badge/language-OC-green.svg)](https://github.com/AAChartModel/AAChartKit)  <br>
@@ -50,10 +50,11 @@
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
-self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
-// set the content height of aaChartView
-// self.aaChartView.contentHeight = self.view.frame.size.height-250;
-[self.view addSubview:self.aaChartView];
+_aaChartView = [[AAChartView alloc]init];
+_aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+//// set the content height of aaChartView
+// _aaChartView.contentHeight = chartViewHeight;
+[self.view addSubview:_aaChartView];
 ```
 3. Configure the properties of chart model:`AAChartModel`                                          
 
@@ -84,7 +85,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 4. Draw the chart(This method is called only for the first time after you create an AAChartView instance object) 
 ```objective-c
 //The chart view object calls the instance object of AAChartModel and draws the final graphic
-[_aaChartView aa_drawChartWithChartModel:chartModel];
+[_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
 5. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically)
@@ -96,7 +97,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 6. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
-[_aaChartView aa_refreshChartWithChartModel:chartModel];
+[_aaChartView aa_refreshChartWithChartModel:aaChartModel];
 ```
 
 ## Samples
@@ -368,7 +369,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 ![](https://avatars1.githubusercontent.com/u/16357599?s=40&v=4)An An
 
 ```java
-
+                         _0_
                        _oo0oo_
                       o8888888o
                       88" . "88
@@ -387,7 +388,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
          \  \ `_.   \_ __\ /__ _/   .-` /  /
      =====`-.____`.___ \_____/___.-`___.-'=====
                        `=---='
-*******************************************************
+❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤
      ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
          €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
                $$$$$$$$$$$$$$$$$$$$$$$  
@@ -405,7 +406,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 ## Contact
 
 -------------------------------------------------------------------------------
-* ❀❀❀   WARM TIPS!!!   ❀❀❀
+*💕💕💕❤️❤️   WARM TIPS!!!   ❤️❤️💕💕💕
 *
 * Please contact me on GitHub,if there are any problems encountered in use.
 * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -473,9 +474,9 @@ to be
 >>>>>>  * - [x] Support rendering column range map
 >>>>>>  * - [x] Support rendering area range graph
 >>>>>>  * - [x] Support rendering the polar chart
->>>>  * - [ ] Support rendering the polyline straight line chart
->>>>  * - [ ] Support rendering the polyline straight area chart
->>>>  * - [ ] Support rendering the Nightingale rose 🌹chart
+>>>>>>  * - [x ] Support rendering the step line chart
+>>>>>>  * - [x ] Support rendering the step area chart
+>>>>>>  * - [x ] Support rendering the Nightingale rose 🌹chart
 >>>>  * - [ ] Support rendering the rectangular tree hierarchy diagrams
 >>>>  * - [ ] Support rendering the circular progress bar chart 
 >>>>  * - [ ] Support adding clicked event callbacks for graphics

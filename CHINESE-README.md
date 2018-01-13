@@ -46,39 +46,40 @@
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
-self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
-//设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
-//self.aaChartView.contentHeight = self.view.frame.size.height-250;
-[self.view addSubview:self.aaChartView];
+_aaChartView = [[AAChartView alloc]init];
+_aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+////设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
+//_aaChartView.contentHeight = chartViewHeight;
+[self.view addSubview:_aaChartView];
 ```
 3. 配置视图模型`AAChartModel`
 ```objective-c
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
-    .titleSet(@"编程语言热度")//设置图表标题
-    .subtitleSet(@"虚拟数据")//设置图表副标题
-    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])//设置图表横轴的内容
-    .yAxisTitleSet(@"摄氏度")//设置图表 y 轴的单位
-    .seriesSet(@[
-            AAObject(AASeriesElement)
-            .nameSet(@"2017")
-            .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-            AAObject(AASeriesElement)
-            .nameSet(@"2018")
-            .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-            AAObject(AASeriesElement)
-            .nameSet(@"2019")
-            .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-            AAObject(AASeriesElement)
-            .nameSet(@"2020")
-            .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+AAChartModel *aaChartModel= AAObject(AAChartModel)
+.chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
+.titleSet(@"编程语言热度")//设置图表标题
+.subtitleSet(@"虚拟数据")//设置图表副标题
+.categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])//图表横轴的内容
+.yAxisTitleSet(@"摄氏度")//设置图表 y 轴的单位
+.seriesSet(@[
+        AAObject(AASeriesElement)
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+        AAObject(AASeriesElement)
+        .nameSet(@"2018")
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+        AAObject(AASeriesElement)
+        .nameSet(@"2019")
+        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+        AAObject(AASeriesElement)
+        .nameSet(@"2020")
+        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ])
-    ;
+;
 ```
 4.  绘制图形(创建 `AAChartView` 实例对象后,首次绘制图形调用此方法)
 ```objective-c
 /*图表视图对象调用图表模型对象,绘制最终图形*/
-[_aaChartView aa_drawChartWithChartModel:chartModel];
+[_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
 5.  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
@@ -90,7 +91,7 @@ self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartView
 6.  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用`aa_onlyRefreshTheChartDataWithChartModel`方法)
 ```objective-c
 /*更新 AAChartModel 内容之后,刷新图表*/
-[_aaChartView aa_refreshChartWithChartModel:chartModel];
+[_aaChartView aa_refreshChartWithChartModel:aaChartModel];
 ```
 
 ###  `AAChartModel`一些重要属性经过配置之后的图形示例如下
@@ -406,7 +407,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 ## 联系方式
 
 -------------------------------------------------------------------------------
-* ❀❀❀   温馨提示   ❀❀❀
+* 💕💕💕❤️❤️  温馨提示   ❤️❤️💕💕💕
 *
 * 如果有任何使用上的问题,随时欢迎您在 GitHub 上向我提 issue.
 * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -465,7 +466,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 >>> * - [ ] 支持使用`CocoaPods` 导入
 >>> * - [ ] 支持使用`Carthage` 导入
 >>> * - [ ] 支持横屏(全屏)效果
->>> * - [ ] 支持自由设置图形渲染动画
+>>>>> * - [ x] 支持自由设置图形渲染动画
 >>> * - [ ] 支持已渲染图形生成图片文件
 >>> * - [ ] 支持生成图片文件保存至系统相册
 >>> * - [ ] 支持用户自由配置`AAOptions`模型对象属性
@@ -476,9 +477,9 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 >>>>> * - [x] 支持渲染面积范围图
 >>> * - [ ] 支持渲染面积范围均线图
 >>>>> * - [x] 支持渲染极地图
->>> * - [ ] 支持渲染折线直方图
->>> * - [ ] 支持渲染折线直方填充图
->>> * - [ ] 支持渲染南丁格尔🌹玫瑰图
+>>>>> * - [x ] 支持渲染折线直方图
+>>>>> * - [ x] 支持渲染折线直方填充图
+>>>>> * - [x ] 支持渲染南丁格尔🌹玫瑰图
 >>> * - [ ] 支持渲染矩形树状层级关系图
 >>> * - [ ] 支持渲染活动刻度仪表图
 >>> * - [ ] 支持为图形添加点击事件回调

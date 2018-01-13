@@ -42,7 +42,7 @@
     if (chartModel.options3dEnable == true) {
         chart.options3d = (AAObject(AAOptions3d)
                            .enabledSet(chartModel.options3dEnable)
-                           .alphaSet(@-15)
+                           .alphaSet(@(-15))
                            );
     }
     
@@ -88,9 +88,10 @@
     
     AATooltip *tooltip = AAObject(AATooltip)
     .enabledSet(true)//启用浮动提示框
-    .sharedSet(true)//多组数据公享一个浮动提示框
+    .sharedSet(true)//多组数据共享一个浮动提示框
     .crosshairsSet(chartModel.tooltipCrosshairs)
     .valueSuffixSet(chartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
+    
     
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)

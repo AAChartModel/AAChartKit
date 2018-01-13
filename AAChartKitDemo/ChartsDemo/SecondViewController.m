@@ -11,7 +11,7 @@
  
  * -------------------------------------------------------------------------------
  *
- * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ * ❤❤❤❤❤❤   WARM TIPS!!!   ❤❤❤❤❤❤
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -82,43 +82,38 @@
     
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat chartViewHeight = self.view.frame.size.height-250;
-//    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, chartViewHeight)];
     self.aaChartView = [[AAChartView alloc]init];
     self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
-
     self.aaChartView.delegate = self;
 //    设置aaChartVie 的内容高度(content height)
-//    self.aaChartView.contentHeight = self.view.frame.size.height-250;
+//    self.aaChartView.contentHeight = chartViewHeight;
     [self.view addSubview:self.aaChartView];
+    
     
 //    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
 //    self.aaChartView.isClearBackgroundColor = YES;
 //    self.view.backgroundColor = [UIColor blueColor];
     
-
     self.aaChartModel= AAObject(AAChartModel)
-    .chartTypeSet(chartType)
-    .titleSet(@"")
-    .subtitleSet(@"")
-    .borderRadiusSet(@5)
-    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
-                     @"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
-    .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
-    .yAxisTitleSet(@"")
-    .tooltipValueSuffixSet(@"℃")
+    .chartTypeSet(chartType)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .yAxisVisibleSet(false)//设置 Y 轴不可见
+//    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
+//                     @"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])// X轴标题
+    .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])//设置主体颜色数组
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
                  .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-
                  AAObject(AASeriesElement)
                  .nameSet(@"2019")
                  .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-
                  AAObject(AASeriesElement)
                  .nameSet(@"2020")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
@@ -162,20 +157,15 @@
     //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
-    if ([chartType isEqualToString:AAChartTypeColumn]
-        || [chartType isEqualToString:AAChartTypeBar]) {
-        self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight+40);
-    } else if ([chartType isEqualToString:AAChartTypeArea]
-               || [chartType isEqualToString:AAChartTypeAreaspline]) {
+    if ([chartType isEqualToString:AAChartTypeArea]
+        || [chartType isEqualToString:AAChartTypeAreaspline]) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-        _aaChartModel.gradientColorEnable = true;
+        _aaChartModel.gradientColorEnable = true;//启用渐变色
     } else if ([chartType isEqualToString:AAChartTypeLine]
                || [chartType isEqualToString:AAChartTypeSpline]) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
     }
     
-    //是否起用渐变色功能
-//    _aaChartModel.gradientColorEnable = YES;
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
@@ -202,26 +192,24 @@
     
     NSArray *segmentedArray;
     NSArray *typeLabelNameArr;
-    CGFloat segmentedControlFrameY;
     
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
         segmentedArray = @[@[@"No stacking",@"Normal stacking",@"Percent stacking"],
+                           @[@"Square corners",@"Rounded corners",@"Wedge"],
                            ];
-        typeLabelNameArr = @[@"Stacking type selection",];
-        segmentedControlFrameY = 40;
+        typeLabelNameArr = @[@"Stacking type selection",@"Corners Style type selection"];
     } else {
         segmentedArray = @[@[@"No stacking",@"Normal stacking",@"Percent stacking"],
                            @[@"Circle",@"Square",@"Diamond",@"Triangle",@"Triangle-down"]
                            ];
         typeLabelNameArr = @[@"Stacking type selection",@"Chart symbol type selection"];
-        segmentedControlFrameY = 0;
     }
     
     for (int i=0; i<segmentedArray.count; i++) {
         
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
-        segmentedControl.frame = CGRectMake(20, segmentedControlFrameY+40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
+        segmentedControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
         segmentedControl.tintColor = [UIColor redColor];
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
@@ -229,7 +217,7 @@
         [self.view addSubview:segmentedControl];
         
         UILabel *typeLabel = [[UILabel alloc]init];
-        typeLabel.frame =CGRectMake(20, segmentedControlFrameY+40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
+        typeLabel.frame =CGRectMake(20, 40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
         typeLabel.text = typeLabelNameArr[i];
         typeLabel.font = [UIFont systemFontOfSize:11.0f];
         [self.view addSubview:typeLabel];
@@ -248,12 +236,19 @@
             break;
             
         case 1: {
-            NSArray *symbolArr = @[AAChartSymbolTypeCircle,
-                                   AAChartSymbolTypeSquare,
-                                   AAChartSymbolTypeDiamond,
-                                   AAChartSymbolTypeTriangle,
-                                   AAChartSymbolTypeTriangle_down];
-            self.aaChartModel.symbol = symbolArr[segmentedControl.selectedSegmentIndex];
+            
+            if (self.chartType == 0 || self.chartType ==1 ) {
+                NSArray *borderRadiusArr = @[@0,@10,@100];
+                self.aaChartModel.borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
+            } else {
+                
+                NSArray *symbolArr = @[AAChartSymbolTypeCircle,
+                                       AAChartSymbolTypeSquare,
+                                       AAChartSymbolTypeDiamond,
+                                       AAChartSymbolTypeTriangle,
+                                       AAChartSymbolTypeTriangle_down];
+                self.aaChartModel.symbol = symbolArr[segmentedControl.selectedSegmentIndex];
+            }
         }
             break;
             
@@ -326,4 +321,5 @@
     [self refreshTheChartView];
     
 }
+
 @end
