@@ -388,7 +388,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
          \  \ `_.   \_ __\ /__ _/   .-` /  /
      =====`-.____`.___ \_____/___.-`___.-'=====
                        `=---='
-❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤
+*****************************************************
      ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
          €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
                $$$$$$$$$$$$$$$$$$$$$$$  
@@ -474,9 +474,9 @@ to be
 >>>>>>  * - [x] Support rendering column range map
 >>>>>>  * - [x] Support rendering area range graph
 >>>>>>  * - [x] Support rendering the polar chart
->>>>>>  * - [x ] Support rendering the step line chart
->>>>>>  * - [x ] Support rendering the step area chart
->>>>>>  * - [x ] Support rendering the Nightingale rose 🌹chart
+>>>>>>  * - [x] Support rendering the step line chart
+>>>>>>  * - [x] Support rendering the step area chart
+>>>>>>  * - [x] Support rendering the Nightingale rose 🌹chart
 >>>>  * - [ ] Support rendering the rectangular tree hierarchy diagrams
 >>>>  * - [ ] Support rendering the circular progress bar chart 
 >>>>  * - [ ] Support adding clicked event callbacks for graphics

@@ -86,11 +86,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 55;
+    return 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 40;
+    return 30;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -101,7 +101,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:16.0f];
     label.backgroundColor = AAGrayColor;
-    label.textColor = AABlueColor;
+    label.textColor = [UIColor purpleColor];
     label.text = self.sectionTypeArr[section];
     [view addSubview:label];
     
@@ -259,13 +259,13 @@
 
 - (NSArray *)sectionTypeArr {
     if (!_sectionTypeArr) {
-        _sectionTypeArr = @[@"---Basic Type---基础类型---",
-                            @"---Special Type---特别类型---",
-                            @"---Drilldown chart---钻取图表---",
-                            @"---Real-time Refresh---即时刷新---",
-                            @"---Animation Type---动画相关---",
-                            @"---Draw chart with AAOptions---AAOptions实例对象绘制图形---",
-                            @"---同时显示多个 AAChartView---"];
+        _sectionTypeArr = @[@"Basic Type---基础类型",
+                            @"Special Type---特别类型",
+                            @"Drilldown chart---钻取图表",
+                            @"Real-time Refresh---即时刷新",
+                            @"Animation Type---动画相关",
+                            @"Draw chart with AAOptions---AAOptions实例对象绘制图形",
+                            @"同时显示多个 AAChartView"];
     }
     return _sectionTypeArr;
 }
@@ -279,7 +279,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _label = [[UILabel alloc]init];
-        _label.frame = CGRectMake(60, 0, self.frame.size.width, 55);
+        _label.frame = CGRectMake(60, 0, self.frame.size.width, 40);
         _label.textAlignment = NSTextAlignmentLeft;
         _label.font = [UIFont systemFontOfSize:14.f];
         _label.textColor = [UIColor darkGrayColor];
