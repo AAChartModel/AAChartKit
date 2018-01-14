@@ -15,6 +15,7 @@
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>{
     NSTimer *_timer;
+    int myBasicValue;
 }
 
 @property (nonatomic, strong) AAChartModel *chartModel;
@@ -36,6 +37,7 @@
     [super viewDidLoad];
     self.title = @"即时刷新数据";
     [self setUpTheView];
+    myBasicValue = 0;
     
 }
 
@@ -61,36 +63,57 @@
         [self.view addSubview:btn];
     }
     
-    self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-220)];
+    self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-100)];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.chartView];
     
+    NSMutableArray *sinNumArr = [[NSMutableArray alloc]init];
+    NSMutableArray *sinNumArr2 = [[NSMutableArray alloc]init];
+    
+    CGFloat y1 = 0.f;
+    CGFloat y2 = 0.f;
+
+    //第一个波纹的公式
+    for (float x = 0.f; x <= 50 ; x++) {
+        y1 = sin((10) * (x * M_PI / 180)) +x*2*0.01 ;
+        [sinNumArr addObject:@(y1)];
+        
+         y2 =cos((10) * (x * M_PI / 180))+x*3*0.01;
+        [sinNumArr2 addObject:@(y2)];
+    }
+    
     NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeLine,AAChartTypeSpline,];
     
     self.chartModel= AAObject(AAChartModel)
-    .chartTypeSet(chartTypeArr[arc4random()%6])
+//    .chartTypeSet(AAChartTypeColumn)
     //    .invertedSet(true)//x 轴是否垂直
     //    .xAxisReversedSet(true)//x 轴是否翻转
     //    .yAxisReversedSet(true)//y 轴是否翻转
-    .stackingSet(AAChartStackingTypeNormal)
+//    .stackingSet(AAChartStackingTypeNormal)
+//    .borderRadiusSet(@5)
     //    .polarSet(true)//是否辐射化图形
-    .titleSet(@"编程语言热度")
-    .subtitleSet(@"虚拟数据")
-    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
+    
+    .xAxisVisibleSet(true)
+    .yAxisVisibleSet(false)
+//    .gradientColorEnableSet(true)
+    .titleSet(@"")
+    .subtitleSet(@"")
+//    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
+    .colorsThemeSet(@[@"#1e90ff",@"#dc143c"])
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
-                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
+                 .dataSet(sinNumArr),
                  
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
-                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
-                 
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2019")
-                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
+                 .dataSet(sinNumArr2),
+//
+//                 AAObject(AASeriesElement)
+//                 .nameSet(@"2019")
+//                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
                  ]
                );
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
@@ -112,7 +135,7 @@
 }
 
 - (void)virtualUpdateTheChartViewDataInRealTime{
-    _timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                               target:self
                                             selector:@selector(timerStartWork)
                                             userInfo:nil
@@ -130,25 +153,51 @@
     NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
     NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
     
-    for (int i=0; i<12; i++) {
-        NSInteger randomNumber1 = arc4random()%99;
-        NSInteger randomNumber2 = arc4random()%66;
-        NSInteger randomNumber3 = arc4random()%55;
+//    for (int i=0; i<20; i++) {
+//        NSInteger randomNumber1 = arc4random()%99;
+//        NSInteger randomNumber2 = arc4random()%66;
+//        NSInteger randomNumber3 = arc4random()%55;
+//
+//        [virtualData1 addObject:[NSNumber numberWithInteger:randomNumber1]];
+//        [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
+//        [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
+//
+//    }
+    NSMutableArray *sinNumArr = [[NSMutableArray alloc]init];
+    NSMutableArray *sinNumArr2 = [[NSMutableArray alloc]init];
+    
+    CGFloat y1 = 0.f;
+    CGFloat y2 = 0.f;
+    
+//    int Q = arc4random()%30;
+    int Q = 10;
+    //第一个波纹的公式
+    for (float x = myBasicValue; x <= myBasicValue + 50 ; x++) {
+        y1 = sin((Q) * (x * M_PI / 180)) +x*2*0.01-1 ;
+        [sinNumArr addObject:@(y1)];
         
-        [virtualData1 addObject:[NSNumber numberWithInteger:randomNumber1]];
-        [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
-        [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
+        y2 =cos((Q) * (x * M_PI / 180))+x*3*0.01-1;
+        [sinNumArr2 addObject:@(y2)];
+        
+        
         
     }
+    myBasicValue = myBasicValue +1;
+    if (myBasicValue ==32) {
+        myBasicValue = 0;
+    }
+    
     NSArray *series = @[
                         @{@"name":@"2017",
-                          @"data":virtualData1},
+                          @"type":@"bar",
+                          @"data":sinNumArr},
                         
                         @{@"name":@"2018",
-                          @"data":virtualData2},
-                        
-                        @{@"name":@"2019",
-                          @"data":virtualData3},
+                          @"type":@"line",
+                          @"data":sinNumArr2},
+//
+//                        @{@"name":@"2019",
+//                          @"data":virtualData3},
                         ];
     
     [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];

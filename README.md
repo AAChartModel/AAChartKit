@@ -406,7 +406,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 ## Contact
 
 -------------------------------------------------------------------------------
-*💕💕💕❤️❤️   WARM TIPS!!!   ❤️❤️💕💕💕
+* 💕💕💕❤️❤️   WARM TIPS!!!   ❤️❤️💕💕💕
 *
 * Please contact me on GitHub,if there are any problems encountered in use.
 * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues

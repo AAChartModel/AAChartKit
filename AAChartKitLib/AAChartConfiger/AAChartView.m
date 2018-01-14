@@ -44,6 +44,8 @@
 #define AADetailLog(...)
 #endif
 
+#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
 @interface AAChartView()<WKNavigationDelegate,UIWebViewDelegate> {
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
@@ -87,8 +89,7 @@
         _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
     }
-    
-    self.scrollEnabled = NO;
+     self.scrollEnabled = NO;
 }
 
 - (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView{
@@ -137,7 +138,11 @@
 
 - (NSString *)configTheJavaScriptString {
     CGFloat chartViewContentWidth = self.contentWidth;
-    CGFloat chartViewContentHeight = self.contentHeight == 0?self.frame.size.height:self.contentHeight;
+    CGFloat contentHeight = self.frame.size.height;
+    if (kDevice_Is_iPhoneX == YES) {
+        contentHeight = contentHeight - 20;
+    }
+    CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
     NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",_optionJson,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight]];
     return javaScriptStr;
 }

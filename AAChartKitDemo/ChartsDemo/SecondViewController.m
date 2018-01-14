@@ -104,6 +104,7 @@
     .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+//    .backgroundColorSet(@"#4b2b7f")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
@@ -185,7 +186,7 @@
 
 #pragma mark -- AAChartView delegate
 -(void)AAChartViewDidFinishLoad {
-    NSLog(@"😊😊😊 AAChartView content did finish load!!!");
+    NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
 - (void)configureTheSegmentedControls{
@@ -270,7 +271,7 @@
         ||self.chartType == SecondeViewControllerChartTypeBar) {
         nameArr = @[@"xAxisReversed",@"yAxisReversed",@"xAxisInverted",@"Polarization",@"DataLabelShow",];
     } else {
-        nameArr = @[@"xAxisReversed",@"yAxisReversed",@"xAxisInverted",@"Polarization",@"DataShow",@"HideMarker"];
+        nameArr = @[@"xReversed",@"yReversed",@"xAxisInverted",@"Polarization",@"DataShow",@"HideMarker"];
     }
     CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
     
@@ -312,7 +313,7 @@
             self.aaChartModel.dataLabelEnabled = switchView.on;
             break;
         case 5:
-            self.aaChartModel.markerRadius = switchView.on?@0:@5;
+            self.aaChartModel.markerRadius = switchView.on ? @0 : @5;
             break;
         default:
             break;
