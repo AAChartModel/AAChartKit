@@ -227,6 +227,8 @@
                                @"Areaspline Chart---曲线填充图",
                                @"Line Chart---折线图",
                                @"Spline Chart---曲线图",
+                               @"Step Line Chart--直方折线图",
+                               @"Step Area Chart--直方折线填充图",
                                @"Scatter Chart---散点图"],
                              /*特殊类型图表*/
                              @[@"Mixed Line Chart---虚实线混合折线图",

@@ -158,10 +158,10 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAllowDecimals);//是否允许 y 轴显示小数
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yPlotLines);//y 轴基线的配置
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMax);//y 轴最大值
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);//y 轴最小值（设置为0就不会有负数）
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);//是否允许 y 轴显示小数
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基线的配置
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);//y 轴最大值
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
 @end

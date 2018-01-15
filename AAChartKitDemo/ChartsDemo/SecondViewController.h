@@ -34,6 +34,8 @@ typedef NS_ENUM(NSInteger,SecondeViewControllerChartType) {
     SecondeViewControllerChartTypeAreaspline,
     SecondeViewControllerChartTypeLine,
     SecondeViewControllerChartTypeSpline,
+    SecondeViewControllerChartTypeStepLine,
+    SecondeViewControllerChartTypeStepArea,
     SecondeViewControllerChartTypeScatter,
 };
 

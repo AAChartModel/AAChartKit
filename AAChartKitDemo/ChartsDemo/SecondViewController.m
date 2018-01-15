@@ -42,8 +42,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self configureTheSegmentedControls];
-    [self configureTheSwitchs];
+    [self setUpTheSegmentedControls];
+    [self setUpTheSwitchs];
     
     AAChartType chartType;
     switch (self.chartType) {
@@ -66,6 +66,12 @@
             chartType = AAChartTypeSpline;
             break;
         case 6:
+            chartType = AAChartTypeLine;
+            break;
+        case 7:
+            chartType = AAChartTypeArea;
+            break;
+        case 8:
             chartType = AAChartTypeScatter;
             break;
         default:
@@ -74,31 +80,31 @@
     
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     
-    [self configTheChartView:chartType];
+    [self setUpTheAAChartViewWithChartType:chartType];
     
 }
 
-- (void)configTheChartView:(AAChartType)chartType {
+- (void)setUpTheAAChartViewWithChartType:(AAChartType)chartType {
     
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat chartViewHeight = self.view.frame.size.height-250;
     self.aaChartView = [[AAChartView alloc]init];
     self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
     self.aaChartView.delegate = self;
-//    设置aaChartVie 的内容高度(content height)
-//    self.aaChartView.contentHeight = chartViewHeight;
+    //    设置aaChartVie 的内容高度(content height)
+    //    self.aaChartView.contentHeight = chartViewHeight;
     [self.view addSubview:self.aaChartView];
     
     
-//    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
-//    self.aaChartView.isClearBackgroundColor = YES;
-//    self.view.backgroundColor = [UIColor blueColor];
+    //    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
+    //    self.aaChartView.isClearBackgroundColor = YES;
+    //    self.view.backgroundColor = [UIColor blueColor];
     
     self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-//    .yAxisVisibleSet(false)//设置 Y 轴不可见
+    .yAxisVisibleSet(false)//设置 Y 轴不可见
     .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -117,61 +123,81 @@
                  .nameSet(@"2020")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ]
-               )
-    /**
-     *   标示线的设置
-     *   标示线设置作为图表一项基础功能,用于对图表的基本数据水平均线进行标注
-     *   虽然不太常被使用,但我们仍然提供了此功能的完整接口,以便于有特殊需求的用户使用
-     *   解除以下代码注释,,运行程序,即可查看实际工程效果以酌情选择
-     *
-     **/
-    //    .yPlotLinesSet(@[AAObject(AAPlotLinesElement)
-    //                     .colorSet(@"#F05353")//颜色值(16进制)
-    //                     .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
-    //                     .widthSet(@(1)) //标示线粗细
-    //                     .valueSet(@(20)) //所在位置
-    //                     .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-    //                     .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
-    //                     ,AAObject(AAPlotLinesElement)
-    //                     .colorSet(@"#33BDFD")
-    //                     .dashStyleSet(@"Dash")
-    //                     .widthSet(@(1))
-    //                     .valueSet(@(40))
-    //                     .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-    //                     ,AAObject(AAPlotLinesElement)
-    //                     .colorSet(@"#ADFF2F")
-    //                     .dashStyleSet(@"Dash")
-    //                     .widthSet(@(1))
-    //                     .valueSet(@(60))
-    //                     .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-    //                     ]
-    //                   )
-    //    //Y轴最大值
-    //    .yMaxSet(@(100))
-    //    //Y轴最小值
-    //    .yMinSet(@(1))
-    //    //是否允许Y轴坐标值小数
-    //    .yAllowDecimalsSet(NO)
-    //    //指定y轴坐标
-    //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
-    ;
+               );
+    [self configureTheStyleForDifferentTypeChart];//为不同类型图表设置样式
     
-    if ([chartType isEqualToString:AAChartTypeColumn]
-        || [chartType isEqualToString:AAChartTypeBar]) {
-        _aaChartModel.categories = @[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"];//设置 X 轴坐标内容
-    } else  if ([chartType isEqualToString:AAChartTypeArea]
-        || [chartType isEqualToString:AAChartTypeAreaspline]) {
-        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-        _aaChartModel.gradientColorEnable = true;//启用渐变色
-    } else if ([chartType isEqualToString:AAChartTypeLine]
-               || [chartType isEqualToString:AAChartTypeSpline]) {
-        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
-    }
-    
+    /*配置 Y 轴标注线,解开注释,即可查看添加标注线之后的图表效果*/
+    //[self configureTheYAxisPlotLineForAAChartView];
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
 
+/**
+ *   图表 Y 轴标示线的设置
+ *   标示线设置作为图表一项基础功能,用于对图表的基本数据水平均线进行标注
+ *   虽然不太常被使用,但我们仍然提供了此功能的完整接口,以便于有特殊需求的用户使用
+ *   解除👆上面的设置 Y 轴标注线的已注释注释代码,,运行程序,即可查看实际工程效果以酌情选择
+ *
+ **/
+- (void)configureTheYAxisPlotLineForAAChartView {
+    _aaChartModel.yAxisMaxSet(@(100))//Y轴最大值
+    .yAxisMinSet(@(1))//Y轴最小值
+    .yAxisAllowDecimalsSet(NO)//是否允许Y轴坐标值小数
+    .yAxisTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])//指定y轴坐标
+    .yAxisPlotLinesSet(@[AAObject(AAPlotLinesElement)
+                     .colorSet(@"#F05353")//颜色值(16进制)
+                     .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
+                     .widthSet(@(1)) //标示线粗细
+                     .valueSet(@(20)) //所在位置
+                     .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                     .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                     ,AAObject(AAPlotLinesElement)
+                     .colorSet(@"#33BDFD")
+                     .dashStyleSet(@"Dash")
+                     .widthSet(@(1))
+                     .valueSet(@(40))
+                     .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                     ,AAObject(AAPlotLinesElement)
+                     .colorSet(@"#ADFF2F")
+                     .dashStyleSet(@"Dash")
+                     .widthSet(@(1))
+                     .valueSet(@(60))
+                     .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                     ]
+                   );
+    
+}
+
+- (void)configureTheStyleForDifferentTypeChart {
+    if (self.chartType == SecondeViewControllerChartTypeColumn
+        || self.chartType == SecondeViewControllerChartTypeBar) {
+        _aaChartModel.categories = @[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"];//设置 X 轴坐标内容
+    } else if (self.chartType == SecondeViewControllerChartTypeArea
+               || self.chartType == SecondeViewControllerChartTypeAreaspline) {
+        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
+        _aaChartModel.gradientColorEnable = true;//启用渐变色
+    } else if (self.chartType == SecondeViewControllerChartTypeLine
+               || self.chartType == SecondeViewControllerChartTypeSpline) {
+        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
+    } else if (self.chartType == SecondeViewControllerChartTypeStepLine
+               || self.chartType == SecondeViewControllerChartTypeStepArea) {
+        _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
+        _aaChartModel.gradientColorEnable = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
+        _aaChartModel.series = @[ @{
+                                      @"name": @"Berlin",
+                                      @"data": @[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4],
+                                      @"step": @(true) //设置折线样式为直方折线,连接点位置默认靠左👈
+                                      }, @{
+                                      @"name": @"New York",
+                                      @"data": @[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3],
+                                      @"step": @(true)
+                                      }, @{
+                                      @"name": @"Tokyo",
+                                      @"data": @[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2],
+                                      @"step": @(true)
+                                      }, ];
+    }
+}
 
 - (NSArray *)configureTheRandomColorArray {
     NSMutableArray *colorStringArr = [[NSMutableArray alloc]init];
@@ -190,7 +216,7 @@
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
-- (void)configureTheSegmentedControls{
+- (void)setUpTheSegmentedControls{
     
     NSArray *segmentedArray;
     NSArray *typeLabelNameArr;
@@ -262,11 +288,11 @@
 }
 
 - (void)refreshTheChartView {
-//    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];//random colors theme, Just for fun!!!
+    //    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];//random colors theme, Just for fun!!!
     [self.aaChartView aa_refreshChartWithChartModel:self.aaChartModel];
 }
 
-- (void)configureTheSwitchs {
+- (void)setUpTheSwitchs {
     NSArray *nameArr;
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
@@ -280,7 +306,7 @@
         
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
-//        switchView.backgroundColor = [UIColor blueColor];
+        //        switchView.backgroundColor = [UIColor blueColor];
         switchView.onTintColor = [UIColor colorWithRed:0/255 green:191/255 blue:255/255 alpha:0.6];
         switchView.on = NO;
         switchView.tag = i;

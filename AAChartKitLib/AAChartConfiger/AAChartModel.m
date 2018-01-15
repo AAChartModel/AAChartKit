@@ -56,7 +56,7 @@
         self.legendEnabled       = YES;
         self.borderRadius        = @0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
         self.markerRadius        = @5;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-        self.yAllowDecimals      = YES; //默认y轴显示小数
+        self.yAxisAllowDecimals  = YES; //默认y轴显示小数
     }
     return self;
 }
@@ -104,10 +104,10 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);//3D 图�
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
-AAPropSetFuncImplementation(AAChartModel, BOOL,       yAllowDecimals);//是否允许 y 轴显示小数
-AAPropSetFuncImplementation(AAChartModel, NSArray  *, yPlotLines);//y 轴基线的配置
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, yMax);//y 轴最大值
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, yMin);//y 轴最小值（设置为0就不会有负数）
-AAPropSetFuncImplementation(AAChartModel, NSArray  *, yTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisAllowDecimals);//是否允许 y 轴显示小数
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基线的配置
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax);//y 轴最大值
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
 @end
