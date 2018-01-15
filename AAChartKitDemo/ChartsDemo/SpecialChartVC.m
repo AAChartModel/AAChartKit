@@ -58,12 +58,6 @@
         case SpecialChartVCChartTypeScatter:
             chartType = AAChartTypeScatter;
             break;
-        case SpecialChartVCChartTypePyramid:
-            chartType = AAChartTypePyramid;
-            break;
-        case SpecialChartVCChartTypeFunnel:
-            chartType = AAChartTypeFunnel;
-            break;
         case SpecialChartVCChartTypeArearange:
             chartType = AAChartTypeArearange;
             break;
@@ -79,14 +73,16 @@
         case SpecialChartVCChartTypeMixed:
             chartType = @"mixed";
             break;
-            
         case SpecialChartVCChartTypeNightingaleRoseChart:
             chartType = @"NightingaleRoseChart";
             break;
-            
-            
-            
-            
+        case SpecialChartVCChartTypePyramid:
+            chartType = AAChartTypePyramid;
+            break;
+        case SpecialChartVCChartTypeFunnel:
+            chartType = AAChartTypeFunnel;
+            break;
+        
         default:
             break;
     }
@@ -198,7 +194,7 @@
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
-//        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
+        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
         .dataLabelEnabledSet(true)//是否直接显示扇形图数据
@@ -236,6 +232,7 @@
         .titleSet(@"Bubble")
         .subtitleSet(@"Virtual data")
         .yAxisTitleSet(@"℃")
+        .gradientColorEnableSet(true)
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
@@ -420,55 +417,7 @@
         
         return aaChartModel;
         
-    } else if ([chartType isEqualToString:AAChartTypePyramid]) {
-        
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypePyramid)
-        .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
-        .yAxisTitleSet(@"摄氏度")
-        .seriesSet(
-                   @[
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2020")
-                     .dataSet(@[
-                                @[@"Swift",       @15654],
-                                @[@"Objective-C",  @4064],
-                                @[@"JavaScript",   @1987],
-                                @[@"GO",            @976],
-                                @[@"Python",        @846]
-                                ]),
-                     ]
-                   )
-        ;
-        
-        return aaChartModel;
-        
-    } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
-        
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypeFunnel)
-        .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
-        .yAxisTitleSet(@"摄氏度")
-        .seriesSet(
-                   @[
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2020")
-                     .dataSet(@[
-                                @[@"Swift",       @15654],
-                                @[@"Objective-C",  @4064],
-                                @[@"JavaScript",   @1987],
-                                @[@"GO",            @976],
-                                @[@"Python",        @846]
-                                ]),
-                     ]
-                   )
-        ;
-        
-        return aaChartModel;
-        
-    } else if ([chartType isEqualToString:AAChartTypeArearange]) {
+    }  else if ([chartType isEqualToString:AAChartTypeArearange]) {
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .titleSet(@"黄昏别馆日气温起伏图")
@@ -872,6 +821,7 @@
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
         .invertedSet(true)
+        .dataLabelEnabledSet(true)
         .seriesSet(@[
                      AAObject(AASeriesElement)
                      .typeSet(AAChartTypeColumnrange)
@@ -926,11 +876,12 @@
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeArea)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
+        .gradientColorEnableSet(true)//开启主题渐变色
         .titleSet(@"STEP AREA CHART")//图形标题
         .subtitleSet(@"2020/08/08")//图形副标题
         .dataLabelEnabledSet(NO)//是否显示数字
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
-        .markerRadiusSet(@6)//折线连接点半径长度,为0时相当于没有折线连接点
+        .markerRadiusSet(@0)//折线连接点半径长度,为0时相当于没有折线连接点
         .seriesSet(@[
                      @{
                          @"name": @"Berlin",
@@ -955,11 +906,13 @@
         .subtitleSet(@"虚拟数据")
         .yAxisTitleSet(@"摄氏度")
         .markerRadiusSet(@6)
+        .yAxisVisibleSet(true)
+        .yAxisGridLineWidthSet(@0)
         .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-        .chartTypeSet(AAChartTypeColumnrange)
+        .chartTypeSet(AAChartTypeLine)
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
-        .colorsThemeSet(@[@"#c85dec",@"#e9a8ff",@"#de4770",@"#f56991",@"#ff9f80",@"#ffc48c",@"#effab4",@"#d1f2a5"])
+        .colorsThemeSet(@[@"#1e90ff",@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
         .seriesSet(@[
                      AAObject(AASeriesElement)
                      .typeSet(AAChartTypeColumnrange)
@@ -1011,17 +964,66 @@
         .subtitleSet(@"极地图中的一种")
         .yAxisTitleSet(@"cm")
         .chartTypeSet(AAChartTypeColumn)
-        .xAxisVisibleSet(true)//是否显示最外一层圆环
-        .yAxisVisibleSet(false)//是否显示中间的多个圆环
+//        .xAxisVisibleSet(true)//是否显示最外一层圆环
+//        .yAxisVisibleSet(false)//是否显示中间的多个圆环
         .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
         .polarSet(true)//极地化图形
-        .colorsThemeSet(@[@"#c85dec",@"#e9a8ff",@"#de4770",@"#f56991",@"#ff9f80",@"#ffc48c",@"#effab4",@"#d1f2a5"])
+////        .colorsThemeSet(@[@"#7f7fff",@"#e9a8ff",@"#de4770",@"#f56991",@"#ff9f80",@"#ffc48c",@"#effab4",@"#d1f2a5"])
+//        .colorsThemeSet(@[@"#DDDF0D", @"#55BF3B", @"#DF5353", @"#7798BF", @"#aaeeee", @"#ff0066" ,@"#eeaaee", @"#55BF3B" ,@"#DF5353", @"#7798BF" ,@"#aaeeee"])
         .seriesSet(@[
                      AAObject(AASeriesElement)
                      .nameSet(@"东京")
                      .dataSet(@[@7.0, @6.9, @9.5, @9.6,@13.9, @14.5,@18.3, @18.2, @21.5, @25.2,@26.5, @23.3,  ]),
+                     ]
+                   )
+        ;
+        
+        return aaChartModel;
+        
+    } else if ([chartType isEqualToString:AAChartTypePyramid]) {
+        
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypePyramid)
+        .titleSet(@"编程语言热度")
+        .subtitleSet(@"虚拟数据")
+        .yAxisTitleSet(@"摄氏度")
+        .seriesSet(
+                   @[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[
+                                @[@"Swift",       @15654],
+                                @[@"Objective-C",  @4064],
+                                @[@"JavaScript",   @1987],
+                                @[@"GO",            @976],
+                                @[@"Python",        @846]
+                                ]),
+                     ]
+                   )
+        ;
+        
+        return aaChartModel;
+        
+    } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
+        
+        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeFunnel)
+        .titleSet(@"编程语言热度")
+        .subtitleSet(@"虚拟数据")
+        .yAxisTitleSet(@"摄氏度")
+        .seriesSet(
+                   @[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[
+                                @[@"Swift",       @15654],
+                                @[@"Objective-C",  @4064],
+                                @[@"JavaScript",   @1987],
+                                @[@"GO",            @976],
+                                @[@"Python",        @846]
+                                ]),
                      ]
                    )
         ;

@@ -98,9 +98,7 @@
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-    .yAxisVisibleSet(false)//设置 Y 轴不可见
-//    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
-//                     @"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])// X轴标题
+//    .yAxisVisibleSet(false)//设置 Y 轴不可见
     .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -158,7 +156,10 @@
     //    .yTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])
     ;
     
-    if ([chartType isEqualToString:AAChartTypeArea]
+    if ([chartType isEqualToString:AAChartTypeColumn]
+        || [chartType isEqualToString:AAChartTypeBar]) {
+        _aaChartModel.categories = @[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"];//设置 X 轴坐标内容
+    } else  if ([chartType isEqualToString:AAChartTypeArea]
         || [chartType isEqualToString:AAChartTypeAreaspline]) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
         _aaChartModel.gradientColorEnable = true;//启用渐变色

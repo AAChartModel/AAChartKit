@@ -58,7 +58,6 @@
 		645E59551E8403710039A0A1 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 645E59541E8403710039A0A1 /* SpecialChartVC.m */; };
 		64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */; };
 		64F15B5C1F5D907B00DC7A7F /* DrilldownChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */; };
-		64F15B5E1F5D9B0D00DC7A7F /* AADrilldown.js in Resources */ = {isa = PBXBuildFile; fileRef = 64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */; };
 		713191141E80B32000382A09 /* IMG_1867.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191131E80B32000382A09 /* IMG_1867.JPG */; };
 		713191161E80B32800382A09 /* IMG_1866.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191151E80B32800382A09 /* IMG_1866.JPG */; };
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
@@ -185,7 +184,6 @@
 		64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyRefreshChartDataVC.m; sourceTree = "<group>"; };
 		64F15B5A1F5D907B00DC7A7F /* DrilldownChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrilldownChartVC.h; sourceTree = "<group>"; };
 		64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrilldownChartVC.m; sourceTree = "<group>"; };
-		64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AADrilldown.js; sourceTree = "<group>"; };
 		713191131E80B32000382A09 /* IMG_1867.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1867.JPG; sourceTree = "<group>"; };
 		713191151E80B32800382A09 /* IMG_1866.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1866.JPG; sourceTree = "<group>"; };
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 				2707BA5F1EF7BA47008357AC /* AAHighchartsMore.js */,
 				2707BA5D1EF7BA47008357AC /* AAHighcharts-3d.js */,
 				2707BA5C1EF7BA47008357AC /* AAFunnel.js */,
-				64F15B5D1F5D9B0D00DC7A7F /* AADrilldown.js */,
 			);
 			path = AAJSFiles;
 			sourceTree = "<group>";
@@ -353,8 +350,6 @@
 				645E59541E8403710039A0A1 /* SpecialChartVC.m */,
 				27BC2C301FBE748300F324A4 /* ThreeDimensionalChartVC.h */,
 				27BC2C311FBE748300F324A4 /* ThreeDimensionalChartVC.m */,
-				64F15B5A1F5D907B00DC7A7F /* DrilldownChartVC.h */,
-				64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */,
 				64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */,
 				64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */,
 				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
@@ -365,6 +360,8 @@
 				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
 				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
+				64F15B5A1F5D907B00DC7A7F /* DrilldownChartVC.h */,
+				64F15B5B1F5D907B00DC7A7F /* DrilldownChartVC.m */,
 			);
 			path = ChartsDemo;
 			sourceTree = "<group>";
@@ -566,7 +563,6 @@
 				64245AD41EC3706E005B8021 /* IMG_1878.JPG in Resources */,
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
-				64F15B5E1F5D9B0D00DC7A7F /* AADrilldown.js in Resources */,
 				2707BAA11EF7BA47008357AC /* AAJQueryLibrary.js in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,

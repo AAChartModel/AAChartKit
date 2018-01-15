@@ -142,38 +142,38 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        
+            
         case 2: {
-            /*可向下钻取类型图表*/
-            DrilldownChartVC *vc = [[DrilldownChartVC alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        
-        case 3: {
             /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
         
-        case 4: {
+        case 3: {
             /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         
-        case 5: {
+        case 4: {
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = [[DrawChartWithAAOptionsVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
-        case 6: {
+        case 5: {
             /*同时显示多个 AAChartView*/
             ShowManyChartViewVC *vc = [[ShowManyChartViewVC alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 6: {
+            /*可向下钻取类型图表*/
+            DrilldownChartVC *vc = [[DrilldownChartVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -234,16 +234,14 @@
                                @"Pie Chart---扇形图",
                                @"Bubble Chart---气泡图",
                                @"Scatter Chart--散点图",
-                               @"Pyramid Chart---金字塔图",
-                               @"Funnel Chart---漏斗图",
                                @"Arearange Chart--区域面积图",
                                @"Columnrange Chart--柱形面积图",
                                @"Step Line Chart--直方折线图",
                                @"Step Area Chart--直方折线填充图",
                                @"Mixed Chart---混合图",
-                               @"Nightingale Rose Chart---南丁格尔玫瑰图"],
-                             /*可向下钻取类型图表*/
-                             @[@"Drilldown column chart--向下钻取的柱状图"],
+                               @"Nightingale Rose Chart---南丁格尔玫瑰图",
+                               @"Pyramid Chart---金字塔图",
+                               @"Funnel Chart---漏斗图",],
                              /*图表数据动态刷新*/
                              @[@"模拟实时更新数据示例"],
                              /*JQuery动画样式类型演示*/
@@ -252,6 +250,8 @@
                              @[@"直接通过AAOptions实例对象绘制图形"],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView"],
+                             /*可向下钻取类型图表*/
+                             @[@"Drilldown column chart--向下钻取的柱状图"],
                              ];
     }
     return _chartTypeNameArr;
@@ -261,11 +261,11 @@
     if (!_sectionTypeArr) {
         _sectionTypeArr = @[@"Basic Type---基础类型",
                             @"Special Type---特别类型",
-                            @"Drilldown chart---钻取图表",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---动画相关",
                             @"Draw chart with AAOptions---AAOptions实例对象绘制图形",
-                            @"同时显示多个 AAChartView"];
+                            @"同时显示多个 AAChartView",
+                            @"Drilldown chart---钻取图表(暂时废弃)",];
     }
     return _sectionTypeArr;
 }
