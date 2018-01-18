@@ -73,33 +73,32 @@
     
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
-
+    
     //第一个波纹的公式
     for (float x = 0.f; x <= 50 ; x++) {
         y1 = sin((10) * (x * M_PI / 180)) +x*2*0.01 ;
         [sinNumArr addObject:@(y1)];
         
-         y2 =cos((10) * (x * M_PI / 180))+x*3*0.01;
+        y2 =cos((10) * (x * M_PI / 180))+x*3*0.01;
         [sinNumArr2 addObject:@(y2)];
     }
     
     NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeLine,AAChartTypeSpline,];
     
     self.chartModel= AAObject(AAChartModel)
-//    .chartTypeSet(AAChartTypeColumn)
+    //    .chartTypeSet(AAChartTypeColumn)
     //    .invertedSet(true)//x 轴是否垂直
     //    .xAxisReversedSet(true)//x 轴是否翻转
     //    .yAxisReversedSet(true)//y 轴是否翻转
-//    .stackingSet(AAChartStackingTypeNormal)
-//    .borderRadiusSet(@5)
+    //    .stackingSet(AAChartStackingTypeNormal)
+    //    .borderRadiusSet(@5)
     //    .polarSet(true)//是否辐射化图形
-    
     .xAxisVisibleSet(true)
     .yAxisVisibleSet(false)
-//    .gradientColorEnableSet(true)
+    //    .gradientColorEnableSet(true)
     .titleSet(@"")
     .subtitleSet(@"")
-//    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
+    //    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .colorsThemeSet(@[@"#1e90ff",@"#dc143c"])
     .seriesSet(@[
@@ -110,10 +109,10 @@
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
                  .dataSet(sinNumArr2),
-//
-//                 AAObject(AASeriesElement)
-//                 .nameSet(@"2019")
-//                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
+                 //
+                 //                 AAObject(AASeriesElement)
+                 //                 .nameSet(@"2019")
+                 //                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
                  ]
                );
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
@@ -149,9 +148,9 @@
 
 - (void)onlyRefreshTheChartData {
     
-    NSMutableArray *virtualData1 = [[NSMutableArray alloc]init];
-    NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
-    NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
+//    NSMutableArray *virtualData1 = [[NSMutableArray alloc]init];
+//    NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
+//    NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
     
 //    for (int i=0; i<20; i++) {
 //        NSInteger randomNumber1 = arc4random()%99;

@@ -40,7 +40,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [self colorWithHexString:@"#4b2b7f"];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     
     [self setUpTheSegmentedControls];
     [self setUpTheSwitchs];
@@ -97,18 +98,18 @@
     
     
     //    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
-    //    self.aaChartView.isClearBackgroundColor = YES;
-    //    self.view.backgroundColor = [UIColor blueColor];
+        self.aaChartView.isClearBackgroundColor = YES;
+//        self.view.backgroundColor = [UIColor blueColor];
     
     self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
     .yAxisVisibleSet(false)//设置 Y 轴不可见
-    .colorsThemeSet(@[@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])//设置主体颜色数组
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-//    .backgroundColorSet(@"#4b2b7f")
+    .backgroundColorSet(@"#4b2b7f")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
@@ -126,8 +127,8 @@
                );
     [self configureTheStyleForDifferentTypeChart];//为不同类型图表设置样式
     
-    /*配置 Y 轴标注线,解开注释,即可查看添加标注线之后的图表效果*/
-    //[self configureTheYAxisPlotLineForAAChartView];
+    /*配置 Y 轴标注线,解开注释,即可查看添加标注线之后的图表效果(NOTE:必须设置 Y 轴可见)*/
+//    [self configureTheYAxisPlotLineForAAChartView];
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
@@ -136,11 +137,11 @@
  *   图表 Y 轴标示线的设置
  *   标示线设置作为图表一项基础功能,用于对图表的基本数据水平均线进行标注
  *   虽然不太常被使用,但我们仍然提供了此功能的完整接口,以便于有特殊需求的用户使用
- *   解除👆上面的设置 Y 轴标注线的已注释注释代码,,运行程序,即可查看实际工程效果以酌情选择
+ *   解除👆上面的设置 Y 轴标注线的已被注释代码,,运行程序,即可查看实际工程效果以酌情选择
  *
  **/
 - (void)configureTheYAxisPlotLineForAAChartView {
-    _aaChartModel.yAxisMaxSet(@(100))//Y轴最大值
+    _aaChartModel.yAxisMaxSet(@(21))//Y轴最大值
     .yAxisMinSet(@(1))//Y轴最小值
     .yAxisAllowDecimalsSet(NO)//是否允许Y轴坐标值小数
     .yAxisTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])//指定y轴坐标
@@ -171,7 +172,7 @@
 - (void)configureTheStyleForDifferentTypeChart {
     if (self.chartType == SecondeViewControllerChartTypeColumn
         || self.chartType == SecondeViewControllerChartTypeBar) {
-        _aaChartModel.categories = @[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"];//设置 X 轴坐标内容
+//        _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标内容
     } else if (self.chartType == SecondeViewControllerChartTypeArea
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
@@ -212,7 +213,7 @@
 }
 
 #pragma mark -- AAChartView delegate
--(void)AAChartViewDidFinishLoad {
+- (void)AAChartViewDidFinishLoad {
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
@@ -223,15 +224,15 @@
     
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
-        segmentedArray = @[@[@"No stacking",@"Normal stacking",@"Percent stacking"],
-                           @[@"Square corners",@"Rounded corners",@"Wedge"],
+        segmentedArray = @[@[@"No stacking", @"Normal stacking", @"Percent stacking"],
+                           @[@"Square corners", @"Rounded corners", @"Wedge"],
                            ];
-        typeLabelNameArr = @[@"Stacking type selection",@"Corners Style type selection"];
+        typeLabelNameArr = @[@"Stacking type selection", @"Corners Style type selection"];
     } else {
-        segmentedArray = @[@[@"No stacking",@"Normal stacking",@"Percent stacking"],
-                           @[@"Circle",@"Square",@"Diamond",@"Triangle",@"Triangle-down"]
+        segmentedArray = @[@[@"No stacking", @"Normal stacking", @"Percent stacking"],
+                           @[@"Circle", @"Square", @"Diamond", @"Triangle", @"Triangle-down"]
                            ];
-        typeLabelNameArr = @[@"Stacking type selection",@"Chart symbol type selection"];
+        typeLabelNameArr = @[@"Stacking type selection", @"Chart symbol type selection"];
     }
     
     for (int i=0; i<segmentedArray.count; i++) {
@@ -239,12 +240,14 @@
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
         segmentedControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
         segmentedControl.tintColor = [UIColor redColor];
+//        segmentedControl.tintColor = [UIColor lightGrayColor];
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
         [segmentedControl addTarget:self action:@selector(customsegmentedControlCellValueBeChanged:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:segmentedControl];
         
         UILabel *typeLabel = [[UILabel alloc]init];
+        typeLabel.textColor = [UIColor lightGrayColor];
         typeLabel.frame =CGRectMake(20, 40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
         typeLabel.text = typeLabelNameArr[i];
         typeLabel.font = [UIFont systemFontOfSize:11.0f];
@@ -265,8 +268,8 @@
             
         case 1: {
             
-            if (self.chartType == 0 || self.chartType ==1 ) {
-                NSArray *borderRadiusArr = @[@0,@10,@100];
+            if (self.chartType == 0 || self.chartType == 1 ) {
+                NSArray *borderRadiusArr = @[ @0, @10, @100 ];
                 self.aaChartModel.borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
             } else {
                 
@@ -296,10 +299,11 @@
     NSArray *nameArr;
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
-        nameArr = @[@"xAxisReversed",@"yAxisReversed",@"xAxisInverted",@"Polarization",@"DataLabelShow",];
+        nameArr = @[@"xAxisReversed", @"yAxisReversed", @"xAxisInverted", @"Polarization", @"DataLabelShow",];
     } else {
-        nameArr = @[@"xReversed",@"yReversed",@"xAxisInverted",@"Polarization",@"DataShow",@"HideMarker"];
+        nameArr = @[@"xReversed", @"yReversed", @"xAxisInverted", @"Polarization", @"DataShow", @"HideMarker"];
     }
+    
     CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
     
     for (int i=0; i<nameArr.count; i++) {
@@ -307,13 +311,16 @@
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
         //        switchView.backgroundColor = [UIColor blueColor];
-        switchView.onTintColor = [UIColor colorWithRed:0/255 green:191/255 blue:255/255 alpha:0.6];
+//        switchView.onTintColor = [UIColor colorWithRed:0/255 green:191/255 blue:255/255 alpha:0.6];
+        switchView.onTintColor = [UIColor whiteColor];
+        switchView.thumbTintColor = [UIColor lightGrayColor];
         switchView.on = NO;
         switchView.tag = i;
         [switchView addTarget:self action:@selector(switchViewClicked:) forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:switchView];
         
         UILabel *label = [[UILabel alloc]init];
+        label.textColor = [UIColor lightGrayColor];
         label.numberOfLines = 0;
         label.frame = CGRectMake(switchWidth*i+20,  self.view.frame.size.height-40, switchWidth, 40);
         label.text = nameArr[i];
@@ -348,6 +355,40 @@
     
     [self refreshTheChartView];
     
+}
+
+- (UIColor *) colorWithHexString: (NSString *)color
+{
+    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) {
+        return [UIColor clearColor];
+    }
+    // 判断前缀
+    if ([cString hasPrefix:@"0X"])
+        cString = [cString substringFromIndex:2];
+    if ([cString hasPrefix:@"#"])
+        cString = [cString substringFromIndex:1];
+    if ([cString length] != 6)
+        return [UIColor clearColor];
+    // 从六位数值中找到RGB对应的位数并转换
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    //R、G、B
+    NSString *rString = [cString substringWithRange:range];
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
 @end

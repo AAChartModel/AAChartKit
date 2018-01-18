@@ -27,6 +27,7 @@
  */
 
 #import <UIKit/UIKit.h>
+
 typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeMixedLine = 0,
     SpecialChartVCChartTypeAreaspline,

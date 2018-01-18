@@ -51,6 +51,7 @@
     WKWebView *_wkWebView;
     NSString  *_optionJson;
 }
+
 @end
 
 @implementation AAChartView
@@ -67,6 +68,11 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setUpBasicWebView];
+     
+        NSString *chartsMoreScript = [NSString stringWithFormat:@"$.getScript(%@)",@"https://img.hcharts.cn/highcharts/highcharts-more.js"];
+        
+        
+        
     }
     return self;
 }
@@ -273,4 +279,5 @@
         }
     }
 }
+
 @end

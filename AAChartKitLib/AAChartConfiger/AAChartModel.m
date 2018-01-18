@@ -30,6 +30,7 @@
 #import "AAChartModel.h"
 
 @implementation AAChartModel
+
 -(instancetype)init {
     self = [super init];
     if (self) {

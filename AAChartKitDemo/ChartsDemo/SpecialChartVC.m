@@ -94,9 +94,9 @@
 
 - (void)configureTheChartView:(AAChartType)chartType {
     
-    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.aaChartView.contentHeight = self.view.frame.size.height-60;
+//    self.aaChartView.contentHeight = self.view.frame.size.height-60;
     [self.view addSubview:self.aaChartView];
     
     self.aaChartModel = [self configureTheChartModel:chartType];
@@ -153,10 +153,11 @@
         return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
         .gradientColorEnableSet(true)
-//        .dataLabelEnabledSet(true)
+        //        .dataLabelEnabledSet(true)
         .titleSet(@"带有负数的区域填充图")
         .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")
@@ -186,7 +187,8 @@
                      .nameSet(@"2020")
                      .dataSet(@[@0, @-4.5, @-0.9, @5.5, @-1.9, @1.3, @-2.8, @0, @-1.7, @0, @3, @0, ]),
                      ]
-                   );
+                   )
+        ;
         
         return aaChartModel;
 
@@ -847,6 +849,7 @@
         return aaChartModel;
         
     } else if ([chartType isEqualToString:@"stepLine"]) {
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeLine)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
@@ -870,9 +873,14 @@
                          @"name": @"Tokyo",
                          @"data": @[@120, @132, @101, @134, @90, @230, @210],
                          @"step": @"left" //折线连接点靠左边👈
-                         }, ]);
+                         }, ]
+                   )
+        ;
+        
         return aaChartModel;
+        
     } else if ([chartType isEqualToString:@"stepArea"]) {
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeArea)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
@@ -897,8 +905,12 @@
                          @"name": @"Tokyo",
                          @"data": @[@120, @132, @101, @134, @90, @230, @210],
                          @"step": @(true) //设置折线样式为直方折线,连接点位置默认靠左👈
-                         }, ]);
+                         }, ]
+                   )
+        ;
+        
         return aaChartModel;
+        
     } else if ([chartType isEqualToString:@"mixed"]) {
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
@@ -1031,6 +1043,7 @@
         return aaChartModel;
         
     }
+    
     return nil;
 }
 
