@@ -83,6 +83,8 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisFontSize);//x-axis labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisFontWeight);//x-axis fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisFontColor);//x-axis fonto color
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
@@ -90,6 +92,8 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible);//y 轴是�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y 轴标题
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisFontSize);//y-axis labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisFontWeight);//y-axis fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisFontColor);//y-axis fonto color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
