@@ -43,6 +43,11 @@
 @property (nonatomic, weak)   id<AAChartViewDidFinishLoadDelegate> delegate;
 
 /**
+ String to display in 'zoom reset button"
+ */
+@property (nonatomic, assign) NSString *zoomResetButtonText;
+
+/**
  Set the chart view can scroll or not
  */
 @property (nonatomic, assign) BOOL scrollEnabled;
