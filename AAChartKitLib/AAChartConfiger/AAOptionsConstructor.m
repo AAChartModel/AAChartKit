@@ -66,8 +66,9 @@
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
                .styleSet(AAObject(AAStyle)
-                         .colorSet(@"#000000")//required!
-                         .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.xAxisFontSize, @"px"])//font size for x-axis labels
+                         .colorSet(chartModel.xAxisFontColor)//xAxis Label font color
+                         .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.xAxisFontSize, @"px"])//xAxis Label font size
+                         .fontWeightSet(chartModel.xAxisFontWeight)//xAxis Label font weight
                          )
                )
     .reversedSet(chartModel.xAxisReversed)
@@ -79,8 +80,9 @@
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                .styleSet(AAObject(AAStyle)
-                         .colorSet(@"#000000")//required!
-                         .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.yAxisFontSize, @"px"])//font size for y-axis labels
+                         .colorSet(chartModel.yAxisFontColor)//yAxis Label font color
+                         .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.yAxisFontSize, @"px"])//yAxis Label font size
+                         .fontWeightSet(chartModel.yAxisFontWeight)//yAxis Label font weight
                          )
                )
     .minSet(chartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
