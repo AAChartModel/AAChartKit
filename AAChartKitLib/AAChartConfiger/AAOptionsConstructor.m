@@ -65,6 +65,10 @@
     AAXAxis *xAxis = AAObject(AAXAxis)
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
+               .styleSet(AAObject(AAStyle)
+                         .colorSet(@"#000000")//required!
+                         .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.xAxisFontSize, @"px"])//font size for x-axis labels
+                         )
                )
     .reversedSet(chartModel.xAxisReversed)
     .gridLineWidthSet(chartModel.xAxisGridLineWidth)//x轴网格线宽度
@@ -74,6 +78,10 @@
     AAYAxis *yAxis = AAObject(AAYAxis)
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
+               .styleSet(AAObject(AAStyle)
+                         .colorSet(@"#000000")//required!
+                         .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.yAxisFontSize, @"px"])//font size for y-axis labels
+                         )
                )
     .minSet(chartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
     .maxSet(chartModel.yAxisMax)//y轴最大值
