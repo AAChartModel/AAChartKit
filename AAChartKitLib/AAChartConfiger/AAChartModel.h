@@ -146,6 +146,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*,
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
+AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);//The tooltip string
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
@@ -157,6 +158,8 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
+
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys);//Key support
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);//是否允许 y 轴显示小数
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基线的配置
