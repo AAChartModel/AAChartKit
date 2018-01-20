@@ -28,8 +28,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class AAStyle;
 @interface AALabels : NSObject
 
 AAPropStatementAndFuncStatement(assign, AALabels, BOOL, enabled);
+AAPropStatementAndFuncStatement(assign, AALabels, NSString *, fontSize);
+AAPropStatementAndFuncStatement(strong, AALabels, AAStyle  *, style);
 
 @end

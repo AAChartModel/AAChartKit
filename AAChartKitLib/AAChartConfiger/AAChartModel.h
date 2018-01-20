@@ -135,12 +135,14 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorE
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisFontSize);//xAxis font size
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y 轴标题
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisFontSize);//y y-axis labels font size
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
