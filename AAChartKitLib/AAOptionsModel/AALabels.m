@@ -32,6 +32,8 @@
 
 AAPropSetFuncImplementation(AALabels, BOOL, enabled);
 AAPropSetFuncImplementation(AALabels, NSString *, fontSize);
+AAPropSetFuncImplementation(AALabels, NSString *, fontColor);
+AAPropSetFuncImplementation(AALabels, NSString *, fontWeight);
 AAPropSetFuncImplementation(AALabels, AAStyle  *, style);
 
 @end
