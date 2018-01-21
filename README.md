@@ -128,27 +128,35 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 - ### radar chart
 
-![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG)
+![IMG_1877.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/RadarChart.png)
 
 - ### polar chart
 
-![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG)
+![IMG_1879.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/PolarChart.png)
 
 - ### pie chart
 
 ![IMG_1878.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/PieChart.png)
 
-- ### the oval style column chart
-
-![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
-
 - ### bubble chart
 
 ![IMG_1875.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BubbleChart.png)
 
+- ### scatter chart
+
+![scatter chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/ScatterChart.png)
+
+- ### arearange chart
+
+![arearange chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/ArearangeChart.png)
+
+- ### step area chart
+
+![step area chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/StepAreaChart.png)
+
 - ### mixed chart
 
-![IMG_1882.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/NfAVBj7.png)
+![mixed chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/MixedChart.png)
 
 
 ## More graphics

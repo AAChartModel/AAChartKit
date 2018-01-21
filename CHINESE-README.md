@@ -94,58 +94,63 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];
 ```
 
-###  `AAChartModel`一些重要属性经过配置之后的图形示例如下
-- ### line chart - 折线图
+##  `AAChartModel`一些重要属性经过配置之后的图形示例如下
 
-![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
-- ### column chart - 柱形图
+-  ### line chart
 
-![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1483.JPG)
+![IMG_1867.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/LineChart.png)
 
-- ### bar chart - 条形图
+-  ### column chart
 
-![IMG_1880.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1880.JPG
-)
+![IMG_1873.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/ColumnChart.png)
 
-- ### special area chart one - 区域填充图一
+- ###  bar chart
+
+![IMG_1880.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BarChart.png)
+
+- ### special area chart one
 
 ![IMG_1869.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/IMG_1482.JPG)
 
-- ### special area chart two - 区域填充图二
+- ### special area chart two
 
-![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1874.JPG)
+![IMG_1871.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/AreasplineChart.png)
 
-
-- ### special area chart three - 区域填充图三
+- ### special area chart three
 
 ![IMG_1863.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/PictureResources/屏幕快照%202017-05-06%20下午6.58.15.png)
 
-- ### radar chart - 雷达图
+- ### radar chart
 
-![IMG_1877.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1877.JPG
-)
+![IMG_1877.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/RadarChart.png)
 
-- ### polar chart - 极地图
+- ### polar chart
 
-![IMG_1879.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1879.JPG
-)
-- ###  pie chart - 扇形图
+![IMG_1879.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/PolarChart.png)
 
-![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG
-)
+- ### pie chart
 
-- ###  the oval style column chart - 头部为椭圆形的柱形图
+![IMG_1878.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/PieChart.png)
 
-![IMG_1866.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1866.JPG)
+- ### bubble chart
 
-- ### bubble chart - 气泡图
+![IMG_1875.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BubbleChart.png)
 
-![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG
-)
+- ### scatter chart
 
-- ### mixed chart - 混合图形
+![scatter chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/ScatterChart.png)
 
-![IMG_1882.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1882.JPG)
+- ### arearange chart
+
+![arearange chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/ArearangeChart.png)
+
+- ### step area chart
+
+![step area chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/StepAreaChart.png)
+
+- ### mixed chart
+
+![mixed chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/MixedChart.png)
 
 
 ### 更多图形效果
