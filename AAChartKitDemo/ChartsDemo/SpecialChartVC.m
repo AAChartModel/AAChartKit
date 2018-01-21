@@ -94,9 +94,9 @@
 
 - (void)configureTheChartView:(AAChartType)chartType {
     
-    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
+    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.aaChartView.contentHeight = self.view.frame.size.height-60;
+    self.aaChartView.contentHeight = self.view.frame.size.height-60;
     [self.view addSubview:self.aaChartView];
     
     self.aaChartModel = [self configureTheChartModel:chartType];
@@ -196,9 +196,9 @@
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
-        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0"])
-        .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
+        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
+        .titleSet(@"")
+        .subtitleSet(@"")
         .dataLabelEnabledSet(true)//是否直接显示扇形图数据
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
@@ -208,7 +208,7 @@
                      .innerSizeSet(@"20%")//内部圆环半径大小占比
                      .dataSet(
                               @[
-                                @[@"Firefox",   @45.0],
+                                @[@"Firefox",   @3336.2],
                                 @[@"IE",        @26.8],
                                 @{
                                     @"name":@"Chrome",
@@ -217,7 +217,7 @@
                                     @"selected":@(true)
                                     },
                                 @[@"Safari",    @88.5],
-                                @[@"Opera",     @3336.2],
+                                @[@"Opera",     @46.0],
                                 @[@"Others",    @223]
                                 ]
                               ),
