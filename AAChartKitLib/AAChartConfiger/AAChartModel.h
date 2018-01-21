@@ -152,7 +152,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*,
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
-//AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);//The tooltip string
+AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);//The tooltip string
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)

@@ -107,7 +107,7 @@ AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
-//AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
+AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
