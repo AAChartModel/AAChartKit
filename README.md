@@ -104,7 +104,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 -  ### line chart
 
-![IMG_1867.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1867.JPG)
+![IMG_1867.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/LineChart.png)
 
 -  ### column chart
 
@@ -120,7 +120,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 - ### special area chart two
 
-![IMG_1871.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1874.JPG)
+![IMG_1871.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/AreasplineChart.png)
 
 - ### special area chart three
 
@@ -136,7 +136,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 - ### pie chart
 
-![IMG_1878.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1878.JPG)
+![IMG_1878.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/PieChart.png)
 
 - ### the oval style column chart
 
@@ -144,7 +144,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 - ### bubble chart
 
-![IMG_1875.JPG](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/IMG_1875.JPG)
+![IMG_1875.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BubbleChart.png)
 
 - ### mixed chart
 
