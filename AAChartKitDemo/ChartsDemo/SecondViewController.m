@@ -97,19 +97,19 @@
     [self.view addSubview:self.aaChartView];
     
     
-    //    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
-        self.aaChartView.isClearBackgroundColor = YES;
-//        self.view.backgroundColor = [UIColor blueColor];
+    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
+    self.aaChartView.isClearBackgroundColor = YES;
     
     self.aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-    .yAxisVisibleSet(false)//设置 Y 轴不可见
+    .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .backgroundColorSet(@"#4b2b7f")
+    .yAxisGridLineWidthSet(@0.3)//y轴横向分割线宽度
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
@@ -172,7 +172,7 @@
 - (void)configureTheStyleForDifferentTypeChart {
     if (self.chartType == SecondeViewControllerChartTypeColumn
         || self.chartType == SecondeViewControllerChartTypeBar) {
-//        _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标内容
+        _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标内容
     } else if (self.chartType == SecondeViewControllerChartTypeArea
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
@@ -182,6 +182,7 @@
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
     } else if (self.chartType == SecondeViewControllerChartTypeStepLine
                || self.chartType == SecondeViewControllerChartTypeStepArea) {
+        _aaChartModel.yAxisVisible = false;
         _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
         _aaChartModel.gradientColorEnable = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
         _aaChartModel.series = @[ @{
@@ -352,7 +353,7 @@
         default:
             break;
     }
-    
+
     [self refreshTheChartView];
     
 }

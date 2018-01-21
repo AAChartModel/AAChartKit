@@ -35,7 +35,7 @@
     AAChart *chart = AAObject(AAChart)
     .typeSet(chartModel.chartType)//绘图类型
     .invertedSet(chartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
-    .backgroundColorSet(@"rgba(0,0,0,0)")//设置图表的背景色(包含透明度的设置)
+    .backgroundColorSet(chartModel.backgroundColor)//设置图表的背景色(包含透明度的设置)
     .zoomTypeSet(chartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar);
@@ -61,7 +61,7 @@
               .colorSet(@"#000000")
               .fontSizeSet(@"9px")
               );
-    
+
     AAXAxis *xAxis = AAObject(AAXAxis)
     .labelsSet(AAObject(AALabels)
                .enabledSet(chartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
@@ -101,7 +101,7 @@
     .enabledSet(true)//启用浮动提示框
     .sharedSet(true)//多组数据共享一个浮动提示框
     .crosshairsSet(chartModel.tooltipCrosshairs)
-    .pointFormatSet(chartModel.tooltipValueString)//Tooltip value string
+//    .pointFormatSet(chartModel.tooltipValueString)//Tooltip value string
     .valueSuffixSet(chartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
     

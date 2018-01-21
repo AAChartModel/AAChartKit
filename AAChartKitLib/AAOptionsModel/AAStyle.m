@@ -31,16 +31,16 @@
 
 @implementation AAStyle
 
--(instancetype)init{
-    self = [super init];
-    if (self) {
-        self.color = @"#000000";
-        self.fontSize = @"11px";
-        self.fontWeight = @"bold";
+//-(instancetype)init{
+//    self = [super init];
+//    if (self) {
+//        self.color = @"#000000";
+//        self.fontSize = @"11px";
+//        self.fontWeight = @"bold";
 //        self.textOutline = @"1px 1px contrast";
-    }
-    return self;
-}
+//    }
+//    return self;
+//}
 
 AAPropSetFuncImplementation(AAStyle, NSString *, color);
 AAPropSetFuncImplementation(AAStyle, NSString *, fontSize);

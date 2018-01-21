@@ -139,6 +139,9 @@
 }
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)options {
+    if (self.isClearBackgroundColor == YES) {
+        options.chart.backgroundColor = @"rgba(0,0,0,0)";
+    }
     _optionJson = [AAJsonConverter getPureOptionsString:options];
 }
 

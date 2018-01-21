@@ -34,30 +34,38 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.chartType           = AAChartTypeColumn;
-        self.animationType       = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
-        self.animationDuration   = @500;//默认动画时长为500毫秒
-        self.subtitleAlign       = AAChartSubtitleAlignTypeLeft;
-        self.inverted            = NO;
-        self.stacking            = AAChartStackingTypeFalse;
-        self.xAxisReversed       = NO;
-        self.yAxisReversed       = NO;
-        self.zoomType            = AAChartZoomTypeX;
-        self.colorsTheme         = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
-        self.gradientColorEnable = NO;
-        self.polar               = NO;
-        self.options3dEnable     = NO;
-        self.tooltipCrosshairs   = YES;
-        self.xAxisLabelsEnabled  = YES;
-        self.xAxisGridLineWidth  = @0;
-        self.xAxisVisible        = YES;//x轴默认可见
-        self.yAxisVisible        = YES;//y轴默认可见
-        self.yAxisLabelsEnabled  = YES;
-        self.yAxisGridLineWidth  = @1;
-        self.legendEnabled       = YES;
-        self.borderRadius        = @0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        self.markerRadius        = @5;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-        self.yAxisAllowDecimals  = YES; //默认y轴显示小数
+        self.chartType              = AAChartTypeColumn;
+        self.animationType          = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
+        self.animationDuration      = @500;//默认动画时长为500毫秒
+        self.subtitleAlign          = AAChartSubtitleAlignTypeLeft;
+        self.inverted               = NO;
+        self.stacking               = AAChartStackingTypeFalse;
+        self.xAxisReversed          = NO;
+        self.yAxisReversed          = NO;
+        self.zoomType               = AAChartZoomTypeX;
+        self.colorsTheme            = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
+        self.gradientColorEnable    = NO;
+        self.polar                  = NO;
+        self.options3dEnable        = NO;
+        self.tooltipCrosshairs      = YES;
+        self.xAxisLabelsEnabled     = YES;
+        self.xAxisGridLineWidth     = @0;
+        self.xAxisVisible           = YES;//x轴默认可见
+        self.yAxisVisible           = YES;//y轴默认可见
+        self.yAxisLabelsEnabled     = YES;
+        self.yAxisGridLineWidth     = @1;
+        self.legendEnabled          = YES;
+        self.borderRadius           = @0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
+        self.markerRadius           = @5;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        self.yAxisAllowDecimals     = YES; //默认y轴显示小数
+        
+        self.xAxisLabelsFontSize    = @11;
+        self.xAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
+        self.xAxisLabelsFontWeight  = @"thin";//细体字
+        self.yAxisLabelsFontSize    = @11;
+        self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
+        self.yAxisLabelsFontWeight  = @"thin";//细体字
+        
     }
     return self;
 }
@@ -82,7 +90,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnable);//是
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
-AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontSize);//x-axis labels font size
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisLabelsFontSize);//x-axis labels font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontWeight);//x-axis fonto weight
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontColor);//x-axis fonto color
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
@@ -91,7 +99,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible);//x 轴是�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y 轴标题
-AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontSize);//y-axis labels font size
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLabelsFontSize);//y-axis labels font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis fonto weight
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis fonto color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
@@ -99,7 +107,7 @@ AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
-AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
+//AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
