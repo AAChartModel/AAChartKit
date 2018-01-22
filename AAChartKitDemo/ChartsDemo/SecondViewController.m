@@ -97,7 +97,7 @@
     [self.view addSubview:self.aaChartView];
     
     
-    //设置 AAChartView 的背景色是否为透明(解开注释查看设置背景色透明后的效果)
+    //设置 AAChartView 的背景色是否为透明
     self.aaChartView.isClearBackgroundColor = YES;
     
     self.aaChartModel= AAObject(AAChartModel)
@@ -108,7 +108,7 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .backgroundColorSet(@"#4b2b7f")
+//    .backgroundColorSet(@"#4b2b7f")
     .yAxisGridLineWidthSet(@0.3)//y轴横向分割线宽度
     .seriesSet(@[
                  AAObject(AASeriesElement)
@@ -145,26 +145,27 @@
     .yAxisMinSet(@(1))//Y轴最小值
     .yAxisAllowDecimalsSet(NO)//是否允许Y轴坐标值小数
     .yAxisTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])//指定y轴坐标
-    .yAxisPlotLinesSet(@[AAObject(AAPlotLinesElement)
-                     .colorSet(@"#F05353")//颜色值(16进制)
-                     .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
-                     .widthSet(@(1)) //标示线粗细
-                     .valueSet(@(20)) //所在位置
-                     .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                     .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
-                     ,AAObject(AAPlotLinesElement)
-                     .colorSet(@"#33BDFD")
-                     .dashStyleSet(@"Dash")
-                     .widthSet(@(1))
-                     .valueSet(@(40))
-                     .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-                     ,AAObject(AAPlotLinesElement)
-                     .colorSet(@"#ADFF2F")
-                     .dashStyleSet(@"Dash")
-                     .widthSet(@(1))
-                     .valueSet(@(60))
-                     .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-                     ]
+    .yAxisPlotLinesSet(@[
+                         AAObject(AAPlotLinesElement)
+                         .colorSet(@"#F05353")//颜色值(16进制)
+                         .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
+                         .widthSet(@(1)) //标示线粗细
+                         .valueSet(@(20)) //所在位置
+                         .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                         .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                         ,AAObject(AAPlotLinesElement)
+                         .colorSet(@"#33BDFD")
+                         .dashStyleSet(@"Dash")
+                         .widthSet(@(1))
+                         .valueSet(@(40))
+                         .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                         ,AAObject(AAPlotLinesElement)
+                         .colorSet(@"#ADFF2F")
+                         .dashStyleSet(@"Dash")
+                         .widthSet(@(1))
+                         .valueSet(@(60))
+                         .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                         ]
                    );
     
 }

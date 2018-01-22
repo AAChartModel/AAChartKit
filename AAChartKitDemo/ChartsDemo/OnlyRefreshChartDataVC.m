@@ -63,7 +63,7 @@
         [self.view addSubview:btn];
     }
     
-    self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-100)];
+    self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-250)];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.chartView];
@@ -83,10 +83,10 @@
         [sinNumArr2 addObject:@(y2)];
     }
     
-    NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeLine,AAChartTypeSpline,];
+    NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeAreaspline,AAChartTypeSpline,AAChartTypeScatter];
     
     self.chartModel= AAObject(AAChartModel)
-    //    .chartTypeSet(AAChartTypeColumn)
+        .chartTypeSet(chartTypeArr[arc4random()%4])//图表类型随机
     //    .invertedSet(true)//x 轴是否垂直
     //    .xAxisReversedSet(true)//x 轴是否翻转
     //    .yAxisReversedSet(true)//y 轴是否翻转
@@ -134,7 +134,7 @@
 }
 
 - (void)virtualUpdateTheChartViewDataInRealTime{
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1
                                               target:self
                                             selector:@selector(timerStartWork)
                                             userInfo:nil
@@ -168,13 +168,14 @@
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
     
-//    int Q = arc4random()%30;
-    int Q = 10;
-    //第一个波纹的公式
+    int Q = arc4random()%30;
+//    int Q = 10;
     for (float x = myBasicValue; x <= myBasicValue + 50 ; x++) {
+          //第一个波纹的公式
         y1 = sin((Q) * (x * M_PI / 180)) +x*2*0.01-1 ;
         [sinNumArr addObject:@(y1)];
         
+          //第二个波纹的公式
         y2 =cos((Q) * (x * M_PI / 180))+x*3*0.01-1;
         [sinNumArr2 addObject:@(y2)];
         
