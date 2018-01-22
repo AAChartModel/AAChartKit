@@ -34,7 +34,7 @@
 @interface AAChart : NSObject
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, type);
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, backgroundColor);
-AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, zoomType);
+AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, pinchType);
 AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          panning);
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, panKey);
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, plotBackgroundColor);

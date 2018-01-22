@@ -65,13 +65,9 @@
             function loadTheHighChartView (sender,receivedWidth,receivedHeight,receivedZoomButtonTitle) {
                 
                 //Set the 'Reset zoom button' title
-                if (receivedZoomButtonTitle.length==0)
-                {
-                    receivedZoomButtonTitle="Reset zoom"; //Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
-                }
                 Highcharts.setOptions({
                                       lang: {
-                                      resetZoom: receivedZoomButtonTitle
+                                      resetZoom: receivedZoomButtonTitle//Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
                                       }
                                       });
                 

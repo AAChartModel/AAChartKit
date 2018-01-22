@@ -37,5 +37,7 @@ AAPropSetFuncImplementation(AATooltip, BOOL,       shared);
 AAPropSetFuncImplementation(AATooltip, BOOL,       crosshairs);
 //AAPropSetFuncImplementation(AATooltip, BOOL , useHTML);
 AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix);
+AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove);
+
 
 @end

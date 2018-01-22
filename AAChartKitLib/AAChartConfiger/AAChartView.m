@@ -68,17 +68,13 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setUpBasicWebView];
-     
-        NSString *chartsMoreScript = [NSString stringWithFormat:@"$.getScript(%@)",@"https://img.hcharts.cn/highcharts/highcharts-more.js"];
-        
-        
-        
     }
     return self;
 }
 
 - (void)setUpBasicWebView {
     self.backgroundColor = [UIColor whiteColor];
+    self.zoomResetButtonText = @"恢复缩放";
 
     if (AASYSTEM_VERSION >= 9.0) {
         _wkWebView = [[WKWebView alloc] init];
