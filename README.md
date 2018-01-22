@@ -10,12 +10,11 @@
 [![](https://jaywcjlove.github.io/sb/lang/chinese.svg)](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md) <br>
 [![](https://jaywcjlove.github.io/sb/lang/english.svg)](https://github.com/AAChartModel/AAChartKit) <br>
 [![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitDocumentLive.html)  <br>
+
+##  [ **中文文档** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)  |  [ **English Document** ](https://github.com/AAChartModel/AAChartKit)
+
 ### There is the link of Swift version of AAChartKit as follow
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
-
-### 中文使用说明书地址
-
-#### *https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md*
 
 ## Preface
 

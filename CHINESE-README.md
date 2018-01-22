@@ -9,7 +9,9 @@
 [![](https://img.shields.io/badge/support-Swift-orange.svg)](https://github.com/AAChartModel/AAChartKit-Swift)
 [![](https://jaywcjlove.github.io/sb/lang/chinese.svg)](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)
 [![](https://jaywcjlove.github.io/sb/lang/english.svg)](https://github.com/AAChartModel/AAChartKit)
-[![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitDocumentLive.html) 
+[![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitDocumentLive.html)
+
+## [ **English Document** ](https://github.com/AAChartModel/AAChartKit)  |  [ **中文文档** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)
 ### 您所喜爱的 ***AAChartKit*** 开源图表库现在更有`swift`版本可供使用,详情请点击以下链接
 ### 传送门
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
