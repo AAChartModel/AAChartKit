@@ -62,7 +62,19 @@
             
             var chartMax;
             
-            function loadTheHighChartView (sender,receivedWidth,receivedHeight) {
+            function loadTheHighChartView (sender,receivedWidth,receivedHeight,receivedZoomButtonTitle) {
+                
+                //Set the 'Reset zoom button' title
+                if (receivedZoomButtonTitle.length==0)
+                {
+                    receivedZoomButtonTitle="Reset zoom"; //Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
+                }
+                Highcharts.setOptions({
+                                      lang: {
+                                      resetZoom: receivedZoomButtonTitle
+                                      }
+                                      });
+                
                 var container = document.getElementById('container');//获得元素
                 if (receivedWidth != 0) {
                     container.style.width = receivedWidth;//设置宽度
