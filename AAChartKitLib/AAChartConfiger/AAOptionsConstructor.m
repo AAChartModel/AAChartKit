@@ -176,44 +176,43 @@
 
 + (NSString *)configureTheEasingAnimationType:(AAChartAnimation)animationType {
     
-    NSArray *animationTypeArr = @[
-                                  @"linear",
-                                  @"easeInQuad",
-                                  @"easeOutQuad",
-                                  @"easeInOutQuad",
-                                  @"easeInCubic",
-                                  @"easeOutCubic",
-                                  @"easeInOutCubic",
-                                  @"easeInQuart",
-                                  @"easeOutQuart",
-                                  @"easeInOutQuart",
-                                  @"easeInQuint",
-                                  @"easeOutQuint",
-                                  @"easeInOutQuint",
-                                  @"easeInSine",
-                                  @"easeOutSine",
-                                  @"easeInOutSine",
-                                  @"easeInExpo",
-                                  @"easeOutExpo",
-                                  @"easeInOutExpo",
-                                  @"easeInCirc",
-                                  @"easeOutCirc",
-                                  @"easeInOutCirc",
-                                  @"easeOutBounce",
-                                  @"easeInBack",
-                                  @"easeOutBack",
-                                  @"easeInOutBack",
-                                  @"elastic",
-                                  @"swingFromTo",
-                                  @"swingFrom",
-                                  @"swingTo",
-                                  @"bounce",
-                                  @"bouncePast",
-                                  @"easeFromTo",
-                                  @"easeFrom",
-                                  @"easeTo",
-                                  ] ;
-    return animationTypeArr[animationType];
+    switch (animationType) {
+        case AAChartAnimationLinear : return @"linear";
+        case AAChartAnimationEaseInQuad: return @"easeInQuad";
+        case AAChartAnimationEaseOutQuad: return @"easeOutQuad";
+        case AAChartAnimationEaseInOutQuad: return @"easeInOutQuad";
+        case AAChartAnimationEaseInCubic: return @"easeInCubic";
+        case AAChartAnimationEaseOutCubic: return @"easeOutCubic";
+        case AAChartAnimationEaseInOutCubic: return @"easeInOutCubic";
+        case AAChartAnimationEaseInQuart: return @"easeInQuart";
+        case AAChartAnimationEaseOutQuart: return @"easeOutQuart";
+        case AAChartAnimationEaseInOutQuart: return @"easeInOutQuart";
+        case AAChartAnimationEaseInQuint: return @"easeInQuint";
+        case AAChartAnimationEaseOutQuint: return @"easeOutQuint";
+        case AAChartAnimationEaseInOutQuint: return @"easeInOutQuint";
+        case AAChartAnimationEaseInSine: return @"easeInSine";
+        case AAChartAnimationEaseOutSine: return @"easeOutSine";
+        case AAChartAnimationEaseInOutSine: return @"easeInOutSine";
+        case AAChartAnimationEaseInExpo: return @"easeInExpo";
+        case AAChartAnimationEaseOutExpo: return @"easeOutExpo";
+        case AAChartAnimationEaseInOutExpo: return @"easeInOutExpo";
+        case AAChartAnimationEaseInCirc: return @"easeInCirc";
+        case AAChartAnimationEaseOutCirc: return @"easeOutCirc";
+        case AAChartAnimationEaseInOutCirc: return @"easeInOutCirc";
+        case AAChartAnimationEaseOutBounce: return @"easeOutBounce";
+        case AAChartAnimationEaseInBack: return @"easeInBack";
+        case AAChartAnimationEaseOutBack: return @"easeOutBack";
+        case AAChartAnimationEaseInOutBack: return @"easeInOutBack";
+        case AAChartAnimationElastic: return @"elastic";
+        case AAChartAnimationSwingFromTo: return @"swingFromTo";
+        case AAChartAnimationSwingFrom: return @"swingFrom";
+        case AAChartAnimationSwingTo: return @"swingTo";
+        case AAChartAnimationBounce: return @"bounce";
+        case AAChartAnimationBouncePast: return @"bouncePast";
+        case AAChartAnimationEaseFromTo: return @"easeFromTo";
+        case AAChartAnimationEaseFrom: return @"easeFrom";
+        case AAChartAnimationEaseTo: return @"easeTo";
+    };
 }
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
