@@ -62,15 +62,7 @@
             
             var chartMax;
             
-            function loadTheHighChartView (sender,receivedWidth,receivedHeight,receivedZoomButtonTitle) {
-                
-                //Set the 'Reset zoom button' title
-                Highcharts.setOptions({
-                                      lang: {
-                                      resetZoom: receivedZoomButtonTitle//Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
-                                      }
-                                      });
-                
+            function loadTheHighChartView (sender,receivedWidth,receivedHeight) {
                 var container = document.getElementById('container');//获得元素
                 if (receivedWidth != 0) {
                     container.style.width = receivedWidth;//设置宽度
@@ -92,6 +84,12 @@
                                                                     });
                 }
                 
+                //Set the 'Reset zoom button' title
+                Highcharts.setOptions({
+                                      lang: {
+                                      resetZoom: JavaScriptObject.zoomResetButtonText//Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
+                                      }
+                                      });
                 
                 JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
                 

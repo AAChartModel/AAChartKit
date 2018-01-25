@@ -93,7 +93,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
-6.  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用`aa_onlyRefreshTheChartDataWithChartModel`方法)
+6.  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用`aa_onlyRefreshTheChartDataWithChartModelSeries`方法)
 ```objective-c
 /*更新 AAChartModel 内容之后,刷新图表*/
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];
@@ -471,7 +471,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 >>>>> * - [x] 支持图形动态刷新纯数据`(series)`内容
 >>> * - [ ] 支持图形实时刷新纯数据并动态滚动
 >>>>> * - [x] 支持色彩图层渐变效果
->>>>> * - [x] 支持3D图形效果,仅对`柱状图、条形图、扇形图、散点图、气泡图`等部分图形有效
+>>>>> * - [x] 支持3D图形效果,仅对`柱状图`、`条形图`、`扇形图`、`散点图`、`气泡图`等部分图形有效
 >>> * - [ ] 支持代码覆盖率测试
 >>> * - [ ] 支持使用`CocoaPods` 导入
 >>> * - [ ] 支持使用`Carthage` 导入

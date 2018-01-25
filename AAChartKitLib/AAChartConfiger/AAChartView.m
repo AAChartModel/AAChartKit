@@ -74,7 +74,6 @@
 
 - (void)setUpBasicWebView {
     self.backgroundColor = [UIColor whiteColor];
-    self.zoomResetButtonText = @"恢复缩放";
 
     if (AASYSTEM_VERSION >= 9.0) {
         _wkWebView = [[WKWebView alloc] init];
@@ -148,7 +147,7 @@
         contentHeight = contentHeight - 20;
     }
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@','%@')",_optionJson,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight],self.zoomResetButtonText];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",_optionJson,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight]];
     return javaScriptStr;
 }
 
@@ -232,13 +231,6 @@
 }
 
 #pragma mark -- setter method
-
-- (void)setStrUnzoomString:(NSString *)zoomResetButtonText {
-    _zoomResetButtonText = zoomResetButtonText;
-    if (_optionJson) {
-        [self drawChart];
-    }
-}
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;

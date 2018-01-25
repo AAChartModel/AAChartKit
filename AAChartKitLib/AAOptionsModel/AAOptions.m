@@ -42,5 +42,8 @@ AAPropSetFuncImplementation(AAOptions, AALegend      *, legend);
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors);
 AAPropSetFuncImplementation(AAOptions, BOOL,            gradientColorEnable);
 AAPropSetFuncImplementation(AAOptions, NSDictionary  *, drilldown);
+AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //String to display in 'zoom reset button"
+
+
 
 @end

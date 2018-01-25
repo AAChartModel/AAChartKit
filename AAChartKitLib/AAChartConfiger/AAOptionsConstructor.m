@@ -167,7 +167,8 @@
     .legendSet(legend)
     .seriesSet(chartModel.series)
     .colorsSet(chartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnableSet(chartModel.gradientColorEnable);//设置主题颜色是否为渐变色
+    .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
+    .zoomResetButtonTextSet(chartModel.zoomResetButtonText);
     
     //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
     return options;

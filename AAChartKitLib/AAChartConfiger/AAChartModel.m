@@ -65,6 +65,7 @@
         self.yAxisLabelsFontSize    = @11;
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = @"thin";//细体字
+        self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
         
     }
     return self;
@@ -127,5 +128,7 @@ AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax);//y 轴最大值
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
+
 
 @end
