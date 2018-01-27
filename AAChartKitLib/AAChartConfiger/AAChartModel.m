@@ -121,8 +121,6 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);//3D 图�
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
 
-AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
-
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisAllowDecimals);//是否允许 y 轴显示小数
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基线的配置
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax);//y 轴最大值

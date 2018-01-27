@@ -40,6 +40,7 @@ AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, data);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, AAMarker *, marker);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, stacking);
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSArray  *, keys);
+AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, threshold);
+
 
 @end

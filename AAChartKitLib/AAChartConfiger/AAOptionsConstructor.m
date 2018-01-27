@@ -105,16 +105,11 @@
     .pointFormatSet(chartModel.tooltipValueString)//Tooltip value string
     .valueSuffixSet(chartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
-    
     AAPlotOptions *plotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
 //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
                .stackingSet(chartModel.stacking)//设置是否百分比堆叠显示图形
-               .keysSet(chartModel.keys)//Support for keys
-//               .animationSet(AAObject(AAAnimation)
-//                             .easingSet(chartAnimationType)
-//                             .durationSet(chartModel.animationDuration)
-//                             )
+//               .keysSet(chartModel.keys)//Support for keys
                );
     
     if (chartModel.animationType != 0) {
@@ -145,7 +140,7 @@
         series.connectNulls = chartModel.connectNulls;
         series.marker = marker;
     }
-    
+
     plotOptions = [self configureTheAAPlotOptionsWithPlotOptions:plotOptions chartModel:chartModel];
     //   plotOptions.series.events = @{@"click":@"hahaha"};
     
@@ -170,7 +165,6 @@
     .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
     .zoomResetButtonTextSet(chartModel.zoomResetButtonText);
     
-    //  options.plotOptions.pie.dataLabels.formatSet(@"你一生的故事<br/>你一生的故事<br/>你一生的故事<br/>");
     return options;
 }
 
@@ -218,17 +212,15 @@
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)plotOptions
                                                  chartModel:(AAChartModel *)chartModel {
     AAChartType chartType = chartModel.chartType;
-    AADataLabels *dataLabels = (AAObject(AADataLabels)
-                                .enabledSet(chartModel.dataLabelEnabled)
-                                );
     //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *column = (AAObject(AAColumn)
                             .borderWidthSet(@0)
 //                            .groupPaddingSet(@0.1)
                             .borderRadiusSet(chartModel.borderRadius)
-                            .dataLabelsSet(dataLabels)
-                            );
+                            .dataLabelsSet(AAObject(AADataLabels)
+                                           .enabledSet(chartModel.dataLabelEnabled)
+                                           ));
         if (chartModel.polar == YES) {
             column.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
@@ -239,8 +231,9 @@
                       .borderWidthSet(@0)
 //                      .groupPaddingSet(@0.1)
                       .borderRadiusSet(chartModel.borderRadius)
-                      .dataLabelsSet(dataLabels)
-                      );
+                      .dataLabelsSet(AAObject(AADataLabels)
+                                     .enabledSet(chartModel.dataLabelEnabled)
+                                     ));
         if (chartModel.polar == YES) {
             bar.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
@@ -248,42 +241,48 @@
         plotOptions.barSet(bar);
     } else if ([chartType isEqualToString:AAChartTypeArea]) {
         plotOptions.areaSet(AAObject(AAArea)
-                            .dataLabelsSet(dataLabels)
-                            );
+                            .dataLabelsSet(AAObject(AADataLabels)
+                                           .enabledSet(chartModel.dataLabelEnabled)
+                                           ));
     } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
         plotOptions.areasplineSet(AAObject(AAAreaspline)
-                                  .dataLabelsSet(dataLabels)
-                                  );
+                                  .dataLabelsSet(AAObject(AADataLabels)
+                                                 .enabledSet(chartModel.dataLabelEnabled)
+                                                 ));
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         plotOptions.lineSet(AAObject(AALine)
-                            .dataLabelsSet(dataLabels)
-                            );
+                            .dataLabelsSet(AAObject(AADataLabels)
+                                           .enabledSet(chartModel.dataLabelEnabled)
+                                           ));
     } else if ([chartType isEqualToString:AAChartTypeSpline]) {
         plotOptions.splineSet(AAObject(AASpline)
-                              .dataLabelsSet(dataLabels)
-                              );
-        
+                              .dataLabelsSet(AAObject(AADataLabels)
+                                             .enabledSet(chartModel.dataLabelEnabled)
+                                             ));
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         plotOptions.pieSet(AAObject(AAPie)
                            .allowPointSelectSet(true)
                            .cursorSet(@"pointer")
-                           .dataLabelsSet(dataLabels
-                                          .formatSet(@"{point.percentage:.1f}%")
-                                          )
                            .showInLegendSet(true)
-                           );
-        
+                           .dataLabelsSet(AAObject(AADataLabels)
+                                          .enabledSet(chartModel.dataLabelEnabled)
+                                          .formatSet(@"{point.percentage:.1f}%")
+                                          ));
         if (chartModel.options3dEnable == true) {
             plotOptions.pie.depth = chartModel.options3dDepth;//设置3d 图形阴影深度
         }
-        //      plotOptions.series.colorByPoint = true;
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0};
+        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"borderWidth":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},};
         plotOptions.columnrangeSet(columnrangeDic);
     } else if ([chartType isEqualToString:AAChartTypeArearange]) {
-         NSDictionary *arearangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0};
+        NSDictionary *arearangeDic = @{@"borderRadius":@0,@"borderWidth":@0,
+                                       @"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),
+                                                       @"style":@{@"color":@"contrast",
+                                                                  @"textOutline":@"1px 1px contrast",
+                                                                  @"fontWeight":@"bold",
+                                                                  @"fontSize":@"12.5px"}},
+                                       };
         plotOptions.arearangeSet(arearangeDic);
-
     }
     return plotOptions;
 }

@@ -37,6 +37,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, innerSize);
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking);
-AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys);
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, threshold);
+
 
 @end
