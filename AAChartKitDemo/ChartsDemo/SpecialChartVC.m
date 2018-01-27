@@ -422,9 +422,11 @@
     }  else if ([chartType isEqualToString:AAChartTypeArearange]) {
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeArearange)
         .titleSet(@"黄昏别馆日气温起伏图")
         .subtitleSet(@"实时监测")
         .yAxisTitleSet(@"摄氏度")
+        .dataLabelEnabledSet(true)
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
@@ -808,7 +810,8 @@
                                 @[@1419814800000, @-5.2, @2.4],
                                 @[@1419901200000, @1.3,  @2.5],
                                 @[@1419987600000, @1.6,  @4.2]
-                                ]),
+                                ]
+                     ),
                      ]
                    );
         
@@ -817,6 +820,7 @@
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeColumnrange)
         .titleSet(@"金银岛每月温度变化范围")
         .subtitleSet(@"2020年实测数据")
         .yAxisTitleSet(@"℃")
@@ -826,7 +830,6 @@
         .dataLabelEnabledSet(true)
         .seriesSet(@[
                      AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeColumnrange)
                      .nameSet(@"温度")
                      .dataSet(@[
                                 @[@-9.7,  @9.4],

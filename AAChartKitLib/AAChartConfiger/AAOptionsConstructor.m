@@ -278,8 +278,12 @@
         }
         //      plotOptions.series.colorByPoint = true;
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0,@"colorByPoint":@(false)};
+        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0};
         plotOptions.columnrangeSet(columnrangeDic);
+    } else if ([chartType isEqualToString:AAChartTypeArearange]) {
+         NSDictionary *arearangeDic = @{@"borderRadius":@0,@"dataLabels":@{@"enabled":@(chartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},@"borderWidth":@0};
+        plotOptions.arearangeSet(arearangeDic);
+
     }
     return plotOptions;
 }

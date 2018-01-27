@@ -31,6 +31,7 @@
 @class AAColumn,AABar,AALine,AASpline,AAArea,AAAreaspline,AAPie,AASeries;
 
 @interface AAPlotOptions : NSObject
+
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AAColumn     *, column);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AALine       *, line);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AAPie        *, pie);
@@ -40,5 +41,6 @@ AAPropStatementAndFuncStatement(strong, AAPlotOptions, AASeries     *, series);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AAArea       *, area);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline);
 AAPropStatementAndFuncStatement(strong, AAPlotOptions, NSObject     *, columnrange);
+AAPropStatementAndFuncStatement(strong, AAPlotOptions, NSObject     *, arearange);
 
 @end
