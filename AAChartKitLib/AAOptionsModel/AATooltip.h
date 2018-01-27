@@ -38,7 +38,7 @@ AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       crosshairs);
 
 //AAPropStatementAndFuncStatement(assign, AATooltip, BOOL, useHTML);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, valueSuffix);
-AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       followTouchMove);//在触摸设备上，tooltip.followTouchMove选项为true（默认）时，平移需要两根手指。若要允许用一根手指平移，请将followTouchMove设置为false。
+//AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       followTouchMove);//在触摸设备上，tooltip.followTouchMove选项为true（默认）时，平移需要两根手指。若要允许用一根手指平移，请将followTouchMove设置为false。
 
 
 
