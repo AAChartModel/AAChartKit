@@ -174,6 +174,7 @@
     if (self.chartType == SecondeViewControllerChartTypeColumn
         || self.chartType == SecondeViewControllerChartTypeBar) {
         _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标内容
+       // _aaChartModel.xAxisTickInterval = @3;//设置 X轴坐标点的间隔数,默认是1(手机端的屏幕较为狭窄, 如果X轴坐标点过多,文字过于密集的时候可以设置此属性值,用户的密集恐惧症将得到有效治疗😝)
     } else if (self.chartType == SecondeViewControllerChartTypeArea
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色

@@ -50,6 +50,7 @@
         self.tooltipCrosshairs      = YES;
         self.xAxisLabelsEnabled     = YES;
         self.xAxisGridLineWidth     = @0;
+        self.xAxisTickInterval      = @1;//x轴坐标点间隔数(默认是1)
         self.xAxisVisible           = YES;//x轴默认可见
         self.yAxisVisible           = YES;//y轴默认可见
         self.yAxisLabelsEnabled     = YES;
@@ -96,6 +97,8 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontWeight);//x
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontColor);//x-axis fonto color
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisTickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据

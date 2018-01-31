@@ -29,7 +29,7 @@
 #import "AASeriesElement.h"
 
 @implementation AASeriesElement
-//threshold
+
 AAPropSetFuncImplementation(AASeriesElement, NSString *, type);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data);

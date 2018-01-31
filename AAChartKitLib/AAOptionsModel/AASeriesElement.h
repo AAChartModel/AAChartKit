@@ -27,7 +27,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AAGlobalMacro.h"
 
 @class AAMarker;
 
@@ -45,3 +44,5 @@ AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiu
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
 
 @end
+
+

@@ -75,7 +75,9 @@
     .reversedSet(chartModel.xAxisReversed)
     .gridLineWidthSet(chartModel.xAxisGridLineWidth)//x轴网格线宽度
     .categoriesSet(chartModel.categories)
-    .visibleSet(chartModel.xAxisVisible);
+    .visibleSet(chartModel.xAxisVisible)//x轴是否可见
+    .tickIntervalSet(chartModel.xAxisTickInterval);//x轴坐标点间隔数
+    ;
     
     AAYAxis *yAxis = AAObject(AAYAxis)
     .labelsSet(AAObject(AALabels)
@@ -95,7 +97,7 @@
     .gridLineWidthSet(chartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)
               .textSet(chartModel.yAxisTitle))//y 轴标题
-    .lineWidthSet(@0)
+    .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
     .visibleSet(chartModel.yAxisVisible);
     
     AATooltip *tooltip = AAObject(AATooltip)

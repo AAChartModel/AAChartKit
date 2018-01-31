@@ -30,9 +30,9 @@
 
 @implementation AAChart
 
--(instancetype)init{
-    self = [super init];
-    if (self) {
+//-(instancetype)init{
+//    self = [super init];
+//    if (self) {
 //        self.spacingTop = @0;
 //        self.spacingLeft =@0;
 //        self.spacingRight = @0;
@@ -41,9 +41,9 @@
 //        self.marginLeft = @0;
 //        self.marginRight = @0;
 //        self.marginTop = 0;
-     }
-    return self;
-}
+//     }
+//    return self;
+//}
 
 AAPropSetFuncImplementation(AAChart, NSString    *, type);
 AAPropSetFuncImplementation(AAChart, NSString    *, backgroundColor);

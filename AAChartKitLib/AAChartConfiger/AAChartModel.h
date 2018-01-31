@@ -138,8 +138,10 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEna
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);//xAxis font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);//X-axis label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);//X-axis label font weight
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);//x轴坐标每个点对应的名称
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
