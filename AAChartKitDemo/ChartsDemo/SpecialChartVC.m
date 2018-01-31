@@ -206,6 +206,7 @@
                      AAObject(AASeriesElement)
                      .nameSet(@"语言热度值")
                      .innerSizeSet(@"20%")//内部圆环半径大小占比
+                     .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                      .dataSet(
                               @[
                                 @[@"Firefox",   @3336.2],

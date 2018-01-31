@@ -4,7 +4,12 @@
 //
 //  Created by An An on 17/1/5.
 //  Copyright © 2017年 An An. All rights reserved.
-//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
+//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//***    https://github.com/AAChartModel/AAChartKit     ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
 //
 
 /*
@@ -33,6 +38,7 @@
 @interface AASeriesElement : NSObject
 
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, type);
+AAPropStatementAndFuncStatement(assign, AASeriesElement, BOOL      , allowPointSelect);//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, name);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, data);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, AAMarker *, marker);
