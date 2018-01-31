@@ -87,6 +87,7 @@
                          .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.yAxisLabelsFontSize, @"px"])//yAxis Label font size
                          .fontWeightSet(chartModel.yAxisLabelsFontWeight)//yAxis Label font weight
                          )
+               .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
                )
     .minSet(chartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
     .maxSet(chartModel.yAxisMax)//y轴最大值

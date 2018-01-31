@@ -36,5 +36,7 @@ AAPropStatementAndFuncStatement(assign, AALabels, NSString *, fontSize);
 AAPropStatementAndFuncStatement(assign, AALabels, NSString *, fontColor);
 AAPropStatementAndFuncStatement(assign, AALabels, NSString *, fontWeight);
 AAPropStatementAndFuncStatement(strong, AALabels, AAStyle  *, style);
+AAPropStatementAndFuncStatement(strong, AALabels, NSString *, format);
+
 
 @end
