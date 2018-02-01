@@ -56,8 +56,9 @@
     AATitle *title = AAObject(AATitle)
     .textSet(chartModel.title)//标题文本内容
     .styleSet(AAObject(AAStyle)
-              .colorSet(@"#000000")//标题颜色
-              .fontSizeSet(@"12px")//标题字体大小
+              .colorSet(chartModel.titleFontColor)//标题颜色
+              .fontSizeSet([NSString stringWithFormat:@"%@%@", chartModel.titleFontSize, @"px"])//标题字体大小
+              .fontWeightSet(chartModel.titleFontWeight)//xAxis Label font weight
               );
     
     AASubtitle *subtitle = AAObject(AASubtitle)
@@ -116,6 +117,7 @@
     .seriesSet(AAObject(AASeries)
 //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
                .stackingSet(chartModel.stacking)//设置是否百分比堆叠显示图形
+               .keysSet(chartModel.keys)//Support for keys
 //               .keysSet(chartModel.keys)//Support for keys
                );
     

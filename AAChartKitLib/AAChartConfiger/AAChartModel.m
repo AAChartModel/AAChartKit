@@ -67,14 +67,23 @@
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = @"thin";//细体字
         self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
+     
+        self.titleFontColor         = @"#000000";
+        self.titleFontWeight        = @"regular";
+        self.titleFontSize          = @11;
         
     }
     return self;
 }
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title fonto color
+
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
 
 AAPropSetFuncImplementation(AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType);//图表类型

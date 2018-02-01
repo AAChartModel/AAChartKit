@@ -116,8 +116,12 @@ static AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"border
 @interface AAChartModel : NSObject
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);//Title font size
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);//Title label font color
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);//Title label font weight
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);//图表的数据列内容
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys);//Keys support
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);//图表类型
