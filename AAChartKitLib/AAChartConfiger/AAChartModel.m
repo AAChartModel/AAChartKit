@@ -75,6 +75,7 @@
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
 
 AAPropSetFuncImplementation(AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType);//图表类型
