@@ -67,6 +67,10 @@
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = @"thin";//细体字
         self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
+     
+        self.titleFontColor         = @"#000000";
+        self.titleFontWeight        = @"regular";
+        self.titleFontSize          = @11;
         
     }
     return self;
