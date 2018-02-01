@@ -77,6 +77,10 @@
 }
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title fonto color
+
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
