@@ -47,5 +47,6 @@ AAPropSetFuncImplementation(AASeriesElement, NSNumber *, lineWidth);//折线图�
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, fillOpacity);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, innerSize);
+AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys);
 
 @end
