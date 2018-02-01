@@ -99,7 +99,8 @@
     
     self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.aaChartView.contentHeight = self.view.frame.size.height-60;
+    self.aaChartView.scrollEnabled = NO;
+    self.aaChartView.contentHeight = self.view.frame.size.height-60;
     [self.view addSubview:self.aaChartView];
     
     self.aaChartModel = [self configureTheChartModel:chartType];
@@ -1045,7 +1046,7 @@
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePyramid)
         .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
+        .subtitleSet(@"横屏查看效果更佳")
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
@@ -1069,7 +1070,7 @@
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
+        .subtitleSet(@"横屏查看效果更佳")
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
