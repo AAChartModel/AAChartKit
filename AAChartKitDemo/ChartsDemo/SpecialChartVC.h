@@ -30,6 +30,7 @@
 
 typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeMixedLine = 0,
+    SpecialChartVCChartTypeArea,
     SpecialChartVCChartTypeAreaspline,
     SpecialChartVCChartTypePie,
     SpecialChartVCChartTypeBubble,

@@ -28,6 +28,7 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
+#warning 后需添加可以在不设置背景色为透明色的情况下直接设置图表的背景色功能
 
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 
@@ -108,7 +109,7 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-//    .backgroundColorSet(@"#4b2b7f")
+    .backgroundColorSet(@"#4b2b7f")
     .yAxisGridLineWidthSet(@0.3)//y轴横向分割线宽度
     .seriesSet(@[
                  AAObject(AASeriesElement)

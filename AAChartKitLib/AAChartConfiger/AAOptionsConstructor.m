@@ -4,7 +4,12 @@
 //
 //  Created by An An on 17/1/9.
 //  Copyright © 2017年 An An. All rights reserved.
-//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
 //
 
 /*
@@ -77,7 +82,6 @@
     .categoriesSet(chartModel.categories)
     .visibleSet(chartModel.xAxisVisible)//x轴是否可见
     .tickIntervalSet(chartModel.xAxisTickInterval);//x轴坐标点间隔数
-    ;
     
     AAYAxis *yAxis = AAObject(AAYAxis)
     .labelsSet(AAObject(AALabels)
