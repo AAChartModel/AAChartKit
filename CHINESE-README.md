@@ -419,6 +419,14 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
  *
  "CODE IS FAR AWAY FROM BUG WITH THE ANIMAL PROTECTING"
  ```
+ 
+ 
+ ## 源代码⛓
+ 语言版本 |  项目名称 | 源代码链接|
+ ------------ | ------------- | ------------- |
+ Swift | AAInfographics | https://github.com/AAChartModel/AAChartKit-Swift |
+ Objective C | AAChartKit | https://github.com/AAChartModel/AAChartKit |
+ 
 
 ## 许可证
 
@@ -429,7 +437,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions
 ## 联系方式
 
 -------------------------------------------------------------------------------
-* 💕💕💕❤️❤️  温馨提示   ❤️❤️💕💕💕
+*  🌕 🌖 🌗 🌘     暖心提示   🌑 🌒 🌓 🌔
 *
 * 如果有任何使用上的问题,随时欢迎您在 GitHub 上向我提 issue.
 * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
