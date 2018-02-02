@@ -122,12 +122,12 @@ UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
 @interface AAChartModel : NSObject
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);//Title label font size
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, titleFontSize);//Title label font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);//Title label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);//Title label font weight
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);//Subtitle label font size
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, subtitleFontSize);//Subtitle label font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);//Subtitle label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
 
@@ -164,7 +164,7 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y 轴标题
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);//y y-axis labels font size
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisLabelsFontSize);//y y-axis labels font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis label font weight
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
