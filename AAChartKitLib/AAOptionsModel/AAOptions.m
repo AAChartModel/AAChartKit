@@ -4,14 +4,18 @@
 //
 //  Created by An An on 17/1/4.
 //  Copyright © 2017年 An An. All rights reserved.
-//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
-//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
 
 /*
  
  * -------------------------------------------------------------------------------
  *
- * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -40,7 +44,7 @@ AAPropSetFuncImplementation(AAOptions, AAPlotOptions *, plotOptions);
 AAPropSetFuncImplementation(AAOptions, NSArray       *, series);
 AAPropSetFuncImplementation(AAOptions, AALegend      *, legend);
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors);
-AAPropSetFuncImplementation(AAOptions, BOOL,            gradientColorEnable);
+AAPropSetFuncImplementation(AAOptions, BOOL,            gradientColorEnabled);
 AAPropSetFuncImplementation(AAOptions, NSDictionary  *, drilldown);
 AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //String to display in 'zoom reset button"
 

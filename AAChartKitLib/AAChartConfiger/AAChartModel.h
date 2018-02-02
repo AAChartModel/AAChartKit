@@ -4,14 +4,18 @@
 //
 //  Created by An An on 17/1/20.
 //  Copyright © 2017年 An An. All rights reserved.
-//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
-//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
 
 /*
  
  * -------------------------------------------------------------------------------
  *
- * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -27,6 +31,8 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKitDefines.h>
+
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 
@@ -75,43 +81,43 @@ typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
 
+UIKIT_EXTERN AAChartType const AAChartTypeStrange;
+UIKIT_EXTERN AAChartType const AAChartTypeColumn;
+UIKIT_EXTERN AAChartType const AAChartTypeBar;
+UIKIT_EXTERN AAChartType const AAChartTypeArea;
+UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;
+UIKIT_EXTERN AAChartType const AAChartTypeLine;
+UIKIT_EXTERN AAChartType const AAChartTypeSpline;
+UIKIT_EXTERN AAChartType const AAChartTypeScatter;
+UIKIT_EXTERN AAChartType const AAChartTypePie;
+UIKIT_EXTERN AAChartType const AAChartTypeBubble;
+UIKIT_EXTERN AAChartType const AAChartTypePyramid;
+UIKIT_EXTERN AAChartType const AAChartTypeFunnel;
+UIKIT_EXTERN AAChartType const AAChartTypeColumnrange;
+UIKIT_EXTERN AAChartType const AAChartTypeArearange;
 
-static AAChartType const AAChartTypeColumn      = @"column";
-static AAChartType const AAChartTypeBar         = @"bar";
-static AAChartType const AAChartTypeArea        = @"area";
-static AAChartType const AAChartTypeAreaspline  = @"areaspline";
-static AAChartType const AAChartTypeLine        = @"line";
-static AAChartType const AAChartTypeSpline      = @"spline";
-static AAChartType const AAChartTypeScatter     = @"scatter";
-static AAChartType const AAChartTypePie         = @"pie";
-static AAChartType const AAChartTypeBubble      = @"bubble";
-static AAChartType const AAChartTypePyramid     = @"pyramid";
-static AAChartType const AAChartTypeFunnel      = @"funnel";
-static AAChartType const AAChartTypeColumnrange = @"columnrange";
-static AAChartType const AAChartTypeArearange   = @"arearange";
+UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft;
+UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter;
+UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight;
 
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
 
-static AAChartZoomType const AAChartZoomTypeNone = @"none";
-static AAChartZoomType const AAChartZoomTypeX    = @"x";
-static AAChartZoomType const AAChartZoomTypeY    = @"y";
-static AAChartZoomType const AAChartZoomTypeXY   = @"xy";
+UIKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;
+UIKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;
+UIKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent;
 
-static AAChartStackingType const AAChartStackingTypeFalse   = @"";
-static AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
-static AAChartStackingType const AAChartStackingTypePercent = @"percent";
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down;
 
-static AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";
-static AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";
-static AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";
-static AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";
-static AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down";
-
-static AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
-static AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
-static AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
+UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
+UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
+UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
 
 @interface AAChartModel : NSObject
 
@@ -135,7 +141,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDurat
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnable);//是否要为渐变色
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
@@ -157,13 +163,14 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineW
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
 AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);//The tooltip string
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);//3D 图形深度

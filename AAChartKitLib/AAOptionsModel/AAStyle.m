@@ -4,14 +4,18 @@
 //
 //  Created by An An on 17/1/6.
 //  Copyright © 2017年 An An. All rights reserved.
-//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
-//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
 
 /*
  
  * -------------------------------------------------------------------------------
  *
- * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -36,7 +40,7 @@
 //    if (self) {
 //        self.color = @"#000000";
 //        self.fontSize = @"11px";
-//        self.fontWeight = @"bold";
+//        self.fontWeight = @"bold";可选的值有 bold 和 thin 两种,分别对应的是加粗字体和纤细字体
 //        self.textOutline = @"1px 1px contrast";
 //    }
 //    return self;

@@ -5,14 +5,18 @@
 //
 //  Created by An An on 17/1/20.
 //  Copyright © 2017年 An An. All rights reserved.
-//  source code ----*** https://github.com/AAChartModel/AAChartKit ***--- source code
-//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
 
 /*
  
  * -------------------------------------------------------------------------------
  *
- * ❀❀❀   WARM TIPS!!!   ❀❀❀
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
@@ -29,49 +33,87 @@
 
 #import "AAChartModel.h"
 
+AAChartType const AAChartTypeColumn      = @"column";
+AAChartType const AAChartTypeBar         = @"bar";
+AAChartType const AAChartTypeArea        = @"area";
+AAChartType const AAChartTypeAreaspline  = @"areaspline";
+AAChartType const AAChartTypeLine        = @"line";
+AAChartType const AAChartTypeSpline      = @"spline";
+AAChartType const AAChartTypeScatter     = @"scatter";
+AAChartType const AAChartTypePie         = @"pie";
+AAChartType const AAChartTypeBubble      = @"bubble";
+AAChartType const AAChartTypePyramid     = @"pyramid";
+AAChartType const AAChartTypeFunnel      = @"funnel";
+AAChartType const AAChartTypeColumnrange = @"columnrange";
+AAChartType const AAChartTypeArearange   = @"arearange";
+
+AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
+AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
+AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
+
+AAChartZoomType const AAChartZoomTypeNone = @"none";
+AAChartZoomType const AAChartZoomTypeX    = @"x";
+AAChartZoomType const AAChartZoomTypeY    = @"y";
+AAChartZoomType const AAChartZoomTypeXY   = @"xy";
+
+AAChartStackingType const AAChartStackingTypeFalse   = @"";
+AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
+AAChartStackingType const AAChartStackingTypePercent = @"percent";
+
+AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";
+AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";
+AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";
+AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";
+AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down";
+
+AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
+AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
+AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
+
 @implementation AAChartModel
 
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.chartType              = AAChartTypeColumn;
+        self.chartType              = AAChartTypeColumn;//默认图表类型为柱状图
         self.animationType          = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
         self.animationDuration      = @500;//默认动画时长为500毫秒
-        self.subtitleAlign          = AAChartSubtitleAlignTypeLeft;
+        self.subtitleAlign          = AAChartSubtitleAlignTypeLeft;//默认图表副标题居左显示
         self.inverted               = NO;
-        self.stacking               = AAChartStackingTypeFalse;
+        self.stacking               = AAChartStackingTypeFalse;//默认不开启图表数据的堆积效果
         self.xAxisReversed          = NO;
         self.yAxisReversed          = NO;
-        self.zoomType               = AAChartZoomTypeNone ;
+        self.zoomType               = AAChartZoomTypeNone ;//默认禁用图表的手势缩放功能
         self.colorsTheme            = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
-        self.gradientColorEnable    = NO;
-        self.polar                  = NO;
-        self.options3dEnable        = NO;
-        self.tooltipCrosshairs      = YES;
-        self.xAxisLabelsEnabled     = YES;
-        self.xAxisGridLineWidth     = @0;
-        self.xAxisTickInterval      = @1;//x轴坐标点间隔数(默认是1)
+        self.gradientColorEnabled   = NO; //默认不启用颜色渐变效果
+        self.polar                  = NO; //禁用极化图表
+        self.options3dEnabled       = NO; //禁用图表3D 效果
+        self.tooltipEnabled         = YES;//默认启用浮动提示框
+        self.tooltipCrosshairs      = YES;//默认启用准星线
+        self.xAxisLabelsEnabled     = YES;//默认显示 X轴坐标点文字
+        self.xAxisGridLineWidth     = @0; //设置x轴分割线宽度为0个像素,即是隐藏 X轴分割线
+        self.xAxisTickInterval      = @1; //x轴坐标点间隔数(默认是1)
         self.xAxisVisible           = YES;//x轴默认可见
         self.yAxisVisible           = YES;//y轴默认可见
         self.yAxisLabelsEnabled     = YES;
-        self.yAxisGridLineWidth     = @1;
-        self.legendEnabled          = YES;
-        self.borderRadius           = @0;//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        self.markerRadius           = @5;//折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-        self.yAxisAllowDecimals     = YES; //默认y轴显示小数
+        self.yAxisGridLineWidth     = @1; //y轴分割线线宽为一个像素
+        self.legendEnabled          = YES;//默认显示图例(图表下方可点击的带有文字的小圆点)
+        self.borderRadius           = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
+        self.markerRadius           = @5; //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        self.yAxisAllowDecimals     = YES;//默认y轴显示小数
         
-        self.xAxisLabelsFontSize    = @11;
+        self.xAxisLabelsFontSize    = @11;//x轴字体大小
         self.xAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.xAxisLabelsFontWeight  = @"thin";//细体字
         self.yAxisLabelsFontSize    = @11;
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = @"thin";//细体字
+        
         self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
      
-        self.titleFontColor         = @"#000000";
+        self.titleFontColor         = @"#000000";//标题字体颜色为黑色
         self.titleFontWeight        = @"regular";
         self.titleFontSize          = @11;
-        
     }
     return self;
 }
@@ -97,7 +139,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
-AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnable);//是否要为渐变色
+AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
@@ -119,13 +161,14 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
+AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
 
-AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dAlpha);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dBeta);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);//3D 图形深度
