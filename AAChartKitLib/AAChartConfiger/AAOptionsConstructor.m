@@ -64,8 +64,9 @@
     .textSet(aaChartModel.subtitle)//副标题内容
     .alignSet(aaChartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
     .styleSet(AAObject(AAStyle)
-              .colorSet(@"#000000")
-              .fontSizeSet(@"9px")
+              .colorSet(aaChartModel.subtitleFontColor)//标题颜色
+              .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.subtitleFontSize, @"px"])//标题字体大小
+              .fontWeightSet(aaChartModel.subtitleFontWeight)//xAxis Label font weight
               );
 
     AAXAxis *aaXAxis = AAObject(AAXAxis)
