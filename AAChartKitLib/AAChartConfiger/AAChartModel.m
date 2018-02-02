@@ -44,9 +44,10 @@
         self.yAxisReversed          = NO;
         self.zoomType               = AAChartZoomTypeNone ;
         self.colorsTheme            = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
-        self.gradientColorEnable    = NO;
+        self.gradientColorEnabled   = NO;
         self.polar                  = NO;
-        self.options3dEnable        = NO;
+        self.options3dEnabled       = NO;
+        self.tooltipEnabled         = YES;
         self.tooltipCrosshairs      = YES;
         self.xAxisLabelsEnabled     = YES;
         self.xAxisGridLineWidth     = @0;
@@ -97,7 +98,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
-AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnable);//是否要为渐变色
+AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
@@ -119,13 +120,14 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
+AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
 
-AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dAlpha);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dBeta);
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);//3D 图形深度

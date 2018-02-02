@@ -46,9 +46,9 @@
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(chartModel.polar);
     
-    if (chartModel.options3dEnable == true) {
+    if (chartModel.options3dEnabled == true) {
         chart.options3d = (AAObject(AAOptions3d)
-                           .enabledSet(chartModel.options3dEnable)
+                           .enabledSet(chartModel.options3dEnabled)
                            .alphaSet(@(-15))
                            );
     }
@@ -107,7 +107,7 @@
     .visibleSet(chartModel.yAxisVisible);
     
     AATooltip *tooltip = AAObject(AATooltip)
-    .enabledSet(true)//启用浮动提示框
+    .enabledSet(chartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(true)//多组数据共享一个浮动提示框
     .crosshairsSet(chartModel.tooltipCrosshairs)
     .pointFormatSet(chartModel.tooltipValueString)//Tooltip value string
@@ -171,8 +171,8 @@
     .legendSet(legend)
     .seriesSet(chartModel.series)
     .colorsSet(chartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnableSet(chartModel.gradientColorEnable)//设置主题颜色是否为渐变色
-    .zoomResetButtonTextSet(chartModel.zoomResetButtonText);
+    .gradientColorEnabledSet(chartModel.gradientColorEnabled)//设置主题颜色是否为渐变色
+    .zoomResetButtonTextSet(chartModel.zoomResetButtonText);//设置重置缩放按钮的默认标题
     
     return options;
 }
@@ -277,7 +277,7 @@
                                           .enabledSet(chartModel.dataLabelEnabled)
                                           .formatSet(@"{point.percentage:.1f}%")
                                           ));
-        if (chartModel.options3dEnable == true) {
+        if (chartModel.options3dEnabled == true) {
             plotOptions.pie.depth = chartModel.options3dDepth;//设置3d 图形阴影深度
         }
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {

@@ -180,7 +180,7 @@
     } else if (self.chartType == SecondeViewControllerChartTypeArea
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-        _aaChartModel.gradientColorEnable = true;//启用渐变色
+        _aaChartModel.gradientColorEnabled = true;//启用渐变色
     } else if (self.chartType == SecondeViewControllerChartTypeLine
                || self.chartType == SecondeViewControllerChartTypeSpline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
@@ -188,7 +188,7 @@
                || self.chartType == SecondeViewControllerChartTypeStepArea) {
         _aaChartModel.yAxisVisible = false;
         _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
-        _aaChartModel.gradientColorEnable = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
+        _aaChartModel.gradientColorEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
         _aaChartModel.series = @[ @{
                                       @"name": @"Berlin",
                                       @"data": @[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4],

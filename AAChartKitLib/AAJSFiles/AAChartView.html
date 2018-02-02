@@ -71,7 +71,7 @@
                 
                 var JavaScriptObject = JSON.parse(sender);
                 
-                if (JavaScriptObject.gradientColorEnable == true) { //开启图表渐变色功能
+                if (JavaScriptObject.gradientColorEnabled == true) { //开启图表渐变色功能
                     var colors = JavaScriptObject.colors;
                     JavaScriptObject.colors = Highcharts.map(colors, function (color) {
                                                                     return {

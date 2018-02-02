@@ -160,7 +160,7 @@
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
-        .gradientColorEnableSet(true)
+        .gradientColorEnabledSet(true)
         //        .dataLabelEnabledSet(true)
         .titleSet(@"带有负数的区域填充图")
         .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
@@ -209,7 +209,7 @@
         .yAxisTitleSet(@"")
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .dataLabelEnabledSet(true)
-        .gradientColorEnableSet(true)
+        .gradientColorEnabledSet(true)
         .seriesSet(@[AAObject(AASeriesElement)
                      .nameSet(@"2017")
                      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),]
@@ -244,6 +244,7 @@
         .subtitleSet(@"")
         .dataLabelEnabledSet(true)//是否直接显示扇形图数据
         .yAxisTitleSet(@"摄氏度")
+        .tooltipEnabledSet(false)//禁用浮动提示框 tooltip
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
@@ -278,7 +279,7 @@
         .titleSet(@"Bubble")
         .subtitleSet(@"Virtual data")
         .yAxisTitleSet(@"℃")
-        .gradientColorEnableSet(true)
+        .gradientColorEnabledSet(true)
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
@@ -931,7 +932,7 @@
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeArea)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
-        .gradientColorEnableSet(true)//开启主题渐变色
+        .gradientColorEnabledSet(true)//开启主题渐变色
         .titleSet(@"STEP AREA CHART")//图形标题
         .subtitleSet(@"2020/08/08")//图形副标题
         .dataLabelEnabledSet(NO)//是否显示数字
