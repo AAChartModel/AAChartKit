@@ -77,7 +77,7 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
     if (self) {
         self.chartType              = AAChartTypeColumn;//默认图表类型为柱状图
         self.animationType          = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
-        self.animationDuration      = @500;//默认动画时长为500毫秒
+        self.animationDuration      = @1000;//默认动画时长为1000毫秒
         self.subtitleAlign          = AAChartSubtitleAlignTypeLeft;//默认图表副标题居左显示
         self.inverted               = NO;
         self.stacking               = AAChartStackingTypeFalse;//默认不开启图表数据的堆积效果
@@ -115,11 +115,11 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
         self.titleFontWeight        = @"regular";
         self.titleFontSize          = @11;     
              
-        self.subtitleFontColor      = @"#000000";//标题字体颜色为黑色
+        self.subtitleFontColor      = @"#000000";//副标题字体颜色为黑色
         self.subtitleFontWeight     = @"regular";
         self.subtitleFontSize       = @9;
      
-        self.dataLabelFontWeight    = @"bold";//标题字体颜色为黑色
+        self.dataLabelFontWeight    = @"bold";//图表的数据字体为粗体
         self.dataLabelFontSize      = @10;
     }
     return self;
@@ -146,7 +146,7 @@ AAPropSetFuncImplementation(AAChartModel, AAChartSymbolStyleType,   symbolStyle)
 AAPropSetFuncImplementation(AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropSetFuncImplementation(AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
 
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长(动画单位为毫秒)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转

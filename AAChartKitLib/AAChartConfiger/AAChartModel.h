@@ -142,13 +142,16 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长(动画单位为毫秒)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);//x 轴是否垂直
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
+
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);//xAxis font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);//X-axis label font color
