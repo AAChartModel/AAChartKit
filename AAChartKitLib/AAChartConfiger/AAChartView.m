@@ -220,6 +220,11 @@
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
+- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex(%ld)",(long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)funcitonNameStr {
     if (AASYSTEM_VERSION >= 9.0) {
         [_wkWebView  evaluateJavaScript:funcitonNameStr completionHandler:^(id item, NSError * _Nullable error) {

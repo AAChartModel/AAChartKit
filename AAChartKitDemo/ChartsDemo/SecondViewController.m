@@ -115,7 +115,7 @@
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .backgroundColorSet(@"#4b2b7f")
-    .yAxisGridLineWidthSet(@0.3)//y轴横向分割线宽度
+    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")

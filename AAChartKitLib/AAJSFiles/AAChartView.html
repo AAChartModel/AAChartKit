@@ -121,11 +121,6 @@
             }
         }
         
-        function showTheSeriesElementContentWithIndex (elementIndex) {
-            var series = chartMax.series[elementIndex];
-            series.show();
-        }
-        
         function configureTheChartAnimationEasingType (easingType) {
             var animationObject =  {
                 easeInQuad: function(pos) {
@@ -330,6 +325,16 @@
                     series.show();
                 }
             }
+        }
+        
+        function showTheSeriesElementContentWithIndex (elementIndex) {
+            var series = chartMax.series[elementIndex];
+            series.show();
+        }
+        
+        function hideTheSeriesElementContentWithIndex (elementIndex) {
+            var series = chartMax.series[elementIndex];
+            series.hide();
         }
         
             </script>

@@ -20,6 +20,7 @@
 @interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>{
     NSTimer *_timer;
     int myBasicValue;
+    int _selectedElementIndex;
 }
 
 @property (nonatomic, strong) AAChartModel *chartModel;
@@ -42,20 +43,23 @@
     self.title = @"即时刷新数据";
     [self setUpTheView];
     myBasicValue = 0;
+    _selectedElementIndex = arc4random()%2;
+
     
 }
 
 - (void)setUpTheView {
-    for (int i = 0; i<3; i++) {
+    for (int i = 0; i<4; i++) {
         
         NSArray *titleNameArr = @[
-                                  @"点击只刷新图表数据内容",
-                                  @"点击隐藏图表的 Series 内容",
-                                  @"随机显示其中某一个"];
+                                  @"Click to update whole chart data",
+                                  @"Click to hide whole data content",
+                                  @"Show one element of data array",
+                                  @"Hide one element of data array"];
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-50*i-30);
-        btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 40);
+        btn.center = CGPointMake(self.view.center.x, self.view.frame.size.height-40*i-30);
+        btn.bounds = CGRectMake(0, 0, self.view.frame.size.width-40, 30);
         [btn setTitle:titleNameArr[i] forState:UIControlStateNormal];
         btn.backgroundColor = AAGrayColor;
         [btn setTitleColor:AABlueColor forState:UIControlStateNormal];
@@ -130,10 +134,13 @@
     if (sender.tag == 0) {
         [self virtualUpdateTheChartViewDataInRealTime];
         
-    } else if (sender.tag ==1){
+    } else if (sender.tag == 1){
         self.chartView.chartSeriesHidden = YES;
+    } else if (sender.tag == 2) {
+        [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
     } else {
-        [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:arc4random()%3];
+        [self.chartView aa_hideTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
+        
     }
 }
 

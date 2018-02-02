@@ -132,5 +132,12 @@
  */
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex;
 
+/**
+ Hide the series element content with index
+ 
+ @param elementIndex element index
+ */
+- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex;
+
 @end
 
