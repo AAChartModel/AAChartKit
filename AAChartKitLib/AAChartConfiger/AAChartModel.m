@@ -118,19 +118,22 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
         self.subtitleFontColor      = @"#000000";//标题字体颜色为黑色
         self.subtitleFontWeight     = @"regular";
         self.subtitleFontSize       = @9;
+     
+        self.dataLabelFontWeight    = @"bold";//标题字体颜色为黑色
+        self.dataLabelFontSize      = @10;
     }
     return self;
 }
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title labels font size
-AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title fonto weight
-AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title fonto color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title label font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title label font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title label font color
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, subtitleFontSize);//Subtitle labels font size
-AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subtitle fonto weight
-AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle fonto color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, subtitleFontSize);//Subtitle label font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle flabel font color
 
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
@@ -150,6 +153,9 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
+
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisLabelsFontSize);//x-axis labels font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontWeight);//x-axis fonto weight

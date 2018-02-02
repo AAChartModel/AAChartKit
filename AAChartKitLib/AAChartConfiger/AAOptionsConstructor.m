@@ -229,6 +229,8 @@
                             .borderRadiusSet(aaChartModel.borderRadius)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(aaChartModel.dataLabelEnabled)
+                                           .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                           .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                            ));
         if (aaChartModel.polar == YES) {
             aaColumn.pointPaddingSet(@0)
@@ -242,6 +244,8 @@
                       .borderRadiusSet(aaChartModel.borderRadius)
                       .dataLabelsSet(AAObject(AADataLabels)
                                      .enabledSet(aaChartModel.dataLabelEnabled)
+                                     .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                     .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                      ));
         if (aaChartModel.polar == YES) {
             aaBar.pointPaddingSet(@0)
@@ -252,21 +256,29 @@
         aaPlotOptions.areaSet(AAObject(AAArea)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(aaChartModel.dataLabelEnabled)
+                                           .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                           .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                            ));
     } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
         aaPlotOptions.areasplineSet(AAObject(AAAreaspline)
                                   .dataLabelsSet(AAObject(AADataLabels)
                                                  .enabledSet(aaChartModel.dataLabelEnabled)
+                                                 .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                                 .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                                  ));
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         aaPlotOptions.lineSet(AAObject(AALine)
                             .dataLabelsSet(AAObject(AADataLabels)
                                            .enabledSet(aaChartModel.dataLabelEnabled)
+                                           .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                           .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                            ));
     } else if ([chartType isEqualToString:AAChartTypeSpline]) {
         aaPlotOptions.splineSet(AAObject(AASpline)
                               .dataLabelsSet(AAObject(AADataLabels)
                                              .enabledSet(aaChartModel.dataLabelEnabled)
+                                             .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                             .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                              ));
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         aaPlotOptions.pieSet(AAObject(AAPie)
@@ -275,21 +287,23 @@
                            .showInLegendSet(true)
                            .dataLabelsSet(AAObject(AADataLabels)
                                           .enabledSet(aaChartModel.dataLabelEnabled)
+                                          .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"])
+                                          .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                           .formatSet(@"{point.percentage:.1f}%")
                                           ));
         if (aaChartModel.options3dEnabled == true) {
             aaPlotOptions.pie.depth = aaChartModel.options3dDepth;//设置3d 图形阴影深度
         }
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"borderWidth":@0,@"dataLabels":@{@"enabled":@(aaChartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":@"bold",@"fontSize":@"12.5px"}},};
+        NSDictionary *columnrangeDic = @{@"borderRadius":@0,@"borderWidth":@0,@"dataLabels":@{@"enabled":@(aaChartModel.dataLabelEnabled),@"style":@{@"color":@"contrast",@"textOutline":@"1px 1px contrast",@"fontWeight":(aaChartModel.dataLabelFontWeight),@"fontSize":[NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"]}},};
         aaPlotOptions.columnrangeSet(columnrangeDic);
     } else if ([chartType isEqualToString:AAChartTypeArearange]) {
         NSDictionary *arearangeDic = @{@"borderRadius":@0,@"borderWidth":@0,
                                        @"dataLabels":@{@"enabled":@(aaChartModel.dataLabelEnabled),
                                                        @"style":@{@"color":@"contrast",
                                                                   @"textOutline":@"1px 1px contrast",
-                                                                  @"fontWeight":@"bold",
-                                                                  @"fontSize":@"12.5px"}},
+                                                                  @"fontWeight":(aaChartModel.dataLabelFontWeight),
+                                                                  @"fontSize":[NSString stringWithFormat:@"%@%@", aaChartModel.dataLabelFontSize, @"px"]}},
                                        };
         aaPlotOptions.arearangeSet(arearangeDic);
     }

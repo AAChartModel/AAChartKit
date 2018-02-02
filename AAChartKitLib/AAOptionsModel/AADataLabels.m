@@ -50,5 +50,7 @@
 AAPropSetFuncImplementation(AADataLabels, BOOL,       enabled);
 AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style);
 AAPropSetFuncImplementation(AADataLabels, NSString *, format);
+AAPropSetFuncImplementation(AADataLabels, NSString *, fontSize);
+AAPropSetFuncImplementation(AADataLabels, NSString *, fontWeight);
 
 @end
