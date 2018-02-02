@@ -118,6 +118,9 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
         self.subtitleFontColor      = @"#000000";//标题字体颜色为黑色
         self.subtitleFontWeight     = @"regular";
         self.subtitleFontSize       = @9;
+     
+        self.dataLabelFontWeight    = @"bold";//标题字体颜色为黑色
+        self.dataLabelFontSize      = @10;
     }
     return self;
 }
@@ -150,6 +153,9 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
+
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisLabelsFontSize);//x-axis labels font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontWeight);//x-axis fonto weight
