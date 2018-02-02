@@ -113,7 +113,11 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
      
         self.titleFontColor         = @"#000000";//标题字体颜色为黑色
         self.titleFontWeight        = @"regular";
-        self.titleFontSize          = @11;
+        self.titleFontSize          = @11;     
+             
+        self.subtitleFontColor      = @"#000000";//标题字体颜色为黑色
+        self.subtitleFontWeight     = @"regular";
+        self.subtitleFontSize       = @9;
     }
     return self;
 }
@@ -124,6 +128,10 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title f
 AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title fonto color
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, subtitleFontSize);//Subtitle labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subtitle fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle fonto color
+
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
 
