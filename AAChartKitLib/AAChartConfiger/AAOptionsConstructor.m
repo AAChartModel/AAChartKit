@@ -55,18 +55,18 @@
     AATitle *aaTitle = AAObject(AATitle)
     .textSet(aaChartModel.title)//标题文本内容
     .styleSet(AAObject(AAStyle)
-              .colorSet(aaChartModel.titleFontColor)//标题颜色
-              .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.titleFontSize, @"px"])//标题字体大小
-              .fontWeightSet(aaChartModel.titleFontWeight)//xAxis Label font weight
+              .colorSet(aaChartModel.titleFontColor)//Title font color
+              .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.titleFontSize, @"px"])//Title font size
+              .fontWeightSet(aaChartModel.titleFontWeight)//Title font weight
               );
     
     AASubtitle *aaSubtitle = AAObject(AASubtitle)
     .textSet(aaChartModel.subtitle)//副标题内容
     .alignSet(aaChartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
     .styleSet(AAObject(AAStyle)
-              .colorSet(aaChartModel.subtitleFontColor)//标题颜色
-              .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.subtitleFontSize, @"px"])//标题字体大小
-              .fontWeightSet(aaChartModel.subtitleFontWeight)//xAxis Label font weight
+              .colorSet(aaChartModel.subtitleFontColor)//Subtitle font color
+              .fontSizeSet([NSString stringWithFormat:@"%@%@", aaChartModel.subtitleFontSize, @"px"])//Subtitle font size
+              .fontWeightSet(aaChartModel.subtitleFontWeight)//Subtitle font weight
               );
 
     AAXAxis *aaXAxis = AAObject(AAXAxis)
