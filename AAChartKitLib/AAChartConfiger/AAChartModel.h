@@ -32,7 +32,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKitDefines.h>
-
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 
@@ -192,6 +191,5 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);//y 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
-
 
 @end

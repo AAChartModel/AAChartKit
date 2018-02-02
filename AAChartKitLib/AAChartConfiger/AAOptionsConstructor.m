@@ -120,7 +120,6 @@
 //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
                .stackingSet(aaChartModel.stacking)//设置是否百分比堆叠显示图形
                .keysSet(aaChartModel.keys)//Support for keys
-//               .keysSet(aaChartModel.keys)//Support for keys
                );
     
     if (aaChartModel.animationType != 0) {

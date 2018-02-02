@@ -47,7 +47,7 @@ AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, fillOpacity);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSArray  *, keys);
+AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, keys);
 
 @end
 
