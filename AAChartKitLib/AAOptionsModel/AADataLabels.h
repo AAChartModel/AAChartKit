@@ -39,5 +39,7 @@
 AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL,       enabled);
 AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle  *, style);
 AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, format);
+AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, fontSize);
+AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, fontWeight);
 
 @end
