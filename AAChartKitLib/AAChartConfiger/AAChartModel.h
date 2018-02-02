@@ -31,6 +31,8 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKitDefines.h>
+
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 
@@ -79,43 +81,43 @@ typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
 
+UIKIT_EXTERN AAChartType const AAChartTypeStrange;
+UIKIT_EXTERN AAChartType const AAChartTypeColumn;
+UIKIT_EXTERN AAChartType const AAChartTypeBar;
+UIKIT_EXTERN AAChartType const AAChartTypeArea;
+UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;
+UIKIT_EXTERN AAChartType const AAChartTypeLine;
+UIKIT_EXTERN AAChartType const AAChartTypeSpline;
+UIKIT_EXTERN AAChartType const AAChartTypeScatter;
+UIKIT_EXTERN AAChartType const AAChartTypePie;
+UIKIT_EXTERN AAChartType const AAChartTypeBubble;
+UIKIT_EXTERN AAChartType const AAChartTypePyramid;
+UIKIT_EXTERN AAChartType const AAChartTypeFunnel;
+UIKIT_EXTERN AAChartType const AAChartTypeColumnrange;
+UIKIT_EXTERN AAChartType const AAChartTypeArearange;
 
-static AAChartType const AAChartTypeColumn      = @"column";
-static AAChartType const AAChartTypeBar         = @"bar";
-static AAChartType const AAChartTypeArea        = @"area";
-static AAChartType const AAChartTypeAreaspline  = @"areaspline";
-static AAChartType const AAChartTypeLine        = @"line";
-static AAChartType const AAChartTypeSpline      = @"spline";
-static AAChartType const AAChartTypeScatter     = @"scatter";
-static AAChartType const AAChartTypePie         = @"pie";
-static AAChartType const AAChartTypeBubble      = @"bubble";
-static AAChartType const AAChartTypePyramid     = @"pyramid";
-static AAChartType const AAChartTypeFunnel      = @"funnel";
-static AAChartType const AAChartTypeColumnrange = @"columnrange";
-static AAChartType const AAChartTypeArearange   = @"arearange";
+UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft;
+UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter;
+UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight;
 
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
-static AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
 
-static AAChartZoomType const AAChartZoomTypeNone = @"none";
-static AAChartZoomType const AAChartZoomTypeX    = @"x";
-static AAChartZoomType const AAChartZoomTypeY    = @"y";
-static AAChartZoomType const AAChartZoomTypeXY   = @"xy";
+UIKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;
+UIKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;
+UIKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent;
 
-static AAChartStackingType const AAChartStackingTypeFalse   = @"";
-static AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
-static AAChartStackingType const AAChartStackingTypePercent = @"percent";
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle;
+UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down;
 
-static AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";
-static AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";
-static AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";
-static AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";
-static AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down";
-
-static AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
-static AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
-static AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
+UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
+UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
+UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
 
 @interface AAChartModel : NSObject
 

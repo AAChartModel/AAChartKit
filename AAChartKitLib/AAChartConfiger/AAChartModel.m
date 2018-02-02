@@ -33,6 +33,43 @@
 
 #import "AAChartModel.h"
 
+AAChartType const AAChartTypeColumn      = @"column";
+AAChartType const AAChartTypeBar         = @"bar";
+AAChartType const AAChartTypeArea        = @"area";
+AAChartType const AAChartTypeAreaspline  = @"areaspline";
+AAChartType const AAChartTypeLine        = @"line";
+AAChartType const AAChartTypeSpline      = @"spline";
+AAChartType const AAChartTypeScatter     = @"scatter";
+AAChartType const AAChartTypePie         = @"pie";
+AAChartType const AAChartTypeBubble      = @"bubble";
+AAChartType const AAChartTypePyramid     = @"pyramid";
+AAChartType const AAChartTypeFunnel      = @"funnel";
+AAChartType const AAChartTypeColumnrange = @"columnrange";
+AAChartType const AAChartTypeArearange   = @"arearange";
+
+AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
+AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
+AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
+
+AAChartZoomType const AAChartZoomTypeNone = @"none";
+AAChartZoomType const AAChartZoomTypeX    = @"x";
+AAChartZoomType const AAChartZoomTypeY    = @"y";
+AAChartZoomType const AAChartZoomTypeXY   = @"xy";
+
+AAChartStackingType const AAChartStackingTypeFalse   = @"";
+AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
+AAChartStackingType const AAChartStackingTypePercent = @"percent";
+
+AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";
+AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";
+AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";
+AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";
+AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down";
+
+AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
+AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
+AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
+
 @implementation AAChartModel
 
 -(instancetype)init {
@@ -71,6 +108,7 @@
         self.yAxisLabelsFontSize    = @11;
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = @"thin";//细体字
+        
         self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
      
         self.titleFontColor         = @"#000000";//标题字体颜色为黑色
