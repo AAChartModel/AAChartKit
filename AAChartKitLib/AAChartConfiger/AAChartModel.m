@@ -126,14 +126,14 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
 }
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title labels font size
-AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title fonto weight
-AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title fonto color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title label font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title label font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title label font color
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, subtitleFontSize);//Subtitle labels font size
-AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subtitle fonto weight
-AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle fonto color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, subtitleFontSize);//Subtitle label font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle flabel font color
 
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
