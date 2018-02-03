@@ -46,7 +46,7 @@
 		27BC2C321FBE748300F324A4 /* ThreeDimensionalChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BC2C311FBE748300F324A4 /* ThreeDimensionalChartVC.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		27FC04072011F65100377B9A /* AAChartModelComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FC04062011F65100377B9A /* AAChartModelComposer.m */; };
-		3C05E5F72025A4900002EC81 /* AAHighcharts-3d.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C05E5F62025A4900002EC81 /* AAHighcharts-3d.js */; };
+		3C05E5F92025A6100002EC81 /* AAHighcharts-3d.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C05E5F82025A60F0002EC81 /* AAHighcharts-3d.js */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACB1EC36307005B8021 /* IMG_1875.JPG */; };
 		64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACF1EC36897005B8021 /* IMG_1877.JPG */; };
@@ -170,7 +170,7 @@
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
 		27FC04052011F65100377B9A /* AAChartModelComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartModelComposer.h; sourceTree = "<group>"; };
 		27FC04062011F65100377B9A /* AAChartModelComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartModelComposer.m; sourceTree = "<group>"; };
-		3C05E5F62025A4900002EC81 /* AAHighcharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "AAHighcharts-3d.js"; path = "../../../../../Desktop/AAHighcharts-3d.js"; sourceTree = "<group>"; };
+		3C05E5F82025A60F0002EC81 /* AAHighcharts-3d.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "AAHighcharts-3d.js"; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
 		64245ACB1EC36307005B8021 /* IMG_1875.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1875.JPG; sourceTree = "<group>"; };
 		64245ACF1EC36897005B8021 /* IMG_1877.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1877.JPG; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 				2707BA5B1EF7BA47008357AC /* AAChartView.html */,
 				2771702E2023B98400DFF4EF /* AAHighchartsLib.js */,
 				2771702F2023B98400DFF4EF /* AAHighchartsMore.js */,
-				3C05E5F62025A4900002EC81 /* AAHighcharts-3d.js */,
+				3C05E5F82025A60F0002EC81 /* AAHighcharts-3d.js */,
 				2771702220238CF000DFF4EF /* AAFunnel.js */,
 			);
 			path = AAJSFiles;
@@ -563,11 +563,11 @@
 				64245ADC1EC8388B005B8021 /* AAChartKitDocumentLive.html in Resources */,
 				64245AD41EC3706E005B8021 /* IMG_1878.JPG in Resources */,
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
-				3C05E5F72025A4900002EC81 /* AAHighcharts-3d.js in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
 				277170302023B98400DFF4EF /* AAHighchartsLib.js in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,
+				3C05E5F92025A6100002EC81 /* AAHighcharts-3d.js in Resources */,
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
 				64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */,
 				713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */,
