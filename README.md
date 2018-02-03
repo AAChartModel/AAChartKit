@@ -18,7 +18,7 @@
 
 ## Preface
 
- ***AAChartKit*** is the `Objective-C` version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*. AAChartKit makes it extremely easy to create a wide set of charts quickly and without any hassle. All you must do is: create a `AAChartView object`, add a `AAChartModel object`. This gives you a chart that should fit all your needs.
+ ***AAChartKit*** is the `Objective-C` version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*. AAChartKit makes it extremely easy to create a wide set of charts quickly and without any hassle. All you must do is: create a `AAChartView object`, then add a `AAChartModel object`. That's it. This gives you a chart that should fit all your needs.
  
 ***
 ## Features
