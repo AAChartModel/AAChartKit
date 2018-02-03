@@ -23,11 +23,11 @@
 ***
 ## Features
 
-1. Support `iOS 6`、`ARC` & `Objective C`.
+1. Support up from `iOS 6`, `ARC` & `Objective C`.
 2. Powerful and easy to use. It supports the  `column chart`、`bar chart`、`area chart`、`areaspline chart`、`line chart`、`spline chart`、`radar chart`、`polar chart`、`pie chart`、`bubble chart`、`pyramid chart`、`funnel chart`、`columnrange chart` and `arearange chart` and other graphics.
-3. Interactive、animated,the `animation` effect is exquisite, delicate, smooth and beautiful.
-4. Support `chain programming syntax` like *Masonry* 
-5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  Just like the another powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
+3. Interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
+4. Supports `chain programming syntax` like *Masonry* 
+5. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want. Just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
 
 ## Usage
@@ -39,12 +39,14 @@
 #import "AAGlobalMacro.h"
 ```
 
-### The offical start of the work 
-1. Add the following content into `your view controller` file.
+### The offical start of the work
+
+1. Add the following content to your view controller file:
 ```objective-c
 #import "AAChartView.h"
 ```
-2. Creat the instance object of chart view:`AAChartView`
+
+2. Creat an instance object of chart view:`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
@@ -54,9 +56,8 @@ _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 // _aaChartView.contentHeight = chartViewHeight;
 [self.view addSubview:_aaChartView];
 ```
+
 3. Configure the properties of chart model:`AAChartModel`                                          
-
-
 ```objective-c
 AAChartModel *aaChartModel= AAObject(AAChartModel)
 .chartTypeSet(AAChartTypeColumn)
@@ -167,9 +168,9 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ### Special charts in ***AAChartKit***
 
-Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts you should do some different things for AAChartModel,for example
+Pie chart and bubble chart are special in AAChartKit. If you want to draw these charts you need to prepare the AAChartModel differently:
 
-- To draw a pie chart,you should configure the properties of `AAChartModel` like this:
+- To draw a pie chart, you should configure the properties of `AAChartModel` like this:
 ```objective-c
    AAChartModel *chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypePie)
@@ -197,8 +198,6 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
     ;
 ```
 -  To draw a bubble chart, you should configure the properties of `AAChartModel` like this:
-
-
 ```objective-c
    AAChartModel *chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeBubble)
@@ -394,7 +393,6 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButto
 
 ```
 
-
 ## Created By:
 
 ![](https://avatars1.githubusercontent.com/u/16357599?s=40&v=4)An An
@@ -434,7 +432,6 @@ Language Version | Project Name | Source Code Link |
 ------------ | ------------- | ------------- |
 Objective C | AAChartKit | https://github.com/AAChartModel/AAChartKit |
 Swift | AAInfographics | https://github.com/AAChartModel/AAChartKit-Swift |
-
 
 ## LICENSE
 
