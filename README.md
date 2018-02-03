@@ -13,7 +13,7 @@
 
 ##  [ **中文文档** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)  |  [ **English Document** ](https://github.com/AAChartModel/AAChartKit)
 
-### There is the link of Swift version of AAChartKit as follow
+### Here's the Swift version of AAChartKit:
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
 
 ## Preface
@@ -29,7 +29,6 @@
 4. Support `chain programming syntax` like *Masonry* 
 5. `AAChartView + AAChartModel = Chart`  In the AAChartKit,it follows a minimalist formula: ` Chart view + Chart model = The chart you want`.  Just like the another powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
- 
 
 ## Usage
 
@@ -160,7 +159,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ## More graphics
 
->>> * Note: The following `DEMO picture` is the `GIF dynamic picture` which is the size of *6M* around, if there is no dynamic results because of that the picture resources are not loaded fully, please be patient to the picture resources before the contents of the fully loaded, then you will finally watch more of the dynamic demonstration of the project results.
+>>> * Note: The following `DEMO picture` is a `GIF dynamic picture` which has a size of around *6M*. If you don't see any dynamic preview, then this is because the picture resources were not fully loaded. In such a case please be patient and wait for the contents to finish loading.
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitShow.gif)
 
@@ -168,7 +167,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ### Special charts in ***AAChartKit***
 
-Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts,you should do some different things for AAChartModel,for example
+Pie chart and bubble chart are special in AAChartKit,if you want to draw these charts you should do some different things for AAChartModel,for example
 
 - To draw a pie chart,you should configure the properties of `AAChartModel` like this:
 ```objective-c
@@ -197,7 +196,7 @@ Pie chart and bubble chart are special in AAChartKit,if you want to draw these c
                )
     ;
 ```
--  To draw a bubble chart,you should configure the properties of `AAChartModel` like this:
+-  To draw a bubble chart, you should configure the properties of `AAChartModel` like this:
 
 
 ```objective-c
