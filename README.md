@@ -13,19 +13,19 @@
 
 ##  [ **中文文档** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)  |  [ **English Document** ](https://github.com/AAChartModel/AAChartKit)
 
-### Here's the Swift version of AAChartKit:
+### The Swift version of AAChartKit can be found here:
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
 
 ## Preface
 
- ***AAChartKit*** is the `Objective-C` language version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*.
+ ***AAChartKit*** is the `Objective-C` version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*. AAChartKit makes it extremely easy to create a wide set of charts quickly and without any hassle.
  
 ***
 ## Features
 
-1. Support up from `iOS 6`, `ARC` & `Objective C`.
-2. Powerful and easy to use. It supports the  `column chart`、`bar chart`、`area chart`、`areaspline chart`、`line chart`、`spline chart`、`radar chart`、`polar chart`、`pie chart`、`bubble chart`、`pyramid chart`、`funnel chart`、`columnrange chart` and `arearange chart` and other graphics.
-3. Interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
+1. Support up from `iOS 6`, `ARC` support.
+2. Powerful and easy to use. It supports the  `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart` and `arearange chart` and other graphics. Support for more chart types is planned.
+3. The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
 4. Supports `chain programming syntax` like *Masonry* 
 5. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want. Just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
@@ -33,14 +33,13 @@
 ## Usage
 
 ### Pre-preparation work
-1. Drag the folder `AAChartKitLib` into your project.
+1. Drag the `AAChartKitLib` folder into your project.
 1. Add the following content into your `.pch` file.
 ```objective-c
 #import "AAGlobalMacro.h"
 ```
 
 ### The offical start of the work
-
 1. Add the following content to your view controller file:
 ```objective-c
 #import "AAChartView.h"
@@ -81,19 +80,19 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
                  ])
 ;
 ```
-4. Draw the chart(This method is called only for the first time after you create an AAChartView instance object) 
+4. Draw the chart (this method is called only for the first time after you create an AAChartView instance object) 
 ```objective-c
 //The chart view object calls the instance object of AAChartModel and draws the final graphic
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
-5. Only refresh the chart data(This method is recommended to be called for updating the series data dynamically)
+5. Only refresh the chart data (this method is recommended to be called for updating the series data dynamically)
 ```objective-c
 //Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
-6. Refresh the chart(Subsequent refresh options are recommended to call this method after the first drawing of graphics is completed)
+6. Refresh the chart (subsequent refresh options are recommended to call this method after the first drawing of graphics has completed)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];
@@ -160,7 +159,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ## More graphics
 
->>> * Note: The following `DEMO picture` is a `GIF dynamic picture` which has a size of around *6M*. If you don't see any dynamic preview, then this is because the picture resources were not fully loaded. In such a case please be patient and wait for the contents to finish loading.
+>>> * Note: The following `DEMO picture` is a `GIF dynamic picture` which has a size of around *6M*. If you don't see any dynamic preview, then this is because the picture resources were not fully loaded. In such a case please be patient and wait for the contents to finish loading. Maybe you need to reload this page.
 
 ![image](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitShow.gif)
 
