@@ -18,13 +18,13 @@
 
 ## Preface
 
- ***AAChartKit*** is the `Objective-C` version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*. AAChartKit makes it extremely easy to create a wide set of charts quickly and without any hassle.
+ ***AAChartKit*** is the `Objective-C` version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*. AAChartKit makes it extremely easy to create a wide set of charts quickly and without any hassle. All you must do is: create a `AAChartView object`, then add a `AAChartModel object`. That's it. This gives you a chart that should fit all your needs.
  
 ***
 ## Features
 
 1. Support up from `iOS 6`, `ARC` support.
-2. Powerful and easy to use. It supports the  `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart` and `arearange chart` and other graphics. Support for more chart types is planned.
+2. Powerful and easy to use. It supports the  `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart` and `mixed chart` and other graphics. Support for more chart types is planned.
 3. The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
 4. Supports `chain programming syntax` like *Masonry* 
 5. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want. Just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
@@ -39,20 +39,18 @@
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/LineChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/StepAreaChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/StepLineChart.png) |
 
-
-
-
 ## Usage
 
-### Pre-preparation work
+### The required 'pre' work
 1. Drag the `AAChartKitLib` folder into your project.
-1. Add the following content into your `.pch` file.
+
+2. Add the following to your `.pch` file.
 ```objective-c
 #import "AAGlobalMacro.h"
 ```
 
-### The offical start of the work
-1. Add the following content to your view controller file:
+### The 'real' work
+1. Add the following to your view controller file:
 ```objective-c
 #import "AAChartView.h"
 ```
@@ -68,7 +66,7 @@ _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 [self.view addSubview:_aaChartView];
 ```
 
-3. Configure the properties of chart model:`AAChartModel`                                          
+3. Configure the chart model properties: `AAChartModel`                                          
 ```objective-c
 AAChartModel *aaChartModel= AAObject(AAChartModel)
 .chartTypeSet(AAChartTypeColumn)
@@ -98,7 +96,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
-5. Only refresh the chart data (this method is recommended to be called for updating the series data dynamically)
+5. Refresh the chart data only (this method is recommended to be called for updating the series data dynamically)
 ```objective-c
 //Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
@@ -168,7 +166,6 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ![mixed chart](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/MixedChart.png)
 
-
 ## More graphics
 
 >>> * Note: The following `DEMO picture` is a `GIF dynamic picture` which has a size of around *6M*. If you don't see any dynamic preview, then this is because the picture resources were not fully loaded. In such a case please be patient and wait for the contents to finish loading. Maybe you need to reload this page.
@@ -177,9 +174,9 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ## Special instructions
 
-### Special charts in ***AAChartKit***
+### Special chart types in ***AAChartKit***
 
-Pie chart and bubble chart are special in AAChartKit. If you want to draw these charts you need to prepare the AAChartModel differently:
+The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you want to draw these types of charts, then you need to prepare the AAChartModel differently:
 
 - To draw a pie chart, you should configure the properties of `AAChartModel` like this:
 ```objective-c
@@ -269,7 +266,7 @@ Pie chart and bubble chart are special in AAChartKit. If you want to draw these 
                )
     ;
 ```
-### Supported chart type for now
+### Supported chart types for now
 ```objective-c
 typedef NSString *AAChartType;
 static AAChartType const AAChartTypeColumn      = @"column";      //column chart
@@ -286,7 +283,7 @@ static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel ch
 static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
 static AAChartType const AAChartTypeArearange   = @"arearange";   //arearange chart
 ```
-### Supported animation type for now
+### Supported animation types for now
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationLinear = 0,
@@ -466,8 +463,8 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 
 ## Postscript
 
-If you want to shrink the size of the `AAChartKit` lib ,you should do something like this:
-1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`,The names of multiple files that need to be deleted are as follows
+If you want to shrink the size of the `AAChartKit` lib, you should do something like this:
+1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`. The names of the files that need to be deleted are the following:
 
 * AAHighchartsLib.js
 * AAHighchartsMore.js
