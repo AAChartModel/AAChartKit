@@ -227,11 +227,12 @@
     
     AADataLabels *aaDataLabels = (AAObject(AADataLabels)
                                   .enabledSet(aaChartModel.dataLabelEnabled)
-                                  .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
-                                  .fontWeightSet(aaChartModel.dataLabelFontWeight)
+                                  .styleSet(AAObject(AAStyle)
+                                            .colorSet(aaChartModel.dataLabelFontColor)
+                                            .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
+                                            .fontWeightSet(aaChartModel.dataLabelFontWeight))
                                   );
     
-    //数据点标记相关配置，只有线性图才有数据点标记
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *aaColumn = (AAObject(AAColumn)
                             .borderWidthSet(@0)
@@ -277,9 +278,13 @@
             aaPlotOptions.pie.depth = aaChartModel.options3dDepth;//设置3d 图形阴影深度
         }
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        aaPlotOptions.columnrangeSet((aaDataLabels));
+        NSDictionary *columnrangeDic = @{@"borderRadius":@0,//The color of the border surrounding each column or bar
+                                         @"borderWidth":@0,//The corner radius of the border surrounding each column or bar. default：0.
+                                         @"dataLabels":aaDataLabels,};
+        aaPlotOptions.columnrangeSet(columnrangeDic);
     } else if ([chartType isEqualToString:AAChartTypeArearange]) {
-        aaPlotOptions.arearangeSet((aaDataLabels));
+        NSDictionary *arearangeDic = @{@"dataLabels":aaDataLabels,};
+        aaPlotOptions.arearangeSet(arearangeDic);
     }
     return aaPlotOptions;
 }

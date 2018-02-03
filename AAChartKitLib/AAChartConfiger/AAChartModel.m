@@ -104,22 +104,23 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
         
         self.xAxisLabelsFontSize    = @11;//x轴字体大小
         self.xAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
-        self.xAxisLabelsFontWeight  = @"thin";//细体字
+        self.xAxisLabelsFontWeight  = @"thin";//细体字 可选的值有 thin 、regular、 bold
         self.yAxisLabelsFontSize    = @11;
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
-        self.yAxisLabelsFontWeight  = @"thin";//细体字
+        self.yAxisLabelsFontWeight  = @"thin";//细体字 可选的值有 thin 、regular、 bold
         
         self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
      
         self.titleFontColor         = @"#000000";//标题字体颜色为黑色
-        self.titleFontWeight        = @"regular";
+        self.titleFontWeight        = @"regular";//常规字体 可选的值有 thin 、regular、 bold
         self.titleFontSize          = @11;     
              
         self.subtitleFontColor      = @"#000000";//副标题字体颜色为黑色
-        self.subtitleFontWeight     = @"regular";
+        self.subtitleFontWeight     = @"regular";//常规字体 可选的值有 thin 、regular、 bold
         self.subtitleFontSize       = @9;
      
-        self.dataLabelFontWeight    = @"bold";//图表的数据字体为粗体
+        self.dataLabelFontColor     = @"#000000";//数据标签默认颜色为黑色
+        self.dataLabelFontWeight    = @"bold";//图表的数据字体为粗体 可选的值有 thin 、regular、 bold
         self.dataLabelFontSize      = @10;
     }
     return self;
@@ -153,6 +154,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
 
