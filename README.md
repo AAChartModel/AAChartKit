@@ -18,7 +18,7 @@
 
 ## Preface
 
- ***AAChartKit*** is the `Objective-C` version of [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) which is an object-oriented set of easy-to-use and extremely elegant chart drawing controls, based on the popular open source front-end chart library *Highcharts*. AAChartKit makes it extremely easy to create a wide set of charts quickly and without any hassle. All you must do is: create a `AAChartView object`, then add a `AAChartModel object`. That's it. This gives you a chart that should fit all your needs.
+AAChartKit is an elegant, friendly and easy to use chart library for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and arrange chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle free and quickly to integrate into your own project.
  
 ***
 ## Features
