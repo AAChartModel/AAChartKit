@@ -70,24 +70,22 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
 AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
 AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
 
+AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";
+AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular";
+AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
+
 @implementation AAChartModel
 
--(instancetype)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.chartType              = AAChartTypeColumn;//默认图表类型为柱状图
         self.animationType          = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
         self.animationDuration      = @1000;//默认动画时长为1000毫秒
         self.subtitleAlign          = AAChartSubtitleAlignTypeLeft;//默认图表副标题居左显示
-        self.inverted               = NO;
         self.stacking               = AAChartStackingTypeFalse;//默认不开启图表数据的堆积效果
-        self.xAxisReversed          = NO;
-        self.yAxisReversed          = NO;
         self.zoomType               = AAChartZoomTypeNone ;//默认禁用图表的手势缩放功能
         self.colorsTheme            = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
-        self.gradientColorEnabled   = NO; //默认不启用颜色渐变效果
-        self.polar                  = NO; //禁用极化图表
-        self.options3dEnabled       = NO; //禁用图表3D 效果
         self.tooltipEnabled         = YES;//默认启用浮动提示框
         self.tooltipCrosshairs      = YES;//默认启用准星线
         self.xAxisLabelsEnabled     = YES;//默认显示 X轴坐标点文字
@@ -101,27 +99,23 @@ AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
         self.borderRadius           = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
         self.markerRadius           = @5; //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
         self.yAxisAllowDecimals     = YES;//默认y轴显示小数
-        
+        self.zoomResetButtonText    = @"恢复缩放";//恢复缩放按钮的标题文字
+
+        self.titleFontColor         = @"#000000";//标题字体颜色为黑色
+        self.titleFontWeight        = AAChartFontWeightTypeRegular;//常规字体
+        self.titleFontSize          = @11;
+        self.subtitleFontColor      = @"#000000";//副标题字体颜色为黑色
+        self.subtitleFontWeight     = AAChartFontWeightTypeRegular;//常规字体
+        self.subtitleFontSize       = @9;
+        self.dataLabelFontColor     = @"#000000";//数据标签默认颜色为黑色
+        self.dataLabelFontWeight    = AAChartFontWeightTypeBold;//图表的数据字体为粗体
+        self.dataLabelFontSize      = @10;
         self.xAxisLabelsFontSize    = @11;//x轴字体大小
         self.xAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
-        self.xAxisLabelsFontWeight  = @"thin";//细体字 可选的值有 thin 、regular、 bold
+        self.xAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
         self.yAxisLabelsFontSize    = @11;
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
-        self.yAxisLabelsFontWeight  = @"thin";//细体字 可选的值有 thin 、regular、 bold
-        
-        self.zoomResetButtonText    = @"Reset Zoom";//恢复缩放按钮的标题文字
-     
-        self.titleFontColor         = @"#000000";//标题字体颜色为黑色
-        self.titleFontWeight        = @"regular";//常规字体 可选的值有 thin 、regular、 bold
-        self.titleFontSize          = @11;     
-             
-        self.subtitleFontColor      = @"#000000";//副标题字体颜色为黑色
-        self.subtitleFontWeight     = @"regular";//常规字体 可选的值有 thin 、regular、 bold
-        self.subtitleFontSize       = @9;
-     
-        self.dataLabelFontColor     = @"#000000";//数据标签默认颜色为黑色
-        self.dataLabelFontWeight    = @"bold";//图表的数据字体为粗体 可选的值有 thin 、regular、 bold
-        self.dataLabelFontSize      = @10;
+        self.yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
     }
     return self;
 }

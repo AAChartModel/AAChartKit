@@ -79,6 +79,7 @@ typedef NSString *AAChartZoomType;
 typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
+typedef NSString *AAChartFontWeightType;
 
 UIKIT_EXTERN AAChartType const AAChartTypeStrange;
 UIKIT_EXTERN AAChartType const AAChartTypeColumn;
@@ -117,6 +118,10 @@ UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down;
 UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
 UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
 UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
+
+UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
+UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
+UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
 @interface AAChartModel : NSObject
 
