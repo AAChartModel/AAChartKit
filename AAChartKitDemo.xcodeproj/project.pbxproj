@@ -12,7 +12,6 @@
 		2707BA991EF7BA47008357AC /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA561EF7BA47008357AC /* AAJsonConverter.m */; };
 		2707BA9A1EF7BA47008357AC /* AAOptionsConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */; };
 		2707BA9C1EF7BA47008357AC /* AAChartView.html in Resources */ = {isa = PBXBuildFile; fileRef = 2707BA5B1EF7BA47008357AC /* AAChartView.html */; };
-		2707BAA11EF7BA47008357AC /* AAJQueryLibrary.js in Resources */ = {isa = PBXBuildFile; fileRef = 2707BA601EF7BA47008357AC /* AAJQueryLibrary.js */; };
 		2707BAA21EF7BA47008357AC /* AAAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA631EF7BA47008357AC /* AAAnimation.m */; };
 		2707BAA31EF7BA47008357AC /* AAArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA651EF7BA47008357AC /* AAArea.m */; };
 		2707BAA41EF7BA47008357AC /* AAAreaspline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA671EF7BA47008357AC /* AAAreaspline.m */; };
@@ -105,7 +104,6 @@
 		2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
 		2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
 		2707BA5B1EF7BA47008357AC /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
-		2707BA601EF7BA47008357AC /* AAJQueryLibrary.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AAJQueryLibrary.js; sourceTree = "<group>"; };
 		2707BA621EF7BA47008357AC /* AAAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAnimation.h; sourceTree = "<group>"; };
 		2707BA631EF7BA47008357AC /* AAAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAnimation.m; sourceTree = "<group>"; };
 		2707BA641EF7BA47008357AC /* AAArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAArea.h; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 				2771702F2023B98400DFF4EF /* AAHighchartsMore.js */,
 				2771702220238CF000DFF4EF /* AAFunnel.js */,
 				2771701B20231A7200DFF4EF /* AAHighcharts-3d.js */,
-				2707BA601EF7BA47008357AC /* AAJQueryLibrary.js */,
 			);
 			path = AAJSFiles;
 			sourceTree = "<group>";
@@ -568,7 +565,6 @@
 				64245ADA1EC4BA44005B8021 /* IMG_1882.JPG in Resources */,
 				64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */,
 				277170302023B98400DFF4EF /* AAHighchartsLib.js in Resources */,
-				2707BAA11EF7BA47008357AC /* AAJQueryLibrary.js in Resources */,
 				2771701D20231A7200DFF4EF /* AAHighcharts-3d.js in Resources */,
 				64245AD81EC37495005B8021 /* IMG_1880.JPG in Resources */,
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,

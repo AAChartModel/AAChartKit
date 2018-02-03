@@ -32,8 +32,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 3.0,user-scalable = no">
             
-            <script src="AAJQueryLibrary.js">
-                </script>
             <script src="AAHighchartsLib.js">
                 </script>
             <script src="AAHighchartsMore.js">
@@ -42,9 +40,7 @@
 <!--                            </script>-->
             <script src="AAFunnel.js">
                 </script>
-            <!--    若介意本地js代码体积(5M左右,工程打包压缩后实际体积远小于此)过大，可换用加载网络js代码 -->
-            <!--            <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js">-->
-            <!--                </script>-->
+            <!--    若介意本地js代码体积(250kb左右,工程打包压缩后实际体积远小于此)过大，可换用加载网络js代码 -->
             <!--            <script src="https://img.hcharts.cn/highcharts/highcharts.js">-->
             <!--                </script>-->
             <!--            <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">-->
@@ -64,7 +60,7 @@
         </div>
         <script >
             
-            var chartMax;
+            var globalChart;
             
             function loadTheHighChartView (sender,receivedWidth,receivedHeight) {
                 var container = document.getElementById('container');//获得元素
@@ -105,7 +101,7 @@
                     }
                 }
                 
-                chartMax = Highcharts.chart('container', JavaScriptObject );
+                globalChart = Highcharts.chart('container', JavaScriptObject );
             }
         
         
@@ -115,7 +111,7 @@
             for (var i = 0; i < receivedSeriesElementArr.length; i++) {
                 var receivedSeriesData = receivedSeriesElementArr[i].data;
                 // 获取series
-                var chartSeries =  $('#container').highcharts().series[i];
+                var chartSeries =  globalChart.series[i];
                 // 执行只刷新数据的函数
                 chartSeries.setData(receivedSeriesData);
             }
@@ -307,18 +303,18 @@
         function setTheChartViewContentWidth (receivedWidth) {
             var container = document.getElementById('container');//获得元素
             container.style.width = receivedWidth;//设置宽度
-            chartMax.reflow();
+            globalChart.reflow();
         }
         
         function setTheChartViewContentHeight (receivedHeight) {
             var container = document.getElementById('container');//获得元素
             container.style.height = receivedHeight;//设置高度
-            chartMax.reflow();
+            globalChart.reflow();
         }
         
         function setChartSeriesHidden (hidden) {
-            for (var i = 0; i < chartMax.series.length; i++) {
-                var series = chartMax.series[i];
+            for (var i = 0; i < globalChart.series.length; i++) {
+                var series = globalChart.series[i];
                 if (hidden == true) {
                     series.hide();
                 } else {
@@ -328,12 +324,12 @@
         }
         
         function showTheSeriesElementContentWithIndex (elementIndex) {
-            var series = chartMax.series[elementIndex];
+            var series = globalChart.series[elementIndex];
             series.show();
         }
         
         function hideTheSeriesElementContentWithIndex (elementIndex) {
-            var series = chartMax.series[elementIndex];
+            var series = globalChart.series[elementIndex];
             series.hide();
         }
         

@@ -212,7 +212,7 @@
                         ];
     
     [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];
-    NSLog(@"刷新了图表的数据内容😆");
+    NSLog(@"Updated the chart data content!!! ☺️☺️☺️");
 
 }
 

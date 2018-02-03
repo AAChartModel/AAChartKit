@@ -461,7 +461,6 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 If you want to shrink the size of the `AAChartKit` lib ,you should do something like this:
 1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`,The names of multiple files that need to be deleted are as follows
 
-* AAJQueryLibrary.js 
 * AAHighchartsLibrary.js
 * AAHighchartsMore.js
 * AAHighcharts-3d.js
@@ -469,8 +468,6 @@ If you want to shrink the size of the `AAChartKit` lib ,you should do something 
 
 2.Change the content of `AAChartView.html` file 
 ``` html
-<script src="AAJQueryLibrary.js">
-</script>
 <script src="AAHighchartsLibrary.js">
 </script>
 <script src="AAHighchartsMore.js">
@@ -483,8 +480,6 @@ If you want to shrink the size of the `AAChartKit` lib ,you should do something 
 to be 
 
 ``` html
-<script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js">
-</script>
 <script src="https://img.hcharts.cn/highcharts/highcharts.js">
 </script>
 <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
