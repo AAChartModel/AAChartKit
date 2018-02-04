@@ -340,17 +340,17 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 ## AAChartModel:chart attribute list
 ```objective-c
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);//Title font size
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);//Title label font color
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);//Title label font weight
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);//Subtitle font size
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);//Subtitle label font color
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys);//Keys support
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys); 
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
@@ -367,13 +367,13 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);//xAxis font size
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);//X-axis label font color
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);//X-axis label font weight
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);
@@ -382,9 +382,9 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);//y y-axis labels font size
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis label font color
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis label font weight
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
