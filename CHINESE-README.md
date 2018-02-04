@@ -63,6 +63,8 @@ CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
 _aaChartView = [[AAChartView alloc]init];
 _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+////禁用 AAChartView 滚动效果(默认不禁用)
+//self.aaChartView.scrollEnabled = NO;
 ////设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
 //_aaChartView.contentHeight = chartViewHeight;
 [self.view addSubview:_aaChartView];
@@ -282,19 +284,19 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 ```objective-c
 typedef NSString *AAChartType;
 
-static AAChartType const AAChartTypeColumn      = @"column";     //柱形图
-static AAChartType const AAChartTypeBar         = @"bar";        //条形图
-static AAChartType const AAChartTypeArea        = @"area";       //折线区域填充图
-static AAChartType const AAChartTypeAreaspline  = @"areaspline"; //曲线区域填充图
-static AAChartType const AAChartTypeLine        = @"line";       //折线图
-static AAChartType const AAChartTypeSpline      = @"spline";     //曲线图
-static AAChartType const AAChartTypeScatter     = @"scatter";    //散点图
-static AAChartType const AAChartTypePie         = @"pie";        //扇形图
-static AAChartType const AAChartTypeBubble      = @"bubble";     //气泡图
-static AAChartType const AAChartTypePyramid     = @"pyramid";    //金字塔图
-static AAChartType const AAChartTypeFunnel      = @"funnel";     //漏斗图
-static AAChartType const AAChartTypeColumnrange = @"columnrange";//柱形范围图
-static AAChartType const AAChartTypeArearange   = @"arearange";  //区域范围图
+UIKIT_EXTERN AAChartType const AAChartTypeColumn;      //柱形图
+UIKIT_EXTERN AAChartType const AAChartTypeBar;         //条形图
+UIKIT_EXTERN AAChartType const AAChartTypeArea;        //折线区域填充图
+UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //曲线区域填充图
+UIKIT_EXTERN AAChartType const AAChartTypeLine;        //折线图
+UIKIT_EXTERN AAChartType const AAChartTypeSpline;      //曲线图
+UIKIT_EXTERN AAChartType const AAChartTypeScatter;     //散点图
+UIKIT_EXTERN AAChartType const AAChartTypePie;         //扇形图
+UIKIT_EXTERN AAChartType const AAChartTypeBubble;      //气泡图
+UIKIT_EXTERN AAChartType const AAChartTypePyramid;     //金字塔图
+UIKIT_EXTERN AAChartType const AAChartTypeFunnel;      //漏斗图
+UIKIT_EXTERN AAChartType const AAChartTypeColumnrange; //柱形范围图
+UIKIT_EXTERN AAChartType const AAChartTypeArearange;   //区域范围图
 
 ```
 
@@ -302,11 +304,12 @@ static AAChartType const AAChartTypeArearange   = @"arearange";  //区域范围�
 ```objective-c
 typedef NSString *AAChartZoomType;
 
-static AAChartZoomType const AAChartZoomTypeNone = @"none"; //禁用手势缩放功能(默认禁用手势缩放)
-static AAChartZoomType const AAChartZoomTypeX    = @"x";    //支持图表 X轴横向缩放
-static AAChartZoomType const AAChartZoomTypeY    = @"y";    //支持图表 Y轴纵向缩放
-static AAChartZoomType const AAChartZoomTypeXY   = @"xy";   //支持图表等比例缩放
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone; //禁用手势缩放功能(默认禁用手势缩放)
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;    //支持图表 X轴横向缩放
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;    //支持图表 Y轴纵向缩放
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;   //支持图表等比例缩放
 ```
+NOTE:例如,设置了`AAChartModel`的缩放属性`zoomType`为`AAChartZoomTypeX`,并且将图表进行了手势放大之后,这时候如果想要左右滑动图表,可以使用双指点按屏幕中的`AAChartView`视图区域进行左右拖动即可.同时屏幕的右上角会自动出现一个标题为 **"恢复缩放"** 的按钮,点击恢复缩放,图表大小he'wei'zhi将会回归到原初的样式.
 
 ### 当前已支持的图表渲染动画类型有三十种以上,说明如下
 ```objective-c
@@ -352,52 +355,79 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ### `AAChartModel` 属性配置列表
 ```objective-c
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
+AAPropSetFuncImplementation(AAChartModel, NSString *, title);//标题内容
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, titleFontSize);//Title label font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontWeight);//Title label font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, titleFontColor);//Title label font color
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);//图表类型
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);//堆积样式
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitle);//副标题内容
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, subtitleFontSize);//Subtitle label font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle flabel font color
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
-AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);//x 轴是否垂直
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       crosshairs);//是否显示准星线(默认显示)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnable);//是否要为渐变色
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y 轴标题
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
+AAPropSetFuncImplementation(AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType);//图表类型
+AAPropSetFuncImplementation(AAChartModel, AAChartStackingType,      stacking);//堆积样式
+AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType,        symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropSetFuncImplementation(AAChartModel, AAChartSymbolStyleType,   symbolStyle);
+AAPropSetFuncImplementation(AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
+AAPropSetFuncImplementation(AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长(动画单位为毫秒)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
+AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
+AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
+AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
+AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnable);//是否 3D 化图形(仅对条形图,柱状图有效)
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);//3D 图形深度
+AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisLabelsFontSize);//x-axis labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontWeight);//x-axis fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontColor);//x-axis fonto color
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, categories);//图表横坐标每个点对应的名称
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisTickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
+AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y 轴标题
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLabelsFontSize);//y-axis labels font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis fonto weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis fonto color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
+AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
+AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAllowDecimals);//是否允许 y 轴显示小数
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yPlotLines);//y 轴基线的配置
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMax);//y 轴最大值
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yMin);//y 轴最小值（设置为0就不会有负数）
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
+AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
+AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
+AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
+
+AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dAlpha);
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dBeta);
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);//3D 图形深度
+
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
+
+AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisAllowDecimals);//是否允许 y 轴显示小数
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基线的配置
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax);//y 轴最大值
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
+
 
 ```
 

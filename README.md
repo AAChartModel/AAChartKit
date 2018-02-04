@@ -18,7 +18,7 @@
 
 ## Preface
 
-AAChartKit is an elegant, friendly and easy to use chart library for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and arrange chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle free and quickly to integrate into your own project.
+AAChartKit is an elegant, friendly and easy to use chart library for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and area range chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle free and quickly to integrate into your own project.
  
 ***
 ## Features
@@ -61,6 +61,7 @@ CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
 _aaChartView = [[AAChartView alloc]init];
 _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+//_aaChartView.scrollEnabled = NO;
 //// set the content height of aaChartView
 // _aaChartView.contentHeight = chartViewHeight;
 [self.view addSubview:_aaChartView];
@@ -269,20 +270,31 @@ The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you 
 ### Supported chart types for now
 ```objective-c
 typedef NSString *AAChartType;
-static AAChartType const AAChartTypeColumn      = @"column";      //column chart
-static AAChartType const AAChartTypeBar         = @"bar";         //bar chart 
-static AAChartType const AAChartTypeArea        = @"area";        //area chart 
-static AAChartType const AAChartTypeAreaspline  = @"areaspline";  //areaspline chart
-static AAChartType const AAChartTypeLine        = @"line";        //line chart
-static AAChartType const AAChartTypeSpline      = @"spline";      //spline chart
-static AAChartType const AAChartTypeScatter     = @"scatter";     //scatter chart 
-static AAChartType const AAChartTypePie         = @"pie";         //pie chart
-static AAChartType const AAChartTypeBubble      = @"bubble";      //bubble chart  
-static AAChartType const AAChartTypePyramid     = @"pyramid";     //pyramid chart
-static AAChartType const AAChartTypeFunnel      = @"funnel";      //funnel chart
-static AAChartType const AAChartTypeColumnrange = @"columnrange"; //columnrange chart
-static AAChartType const AAChartTypeArearange   = @"arearange";   //arearange chart
+
+UIKIT_EXTERN AAChartType const AAChartTypeColumn;      //column chart
+UIKIT_EXTERN AAChartType const AAChartTypeBar;         //bar chart
+UIKIT_EXTERN AAChartType const AAChartTypeArea;        //area chart
+UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //areaspline chart
+UIKIT_EXTERN AAChartType const AAChartTypeLine;        //line chart
+UIKIT_EXTERN AAChartType const AAChartTypeSpline;      //spline chart
+UIKIT_EXTERN AAChartType const AAChartTypeScatter;     //scatter chart
+UIKIT_EXTERN AAChartType const AAChartTypePie;         //pie chart
+UIKIT_EXTERN AAChartType const AAChartTypeBubble;      //bubble chart
+UIKIT_EXTERN AAChartType const AAChartTypePyramid;     //pyramid chart
+UIKIT_EXTERN AAChartType const AAChartTypeFunnel;      //funnel chart
+UIKIT_EXTERN AAChartType const AAChartTypeColumnrange; //columnrange chart
+UIKIT_EXTERN AAChartType const AAChartTypeArearange;   //arearange chart
 ```
+### Supported zoom guesture types for now
+```Objective-c
+typedef NSString *AAChartZoomType;
+
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
+UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
+```
+
 ### Supported animation types for now
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
@@ -327,77 +339,77 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ## AAChartModel:chart attribute list
 ```objective-c
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);//Title font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);//Title label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);//Title label font weight
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);//副标题内容
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);//Subtitle font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);//Subtitle label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);//图表的数据列内容
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys);//Keys support
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);//图表类型
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);//堆积样式
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);//折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);
 AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);//缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
-AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
+AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);//x 轴是否垂直
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);//xAxis font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);//X-axis label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);//X-axis label font weight
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);//x轴坐标每个点对应的名称
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);//x 轴是否可见(默认可见)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y 轴标题
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);//y y-axis labels font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis label font weight
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
-AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);//The tooltip string
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);
+AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnabled);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);//3D 图形深度
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);//是否允许 y 轴显示小数
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);//y 轴基线的配置
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);//y 轴最大值
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText);
 
 ```
 
@@ -449,7 +461,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 ## Contact
 
 -------------------------------------------------------------------------------
-* 💕💕💕❤️❤️   WARM TIPS!!!   ❤️❤️💕💕💕
+* 🌕 🌖 🌗 🌘   WARM TIPS!!!   🌑 🌒 🌓 🌔
 *
 * Please contact me on GitHub,if there are any problems encountered in use.
 * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
