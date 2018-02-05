@@ -156,6 +156,10 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabl
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, dataLabelRotation);//Datalabel rotation in degrees 
+AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelAllowOverlap);//Datalabel allow overlapping
+//(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
+//******
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);//xAxis font size
