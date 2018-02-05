@@ -36,8 +36,10 @@
 
 @interface AADataLabels : NSObject
 
-AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL,       enabled);
+AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , enabled);
 AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle  *, style);
 AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, format);
+AAPropStatementAndFuncStatement(copy,   AADataLabels, NSNumber *, rotation);
+AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , allowOverlap);
 
 @end
