@@ -231,6 +231,9 @@
                                             .colorSet(aaChartModel.dataLabelFontColor)
                                             .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
                                             .fontWeightSet(aaChartModel.dataLabelFontWeight))
+                                            .rotationSet(aaChartModel.dataLabelRotation)
+                                            .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)
+                                            //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
                                   );
     
     if ([chartType isEqualToString:AAChartTypeColumn]) {
