@@ -151,7 +151,6 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
-//******
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelRotation);//Datalabel rotation in degrees 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelAllowOverlap);//Datalabel allow overlapping
 //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
