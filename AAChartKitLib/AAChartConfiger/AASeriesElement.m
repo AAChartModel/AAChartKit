@@ -44,6 +44,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking);
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, threshold);
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, lineWidth);//折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, fillOpacity);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
+AAPropSetFuncImplementation(AASeriesElement, NSString *, negativeColor); //The color for the parts of the graph or points that are below the threshold
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, innerSize);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys);
