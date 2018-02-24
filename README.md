@@ -31,7 +31,7 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ***
 
 ## Beauty Appreciation
-| Column Chart | Stacked Bar Chart | Area Chart |
+| Column Chart | Column Range Chart | Area Chart |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/ColumnChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/BarChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/AreaChart.png) |
 
@@ -107,7 +107,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
-6. Refresh the chart (subsequent refresh options are recommended to call this method after the first drawing of graphics has completed)
+6. Refresh the chart except the chart data (subsequent refresh options are recommended to call this method after the first drawing of graphics has completed,if you want to update the chart data if should use the function `aa_onlyRefreshTheChartDataWithChartModelSeries`)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];

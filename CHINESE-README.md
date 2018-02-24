@@ -35,7 +35,7 @@
 ***
 
 ## 真机美图
-| Column Chart 柱状图 | Stacked Bar Chart 堆积条形图 | Area Chart 区域填充图 |
+| Column Chart 柱状图 | Column Range Chart 条形范围图 | Area Chart 区域填充图 |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/ColumnChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/BarChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/AreaChart.png) |
 
