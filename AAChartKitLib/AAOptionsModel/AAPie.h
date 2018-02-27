@@ -36,6 +36,7 @@
 
 @interface AAPie : NSObject
 
+AAPropStatementAndFuncStatement(strong, AAPie, NSNumber     *, size);
 AAPropStatementAndFuncStatement(assign, AAPie, BOOL,           allowPointSelect);
 AAPropStatementAndFuncStatement(copy,   AAPie, NSString     *, cursor);
 AAPropStatementAndFuncStatement(strong, AAPie, AADataLabels *, dataLabels);

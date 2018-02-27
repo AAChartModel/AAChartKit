@@ -34,6 +34,7 @@
 
 @implementation AAPie
 
+AAPropSetFuncImplementation(AAPie, NSNumber     *, size);
 AAPropSetFuncImplementation(AAPie, BOOL,           allowPointSelect);
 AAPropSetFuncImplementation(AAPie, NSString     *, cursor);
 AAPropSetFuncImplementation(AAPie, AADataLabels *, dataLabels);
