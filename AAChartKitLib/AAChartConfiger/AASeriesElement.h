@@ -48,6 +48,7 @@ AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, fillOpacity
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, negativeColor); // The color for the parts of the graph or points that are below the threshold
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
+AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber     *, size);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, keys);
 
 @end
