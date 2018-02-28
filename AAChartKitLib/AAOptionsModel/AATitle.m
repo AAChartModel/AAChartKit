@@ -36,6 +36,7 @@
 
 AAPropSetFuncImplementation(AATitle, NSString *, text);
 AAPropSetFuncImplementation(AATitle, AAStyle  *, style);
+AAPropSetFuncImplementation(AATitle, AAChartTitleAlignType, align);
 AAPropSetFuncImplementation(AATitle, AAChartTitleVerticalAlignType, verticalAlign);
 AAPropSetFuncImplementation(AATitle, NSNumber *, y);
 

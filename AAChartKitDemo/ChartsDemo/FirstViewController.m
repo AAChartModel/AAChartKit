@@ -165,6 +165,7 @@
         case 4: {
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = [[DrawChartWithAAOptionsVC alloc]init];
+            vc.selectedIndex = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -255,7 +256,8 @@
                              /*JQuery动画样式类型演示*/
                              @[@"图形动画样式相关演示"],
                              /*通过AAOptions实例对象来绘制图形*/
-                             @[@"直接通过AAOptions实例对象绘制图形"],
+                             @[@"绘制区域填充图",
+                               @"绘制扇形图"],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView"],
                              /*可向下钻取类型图表*/

@@ -10,4 +10,6 @@
 
 @interface DrawChartWithAAOptionsVC : UIViewController
 
+@property (nonatomic, assign) NSInteger selectedIndex;
+
 @end

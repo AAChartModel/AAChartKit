@@ -19,6 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:chartView];
+    
+    if (self.selectedIndex == 0) {
+        AAOptions *areaChartOptions = [self configureTheAAOptionsOfAreaChart];
+        [chartView aa_refreshChartWithOptions:areaChartOptions];
+    } else {
+        AAOptions *pieChartOptions = [self configureTheAAOptionsOfPieChart];
+        [chartView aa_drawChartWithOptions:pieChartOptions];
+    }
+    
+}
+
+- (AAOptions *)configureTheAAOptionsOfAreaChart {
 /*===============================================================原生 JavaScript 代码==============================================================
     <html>
     <head>
@@ -161,8 +176,10 @@
                                        @16.6, @14.2, @10.3, @6.6, @4.8]
                             }
                         ];
+
     
     NSArray *colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
+    
     
     AAOptions *options = AAObject(AAOptions);
     options.chart = (id)chart;
@@ -175,6 +192,8 @@
     options.series = (id)series;
     options.colors = colors;
     
+    
+//    另一种写法
 //    AAOptions *options = AAObject(AAOptions)
 //    .chartSet((id)chart)
 //    .titleSet((id)title)
@@ -187,27 +206,87 @@
 //    .colorsSet(colors)
 //    ;
     
-    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:chartView];
-    [chartView aa_drawChartWithOptions:options];
+
 
 /****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
     
     
-    
-    
-/*###################################################参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法2)###################################################*/
-//     AASubtitle *title2 = AAObject(AASubtitle);
-//    title2.textSet(@"AAChartKit");
-//       AAOptions *options2 = AAObject(AAOptions);
- 
- 
-/*###################################################参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法2)###################################################*/
-
+    return options;
 
 
 }
 
-
+- (AAOptions *)configureTheAAOptionsOfPieChart {
+//    //图表类型
+//    AAChart *aaChart = AAObject(AAChart).typeSet(AAChartTypePie);
+//
+////    //标题
+//    AATitle *aaTitle = AAObject(AATitle)
+//    .textSet(@"渠道销售额<br>占比")//标题文本内容
+//    .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
+//    .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+//    .styleSet(AAObject(AAStyle)
+//              .colorSet(@"#000000")//Title font color
+//              .fontSizeSet(@"14 px")//Title font size
+//              .fontWeightSet(@"bold")//Title font weight
+//              );
+//
+//    //数据源
+//    NSArray *aaSeries = @[
+//                        AAObject(AASeriesElement)
+//                        .nameSet(@"语言热度值")
+//                        .innerSizeSet(@"80%")//内部圆环半径大小占比
+//                        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+//                        .dataSet(
+//                                 @[
+//                                   @[@"Firefox",   @3336.2],
+//                                   @[@"IE",        @26.8],
+//                                   @[@"Safari",    @88.5],
+//                                   @[@"Opera",     @46.0],
+//                                   @[@"Others",    @223]
+//                                   ]
+//                                 ),
+//                        ];
+//
+//    NSArray *aaColors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
+//
+//
+//    AAOptions *aaOptions = AAObject(AAOptions);
+//    options.chart = aaChart;
+//    options.title = aaTitle;
+//    options.series = aaSeries;
+//    options.colors = aaColors;;
+    
+//    另一种写法
+    AAOptions *aaOptions = AAObject(AAOptions)
+    .chartSet(AAObject(AAChart)
+              .typeSet(AAChartTypePie))
+    .titleSet(AAObject(AATitle)
+              .textSet(@"渠道销售额<br>占比")//标题文本内容
+              .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .styleSet(AAObject(AAStyle)
+                        .colorSet(@"#000000")//Title font color
+                        .fontSizeSet(@"14 px")//Title font size
+                        .fontWeightSet(@"bold")//Title font weight
+                        ))
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"语言热度值")
+                 .innerSizeSet(@"80%")//内部圆环半径大小占比
+                 .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+                 .dataSet(
+                          @[
+                            @[@"Firefox",   @3336.2],
+                            @[@"IE",        @26.8],
+                            @[@"Safari",    @88.5],
+                            @[@"Opera",     @46.0],
+                            @[@"Others",    @223]
+                            ]
+                          ),
+                 ])
+    .colorsSet(@[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"]);//设置颜色主题
+    return aaOptions;
+}
 
 @end

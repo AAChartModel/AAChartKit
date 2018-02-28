@@ -33,6 +33,12 @@
 #import <Foundation/Foundation.h>
 
 @class AAStyle;
+
+typedef NSString * AAChartTitleAlignType;
+static AAChartTitleAlignType const AAChartTitleAlignTypeLeft   = @"left";
+static AAChartTitleAlignType const AAChartTitleAlignTypeCenter = @"center";
+static AAChartTitleAlignType const AAChartTitleAlignTypeRight  = @"right";
+
 typedef NSString * AAChartTitleVerticalAlignType;
 static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeTop    = @"top";
 static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeMiddle = @"middle";
@@ -42,6 +48,7 @@ static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeBottom =
 
 AAPropStatementAndFuncStatement(copy,   AATitle, NSString *, text);
 AAPropStatementAndFuncStatement(strong, AATitle, AAStyle  *, style);
+AAPropStatementAndFuncStatement(copy,   AATitle, AAChartTitleAlignType, align);
 AAPropStatementAndFuncStatement(copy,   AATitle, AAChartTitleVerticalAlignType, verticalAlign);
 AAPropStatementAndFuncStatement(strong, AATitle, NSNumber *, y);
 

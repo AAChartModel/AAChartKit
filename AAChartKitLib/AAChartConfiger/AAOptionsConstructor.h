@@ -32,30 +32,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AAOptions.h"
-#import "AAChart.h"
-#import "AAAnimation.h"
-#import "AATitle.h"
-#import "AASubtitle.h"
-#import "AAXAxis.h"
-#import "AAYAxis.h"
-#import "AALabels.h"
-#import "AATooltip.h"
-#import "AAPlotOptions.h"
-#import "AAColumn.h"
-#import "AABar.h"
-#import "AAArea.h"
-#import "AAAreaspline.h"
-#import "AALine.h"
-#import "AASpline.h"
-#import "AAPie.h"
-#import "AAPlotLinesElement.h"
-#import "AALegend.h"
-#import "AADataLabels.h"
-#import "AAStyle.h"
-#import "AASeries.h"
-#import "AAMarker.h"
 #import "AAChartModel.h"
-#import "AAOptions3d.h"
 
 @interface AAOptionsConstructor : NSObject
 
