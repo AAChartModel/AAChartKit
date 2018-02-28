@@ -25,7 +25,7 @@
     
     if (self.selectedIndex == 0) {
         AAOptions *areaChartOptions = [self configureTheAAOptionsOfAreaChart];
-        [chartView aa_refreshChartWithOptions:areaChartOptions];
+        [chartView aa_drawChartWithOptions:areaChartOptions];
     } else {
         AAOptions *pieChartOptions = [self configureTheAAOptionsOfPieChart];
         [chartView aa_drawChartWithOptions:pieChartOptions];
@@ -73,8 +73,8 @@
         
         var legend = {
         layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle',
+        align: 'center',
+        verticalAlign: 'top',
         borderWidth: 0
         };
         
@@ -154,7 +154,7 @@
     NSDictionary *legend = @{
                              @"layout": @"vertical",
                              @"align": @"right",
-                             @"verticalAlign": @"middle",
+                             @"verticalAlign": @"top",
                              @"borderWidth": @0
                              };
     
@@ -180,7 +180,7 @@
     
     NSArray *colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
-    
+//第一种写法
     AAOptions *options = AAObject(AAOptions);
     options.chart = (id)chart;
     options.title = (id)title;
@@ -217,6 +217,7 @@
 }
 
 - (AAOptions *)configureTheAAOptionsOfPieChart {
+    //第一种写法
 //    //图表类型
 //    AAChart *aaChart = AAObject(AAChart).typeSet(AAChartTypePie);
 //
@@ -273,6 +274,7 @@
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"语言热度值")
+//                 .sizeSet(@300)//环形图的半径大小
                  .innerSizeSet(@"80%")//内部圆环半径大小占比
                  .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                  .dataSet(
@@ -285,7 +287,7 @@
                             ]
                           ),
                  ])
-    .colorsSet(@[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"]);//设置颜色主题
+    .colorsSet(@[@"#1E90FF",@"#e7a701",@"#50c18d",@"#fd4800",@"#F4A460"]);//设置颜色主题
     return aaOptions;
 }
 
