@@ -42,6 +42,7 @@ AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, name);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, data);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, AAMarker *, marker);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, stacking);
+AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, dashStyle);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, threshold);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth);//折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, fillOpacity);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
