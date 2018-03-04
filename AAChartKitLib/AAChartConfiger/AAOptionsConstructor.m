@@ -49,9 +49,9 @@
     
     if (aaChartModel.options3dEnabled == true) {
         aaChart.options3d = (AAObject(AAOptions3d)
-                           .enabledSet(aaChartModel.options3dEnabled)
-                           .alphaSet(@(-15))
-                           );
+                             .enabledSet(aaChartModel.options3dEnabled)
+                             .alphaSet(@(-15))
+                             );
     }
     
     AATitle *aaTitle = AAObject(AATitle)
@@ -70,43 +70,16 @@
               .fontSizeSet(AAFontSizeFormat(aaChartModel.subtitleFontSize))//Subtitle font size
               .fontWeightSet(aaChartModel.subtitleFontWeight)//Subtitle font weight
               );
-
-    AAXAxis *aaXAxis = AAObject(AAXAxis)
-    .labelsSet(AAObject(AALabels)
-               .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
-               .styleSet(AAObject(AAStyle)
-                         .colorSet(aaChartModel.xAxisLabelsFontColor)//xAxis Label font color
-                         .fontSizeSet(AAFontSizeFormat(aaChartModel.xAxisLabelsFontSize))//xAxis Label font size
-                         .fontWeightSet(aaChartModel.xAxisLabelsFontWeight)//xAxis Label font weight
-                         )
-               )
-    .reversedSet(aaChartModel.xAxisReversed)
-    .gridLineWidthSet(aaChartModel.xAxisGridLineWidth)//x轴网格线宽度
-    .categoriesSet(aaChartModel.categories)
-    .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
-    .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
     
-    AAYAxis *aaYAxis = AAObject(AAYAxis)
-    .labelsSet(AAObject(AALabels)
-               .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
-               .styleSet(AAObject(AAStyle)
-                         .colorSet(aaChartModel.yAxisLabelsFontColor)//yAxis Label font color
-                         .fontSizeSet(AAFontSizeFormat(aaChartModel.yAxisLabelsFontSize))//yAxis Label font size
-                         .fontWeightSet(aaChartModel.yAxisLabelsFontWeight)//yAxis Label font weight
-                         )
-               .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
-               )
-    .minSet(aaChartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
-    .maxSet(aaChartModel.yAxisMax)//y轴最大值
-    .tickPositionsSet(aaChartModel.yAxisTickPositions)//自定义Y轴坐标
-    .allowDecimalsSet(aaChartModel.yAxisAllowDecimals)//是否允许显示小数
-    .plotLinesSet(aaChartModel.yAxisPlotLines) //标示线设置
-    .reversedSet(aaChartModel.yAxisReversed)
-    .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
-    .titleSet(AAObject(AATitle)
-              .textSet(aaChartModel.yAxisTitle))//y 轴标题
-    .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
-    .visibleSet(aaChartModel.yAxisVisible);
+    AAXAxis *aaXAxis;
+    AAYAxis *aaYAxis;
+    if (![aaChartModel.chartType isEqualToString:AAChartTypePie]
+        && ![aaChartModel.chartType isEqualToString:AAChartTypePyramid]
+        && ![aaChartModel.chartType isEqualToString:AAChartTypeFunnel]) {
+        aaXAxis = AAObject(AAXAxis);
+        aaYAxis = AAObject(AAYAxis);
+        [self configureAxisContentAndStyleWithAAXAxis:aaXAxis AAYAxis:aaYAxis AAChartModel:aaChartModel];
+    }
     
     AATooltip *aaTooltip = AAObject(AATooltip)
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
@@ -125,9 +98,9 @@
     if (aaChartModel.animationType != 0) {
         NSString *chartAnimationType = [self configureTheEasingAnimationType:aaChartModel.animationType];
         aaPlotOptions.series.animation = (AAObject(AAAnimation)
-                                        .easingSet(chartAnimationType)
-                                        .durationSet(aaChartModel.animationDuration)
-                                        );
+                                          .easingSet(chartAnimationType)
+                                          .durationSet(aaChartModel.animationDuration)
+                                          );
     }
     
     [self configureTheStyleOfConnectNodeWithChartModel:aaChartModel plotOptions:aaPlotOptions];
@@ -158,6 +131,44 @@
     return aaOptions;
 }
 
++ (void)configureAxisContentAndStyleWithAAXAxis:(AAXAxis *)aaXAxis AAYAxis:(AAYAxis *)aaYAxis AAChartModel:(AAChartModel *)aaChartModel {
+    
+    aaXAxis.labelsSet(AAObject(AALabels)
+                      .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
+                      .styleSet(AAObject(AAStyle)
+                                .colorSet(aaChartModel.xAxisLabelsFontColor)//xAxis Label font color
+                                .fontSizeSet(AAFontSizeFormat(aaChartModel.xAxisLabelsFontSize))//xAxis Label font size
+                                .fontWeightSet(aaChartModel.xAxisLabelsFontWeight)//xAxis Label font weight
+                                )
+                      )
+    .reversedSet(aaChartModel.xAxisReversed)
+    .gridLineWidthSet(aaChartModel.xAxisGridLineWidth)//x轴网格线宽度
+    .categoriesSet(aaChartModel.categories)
+    .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
+    .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
+    
+    aaYAxis.labelsSet(AAObject(AALabels)
+                      .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
+                      .styleSet(AAObject(AAStyle)
+                                .colorSet(aaChartModel.yAxisLabelsFontColor)//yAxis Label font color
+                                .fontSizeSet(AAFontSizeFormat(aaChartModel.yAxisLabelsFontSize))//yAxis Label font size
+                                .fontWeightSet(aaChartModel.yAxisLabelsFontWeight)//yAxis Label font weight
+                                )
+                      .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
+                      )
+    .minSet(aaChartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
+    .maxSet(aaChartModel.yAxisMax)//y轴最大值
+    .tickPositionsSet(aaChartModel.yAxisTickPositions)//自定义Y轴坐标
+    .allowDecimalsSet(aaChartModel.yAxisAllowDecimals)//是否允许显示小数
+    .plotLinesSet(aaChartModel.yAxisPlotLines) //标示线设置
+    .reversedSet(aaChartModel.yAxisReversed)
+    .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
+    .titleSet(AAObject(AATitle)
+              .textSet(aaChartModel.yAxisTitle))//y 轴标题
+    .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
+    .visibleSet(aaChartModel.yAxisVisible);
+}
+
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
     //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
     if (   [aaChartModel.chartType isEqualToString:AAChartTypeArea]
@@ -184,45 +195,81 @@
 + (NSString *)configureTheEasingAnimationType:(AAChartAnimation)animationType {
     
     switch (animationType) {
-        case AAChartAnimationLinear : return @"linear";
-        case AAChartAnimationEaseInQuad: return @"easeInQuad";
-        case AAChartAnimationEaseOutQuad: return @"easeOutQuad";
-        case AAChartAnimationEaseInOutQuad: return @"easeInOutQuad";
-        case AAChartAnimationEaseInCubic: return @"easeInCubic";
-        case AAChartAnimationEaseOutCubic: return @"easeOutCubic";
-        case AAChartAnimationEaseInOutCubic: return @"easeInOutCubic";
-        case AAChartAnimationEaseInQuart: return @"easeInQuart";
-        case AAChartAnimationEaseOutQuart: return @"easeOutQuart";
-        case AAChartAnimationEaseInOutQuart: return @"easeInOutQuart";
-        case AAChartAnimationEaseInQuint: return @"easeInQuint";
-        case AAChartAnimationEaseOutQuint: return @"easeOutQuint";
-        case AAChartAnimationEaseInOutQuint: return @"easeInOutQuint";
-        case AAChartAnimationEaseInSine: return @"easeInSine";
-        case AAChartAnimationEaseOutSine: return @"easeOutSine";
-        case AAChartAnimationEaseInOutSine: return @"easeInOutSine";
-        case AAChartAnimationEaseInExpo: return @"easeInExpo";
-        case AAChartAnimationEaseOutExpo: return @"easeOutExpo";
-        case AAChartAnimationEaseInOutExpo: return @"easeInOutExpo";
-        case AAChartAnimationEaseInCirc: return @"easeInCirc";
-        case AAChartAnimationEaseOutCirc: return @"easeOutCirc";
-        case AAChartAnimationEaseInOutCirc: return @"easeInOutCirc";
-        case AAChartAnimationEaseOutBounce: return @"easeOutBounce";
-        case AAChartAnimationEaseInBack: return @"easeInBack";
-        case AAChartAnimationEaseOutBack: return @"easeOutBack";
-        case AAChartAnimationEaseInOutBack: return @"easeInOutBack";
-        case AAChartAnimationElastic: return @"elastic";
-        case AAChartAnimationSwingFromTo: return @"swingFromTo";
-        case AAChartAnimationSwingFrom: return @"swingFrom";
-        case AAChartAnimationSwingTo: return @"swingTo";
-        case AAChartAnimationBounce: return @"bounce";
-        case AAChartAnimationBouncePast: return @"bouncePast";
-        case AAChartAnimationEaseFromTo: return @"easeFromTo";
-        case AAChartAnimationEaseFrom: return @"easeFrom";
-        case AAChartAnimationEaseTo: return @"easeTo";
+        case AAChartAnimationLinear :
+            return @"linear";
+        case AAChartAnimationEaseInQuad:
+            return @"easeInQuad";
+        case AAChartAnimationEaseOutQuad:
+            return @"easeOutQuad";
+        case AAChartAnimationEaseInOutQuad:
+            return @"easeInOutQuad";
+        case AAChartAnimationEaseInCubic:
+            return @"easeInCubic";
+        case AAChartAnimationEaseOutCubic:
+            return @"easeOutCubic";
+        case AAChartAnimationEaseInOutCubic:
+            return @"easeInOutCubic";
+        case AAChartAnimationEaseInQuart:
+            return @"easeInQuart";
+        case AAChartAnimationEaseOutQuart:
+            return @"easeOutQuart";
+        case AAChartAnimationEaseInOutQuart:
+            return @"easeInOutQuart";
+        case AAChartAnimationEaseInQuint:
+            return @"easeInQuint";
+        case AAChartAnimationEaseOutQuint:
+            return @"easeOutQuint";
+        case AAChartAnimationEaseInOutQuint:
+            return @"easeInOutQuint";
+        case AAChartAnimationEaseInSine:
+            return @"easeInSine";
+        case AAChartAnimationEaseOutSine:
+            return @"easeOutSine";
+        case AAChartAnimationEaseInOutSine:
+            return @"easeInOutSine";
+        case AAChartAnimationEaseInExpo:
+            return @"easeInExpo";
+        case AAChartAnimationEaseOutExpo:
+            return @"easeOutExpo";
+        case AAChartAnimationEaseInOutExpo:
+            return @"easeInOutExpo";
+        case AAChartAnimationEaseInCirc:
+            return @"easeInCirc";
+        case AAChartAnimationEaseOutCirc:
+            return @"easeOutCirc";
+        case AAChartAnimationEaseInOutCirc:
+            return @"easeInOutCirc";
+        case AAChartAnimationEaseOutBounce:
+            return @"easeOutBounce";
+        case AAChartAnimationEaseInBack:
+            return @"easeInBack";
+        case AAChartAnimationEaseOutBack:
+            return @"easeOutBack";
+        case AAChartAnimationEaseInOutBack:
+            return @"easeInOutBack";
+        case AAChartAnimationElastic:
+            return @"elastic";
+        case AAChartAnimationSwingFromTo:
+            return @"swingFromTo";
+        case AAChartAnimationSwingFrom:
+            return @"swingFrom";
+        case AAChartAnimationSwingTo:
+            return @"swingTo";
+        case AAChartAnimationBounce:
+            return @"bounce";
+        case AAChartAnimationBouncePast:
+            return @"bouncePast";
+        case AAChartAnimationEaseFromTo:
+            return @"easeFromTo";
+        case AAChartAnimationEaseFrom:
+            return @"easeFrom";
+        case AAChartAnimationEaseTo:
+            return @"easeTo";
     };
 }
 
 + (AAPlotOptions *)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)aaPlotOptions chartModel:(AAChartModel *)aaChartModel {
+    
     AAChartType chartType = aaChartModel.chartType;
     
     AADataLabels *aaDataLabels = (AAObject(AADataLabels)
@@ -231,17 +278,17 @@
                                             .colorSet(aaChartModel.dataLabelFontColor)
                                             .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
                                             .fontWeightSet(aaChartModel.dataLabelFontWeight))
-                                            .rotationSet(aaChartModel.dataLabelRotation)
-                                            .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)
-                                            //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
+                                  .rotationSet(aaChartModel.dataLabelRotation)
+                                  .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)
+                                  //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
                                   );
     
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *aaColumn = (AAObject(AAColumn)
-                            .borderWidthSet(@0)
-//                            .groupPaddingSet(@0.1)
-                            .borderRadiusSet(aaChartModel.borderRadius)
-                            .dataLabelsSet(aaDataLabels));
+                              .borderWidthSet(@0)
+                              .groupPaddingSet(@0.05)
+                              .borderRadiusSet(aaChartModel.borderRadius)
+                              .dataLabelsSet(aaDataLabels));
         if (aaChartModel.polar == YES) {
             aaColumn.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
@@ -249,10 +296,10 @@
         aaPlotOptions.columnSet(aaColumn);
     } else if ([chartType isEqualToString:AAChartTypeBar]) {
         AABar *aaBar = (AAObject(AABar)
-                      .borderWidthSet(@0)
-//                      .groupPaddingSet(@0.1)
-                      .borderRadiusSet(aaChartModel.borderRadius)
-                      .dataLabelsSet(aaDataLabels));
+                        .borderWidthSet(@0)
+                        //                      .groupPaddingSet(@0.1)
+                        .borderRadiusSet(aaChartModel.borderRadius)
+                        .dataLabelsSet(aaDataLabels));
         if (aaChartModel.polar == YES) {
             aaBar.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
@@ -260,23 +307,24 @@
         aaPlotOptions.barSet(aaBar);
     } else if ([chartType isEqualToString:AAChartTypeArea]) {
         aaPlotOptions.areaSet(AAObject(AAArea)
-                            .dataLabelsSet(aaDataLabels));
+                              .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
         aaPlotOptions.areasplineSet(AAObject(AAAreaspline)
-                                  .dataLabelsSet(aaDataLabels));
+                                    .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         aaPlotOptions.lineSet(AAObject(AALine)
-                            .dataLabelsSet(aaDataLabels));
+                              .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypeSpline]) {
         aaPlotOptions.splineSet(AAObject(AASpline)
-                              .dataLabelsSet(aaDataLabels));
+                                .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         aaPlotOptions.pieSet(AAObject(AAPie)
-                           .allowPointSelectSet(true)
-                           .cursorSet(@"pointer")
-                           .showInLegendSet(true)
-                           .dataLabelsSet(aaDataLabels
-                                          .formatSet(@"{point.percentage:.1f}%")));
+                             //                           .sizeSet(@50)
+                             .allowPointSelectSet(true)
+                             .cursorSet(@"pointer")
+                             .showInLegendSet(true)
+                             .dataLabelsSet(aaDataLabels
+                                            .formatSet(@"{point.percentage:.1f}%")));
         if (aaChartModel.options3dEnabled == true) {
             aaPlotOptions.pie.depth = aaChartModel.options3dDepth;//设置3d 图形阴影深度
         }
