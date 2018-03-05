@@ -38,8 +38,10 @@
 
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSArray  *, categories);
 AAPropStatementAndFuncStatement(assign, AAXAxis, BOOL,       reversed);
+AAPropStatementAndFuncStatement(strong, AAXAxis, NSNumber *, lineWidth);//x轴轴线宽度
+AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, lineColor);//x轴轴线线颜色
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth);//x轴网格线宽度
-AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, gridLineColor);// x轴网格线颜色
+AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, gridLineColor);//x轴网格线颜色
 AAPropStatementAndFuncStatement(strong, AAXAxis, AALabels *, labels);//用于设置 x 轴文字相关的
 AAPropStatementAndFuncStatement(assign, AAXAxis, BOOL ,      visible);//用于设置 x 轴以及 x 轴文字是否显示
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSNumber *, tickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)

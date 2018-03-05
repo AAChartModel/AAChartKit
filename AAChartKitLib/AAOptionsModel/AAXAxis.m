@@ -35,8 +35,10 @@
 
 AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories);
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      reversed);
-AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth);
-AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor);
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, lineWidth);//x轴轴线宽度
+AAPropSetFuncImplementation(AAXAxis, NSString *, lineColor);//x轴轴线线颜色
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth);//x轴网格线宽度
+AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor);//x轴网格线颜色
 AAPropSetFuncImplementation(AAXAxis, AALabels *, labels);
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      visible);
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, tickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
