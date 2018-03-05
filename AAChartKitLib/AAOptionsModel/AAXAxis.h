@@ -40,6 +40,7 @@ AAPropStatementAndFuncStatement(strong, AAXAxis, NSArray  *, categories);
 AAPropStatementAndFuncStatement(assign, AAXAxis, BOOL,       reversed);
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSNumber *, lineWidth);//x轴轴线宽度
 AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, lineColor);//x轴轴线线颜色
+AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, tickColor);//x轴轴线下方刻度线颜色
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth);//x轴网格线宽度
 AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, gridLineColor);//x轴网格线颜色
 AAPropStatementAndFuncStatement(strong, AAXAxis, AALabels *, labels);//用于设置 x 轴文字相关的

@@ -37,6 +37,7 @@ AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories);
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      reversed);
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, lineWidth);//x轴轴线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, lineColor);//x轴轴线线颜色
+AAPropSetFuncImplementation(AAXAxis, NSString *, tickColor);//x轴轴线下方刻度线颜色
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth);//x轴网格线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor);//x轴网格线颜色
 AAPropSetFuncImplementation(AAXAxis, AALabels *, labels);
