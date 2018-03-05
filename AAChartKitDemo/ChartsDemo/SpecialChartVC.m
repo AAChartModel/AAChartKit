@@ -107,7 +107,7 @@
     self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.aaChartView.scrollEnabled = NO;
-    self.aaChartView.contentHeight = self.view.frame.size.height-80;
+    self.aaChartView.contentHeight = self.aaChartView.frame.size.height-80;
     [self.view addSubview:self.aaChartView];
     
     self.aaChartModel = [self configureTheChartModel:chartType];
@@ -479,7 +479,8 @@
         .titleSet(@"黄昏别馆日气温起伏图")
         .subtitleSet(@"实时监测")
         .yAxisTitleSet(@"摄氏度")
-        .dataLabelEnabledSet(true)
+        .xAxisVisibleSet(false)
+        .dataLabelEnabledSet(false)
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)

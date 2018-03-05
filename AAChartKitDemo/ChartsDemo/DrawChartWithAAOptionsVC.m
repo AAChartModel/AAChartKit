@@ -21,8 +21,10 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80)];
+    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    chartView.contentHeight = chartView.frame.size.height-60;
     [self.view addSubview:chartView];
+    chartView.scrollEnabled = NO;
     
     if (self.selectedIndex == 0) {
         AAOptions *areaChartOptions = [self configureTheAAOptionsOfAreaChart];
@@ -221,9 +223,10 @@
 }
 
 - (AAOptions *)configureTheAAOptionsOfPieChart {
-    //第一种写法
-//    //图表类型
-//    AAChart *aaChart = AAObject(AAChart).typeSet(AAChartTypePie);
+//    //第一种写法
+////    //图表类型
+//    AAChart *aaChart = AAObject(AAChart)
+//    .typeSet(AAChartTypePie);
 //
 //    //标题
 //    AATitle *aaTitle = AAObject(AATitle)
@@ -235,6 +238,21 @@
 //              .fontSizeSet(@"14 px")//Title font size
 //              .fontWeightSet(@"bold")//Title font weight
 //              );
+//
+//    AAPlotOptions *aaPlotOptions = (AAObject(AAPlotOptions)
+//                                    .seriesSet(AAObject(AASeries)
+//                                               .animationSet(AAObject(AAAnimation)
+//                                                             .easingSet(@"bounce")
+//                                                             .durationSet(@1000)
+//                                                             )
+//                                               )
+//                                    .pieSet(AAObject(AAPie)
+//                                            .showInLegendSet(true)
+//                                            .dataLabelsSet(AAObject(AADataLabels)
+//                                                           .enabledSet(true)
+//                                                           .formatSet(@"{point.percentage:.1f}%"))
+//                                            )
+//                                    );
 //
 //    //数据源
 //    NSArray *aaSeries = @[
@@ -255,12 +273,13 @@
 //
 //    NSArray *aaColors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
 //
-//
 //    AAOptions *aaOptions = AAObject(AAOptions);
-//    options.chart = aaChart;
-//    options.title = aaTitle;
-//    options.series = aaSeries;
-//    options.colors = aaColors;;
+//    aaOptions.chart = aaChart;
+//    aaOptions.title = aaTitle;
+//    aaOptions.plotOptions = aaPlotOptions;
+//    aaOptions.series = aaSeries;
+//    aaOptions.colors = aaColors;
+    
     
 //    另一种写法
     AAOptions *aaOptions = AAObject(AAOptions)
@@ -277,23 +296,31 @@
                         )
               )
     .plotOptionsSet(AAObject(AAPlotOptions)
+                    .seriesSet(AAObject(AASeries)
+                               .animationSet(AAObject(AAAnimation)
+                                             .easingSet(@"bounce")
+                                             .durationSet(@1000)
+                                             )
+                               )
                     .pieSet(AAObject(AAPie)
                             .showInLegendSet(true)
                             .dataLabelsSet(AAObject(AADataLabels)
-                                           .enabledSet(true)
-                                           .formatSet(@"{point.percentage:.1f}%"))
+                                           .enabledSet(false)
+//                                           .formatSet(@"{point.percentage:.1f}%")
+                                           )
                             )
                     )
-//    .legendSet(AAObject(AALegend)
-//               .enabledSet(true)
-//               .layoutSet(AALegendLayoutTypeHorizontal)
-//               .alignSet(AALegendAlignTypeCenter)
-//               )
+    .legendSet(AAObject(AALegend)
+               .enabledSet(true)
+               .verticalAlignSet(AALegendVerticalAlignTypeTop)
+               .layoutSet(AALegendLayoutTypeVertical)
+               .alignSet(AALegendAlignTypeCenter)
+               )
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"语言热度值")
 //                 .sizeSet(@300)//环形图的半径大小
-                 .innerSizeSet(@"80%")//内部圆环半径大小占比
+                 .innerSizeSet(@"60%")//内部圆环半径大小占比
                  .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                  .dataSet(
                           @[
@@ -311,9 +338,15 @@
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
     //第一种写法
-//    AAChart *aaChart = AAObject(AAChart).typeSet(AAChartTypeColumn);
-//    AATitle *aaTitle = AAObject(AATitle).textSet(@"分公司效率优化嵌套图");
-//    AAXAxis *aaXAxis = AAObject(AAXAxis).categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
+//    AAChart *aaChart = AAObject(AAChart)
+//    .typeSet(AAChartTypeColumn);
+//
+//    AATitle *aaTitle = AAObject(AATitle)
+//    .textSet(@"分公司效率优化嵌套图");
+//
+//    AAXAxis *aaXAxis = AAObject(AAXAxis)
+//    .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
+//
 //    AAYAxis *aaYAxis1 =
 //    AAObject(AAYAxis)
 //    .visibleSet(true)
@@ -330,6 +363,12 @@
 //
 //    AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true);
 //    AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
+//    .seriesSet(AAObject(AASeries)
+//               .animationSet(AAObject(AAAnimation)
+//                             .easingSet(@"bounce")
+//                             .durationSet(@1000)
+//                             )
+//               )
 //    .columnSet(AAObject(AAColumn)
 //               .groupingSet(false)
 //               .borderWidthSet(@0));
@@ -401,7 +440,13 @@
                     ])
     .tooltipSet(AAObject(AATooltip)
                 .sharedSet(true))
-    .plotOptionsSet( AAObject(AAPlotOptions)
+    .plotOptionsSet(AAObject(AAPlotOptions)
+                    .seriesSet(AAObject(AASeries)
+                               .animationSet(AAObject(AAAnimation)
+                                             .easingSet(@"bounce")
+                                             .durationSet(@1000)
+                                             )
+                               )
                     .columnSet(AAObject(AAColumn)
                                .groupingSet(false)
                                .borderWidthSet(@0)))

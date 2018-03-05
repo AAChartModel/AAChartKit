@@ -266,6 +266,7 @@
     
     
     AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height)];
+    chartView.contentHeight = chartView.frame.size.height-80;
     [self.view addSubview:chartView];
     [chartView aa_drawChartWithOptions:options];
     
