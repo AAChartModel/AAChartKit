@@ -54,6 +54,7 @@
             }
             [dic setObject:value forKey:propName];
         }
+        free(props);
         class = [class superclass];
     } while (class != [NSObject class]);
     
