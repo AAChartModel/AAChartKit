@@ -247,6 +247,7 @@
                                @"Columnrange Chart--柱形面积图",
                                @"Step Line Chart--直方折线图",
                                @"Step Area Chart--直方折线填充图",
+                               @"Area Range And Line Chart--范围均线图",
                                @"Mixed Chart---混合图",
                                @"Nightingale Rose Chart---南丁格尔玫瑰图",
                                @"Pyramid Chart---金字塔图",
