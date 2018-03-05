@@ -36,6 +36,7 @@
 
 @interface AAColumn : NSObject
 
+AAPropStatementAndFuncStatement(assign, AAColumn, BOOL,           grouping);//Whether to group non-stacked columns or to let them render independent of each other. Non-grouped columns will be laid out individually and overlap each other. 默认是：true.
 AAPropStatementAndFuncStatement(strong, AAColumn, NSNumber *,     pointPadding);
 AAPropStatementAndFuncStatement(strong, AAColumn, NSNumber *,     groupPadding);
 AAPropStatementAndFuncStatement(strong, AAColumn, NSNumber *,     borderWidth);

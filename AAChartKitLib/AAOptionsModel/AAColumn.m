@@ -34,6 +34,15 @@
 
 @implementation AAColumn
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.grouping = YES;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AAColumn, BOOL,           grouping);
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPadding);
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     groupPadding);
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderWidth);

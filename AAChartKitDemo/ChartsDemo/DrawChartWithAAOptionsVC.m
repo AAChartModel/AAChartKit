@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:chartView];
@@ -26,9 +27,12 @@
     if (self.selectedIndex == 0) {
         AAOptions *areaChartOptions = [self configureTheAAOptionsOfAreaChart];
         [chartView aa_drawChartWithOptions:areaChartOptions];
-    } else {
+    } else if (self.selectedIndex == 1) {
         AAOptions *pieChartOptions = [self configureTheAAOptionsOfPieChart];
         [chartView aa_drawChartWithOptions:pieChartOptions];
+    } else {
+        AAOptions *chartOptions = [self configureTheAAOptionsOfSpecialNestedColumnChart];
+        [chartView aa_drawChartWithOptions:chartOptions];
     }
     
 }
@@ -66,18 +70,18 @@
         color: '#808080'
         }]
         };
-        
+ 
         var tooltip = {
         valueSuffix: '\xB0C'
         }
-        
+ 
         var legend = {
         layout: 'vertical',
         align: 'center',
         verticalAlign: 'top',
         borderWidth: 0
         };
-        
+ 
         var series =  [
                        {
                        name: 'Tokyo',
@@ -95,9 +99,9 @@
                               16.6, 14.2, 10.3, 6.6, 4.8]
                        }
                        ];
-        
+ 
         var json = {};
-        
+ 
         json.title = title;
         json.subtitle = subtitle;
         json.xAxis = xAxis;
@@ -105,13 +109,13 @@
         json.tooltip = tooltip;
         json.legend = legend;
         json.series = series;
-        
+ 
         $('#container').highcharts(json);
     });
     </script>
     </body>
     </html>
-    
+ 
 
  
 ===============================================================原生 JavaScript 代码==============================================================*/
@@ -221,7 +225,7 @@
 //    //图表类型
 //    AAChart *aaChart = AAObject(AAChart).typeSet(AAChartTypePie);
 //
-////    //标题
+//    //标题
 //    AATitle *aaTitle = AAObject(AATitle)
 //    .textSet(@"渠道销售额<br>占比")//标题文本内容
 //    .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
@@ -270,7 +274,21 @@
                         .colorSet(@"#000000")//Title font color
                         .fontSizeSet(@"14 px")//Title font size
                         .fontWeightSet(@"bold")//Title font weight
-                        ))
+                        )
+              )
+    .plotOptionsSet(AAObject(AAPlotOptions)
+                    .pieSet(AAObject(AAPie)
+                            .showInLegendSet(true)
+                            .dataLabelsSet(AAObject(AADataLabels)
+                                           .enabledSet(true)
+                                           .formatSet(@"{point.percentage:.1f}%"))
+                            )
+                    )
+//    .legendSet(AAObject(AALegend)
+//               .enabledSet(true)
+//               .layoutSet(AALegendLayoutTypeHorizontal)
+//               .alignSet(AALegendAlignTypeCenter)
+//               )
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"语言热度值")
@@ -289,6 +307,142 @@
                  ])
     .colorsSet(@[@"#1E90FF",@"#e7a701",@"#50c18d",@"#fd4800",@"#F4A460"]);//设置颜色主题
     return aaOptions;
+}
+
+- (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
+    //第一种写法
+//    AAChart *aaChart = AAObject(AAChart).typeSet(AAChartTypeColumn);
+//    AATitle *aaTitle = AAObject(AATitle).textSet(@"分公司效率优化嵌套图");
+//    AAXAxis *aaXAxis = AAObject(AAXAxis).categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
+//    AAYAxis *aaYAxis1 =
+//    AAObject(AAYAxis)
+//    .visibleSet(true)
+//    .minSet(0)
+//    .titleSet(AAObject(AATitle)
+//              .textSet(@"雇员"));
+//
+//    AAYAxis *aaYAxis2 =
+//    AAObject(AAYAxis)
+//    .visibleSet(true)
+//    .titleSet(AAObject(AATitle)
+//              .textSet(@"利润 (millions)"))
+//    .oppositeSet(true);
+//
+//    AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true);
+//    AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
+//    .columnSet(AAObject(AAColumn)
+//               .groupingSet(false)
+//               .borderWidthSet(@0));
+//
+//    NSArray *aaSeries = @[@{
+//                               @"name": @"雇员",
+//                               @"color": @"rgba(165,170,217,1)",
+//                               @"data": @[@150, @73, @20],
+//                               @"pointPadding": @0.3,
+//                               @"pointPlacement": @-0.2
+//                               }, @{
+//                               @"name": @"优化的员工",
+//                               @"color": @"rgba(126,86,134,.9)",
+//                               @"data": @[@140, @90, @40],
+//                               @"pointPadding": @0.4,
+//                               @"pointPlacement": @-0.2
+//                               }, @{
+//                               @"name": @"利润",
+//                               @"color": @"rgba(248,161,63,1)",
+//                               @"data": @[@183.6, @178.8, @198.5],
+//                               @"tooltip": @{
+//                                   @"valuePrefix": @"$",
+//                                   @"valueSuffix": @" M"
+//                               },
+//                               @"pointPadding": @0.3,
+//                               @"pointPlacement": @0.2,
+//                               @"yAxis": @1
+//                               }, @{
+//                               @"name": @"优化的利润",
+//                               @"color": @"rgba(186,60,61,.9)",
+//                               @"data": @[@203.6, @198.8, @208.5],
+//                               @"tooltip": @{
+//                                       @"valuePrefix": @"$",
+//                                       @"valueSuffix": @" M"
+//                                       },
+//                               @"pointPadding": @0.4,
+//                               @"pointPlacement": @0.2,
+//                               @"yAxis": @1
+//                               }];
+//
+//    AAOptions *aaOptions = AAObject(AAOptions);
+//    aaOptions.chart = aaChart;
+//    aaOptions.title = aaTitle;
+//    aaOptions.xAxis = aaXAxis;
+//    aaOptions.yAxis = (id)@[aaYAxis1,aaYAxis2];
+//    aaOptions.tooltip = aaTooltip;
+//    aaOptions.plotOptions = aaPlotOptions;
+//    aaOptions.series = aaSeries;
+    
+    //    另一种写法
+    
+    AAOptions *aaOptions = AAObject(AAOptions)
+    .chartSet(AAObject(AAChart)
+              .typeSet(AAChartTypeColumn))
+    .titleSet(AAObject(AATitle)
+              .textSet(@"分公司效率优化嵌套图"))
+    .xAxisSet(AAObject(AAXAxis)
+              .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]))
+    .yAxisSet((id)@[AAObject(AAYAxis)
+                    .visibleSet(true)
+                    .minSet(0)
+                    .titleSet(AAObject(AATitle)
+                              .textSet(@"雇员")),
+                    AAObject(AAYAxis)
+                    .visibleSet(true)
+                    .titleSet(AAObject(AATitle)
+                              .textSet(@"利润 (millions)"))
+                    .oppositeSet(true)
+                    ])
+    .tooltipSet(AAObject(AATooltip)
+                .sharedSet(true))
+    .plotOptionsSet( AAObject(AAPlotOptions)
+                    .columnSet(AAObject(AAColumn)
+                               .groupingSet(false)
+                               .borderWidthSet(@0)))
+    .seriesSet(@[@{
+                     @"name": @"雇员",
+                     @"color": @"rgba(165,170,217,1)",
+                     @"data": @[@150, @73, @20],
+                     @"pointPadding": @0.3,
+                     @"pointPlacement": @-0.2
+                     }, @{
+                     @"name": @"优化的员工",
+                     @"color": @"rgba(126,86,134,.9)",
+                     @"data": @[@140, @90, @40],
+                     @"pointPadding": @0.4,
+                     @"pointPlacement": @-0.2
+                     }, @{
+                     @"name": @"利润",
+                     @"color": @"rgba(248,161,63,1)",
+                     @"data": @[@183.6, @178.8, @198.5],
+                     @"tooltip": @{
+                             @"valuePrefix": @"$",
+                             @"valueSuffix": @" M"
+                             },
+                     @"pointPadding": @0.3,
+                     @"pointPlacement": @0.2,
+                     @"yAxis": @1
+                     }, @{
+                     @"name": @"优化的利润",
+                     @"color": @"rgba(186,60,61,.9)",
+                     @"data": @[@203.6, @198.8, @208.5],
+                     @"tooltip": @{
+                             @"valuePrefix": @"$",
+                             @"valueSuffix": @" M"
+                             },
+                     @"pointPadding": @0.4,
+                     @"pointPlacement": @0.2,
+                     @"yAxis": @1
+                     }]);
+    
+    return aaOptions;
+ 
 }
 
 @end
