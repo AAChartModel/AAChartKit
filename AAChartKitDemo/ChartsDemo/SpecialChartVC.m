@@ -86,6 +86,12 @@
         case SpecialChartVCChartTypeNightingaleRoseChart:
             chartType = @"NightingaleRoseChart";
             break;
+        case SpecialChartVCChartTypeBoxplot:
+            chartType = AAChartTypeBoxplot;
+            break;
+        case SpecialChartVCChartTypeWaterfall:
+            chartType = AAChartTypeWaterfall;
+            break;
         case SpecialChartVCChartTypePyramid:
             chartType = AAChartTypePyramid;
             break;
@@ -1156,6 +1162,71 @@
         
         return aaChartModel;
         
+    } else if ([chartType isEqualToString:AAChartTypeBoxplot]) {
+
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeBoxplot)
+        .titleSet(@"BOXPLOT CHART")
+        .subtitleSet(@"virtual data")
+        .yAxisTitleSet(@"℃")
+        .yAxisVisibleSet(true)
+        .seriesSet(
+                   @[
+                     @{
+                         @"name":@"Observed Data",
+                         @"data": @[
+                                 @[@760, @801, @848, @895, @965],
+                                 @[@733, @853, @939, @980, @1080],
+                                 @[@714, @762, @817, @870, @918],
+                                 @[@724, @802, @806, @871, @950],
+                                 @[@834, @836, @864, @882, @910]
+                                 ],
+                         
+                         }, ]
+                
+                   );
+        
+        return aaChartModel;
+        
+    } else if ([chartType isEqualToString:AAChartTypeWaterfall]) {
+
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeWaterfall)
+        .titleSet(@"WATERFALL CHART")
+        .subtitleSet(@"virtual data")
+        .yAxisVisibleSet(true)
+        .yAxisTitleSet(@"💲")
+        .seriesSet(
+                   @[@{
+                         @"upColor":@"#9b43b4",
+                         @"color": @"#ef476f",
+                         @"data": @[@{
+                                        @"name": @"启动资金",
+                                        @"y": @120000
+                                        }, @{
+                                        @"name": @"产品收入",
+                                        @"y": @569000
+                                        }, @{
+                                        @"name": @"服务收入",
+                                        @"y": @231000
+                                        }, @{
+                                        @"name": @"正平衡",
+                                        @"isIntermediateSum": @true,
+                                        @"color": @"#ffd066"
+                                        }, @{
+                                        @"name": @"固定成本",
+                                        @"y": @-342000
+                                        }, @{
+                                        @"name": @"可变成本",
+                                        @"y": @-233000
+                                        }, @{
+                                        @"name": @"余额",
+                                        @"isSum": @true,
+                                        @"color": @"#04d69f"
+                                        }],
+                         @"pointPadding": @0
+                         }]);
+        return aaChartModel;
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {
         
         AAChartModel *aaChartModel= AAObject(AAChartModel)

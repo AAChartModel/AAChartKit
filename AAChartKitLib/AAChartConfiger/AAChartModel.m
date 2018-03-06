@@ -46,6 +46,8 @@ AAChartType const AAChartTypePyramid     = @"pyramid";
 AAChartType const AAChartTypeFunnel      = @"funnel";
 AAChartType const AAChartTypeColumnrange = @"columnrange";
 AAChartType const AAChartTypeArearange   = @"arearange";
+AAChartType const AAChartTypeBoxplot     = @"boxplot";
+AAChartType const AAChartTypeWaterfall   = @"waterfall";
 
 AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
 AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";

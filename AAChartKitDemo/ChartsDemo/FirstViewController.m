@@ -238,8 +238,8 @@
                                @"Scatter Chart---散点图"],
                              /*特殊类型图表*/
                              @[@"Mixed Line Chart---虚实线混合折线图",
-                               @"Area Chart With Dividing Line---带有区域分割线的折线填充图",
-                               @"Area chart with minus--带有负数的区域填充图",
+                               @"With Dividing Line---带有区域分割线区域图",
+                               @"Area Chart with minus--带有负数的区域填充图",
                                @"Pie Chart---扇形图",
                                @"Bubble Chart---气泡图",
                                @"Scatter Chart--散点图",
@@ -250,6 +250,8 @@
                                @"Area Range And Line Chart--范围均线图",
                                @"Mixed Chart---混合图",
                                @"Nightingale Rose Chart---南丁格尔玫瑰图",
+                               @"Box Plot Chart---箱线图",
+                               @"Water Fall---瀑布图",
                                @"Pyramid Chart---金字塔图",
                                @"Funnel Chart---漏斗图",],
                              /*图表数据动态刷新*/
@@ -275,7 +277,7 @@
                             @"Special Type---特别类型",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---动画相关",
-                            @"Draw chart with AAOptions---AAOptions实例对象绘制图形",
+                            @"AAOptions---Use AAOptions",
                             @"同时显示多个 AAChartView",
                             @"Drilldown chart---钻取图表(暂时废弃)",];
     }
@@ -291,11 +293,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _label = [[UILabel alloc]init];
-        _label.frame = CGRectMake(60, 0, self.frame.size.width, 40);
+        _label.frame = CGRectMake(60, 0, self.frame.size.width-40, 40);
         _label.textAlignment = NSTextAlignmentLeft;
-        _label.font = [UIFont systemFontOfSize:14.f];
+        _label.font = [UIFont systemFontOfSize:12.f];
         _label.textColor = [UIColor darkGrayColor];
         [self addSubview:_label];
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return self;
 }
