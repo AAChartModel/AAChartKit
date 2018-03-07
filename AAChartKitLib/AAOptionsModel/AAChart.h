@@ -41,7 +41,7 @@ AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, type);
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, backgroundColor);
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, pinchType);
 AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          panning);
-AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, panKey);
+//AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, panKey);
 AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          polar);
 AAPropStatementAndFuncStatement(strong, AAChart, AAOptions3d *, options3d);
 AAPropStatementAndFuncStatement(assign, AAChart, AAAnimation *, animation);//设置启用动画的时间和类型

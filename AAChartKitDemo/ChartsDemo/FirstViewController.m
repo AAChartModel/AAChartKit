@@ -38,6 +38,7 @@
 #import "DrawChartWithAAOptionsVC.h"
 #import "DrilldownChartVC.h"
 #import "ShowManyChartViewVC.h"
+#import "ChartListVC.h"
 
 #warning revise
 #import "MonitorViewController.h"
@@ -95,7 +96,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    return 50;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -172,8 +173,14 @@
             
         case 5: {
             /*同时显示多个 AAChartView*/
-            ShowManyChartViewVC *vc = [[ShowManyChartViewVC alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (indexPath.row == 0) {
+                ShowManyChartViewVC *vc = [[ShowManyChartViewVC alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                ChartListVC *listVC = [[ChartListVC alloc]init];
+                [self.navigationController pushViewController:listVC animated:YES];
+            }
+
         }
             break;
             
@@ -261,9 +268,10 @@
                              /*通过AAOptions实例对象来绘制图形*/
                              @[@"绘制legend居顶部的区域填充图",
                                @"绘制带有中心标题的环形图",
-                               @"嵌套的柱状图"],
+                               @"绘制嵌套的柱状图"],
                              /*同时显示多个 AAChartView*/
-                              @[@"同时显示多个 AAChartView"],
+                              @[@"同时显示多个 AAChartView",
+                                @"UITableView上显示多个 AAChartView"],
                              /*可向下钻取类型图表*/
                              @[@"Drilldown column chart--向下钻取的柱状图"],
                              ];

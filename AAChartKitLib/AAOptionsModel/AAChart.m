@@ -38,7 +38,7 @@ AAPropSetFuncImplementation(AAChart, NSString    *, type);
 AAPropSetFuncImplementation(AAChart, NSString    *, backgroundColor);
 AAPropSetFuncImplementation(AAChart, NSString    *, pinchType);
 AAPropSetFuncImplementation(AAChart, BOOL ,         panning);
-AAPropSetFuncImplementation(AAChart, NSString    *, panKey);
+//AAPropSetFuncImplementation(AAChart, NSString    *, panKey);
 AAPropSetFuncImplementation(AAChart, BOOL ,         polar);
 AAPropSetFuncImplementation(AAChart, AAOptions3d *, options3d);
 AAPropSetFuncImplementation(AAChart, AAAnimation *, animation);
