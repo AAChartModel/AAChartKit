@@ -118,6 +118,7 @@ AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
         self.yAxisLabelsFontSize    = @11;
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
+        self.yAxisAlternateGridColor= @"#ffffff";//backcolor of every other grid line area
     }
     return self;
 }
@@ -171,9 +172,10 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible);//y 轴是�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y 轴标题
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLabelsFontSize);//y-axis labels font size
-AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis fonto weight
-AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis fonto color
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis font color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisAlternateGridColor);//backcolor of every other grid line area
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
