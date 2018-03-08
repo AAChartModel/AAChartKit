@@ -76,6 +76,18 @@ AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";
 AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular";
 AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
 
+AACrosshairDashStyleType const AACrosshairDashStyleTypeSolid  = @"Solid";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDash = @"ShortDash";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDot = @"ShortDot";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDot = @"ShortDashDot";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeDot = @"Dot";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeDash = @"Dash";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDash = @"LongDash";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeDashDot = @"DashDot";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDot = @"LongDashDot";
+AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot = @"LongDashDotDot";
+
 @implementation AAChartModel
 
 - (instancetype)init {
@@ -202,6 +214,14 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax);//y 轴最大值
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
+
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisCrosshairWidth);
+AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisCrosshairColor);
+AAPropSetFuncImplementation(AAChartModel, AACrosshairDashStyleType,   yAxisCrosshairDashStyleType);
+
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisCrosshairWidth);
+AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisCrosshairColor);
+AAPropSetFuncImplementation(AAChartModel, AACrosshairDashStyleType,   xAxisCrosshairDashStyleType);
 
 //Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
 AAPropSetFuncImplementation(AAChartModel, NSDictionary  *, additionalOptions);
