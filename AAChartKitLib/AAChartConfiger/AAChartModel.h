@@ -180,6 +180,8 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFon
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis label font weight
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisAlternateGridColor);//backcolor of every other grid line area
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval);
+
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
