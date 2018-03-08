@@ -35,9 +35,9 @@
 
 @interface AACrosshair : NSObject
 
-AAPropStatementAndFuncStatement(copy, AACrosshair, AACrosshairDashStyleType, dashStyle); //准星线样式
-AAPropStatementAndFuncStatement(copy, AACrosshair, NSString*, color); //准星线颜色
-AAPropStatementAndFuncStatement(strong, AACrosshair, NSNumber*, width); //准星线宽度
+AAPropStatementAndFuncStatement(copy, AACrosshair, NSString *, dashStyle); //准星线样式
+AAPropStatementAndFuncStatement(copy, AACrosshair, NSString *, color); //准星线颜色
+AAPropStatementAndFuncStatement(strong, AACrosshair, NSNumber *, width); //准星线宽度
 
 
 @end

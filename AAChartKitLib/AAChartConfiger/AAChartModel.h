@@ -80,6 +80,7 @@ typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
+typedef NSString *AACrosshairDashStyleType;
 
 UIKIT_EXTERN AAChartType const AAChartTypeStrange;
 UIKIT_EXTERN AAChartType const AAChartTypeColumn;
