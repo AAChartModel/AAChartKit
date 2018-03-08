@@ -35,35 +35,6 @@
 
 @interface AACrosshair : NSObject
 
-/* dashStyle enumeration
- 
-Solid
-ShortDash
-ShortDot
-ShortDashDot
-ShortDashDotDot
-Dot
-Dash
-LongDash
-DashDot
-LongDashDot
-LongDashDotDot
- 
- */
-typedef NSString *AACrosshairDashStyleType;
-
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeSolid;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDash;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDotDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDash;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDash;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDashDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot;
-
 AAPropStatementAndFuncStatement(copy, AACrosshair, AACrosshairDashStyleType, dashStyle); //准星线样式
 AAPropStatementAndFuncStatement(copy, AACrosshair, NSString*, color); //准星线颜色
 AAPropStatementAndFuncStatement(strong, AACrosshair, NSNumber*, width); //准星线宽度
