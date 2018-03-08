@@ -203,4 +203,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin);//y 轴最小值
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
 
+//Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
+AAPropSetFuncImplementation(AAChartModel, NSDictionary  *, additionalOptions);
+
 @end
