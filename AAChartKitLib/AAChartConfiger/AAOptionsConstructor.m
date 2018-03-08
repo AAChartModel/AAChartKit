@@ -144,9 +144,9 @@
     .categoriesSet(aaChartModel.categories)
     .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
     .crosshairSet(AAObject(AACrosshair)
-                  .widthSet(@2)
-                  .colorSet(@"#00bfff")
-                  .dashStyleSet(AACrosshairDashStyleTypeLongDashDot)
+                  .widthSet(aaChartModel.xAxisCrosshairWidth)
+                  .colorSet(aaChartModel.xAxisCrosshairColor)
+                  .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
                   )
     .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
     
@@ -170,7 +170,12 @@
               .textSet(aaChartModel.yAxisTitle))//y 轴标题
     .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
-    .tickIntervalSet(aaChartModel.yAxisTickInterval);
+    .tickIntervalSet(aaChartModel.yAxisTickInterval)
+    .crosshairSet(AAObject(AACrosshair)
+                  .widthSet(aaChartModel.yAxisCrosshairWidth)
+                  .colorSet(aaChartModel.yAxisCrosshairColor)
+                  .dashStyleSet(aaChartModel.yAxisCrosshairDashStyleType)
+                  );
 }
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {

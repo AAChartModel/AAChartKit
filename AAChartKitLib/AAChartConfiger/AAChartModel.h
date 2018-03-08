@@ -125,6 +125,18 @@ UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
 UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
 UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeSolid;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDash;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDot;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDot;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDotDot;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDot;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDash;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDash;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDashDot;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDot;
+UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot;
+
 @interface AAChartModel : NSObject
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);//标题内容
@@ -206,6 +218,14 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);//y 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);//y 轴最小值（设置为0就不会有负数）
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
+
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AACrosshairDashStyleType,   yAxisCrosshairDashStyleType);
+
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth);
+AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AACrosshairDashStyleType,   xAxisCrosshairDashStyleType);
 
 //Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSDictionary  *, additionalOptions);

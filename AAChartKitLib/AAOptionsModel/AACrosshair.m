@@ -32,34 +32,6 @@
 
 #import "AACrosshair.h"
 
-/* dashStyle enumeration
- 
- Solid
- ShortDash
- ShortDot
- ShortDashDot
- ShortDashDotDot
- Dot
- Dash
- LongDash
- DashDot
- LongDashDot
- LongDashDotDot
- 
- */
-
-AACrosshairDashStyleType const AACrosshairDashStyleTypeSolid  = @"Solid";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDash = @"ShortDash";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDot = @"ShortDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDot = @"ShortDashDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeDot = @"Dot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeDash = @"Dash";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDash = @"LongDash";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeDashDot = @"DashDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDot = @"LongDashDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot = @"LongDashDotDot";
-
 @implementation AACrosshair
 
 AAPropSetFuncImplementation(AACrosshair, NSString*, dashStyle); //准星线样式
