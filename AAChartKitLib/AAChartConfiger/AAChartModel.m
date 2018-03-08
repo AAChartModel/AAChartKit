@@ -89,7 +89,7 @@ AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
         self.zoomType               = AAChartZoomTypeNone ;//默认禁用图表的手势缩放功能
         self.colorsTheme            = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];//默认颜色主题
         self.tooltipEnabled         = YES;//默认启用浮动提示框
-        self.tooltipCrosshairs      = YES;//默认启用准星线
+//        self.tooltipCrosshairs      = YES;//默认启用准星线
         self.xAxisLabelsEnabled     = YES;//默认显示 X轴坐标点文字
         self.xAxisGridLineWidth     = @0; //设置x轴分割线宽度为0个像素,即是隐藏 X轴分割线
         self.xAxisTickInterval      = @1; //x轴坐标点间隔数(默认是1)
@@ -184,7 +184,7 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
-AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
+//AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
 

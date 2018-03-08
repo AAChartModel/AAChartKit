@@ -71,20 +71,10 @@
               .fontWeightSet(aaChartModel.subtitleFontWeight)//Subtitle font weight
               );
     
-    AAXAxis *aaXAxis;
-    AAYAxis *aaYAxis;
-    if (![aaChartModel.chartType isEqualToString:AAChartTypePie]
-        && ![aaChartModel.chartType isEqualToString:AAChartTypePyramid]
-        && ![aaChartModel.chartType isEqualToString:AAChartTypeFunnel]) {
-        aaXAxis = AAObject(AAXAxis);
-        aaYAxis = AAObject(AAYAxis);
-        [self configureAxisContentAndStyleWithAAXAxis:aaXAxis AAYAxis:aaYAxis AAChartModel:aaChartModel];
-    }
-    
     AATooltip *aaTooltip = AAObject(AATooltip)
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(true)//多组数据共享一个浮动提示框
-    .crosshairsSet(aaChartModel.tooltipCrosshairs)
+//    .crosshairsSet(aaChartModel.tooltipCrosshairs)
     .pointFormatSet(aaChartModel.tooltipValueString)//Tooltip value string
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
@@ -118,8 +108,6 @@
     .chartSet(aaChart)
     .titleSet(aaTitle)
     .subtitleSet(aaSubtitle)
-    .xAxisSet(aaXAxis)
-    .yAxisSet(aaYAxis)
     .tooltipSet(aaTooltip)
     .plotOptionsSet(aaPlotOptions)
     .legendSet(aaLegend)
@@ -128,6 +116,16 @@
     .gradientColorEnabledSet(aaChartModel.gradientColorEnabled)//设置主题颜色是否为渐变色
     .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText);//设置重置缩放按钮的默认标题
     
+    if (   ![aaChartModel.chartType isEqualToString:AAChartTypePie]
+        && ![aaChartModel.chartType isEqualToString:AAChartTypePyramid]
+        && ![aaChartModel.chartType isEqualToString:AAChartTypeFunnel]) {
+        AAXAxis *aaXAxis = AAObject(AAXAxis);
+        AAYAxis *aaYAxis = AAObject(AAYAxis);
+        [self configureAxisContentAndStyleWithAAXAxis:aaXAxis AAYAxis:aaYAxis AAChartModel:aaChartModel];
+        aaOptions.xAxis = aaXAxis;
+        aaOptions.yAxis = aaYAxis;
+    }
+
     return aaOptions;
 }
 
@@ -145,6 +143,11 @@
     .gridLineWidthSet(aaChartModel.xAxisGridLineWidth)//x轴网格线宽度
     .categoriesSet(aaChartModel.categories)
     .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
+    .crosshairSet(AAObject(AACrosshair)
+                  .widthSet(@2)
+                  .colorSet(@"#00bfff")
+                  .dashStyleSet(AACrosshairDashStyleTypeLongDashDot)
+                  )
     .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
     
     aaYAxis.labelsSet(AAObject(AALabels)
@@ -166,7 +169,7 @@
     .titleSet(AAObject(AATitle)
               .textSet(aaChartModel.yAxisTitle))//y 轴标题
     .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
-    .visibleSet(aaChartModel.yAxisVisible);
+    .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval);
 }
 

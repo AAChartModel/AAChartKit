@@ -24,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"横屏查看效果更佳";
     
     [self setUpBasicView];
 }

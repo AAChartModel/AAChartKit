@@ -43,5 +43,7 @@ AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor);//x轴网格线�
 AAPropSetFuncImplementation(AAXAxis, AALabels *, labels);
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      visible);
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, tickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+AAPropSetFuncImplementation(AAXAxis, AACrosshair*, crosshair); //准星线样式设置
+
 
 @end
