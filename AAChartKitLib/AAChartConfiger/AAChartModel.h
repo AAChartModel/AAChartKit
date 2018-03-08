@@ -207,4 +207,7 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);//y 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText); //String to display in 'zoom reset button"
 
+//Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSDictionary  *, additionalOptions);
+
 @end
