@@ -131,6 +131,15 @@ AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot = @"LongDa
         self.yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         self.yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
         self.yAxisAlternateGridColor= @"#ffffff";//backcolor of every other grid line area
+        
+        self.xAxisCrosshairWidth    = @2;
+        self.xAxisCrosshairColor    = @"#00bfff";
+        self.xAxisCrosshairDashStyleType = AACrosshairDashStyleTypeLongDashDot;
+        self.yAxisCrosshairWidth    = @2;
+        self.yAxisCrosshairColor    = @"#00bfff";
+        self.yAxisCrosshairDashStyleType = AACrosshairDashStyleTypeLongDashDot;
+        
+        
     }
     return self;
 }
