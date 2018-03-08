@@ -30,11 +30,14 @@
  
  */
 
+
+
 #import <Foundation/Foundation.h>
 
-@class AALabels;
+@class AALabels,AACrosshair;
 
 @interface AAXAxis : NSObject
+
 
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSArray  *, categories);
 AAPropStatementAndFuncStatement(assign, AAXAxis, BOOL,       reversed);
@@ -46,10 +49,15 @@ AAPropStatementAndFuncStatement(copy,   AAXAxis, NSString *, gridLineColor);//x�
 AAPropStatementAndFuncStatement(strong, AAXAxis, AALabels *, labels);//用于设置 x 轴文字相关的
 AAPropStatementAndFuncStatement(assign, AAXAxis, BOOL ,      visible);//用于设置 x 轴以及 x 轴文字是否显示
 AAPropStatementAndFuncStatement(strong, AAXAxis, NSNumber *, tickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+AAPropStatementAndFuncStatement(strong, AAXAxis, AACrosshair *, crosshair); //准星线样式设置
+
+
 
 //lineWidth :0,
 //tickWidth:0,
 //labels:{
 //enabled:false 
 //}
+
+//个人吐槽日记:(想不到一个简单的属性修饰词使用错误竟然造成了这么严重的后果,因为是复制粘贴,所以一开始我的属性修饰词用的是 assign, 救国造成的诡异的问题就是 crosshair 莫名其妙的 变成了 AAStyle 类型,浪费了我一下午好几个小时时间,真的很心塞啊,为什么要犯这种低级的智障错误呢???(貌似是从 AAYAxis 类中的布尔属性复制粘贴过来的))
 @end
