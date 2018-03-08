@@ -176,6 +176,8 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontWeight);//y
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis font color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth);//y轴网格线的宽度
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisAlternateGridColor);//backcolor of every other grid line area
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisTickInterval);
+
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme);//图表主题颜色数组
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 
