@@ -167,6 +167,7 @@
               .textSet(aaChartModel.yAxisTitle))//y 轴标题
     .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible);
+    .tickIntervalSet(aaChartModel.yAxisTickInterval);
 }
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
