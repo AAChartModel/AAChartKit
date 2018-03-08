@@ -54,6 +54,7 @@
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
     NSString  *_optionJson;
+    NSDictionary *_dictAdditionalOptions;
 }
 
 @end
@@ -140,6 +141,44 @@
         options.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
     _optionJson = [AAJsonConverter getPureOptionsString:options];
+ 
+     //Check if _dictAdditionalOptions (which is equal to chartModel.additionalOptions) is not nil
+    if (_dictAdditionalOptions)
+    {
+        
+        //Convert _optionJson to NSDictionary
+        NSData *data = [_optionJson dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error;
+        NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        //Create a temporay copy of the dictionary which we can modify while enumerating the original
+        NSMutableDictionary *jsonDictTemp = [jsonDict mutableCopy];
+        
+        //Enumerate the dictionary
+        for (id key in _dictAdditionalOptions)
+        {
+            
+            if (![[jsonDict allKeys] containsObject:key]) // If key does not already exist options dictionary, copy it from the _dictAdditionalOptions dictionary
+            {
+                [jsonDictTemp setObject:[_dictAdditionalOptions objectForKey:key] forKey:key];
+            }
+            else // If key does already exist options dictionary, delete it and set the new one from the _dictAdditionalOptions dictionary
+            {
+                [jsonDictTemp removeObjectForKey:key];
+                [jsonDictTemp setObject:[_dictAdditionalOptions objectForKey:key] forKey:key];
+            }
+        }
+        
+        //Now, convert the dictionary back to a JSON string
+        NSError * err;
+        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictTemp options:0 error:&err];
+        NSString * myString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] substringFromIndex:1];
+        
+        //Done: add a leading { to the new _optionJson
+        _optionJson=[NSString stringWithFormat:@"%@%@",@"{", myString];
+        
+    }
+ 
 }
 
 - (NSString *)configTheJavaScriptString {
@@ -157,11 +196,13 @@
 //
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    _dictAdditionalOptions=chartModel.additionalOptions;
     [self aa_drawChartWithOptions:options];
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
      AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+     _dictAdditionalOptions=chartModel.additionalOptions;
     [self aa_refreshChartWithOptions:options];
 }
 
