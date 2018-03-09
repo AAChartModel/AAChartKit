@@ -158,11 +158,11 @@
         for (id key in _dictAdditionalOptions)
         {
             
-            if (![[jsonDict allKeys] containsObject:key]) // If key does not already exist options dictionary, copy it from the _dictAdditionalOptions dictionary
+            if (![[jsonDict allKeys] containsObject:key]) // If key does not already exist in options dictionary, copy it from the _dictAdditionalOptions dictionary
             {
                 [jsonDictTemp setObject:[_dictAdditionalOptions objectForKey:key] forKey:key];
             }
-            else // If key does already exist options dictionary, delete it and set the new one from the _dictAdditionalOptions dictionary
+            else // If key does already exist in options dictionary, delete it and set the new one from the _dictAdditionalOptions dictionary
             {
                 [jsonDictTemp removeObjectForKey:key];
                 [jsonDictTemp setObject:[_dictAdditionalOptions objectForKey:key] forKey:key];
@@ -174,7 +174,7 @@
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictTemp options:0 error:&err];
         NSString * myString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] substringFromIndex:1];
         
-        //Done: add a leading { to the new _optionJson
+        //Done: add a leading '{' to the new _optionJson
         _optionJson=[NSString stringWithFormat:@"%@%@",@"{", myString];
         
     }
