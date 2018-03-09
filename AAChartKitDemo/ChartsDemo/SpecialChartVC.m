@@ -160,14 +160,14 @@
                      .dashStyleSet(AALineDashSyleTypeDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeLongDash)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeLongDash)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
                      .nameSet(AALineDashSyleTypeDashDot)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeDashDot)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeLongDash)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeLongDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AAObject(AASeriesElement)
                      .nameSet(AALineDashSyleTypeLongDashDot)
@@ -175,9 +175,9 @@
                      .dashStyleSet(AALineDashSyleTypeLongDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeShortDashDotDot)
+                     .nameSet(AALineDashSyleTypeShortDashDot)
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
+                     .dashStyleSet(AALineDashSyleTypeShortDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AAObject(AASeriesElement)
                      .nameSet(AALineDashSyleTypeShortDashDotDot)
