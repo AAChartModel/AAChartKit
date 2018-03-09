@@ -132,10 +132,10 @@ AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot = @"LongDa
         self.yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
         self.yAxisAlternateGridColor= @"#ffffff";//backcolor of every other grid line area
         
-        self.xAxisCrosshairWidth    = @2;
+        self.xAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
         self.xAxisCrosshairColor    = @"#00bfff";
         self.xAxisCrosshairDashStyleType = AACrosshairDashStyleTypeLongDashDot;
-        self.yAxisCrosshairWidth    = @2;
+        self.yAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
         self.yAxisCrosshairColor    = @"#00bfff";
         self.yAxisCrosshairDashStyleType = AACrosshairDashStyleTypeLongDashDot;
         
