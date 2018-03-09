@@ -76,17 +76,17 @@ AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";
 AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular";
 AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
 
-AACrosshairDashStyleType const AACrosshairDashStyleTypeSolid  = @"Solid";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDash = @"ShortDash";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDot = @"ShortDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDot = @"ShortDashDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeDot = @"Dot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeDash = @"Dash";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDash = @"LongDash";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeDashDot = @"DashDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDot = @"LongDashDot";
-AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot = @"LongDashDotDot";
+AALineDashSyleType const AALineDashSyleTypeSolid           = @"Solid";
+AALineDashSyleType const AALineDashSyleTypeShortDash       = @"ShortDash";
+AALineDashSyleType const AALineDashSyleTypeShortDot        = @"ShortDot";
+AALineDashSyleType const AALineDashSyleTypeShortDashDot    = @"ShortDashDot";
+AALineDashSyleType const AALineDashSyleTypeShortDashDotDot = @"ShortDashDotDot";
+AALineDashSyleType const AALineDashSyleTypeDot             = @"Dot";
+AALineDashSyleType const AALineDashSyleTypeDash            = @"Dash";
+AALineDashSyleType const AALineDashSyleTypeLongDash        = @"LongDash";
+AALineDashSyleType const AALineDashSyleTypeDashDot         = @"DashDot";
+AALineDashSyleType const AALineDashSyleTypeLongDashDot     = @"LongDashDot";
+AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
 
 @implementation AAChartModel
 
@@ -132,12 +132,12 @@ AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot = @"LongDa
         self.yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
         self.yAxisAlternateGridColor= @"#ffffff";//backcolor of every other grid line area
         
-        self.xAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
-        self.xAxisCrosshairColor    = @"#00bfff";
-        self.xAxisCrosshairDashStyleType = AACrosshairDashStyleTypeLongDashDot;
-        self.yAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
-        self.yAxisCrosshairColor    = @"#00bfff";
-        self.yAxisCrosshairDashStyleType = AACrosshairDashStyleTypeLongDashDot;
+        self.xAxisCrosshairWidth    = @1.5;//Zero width to disable crosshair by default
+        self.xAxisCrosshairColor    = @"#778899";//浅石板灰准星线
+        self.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
+//        self.yAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
+//        self.yAxisCrosshairColor    = @"#00bfff";
+//        self.yAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
         
         
     }
@@ -226,11 +226,11 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //St
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisCrosshairWidth);
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisCrosshairColor);
-AAPropSetFuncImplementation(AAChartModel, AACrosshairDashStyleType,   yAxisCrosshairDashStyleType);
+AAPropSetFuncImplementation(AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType);
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisCrosshairWidth);
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisCrosshairColor);
-AAPropSetFuncImplementation(AAChartModel, AACrosshairDashStyleType,   xAxisCrosshairDashStyleType);
+AAPropSetFuncImplementation(AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType);
 
 //Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
 AAPropSetFuncImplementation(AAChartModel, NSDictionary  *, additionalOptions);

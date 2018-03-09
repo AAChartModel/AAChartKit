@@ -80,7 +80,7 @@ typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
-typedef NSString *AACrosshairDashStyleType;
+typedef NSString *AALineDashSyleType;
 
 UIKIT_EXTERN AAChartType const AAChartTypeStrange;
 UIKIT_EXTERN AAChartType const AAChartTypeColumn;
@@ -126,17 +126,17 @@ UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
 UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
 UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeSolid;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDash;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeShortDashDotDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDash;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDash;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeDashDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDot;
-UIKIT_EXTERN AACrosshairDashStyleType const AACrosshairDashStyleTypeLongDashDotDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeSolid;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDash;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDotDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDash;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDash;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDashDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDot;
+UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDotDot;
 
 @interface AAChartModel : NSObject
 
@@ -222,11 +222,11 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButto
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor);
-AAPropStatementAndFuncStatement(assign, AAChartModel, AACrosshairDashStyleType,   yAxisCrosshairDashStyleType);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType);
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth);
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor);
-AAPropStatementAndFuncStatement(assign, AAChartModel, AACrosshairDashStyleType,   xAxisCrosshairDashStyleType);
+AAPropStatementAndFuncStatement(assign, AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType);
 
 //Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSDictionary  *, additionalOptions);

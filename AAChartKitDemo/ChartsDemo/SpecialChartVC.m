@@ -148,7 +148,7 @@
                                                @"value": @8
                                                },
                                            @{
-                                               @"dashStyle": @"Dash"
+                                               @"dashStyle": AALineDashSyleTypeDash
                                                }]
                                    },
                                
@@ -230,7 +230,7 @@
         .yAxisPlotLinesSet(@[
                              AAObject(AAPlotLinesElement)
                              .colorSet(@"#F05353")//颜色值(16进制)
-                             .dashStyleSet(@"Dash")//样式：Dash,Dot,Solid等,默认Solid
+                             .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
                              .widthSet(@(1)) //标示线粗细
                              .valueSet(@(10)) //所在位置
                              .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -238,7 +238,7 @@
                              ,
                              AAObject(AAPlotLinesElement)
                              .colorSet(@"#33BDFD")
-                             .dashStyleSet(@"Dash")
+                             .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
                              .widthSet(@(1))
                              .valueSet(@(20))
                              .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})

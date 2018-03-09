@@ -174,7 +174,7 @@
               .textSet(aaChartModel.yAxisTitle))//y 轴标题
     .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
-    .tickIntervalSet(aaChartModel.yAxisTickInterval)
+    .tickIntervalSet(aaChartModel.yAxisTickInterval);
      
     if ([aaChartModel.yAxisCrosshairWidth floatValue]>0)
     {
