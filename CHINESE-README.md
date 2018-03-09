@@ -304,6 +304,7 @@ UIKIT_EXTERN AAChartType const AAChartTypeArearange;   //区域范围图
 
 ```
 
+
 ### 当前已支持的图表手势缩放类型共有三种,说明如下
 ```objective-c
 typedef NSString *AAChartZoomType;
@@ -356,6 +357,19 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 };
 
 ```
+
+以下是AAChartKit的其中的十种图表渲染动画类型
+
+| Back      | Bounce    | Circ      | Cubic     | Elastic   |
+|:---------:|:---------:|:---------:|:---------:|:---------:|
+| ![][1]    | ![][2]    | ![][3]    | ![][4]    | ![][5]    |
+
+
+| Expo      | Quad      | Quart     | Quint     | Sine      |
+|:---------:|:---------:|:---------:|:---------:|:---------:|
+| ![][6]    | ![][7]    | ![][8]    | ![][9]    | ![][10]   |
+
+
 
 ### `AAChartModel` 属性配置列表
 ```objective-c
@@ -552,3 +566,15 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //St
  - [ ] 支持渲染活动刻度仪表图
  - [ ] 支持为图形添加点击事件回调
 
+
+
+[1]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/1.gif
+[2]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/2.gif
+[3]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/3.gif
+[4]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/4.gif
+[5]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/5.gif
+[6]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/6.gif
+[7]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/7.gif
+[8]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/8.gif
+[9]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/9.gif
+[10]: https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/10.gif
