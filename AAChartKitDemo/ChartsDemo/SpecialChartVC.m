@@ -47,6 +47,9 @@
     AAChartType chartType;
     
     switch (self.chartType) {
+        case SpecialChartVCChartTypeDifferentDashStyleLine:
+            chartType = @"differentDashStyleLine";
+            break;
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
@@ -137,7 +140,55 @@
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if ([chartType isEqualToString:AAChartTypeLine]) {
+    if ([chartType isEqualToString:@"differentDashStyleLine"]) {
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeSpline)//图表类型
+        .titleSet(@"")//图表主标题
+        .subtitleSet(@"")//图表副标题
+        .yAxisVisibleSet(true)//设置 Y 轴是否可见
+        .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0",@"cyan",@"gray"])//设置主体颜色数组
+        .yAxisTitleSet(@"")//设置 Y 轴标题
+        .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+        .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+        .stackingSet(AAChartStackingTypeNormal)
+//        .legendEnabledSet(false)//隐藏图例
+        .markerRadiusSet(@0)//隐藏连接点
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeDash)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeDash)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeLongDash)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeLongDash)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeDashDot)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeDashDot)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeLongDashDot)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeLongDashDot)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeShortDashDotDot)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     AAObject(AASeriesElement)
+                     .nameSet(AALineDashSyleTypeShortDashDotDot)
+                     .lineWidthSet(@3)
+                     .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
+                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+                     
+                     ]
+                   );
+        return aaChartModel;
+    } else if ([chartType isEqualToString:AAChartTypeLine]) {
         
         NSArray *seriesArr = @[
                                @{  @"name":@"本专业",

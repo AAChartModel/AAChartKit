@@ -33,7 +33,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
-    SpecialChartVCChartTypeMixedLine = 0,
+    
+    SpecialChartVCChartTypeDifferentDashStyleLine = 0,
+    SpecialChartVCChartTypeMixedLine,
     SpecialChartVCChartTypeArea,
     SpecialChartVCChartTypeAreaspline,
     SpecialChartVCChartTypePie,
