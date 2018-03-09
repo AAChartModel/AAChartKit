@@ -143,12 +143,16 @@
     .gridLineWidthSet(aaChartModel.xAxisGridLineWidth)//x轴网格线宽度
     .categoriesSet(aaChartModel.categories)
     .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
-    .crosshairSet(AAObject(AACrosshair)
+    .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
+    
+    if ([aaChartModel.xAxisCrosshairWidth floatValue]>0)
+    {
+    aaXAxis.crosshairSet(AAObject(AACrosshair)
                   .widthSet(aaChartModel.xAxisCrosshairWidth)
                   .colorSet(aaChartModel.xAxisCrosshairColor)
                   .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
-                  )
-    .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
+                  );
+    }
     
     aaYAxis.labelsSet(AAObject(AALabels)
                       .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
@@ -171,11 +175,16 @@
     .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval)
-    .crosshairSet(AAObject(AACrosshair)
+     
+    if ([aaChartModel.yAxisCrosshairWidth floatValue]>0)
+    {
+    aaYAxis.crosshairSet(AAObject(AACrosshair)
                   .widthSet(aaChartModel.yAxisCrosshairWidth)
                   .colorSet(aaChartModel.yAxisCrosshairColor)
                   .dashStyleSet(aaChartModel.yAxisCrosshairDashStyleType)
                   );
+    }
+ 
 }
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
