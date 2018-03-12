@@ -244,7 +244,8 @@
                                @"Step Area Chart--直方折线填充图",
                                @"Scatter Chart---散点图"],
                              /*特殊类型图表*/
-                             @[@"Different Dash Style Chart---虚线图",
+                             @[@"Double Y Axises Chart---双Y轴混合图",
+                               @"Different Dash Style Chart---虚线图",
                                @"Mixed Line Chart---虚实线混合折线图",
                                @"With Dividing Line---带有区域分割线区域图",
                                @"Area Chart with minus--带有负数的区域填充图",

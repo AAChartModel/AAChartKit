@@ -358,7 +358,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ```
 
-以下是AAChartKit的其中的十种图表渲染动画类型
+以下是**AAChartKit**其中十种图表渲染动画类型
 
 | Back      | Bounce    | Circ      | Cubic     | Elastic   |
 |:---------:|:---------:|:---------:|:---------:|:---------:|

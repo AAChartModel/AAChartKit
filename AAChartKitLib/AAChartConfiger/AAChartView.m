@@ -143,8 +143,7 @@
     _optionJson = [AAJsonConverter getPureOptionsString:options];
  
      //Check if _dictAdditionalOptions (which is equal to chartModel.additionalOptions) is not nil
-    if (_dictAdditionalOptions)
-    {
+    if (_dictAdditionalOptions) {
         
         //Convert _optionJson to NSDictionary
         NSData *data = [_optionJson dataUsingEncoding:NSUTF8StringEncoding];
@@ -155,15 +154,10 @@
         NSMutableDictionary *jsonDictTemp = [jsonDict mutableCopy];
         
         //Enumerate the dictionary
-        for (id key in _dictAdditionalOptions)
-        {
-            
-            if (![[jsonDict allKeys] containsObject:key]) // If key does not already exist in options dictionary, copy it from the _dictAdditionalOptions dictionary
-            {
+        for (id key in _dictAdditionalOptions) {
+            if (![[jsonDict allKeys] containsObject:key])  {// If key does not already exist in options dictionary, copy it from the _dictAdditionalOptions dictionary
                 [jsonDictTemp setObject:[_dictAdditionalOptions objectForKey:key] forKey:key];
-            }
-            else // If key does already exist in options dictionary, delete it and set the new one from the _dictAdditionalOptions dictionary
-            {
+            } else {// If key does already exist in options dictionary, delete it and set the new one from the _dictAdditionalOptions dictionary
                 [jsonDictTemp removeObjectForKey:key];
                 [jsonDictTemp setObject:[_dictAdditionalOptions objectForKey:key] forKey:key];
             }
@@ -178,7 +172,6 @@
         _optionJson=[NSString stringWithFormat:@"%@%@",@"{", myString];
         
     }
- 
 }
 
 - (NSString *)configTheJavaScriptString {
@@ -324,6 +317,19 @@
             [_uiWebView setBackgroundColor:[UIColor clearColor]];
             [_uiWebView setOpaque:NO];
         }
+    }
+}
+
+- (void)setBlurEffectEnabled:(BOOL)blurEffectEnabled {
+    _blurEffectEnabled = blurEffectEnabled;
+    if (_blurEffectEnabled) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        [self addSubview:effectView];
+        [self sendSubviewToBack:effectView];
+        
+        effectView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraints:[self configureTheConstraintArrayWithItem:effectView toItem:self]];
     }
 }
 

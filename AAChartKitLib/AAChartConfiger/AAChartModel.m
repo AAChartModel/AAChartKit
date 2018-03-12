@@ -112,7 +112,7 @@ AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
         self.legendEnabled          = YES;//默认显示图例(图表下方可点击的带有文字的小圆点)
         self.borderRadius           = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
         self.markerRadius           = @5; //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-        self.yAxisAllowDecimals     = YES;//默认y轴显示小数
+        self.yAxisAllowDecimals     = YES;//默认y轴允许显示小数
         self.zoomResetButtonText    = @"恢复缩放";//恢复缩放按钮的标题文字
 
         self.titleFontColor         = @"#000000";//标题字体颜色为黑色

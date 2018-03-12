@@ -145,8 +145,7 @@
     .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
     .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
     
-    if ([aaChartModel.xAxisCrosshairWidth floatValue]>0)
-    {
+    if ([aaChartModel.xAxisCrosshairWidth floatValue]>0) {
     aaXAxis.crosshairSet(AAObject(AACrosshair)
                   .widthSet(aaChartModel.xAxisCrosshairWidth)
                   .colorSet(aaChartModel.xAxisCrosshairColor)
@@ -176,8 +175,7 @@
     .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval);
      
-    if ([aaChartModel.yAxisCrosshairWidth floatValue]>0)
-    {
+    if ([aaChartModel.yAxisCrosshairWidth floatValue]>0) {
     aaYAxis.crosshairSet(AAObject(AACrosshair)
                   .widthSet(aaChartModel.yAxisCrosshairWidth)
                   .colorSet(aaChartModel.yAxisCrosshairColor)

@@ -50,5 +50,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, innerSize);
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, size);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys);
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, yAxis);
+
 
 @end

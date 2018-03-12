@@ -47,6 +47,9 @@
     AAChartType chartType;
     
     switch (self.chartType) {
+            case SpecialChartVCChartTypeDoubleYAxisesChart:
+            chartType = @"doubleYAxisesChart";
+            break;
         case SpecialChartVCChartTypeDifferentDashStyleLine:
             chartType = @"differentDashStyleLine";
             break;
@@ -140,7 +143,58 @@
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if ([chartType isEqualToString:@"differentDashStyleLine"]) {
+    if ([chartType isEqualToString:@"doubleYAxisesChart"]) {
+        
+        NSDictionary *yAxisDic = @{@"yAxis":@[
+                                           @{ // Primary yAxis
+                                               @"labels": @{
+                                                       @"format": @"{value}°C",
+                                                       
+                                                       },
+                                               @"title": @{
+                                                       @"text": @"温度",
+                                                       
+                                                       },
+                                               @"opposite": @true
+                                               },
+                                           @{ // Secondary yAxis
+                                               @"gridLineWidth": @0,
+                                               @"title": @{
+                                                       @"text": @"降雨量",
+                                                       
+                                                       },
+                                               @"labels": @{
+                                                       @"format": @"{value} mm",
+                                                       
+                                                       }
+                                               }
+                                           ]};
+        
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(chartType)
+        .gradientColorEnabledSet(true)
+        .titleSet(@"哥谭市月平均气温")
+        .subtitleSet(@"民风淳朴人才辈出哥谭市")
+        .colorsThemeSet([self configureTheRandomColorArray])//生成一个随机颜色的数组(可以不写采用默认颜色主题)
+        .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
+        .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+        .additionalOptionsSet((id)yAxisDic)
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2017")
+                     .typeSet(AAChartTypeColumn)
+                     .yAxisSet(@1)
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2018")
+                     .typeSet(AAChartTypeLine)
+                     .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+                     ]);
+        
+        return aaChartModel;
+        
+    } else if ([chartType isEqualToString:@"differentDashStyleLine"]) {
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeSpline)//图表类型
         .titleSet(@"")//图表主标题
@@ -188,6 +242,7 @@
                      ]
                    );
         return aaChartModel;
+        
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         
         NSArray *seriesArr = @[

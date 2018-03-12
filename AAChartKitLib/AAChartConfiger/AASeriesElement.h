@@ -51,6 +51,7 @@ AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiu
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, size);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, keys);
+AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, yAxis);
 
 @end
 

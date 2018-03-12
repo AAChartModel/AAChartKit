@@ -71,6 +71,8 @@
  */
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
+@property (nonatomic, assign) BOOL blurEffectEnabled;
+
 
 //***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 /**
