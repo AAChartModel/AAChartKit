@@ -32,8 +32,11 @@
     } else if (self.selectedIndex == 1) {
         AAOptions *pieChartOptions = [self configureTheAAOptionsOfPieChart];
         [chartView aa_drawChartWithOptions:pieChartOptions];
-    } else {
+    } else if (self.selectedIndex == 2) {
         AAOptions *chartOptions = [self configureTheAAOptionsOfSpecialNestedColumnChart];
+        [chartView aa_drawChartWithOptions:chartOptions];
+    } else {
+        AAOptions *chartOptions = [self configureThePolygonPolarChart];
         [chartView aa_drawChartWithOptions:chartOptions];
     }
     
@@ -487,7 +490,47 @@
                      }]);
     
     return aaOptions;
+    
+    
+    
  
+}
+
+- (AAOptions *)configureThePolygonPolarChart {
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .yAxisVisibleSet(true)//设置 Y 轴是否可见
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+    .backgroundColorSet(@"#222733")
+    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .xAxisGridLineWidthSet(@0.5)
+    .markerRadiusSet(@0)
+    .gradientColorEnabledSet(true)
+    .polarSet(true)
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2017")
+                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2018")
+                 .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2019")
+                 .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2020")
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis.lineWidth = @0;
+    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    return aaOptions;
 }
 
 @end

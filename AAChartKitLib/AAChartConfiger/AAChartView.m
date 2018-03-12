@@ -32,7 +32,6 @@
 
 #import "AAChartView.h"
 #import "AAJsonConverter.h"
-#import "AAOptionsConstructor.h"
 #import <WebKit/WebKit.h>
 
 /**

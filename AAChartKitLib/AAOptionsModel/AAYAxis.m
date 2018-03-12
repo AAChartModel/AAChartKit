@@ -41,7 +41,7 @@ AAPropSetFuncImplementation(AAYAxis, BOOL,       reversed);
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, gridLineWidth);
 AAPropSetFuncImplementation(AAYAxis, NSString *, gridLineColor);
 AAPropSetFuncImplementation(AAYAxis, NSString *, alternateGridColor);
-AAPropSetFuncImplementation(AAYAxis, NSString *, gridLineInterpolation);
+AAPropSetFuncImplementation(AAYAxis, AAYAxisGridLineInterpolation, gridLineInterpolation);
 AAPropSetFuncImplementation(AAYAxis, AALabels *, labels);
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, lineWidth);//y轴线宽度
 AAPropSetFuncImplementation(AAYAxis, NSString *, lineColor);// y 轴线颜色

@@ -31,7 +31,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKitDefines.h>
 
 @interface AACrosshair : NSObject
 

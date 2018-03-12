@@ -47,7 +47,7 @@ AAPropStatementAndFuncStatement(assign, AAYAxis, BOOL,       reversed);
 AAPropStatementAndFuncStatement(strong, AAYAxis, NSNumber *, gridLineWidth);// y 轴网格线宽度
 AAPropStatementAndFuncStatement(copy,   AAYAxis, NSString *, gridLineColor);// y 轴网格线颜色
 AAPropStatementAndFuncStatement(copy,   AAYAxis, NSString *, alternateGridColor);//backcolor of every other grid line area
-AAPropStatementAndFuncStatement(copy,   AAYAxis, NSString *, gridLineInterpolation);//Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
+AAPropStatementAndFuncStatement(copy,   AAYAxis, AAYAxisGridLineInterpolation, gridLineInterpolation);//Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
 AAPropStatementAndFuncStatement(strong, AAYAxis, AALabels *, labels);//用于设置 y 轴是否显示
 AAPropStatementAndFuncStatement(strong, AAYAxis, NSNumber *, lineWidth);// y 轴线宽度
 AAPropStatementAndFuncStatement(copy,   AAYAxis, NSString *, lineColor);// y 轴线颜色
