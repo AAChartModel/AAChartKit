@@ -35,8 +35,11 @@
     } else if (self.selectedIndex == 2) {
         AAOptions *chartOptions = [self configureTheAAOptionsOfSpecialNestedColumnChart];
         [chartView aa_drawChartWithOptions:chartOptions];
-    } else {
+    } else if (self.selectedIndex == 3) {
         AAOptions *chartOptions = [self configureThePolygonPolarChart];
+        [chartView aa_drawChartWithOptions:chartOptions];
+    } else {
+        AAOptions *chartOptions = [self configureTheNoGapColunmChart];
         [chartView aa_drawChartWithOptions:chartOptions];
     }
     
@@ -218,11 +221,8 @@
 
 
 /****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
-    
-    
+ 
     return options;
-
-
 }
 
 - (AAOptions *)configureTheAAOptionsOfPieChart {
@@ -490,10 +490,6 @@
                      }]);
     
     return aaOptions;
-    
-    
-    
- 
 }
 
 - (AAOptions *)configureThePolygonPolarChart {
@@ -501,7 +497,6 @@
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-    .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -530,6 +525,30 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis.lineWidth = @0;
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    return aaOptions;
+}
+
+- (AAOptions *)configureTheNoGapColunmChart {
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"中间缝隙很小的柱状图")//图表主标题
+    .subtitleSet(@"调整一下groupPadding即可")//图表副标题
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+    .backgroundColorSet(@"#222733")
+    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .xAxisGridLineWidthSet(@0.5)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2020")
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.plotOptions.column.groupPadding = @0;
     return aaOptions;
 }
 
