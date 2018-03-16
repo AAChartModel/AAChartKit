@@ -302,7 +302,7 @@
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *aaColumn = (AAObject(AAColumn)
                               .borderWidthSet(@0)
-                              .groupPaddingSet(@0.05)
+//                              .groupPaddingSet(@0.05)
                               .borderRadiusSet(aaChartModel.borderRadius)
                               .dataLabelsSet(aaDataLabels));
         if (aaChartModel.polar == YES) {

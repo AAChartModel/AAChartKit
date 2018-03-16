@@ -181,20 +181,22 @@
         || self.chartType == SecondeViewControllerChartTypeBar) {
         _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标内容
         _aaChartModel.animationType = AAChartAnimationBounce;//图形的渲染动画为弹性动画
+        _aaChartModel.yAxisTitle = @"";
         _aaChartModel.animationDuration = @1200;//图形渲染动画时长为1200毫秒
+        _aaChartModel.xAxisCrosshairWidth = @25;
+        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeSolid;
           
-        //*****************************   
-        //Test for additionalOptions
-        NSDictionary *additionalOptions = @{
-                                                @"yAxis":@{
-                                                        @"alternateGridColor":@"#5b3796"
-                                                        }
-                                                };
-        
-        NSDictionary *anotherAdditionalOptions =  @{@"chart":@{@"type":AAChartTypeBubble}};
-        
-        _aaChartModel.additionalOptionsSet(anotherAdditionalOptions);
-        //*****************************
+        //************* Test for additionalOptions ****************//
+//
+//        NSDictionary *additionalOptions = @{
+//                                                @"yAxis":@{
+//                                                        @"alternateGridColor":@"#5b3796"
+//                                                        }
+//                                                };
+//
+//        _aaChartModel.additionalOptionsSet(additionalOptions);
+//
+         //************* Test for additionalOptions ****************//
      
        // _aaChartModel.xAxisTickInterval = @3;//设置 X轴坐标点的间隔数,默认是1(手机端的屏幕较为狭窄, 如果X轴坐标点过多,文字过于密集的时候可以设置此属性值,用户的密集恐惧症将得到有效治疗😝)
     } else if (self.chartType == SecondeViewControllerChartTypeArea
