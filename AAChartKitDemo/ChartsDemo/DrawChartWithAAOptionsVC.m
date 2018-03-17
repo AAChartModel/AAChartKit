@@ -543,12 +543,12 @@
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2020")
-                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                  ]
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.plotOptions.column.groupPadding = @0;
+    aaOptions.plotOptions.column.groupPadding = @0;//设置棱柱之间的间距百分比
     return aaOptions;
 }
 

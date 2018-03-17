@@ -132,7 +132,7 @@ AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
         self.yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
         self.yAxisAlternateGridColor= @"#ffffff";//backcolor of every other grid line area
         
-        self.xAxisCrosshairWidth    = @1.5;//Zero width to disable crosshair by default
+        self.xAxisCrosshairWidth    = @1;//Zero width to disable crosshair by default
         self.xAxisCrosshairColor    = @"#778899";//浅石板灰准星线
         self.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
 //        self.yAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
