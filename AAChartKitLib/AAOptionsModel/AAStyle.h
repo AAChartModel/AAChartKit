@@ -38,6 +38,6 @@
 AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, color);
 AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, fontSize);
 AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, fontWeight);
-//AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, textOutline);
+AAPropStatementAndFuncStatement(copy, AAStyle, NSString *, textOutline);
 
 @end
