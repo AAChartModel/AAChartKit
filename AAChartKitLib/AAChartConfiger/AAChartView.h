@@ -31,7 +31,6 @@
  */
 #import <UIKit/UIKit.h>
 #import "AAOptionsConstructor.h"
-#import "AAChartModel.h"
 #import "AAOptions.h"
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
