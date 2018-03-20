@@ -39,6 +39,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSString *, type);
 AAPropSetFuncImplementation(AASeriesElement, BOOL      , allowPointSelect);//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data);
+AAPropSetFuncImplementation(AASeriesElement, NSString *, color);
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, dashStyle);

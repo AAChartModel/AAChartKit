@@ -47,7 +47,10 @@
     AAChartType chartType;
     
     switch (self.chartType) {
-            case SpecialChartVCChartTypeDoubleYAxisesChart:
+        case SpecialChartVCChartTypeGradientColorBar:
+            chartType = @"gradientColorBar";
+            break;
+        case SpecialChartVCChartTypeDoubleYAxisesChart:
             chartType = @"doubleYAxisesChart";
             break;
         case SpecialChartVCChartTypeDifferentDashStyleLine:
@@ -104,7 +107,7 @@
         case SpecialChartVCChartTypeFunnel:
             chartType = AAChartTypeFunnel;
             break;
-        
+            
         default:
             break;
     }
@@ -143,7 +146,30 @@
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if ([chartType isEqualToString:@"doubleYAxisesChart"]) {
+    if ([chartType isEqualToString:@"gradientColorBar"]) {
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeBar)
+        .titleSet(@"Bar Chart")
+        .subtitleSet(@"gradient color bar")
+        .borderRadiusSet(@5)
+        .xAxisReversedSet(true)
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+                     .colorSet((id)@{
+                                 @"linearGradient": @{
+                                         @"x1": @0,
+                                         @"y1": @0,
+                                         @"x2": @0,
+                                         @"y2": @1
+                                         },
+                                 @"stops": @[@[@0,@"#8A2BE2"], @[@1,@"#1E90FF"]]
+                                 }),
+                     ]
+                   );
+        return aaChartModel;
+    } else if ([chartType isEqualToString:@"doubleYAxisesChart"]) {
         
         NSDictionary *yAxisDic = @{@"yAxis":@[
                                            @{ // Primary yAxis

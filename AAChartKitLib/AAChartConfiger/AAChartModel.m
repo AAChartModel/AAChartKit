@@ -95,7 +95,7 @@ AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
     if (self) {
         self.chartType              = AAChartTypeColumn;//默认图表类型为柱状图
         self.animationType          = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
-        self.animationDuration      = @1000;//默认动画时长为1000毫秒
+        self.animationDuration      = @800;//默认动画时长为800毫秒
         self.subtitleAlign          = AAChartSubtitleAlignTypeLeft;//默认图表副标题居左显示
         self.stacking               = AAChartStackingTypeFalse;//默认不开启图表数据的堆积效果
         self.zoomType               = AAChartZoomTypeNone ;//默认禁用图表的手势缩放功能
