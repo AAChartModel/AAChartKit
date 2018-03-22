@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2707BA971EF7BA47008357AC /* AAChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA511EF7BA47008357AC /* AAChartModel.m */; };
 		2707BA981EF7BA47008357AC /* AAChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA531EF7BA47008357AC /* AAChartView.m */; };
-		2707BA991EF7BA47008357AC /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA561EF7BA47008357AC /* AAJsonConverter.m */; };
 		2707BA9A1EF7BA47008357AC /* AAOptionsConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */; };
 		2707BA9C1EF7BA47008357AC /* AAChartView.html in Resources */ = {isa = PBXBuildFile; fileRef = 2707BA5B1EF7BA47008357AC /* AAChartView.html */; };
 		2707BAA21EF7BA47008357AC /* AAAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA631EF7BA47008357AC /* AAAnimation.m */; };
@@ -101,8 +100,6 @@
 		2707BA521EF7BA47008357AC /* AAChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartView.h; sourceTree = "<group>"; };
 		2707BA531EF7BA47008357AC /* AAChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChartView.m; sourceTree = "<group>"; };
 		2707BA541EF7BA47008357AC /* AAGlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAGlobalMacro.h; sourceTree = "<group>"; };
-		2707BA551EF7BA47008357AC /* AAJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAJsonConverter.h; sourceTree = "<group>"; };
-		2707BA561EF7BA47008357AC /* AAJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAJsonConverter.m; sourceTree = "<group>"; };
 		2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
 		2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
 		2707BA5B1EF7BA47008357AC /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
@@ -266,8 +263,6 @@
 				2707BA511EF7BA47008357AC /* AAChartModel.m */,
 				2707BA861EF7BA47008357AC /* AASeriesElement.h */,
 				2707BA871EF7BA47008357AC /* AASeriesElement.m */,
-				2707BA551EF7BA47008357AC /* AAJsonConverter.h */,
-				2707BA561EF7BA47008357AC /* AAJsonConverter.m */,
 				2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */,
 				2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */,
 			);
@@ -656,7 +651,6 @@
 				2707BAA21EF7BA47008357AC /* AAAnimation.m in Sources */,
 				2707BAA71EF7BA47008357AC /* AAColumn.m in Sources */,
 				64F15B5C1F5D907B00DC7A7F /* DrilldownChartVC.m in Sources */,
-				2707BA991EF7BA47008357AC /* AAJsonConverter.m in Sources */,
 				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
 				2707BAAC1EF7BA47008357AC /* AALine.m in Sources */,
 				92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */,
