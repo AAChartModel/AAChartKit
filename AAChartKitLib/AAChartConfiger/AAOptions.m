@@ -1,8 +1,8 @@
 //
-//  AAColumnAndBarAndSoOnOptions.m
+//  AAOptions.m
 //  AAChartKit
 //
-//  Created by An An on 17/1/9.
+//  Created by An An on 17/1/4.
 //  Copyright © 2017年 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
@@ -30,8 +30,26 @@
  
  */
 
+#import "AAOptions.h"
 
-#import "AAOptionsConstructor.h"
+@implementation AAOptions
+
+AAPropSetFuncImplementation(AAOptions, AAChart       *, chart);
+AAPropSetFuncImplementation(AAOptions, AATitle       *, title);
+AAPropSetFuncImplementation(AAOptions, AASubtitle    *, subtitle);
+AAPropSetFuncImplementation(AAOptions, AAXAxis       *, xAxis);
+AAPropSetFuncImplementation(AAOptions, AAYAxis       *, yAxis);
+AAPropSetFuncImplementation(AAOptions, AATooltip     *, tooltip);
+AAPropSetFuncImplementation(AAOptions, AAPlotOptions *, plotOptions);
+AAPropSetFuncImplementation(AAOptions, NSArray       *, series);
+AAPropSetFuncImplementation(AAOptions, AALegend      *, legend);
+AAPropSetFuncImplementation(AAOptions, NSArray       *, colors);
+AAPropSetFuncImplementation(AAOptions, BOOL,            gradientColorEnabled);
+AAPropSetFuncImplementation(AAOptions, NSDictionary  *, drilldown);
+AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //String to display in 'zoom reset button"
+
+@end
+
 
 #define AAFontSizeFormat(fontSize) [NSString stringWithFormat:@"%@%@", fontSize, @"px"]
 
@@ -74,13 +92,13 @@
     AATooltip *aaTooltip = AAObject(AATooltip)
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(true)//多组数据共享一个浮动提示框
-//    .crosshairsSet(aaChartModel.tooltipCrosshairs)
+    //    .crosshairsSet(aaChartModel.tooltipCrosshairs)
     .pointFormatSet(aaChartModel.tooltipValueString)//Tooltip value string
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
     AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
-//             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
+               //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
                .stackingSet(aaChartModel.stacking)//设置是否百分比堆叠显示图形
                .keysSet(aaChartModel.keys)//Support for keys
                );
@@ -125,7 +143,7 @@
         aaOptions.xAxis = aaXAxis;
         aaOptions.yAxis = aaYAxis;
     }
-
+    
     return aaOptions;
 }
 
@@ -146,11 +164,11 @@
     .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
     
     if ([aaChartModel.xAxisCrosshairWidth floatValue]>0) {
-    aaXAxis.crosshairSet(AAObject(AACrosshair)
-                  .widthSet(aaChartModel.xAxisCrosshairWidth)
-                  .colorSet(aaChartModel.xAxisCrosshairColor)
-                  .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
-                  );
+        aaXAxis.crosshairSet(AAObject(AACrosshair)
+                             .widthSet(aaChartModel.xAxisCrosshairWidth)
+                             .colorSet(aaChartModel.xAxisCrosshairColor)
+                             .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
+                             );
     }
     
     aaYAxis.labelsSet(AAObject(AALabels)
@@ -174,15 +192,15 @@
     .lineWidthSet(@0)//设置 y轴轴线的宽度为0,即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval);
-     
+    
     if ([aaChartModel.yAxisCrosshairWidth floatValue]>0) {
-    aaYAxis.crosshairSet(AAObject(AACrosshair)
-                  .widthSet(aaChartModel.yAxisCrosshairWidth)
-                  .colorSet(aaChartModel.yAxisCrosshairColor)
-                  .dashStyleSet(aaChartModel.yAxisCrosshairDashStyleType)
-                  );
+        aaYAxis.crosshairSet(AAObject(AACrosshair)
+                             .widthSet(aaChartModel.yAxisCrosshairWidth)
+                             .colorSet(aaChartModel.yAxisCrosshairColor)
+                             .dashStyleSet(aaChartModel.yAxisCrosshairDashStyleType)
+                             );
     }
- 
+    
 }
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
@@ -303,7 +321,7 @@
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *aaColumn = (AAObject(AAColumn)
                               .borderWidthSet(@0)
-//                              .groupPaddingSet(@0.05)
+                              //                              .groupPaddingSet(@0.05)
                               .borderRadiusSet(aaChartModel.borderRadius)
                               .dataLabelsSet(aaDataLabels));
         if (aaChartModel.polar == YES) {
@@ -358,4 +376,5 @@
 }
 
 @end
+
 

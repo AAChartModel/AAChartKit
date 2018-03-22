@@ -56,7 +56,7 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ### The 'real' work
 1. Add the following to your view controller file:
 ```objective-c
-#import "AAChartView.h"
+#import "AAChartKit.h"
 ```
 
 2. Creat an instance object of chart view:`AAChartView`

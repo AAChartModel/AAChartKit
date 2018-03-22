@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2707BA971EF7BA47008357AC /* AAChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA511EF7BA47008357AC /* AAChartModel.m */; };
 		2707BA981EF7BA47008357AC /* AAChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA531EF7BA47008357AC /* AAChartView.m */; };
-		2707BA9A1EF7BA47008357AC /* AAOptionsConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */; };
 		2707BA9C1EF7BA47008357AC /* AAChartView.html in Resources */ = {isa = PBXBuildFile; fileRef = 2707BA5B1EF7BA47008357AC /* AAChartView.html */; };
 		2707BAA21EF7BA47008357AC /* AAAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA631EF7BA47008357AC /* AAAnimation.m */; };
 		2707BAA31EF7BA47008357AC /* AAArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707BA651EF7BA47008357AC /* AAArea.m */; };
@@ -100,8 +99,6 @@
 		2707BA521EF7BA47008357AC /* AAChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartView.h; sourceTree = "<group>"; };
 		2707BA531EF7BA47008357AC /* AAChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChartView.m; sourceTree = "<group>"; };
 		2707BA541EF7BA47008357AC /* AAGlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAGlobalMacro.h; sourceTree = "<group>"; };
-		2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptionsConstructor.h; sourceTree = "<group>"; };
-		2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConstructor.m; sourceTree = "<group>"; };
 		2707BA5B1EF7BA47008357AC /* AAChartView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AAChartView.html; sourceTree = "<group>"; };
 		2707BA621EF7BA47008357AC /* AAAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAnimation.h; sourceTree = "<group>"; };
 		2707BA631EF7BA47008357AC /* AAAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAAnimation.m; sourceTree = "<group>"; };
@@ -263,8 +260,8 @@
 				2707BA511EF7BA47008357AC /* AAChartModel.m */,
 				2707BA861EF7BA47008357AC /* AASeriesElement.h */,
 				2707BA871EF7BA47008357AC /* AASeriesElement.m */,
-				2707BA571EF7BA47008357AC /* AAOptionsConstructor.h */,
-				2707BA581EF7BA47008357AC /* AAOptionsConstructor.m */,
+				2707BA7A1EF7BA47008357AC /* AAOptions.h */,
+				2707BA7B1EF7BA47008357AC /* AAOptions.m */,
 			);
 			name = AAChartComposer;
 			path = AAChartConfiger;
@@ -323,8 +320,6 @@
 				2707BA851EF7BA47008357AC /* AASeries.m */,
 				2707BA741EF7BA47008357AC /* AALegend.h */,
 				2707BA751EF7BA47008357AC /* AALegend.m */,
-				2707BA7A1EF7BA47008357AC /* AAOptions.h */,
-				2707BA7B1EF7BA47008357AC /* AAOptions.m */,
 				2707BA6E1EF7BA47008357AC /* AADataLabels.h */,
 				2707BA6F1EF7BA47008357AC /* AADataLabels.m */,
 				2707BA701EF7BA47008357AC /* AAItemStyle.h */,
@@ -638,7 +633,6 @@
 				2707BAAA1EF7BA47008357AC /* AALabels.m in Sources */,
 				2707BAA41EF7BA47008357AC /* AAAreaspline.m in Sources */,
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
-				2707BA9A1EF7BA47008357AC /* AAOptionsConstructor.m in Sources */,
 				2707BAB11EF7BA47008357AC /* AAPlotLinesElement.m in Sources */,
 				2707BAB61EF7BA47008357AC /* AAStyle.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,

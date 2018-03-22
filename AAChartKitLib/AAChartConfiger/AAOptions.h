@@ -74,6 +74,22 @@ AAPropStatementAndFuncStatement(assign, AAOptions, BOOL,            gradientColo
 AAPropStatementAndFuncStatement(assign, AAOptions, NSDictionary  *, drilldown);
 AAPropStatementAndFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText); //String to display in 'zoom reset button"
 
+@end
+
+
+
+#import "AAChartModel.h"
+
+@interface AAOptionsConstructor : NSObject
+
+
+/**
+ Configure the chart content and style
+ 
+ @param chartModel The instance object of chart model
+ @return The instance object of chart options
+ */
++ (AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)chartModel;
 
 
 @end

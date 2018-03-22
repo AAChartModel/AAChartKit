@@ -30,7 +30,7 @@
  
  */
 #import <UIKit/UIKit.h>
-#import "AAOptionsConstructor.h"
+#import "AAOptions.h"
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
 

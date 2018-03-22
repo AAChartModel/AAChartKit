@@ -59,7 +59,7 @@
 ### 正式開始
 1. 在你的視圖控制器文件中添加
 ```objective-c
-#import "AAChartView.h"
+#import "AAChartKit.h"
 ```
 2. 創建視圖`AAChartView`
 ```objective-c
