@@ -12,13 +12,13 @@
 [![](https://img.shields.io/badge/Live-ChartsShow-red.svg)](http://htmlpreview.github.io/?https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/AAChartKitDocumentLive.html)</br>
 
 ## [ **English Document 🇬🇧** ](https://github.com/AAChartModel/AAChartKit)  |  [ **简体中文文档 🇨🇳** ](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md)| [ **繁體中文文檔 🇭🇰** ](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md)
-### 您所喜愛的 ***AAChartKit*** 開源圖表庫現在更有`swift`版本可供使用,詳情請點擊以下鏈接
+### 您所喜愛的 ***AAChartKit*** 開源 iOS 圖表框架現在更有`swift`版本可供使用,詳情請點擊以下鏈接
 ### 傳送門
 #### *https://github.com/AAChartModel/AAChartKit-Swift*
 
 ## 前言
 
- ***AAChartKit*** 項目,是[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)的 `Objective-C` 語言版本,是在流行的開源前端圖表庫*Highcharts*的基礎上,封裝的面向對象的,一組簡單易用,極其精美的圖表繪制控件.可能是這個星球上 UI 最精致的第三方 iOS 開源圖表庫了(✟我以無神論者的名義向上帝起誓🖐,我真的沒有在說鬼話✟)
+ ***AAChartKit*** 項目,是[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)的 `Objective-C` 語言版本,是在流行的開源前端圖表庫*Highcharts*的基礎上,封裝的面向對象的,一組簡單易用,極其精美的圖表繪制控件.可能是這個星球上 UI 最精致的第三方数据可视化開源 iOS 圖表框架了(✟我以無神論者的名義向上帝起誓🖐,我真的沒有在說鬼話✟)
  
  ## 功能特性
  
@@ -28,7 +28,7 @@
 1. **功能強大,類型多樣**. 支持`柱狀圖` 、`條形圖` 、`折線圖` 、`曲線圖` 、`折線填充圖` 、`曲線填充圖`、`雷達圖`、`極地圖`、`扇形圖`、`氣泡圖`、`散點圖`、`區域範圍圖`、`柱形範圍圖`、`面積範圍圖`、`面積範圍均線圖`、`直方折線圖`、`直方折線填充圖`、`箱線圖`、`瀑布圖`、`熱力圖`、`桑基圖`、`金字塔圖`、`漏鬥圖`、等二十幾種類型的圖形,不可謂之不多.
 1. **交互式圖形動畫**. 有著清晰和充滿細節的用戶交互方式,與此同時,圖形渲染`動畫`效果細膩精致,流暢優美.有三十多種以上渲染動畫效果可供選擇,用戶可自由設置渲染圖形時的動畫時間和動畫類型,關於圖形渲染動畫類型,具體參見[ AAChartKit 動畫類型](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md#當前已支持的圖表渲染動畫類型有三十種以上說明如下).
 1. **支持手勢縮放**.支持圖表的手勢縮放和拖動閱覽,手勢縮放類型具體參見[ AAChartKit 手勢縮放類型](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md#當前已支持的圖表手勢縮放類型共有三種說明如下),默認禁用手勢縮放功能.
-1. **極簡主義**. `AAChartView + AAChartModel = Chart`,在 ***AAChartKit*** 圖表框架當中,遵循這樣一個極簡主義公式:`圖表視圖控件 + 圖表模型 = 你想要的圖表`.同另一款強大而又精美的圖表庫[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)完全一致.
+1. **極簡主義**. `AAChartView + AAChartModel = Chart`,在 ***AAChartKit*** 圖表框架當中,遵循這樣一個極簡主義公式:`圖表視圖控件 + 圖表模型 = 你想要的圖表`.同另一款強大、精美而又易用的开源 iOS 圖表框架[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)完全一致.
 1. **鏈式編程語法**. 支持類 *Masonry* `鏈式編程語法`,一行代碼即可配置完成 `AAChartModel`模型對象實例.
 1. **簡潔清晰,輕便易用**. 最少僅僅需要 **五行代碼** 即可完成整個圖表的繪制工作(使用鏈式編程語法配置 `AAChartModel` 實例對象時,無論你寫多少行代碼,理論上只能算作是一行). 😜😜😜
 
@@ -505,7 +505,7 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //St
 
 ## 附言
 
-在 ***AAChartKit*** 封裝庫的初始設計中,為提升`.js`文件的加載速度,故將所依賴的`.js`文件放置在本地.然而由於本項目功能較多,故放置於本地的附加`JavaScript`文件庫體積較大,整個`AAJSFiles`文件夾下所有的`.js`文件體積合計共有`250KB左右`(當然,在項目打包為壓縮後的`.ipa`工程安裝包文件時,是遠小於這個體積的),若對工程文件體積大小較為敏感的使用者,可使用以下建議的替代方案
+在 ***AAChartKit*** 数据可视化图形框架的初始設計中,為提升`.js`文件的加載速度,故將所依賴的`.js`文件放置在本地.然而由於本項目功能較多,故放置於本地的附加`JavaScript`文件庫體積較大,整個`AAJSFiles`文件夾下所有的`.js`文件體積合計共有`250KB左右`(當然,在項目打包為壓縮後的`.ipa`工程安裝包文件時,是遠小於這個體積的),若對工程文件體積大小較為敏感的使用者,可使用以下建議的替代方案
 1.  刪除在本 ***AAChartKit*** 項目文件中,`AAJSFiles`文件夾下的`4`項`.js`文件.需要被刪除的文件名稱如下
 * AAHighchartsLib.js
 * AAHighchartsMore.js
