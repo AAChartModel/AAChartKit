@@ -294,7 +294,6 @@
                                             .colorSet(aaChartModel.dataLabelFontColor)
                                             .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
                                             .fontWeightSet(aaChartModel.dataLabelFontWeight)
-                                            .textOutlineSet(@"0px 0px contrast")
                                             )
                                   .rotationSet(aaChartModel.dataLabelRotation)
                                   .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)

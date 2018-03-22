@@ -197,12 +197,10 @@
                                            ]};
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .chartTypeSet(chartType)
         .gradientColorEnabledSet(true)
         .titleSet(@"哥谭市月平均气温")
         .subtitleSet(@"民风淳朴人才辈出哥谭市")
         .colorsThemeSet([self configureTheRandomColorArray])//生成一个随机颜色的数组(可以不写采用默认颜色主题)
-        .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .additionalOptionsSet((id)yAxisDic)
         .seriesSet(@[

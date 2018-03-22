@@ -15,7 +15,7 @@
 
 @interface ChartListVC ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *chartTypeNameArr;
+@property (nonatomic, strong) NSArray *chartTypeArr;
 @property (nonatomic, strong) NSArray *sectionTypeArr;
 
 @end
@@ -25,7 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"横屏查看效果更佳";
+    self.title = @"AAInfographics";
+    
+    _chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble,AAChartTypeColumn,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble,AAChartTypeColumn,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble];
     
     [self setUpBasicView];
 }
@@ -47,7 +49,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return _chartTypeArr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,22 +60,6 @@
     return 0;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UIView *view = [[UIView alloc]init];
-//    //    view.backgroundColor = AAGrayColor;
-//
-//    UILabel *label = [[UILabel alloc]init];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    label.font = [UIFont boldSystemFontOfSize:16.0f];
-//    label.backgroundColor = AAGrayColor;
-//    label.textColor = [UIColor purpleColor];
-////    label.text = self.sectionTypeArr[section];
-//    [view addSubview:label];
-//
-//    label.translatesAutoresizingMaskIntoConstraints = NO;
-//    [view addConstraints:[self configureTheConstraintArrayWithItem:label toItem:view]];
-//    return view;
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChartListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -81,11 +67,8 @@
         cell = [[ChartListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    cell.label.text = self.chartTypeNameArr[indexPath.section][indexPath.row];
-    NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble];
-
     AAChartModel *chartModel = [self configureAAChartModel];
-    chartModel.chartType = chartTypeArr[indexPath.row];
+    chartModel.chartType = _chartTypeArr[indexPath.row];
     NSString *chartType = chartModel.chartType;
     
     if ([chartType isEqualToString:AAChartTypeSpline]|| [chartType isEqualToString:AAChartTypeAreaspline]) {
@@ -114,6 +97,13 @@
                               ];
     } else if ([chartType isEqualToString:AAChartTypeArea] || [chartType isEqualToString:AAChartTypeLine]) {
         chartModel.stacking = AAChartStackingTypeFalse;
+    }
+    
+    if (indexPath.row > 6 && indexPath.row <= 12) {
+        chartModel.polar = true;
+    } else if (indexPath.row > 12) {
+        chartModel.polar = true;
+        chartModel.stacking = AAChartStackingTypePercent;
     }
     
     [cell.aaChartView aa_drawChartWithChartModel:chartModel];
