@@ -43,10 +43,23 @@
 
 @implementation SecondViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"#4b2b7f"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor grayColor]}];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[self colorWithHexString:@"#4b2b7f"]}];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [self colorWithHexString:@"#4b2b7f"];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+
     
     [self setUpTheSegmentedControls];
     [self setUpTheSwitchs];
@@ -378,8 +391,8 @@
         switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
         //        switchView.backgroundColor = [UIColor blueColor];
 //        switchView.onTintColor = [UIColor colorWithRed:0/255 green:191/255 blue:255/255 alpha:0.6];
-        switchView.onTintColor = [UIColor whiteColor];
-        switchView.thumbTintColor = [UIColor lightGrayColor];
+        switchView.onTintColor = [self colorWithHexString:@"#FFDEAD"];
+        switchView.thumbTintColor = [UIColor whiteColor];
         switchView.on = NO;
         switchView.tag = i;
         [switchView addTarget:self action:@selector(switchViewClicked:) forControlEvents:UIControlEventValueChanged];
