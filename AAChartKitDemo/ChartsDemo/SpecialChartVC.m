@@ -47,6 +47,9 @@
     AAChartType chartType;
     
     switch (self.chartType) {
+        case SpecialChartVCChartTypeColorfulColumnChart:
+            chartType = @"colorfulColumnChart";
+            break;
         case SpecialChartVCChartTypeGradientColorBar:
             chartType = @"gradientColorBar";
             break;
@@ -146,7 +149,22 @@
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if ([chartType isEqualToString:@"gradientColorBar"]) {
+    if ([chartType isEqualToString:@"colorfulColumnChart"]) {
+        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        .chartTypeSet(AAChartTypeColumn)
+        .titleSet(@"Colorful Column Chart")
+        .subtitleSet(@"single data array colorful column chart")
+        .borderRadiusSet(@5)
+        .categoriesSet(@[@"2017",@"2018",@"2019",@"2010"])
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2020")
+                     .dataSet(@[@211,@183,@157,@133,])
+                     .colorByPointSet(true)////When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+                     ]
+                   );
+        return aaChartModel;
+    } else if ([chartType isEqualToString:@"gradientColorBar"]) {
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Bar Chart")
@@ -229,7 +247,7 @@
         .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
         .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
         .stackingSet(AAChartStackingTypeNormal)
-//        .legendEnabledSet(false)//隐藏图例
+        //.legendEnabledSet(false)//隐藏图例
         .markerRadiusSet(@0)//隐藏连接点
         .seriesSet(@[
                      AAObject(AASeriesElement)
@@ -289,7 +307,7 @@
                                ];
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
-        //        .connectNullsSet(true)//设置折线是否断点重连
+        //.connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"虚拟数据")
@@ -304,7 +322,7 @@
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
         .gradientColorEnabledSet(true)
-        //        .dataLabelEnabledSet(true)
+        //.dataLabelEnabledSet(true)
         .titleSet(@"带有负数的区域填充图")
         .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")
@@ -344,7 +362,7 @@
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
         .symbolSet(AAChartSymbolTypeCircle)
-        //        .dataLabelEnabledSet(true)
+        //.dataLabelEnabledSet(true)
         .titleSet(@"带有数据区域标志线的区域填充图")
         .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")
@@ -1019,7 +1037,7 @@
         .dataLabelEnabledSet(true)
         .invertedSet(true)
         .dataLabelEnabledSet(true)
-//        .gradientColorEnabledSet(true)
+        //.gradientColorEnabledSet(true)
         .backgroundColorSet(@"#4b2b7f")
         .dataLabelFontColorSet(@"#ffffff")
         .colorsThemeSet(@[@"#06caf4",@"#fe117c",@"#ffc069",@"#7dffc0"])//设置主体颜色数组
@@ -1268,20 +1286,18 @@
         return aaChartModel;
         
     } else if ([chartType isEqualToString:@"NightingaleRoseChart"]) {
-    
+        
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .titleSet(@"南丁格尔玫瑰图")
         .subtitleSet(@"极地图中的一种")
         .yAxisTitleSet(@"cm")
         .chartTypeSet(AAChartTypeColumn)
-//        .xAxisVisibleSet(true)//是否显示最外一层圆环
-//        .yAxisVisibleSet(false)//是否显示中间的多个圆环
+        //.xAxisVisibleSet(true)//是否显示最外一层圆环
+        //.yAxisVisibleSet(false)//是否显示中间的多个圆环
         .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
         .polarSet(true)//极地化图形
-////        .colorsThemeSet(@[@"#7f7fff",@"#e9a8ff",@"#de4770",@"#f56991",@"#ff9f80",@"#ffc48c",@"#effab4",@"#d1f2a5"])
-//        .colorsThemeSet(@[@"#DDDF0D", @"#55BF3B", @"#DF5353", @"#7798BF", @"#aaeeee", @"#ff0066" ,@"#eeaaee", @"#55BF3B" ,@"#DF5353", @"#7798BF" ,@"#aaeeee"])
         .seriesSet(@[
                      AAObject(AASeriesElement)
                      .nameSet(@"东京")

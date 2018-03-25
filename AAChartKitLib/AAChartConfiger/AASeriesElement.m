@@ -40,6 +40,7 @@ AAPropSetFuncImplementation(AASeriesElement, BOOL      , allowPointSelect);//是
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, color);
+AAPropSetFuncImplementation(AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, dashStyle);

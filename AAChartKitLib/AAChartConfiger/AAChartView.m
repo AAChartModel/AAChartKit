@@ -405,7 +405,7 @@
 
 + (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
     NSString *str =[originalString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    str = [str stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+//    str = [str stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return str;
 }

@@ -57,6 +57,12 @@
 
 @implementation FirstViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"AAChartKit";
@@ -244,7 +250,8 @@
                                @"Step Area Chart--直方折线填充图",
                                @"Scatter Chart---散点图"],
                              /*特殊类型图表*/
-                             @[@"Gradient Color Bar---颜色渐变条形图",
+                             @[@"Colorful Column Chart---多彩柱形图",
+                               @"Gradient Color Bar---颜色渐变条形图",
                                @"Double Y Axises Chart---双Y轴混合图",
                                @"Different Dash Style Chart---虚线图",
                                @"Mixed Line Chart---虚实线混合折线图",

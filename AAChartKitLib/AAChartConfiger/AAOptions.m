@@ -321,7 +321,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *aaColumn = (AAObject(AAColumn)
                               .borderWidthSet(@0)
-                              //                              .groupPaddingSet(@0.05)
+                              //.groupPaddingSet(@0.05)
                               .borderRadiusSet(aaChartModel.borderRadius)
                               .dataLabelsSet(aaDataLabels));
         if (aaChartModel.polar == YES) {
@@ -332,7 +332,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     } else if ([chartType isEqualToString:AAChartTypeBar]) {
         AABar *aaBar = (AAObject(AABar)
                         .borderWidthSet(@0)
-                        //                      .groupPaddingSet(@0.1)
+                        //.groupPaddingSet(@0.1)
                         .borderRadiusSet(aaChartModel.borderRadius)
                         .dataLabelsSet(aaDataLabels));
         if (aaChartModel.polar == YES) {
@@ -354,7 +354,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                                 .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         aaPlotOptions.pieSet(AAObject(AAPie)
-                             //                           .sizeSet(@50)
+                             //.sizeSet(@50)
                              .allowPointSelectSet(true)
                              .cursorSet(@"pointer")
                              .showInLegendSet(true)
