@@ -1,14 +1,34 @@
-//
-//  OnlyRefreshChartDataVC.m
+
+//  SpecialChartVC.m
 //  AAChartKit
 //
-//  Created by An An on 2017/7/3.
+//  Created by An An on 17/3/23.
+//  Copyright © 2017年 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
 //*** https://github.com/AAChartModel/AAChartKit-Swift  ***
 //***...................................................***
 //*************** ...... SOURCE CODE ...... ***************
+
+/*
+ 
+ * -------------------------------------------------------------------------------
+ *
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
+ *
+ * Please contact me on GitHub,if there are any problems encountered in use.
+ * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
+ * -------------------------------------------------------------------------------
+ * And if you want to contribute for this project, please contact me as well
+ * GitHub        : https://github.com/AAChartModel
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * JianShu       : http://www.jianshu.com/u/f1e6753d4254
+ * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+ *
+ * -------------------------------------------------------------------------------
+ 
+ */
 
 #import "OnlyRefreshChartDataVC.h"
 #import "AAChartKit.h"
@@ -17,7 +37,7 @@
 #define AAGrayColor             [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 #define AABlueColor             AAColorWithRGB(63, 153,231,1)
 
-@interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate>{
+@interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate> {
     NSTimer *_timer;
     int myBasicValue;
     int _selectedElementIndex;
@@ -44,13 +64,10 @@
     [self setUpTheView];
     myBasicValue = 0;
     _selectedElementIndex = arc4random()%2;
-
-    
 }
 
 - (void)setUpTheView {
     for (int i = 0; i<4; i++) {
-        
         NSArray *titleNameArr = @[
                                   @"Click to update whole chart data",
                                   @"Click to hide whole data content",
@@ -81,12 +98,10 @@
     
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
-    
     //第一个波纹的公式
     for (float x = 0.f; x <= 50 ; x++) {
         y1 = sin((10) * (x * M_PI / 180)) +x*2*0.01 ;
         [sinNumArr addObject:@(y1)];
-        
         y2 =cos((10) * (x * M_PI / 180))+x*3*0.01;
         [sinNumArr2 addObject:@(y2)];
     }
@@ -94,62 +109,41 @@
     NSArray *chartTypeArr = @[AAChartTypeColumn,AAChartTypeAreaspline,AAChartTypeSpline,AAChartTypeScatter];
     
     self.chartModel= AAObject(AAChartModel)
-        .chartTypeSet(chartTypeArr[arc4random()%4])//图表类型随机
-    //    .invertedSet(true)//x 轴是否垂直
-    //    .xAxisReversedSet(true)//x 轴是否翻转
-    //    .yAxisReversedSet(true)//y 轴是否翻转
-    //    .stackingSet(AAChartStackingTypeNormal)
-    //    .borderRadiusSet(@5)
-    //    .polarSet(true)//是否辐射化图形
+    .chartTypeSet(chartTypeArr[arc4random()%4])//图表类型随机
     .xAxisVisibleSet(true)
     .yAxisVisibleSet(false)
-    //    .gradientColorEnableSet(true)
     .titleSet(@"")
     .subtitleSet(@"")
-    //    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .colorsThemeSet(@[@"#1e90ff",@"#dc143c"])
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
                  .dataSet(sinNumArr),
-                 
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
                  .dataSet(sinNumArr2),
-                 //
-                 //                 AAObject(AASeriesElement)
-                 //                 .nameSet(@"2019")
-                 //                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
                  ]
                );
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
-    
 }
 
 - (void)oneOfTwoButtonsClicked:(UIButton *)sender {
-    
     //关闭定时器
     [_timer setFireDate:[NSDate distantFuture]];
     if (sender.tag == 0) {
         [self virtualUpdateTheChartViewDataInRealTime];
-        
     } else if (sender.tag == 1){
         self.chartView.chartSeriesHidden = YES;
     } else if (sender.tag == 2) {
         [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
     } else {
         [self.chartView aa_hideTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
-        
     }
 }
 
-- (void)virtualUpdateTheChartViewDataInRealTime{
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                              target:self
-                                            selector:@selector(timerStartWork)
-                                            userInfo:nil
-                                             repeats:YES];
+- (void)virtualUpdateTheChartViewDataInRealTime {
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerStartWork) userInfo:nil repeats:YES];
      [_timer fire];
 }
 
@@ -158,43 +152,22 @@
 }
 
 - (void)onlyRefreshTheChartData {
-    
-//    NSMutableArray *virtualData1 = [[NSMutableArray alloc]init];
-//    NSMutableArray *virtualData2 = [[NSMutableArray alloc]init];
-//    NSMutableArray *virtualData3 = [[NSMutableArray alloc]init];
-    
-//    for (int i=0; i<20; i++) {
-//        NSInteger randomNumber1 = arc4random()%99;
-//        NSInteger randomNumber2 = arc4random()%66;
-//        NSInteger randomNumber3 = arc4random()%55;
-//
-//        [virtualData1 addObject:[NSNumber numberWithInteger:randomNumber1]];
-//        [virtualData2 addObject:[NSNumber numberWithInteger:randomNumber2]];
-//        [virtualData3 addObject:[NSNumber numberWithInteger:randomNumber3]];
-//
-//    }
+
     NSMutableArray *sinNumArr = [[NSMutableArray alloc]init];
     NSMutableArray *sinNumArr2 = [[NSMutableArray alloc]init];
-    
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
-    
     int Q = arc4random()%30;
-//    int Q = 10;
     for (float x = myBasicValue; x <= myBasicValue + 50 ; x++) {
           //第一个波纹的公式
         y1 = sin((Q) * (x * M_PI / 180)) +x*2*0.01-1 ;
         [sinNumArr addObject:@(y1)];
-        
           //第二个波纹的公式
         y2 =cos((Q) * (x * M_PI / 180))+x*3*0.01-1;
         [sinNumArr2 addObject:@(y2)];
-        
-        
-        
     }
     myBasicValue = myBasicValue +1;
-    if (myBasicValue ==32) {
+    if (myBasicValue == 32) {
         myBasicValue = 0;
     }
     
@@ -202,18 +175,13 @@
                         @{@"name":@"2017",
                           @"type":@"bar",
                           @"data":sinNumArr},
-                        
                         @{@"name":@"2018",
                           @"type":@"line",
                           @"data":sinNumArr2},
-//
-//                        @{@"name":@"2019",
-//                          @"data":virtualData3},
                         ];
     
     [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];
     NSLog(@"Updated the chart data content!!! ☺️☺️☺️");
-
 }
 
 # pragma mark AAChartViewDidFinishLoadDelegate

@@ -1,10 +1,34 @@
-//
-//  ChartAnimationTypeVC.m
+
+//  SpecialChartVC.m
 //  AAChartKit
 //
-//  Created by An An on 2017/7/6.
+//  Created by An An on 17/3/23.
 //  Copyright © 2017年 An An. All rights reserved.
-//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
+
+/*
+ 
+ * -------------------------------------------------------------------------------
+ *
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
+ *
+ * Please contact me on GitHub,if there are any problems encountered in use.
+ * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
+ * -------------------------------------------------------------------------------
+ * And if you want to contribute for this project, please contact me as well
+ * GitHub        : https://github.com/AAChartModel
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * JianShu       : http://www.jianshu.com/u/f1e6753d4254
+ * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+ *
+ * -------------------------------------------------------------------------------
+ 
+ */
 
 #import "ChartAnimationTypeVC.h"
 #import "AAChartKit.h"
@@ -31,7 +55,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"动画类型";
-    //[self configureTheButtons];
+
     [self configureTheAnimationTypeTableView];
     [self configureTheChartView];
   
@@ -40,8 +64,10 @@
 - (void)configureTheChartView  {
     self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width-115, self.view.frame.size.height-60)];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.chartView.scrollEnabled = NO;
    // self.chartView.contentHeight = self.view.frame.size.height-220;
     [self.view addSubview:self.chartView];
+    
     self.chartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)
     .animationDurationSet(@1500)
@@ -54,18 +80,6 @@
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
-                 
-//                 AAObject(AASeriesElement)
-//                 .nameSet(@"2018")
-//                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
-//                 
-//                 AAObject(AASeriesElement)
-//                 .nameSet(@"2019")
-//                 .dataSet(@[@11,@12,@13,@14,@15,@16,@17,@18,@19,@33,@56,@39]),
-//                 
-//                 AAObject(AASeriesElement)
-//                 .nameSet(@"2020")
-//                 .dataSet(@[@21,@22,@24,@27,@25,@26,@37,@28,@49,@56,@31,@11]),
                  ]
                )
     

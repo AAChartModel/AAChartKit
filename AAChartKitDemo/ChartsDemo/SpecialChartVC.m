@@ -1,4 +1,4 @@
-//
+
 //  SpecialChartVC.m
 //  AAChartKit
 //
@@ -157,10 +157,10 @@
         .borderRadiusSet(@5)
         .categoriesSet(@[@"2017",@"2018",@"2019",@"2010"])
         .seriesSet(@[
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2020")
-                     .dataSet(@[@211,@183,@157,@133,])
-                     .colorByPointSet(true)////When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+                     @{@"name":@"ElementOne",
+                       @"data":@[@15,@16,@20,@24,],
+                       @"colorByPoint":@true //.colorByPointSet(true)////When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+                       }
                      ]
                    );
         return aaChartModel;
@@ -334,23 +334,19 @@
         .seriesSet(@[
                      AAObject(AASeriesElement)
                      .nameSet(@"2017")
-                     .dataSet(@[@0, @-7.5, @-1.0, @3.7, @0, @-3, @8, @0,@-3.6, @4, @-2, @0]),
-                     
+                     .dataSet(@[@0, @(-7.5), @(-1.0), @3.7, @0, @(-3), @8, @0,@(-3.6), @4, @(-2), @0]),
                      AAObject(AASeriesElement)
                      .nameSet(@"2018")
-                     .dataSet(@[@0, @-2.2, @2, @-2.2, @0, @-1.5, @0, @2.4, @-1, @3, @-1, @0]),
-                     
+                     .dataSet(@[@0, @(-2.2), @2, @(-2.2), @0, @(-1.5), @0, @2.4, @(-1), @3, @(-1), @0]),
                      AAObject(AASeriesElement)
                      .nameSet(@"2019")
-                     .dataSet(@[@0, @2.3, @0, @1.2, @-1, @3, @0, @-3.3, @0, @2, @-0.3, @0]),
-                     
+                     .dataSet(@[@0, @2.3, @0, @1.2, @(-1), @3, @0, @(-3.3), @0, @2, @(-0.3), @0]),
                      AAObject(AASeriesElement)
                      .nameSet(@"2020")
-                     .dataSet(@[@0, @10, @0.13,@2,@0, @2, @0, @3.7, @0, @1, @-3, @0]),
-                     
+                     .dataSet(@[@0, @10, @0.13,@2,@0, @2, @0, @3.7, @0, @1, @(-3), @0]),
                      AAObject(AASeriesElement)
                      .nameSet(@"2020")
-                     .dataSet(@[@0, @-4.5, @-0.9, @5.5, @-1.9, @1.3, @-2.8, @0, @-1.7, @0, @3, @0, ]),
+                     .dataSet(@[@0, @(-4.5), @(-0.9), @5.5, @(-1.9), @1.3, @(-2.8), @0, @(-1.7), @0, @3, @0, ]),
                      ]
                    )
         ;
@@ -442,6 +438,7 @@
         .yAxisTitleSet(@"℃")
         .gradientColorEnabledSet(true)
         .yAxisGridLineWidthSet(@0)
+        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)

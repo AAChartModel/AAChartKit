@@ -42,15 +42,18 @@ AAPropStatementAndFuncStatement(strong, AATooltip, NSNumber *, borderWidth);//�
 AAPropStatementAndFuncStatement(strong, AATooltip, NSDictionary *, style);//为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":@"#333333",@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }
 
 AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       enabled);
+AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       useHTML);
+AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, formatter);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, headerFormat);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, pointFormat);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, footerFormat);
+AAPropStatementAndFuncStatement(assign, AATooltip, NSNumber *, valueDecimals);//设置取值精确到小数点后几位
 AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       shared);
 AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       crosshairs);
 
-//AAPropStatementAndFuncStatement(assign, AATooltip, BOOL, useHTML);
 AAPropStatementAndFuncStatement(copy,   AATooltip, NSString *, valueSuffix);
 //AAPropStatementAndFuncStatement(assign, AATooltip, BOOL,       followTouchMove);//在触摸设备上，tooltip.followTouchMove选项为true（默认）时，平移需要两根手指。若要允许用一根手指平移，请将followTouchMove设置为false。
+
 
 
 

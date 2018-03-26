@@ -280,7 +280,8 @@
                                @"绘制带有中心标题的环形图",
                                @"绘制嵌套的柱状图",
                                @"多边形线框的雷达图",
-                               @"缝隙很小的柱状图"],
+                               @"缝隙很小的柱状图",
+                               @"Custom style tooltip--自定义浮动提示框"],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
                                 @"UITableView上显示多个 AAChartView"],

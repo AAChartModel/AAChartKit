@@ -1,10 +1,34 @@
+
+//  SpecialChartVC.m
+//  AAChartKit
 //
-//  ChartListVC.m
-//  AAChartKitDemo
-//
-//  Created by AnAn on 2018/3/7.
-//  Copyright © 2018年 Danny boy. All rights reserved.
-//
+//  Created by An An on 17/3/23.
+//  Copyright © 2017年 An An. All rights reserved.
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
+
+/*
+ 
+ * -------------------------------------------------------------------------------
+ *
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
+ *
+ * Please contact me on GitHub,if there are any problems encountered in use.
+ * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
+ * -------------------------------------------------------------------------------
+ * And if you want to contribute for this project, please contact me as well
+ * GitHub        : https://github.com/AAChartModel
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * JianShu       : http://www.jianshu.com/u/f1e6753d4254
+ * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+ *
+ * -------------------------------------------------------------------------------
+ 
+ */
 
 #import "ChartListVC.h"
 #import "AAChartModel.h"
@@ -186,20 +210,12 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        _label = [[UILabel alloc]init];
-//        _label.frame = CGRectMake(60, 0, self.frame.size.width-40, 40);
-//        _label.textAlignment = NSTextAlignmentLeft;
-//        _label.font = [UIFont systemFontOfSize:12.f];
-//        _label.textColor = [UIColor darkGrayColor];
-//        [self.contentView addSubview:_label];
-        
         _aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 40, self.frame.size.width+40, 300)];
 //        _aaChartView.layer.cornerRadius = 8;
 //        _aaChartView.layer.masksToBounds = YES;
 //        _aaChartView.layer.shadowColor = [UIColor blackColor].CGColor;
 //        _aaChartView.layer.shadowOffset = CGSizeMake(2, 4);
 //        _aaChartView.backgroundColor = [UIColor redColor];
-        //        _aaChartView.frame = CGRectMake(0, 40, self.frame.size.width, self.frame.size.height-40);
         [self.contentView addSubview:_aaChartView];
         
         _aaChartView.translatesAutoresizingMaskIntoConstraints = NO;

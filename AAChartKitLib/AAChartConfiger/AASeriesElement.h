@@ -41,7 +41,7 @@ AAPropStatementAndFuncStatement(assign, AASeriesElement, BOOL      , allowPointS
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, name);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, data);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, color);
-AAPropStatementAndFuncStatement(assign, AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
+//AAPropStatementAndFuncStatement(assign, AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropStatementAndFuncStatement(strong, AASeriesElement, AAMarker *, marker);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, stacking);
 AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, dashStyle);
