@@ -92,8 +92,8 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     AATooltip *aaTooltip = AAObject(AATooltip)
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(true)//多组数据共享一个浮动提示框
-    //    .crosshairsSet(aaChartModel.tooltipCrosshairs)
-    .pointFormatSet(aaChartModel.tooltipValueString)//Tooltip value string
+    //.crosshairsSet(aaChartModel.tooltipCrosshairs)
+    //.pointFormatSet(aaChartModel.tooltipValueString)//Tooltip value point format string
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
     AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)

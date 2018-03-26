@@ -129,7 +129,7 @@
     
     NSArray *colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
-//第一种写法
+    //第一种写法
     AAOptions *options = AAObject(AAOptions);
     options.chart = (id)chart;
     options.title = (id)title;
@@ -141,25 +141,28 @@
     options.series = (id)series;
     options.colors = colors;
     
+    return options;
     
-//    另一种写法
-//    AAOptions *options = AAObject(AAOptions)
-//    .chartSet((id)chart)
-//    .titleSet((id)title)
-//    .subtitleSet((id)subtitle)
-//    .xAxisSet((id)xAxis)
-//    .yAxisSet((id)yAxis)
-//    .tooltipSet((id)tooltip)
-//    .legendSet((id)legend)
-//    .seriesSet((id)series)
-//    .colorsSet(colors)
-//    ;
+    
+    //另一种写法
+    AAOptions *chartOptions = AAObject(AAOptions)
+    .chartSet((id)chart)
+    .titleSet((id)title)
+    .subtitleSet((id)subtitle)
+    .xAxisSet((id)xAxis)
+    .yAxisSet((id)yAxis)
+    .tooltipSet((id)tooltip)
+    .legendSet((id)legend)
+    .seriesSet((id)series)
+    .colorsSet(colors);
+    
+    return chartOptions;
     
 
 
 /****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
  
-    return options;
+
 }
 
 - (AAOptions *)configureTheAAOptionsOfPieChart {
@@ -500,7 +503,7 @@
     .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
     .yAxisTitleSet(@"")//设置 Y 轴标题
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[@"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",@"10-12",@"10-13",@"10-14",@"10-15",@"10-16",@"10-17",@"10-18",@"10-19",@"10-20",@"10-21",@"10-22",@"10-23",@"10-024",@"10-25",@"10-26",@"10-27",@"10-28",@"10-29",@"10-30",@"10-31",@"11-01",@"11-02",@"11-03",@"11-04",@"11-05",@"11-06",@"11-07",@"11-08",@"11-09",@"11-10",@"11-11",@"11-12",@"11-13",@"11-14",@"11-15",@"11-16",@"11-17",@"11-18",@"11-19",@"11-20",@"11-21",@"11-22",@"11-23",@"11-024",@"11-25",@"11-26",@"11-27",@"11-28",@"11-29",@"11-30",@"12-01",@"12-02",@"12-03",@"12-04",@"12-05",@"12-06",@"12-07",@"12-08",@"12-09",@"12-10",@"12-11",@"12-12",@"12-13",@"12-14",@"12-15",@"12-16",@"12-17",@"12-18",@"12-19",@"12-20",@"12-21",@"12-22",@"12-23",@"12-024",@"12-25",@"12-26",@"12-27",@"12-28",@"12-29",@"12-30"])
     .seriesSet(@[
                  AAObject(AASeriesElement)

@@ -204,7 +204,7 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor);//图表�
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
-AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
+//AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueString);//Tooltip string
 //AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
