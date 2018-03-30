@@ -18,16 +18,16 @@
 
 ## Preface
 
-AAChartKit is an elegant, friendly and easy to use chart library for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and area range chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle free and quickly to integrate into your own project.
+AAChartKit is an elegant, friendly and easy to use chart library for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and area range chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle-free and quick to integrate into your own project.
  
 ***
 ## Features
 
 1. Support up from `iOS 6`, `ARC` support.
-2. Powerful and easy to use. It supports the  `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart` and `mixed chart` and other graphics. Support for more chart types is planned.
+2. Powerful and easy to use. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
 3. The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
 4. Supports `chain programming syntax` like *Masonry* 
-5. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want. Just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
+5. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
 
 ## Beauty Appreciation
@@ -59,7 +59,7 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 #import "AAChartKit.h"
 ```
 
-2. Creat an instance object of chart view:`AAChartView`
+2. Create an instance object of chart view:`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
 CGFloat chartViewHeight = self.view.frame.size.height-250;
@@ -95,19 +95,19 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
                  ])
 ;
 ```
-4. Draw the chart (this method is called only for the first time after you create an AAChartView instance object) 
+4. Draw the chart (this method is only called the first time you create an AAChartView instance object) 
 ```objective-c
 //The chart view object calls the instance object of AAChartModel and draws the final graphic
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
-5. Refresh the chart data only (this method is recommended to be called for updating the series data dynamically)
+5. Refresh the chart data (this method is recommended for updating the series data dynamically)
 ```objective-c
 //Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
-6. Refresh the chart except the chart data (subsequent refresh options are recommended to call this method after the first drawing of graphics has completed.if you want to update the chart data only,you should use the function `aa_onlyRefreshTheChartDataWithChartModelSeries`)
+6. Refresh the chart, minus the chart data (this method is recommended for subsequent refreshes after the first drawing of graphics has completed. If you want to update the chart data only, you should use the function `aa_onlyRefreshTheChartDataWithChartModelSeries`)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];
@@ -181,7 +181,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ### Special chart types in ***AAChartKit***
 
-The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you want to draw these types of charts, then you need to prepare the AAChartModel differently:
+The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you want to draw these types of charts, you need to prepare the AAChartModel differently:
 
 - To draw a pie chart, you should configure the properties of `AAChartModel` like this:
 ```objective-c
@@ -479,7 +479,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 -------------------------------------------------------------------------------
 * 🌕 🌖 🌗 🌘   WARM TIPS!!!   🌑 🌒 🌓 🌔
 *
-* Please contact me on GitHub,if there are any problems encountered in use.
+* Please contact me on GitHub, if there are any problems encountered in use.
 * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
 -------------------------------------------------------------------------------
 * And if you want to contribute for this project, please contact me as well
