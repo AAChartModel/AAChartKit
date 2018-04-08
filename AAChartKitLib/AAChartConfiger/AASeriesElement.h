@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker;
+@class AAMarker,AADataLabels;
 
 @interface AASeriesElement : NSObject
 
@@ -54,6 +54,7 @@ AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, size);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, keys);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, yAxis);
+AAPropStatementAndFuncStatement(strong, AASeriesElement, AADataLabels*, dataLabels);
 
 @end
 

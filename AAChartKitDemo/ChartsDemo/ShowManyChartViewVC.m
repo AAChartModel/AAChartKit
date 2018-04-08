@@ -54,6 +54,7 @@
     CGFloat screenHeight = self.view.frame.size.height;
     
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, screenHeight/2)];
+    aaChartView.scrollEnabled = NO;
     [self.view addSubview:aaChartView];
 
     AAChartModel *aaChartModel= AAObject(AAChartModel)
@@ -79,6 +80,7 @@
     CGFloat screenHeight = self.view.frame.size.height;
     
     AAChartView *aaChartView2 = [[AAChartView alloc]initWithFrame:CGRectMake(0, screenHeight/2+60, chartViewWidth, screenHeight/2-60)];
+    aaChartView2.scrollEnabled = NO;
     [self.view addSubview:aaChartView2];
     
     AAChartModel *aaChartModel2= AAObject(AAChartModel)

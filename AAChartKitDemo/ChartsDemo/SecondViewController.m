@@ -32,7 +32,7 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
-#warning 后需添加可以在不设置背景色为透明色的情况下直接设置图表的背景色功能
+#warning ToDo 后续添加可以在不设置背景色为透明色的情况下直接设置图表的背景色功能
 
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 
@@ -186,13 +186,12 @@
                          .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
                          ]
                    );
-    
 }
 
 - (void)configureTheStyleForDifferentTypeChart {
     if (self.chartType == SecondeViewControllerChartTypeColumn
         || self.chartType == SecondeViewControllerChartTypeBar) {
-        _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标内容
+        _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
         _aaChartModel.animationType = AAChartAnimationBounce;//图形的渲染动画为弹性动画
         _aaChartModel.yAxisTitle = @"";
         _aaChartModel.animationDuration = @1200;//图形渲染动画时长为1200毫秒
@@ -436,26 +435,22 @@
     
 }
 
-- (UIColor *) colorWithHexString: (NSString *)color
-{
+- (UIColor *) colorWithHexString: (NSString *)color {
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
     if ([cString length] < 6) {
         return [UIColor clearColor];
     }
-    // 判断前缀
     if ([cString hasPrefix:@"0X"])
         cString = [cString substringFromIndex:2];
     if ([cString hasPrefix:@"#"])
         cString = [cString substringFromIndex:1];
     if ([cString length] != 6)
         return [UIColor clearColor];
-    // 从六位数值中找到RGB对应的位数并转换
     NSRange range;
     range.location = 0;
     range.length = 2;
-    //R、G、B
     NSString *rString = [cString substringWithRange:range];
     range.location = 2;
     NSString *gString = [cString substringWithRange:range];

@@ -36,6 +36,33 @@
 
 @interface AADataLabels : NSObject
 
+//https://api.hcharts.cn/highcharts#plotOptions.area.dataLabels.align
+//align: 水平对齐
+//allowOverlap: 允许重叠
+//backgroundColor: 背景颜色
+//borderColor: 边框颜色
+//borderRadius: 边框圆角
+//borderWidth: 边框宽度
+//className: 类名
+//color: 颜色
+//crop: 裁剪
+//defer: 延迟显示
+//enabled: 开关
+//format: 格式化字符串
+//formatter: 格式化函数
+//inside: 显示在内部
+//overflow: 溢出处理
+//padding: 内边距
+//rotation: 旋转角度
+//shadow: 阴影
+//shape: 箭头形状
+//style: 样式
+//useHTML: HTML 渲染
+//verticalAlign: 竖直对齐方式
+//x: 水平偏移
+//y: 竖直偏移
+//zIndex
+
 AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , enabled);
 AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle  *, style);
 AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, format);
