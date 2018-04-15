@@ -31,17 +31,22 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ***
 
 ## Beauty Appreciation
-| Column Chart | Column Range Chart | Area Chart |
+
+| Column Chart  | Column Range Chart  | Area Chart  |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/ColumnChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/BarChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/AreaChart.png) |
 
-| Line Chart | Step Area Chart | Step Line Chart |
+| Line Chart  | Step Area Chart  | Step Line Chart  |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/LineChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/StepAreaChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/StepLineChart.png) |
 
-| Spline Chart | Areaspline Chart | Stacked Polar Chart |
+| Spline Chart | Areaspline Chart  | Stacked Polar Chart  |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/SplineChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/AreasplineChart.png) | ![image1](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/BeautyAppreciation/StackedPolarChart.png) |
+
+| Bubble Chart  | Arearange Average Value Chart  | Column Mixed Line Chart  |
+| :----:  | :----: | :----: |
+| ![image1](https://github.com/AAChartModel/Gallery/blob/master/AAInfographics/BubbleChart.png) | ![image1](https://github.com/AAChartModel/Gallery/blob/master/AAInfographics/ArearangeAverageValueChart.png) | ![image1](https://github.com/AAChartModel/Gallery/blob/master/AAInfographics/ColumnMixedLineChart.png) |
 
 ## Usage
 
