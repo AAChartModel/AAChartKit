@@ -111,8 +111,10 @@
     self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
     self.aaChartView.delegate = self;
     self.aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
-    //    设置aaChartVie 的内容高度(content height)
-    //    self.aaChartView.contentHeight = chartViewHeight;
+//    设置aaChartVie 的内容高度(content height)
+//    self.aaChartView.contentHeight = chartViewHeight*2;
+//    设置aaChartVie 的内容宽度(content  width)
+//    self.aaChartView.contentWidth = chartViewWidth*2;
     [self.view addSubview:self.aaChartView];
     
     
@@ -123,7 +125,7 @@
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-    .yAxisVisibleSet(true)//设置 Y 轴是否可见
+    .yAxisVisibleSet(false)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -147,7 +149,7 @@
     [self configureTheStyleForDifferentTypeChart];//为不同类型图表设置样式
     
     /*配置 Y 轴标注线,解开注释,即可查看添加标注线之后的图表效果(NOTE:必须设置 Y 轴可见)*/
-//    [self configureTheYAxisPlotLineForAAChartView];
+    //    [self configureTheYAxisPlotLineForAAChartView];
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
@@ -195,8 +197,6 @@
         _aaChartModel.animationType = AAChartAnimationBounce;//图形的渲染动画为弹性动画
         _aaChartModel.yAxisTitle = @"";
         _aaChartModel.animationDuration = @1200;//图形渲染动画时长为1200毫秒
-        _aaChartModel.xAxisCrosshairWidth = @25;
-        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeSolid;
           
         //************* Test for additionalOptions ****************//
 //
@@ -215,7 +215,10 @@
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
         _aaChartModel.gradientColorEnabled = true;//启用渐变色
-        _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为弹性动画
+        _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
+        _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
+        _aaChartModel.xAxisCrosshairColor = @"#FFE4C4";//(浓汤)乳脂,番茄色准星线
+        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
         if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
             _aaChartModel.series =@[
                                     AAObject(AASeriesElement)
@@ -236,6 +239,9 @@
     } else if (self.chartType == SecondeViewControllerChartTypeLine
                || self.chartType == SecondeViewControllerChartTypeSpline) {
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
+        _aaChartModel.xAxisCrosshairWidth = @1;//Zero width to disable crosshair by default
+        _aaChartModel.xAxisCrosshairColor = @"#778899";//浅石板灰准星线
+        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDotDot;
         if (self.chartType == SecondeViewControllerChartTypeSpline) {
             _aaChartModel.markerRadius = @8;
             _aaChartModel.series = @[
@@ -262,19 +268,23 @@
         _aaChartModel.yAxisVisible = false;
         _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
         _aaChartModel.gradientColorEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
-        _aaChartModel.series = @[ @{
-                                      @"name": @"Berlin",
-                                      @"data": @[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4],
-                                      @"step": @(true) //设置折线样式为直方折线,连接点位置默认靠左👈
-                                      }, @{
-                                      @"name": @"New York",
-                                      @"data": @[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3],
-                                      @"step": @(true)
-                                      }, @{
-                                      @"name": @"Tokyo",
-                                      @"data": @[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2],
-                                      @"step": @(true)
-                                      }, ];
+        _aaChartModel.series = @[
+                                 AAObject(AASeriesElement)
+                                 .nameSet(@"Berlin")
+                                 .dataSet(@[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4])
+                                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+                                 ,
+                                 AAObject(AASeriesElement)
+                                 .nameSet(@"New York")
+                                 .dataSet(@[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3])
+                                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+                                 ,
+                                 AAObject(AASeriesElement)
+                                 .nameSet(@"Tokyo")
+                                 .dataSet(@[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2])
+                                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+                                 ,
+                                 ];
     }
 }
 
@@ -302,15 +312,27 @@
     
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
-        segmentedArray = @[@[@"No stacking", @"Normal stacking", @"Percent stacking"],
-                           @[@"Square corners", @"Rounded corners", @"Wedge"],
+        segmentedArray = @[@[@"No stacking",
+                             @"Normal stacking",
+                             @"Percent stacking"],
+                           @[@"Square corners",
+                             @"Rounded corners",
+                             @"Wedge"],
                            ];
-        typeLabelNameArr = @[@"Stacking type selection", @"Corners Style type selection"];
+        typeLabelNameArr = @[@"Stacking type selection",
+                             @"Corners Style type selection"];
     } else {
-        segmentedArray = @[@[@"No stacking", @"Normal stacking", @"Percent stacking"],
-                           @[@"Circle", @"Square", @"Diamond", @"Triangle", @"Triangle-down"]
+        segmentedArray = @[@[@"No stacking",
+                             @"Normal stacking",
+                             @"Percent stacking"],
+                           @[@"Circle",
+                             @"Square",
+                             @"Diamond",
+                             @"Triangle",
+                             @"Triangle-down"]
                            ];
-        typeLabelNameArr = @[@"Stacking type selection", @"Chart symbol type selection"];
+        typeLabelNameArr = @[@"Stacking type selection",
+                             @"Chart symbol type selection"];
     }
     
     for (int i=0; i<segmentedArray.count; i++) {
@@ -377,9 +399,18 @@
     NSArray *nameArr;
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
-        nameArr = @[@"xAxisReversed", @"yAxisReversed", @"xAxisInverted", @"Polarization", @"DataLabelShow",];
+        nameArr = @[@"xAxisReversed",
+                    @"yAxisReversed",
+                    @"xAxisInverted",
+                    @"Polarization",
+                    @"DataLabelShow",];
     } else {
-        nameArr = @[@"xReversed", @"yReversed", @"xAxisInverted", @"Polarization", @"DataShow", @"HideMarker"];
+        nameArr = @[@"xReversed",
+                    @"yReversed",
+                    @"xAxisInverted",
+                    @"Polarization",
+                    @"DataShow",
+                    @"HideMarker"];
     }
     
     CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
