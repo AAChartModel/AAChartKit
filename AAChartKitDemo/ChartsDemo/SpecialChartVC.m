@@ -403,7 +403,6 @@
         .subtitleSet(@"")
         .dataLabelEnabledSet(true)//是否直接显示扇形图数据
         .yAxisTitleSet(@"摄氏度")
-        .tooltipEnabledSet(false)//禁用浮动提示框 tooltip
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
