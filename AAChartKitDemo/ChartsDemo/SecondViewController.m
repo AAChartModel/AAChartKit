@@ -162,7 +162,8 @@
  *
  **/
 - (void)configureTheYAxisPlotLineForAAChartView {
-    _aaChartModel.yAxisMaxSet(@(21))//Y轴最大值
+    _aaChartModel
+    .yAxisMaxSet(@(21))//Y轴最大值
     .yAxisMinSet(@(1))//Y轴最小值
     .yAxisAllowDecimalsSet(NO)//是否允许Y轴坐标值小数
     .yAxisTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])//指定y轴坐标

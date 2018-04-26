@@ -149,13 +149,15 @@
     return colorStringArr;
 }
 
+
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:@"colorfulColumnChart"]) {
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Colorful Column Chart")
         .subtitleSet(@"single data array colorful column chart")
-        .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B",@"#9b43b4",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",])
+        .colorsThemeSet(@[@"#FF4500", @"#FFA500", @"#FFD700", @"#3CB371", @"#00CED1",@"#00BFFF",@"#7B68EE",])
+        .gradientColorEnabledSet(true)
         .borderRadiusSet(@5)
         .seriesSet(@[
                      @{@"name":@"ElementOne",

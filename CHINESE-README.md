@@ -188,7 +188,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ### 特殊类型图表配置
 
-***AAChartKit*** 中`扇形图`、`气泡图`都归属为特殊类型,所以想要绘制`扇形图`、`气泡图`,图表模型 `AAChartModel` 设置稍有不同,示例如下
+***AAChartKit*** 中`扇形图`、`气泡图`都归属为特殊类型,所以想要绘制`扇形图`、`气泡图`,图表模型 `AAChartModel` 的属性 `series` 设置稍有不同,示例如下
 
 - 绘制扇形图,你需要这样配置模型 `AAChartModel`
 ```objective-c

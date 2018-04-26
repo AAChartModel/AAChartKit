@@ -187,14 +187,12 @@
 //
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
-    _dictAdditionalOptions=chartModel.additionalOptions;
+    _dictAdditionalOptions = chartModel.additionalOptions;
     [self aa_drawChartWithOptions:options];
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
-     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
-     _dictAdditionalOptions=chartModel.additionalOptions;
-    [self aa_refreshChartWithOptions:options];
+    [self aa_drawChartWithChartModel:chartModel];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
@@ -208,22 +206,26 @@
 //=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 //
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
-    [self configureTheOptionsJsonStringWithAAOptions:options];
-    NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-    if (AASYSTEM_VERSION >= 9.0) {
-        [_wkWebView loadRequest:URLRequest];
+    if (!_optionJson) {
+        [self configureTheOptionsJsonStringWithAAOptions:options];
+        NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
+        if (AASYSTEM_VERSION >= 9.0) {
+            [_wkWebView loadRequest:URLRequest];
+        } else {
+            [_uiWebView loadRequest:URLRequest];
+        }
     } else {
-        [_uiWebView loadRequest:URLRequest];
+        [self configureTheOptionsJsonStringWithAAOptions:options];
+        [self drawChart];
     }
 }
 
 - (void)aa_refreshChartWithOptions:(AAOptions *)options {
-    [self configureTheOptionsJsonStringWithAAOptions:options];
-    [self drawChart];
+    [self aa_drawChartWithOptions:options];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
-    NSString *seriesJsonStr=[AAJsonConverter getPureSeriesString:series];
+    NSString *seriesJsonStr = [AAJsonConverter getPureSeriesString:series];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
@@ -405,7 +407,6 @@
 
 + (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
     NSString *str =[originalString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//    str = [str stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return str;
 }

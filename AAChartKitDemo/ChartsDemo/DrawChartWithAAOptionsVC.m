@@ -478,7 +478,7 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .backgroundColorSet(@"#222733")
+//    .backgroundColorSet(@"#222733")
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
@@ -489,13 +489,25 @@
                  ]
                );
     
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.column.groupPadding = @0;//设置棱柱之间的间距百分比
+    aaOptions.plotOptions.column.dataLabels = (id)@{
+                                                @"enabled": @true,
+                                                @"verticalAlign": @"bottom",
+                                                @"y": @(-10),
+                                                @"shape":@"callout",
+                                                @"backgroundColor":@"rgba(0, 0, 0, 0.75)",
+                                                @"style": @{
+                                                        @"color":@"#FFFFFF",
+                                                        @"textOutline":@"none"
+                                                        }
+                                                };
     return aaOptions;
 }
 
 - (AAOptions *)configureCustomStyleTooltipChart {
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel = AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
     .subtitleSet(@"金价(元/克)")//图表副标题
@@ -518,7 +530,7 @@
     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AATooltip *tooltip = options.tooltip;
     tooltip
-    .useHTMLSet(@(true))
+    .useHTMLSet(true)
     .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
     .pointFormatSet(@"<b>{point.y}</b>&nbsp元/克")
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位

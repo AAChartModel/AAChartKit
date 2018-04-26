@@ -186,7 +186,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ### Special chart types in ***AAChartKit***
 
-The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you want to draw these types of charts, you need to prepare the AAChartModel differently:
+The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you want to draw these types of charts, you need to prepare the property `series` of AAChartModel differently:
 
 - To draw a pie chart, you should configure the properties of `AAChartModel` like this:
 ```objective-c
