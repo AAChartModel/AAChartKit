@@ -189,7 +189,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
     .titleSet(AAObject(AATitle)
               .textSet(aaChartModel.yAxisTitle))//y 轴标题
-    .lineWidthSet(aaChartModel.yAxislineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
+    .lineWidthSet(aaChartModel.yAxisLineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval);
     

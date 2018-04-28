@@ -108,7 +108,7 @@ AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
         self.xAxisVisible           = YES;//x轴默认可见
         self.yAxisVisible           = YES;//y轴默认可见
         self.yAxisLabelsEnabled     = YES;
-        self.yAxislineWidth         = @0.5; //y轴轴线的宽度为1
+        self.yAxisLineWidth         = @0.5; //y轴轴线的宽度为1
         self.yAxisGridLineWidth     = @1; //y轴分割线线宽为一个像素
         self.legendEnabled          = YES;//默认显示图例(图表下方可点击的带有文字的小圆点)
         self.borderRadius           = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
@@ -193,7 +193,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible);//x 轴是�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle);//y 轴标题
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxislineWidth);//y y-axis line width
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLineWidth);//y y-axis line width
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLabelsFontSize);//y-axis labels font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis font weight
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis font color
