@@ -261,7 +261,6 @@
     options.title = (id)title;
     options.xAxis = (id)xAxis;
     options.series = series;
-    options.drilldown = drilldown;
     options.colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
     

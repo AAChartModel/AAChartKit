@@ -70,7 +70,6 @@ AAPropStatementAndFuncStatement(strong, AAOptions, NSArray       *, series);
 AAPropStatementAndFuncStatement(strong, AAOptions, AALegend      *, legend);
 AAPropStatementAndFuncStatement(strong, AAOptions, NSArray       *, colors);
 AAPropStatementAndFuncStatement(assign, AAOptions, BOOL,            gradientColorEnabled);
-AAPropStatementAndFuncStatement(assign, AAOptions, NSDictionary  *, drilldown);
 AAPropStatementAndFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText); //String to display in 'zoom reset button"
 
 @end
