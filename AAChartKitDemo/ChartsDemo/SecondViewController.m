@@ -125,7 +125,7 @@
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-    .yAxisVisibleSet(false)//设置 Y 轴是否可见
+    .yAxislineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀

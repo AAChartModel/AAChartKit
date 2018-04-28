@@ -188,6 +188,7 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);//y 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);//y 轴标题
+AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxislineWidth);//y y-axis line width
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisLabelsFontSize);//y y-axis labels font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);//y-axis label font color
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);//y-axis label font weight
