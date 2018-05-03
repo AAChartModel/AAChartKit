@@ -177,7 +177,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 ### 更多圖形效果
  註意:如下的這幅`DEMO演示圖`為大小*6M*左右的`GIF動態圖`,如未顯示動態效果則說明圖片資源未全部加載。請耐心等待至圖片資源內容完全加載結束後，即可最終觀賞更多的項目的動態演示效果.
 
-![AAChartKit-Live](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/AAChartKit-Live.gif?raw=true)
+![AAChartKit-Live](https://github.com/AAChartModel/Gallery/blob/master/AAChartKit/AAChartKit-Live.gif)
 
 ## 特別說明
 
