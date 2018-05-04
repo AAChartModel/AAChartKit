@@ -61,6 +61,7 @@
         case 3: return [self configureThePolygonPolarChart];
         case 4: return [self configureTheNoGapColunmChart];
         case 5: return [self configureCustomStyleTooltipChart];
+        case 6: return [self adjustChartLeftAndRightMargin];
     }
     return nil;
 }
@@ -543,6 +544,28 @@
     return options;
     
     
+}
+
+- (AAOptions *)adjustChartLeftAndRightMargin {
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .polarSet(true)
+    .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"])
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2017")
+                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.chart.marginLeft = @70;
+    aaOptions.chart.marginRight = @70;
+    return aaOptions;
 }
 
 @end

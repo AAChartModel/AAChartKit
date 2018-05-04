@@ -46,6 +46,8 @@ AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          polar);
 AAPropStatementAndFuncStatement(strong, AAChart, AAOptions3d *, options3d);
 AAPropStatementAndFuncStatement(assign, AAChart, AAAnimation *, animation);//设置启用动画的时间和类型
 AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          inverted);
+AAPropStatementAndFuncStatement(strong, AAChart, NSNumber    *, marginLeft);
+AAPropStatementAndFuncStatement(strong, AAChart, NSNumber    *, marginRight);
 
 @end
 

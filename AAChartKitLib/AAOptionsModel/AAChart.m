@@ -43,5 +43,7 @@ AAPropSetFuncImplementation(AAChart, BOOL ,         polar);
 AAPropSetFuncImplementation(AAChart, AAOptions3d *, options3d);
 AAPropSetFuncImplementation(AAChart, AAAnimation *, animation);
 AAPropSetFuncImplementation(AAChart, BOOL ,         inverted);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginLeft);
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginRight);
 
 @end
