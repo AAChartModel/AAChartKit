@@ -106,13 +106,18 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
-5. Refresh the chart data (this method is recommended for updating the series data dynamically)
+🌹🌹🌹Congratulations! Everything was done!!! You will get you want!!!
+
+### Update chart content 
+if you want to refresh chart content,you should do something as follow.According to your actual needs, select the function that fits you.
+
+*  Refresh the chart data (this method is recommended for updating the series data dynamically)
 ```objective-c
 //Refresh the chart dynamically only when the series attribute of the AAChartModel object is updated
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
-6. Refresh the chart, minus the chart data (this method is recommended for subsequent refreshes after the first drawing of graphics has completed. If you want to update the chart data only, you should use the function `aa_onlyRefreshTheChartDataWithChartModelSeries`)
+*  Refresh the chart, minus the chart data (this method is recommended for subsequent refreshes after the first drawing of graphics has completed. If you want to update the chart data only, you should use the function `aa_onlyRefreshTheChartDataWithChartModelSeries`)
 ```objective-c
 //Refresh the chart after the AAChartModel content is updated
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];

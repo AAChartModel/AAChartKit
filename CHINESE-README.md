@@ -106,14 +106,18 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 /*图表视图对象调用图表模型对象,绘制最终图形*/
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
+🌹🌹🌹 好了,至此,有关于绘制图形的任务,一切皆已经搞定!!! 你将得到你想要的任意图形!!!
 
-5.  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
+### 更新图形内容
+如果你需要更新图表内容,你应该阅读以下内容,根据你的实际需要,选择调用适合你的函数
+
+*  仅仅刷新图形的数据(进行数据的动态更新操作时,建议使用此方法)
 ```objective-c
 /*仅仅更新 AAChartModel 对象的 series 属性时,动态刷新图表*/
 [_aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:aaChartModelSeriesArray];
 ```
 
-6.  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用`aa_onlyRefreshTheChartDataWithChartModelSeries`方法)
+*  刷新图形除数据属性 `series` 以外的其他属性(首次绘制图形完成之后,后续刷新图表的属性均建议调用此方法 注意:仅仅刷新图形数据,则建议使用上面的👆`aa_onlyRefreshTheChartDataWithChartModelSeries`方法)
 ```objective-c
 /*更新 AAChartModel 内容之后,刷新图表*/
 [_aaChartView aa_refreshChartWithChartModel:aaChartModel];
