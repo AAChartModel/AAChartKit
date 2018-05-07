@@ -106,7 +106,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
-🌹🌹🌹Congratulations! Everything was done!!! You will get you want!!!
+🌹🌹🌹Congratulations! Everything was done!!! You will get what you want!!!🌈🌈🌈
 
 ### Update chart content 
 if you want to refresh chart content,you should do something as follow.According to your actual needs, select the function that fits you.
