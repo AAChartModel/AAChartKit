@@ -169,7 +169,7 @@
         return aaChartModel;
     } else if ([chartType isEqualToString:@"gradientColorBar"]) {
         AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypeBar)
+        .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Bar Chart")
         .subtitleSet(@"gradient color bar")
         .borderRadiusSet(@5)
@@ -382,10 +382,20 @@
         .yAxisTitleSet(@"")
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .dataLabelEnabledSet(true)
-        .gradientColorEnabledSet(true)
         .seriesSet(@[AAObject(AASeriesElement)
                      .nameSet(@"2017")
-                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),]
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+                     .lineWidthSet(@5)
+                     .fillColorSet((id)@{
+                                     @"linearGradient": @{
+                                             @"x1": @0,
+                                             @"y1": @1,
+                                             @"x2": @0,
+                                             @"y2": @0
+                                             },
+                                     @"stops": @[@[@0,@"rgba(220,20,60,0.1)"],
+                                                 @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+                                     }),]
                    )
         .yAxisPlotLinesSet(@[
                              AAObject(AAPlotLinesElement)
