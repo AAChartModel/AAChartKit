@@ -137,9 +137,9 @@
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
 
-- (NSArray *)configureTheRandomColorArray {
+- (NSArray *)configureTheRandomColorArrayWithColorNumber:(NSInteger)colorNumber {
     NSMutableArray *colorStringArr = [[NSMutableArray alloc]init];
-    for (int i=0; i<5; i++) {
+    for (int i=0; i < colorNumber; i++) {
         int R = (arc4random() % 256) ;
         int G = (arc4random() % 256) ;
         int B = (arc4random() % 256) ;
@@ -156,7 +156,7 @@
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Colorful Column Chart")
         .subtitleSet(@"single data array colorful column chart")
-        .colorsThemeSet(@[@"#FF4500", @"#FFA500", @"#FFD700", @"#3CB371", @"#00CED1",@"#00BFFF",@"#7B68EE",])
+        .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:14])
         .gradientColorEnabledSet(true)
         .borderRadiusSet(@5)
         .seriesSet(@[
@@ -169,7 +169,7 @@
         return aaChartModel;
     } else if ([chartType isEqualToString:@"gradientColorBar"]) {
         AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypeColumn)
+        .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Bar Chart")
         .subtitleSet(@"gradient color bar")
         .borderRadiusSet(@5)
@@ -235,7 +235,7 @@
         .gradientColorEnabledSet(true)
         .titleSet(@"哥谭市月平均气温")
         .subtitleSet(@"民风淳朴人才辈出哥谭市")
-        .colorsThemeSet([self configureTheRandomColorArray])//生成一个随机颜色的数组(可以不写采用默认颜色主题)
+        .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:2])//生成一个随机颜色的数组(可以不写采用默认颜色主题)
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .additionalOptionsSet((id)yAxisDic)
         .seriesSet(@[
