@@ -57,9 +57,6 @@
         case SpecialChartVCChartTypeDoubleYAxisesChart:
             chartType = @"doubleYAxisesChart";
             break;
-        case SpecialChartVCChartTypeDifferentDashStyleLine:
-            chartType = @"differentDashStyleLine";
-            break;
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
@@ -89,12 +86,6 @@
             break;
         case SpecialChartVCChartTypeStepArea:
             chartType = @"stepArea";
-            break;
-        case SpecialChartVCChartTypeRangeAndAverage:
-            chartType = @"rangeAndAverage";
-            break;
-        case SpecialChartVCChartTypeMixed:
-            chartType = @"mixed";
             break;
         case SpecialChartVCChartTypeNightingaleRoseChart:
             chartType = @"NightingaleRoseChart";
@@ -198,7 +189,7 @@
                                              @"x2": @0,
                                              @"y2": @0
                                              },
-                                     @"stops": @[@[@0,@"rgba(220,20,60,0.1)"],
+                                     @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
                                                  @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
                                      }),
                      ]
@@ -250,56 +241,6 @@
                      .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
                      ]);
         
-        return aaChartModel;
-        
-    } else if ([chartType isEqualToString:@"differentDashStyleLine"]) {
-        
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypeSpline)//图表类型
-        .titleSet(@"")//图表主标题
-        .subtitleSet(@"")//图表副标题
-        .yAxisVisibleSet(true)//设置 Y 轴是否可见
-        .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0",@"cyan",@"gray"])//设置主体颜色数组
-        .yAxisTitleSet(@"")//设置 Y 轴标题
-        .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-        .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
-        .stackingSet(AAChartStackingTypeNormal)
-        //.legendEnabledSet(false)//隐藏图例
-        .markerRadiusSet(@0)//隐藏连接点
-        .seriesSet(@[
-                     AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeDash)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeDash)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeDashDot)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeDashDot)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeLongDash)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeLongDash)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeLongDashDot)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeLongDashDot)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeShortDashDot)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeShortDashDot)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
-                     .nameSet(AALineDashSyleTypeShortDashDotDot)
-                     .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
-                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     
-                     ]
-                   );
         return aaChartModel;
         
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
@@ -1148,163 +1089,6 @@
                    )
         ;
 
-        return aaChartModel;
-        
-    } else if ([chartType isEqualToString:@"rangeAndAverage"]) {
-        
-        
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .titleSet(@"面积范围均线图")
-        .subtitleSet(@"混合图的一种")
-        .yAxisGridLineWidthSet(@0)
-        .xAxisVisibleSet(false)
-        .yAxisTitleSet(@"摄氏度")
-        .seriesSet(@[@{
-                         @"name": @"Range",
-                         @"data": @[@[@1246406400000, @14.3, @27.7],
-                                    @[@1246492800000, @14.5, @27.8],
-                                    @[@1246579200000, @15.5, @29.6],
-                                    @[@1246665600000, @16.7, @30.7],
-                                    @[@1246752000000, @16.5, @25.0],
-                                    @[@1246838400000, @17.8, @25.7],
-                                    @[@1246924800000, @13.5, @24.8],
-                                    @[@1247011200000, @10.5, @21.4],
-                                    @[@1247097600000, @9.2,  @23.8],
-                                    @[@1247184000000, @11.6, @21.8],
-                                    @[@1247270400000, @10.7, @23.7],
-                                    @[@1247356800000, @11.0, @23.3],
-                                    @[@1247443200000, @11.6, @23.7],
-                                    @[@1247529600000, @11.8, @20.7],
-                                    @[@1247616000000, @12.6, @22.4],
-                                    @[@1247702400000, @13.6, @19.6],
-                                    @[@1247788800000, @11.4, @22.6],
-                                    @[@1247875200000, @13.2, @25.0],
-                                    @[@1247961600000, @14.2, @21.6],
-                                    @[@1248048000000, @13.1, @17.1],
-                                    @[@1248134400000, @12.2, @15.5],
-                                    @[@1248220800000, @12.0, @20.8],
-                                    @[@1248307200000, @12.0, @17.1],
-                                    @[@1248393600000, @12.7, @18.3],
-                                    @[@1248480000000, @12.4, @19.4],
-                                    @[@1248566400000, @12.6, @19.9],
-                                    @[@1248652800000, @11.9, @20.2],
-                                    @[@1248739200000, @11.0, @19.3],
-                                    @[@1248825600000, @10.8, @17.8],
-                                    @[@1248912000000, @11.8, @18.5],
-                                    @[@1248998400000, @10.8, @16.1]],
-                         @"type": AAChartTypeArearange,
-                         @"lineWidth": @0,
-                         @"linkedTo": @":previous",
-                         @"fillOpacity": @0.4,
-                         @"zIndex": @0,
-                         @"color": @"#1E90FF",
-                         @"marker": @{
-                                 @"enabled": @false
-                                 }
-                         },
-                     @{
-                         @"name": @"Temperature",
-                         @"color": @"#1E90FF",
-                         @"type": AAChartTypeLine,
-                         @"data": @[@[@1246406400000, @21.5],
-                                    @[@1246492800000, @22.1],
-                                    @[@1246579200000, @23],
-                                    @[@1246665600000, @23.8],
-                                    @[@1246752000000, @21.4],
-                                    @[@1246838400000, @21.3],
-                                    @[@1246924800000, @18.3],
-                                    @[@1247011200000, @15.4],
-                                    @[@1247097600000, @16.4],
-                                    @[@1247184000000, @17.7],
-                                    @[@1247270400000, @17.5],
-                                    @[@1247356800000, @17.6],
-                                    @[@1247443200000, @17.7],
-                                    @[@1247529600000, @16.8],
-                                    @[@1247616000000, @17.7],
-                                    @[@1247702400000, @16.3],
-                                    @[@1247788800000, @17.8],
-                                    @[@1247875200000, @18.1],
-                                    @[@1247961600000, @17.2],
-                                    @[@1248048000000, @14.4],
-                                    @[@1248134400000, @13.7],
-                                    @[@1248220800000, @15.7],
-                                    @[@1248307200000, @14.6],
-                                    @[@1248393600000, @15.3],
-                                    @[@1248480000000, @15.3],
-                                    @[@1248566400000, @15.8],
-                                    @[@1248652800000, @15.2],
-                                    @[@1248739200000, @14.8],
-                                    @[@1248825600000, @14.4],
-                                    @[@1248912000000, @15],
-                                    @[@1248998400000, @13.6]],
-                         @"zIndex": @1,
-                         @"marker": @{
-                                 @"fillColor":@"#1E90FF" ,
-                                 @"lineWidth": @2,
-                                 @"lineColor":@"white"
-                                 }
-                         },
-                     
-                     ]);
-        return aaChartModel;
-    }
-    
-    else if ([chartType isEqualToString:@"mixed"]) {
-        
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
-        .titleSet(@"城市气温指数")
-        .subtitleSet(@"虚拟数据")
-        .yAxisTitleSet(@"摄氏度")
-        .markerRadiusSet(@6)
-        .yAxisVisibleSet(true)
-        .yAxisGridLineWidthSet(@0)
-        .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-        .chartTypeSet(AAChartTypeLine)
-        .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-        .dataLabelEnabledSet(true)
-        .colorsThemeSet(@[@"#1e90ff",@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
-        .seriesSet(@[
-                     AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeColumnrange)
-                     .nameSet(@"温度")
-                     .dataSet(@[
-                                @[@(-9.7), @9.4],
-                                @[@(-8.7), @6.5],
-                                @[@(-3.5), @9.4],
-                                @[@(-1.4),@19.9],
-                                @[@0.0 ,  @22.6],
-                                @[@2.9 ,  @29.5],
-                                @[@9.2 ,  @30.7],
-                                @[@7.3 ,  @26.5],
-                                @[@4.4 ,  @18.0],
-                                @[@(-3.1),@11.4],
-                                @[@(-5.2),@10.4],
-                                @[@(-9.9),@16.8]
-                                ]),
-                     
-                     AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeLine)
-                     .nameSet(@"东京")
-                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                     
-                     AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeLine)
-                     .nameSet(@"纽约")
-                     .dataSet(@[@-0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                     
-                     AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeLine)
-                     .nameSet(@"柏林")
-                     .dataSet(@[@-0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                     
-                     AAObject(AASeriesElement)
-                     .typeSet(AAChartTypeLine)
-                     .nameSet(@"伦敦")
-                     .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-                     ]
-                   )
-        ;
-        
         return aaChartModel;
         
     } else if ([chartType isEqualToString:@"NightingaleRoseChart"]) {

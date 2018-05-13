@@ -39,6 +39,7 @@
 #import "DrilldownChartVC.h"
 #import "ShowManyChartViewVC.h"
 #import "ChartListVC.h"
+#import "MixedChartVC.h"
 
 #warning revise
 #import "MonitorViewController.h"
@@ -154,22 +155,30 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-            
         case 2: {
+            /*图表数据动态刷新*/
+            MixedChartVC *vc = [[MixedChartVC alloc]init];
+            vc.chartTypeIndex = indexPath.row;
+            [self.navigationController  pushViewController:vc animated:YES];
+        }
+            break;
+            
+            
+        case 3: {
             /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
         
-        case 3: {
+        case 4: {
             /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         
-        case 4: {
+        case 5: {
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = [[DrawChartWithAAOptionsVC alloc]init];
             vc.selectedIndex = indexPath.row;
@@ -177,7 +186,7 @@
         }
             break;
             
-        case 5: {
+        case 6: {
             /*同时显示多个 AAChartView*/
             if (indexPath.row == 0) {
                 ShowManyChartViewVC *vc = [[ShowManyChartViewVC alloc]init];
@@ -190,7 +199,7 @@
         }
             break;
             
-        case 6: {
+        case 7: {
             /*可向下钻取类型图表*/
             DrilldownChartVC *vc = [[DrilldownChartVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
@@ -253,7 +262,6 @@
                              @[@"Colorful Column Chart---多彩柱形图",
                                @"Gradient Color Bar---颜色渐变条形图",
                                @"Double Y Axises Chart---双Y轴混合图",
-                               @"Different Dash Style Chart---虚线图",
                                @"Mixed Line Chart---虚实线混合折线图",
                                @"With Dividing Line---带有区域分割线区域图",
                                @"Area Chart with minus--带有负数的区域填充图",
@@ -261,16 +269,22 @@
                                @"Bubble Chart---气泡图",
                                @"Scatter Chart--散点图",
                                @"Arearange Chart--区域面积图",
-                               @"Columnrange Chart--柱形面积图",
+                               @"Columnrange Chart--柱形范围图",
                                @"Step Line Chart--直方折线图",
                                @"Step Area Chart--直方折线填充图",
-                               @"Area Range And Line Chart--范围均线图",
-                               @"Mixed Chart---混合图",
                                @"Nightingale Rose Chart---南丁格尔玫瑰图",
                                @"Box Plot Chart---箱线图",
                                @"Water Fall---瀑布图",
                                @"Pyramid Chart---金字塔图",
                                @"Funnel Chart---漏斗图",],
+                             /*混合类型图表*/
+                             @[@"Arearange Mixed Line---面积范围均线图",
+                               @"Columnrange Mixed Line---柱形范围图混合折线图",
+                               @"Stacking Column Mixed Line---堆积柱形图混合折线图",
+                               @"Dash Style Types Mixed---多种类型曲线混合图",
+                               @"Negative Color Mixed---基准线以下异色混合图",
+                               @"scatterMixedLine---散点图混合折线图(待完成)",
+                               @"Negative Color Mixed bubble---基准线以下异色气泡图"],
                              /*图表数据动态刷新*/
                              @[@"模拟实时更新数据示例"],
                              /*JQuery动画样式类型演示*/
@@ -297,6 +311,7 @@
     if (!_sectionTypeArr) {
         _sectionTypeArr = @[@"Basic Type---基础类型",
                             @"Special Type---特别类型",
+                            @"Mixed Type Chart---混合图表",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---动画相关",
                             @"AAOptions---Use AAOptions",
