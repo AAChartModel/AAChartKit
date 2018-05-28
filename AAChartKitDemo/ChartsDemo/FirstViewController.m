@@ -257,11 +257,11 @@
                                @"Spline Chart---曲线图",
                                @"Step Line Chart--直方折线图",
                                @"Step Area Chart--直方折线填充图",
-                               @"Scatter Chart---散点图"],
+                               @"Scatter Chart---散点图"
+                               ],
                              /*特殊类型图表*/
                              @[@"Colorful Column Chart---多彩柱形图",
                                @"Gradient Color Bar---颜色渐变条形图",
-                               @"Double Y Axises Chart---双Y轴混合图",
                                @"Mixed Line Chart---虚实线混合折线图",
                                @"With Dividing Line---带有区域分割线区域图",
                                @"Area Chart with minus--带有负数的区域填充图",
@@ -284,11 +284,14 @@
                                @"Dash Style Types Mixed---多种类型曲线混合图",
                                @"Negative Color Mixed---基准线以下异色混合图",
                                @"scatterMixedLine---散点图混合折线图(待完成)",
-                               @"Negative Color Mixed bubble---基准线以下异色气泡图"],
+                               @"Negative Color Mixed bubble---基准线以下异色气泡图"
+                               ],
                              /*图表数据动态刷新*/
-                             @[@"模拟实时更新数据示例"],
+                             @[@"模拟实时更新数据示例"
+                               ],
                              /*JQuery动画样式类型演示*/
-                             @[@"图形动画样式相关演示"],
+                             @[@"图形动画样式相关演示"
+                               ],
                              /*通过AAOptions实例对象来绘制图形*/
                              @[@"绘制legend居顶部的区域填充图",
                                @"绘制带有中心标题的环形图",
@@ -297,12 +300,16 @@
                                @"缝隙很小的柱状图",
                                @"Custom style tooltip--自定义浮动提示框",
                                @"调整图表的左右边距",
-                               @"设置图表绘图区的背景图片"],
+                               @"设置图表绘图区的背景图片",
+                               @"Double Y Axises Chart---双Y轴混合图",
+                               ],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
-                                @"UITableView上显示多个 AAChartView"],
+                                @"UITableView上显示多个 AAChartView"
+                                ],
                              /*可向下钻取类型图表*/
-                             @[@"Drilldown column chart--向下钻取的柱状图"],
+                             @[@"Drilldown column chart--向下钻取的柱状图"
+                               ],
                              ];
     }
     return _chartTypeNameArr;

@@ -54,9 +54,9 @@
         case SpecialChartVCChartTypeGradientColorBar:
             chartType = @"gradientColorBar";
             break;
-        case SpecialChartVCChartTypeDoubleYAxisesChart:
-            chartType = @"doubleYAxisesChart";
-            break;
+//        case SpecialChartVCChartTypeDoubleYAxisesChart:
+//            chartType = @"doubleYAxisesChart";
+//            break;
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
@@ -384,10 +384,6 @@
                      .borderWidthSet(@0)//描边的宽度
                      .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                      .statesSet(@{@"hover": @{@"enabled": @(bool_false)}})//禁用点击区块之后出现的半透明遮罩层 (先定义bool变量的原因是，直接用true，false，处理完成之后容易变成0或者1。https://www.cnblogs.com/haojuncong/p/4652998.html )
-                     .dataLabelsSet((AAObject(AADataLabels)
-                                     .enabledSet(YES)
-                                     .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
-                                     ))
                      .dataSet(
                               @[
                                 @[@"Firefox",   @3336.2],
@@ -1245,6 +1241,8 @@
     
     return nil;
 }
+
+
 
 
 @end

@@ -35,7 +35,7 @@
 typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeColorfulColumnChart = 0,
     SpecialChartVCChartTypeGradientColorBar ,
-    SpecialChartVCChartTypeDoubleYAxisesChart,
+//    SpecialChartVCChartTypeDoubleYAxisesChart,
     SpecialChartVCChartTypeMixedLine,
     SpecialChartVCChartTypeArea,
     SpecialChartVCChartTypeAreaspline,

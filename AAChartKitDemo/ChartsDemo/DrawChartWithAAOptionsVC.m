@@ -43,13 +43,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    AAChartView *chartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    chartView.contentHeight = chartView.frame.size.height-80;
-    [self.view addSubview:chartView];
-    chartView.scrollEnabled = NO;
+    AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    aaChartView.contentHeight = aaChartView.frame.size.height-80;
+    [self.view addSubview:aaChartView];
+    aaChartView.scrollEnabled = NO;
     
     AAOptions *chartOptions = [self configureChartOptions];
-    [chartView aa_drawChartWithOptions:chartOptions];
+    [aaChartView aa_drawChartWithOptions:chartOptions];
     
 }
 
@@ -63,6 +63,7 @@
         case 5: return [self configureCustomStyleTooltipChart];
         case 6: return [self adjustChartLeftAndRightMargin];
         case 7: return [self configureChartWithBackgroundImage];
+        case 8: return [self configureDoubleYAxisChartOptions];
     }
     return nil;
 }
@@ -280,6 +281,8 @@
     chartOptions.plotOptions = aaPlotOptions;
     chartOptions.series = aaSeries;
     chartOptions.colors = aaColors;
+    
+    return chartOptions;
 }
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
@@ -433,6 +436,8 @@
     chartOptions.tooltip = aaTooltip;
     chartOptions.plotOptions = aaPlotOptions;
     chartOptions.series = aaSeries;
+    
+    return chartOptions;
 
 }
 
@@ -599,6 +604,62 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.chart.plotBackgroundImage = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1138516915,1273515241&fm=27&gp=0.jpg";
     return aaOptions;
+}
+
+- (AAOptions *)configureDoubleYAxisChartOptions {
+    AATitle *aaTitle = AAObject(AATitle)
+    .textSet(@"双Y轴混合图");
+    NSArray *yAxisArr = @[
+                          @{ // Primary yAxis
+                              @"labels": @{
+                                      @"format": @"{value}°C",
+                                      
+                                      },
+                              @"title": @{
+                                      @"text": @"温度",
+                                      
+                                      },
+                              @"opposite": @true
+                              },
+                          @{ // Secondary yAxis
+                              @"gridLineWidth": @0,
+                              @"title": @{
+                                      @"text": @"降雨量",
+                                      
+                                      },
+                              @"labels": @{
+                                      @"format": @"{value} mm",
+                                      
+                                      }
+                              }
+                          ];
+    AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true).enabledSet(true);
+    NSArray *aaSeries = @[
+                          AAObject(AASeriesElement)
+                          .nameSet(@"2017")
+                          .typeSet(AAChartTypeColumn)
+                          .yAxisSet(@1)
+                          .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+                          .dataLabelsSet(AAObject(AADataLabels)
+                                         .enabledSet(true)
+                                         )
+                          ,
+                          AAObject(AASeriesElement)
+                          .nameSet(@"2018")
+                          .typeSet(AAChartTypeLine)
+                          .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
+                          .dataLabelsSet(AAObject(AADataLabels)
+                                         .enabledSet(true)
+                                         )
+                          ];
+        
+    AAOptions *chartOptions = AAObject(AAOptions);
+    chartOptions.title = aaTitle;
+    chartOptions.yAxis = (id)yAxisArr;
+    chartOptions.tooltip = aaTooltip;
+    chartOptions.series = aaSeries;
+    
+    return chartOptions;
 }
 
 @end
