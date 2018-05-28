@@ -58,5 +58,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys);
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, yAxis);
 AAPropSetFuncImplementation(AASeriesElement, AADataLabels*, dataLabels);
 AAPropSetFuncImplementation(AASeriesElement, id        , step);//是否转变为直方折线图
+AAPropSetFuncImplementation(AASeriesElement, NSDictionary *, states);
+
 
 @end

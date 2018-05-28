@@ -222,6 +222,7 @@
                                                }
                                            ]};
         
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .gradientColorEnabledSet(true)
         .titleSet(@"哥谭市月平均气温")
@@ -234,11 +235,15 @@
                      .nameSet(@"2017")
                      .typeSet(AAChartTypeColumn)
                      .yAxisSet(@1)
-                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+                     ,
                      AAObject(AASeriesElement)
                      .nameSet(@"2018")
                      .typeSet(AAChartTypeLine)
-                     .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+                     .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
+                     .dataLabelsSet(AAObject(AADataLabels)
+                                     .enabledSet(true)
+                                     )
                      ]);
         
         return aaChartModel;
@@ -361,6 +366,8 @@
         
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         
+        bool bool_false = false;
+        
         AAChartModel *aaChartModel= AAObject(AAChartModel)
         .chartTypeSet(AAChartTypePie)
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
@@ -373,7 +380,14 @@
                      AAObject(AASeriesElement)
                      .nameSet(@"语言热度值")
                      .innerSizeSet(@"20%")//内部圆环半径大小占比
+                     .sizeSet(@300)//尺寸大小
+                     .borderWidthSet(@0)//描边的宽度
                      .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+                     .statesSet(@{@"hover": @{@"enabled": @(bool_false)}})//禁用点击区块之后出现的半透明遮罩层 (先定义bool变量的原因是，直接用true，false，处理完成之后容易变成0或者1。https://www.cnblogs.com/haojuncong/p/4652998.html )
+                     .dataLabelsSet((AAObject(AADataLabels)
+                                     .enabledSet(YES)
+                                     .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
+                                     ))
                      .dataSet(
                               @[
                                 @[@"Firefox",   @3336.2],

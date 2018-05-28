@@ -305,17 +305,20 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     
     AAChartType chartType = aaChartModel.chartType;
     
-    AADataLabels *aaDataLabels = (AAObject(AADataLabels)
-                                  .enabledSet(aaChartModel.dataLabelEnabled)
-                                  .styleSet(AAObject(AAStyle)
-                                            .colorSet(aaChartModel.dataLabelFontColor)
-                                            .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
-                                            .fontWeightSet(aaChartModel.dataLabelFontWeight)
-                                            )
-                                  .rotationSet(aaChartModel.dataLabelRotation)
-                                  .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)
-                                  //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
-                                  );
+    AADataLabels *aaDataLabels;
+    if (aaChartModel.dataLabelEnabled == true) {
+        aaDataLabels = (AAObject(AADataLabels)
+                        .enabledSet(aaChartModel.dataLabelEnabled)
+                        .styleSet(AAObject(AAStyle)
+                                  .colorSet(aaChartModel.dataLabelFontColor)
+                                  .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
+                                  .fontWeightSet(aaChartModel.dataLabelFontWeight)
+                                  )
+                        .rotationSet(aaChartModel.dataLabelRotation)
+                        .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)
+                        //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
+                        );
+    }
     
     if ([chartType isEqualToString:AAChartTypeColumn]) {
         AAColumn *aaColumn = (AAObject(AAColumn)
@@ -358,18 +361,22 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                              .cursorSet(@"pointer")
                              .showInLegendSet(true)
                              .dataLabelsSet(aaDataLabels
-                                            .formatSet(@"{point.percentage:.1f}%")));
+                                            .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
+                                            )
+        );
         if (aaChartModel.options3dEnabled == true) {
             aaPlotOptions.pie.depth = aaChartModel.options3dDepth;//设置3d 图形阴影深度
         }
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        NSDictionary *columnrangeDic = @{@"borderRadius":@0,//The color of the border surrounding each column or bar
-                                         @"borderWidth":@0,//The corner radius of the border surrounding each column or bar. default：0.
-                                         @"dataLabels":aaDataLabels,};
-        aaPlotOptions.columnrangeSet(columnrangeDic);
+        NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
+        [columnRangeDic setValue:@0 forKey:@"borderRadius"];//The color of the border surrounding each column or bar
+        [columnRangeDic setValue:@0 forKey:@"borderWidth"];//The corner radius of the border surrounding each column or bar. default：0.
+        [columnRangeDic setValue:aaDataLabels forKey:@"dataLabels"];
+        aaPlotOptions.columnrangeSet(columnRangeDic);
     } else if ([chartType isEqualToString:AAChartTypeArearange]) {
-        NSDictionary *arearangeDic = @{@"dataLabels":aaDataLabels,};
-        aaPlotOptions.arearangeSet(arearangeDic);
+        NSDictionary *areaRangeDic = [[NSMutableDictionary alloc]init];
+        [areaRangeDic setValue:aaDataLabels forKey:@"dataLabels"];
+        aaPlotOptions.arearangeSet(areaRangeDic);
     }
     return aaPlotOptions;
 }

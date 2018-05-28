@@ -59,6 +59,7 @@ AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, keys);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, yAxis);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, AADataLabels*, dataLabels);
 AAPropStatementAndFuncStatement(strong, AASeriesElement, id        , step);//是否转变为直方折线图
+AAPropStatementAndFuncStatement(strong, AASeriesElement, NSDictionary *, states);
 
 @end
 

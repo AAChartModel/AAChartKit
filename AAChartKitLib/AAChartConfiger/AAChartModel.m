@@ -167,12 +167,12 @@ AAPropSetFuncImplementation(AAChartModel, AAChartZoomType,          zoomType);//
 AAPropSetFuncImplementation(AAChartModel, AAChartAnimation,         animationType);//设置图表的渲染动画类型
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长(动画单位为毫秒)
-AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直
-AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转
-AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转
-AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色
-AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图)
-AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据
+AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直,默认为否
+AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisReversed);// x 轴翻转,默认为否
+AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed);//y 轴翻转,默认为否
+AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色,默认为否
+AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图),默认为否
+AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据,默认为否
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
