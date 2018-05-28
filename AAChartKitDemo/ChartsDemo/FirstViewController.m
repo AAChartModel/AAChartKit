@@ -296,7 +296,8 @@
                                @"多边形线框的雷达图",
                                @"缝隙很小的柱状图",
                                @"Custom style tooltip--自定义浮动提示框",
-                               @"调整图表的左右边距",],
+                               @"调整图表的左右边距",
+                               @"设置图表绘图区的背景图片"],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
                                 @"UITableView上显示多个 AAChartView"],

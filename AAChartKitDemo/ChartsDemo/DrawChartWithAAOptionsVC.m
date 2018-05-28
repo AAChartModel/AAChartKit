@@ -62,6 +62,7 @@
         case 4: return [self configureTheNoGapColunmChart];
         case 5: return [self configureCustomStyleTooltipChart];
         case 6: return [self adjustChartLeftAndRightMargin];
+        case 7: return [self configureChartWithBackgroundImage];
     }
     return nil;
 }
@@ -565,6 +566,38 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.chart.marginLeft = @70;
     aaOptions.chart.marginRight = @70;
+    return aaOptions;
+}
+
+- (AAOptions *)configureChartWithBackgroundImage {
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypePie)
+    .titleSet(@"编程语言热度")
+    .subtitleSet(@"虚拟数据")
+    .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+    .yAxisTitleSet(@"摄氏度")
+    .seriesSet(
+               @[AAObject(AASeriesElement)
+                 .nameSet(@"语言热度占比")
+                 .dataSet(@[
+                            @[@"Java"  , @67],
+                            @[@"Swift" , @44],
+                            @[@"Python", @83],
+                            @[@"OC"    , @11],
+                            @[@"Ruby"  , @42],
+                            @[@"PHP"   , @31],
+                            @[@"Go"    , @63],
+                            @[@"C"     , @24],
+                            @[@"C#"    , @888],
+                            @[@"C++"   , @66],
+                            ]),
+                 ]
+               
+               )
+    ;
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.chart.plotBackgroundImage = @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1138516915,1273515241&fm=27&gp=0.jpg";
     return aaOptions;
 }
 

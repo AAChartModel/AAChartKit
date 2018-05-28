@@ -39,6 +39,7 @@
 
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, type);
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, backgroundColor);
+AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, plotBackgroundImage);//指定绘图区背景图片的地址。如果需要设置整个图表的背景，请通过 CSS 来给容器元素（div）设置背景图。另外如果需要在导出图片中包含这个背景图，要求这个地址是公网可以访问的地址（包含可以访问且是绝对路径）。
 AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, pinchType);
 AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          panning);
 //AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, panKey);
