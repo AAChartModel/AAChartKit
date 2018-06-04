@@ -192,7 +192,8 @@
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
-    [self aa_drawChartWithChartModel:chartModel];
+    AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    [self aa_refreshChartWithOptions:options];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
@@ -215,13 +216,13 @@
             [_uiWebView loadRequest:URLRequest];
         }
     } else {
-        [self configureTheOptionsJsonStringWithAAOptions:options];
-        [self drawChart];
+        [self aa_refreshChartWithOptions:options];
     }
 }
 
 - (void)aa_refreshChartWithOptions:(AAOptions *)options {
-    [self aa_drawChartWithOptions:options];
+    [self configureTheOptionsJsonStringWithAAOptions:options];
+    [self drawChart];
 }
 
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
@@ -296,8 +297,8 @@
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
-        NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
-        [self evaluateJavaScriptWithSetterMethodNameString:jsStr];
+    NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
+    [self evaluateJavaScriptWithSetterMethodNameString:jsStr];
 }
 
 - (void)evaluateJavaScriptWithSetterMethodNameString:(NSString *)JSFunctionStr {
