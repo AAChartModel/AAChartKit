@@ -260,15 +260,15 @@
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-- (void)evaluateJavaScriptWithFunctionNameString:(NSString *)funcitonNameStr {
+- (void)evaluateJavaScriptWithFunctionNameString:(NSString *)functionNameStr {
     if (AASYSTEM_VERSION >= 9.0) {
-        [_wkWebView  evaluateJavaScript:funcitonNameStr completionHandler:^(id item, NSError * _Nullable error) {
+        [_wkWebView  evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
             if (error) {
                 AADetailLog(@"☠️☠️💀☠️☠️WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
             }
         }];
     } else {
-        [_uiWebView  stringByEvaluatingJavaScriptFromString:funcitonNameStr];
+        [_uiWebView  stringByEvaluatingJavaScriptFromString:functionNameStr];
     }
 }
 
