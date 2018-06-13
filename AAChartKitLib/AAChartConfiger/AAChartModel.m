@@ -51,7 +51,6 @@ AAChartType const AAChartTypeBoxplot         = @"boxplot";
 AAChartType const AAChartTypeWaterfall       = @"waterfall";
 AAChartType const AAChartTypePolygon         = @"polygon";
 
-
 AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
 AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
 AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
@@ -135,13 +134,6 @@ AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
         _yAxisLabelsFontColor   = @"#778899";//浅石板灰色字体
         _yAxisLabelsFontWeight  = AAChartFontWeightTypeThin;//细体字
         _yAxisAlternateGridColor= @"#ffffff";//backcolor of every other grid line area
-        
-//        _xAxisCrosshairWidth    = @1;//Zero width to disable crosshair by default
-//        _xAxisCrosshairColor    = @"#778899";//浅石板灰准星线
-//        _xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
-//        _yAxisCrosshairWidth    = @0;//Zero width to disable crosshair by default
-//        _yAxisCrosshairColor    = @"#00bfff";
-//        _yAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
     }
     return self;
 }
