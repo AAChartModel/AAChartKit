@@ -96,8 +96,10 @@ UIKIT_EXTERN AAChartType const AAChartTypePyramid;
 UIKIT_EXTERN AAChartType const AAChartTypeFunnel;
 UIKIT_EXTERN AAChartType const AAChartTypeColumnrange;
 UIKIT_EXTERN AAChartType const AAChartTypeArearange;
+UIKIT_EXTERN AAChartType const AAChartTypeAreasplinerange;
 UIKIT_EXTERN AAChartType const AAChartTypeBoxplot;
 UIKIT_EXTERN AAChartType const AAChartTypeWaterfall;
+UIKIT_EXTERN AAChartType const AAChartTypePolygon;
 
 UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft;
 UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter;

@@ -284,7 +284,10 @@
                                @"Dash Style Types Mixed---多种类型曲线混合图",
                                @"Negative Color Mixed---基准线以下异色混合图",
                                @"scatterMixedLine---散点图混合折线图(待完成)",
-                               @"Negative Color Mixed bubble---基准线以下异色气泡图"
+                               @"Negative Color Mixed bubble---基准线以下异色气泡图",
+                               @"Polygon Mixed Scatter---多边形混合散点图",
+                               @"Polar Chart Mixed---极地混合图"
+                               
                                ],
                              /*图表数据动态刷新*/
                              @[@"模拟实时更新数据示例"
