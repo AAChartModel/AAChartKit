@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeScatter,
 //    SpecialChartVCChartTypeTreeMap,
     SpecialChartVCChartTypeArearange,
+    SpecialChartVCChartTypeAreasplinerange,
     SpecialChartVCChartTypeColumnrange,
     SpecialChartVCChartTypeStepLine,
     SpecialChartVCChartTypeStepArea,
