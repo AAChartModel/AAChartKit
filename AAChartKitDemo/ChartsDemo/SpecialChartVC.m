@@ -1003,6 +1003,17 @@
         
     } else if ([chartType isEqualToString:AAChartTypeAreasplinerange]) {
         
+        NSDictionary *gradientColorDic = @{
+                                           @"linearGradient": @{
+                                                   @"x1": @0,
+                                                   @"y1": @1,
+                                                   @"x2": @0,
+                                                   @"y2": @0
+                                                   },
+                                           @"stops": @[@[@0,@"rgba(255,140,0,0.6)"],
+                                                       @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+                                           };
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeArearange)
         .titleSet(@"黄昏别馆日气温起伏图")
@@ -1015,7 +1026,7 @@
                      AAObject(AASeriesElement)
                      .nameSet(@"2020")
                      .typeSet(AAChartTypeAreasplinerange)
-                     .colorSet(@"#DC143C")//猩红色
+                     .colorSet((id)gradientColorDic)//猩红色
                      .dataSet(@[
                                 /* 2014-03-01 */
                                 @[@1393635600000, @2.1,  @8.9],
