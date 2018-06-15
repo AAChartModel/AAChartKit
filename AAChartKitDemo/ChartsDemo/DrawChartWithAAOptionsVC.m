@@ -624,29 +624,38 @@
 - (AAOptions *)configureDoubleYAxisChartOptions {
     AATitle *aaTitle = AAObject(AATitle)
     .textSet(@"双Y轴混合图");
-    NSArray *yAxisArr = @[
-                          @{ // Primary yAxis
-                              @"labels": @{
-                                      @"format": @"{value}°C",
-                                      
-                                      },
-                              @"title": @{
-                                      @"text": @"温度",
-                                      
-                                      },
-                              @"opposite": @true
-                              },
-                          @{ // Secondary yAxis
-                              @"gridLineWidth": @0,
-                              @"title": @{
-                                      @"text": @"降雨量",
-                                      
-                                      },
-                              @"labels": @{
-                                      @"format": @"{value} mm",
-                                      
-                                      }
-                              }
+    
+    AALabels *labels = (AAObject(AALabels)
+                        .enabledSet(true)//设置 y 轴是否显示数字
+                        .styleSet(AAObject(AAStyle)
+                                  .colorSet(@"#ff0000")//yAxis Label font color
+                                  .fontSizeSet(@"15px")//yAxis Label font size
+                                  .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
+                                  )
+                        .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
+                        );
+    
+    AAYAxis *yAxisOne = AAObject(AAYAxis)
+    .visibleSet(true)
+    .labelsSet(labels.formatSet(@"{value}°C"))
+    .titleSet(AAObject(AATitle)
+              .textSet(@"温度")
+              )
+    .oppositeSet(true);
+    
+    
+    AAYAxis *yAxisTwo = AAObject(AAYAxis)
+    .visibleSet(true)
+    .labelsSet(labels.formatSet(@"{value}mm"))
+    .titleSet(AAObject(AATitle)
+              .textSet(@"降雨量")
+              );
+    
+    
+    NSArray *yAxisArr = @[// Primary yAxis
+                          yAxisOne,
+                          // Secondary yAxis
+                          yAxisTwo
                           ];
     AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true).enabledSet(true);
     NSArray *aaSeries = @[
@@ -667,7 +676,7 @@
                                          .enabledSet(true)
                                          )
                           ];
-        
+    
     AAOptions *chartOptions = AAObject(AAOptions);
     chartOptions.title = aaTitle;
     chartOptions.yAxis = (id)yAxisArr;
