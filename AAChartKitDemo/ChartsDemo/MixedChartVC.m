@@ -88,7 +88,7 @@
                                     @[@1248825600000, @10.8, @17.8],
                                     @[@1248912000000, @11.8, @18.5],
                                     @[@1248998400000, @10.8, @16.1]],
-                         @"type": @"areasplinerange",
+                         @"type": AAChartTypeArearange,
                          @"lineWidth": @0,
                          @"linkedTo": @":previous",
                          @"fillOpacity": @0.4,

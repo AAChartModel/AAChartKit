@@ -33,14 +33,10 @@
 #import "ChartAnimationTypeVC.h"
 #import "AAChartKit.h"
 
-#define CurrentHeight ([UIScreen mainScreen].bounds.size.height)
-#define CurrentWidth ([UIScreen mainScreen].bounds.size.width)
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define KBlueColor         ColorWithRGB(63, 153,231,1)
 
-@interface ChartAnimationTypeVC ()<UITableViewDelegate,UITableViewDataSource> {
-    UIButton *_lastClickedBtn;
-}
+@interface ChartAnimationTypeVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
@@ -55,36 +51,111 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"动画类型";
+    
+    AAChartType chartType = [self configureTheChartType];
 
     [self configureTheAnimationTypeTableView];
-    [self configureTheChartView];
+    [self configureTheChartViewWithChartType:chartType];
   
 }
 
-- (void)configureTheChartView  {
+- (AAChartType)configureTheChartType {
+    switch (self.chartType) {
+        case 0:
+        return  AAChartTypeColumn;
+        case 1:
+        return  AAChartTypeBar;
+        case 2:
+        return  AAChartTypeArea;
+        case 3:
+        return  AAChartTypeAreaspline;
+        case 4:
+        return  AAChartTypeLine;
+        case 5:
+        return  AAChartTypeSpline;
+        case 6:
+        return  AAChartTypeLine;
+        case 7:
+        return  AAChartTypeArea;
+        case 8:
+        return  AAChartTypeScatter;
+    }
+}
+
+- (void)configureTheChartViewWithChartType:(AAChartType)chartType  {
     self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width-115, self.view.frame.size.height-60)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.chartView.scrollEnabled = NO;
    // self.chartView.contentHeight = self.view.frame.size.height-220;
     [self.view addSubview:self.chartView];
     
-    self.chartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeColumn)
+    self.chartModel = AAObject(AAChartModel)
+    .chartTypeSet(chartType)
     .animationDurationSet(@1500)
     .titleSet(@"")
-    .borderRadiusSet(@3)
     .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"")
-    .seriesSet(@[
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2017")
-                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
-                 ]
-               )
-    
     ;
-    [self.chartView aa_drawChartWithChartModel:_chartModel];
+
+    if (self.chartType == ChartAnimationTypeVCChartTypeStepArea
+        || self.chartType == ChartAnimationTypeVCChartTypeStepLine) {
+       self.chartModel
+        .gradientColorEnabledSet(true)
+        .markerRadiusSet(@0)
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2017")
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+                     .stepSet((id)@(true))
+                     ,
+                     ]
+                   );
+    } else if (self.chartType == ChartAnimationTypeVCChartTypeArea
+               || self.chartType == ChartAnimationTypeVCChartTypeAreaspline) {
+        NSDictionary *gradientColorDic = @{
+                                           @"linearGradient": @{
+                                                   @"x1": @0,
+                                                   @"y1": @1,
+                                                   @"x2": @0,
+                                                   @"y2": @0
+                                                   },
+                                           @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
+                                                       @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+                                           };
+        self.chartModel
+        .markerRadiusSet(@0)
+        .gradientColorEnabledSet(true)
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2017")
+                     .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0])
+                     .colorSet((id)gradientColorDic)
+                     ,
+                     ]);
+    } else {
+        NSDictionary *gradientColorDic = @{
+                                           @"linearGradient": @{
+                                                   @"x1": @0,
+                                                   @"y1": @0,
+                                                   @"x2": @0,
+                                                   @"y2": @1
+                                                   },
+                                           @"stops": @[@[@0,@"#8A2BE2"],
+                                                       @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+                                           };
+        
+        self.chartModel
+        .seriesSet(@[
+                     AAObject(AASeriesElement)
+                     .nameSet(@"2017")
+                     .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])
+                     .colorSet((id)gradientColorDic)
+                     ,
+                     ]);
+    }
+    
+    [self.chartView aa_drawChartWithChartModel:self.chartModel];
 }
 
 - (void)configureTheAnimationTypeTableView {
@@ -121,10 +192,6 @@
 - (void)animationTypeTableViewClicked:(AAChartAnimation)chartAnimationType {
     self.chartModel.animationType = chartAnimationType;
     [self.chartView aa_refreshChartWithChartModel:self.chartModel];//刷新图表数据
-    _lastClickedBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _lastClickedBtn.backgroundColor = [UIColor whiteColor];
-    [_lastClickedBtn setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
-
 }
 
 - (NSArray *)animationTypeArr {
@@ -168,8 +235,6 @@
                               ];
     }
     return _animationTypeArr;
-    }
-
-
+}
 
 @end

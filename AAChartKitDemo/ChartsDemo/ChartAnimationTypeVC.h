@@ -32,6 +32,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,ChartAnimationTypeVCChartType) {
+    ChartAnimationTypeVCChartTypeColumn = 0,
+    ChartAnimationTypeVCChartTypeBar,
+    ChartAnimationTypeVCChartTypeArea,
+    ChartAnimationTypeVCChartTypeAreaspline,
+    ChartAnimationTypeVCChartTypeLine,
+    ChartAnimationTypeVCChartTypeSpline,
+    ChartAnimationTypeVCChartTypeStepLine,
+    ChartAnimationTypeVCChartTypeStepArea,
+    ChartAnimationTypeVCChartTypeScatter,
+};
+
 @interface ChartAnimationTypeVC : UIViewController
+
+@property (nonatomic, assign) ChartAnimationTypeVCChartType chartType;
 
 @end

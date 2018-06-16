@@ -69,8 +69,6 @@
     self.title = @"AAChartKit";
     self.view.backgroundColor = [UIColor whiteColor];
 
-    
-    
     [self configTheTableView];
     
 #warning revise
@@ -174,6 +172,7 @@
         case 4: {
             /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = [[ChartAnimationTypeVC alloc]init];
+            vc.chartType = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -294,7 +293,14 @@
                              @[@"模拟实时更新数据示例"
                                ],
                              /*JQuery动画样式类型演示*/
-                             @[@"图形动画样式相关演示"
+                             @[@"Column Chart---柱形图",
+                               @"Bar Chart---条形图",
+                               @"Area Chart---折线填充图",
+                               @"Areaspline Chart---曲线填充图",
+                               @"Line Chart---折线图",
+                               @"Spline Chart---曲线图",
+                               @"Step Line Chart--直方折线图",
+                               @"Step Area Chart--直方折线填充图",
                                ],
                              /*通过AAOptions实例对象来绘制图形*/
                              @[@"绘制legend居顶部的区域填充图",
