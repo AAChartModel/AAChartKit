@@ -82,7 +82,6 @@ typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
 typedef NSString *AALineDashSyleType;
 
-UIKIT_EXTERN AAChartType const AAChartTypeStrange;
 UIKIT_EXTERN AAChartType const AAChartTypeColumn;
 UIKIT_EXTERN AAChartType const AAChartTypeBar;
 UIKIT_EXTERN AAChartType const AAChartTypeArea;
