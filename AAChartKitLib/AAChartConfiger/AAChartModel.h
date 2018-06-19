@@ -229,7 +229,4 @@ AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshair
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor);
 AAPropStatementAndFuncStatement(assign, AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType);
 
-//Additional options as a dictionary with JavaScript properties - note: if set, equal properties from the chartmodel will be overwritten!
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSDictionary  *, additionalOptions);
-
 @end

@@ -54,9 +54,6 @@
         case SpecialChartVCChartTypeGradientColorBar:
             chartType = @"gradientColorBar";
             break;
-//        case SpecialChartVCChartTypeDoubleYAxisesChart:
-//            chartType = @"doubleYAxisesChart";
-//            break;
         case SpecialChartVCChartTypeMixedLine:
             chartType = AAChartTypeLine;
             break;
@@ -162,6 +159,31 @@
                    );
         return aaChartModel;
     } else if ([chartType isEqualToString:@"gradientColorBar"]) {
+        NSDictionary *gradientColorDic1 =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @0,
+                  @"x2": @0,
+                  @"y2": @1
+                  },
+          @"stops": @[@[@0,@"#8A2BE2"],
+                      @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
+        
+        
+        NSDictionary *gradientColorDic2 =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @1,
+                  @"x2": @0,
+                  @"y2": @0
+                  },
+          @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
+                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
+        
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Bar Chart")
@@ -172,85 +194,14 @@
                      AAObject(AASeriesElement)
                      .nameSet(@"2020")
                      .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
-                     .colorSet((id)@{
-                                     @"linearGradient": @{
-                                             @"x1": @0,
-                                             @"y1": @0,
-                                             @"x2": @0,
-                                             @"y2": @1
-                                             },
-                                     @"stops": @[@[@0,@"#8A2BE2"],
-                                                 @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-                                     }),
+                     .colorSet((id)gradientColorDic1),
                      AAObject(AASeriesElement)
                      .nameSet(@"2021")
                      .dataSet(@[@111,@83,@187,@163,@151,@191,@173,@157,@143,@131,@121,@113,@97,@93])
-                     .colorSet((id)@{
-                                     @"linearGradient": @{
-                                             @"x1": @0,
-                                             @"y1": @1,
-                                             @"x2": @0,
-                                             @"y2": @0
-                                             },
-                                     @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
-                                                 @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-                                     }),
+                     .colorSet((id)gradientColorDic2),
                      ]
                    );
         return aaChartModel;
-    } else if ([chartType isEqualToString:@"doubleYAxisesChart"]) {
-        
-        NSDictionary *yAxisDic = @{@"yAxis":@[
-                                           @{ // Primary yAxis
-                                               @"labels": @{
-                                                       @"format": @"{value}°C",
-                                                       
-                                                       },
-                                               @"title": @{
-                                                       @"text": @"温度",
-                                                       
-                                                       },
-                                               @"opposite": @true
-                                               },
-                                           @{ // Secondary yAxis
-                                               @"gridLineWidth": @0,
-                                               @"title": @{
-                                                       @"text": @"降雨量",
-                                                       
-                                                       },
-                                               @"labels": @{
-                                                       @"format": @"{value} mm",
-                                                       
-                                                       }
-                                               }
-                                           ]};
-        
-        
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .gradientColorEnabledSet(true)
-        .titleSet(@"哥谭市月平均气温")
-        .subtitleSet(@"民风淳朴人才辈出哥谭市")
-        .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:2])//生成一个随机颜色的数组(可以不写采用默认颜色主题)
-        .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-        .additionalOptionsSet((id)yAxisDic)
-        .seriesSet(@[
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2017")
-                     .typeSet(AAChartTypeColumn)
-                     .yAxisSet(@1)
-                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                     ,
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2018")
-                     .typeSet(AAChartTypeLine)
-                     .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
-                     .dataLabelsSet(AAObject(AADataLabels)
-                                     .enabledSet(true)
-                                     )
-                     ]);
-        
-        return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
@@ -266,14 +217,10 @@
                          @"zoneAxis":@"x",
                          @"gridLineWidth":@0,
                          @"zones":@[
-                                 @{
-                                     @"value": @8
-                                     },
-                                 @{
-                                     @"dashStyle": AALineDashSyleTypeDash
-                                     }]
+                                 @{@"value": @8},
+                                 @{@"dashStyle": AALineDashSyleTypeDash}
+                                 ]
                          },
-                     
                      @{  @"name":@"所有专业",
                          @"gridLineWidth":@0,
                          @"data":@[@"",@"",@100,@109,@89,@"",@"",@120,@"",@"",@"",@""],
@@ -1321,8 +1268,5 @@
     
     return nil;
 }
-
-
-
 
 @end
