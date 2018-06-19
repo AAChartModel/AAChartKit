@@ -32,7 +32,6 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
-#warning ToDo 后续添加可以在不设置背景色为透明色的情况下直接设置图表的背景色功能
 
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 

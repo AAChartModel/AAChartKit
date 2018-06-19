@@ -64,6 +64,7 @@
         case 6: return [self adjustChartLeftAndRightMargin];
         case 7: return [self configureChartWithBackgroundImage];
         case 8: return [self configureDoubleYAxisChartOptions];
+        case 9: return [self adjustChartSeriesDataAccuracy];
     }
     return nil;
 }
@@ -684,6 +685,31 @@
     chartOptions.series = aaSeries;
     
     return chartOptions;
+}
+
+
+- (AAOptions *)adjustChartSeriesDataAccuracy {
+    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"Adjust data accuracy")
+    .yAxisTitleSet(@"")
+    .dataLabelEnabledSet(true)
+    .symbolSet(AAChartSymbolTypeCircle)
+    .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
+    .yAxisGridLineWidthSet(@0.5)
+    .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .seriesSet(@[AAObject(AASeriesElement)
+                 .nameSet(@"2017")
+                 .dataSet(@[@(0.0000001),@(0.0000002),@(0.0000003),@(0.0000004),@(0.0000005)])
+                 .lineWidthSet(@5)
+                 ]
+               );
+//  数值格式化字符串是采用了 C 语言浮点型格式化的子集，格式化字符是在大括号内，变量之后，用冒号（:）分隔的内容。默认情况下点号（.）表示小数点，空格（ ）代表千分符，当然这两个符号可以在 语言文字 选项集里中来设定。具体参见 https://www.hcharts.cn/docs/basic-labels-string-formatting#h2-1
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip.valueDecimals = @9;//设置tooltip取值精确到小数点后9位
+    aaOptions.plotOptions.area.dataLabels.format = @"{point.y:.9f}";//设置dataLabels取值精确到小数点后9位
+
+    return aaOptions;
 }
 
 @end
