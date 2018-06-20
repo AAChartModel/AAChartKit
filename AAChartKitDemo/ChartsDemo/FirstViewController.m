@@ -262,7 +262,7 @@
                              @[@"Colorful Column Chart---多彩柱形图",
                                @"Gradient Color Bar---颜色渐变条形图",
                                @"Mixed Line Chart---虚实线混合折线图",
-                               @"With Dividing Line---带有区域分割线区域图",
+                               @"With Dividing Line---带有阈值分割线区域图",
                                @"Area Chart with minus--带有负数的区域填充图",
                                @"Pie Chart---扇形图",
                                @"Bubble Chart---气泡图",

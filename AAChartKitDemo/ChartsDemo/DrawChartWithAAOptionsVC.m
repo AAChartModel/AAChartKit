@@ -704,7 +704,9 @@
                  .lineWidthSet(@5)
                  ]
                );
-//  数值格式化字符串是采用了 C 语言浮点型格式化的子集，格式化字符是在大括号内，变量之后，用冒号（:）分隔的内容。默认情况下点号（.）表示小数点，空格（ ）代表千分符，当然这两个符号可以在 语言文字 选项集里中来设定。具体参见 https://www.hcharts.cn/docs/basic-labels-string-formatting#h2-1
+    //数值格式化字符串是采用了 C 语言浮点型格式化的子集，格式化字符是在大括号内，变量之后，用冒号（:）分隔的内容。
+    //默认情况下点号（.）表示小数点，空格（ ）代表千分符，当然这两个符号可以在 语言文字 选项集里中来设定。
+    //具体参见 https://www.hcharts.cn/docs/basic-labels-string-formatting#h2-1
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip.valueDecimals = @9;//设置tooltip取值精确到小数点后9位
     aaOptions.plotOptions.area.dataLabels.format = @"{point.y:.9f}";//设置dataLabels取值精确到小数点后9位
