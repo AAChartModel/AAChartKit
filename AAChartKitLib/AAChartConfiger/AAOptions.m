@@ -355,15 +355,23 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
         aaPlotOptions.splineSet(AAObject(AASpline)
                                 .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypePie]) {
-        aaPlotOptions.pieSet(AAObject(AAPie)
-                             //.sizeSet(@50)
-                             .allowPointSelectSet(true)
-                             .cursorSet(@"pointer")
-                             .showInLegendSet(true)
-                             .dataLabelsSet(aaDataLabels
-                                            .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
-                                            )
-        );
+        AAPie *aaPie = (AAObject(AAPie)
+                        //.sizeSet(@50)
+                        .allowPointSelectSet(true)
+                        .cursorSet(@"pointer")
+                        .showInLegendSet(true)
+                        );
+        if (aaChartModel.dataLabelEnabled == true) {
+            aaPie.dataLabelsSet(aaDataLabels
+                                .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
+                                );
+        } else {
+            aaPie.dataLabelsSet(AAObject(AADataLabels)
+                                .enabledSet(false)
+                                );
+        }
+        
+        aaPlotOptions.pieSet(aaPie);
         if (aaChartModel.options3dEnabled == true) {
             aaPlotOptions.pie.depth = aaChartModel.options3dDepth;//设置3d 图形阴影深度
         }

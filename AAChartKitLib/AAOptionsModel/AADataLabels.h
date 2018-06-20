@@ -63,6 +63,36 @@
 //y: 竖直偏移
 //zIndex
 
+//https://api.hcharts.cn/highcharts#plotOptions.pie.dataLabels.connectorPadding
+//backgroundColor: undefined
+//borderColor: undefined
+//borderRadius: 0
+//borderWidth: 0
+//className: undefined
+//color: undefined
+//connectorColor: "{point.color}"
+//connectorPadding: 5
+//connectorWidth: 1
+//crop: true
+//defer: true
+//distance: 30
+//enabled: true
+//format: "{y}"
+//formatter: undefined
+//inside: undefined
+//overflow: "justify"
+//padding: 5
+//rotation: 0
+//shadow: false
+//shape: "square"
+//softConnector: true
+//style: {"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }
+//useHTML: false
+//verticalAlign: undefined
+//x: 0
+//y: -6
+//zIndex
+
 AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , enabled);
 AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle  *, style);
 AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, format);
