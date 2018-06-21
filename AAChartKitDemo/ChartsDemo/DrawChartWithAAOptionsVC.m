@@ -65,6 +65,7 @@
         case 7: return [self configureChartWithBackgroundImage];
         case 8: return [self configureDoubleYAxisChartOptions];
         case 9: return [self adjustChartSeriesDataAccuracy];
+        case 10: return [self adjustGroupPaddingForPolarChart];
     }
     return nil;
 }
@@ -711,6 +712,27 @@
     aaOptions.tooltip.valueDecimals = @9;//设置tooltip取值精确到小数点后9位
     aaOptions.plotOptions.area.dataLabels.format = @"{point.y:.9f}";//设置dataLabels取值精确到小数点后9位
 
+    return aaOptions;
+}
+
+- (AAOptions *)adjustGroupPaddingForPolarChart {
+    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"Colorful Column Chart")
+    .subtitleSet(@"single data array colorful column chart")
+    .borderRadiusSet(@5)
+    .polarSet(true)
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2017")
+                 .dataSet(@[@211,@183,@157,@133,@111]),
+                 ]
+               );
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAColumn *aaColumn = aaOptions.plotOptions.column;
+    aaColumn.groupPadding = @0.05;
+    aaColumn.colorByPoint = true;
+    
     return aaOptions;
 }
 

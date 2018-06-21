@@ -270,7 +270,7 @@
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
         .symbolSet(AAChartSymbolTypeCircle)
-        .titleSet(@"带有数据区域标志线的区域填充图")
+        .titleSet(@"带有数据阈值标志线的区域填充图")
         .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")
         .yAxisGridLineWidthSet(@0.5)
@@ -308,7 +308,7 @@
                              .valueSet(@(20))
                              .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
                              ]
-                           );
+                           )
         ;
         
         return aaChartModel;

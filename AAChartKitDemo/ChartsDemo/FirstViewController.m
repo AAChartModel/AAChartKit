@@ -312,7 +312,8 @@
                                @"调整图表的左右边距",
                                @"设置图表绘图区的背景图片",
                                @"Double Y Axises Chart---双Y轴混合图",
-                               @"Adjust Data accuracy---调整数据精度"
+                               @"Adjust Data Accuracy---调整数据精度",
+                               @"Adjust Group Padding---调整group间距"
                                ],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
