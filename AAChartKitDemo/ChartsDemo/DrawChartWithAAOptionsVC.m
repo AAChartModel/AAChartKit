@@ -48,8 +48,8 @@
     [self.view addSubview:aaChartView];
     aaChartView.scrollEnabled = NO;
     
-    AAOptions *chartOptions = [self configureChartOptions];
-    [aaChartView aa_drawChartWithOptions:chartOptions];
+    AAOptions *aaOptions = [self configureChartOptions];
+    [aaChartView aa_drawChartWithOptions:aaOptions];
     
 }
 

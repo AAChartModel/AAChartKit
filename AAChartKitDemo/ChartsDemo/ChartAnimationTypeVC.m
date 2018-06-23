@@ -61,24 +61,15 @@
 
 - (AAChartType)configureTheChartType {
     switch (self.chartType) {
-        case 0:
-        return  AAChartTypeColumn;
-        case 1:
-        return  AAChartTypeBar;
-        case 2:
-        return  AAChartTypeArea;
-        case 3:
-        return  AAChartTypeAreaspline;
-        case 4:
-        return  AAChartTypeLine;
-        case 5:
-        return  AAChartTypeSpline;
-        case 6:
-        return  AAChartTypeLine;
-        case 7:
-        return  AAChartTypeArea;
-        case 8:
-        return  AAChartTypeScatter;
+        case 0: return AAChartTypeColumn;
+        case 1: return AAChartTypeBar;
+        case 2: return AAChartTypeArea;
+        case 3: return AAChartTypeAreaspline;
+        case 4: return AAChartTypeLine;
+        case 5: return AAChartTypeSpline;
+        case 6: return AAChartTypeLine;
+        case 7: return AAChartTypeArea;
+        case 8: return AAChartTypeScatter;
     }
 }
 

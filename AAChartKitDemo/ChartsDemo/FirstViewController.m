@@ -165,6 +165,7 @@
         case 3: {
             /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = [[OnlyRefreshChartDataVC alloc]init];
+            vc.chartType = indexPath.row;
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -290,7 +291,15 @@
                                
                                ],
                              /*图表数据动态刷新*/
-                             @[@"模拟实时更新数据示例"
+                             @[@"Column Chart---柱形图",
+                               @"Bar Chart---条形图",
+                               @"Area Chart---折线填充图",
+                               @"Areaspline Chart---曲线填充图",
+                               @"Line Chart---折线图",
+                               @"Spline Chart---曲线图",
+                               @"Step Line Chart--直方折线图",
+                               @"Step Area Chart--直方折线填充图",
+                               @"Scatter Chart---散点图"
                                ],
                              /*JQuery动画样式类型演示*/
                              @[@"Column Chart---柱形图",
@@ -333,7 +342,7 @@
                             @"Special Type---特别类型",
                             @"Mixed Type Chart---混合图表",
                             @"Real-time Refresh---即时刷新",
-                            @"Animation Type---动画相关",
+                            @"Animation Type---渲染动画",
                             @"AAOptions---Use AAOptions",
                             @"同时显示多个 AAChartView",
                             @"Drilldown chart---钻取图表(暂时废弃)",];
