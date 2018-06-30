@@ -52,5 +52,9 @@ AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style);
 AAPropSetFuncImplementation(AADataLabels, NSString *, format);
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, rotation);
 AAPropSetFuncImplementation(AADataLabels, BOOL      , allowOverlap);
+AAPropSetFuncImplementation(AADataLabels, BOOL      , useHTML);
+AAPropSetFuncImplementation(AADataLabels, NSNumber*, distance);
+
+
 
 @end

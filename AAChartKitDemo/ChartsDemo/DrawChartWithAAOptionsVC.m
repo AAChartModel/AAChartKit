@@ -57,15 +57,16 @@
     switch (self.selectedIndex) {
         case 0: return [self configureTheAAOptionsOfAreaChart];
         case 1: return [self configureTheAAOptionsOfPieChart];
-        case 2: return [self configureTheAAOptionsOfSpecialNestedColumnChart];
-        case 3: return [self configureThePolygonPolarChart];
-        case 4: return [self configureTheNoGapColunmChart];
-        case 5: return [self configureCustomStyleTooltipChart];
-        case 6: return [self adjustChartLeftAndRightMargin];
-        case 7: return [self configureChartWithBackgroundImage];
-        case 8: return [self configureDoubleYAxisChartOptions];
-        case 9: return [self adjustChartSeriesDataAccuracy];
-        case 10: return [self adjustGroupPaddingForPolarChart];
+        case 2: return [self adjustPieChartTitleAndDataLabelFontStyle];
+        case 3: return [self configureTheAAOptionsOfSpecialNestedColumnChart];
+        case 4: return [self configureThePolygonPolarChart];
+        case 5: return [self configureTheNoGapColunmChart];
+        case 6: return [self configureCustomStyleTooltipChart];
+        case 7: return [self adjustChartLeftAndRightMargin];
+        case 8: return [self configureChartWithBackgroundImage];
+        case 9: return [self configureDoubleYAxisChartOptions];
+        case 10: return [self adjustChartSeriesDataAccuracy];
+        case 11: return [self adjustGroupPaddingForPolarChart];
     }
     return nil;
 }
@@ -285,6 +286,41 @@
     chartOptions.colors = aaColors;
     
     return chartOptions;
+}
+
+- (AAOptions *)adjustPieChartTitleAndDataLabelFontStyle {
+    AAOptions *aaOptions = AAObject(AAOptions)
+    .chartSet(AAObject(AAChart)
+              .typeSet(AAChartTypePie))
+    .titleSet(AAObject(AATitle)
+              .useHTMLSet(true)
+              .textSet(@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>")//标题文本内容
+              .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
+              )
+    .colorsSet(@[@"#1E90FF",@"#87CEFA",@"#A9A9A9",@"#fd4800",@"#F4A460"])//设置颜色主题
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .sizeSet(@200)//环形图的半径大小
+                 .innerSizeSet(@"60%")//内部圆环半径大小占比
+                 .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+                 .dataLabelsSet(AAObject(AADataLabels)
+                                .enabledSet(true)
+                                .useHTMLSet(true)
+                                .distanceSet(@10)
+                                .formatSet(@"<span style=""color:#A9A9A9;font-weight:thin;font-size:10px"">{point.name}</span> <span style=""color:#1E90FF;font-weight:bold;font-size:15px"">{point.percentage:.1f}</span><span style=""color:#1E90FF;font-weight:thin;font-size:10px"">%</span>")
+                                )
+                 .dataSet(
+                          @[
+                            @[@"Firefox",   @150],
+                            @[@"Opera",      @15],
+                            @[@"Others",    @35]
+                            ]
+                          ),
+                 ]);
+    
+    return aaOptions;
 }
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
