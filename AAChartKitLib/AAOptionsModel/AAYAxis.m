@@ -54,6 +54,8 @@ AAPropSetFuncImplementation(AAYAxis, BOOL,       visible); //y轴是否允许显
 AAPropSetFuncImplementation(AAYAxis, BOOL,       opposite);//是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，坐标轴显示在对立面后，x 轴是在上方显示，y 轴是在右方显示（即坐标轴会显示在对立面）。该配置一般是用于多坐标轴区分展示，另外在 Highstock 中，y 轴默认是在对立面显示的。 默认是：false.
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, tickInterval);
 AAPropSetFuncImplementation(AAYAxis, AACrosshair*, crosshair); //准星线样式设置
+AAPropSetFuncImplementation(AAYAxis, AALabels *, stackLabels);
+
 
 
 @end

@@ -67,6 +67,7 @@
         case 9: return [self configureDoubleYAxisChartOptions];
         case 10: return [self adjustChartSeriesDataAccuracy];
         case 11: return [self adjustGroupPaddingForPolarChart];
+        case 12: return [self customStyleStackedColumnChart];
     }
     return nil;
 }
@@ -770,6 +771,218 @@
     aaColumn.colorByPoint = true;
     
     return aaOptions;
+    
+}
+
+- (AAOptions *)customStyleStackedColumnChart {
+    //Method 1
+    AAChart *aaChart = AAObject(AAChart)
+                        .typeSet(AAChartTypeColumn);
+
+    AATitle *aaTitle = AAObject(AATitle)
+                        .textSet(@"Stacked column chart");
+
+    AAXAxis *aaXAsix = AAObject(AAXAxis)
+                        .visibleSet(true)
+                        .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]);
+
+    AAYAxis *aaYAxis = AAObject(AAYAxis)
+                        .visibleSet(true)
+                        .minSet(@0)
+                        .titleSet(AAObject(AATitle)
+                                  .textSet(@"Total fruit consumption")
+                                  )
+                        .stackLabelsSet(AAObject(AALabels)
+                                        .enabledSet(true)
+                                        .styleSet(AAObject(AAStyle)
+                                                  .fontWeightSet(AAChartFontWeightTypeBold)
+                                                  )
+                                        );
+
+    AALegend *aaLegend = AAObject(AALegend)
+                          .enabledSet(true)
+                          .alignSet(AALegendAlignTypeRight)
+                          .xSet(@(-30))
+                          .verticalAlignSet(AALegendVerticalAlignTypeTop)
+                          .ySet(@25)
+                          .borderColorSet(@"#ccc")
+                          .borderWidthSet(@1);
+
+    AATooltip *aaTooltip = AAObject(AATooltip)
+                            .headerFormatSet(@"<b>{point.x}</b><br/>")
+                            .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}");
+
+    AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
+                                    .seriesSet(AAObject(AASeries)
+                                               .animationSet(AAObject(AAAnimation)
+                                                             .easingSet(@"bounce")
+                                                             .durationSet(@1000)
+                                                             )
+                                               )
+                                    .columnSet(AAObject(AAColumn)
+                                               .stackingSet(AAChartStackingTypeNormal)
+                                               .dataLabelsSet(AAObject(AADataLabels)
+                                                              .enabledSet(true)
+                                                              )
+                                               );
+
+    NSArray *seriesElementArr = @[
+                                  AAObject(AASeriesElement)
+                                  .nameSet(@"John")
+                                  .dataSet(@[@5, @3, @4, @7, @2]),
+                                  AAObject(AASeriesElement)
+                                  .nameSet(@"Jane")
+                                  .dataSet(@[@5, @3, @4, @7, @2]),
+                                  AAObject(AASeriesElement)
+                                  .nameSet(@"Joe")
+                                  .dataSet(@[@5, @3, @4, @7, @2]),
+                                  ];
+
+    AAOptions *aaOptions = AAObject(AAOptions)
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAsix)
+    .yAxisSet(aaYAxis)
+    .legendSet(aaLegend)
+    .tooltipSet(aaTooltip)
+    .plotOptionsSet(aaPlotOptions)
+    .seriesSet(seriesElementArr);
+
+    return aaOptions;
+
+
+     // Method 2
+    AAOptions *options2 = AAObject(AAOptions)
+    .chartSet(AAObject(AAChart)
+              .typeSet(AAChartTypeColumn)
+              )
+    .titleSet(AAObject(AATitle)
+              .textSet(@"Stacked column chart")
+              )
+    .xAxisSet(AAObject(AAXAxis)
+              .visibleSet(true)
+              .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"])
+              )
+    .yAxisSet(AAObject(AAYAxis)
+              .visibleSet(true)
+              .minSet(@0)
+              .titleSet(AAObject(AATitle)
+                        .textSet(@"Total fruit consumption")
+                        )
+              .stackLabelsSet(AAObject(AALabels)
+                              .enabledSet(true)
+                              .styleSet(AAObject(AAStyle)
+                                        .fontWeightSet(AAChartFontWeightTypeBold)
+                                        )
+                              )
+              )
+    .legendSet(AAObject(AALegend)
+               .enabledSet(true)
+               .alignSet(AALegendAlignTypeRight)
+               .xSet(@(-30))
+               .verticalAlignSet(AALegendVerticalAlignTypeTop)
+               .ySet(@25)
+               .borderColorSet(@"#ccc")
+               .borderWidthSet(@1)
+               )
+    .tooltipSet(AAObject(AATooltip)
+                .headerFormatSet(@"<b>{point.x}</b><br/>")
+                .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}")
+                )
+    .plotOptionsSet(AAObject(AAPlotOptions)
+                    .seriesSet(AAObject(AASeries)
+                               .animationSet(AAObject(AAAnimation)
+                                             .easingSet(@"bounce")
+                                             .durationSet(@1000)
+                                             )
+                               )
+                    .columnSet(AAObject(AAColumn)
+                               .stackingSet(AAChartStackingTypeNormal)
+                               .dataLabelsSet(AAObject(AADataLabels)
+                                              .enabledSet(true)
+                                              )
+                               )
+                    )
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"John")
+                 .dataSet(@[@5, @3, @4, @7, @2]),
+                 AAObject(AASeriesElement)
+                 .nameSet(@"Jane")
+                 .dataSet(@[@5, @3, @4, @7, @2]),
+                 AAObject(AASeriesElement)
+                 .nameSet(@"Joe")
+                 .dataSet(@[@5, @3, @4, @7, @2]),
+                 ]);
+
+    return options2;
+    
+    //Method 3
+    AAOptions *options3 = (id)@{
+                            @"chart": @{
+                                    @"type": @"column"
+                                    },
+                            @"title": @{
+                                    @"text": @"Stacked column chart"
+                                    },
+                            @"xAxis": @{
+                                    @"categories": @[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]
+                                    },
+                            @"yAxis": @{
+                                    @"min": @0,
+                                    @"title": @{
+                                            @"text": @"Total fruit consumption"
+                                            },
+                                    @"stackLabels": @{
+                                            @"enabled": @true,
+                                            @"style": @{
+                                                    @"fontWeight": @"bold",
+                                                    }
+                                            }
+                                    },
+                            @"legend": @{
+                                    @"align": @"right",
+                                    @"x": @-30,
+                                    @"verticalAlign": @"top",
+                                    @"y": @25,
+                                    @"floating": @true,
+                                    
+                                    @"borderColor": @"#CCC",
+                                    @"borderWidth": @1,
+                                    @"shadow": @false
+                                    },
+                            @"tooltip": @{
+                                    @"headerFormat": @"<b>{point.x}</b><br/>",
+                                    @"pointFormat": @"{series.name}: {point.y}<br/>Total: {point.stackTotal}"
+                                    },
+                            @"plotOptions": @{
+                                    @"series":@{
+                                            @"animation":@{
+                                                    @"easing":@"bounce",
+                                                    @"duration":@1000
+                                                    }
+                                            },
+                                    @"column": @{
+                                            @"stacking": @"normal",
+                                            @"dataLabels": @{
+                                                    @"enabled": @true,
+                                                    
+                                                    }
+                                            }
+                                    },
+                            @"series": @[@{
+                                             @"name": @"John",
+                                             @"data": @[@5, @3, @4, @7, @2]
+                                             }, @{
+                                             @"name": @"Jane",
+                                             @"data": @[@2, @2, @3, @2, @1]
+                                             }, @{
+                                             @"name": @"Joe",
+                                             @"data": @[@3, @4, @4, @2, @5]
+                                             }]
+                            };
+    
+    return options3;
 }
 
 @end

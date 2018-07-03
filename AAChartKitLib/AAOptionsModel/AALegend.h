@@ -56,8 +56,11 @@ AAPropStatementAndFuncStatement(copy,   AALegend, AALegendLayoutType,        lay
 AAPropStatementAndFuncStatement(copy,   AALegend, AALegendAlignType,         align);//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
 AAPropStatementAndFuncStatement(copy,   AALegend, AALegendVerticalAlignType, verticalAlign);//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 AAPropStatementAndFuncStatement(assign, AALegend, BOOL,          enabled);
+AAPropStatementAndFuncStatement(copy,   AALegend, NSString    *, borderColor);
 AAPropStatementAndFuncStatement(strong, AALegend, NSNumber    *, borderWidth);
 AAPropStatementAndFuncStatement(strong, AALegend, NSNumber    *, itemMarginTop);//图例的每一项的顶部外边距，单位px。 默认是：0.
 AAPropStatementAndFuncStatement(strong, AALegend, AAItemStyle *, itemStyle);
+AAPropStatementAndFuncStatement(strong, AALegend, NSNumber    *, x);
+AAPropStatementAndFuncStatement(strong, AALegend, NSNumber    *, y);
 
 @end

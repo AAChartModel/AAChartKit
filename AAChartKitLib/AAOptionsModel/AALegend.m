@@ -39,8 +39,11 @@ AAPropSetFuncImplementation(AALegend, AALegendLayoutType,        layout);
 AAPropSetFuncImplementation(AALegend, AALegendAlignType,         align);
 AAPropSetFuncImplementation(AALegend, AALegendVerticalAlignType, verticalAlign);
 AAPropSetFuncImplementation(AALegend, BOOL,          enabled);
+AAPropSetFuncImplementation(AALegend, NSString    *, borderColor);
 AAPropSetFuncImplementation(AALegend, NSNumber    *, borderWidth);
 AAPropSetFuncImplementation(AALegend, NSNumber    *, itemMarginTop);
 AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle);
+AAPropSetFuncImplementation(AALegend, NSNumber    *, x);
+AAPropSetFuncImplementation(AALegend, NSNumber    *, y);
 
 @end

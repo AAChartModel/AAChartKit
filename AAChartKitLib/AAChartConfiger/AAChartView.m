@@ -381,7 +381,12 @@
 }
 
 + (NSString *)getPureOptionsString:(id)optionsObject {
-    NSDictionary *dic = [self getObjectData:optionsObject];
+    NSDictionary *dic;
+    if ([optionsObject isKindOfClass:[NSDictionary class]] ) {
+        dic = optionsObject;
+    } else {
+        dic = [self getObjectData:optionsObject];
+    }
     NSString *str = [self convertDictionaryIntoJson:dic];
     return [self wipeOffTheLineBreakAndBlankCharacter:str];
 }
