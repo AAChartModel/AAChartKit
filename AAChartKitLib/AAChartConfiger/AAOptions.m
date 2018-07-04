@@ -136,26 +136,23 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     if (   ![aaChartModel.chartType isEqualToString:AAChartTypePie]
         && ![aaChartModel.chartType isEqualToString:AAChartTypePyramid]
         && ![aaChartModel.chartType isEqualToString:AAChartTypeFunnel]) {
-        AAXAxis *aaXAxis = AAObject(AAXAxis);
-        AAYAxis *aaYAxis = AAObject(AAYAxis);
-        [self configureAxisContentAndStyleWithAAXAxis:aaXAxis AAYAxis:aaYAxis AAChartModel:aaChartModel];
-        aaOptions.xAxis = aaXAxis;
-        aaOptions.yAxis = aaYAxis;
+        [self configureAxisContentAndStyleWithAAOptions:aaOptions AAChartModel:aaChartModel];
     }
     
     return aaOptions;
 }
 
-+ (void)configureAxisContentAndStyleWithAAXAxis:(AAXAxis *)aaXAxis AAYAxis:(AAYAxis *)aaYAxis AAChartModel:(AAChartModel *)aaChartModel {
++ (void)configureAxisContentAndStyleWithAAOptions:(AAOptions *)aaOptions AAChartModel:(AAChartModel *)aaChartModel {
     
-    aaXAxis.labelsSet(AAObject(AALabels)
-                      .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
-                      .styleSet(AAObject(AAStyle)
-                                .colorSet(aaChartModel.xAxisLabelsFontColor)//xAxis Label font color
-                                .fontSizeSet(AAFontSizeFormat(aaChartModel.xAxisLabelsFontSize))//xAxis Label font size
-                                .fontWeightSet(aaChartModel.xAxisLabelsFontWeight)//xAxis Label font weight
-                                )
-                      )
+    AAXAxis *aaXAxis = AAObject(AAXAxis)
+    .labelsSet(AAObject(AALabels)
+               .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
+               .styleSet(AAObject(AAStyle)
+                         .colorSet(aaChartModel.xAxisLabelsFontColor)//xAxis Label font color
+                         .fontSizeSet(AAFontSizeFormat(aaChartModel.xAxisLabelsFontSize))//xAxis Label font size
+                         .fontWeightSet(aaChartModel.xAxisLabelsFontWeight)//xAxis Label font weight
+                         )
+               )
     .reversedSet(aaChartModel.xAxisReversed)
     .gridLineWidthSet(aaChartModel.xAxisGridLineWidth)//x轴网格线宽度
     .categoriesSet(aaChartModel.categories)
@@ -170,15 +167,16 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                              );
     }
     
-    aaYAxis.labelsSet(AAObject(AALabels)
-                      .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
-                      .styleSet(AAObject(AAStyle)
-                                .colorSet(aaChartModel.yAxisLabelsFontColor)//yAxis Label font color
-                                .fontSizeSet(AAFontSizeFormat(aaChartModel.yAxisLabelsFontSize))//yAxis Label font size
-                                .fontWeightSet(aaChartModel.yAxisLabelsFontWeight)//yAxis Label font weight
-                                )
-                      .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
-                      )
+    AAYAxis *aaYAxis = AAObject(AAYAxis)
+    .labelsSet(AAObject(AALabels)
+               .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
+               .styleSet(AAObject(AAStyle)
+                         .colorSet(aaChartModel.yAxisLabelsFontColor)//yAxis Label font color
+                         .fontSizeSet(AAFontSizeFormat(aaChartModel.yAxisLabelsFontSize))//yAxis Label font size
+                         .fontWeightSet(aaChartModel.yAxisLabelsFontWeight)//yAxis Label font weight
+                         )
+               .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
+               )
     .minSet(aaChartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
     .maxSet(aaChartModel.yAxisMax)//y轴最大值
     .tickPositionsSet(aaChartModel.yAxisTickPositions)//自定义Y轴坐标
@@ -200,6 +198,8 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                              );
     }
     
+    aaOptions.xAxis = aaXAxis;
+    aaOptions.yAxis = aaYAxis;
 }
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
