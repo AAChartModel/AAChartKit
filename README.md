@@ -286,19 +286,23 @@ The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you 
 ```objective-c
 typedef NSString *AAChartType;
 
-AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;      //column chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;         //bar chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;        //area chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //areaspline chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;        //line chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;      //spline chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;     //scatter chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypePie;         //pie chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;      //bubble chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;     //pyramid chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;      //funnel chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange; //columnrange chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;   //arearange chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;          //column chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;             //bar chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;            //area chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;      //area spline chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //line chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;          //spline chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;         //scatter chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypePie;             //pie chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //bubble chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;         //pyramid chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;          //funnel chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;     //column range chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;       //area range chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange; //area spline range chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;         //box plot chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;       //Waterfall chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;         //polygon chart
 ```
 ### Supported zoom guesture types for now
 ```Objective-c

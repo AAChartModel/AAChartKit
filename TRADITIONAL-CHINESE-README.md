@@ -292,19 +292,23 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 ```objective-c
 typedef NSString *AAChartType;
 
-AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;      //柱形圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;         //條形圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;        //折線區域填充圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //曲線區域填充圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;        //折線圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;      //曲線圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;     //散點圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypePie;         //扇形圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;      //氣泡圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;     //金字塔圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;      //漏鬥圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange; //柱形範圍圖
-AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;   //區域範圍圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;          //柱形圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;             //條形圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;            //折線區域填充圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;      //曲線區域填充圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //折線圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;          //曲線圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;         //散點圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypePie;             //扇形圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //氣泡圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;         //金字塔圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;          //漏鬥圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;     //柱形範圍圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;       //區域折線範圍圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange; //區域曲線範圍圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;         //箱線圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;       //瀑布圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;         //多邊形圖
 
 ```
 

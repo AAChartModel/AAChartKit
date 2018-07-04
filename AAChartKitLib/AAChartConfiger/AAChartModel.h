@@ -34,7 +34,7 @@
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
 
-#define AACHARTKIT_EXTERN            extern __attribute__((visibility ("default")))
+#define AACHARTKIT_EXTERN     extern __attribute__((visibility ("default")))
 
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationLinear = 0,
