@@ -31,9 +31,10 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKitDefines.h>
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
+
+#define AACHARTKIT_EXTERN            extern __attribute__((visibility ("default")))
 
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationLinear = 0,
@@ -82,62 +83,62 @@ typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
 typedef NSString *AALineDashSyleType;
 
-UIKIT_EXTERN AAChartType const AAChartTypeColumn;
-UIKIT_EXTERN AAChartType const AAChartTypeBar;
-UIKIT_EXTERN AAChartType const AAChartTypeArea;
-UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;
-UIKIT_EXTERN AAChartType const AAChartTypeLine;
-UIKIT_EXTERN AAChartType const AAChartTypeSpline;
-UIKIT_EXTERN AAChartType const AAChartTypeScatter;
-UIKIT_EXTERN AAChartType const AAChartTypePie;
-UIKIT_EXTERN AAChartType const AAChartTypeBubble;
-UIKIT_EXTERN AAChartType const AAChartTypePyramid;
-UIKIT_EXTERN AAChartType const AAChartTypeFunnel;
-UIKIT_EXTERN AAChartType const AAChartTypeColumnrange;
-UIKIT_EXTERN AAChartType const AAChartTypeArearange;
-UIKIT_EXTERN AAChartType const AAChartTypeAreasplinerange;
-UIKIT_EXTERN AAChartType const AAChartTypeBoxplot;
-UIKIT_EXTERN AAChartType const AAChartTypeWaterfall;
-UIKIT_EXTERN AAChartType const AAChartTypePolygon;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;
+AACHARTKIT_EXTERN AAChartType const AAChartTypePie;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;
+AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;
+AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;
 
-UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft;
-UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter;
-UIKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight;
+AACHARTKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft;
+AACHARTKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter;
+AACHARTKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight;
 
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
 
-UIKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;
-UIKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;
-UIKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent;
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent;
 
-UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;
-UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;
-UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;
-UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle;
-UIKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down;
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle;
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down;
 
-UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
-UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
-UIKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
+AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
+AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
+AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
 
-UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
-UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
-UIKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
+AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
+AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
+AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeSolid;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDash;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDot;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDot;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDotDot;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDot;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDash;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDash;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDashDot;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDot;
-UIKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDotDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeSolid;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDash;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDotDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDash;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDash;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDashDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDot;
+AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDotDot;
 
 @interface AAChartModel : NSObject
 

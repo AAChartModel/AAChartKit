@@ -292,19 +292,19 @@ AAChartModel *chartModel= AAObject(AAChartModel)
 ```objective-c
 typedef NSString *AAChartType;
 
-UIKIT_EXTERN AAChartType const AAChartTypeColumn;      //柱形圖
-UIKIT_EXTERN AAChartType const AAChartTypeBar;         //條形圖
-UIKIT_EXTERN AAChartType const AAChartTypeArea;        //折線區域填充圖
-UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //曲線區域填充圖
-UIKIT_EXTERN AAChartType const AAChartTypeLine;        //折線圖
-UIKIT_EXTERN AAChartType const AAChartTypeSpline;      //曲線圖
-UIKIT_EXTERN AAChartType const AAChartTypeScatter;     //散點圖
-UIKIT_EXTERN AAChartType const AAChartTypePie;         //扇形圖
-UIKIT_EXTERN AAChartType const AAChartTypeBubble;      //氣泡圖
-UIKIT_EXTERN AAChartType const AAChartTypePyramid;     //金字塔圖
-UIKIT_EXTERN AAChartType const AAChartTypeFunnel;      //漏鬥圖
-UIKIT_EXTERN AAChartType const AAChartTypeColumnrange; //柱形範圍圖
-UIKIT_EXTERN AAChartType const AAChartTypeArearange;   //區域範圍圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;      //柱形圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;         //條形圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;        //折線區域填充圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //曲線區域填充圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;        //折線圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;      //曲線圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;     //散點圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypePie;         //扇形圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;      //氣泡圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;     //金字塔圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;      //漏鬥圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange; //柱形範圍圖
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;   //區域範圍圖
 
 ```
 
@@ -312,10 +312,10 @@ UIKIT_EXTERN AAChartType const AAChartTypeArearange;   //區域範圍圖
 ```objective-c
 typedef NSString *AAChartZoomType;
 
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone; //禁用手勢縮放功能(默認禁用手勢縮放)
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;    //支持圖表 X軸橫向縮放
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;    //支持圖表 Y軸縱向縮放
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;   //支持圖表等比例縮放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone; //禁用手勢縮放功能(默認禁用手勢縮放)
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;    //支持圖表 X軸橫向縮放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;    //支持圖表 Y軸縱向縮放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;   //支持圖表等比例縮放
 ```
 NOTE:例如,設置了`AAChartModel`的縮放屬性`zoomType`為`AAChartZoomTypeX`,並且將圖表進行了手勢放大之後,這時候如果想要左右滑動圖表,可以使用 **雙指點按** 屏幕中的`AAChartView`視圖區域進行 **左右拖動** 即可.同時屏幕的右上角會自動出現一個標題為 **"恢復縮放"** 的按鈕,點擊恢復縮放,圖表大小和位置將會回歸到原初的樣式.
 

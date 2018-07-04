@@ -286,28 +286,28 @@ The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you 
 ```objective-c
 typedef NSString *AAChartType;
 
-UIKIT_EXTERN AAChartType const AAChartTypeColumn;      //column chart
-UIKIT_EXTERN AAChartType const AAChartTypeBar;         //bar chart
-UIKIT_EXTERN AAChartType const AAChartTypeArea;        //area chart
-UIKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //areaspline chart
-UIKIT_EXTERN AAChartType const AAChartTypeLine;        //line chart
-UIKIT_EXTERN AAChartType const AAChartTypeSpline;      //spline chart
-UIKIT_EXTERN AAChartType const AAChartTypeScatter;     //scatter chart
-UIKIT_EXTERN AAChartType const AAChartTypePie;         //pie chart
-UIKIT_EXTERN AAChartType const AAChartTypeBubble;      //bubble chart
-UIKIT_EXTERN AAChartType const AAChartTypePyramid;     //pyramid chart
-UIKIT_EXTERN AAChartType const AAChartTypeFunnel;      //funnel chart
-UIKIT_EXTERN AAChartType const AAChartTypeColumnrange; //columnrange chart
-UIKIT_EXTERN AAChartType const AAChartTypeArearange;   //arearange chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;      //column chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;         //bar chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;        //area chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;  //areaspline chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;        //line chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;      //spline chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;     //scatter chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypePie;         //pie chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;      //bubble chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;     //pyramid chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;      //funnel chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange; //columnrange chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;   //arearange chart
 ```
 ### Supported zoom guesture types for now
 ```Objective-c
 typedef NSString *AAChartZoomType;
 
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
-UIKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
 ```
 
 ### Supported animation types for now
