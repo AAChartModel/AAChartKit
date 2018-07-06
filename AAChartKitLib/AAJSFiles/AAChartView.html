@@ -62,60 +62,50 @@
             
             var globalChart;
             
-            function loadTheHighChartView (sender,receivedWidth,receivedHeight) {
-                var container = document.getElementById('container');//获得元素
+            function loadTheHighChartView(sender, receivedWidth, receivedHeight) {
+                var container = document.getElementById('container'); //获得元素
                 if (receivedWidth != 0) {
-                    container.style.width = receivedWidth;//设置宽度
+                    container.style.width = receivedWidth; //设置宽度
                 }
-                container.style.height = receivedHeight;//设置高度
-                
-                var JavaScriptObject = JSON.parse(sender);
-                
-                if (JavaScriptObject.gradientColorEnabled == true) { //开启图表渐变色功能
-                    var colors = JavaScriptObject.colors;
-                    JavaScriptObject.colors = Highcharts.map(colors, function (color) {
-                                                                    return {
-                                                                    linearGradient:  { x1: 0, y1: 0, x2: 0, y2: 1},
-                                                                    stops: [
-                                                                            [0, color],
-                                                                            [1, Highcharts.Color(color).setOpacity(0.6).get('rgba')]
-                                                                            ]
-                                                                    };
-                                                                    });
+                container.style.height = receivedHeight; //设置高度
+                var aaOptions = JSON.parse(sender);
+
+                if (aaOptions.gradientColorEnabled == true) { //开启图表渐变色功能
+                    var colors = aaOptions.colors;
+                    aaOptions.colors = Highcharts.map(colors,
+                    function(color) {
+                        return {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [[0, color], [1, Highcharts.Color(color).setOpacity(0.6).get('rgba')]]
+                        };
+                    });
                 }
-                
-                //Set the 'Reset zoom button' title
+
                 Highcharts.setOptions({
-                                      lang: {
-                                      resetZoom: JavaScriptObject.zoomResetButtonText//Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
-                                      }
-                                      });
-                
-                JavaScriptObject.credits = {enabled:false};//去掉表格右下角版权信息
-                
-                if (JavaScriptObject.plotOptions) {
-                    var animation = JavaScriptObject.plotOptions.series.animation;
+                    lang: {
+                        resetZoom: aaOptions.zoomResetButtonText //Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
+                    }
+                });//Set the 'Reset zoom button' title
+
+                aaOptions.credits = {
+                    enabled: false
+                }; //去掉表格右下角版权信息
+
+                if (aaOptions.plotOptions) {
+                    var animation = aaOptions.plotOptions.series.animation;
                     if (animation) {
                         var animationEasingType = animation.easing;
-                        JavaScriptObject.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
+                        aaOptions.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
                     }
                 }
 
-                globalChart = Highcharts.chart('container', JavaScriptObject );
+                globalChart = Highcharts.chart('container', aaOptions);
             }
-        
-        
-        function onlyRefreshTheChartDataWithSeries (receivedSeries) {
-            var receivedSeriesElementArr = JSON.parse(receivedSeries);
-            
-            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
-                var receivedSeriesData = receivedSeriesElementArr[i].data;
-                // 获取series
-                var chartSeries =  globalChart.series[i];
-                // 执行只刷新数据的函数
-                chartSeries.setData(receivedSeriesData);
-            }
-        }
         
         function configureTheChartAnimationEasingType (easingType) {
                 switch (easingType) {
@@ -297,6 +287,19 @@
                     }
                 }
             }
+
+
+        function onlyRefreshTheChartDataWithSeries (receivedSeries) {
+            var receivedSeriesElementArr = JSON.parse(receivedSeries);
+            
+            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
+                var receivedSeriesData = receivedSeriesElementArr[i].data;
+                // 获取series
+                var chartSeries =  globalChart.series[i];
+                // 执行只刷新数据的函数
+                chartSeries.setData(receivedSeriesData);
+            }
+        }
             
         //pragma mark -- setter method
         function setTheChartViewContentWidth (receivedWidth) {
