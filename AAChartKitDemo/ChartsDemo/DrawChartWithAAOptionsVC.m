@@ -191,7 +191,7 @@
     .plotOptionsSet(AAObject(AAPlotOptions)
                     .seriesSet(AAObject(AASeries)
                                .animationSet(AAObject(AAAnimation)
-                                             .easingSet(@"bounce")
+                                             .easingSet(AAChartAnimationBounce)
                                              .durationSet(@1000)
                                              )
                                )
@@ -248,7 +248,7 @@
     AAPlotOptions *aaPlotOptions = (AAObject(AAPlotOptions)
                                     .seriesSet(AAObject(AASeries)
                                                .animationSet(AAObject(AAAnimation)
-                                                             .easingSet(@"bounce")
+                                                             .easingSet(AAChartAnimationBounce)
                                                              .durationSet(@1000)
                                                              )
                                                )
@@ -350,7 +350,7 @@
     .plotOptionsSet(AAObject(AAPlotOptions)
                     .seriesSet(AAObject(AASeries)
                                .animationSet(AAObject(AAAnimation)
-                                             .easingSet(@"bounce")
+                                             .easingSet(AAChartAnimationBounce)
                                              .durationSet(@1000)
                                              )
                                )
@@ -423,7 +423,7 @@
     AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
                .animationSet(AAObject(AAAnimation)
-                             .easingSet(@"bounce")
+                             .easingSet(AAChartAnimationBounce)
                              .durationSet(@1000)
                              )
                )
@@ -539,7 +539,7 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.column.groupPadding = @0;//设置棱柱之间的间距百分比
     aaOptions.plotOptions.column.dataLabels = (id)@{
-                                                @"enabled": @true,
+                                                @"enabled": @(true),
                                                 @"verticalAlign": @"bottom",
                                                 @"y": @(-10),
                                                 @"shape":@"callout",
@@ -815,7 +815,7 @@
     AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
                                     .seriesSet(AAObject(AASeries)
                                                .animationSet(AAObject(AAAnimation)
-                                                             .easingSet(@"bounce")
+                                                             .easingSet(AAChartAnimationBounce)
                                                              .durationSet(@1000)
                                                              )
                                                )
@@ -892,7 +892,7 @@
     .plotOptionsSet(AAObject(AAPlotOptions)
                     .seriesSet(AAObject(AASeries)
                                .animationSet(AAObject(AAAnimation)
-                                             .easingSet(@"bounce")
+                                             .easingSet(AAChartAnimationBounce)
                                              .durationSet(@1000)
                                              )
                                )
@@ -934,7 +934,7 @@
                                             @"text": @"Total fruit consumption"
                                             },
                                     @"stackLabels": @{
-                                            @"enabled": @true,
+                                            @"enabled": @(true),
                                             @"style": @{
                                                     @"fontWeight": @"bold",
                                                     }
@@ -945,11 +945,11 @@
                                     @"x": @-30,
                                     @"verticalAlign": @"top",
                                     @"y": @25,
-                                    @"floating": @true,
+                                    @"floating": @(true),
                                     
                                     @"borderColor": @"#CCC",
                                     @"borderWidth": @1,
-                                    @"shadow": @false
+                                    @"shadow": @(false)
                                     },
                             @"tooltip": @{
                                     @"headerFormat": @"<b>{point.x}</b><br/>",
@@ -958,14 +958,14 @@
                             @"plotOptions": @{
                                     @"series":@{
                                             @"animation":@{
-                                                    @"easing":@"bounce",
+                                                    @"easing":@(AAChartAnimationBounce),
                                                     @"duration":@1000
                                                     }
                                             },
                                     @"column": @{
                                             @"stacking": @"normal",
                                             @"dataLabels": @{
-                                                    @"enabled": @true,
+                                                    @"enabled": @(true),
                                                     
                                                     }
                                             }

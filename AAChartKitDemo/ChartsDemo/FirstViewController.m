@@ -310,6 +310,8 @@
                                @"Spline Chart---曲线图",
                                @"Step Line Chart--直方折线图",
                                @"Step Area Chart--直方折线填充图",
+                               @"Scatter Chart --散点图",
+                               @"Pie Chart --扇形图"
                                ],
                              /*通过AAOptions实例对象来绘制图形*/
                              @[@"绘制legend居顶部的区域填充图",

@@ -42,6 +42,8 @@ typedef NS_ENUM(NSInteger,ChartAnimationTypeVCChartType) {
     ChartAnimationTypeVCChartTypeStepLine,
     ChartAnimationTypeVCChartTypeStepArea,
     ChartAnimationTypeVCChartTypeScatter,
+    ChartAnimationTypeVCChartTypePie,
+
 };
 
 @interface ChartAnimationTypeVC : UIViewController

@@ -31,37 +31,31 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 3.0,user-scalable = no">
-            
-            <script src="AAHighchartsLib.js">
-                </script>
-            <script src="AAHighchartsMore.js">
-                </script>
-<!--                        <script src="AAHighcharts-3d.js">-->
-<!--                            </script>-->
-            <script src="AAFunnel.js">
-                </script>
-            <!--    若介意本地js代码体积(250KB左右,工程打包压缩后实际体积远小于此)过大，可换用加载网络js代码 -->
-            <!--            <script src="https://img.hcharts.cn/highcharts/highcharts.js">-->
-            <!--                </script>-->
-            <!--            <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">-->
-            <!--                </script>-->
-            
-            
-            <style>
-                *{
-                    -webkit-user-select: none;
-                    user-select: none;
-                }
-            </style>
-            
-            </head>
+        <script src="AAHighchartsLib.js">
+        </script>
+        <script src="AAHighchartsMore.js">
+        </script>
+        <!-- <script src="AAHighcharts-3d.js">-->
+        <!-- </script>-->
+        <script src="AAFunnel.js">
+        </script>
+        <!-- 若介意本地js代码体积(250KB左右,工程打包压缩后实际体积远小于此)过大，可换用加载网络js代码 -->
+        <!-- <script src="https://img.hcharts.cn/highcharts/highcharts.js">-->
+        <!-- </script>-->
+        <!-- <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">-->
+        <!-- </script>-->
+        <style>
+            *{ -webkit-user-select: none; 
+                user-select: none; }
+        </style>
+    </head>
     <body>
         <div id="container" style="width: min-450px; height: 200px; margin: -8px">
         </div>
-        <script >
-            
+        <script>
+
             var globalChart;
-            
+
             function loadTheHighChartView(sender, receivedWidth, receivedHeight) {
                 var container = document.getElementById('container'); //获得元素
                 if (receivedWidth != 0) {
@@ -90,12 +84,10 @@
                     lang: {
                         resetZoom: aaOptions.zoomResetButtonText //Set 'Reset zoom button' title if title is not set in receivedZoomButtonTitle
                     }
-                });//Set the 'Reset zoom button' title
-
+                }); //Set the 'Reset zoom button' title
                 aaOptions.credits = {
                     enabled: false
                 }; //去掉表格右下角版权信息
-
                 if (aaOptions.plotOptions) {
                     var animation = aaOptions.plotOptions.series.animation;
                     if (animation) {
@@ -106,102 +98,102 @@
 
                 globalChart = Highcharts.chart('container', aaOptions);
             }
-        
-        function configureTheChartAnimationEasingType (easingType) {
+
+            function configureTheChartAnimationEasingType(easingType) {
                 switch (easingType) {
-                case "easeInQuad":
+                case 1:
                     return function(pos) {
                         return Math.pow(pos, 2);
                     };
-                case "easeOutQuad":
+                case 2:
                     return function(pos) {
                         return - (Math.pow((pos - 1), 2) - 1);
                     };
-                case "easeInOutQuad":
+                case 3:
                     return function(pos) {
                         if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 2);
                         return - 0.5 * ((pos -= 2) * pos - 2);
                     };
-                case "easeInCubic":
+                case 4:
                     return function(pos) {
                         return Math.pow(pos, 3);
                     };
-                case "easeOutCubic":
+                case 5:
                     return function(pos) {
                         return (Math.pow((pos - 1), 3) + 1);
                     };
-                case "easeInOutCubic":
+                case 6:
                     return function(pos) {
                         if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 3);
                         return 0.5 * (Math.pow((pos - 2), 3) + 2);
                     };
-                case "easeInQuart":
+                case 7:
                     return function(pos) {
                         return Math.pow(pos, 4);
                     };
-                case "easeOutQuart":
+                case 8:
                     return function(pos) {
                         return - (Math.pow((pos - 1), 4) - 1);
                     };
-                case "easeInOutQuart":
+                case 9:
                     return function(pos) {
                         if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 4);
                         return - 0.5 * ((pos -= 2) * Math.pow(pos, 3) - 2);
                     };
-                case "easeInQuint":
+                case 10:
                     return function(pos) {
                         return Math.pow(pos, 5);
                     };
-                case "easeOutQuint":
+                case 11:
                     return function(pos) {
                         return (Math.pow((pos - 1), 5) + 1);
                     };
-                case "easeInOutQuint":
+                case 12:
                     return function(pos) {
                         if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 5);
                         return 0.5 * (Math.pow((pos - 2), 5) + 2);
                     };
-                case "easeInSine":
+                case 13:
                     return function(pos) {
                         return - Math.cos(pos * (Math.PI / 2)) + 1;
                     };
-                case "easeOutSine":
+                case 14:
                     return function(pos) {
                         return Math.sin(pos * (Math.PI / 2));
                     };
-                case "easeInOutSine":
+                case 15:
                     return function(pos) {
                         return ( - 0.5 * (Math.cos(Math.PI * pos) - 1));
                     };
-                case "easeInExpo":
+                case 16:
                     return function(pos) {
                         return (pos === 0) ? 0 : Math.pow(2, 10 * (pos - 1));
                     };
-                case "easeOutExpo":
+                case 17:
                     return function(pos) {
                         return (pos === 1) ? 1 : -Math.pow(2, -10 * pos) + 1;
                     };
-                case "easeInOutExpo":
+                case 18:
                     return function(pos) {
                         if (pos === 0) return 0;
                         if (pos === 1) return 1;
                         if ((pos /= 0.5) < 1) return 0.5 * Math.pow(2, 10 * (pos - 1));
                         return 0.5 * ( - Math.pow(2, -10 * --pos) + 2);
                     };
-                case "easeInCirc":
+                case 19:
                     return function(pos) {
                         return - (Math.sqrt(1 - (pos * pos)) - 1);
                     };
-                case "easeOutCirc":
+                case 20:
                     return function(pos) {
                         return Math.sqrt(1 - Math.pow((pos - 1), 2));
                     };
-                case "easeInOutCirc":
+                case 21:
                     return function(pos) {
                         if ((pos /= 0.5) < 1) return - 0.5 * (Math.sqrt(1 - pos * pos) - 1);
                         return 0.5 * (Math.sqrt(1 - (pos -= 2) * pos) + 1);
                     };
-                case "easeOutBounce":
+                case 22:
                     return function(pos) {
                         if ((pos) < (1 / 2.75)) {
                             return (7.5625 * pos * pos);
@@ -213,42 +205,42 @@
                             return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
                         }
                     };
-                case "easeInBack":
+                case 23:
                     return function(pos) {
                         var s = 1.70158;
                         return (pos) * pos * ((s + 1) * pos - s);
                     };
-                case "easeOutBack":
+                case 24:
                     return function(pos) {
                         var s = 1.70158;
                         return (pos = pos - 1) * pos * ((s + 1) * pos + s) + 1;
                     };
-                case "easeInOutBack":
+                case 25:
                     return function(pos) {
                         var s = 1.70158;
                         if ((pos /= 0.5) < 1) return 0.5 * (pos * pos * (((s *= (1.525)) + 1) * pos - s));
                         return 0.5 * ((pos -= 2) * pos * (((s *= (1.525)) + 1) * pos + s) + 2);
                     };
-                case "elastic":
+                case 26:
                     return function(pos) {
                         return - 1 * Math.pow(4, -8 * pos) * Math.sin((pos * 6 - 1) * (2 * Math.PI) / 2) + 1;
                     };
-                case "swingFromTo":
+                case 27:
                     return function(pos) {
                         var s = 1.70158;
                         return ((pos /= 0.5) < 1) ? 0.5 * (pos * pos * (((s *= (1.525)) + 1) * pos - s)) : 0.5 * ((pos -= 2) * pos * (((s *= (1.525)) + 1) * pos + s) + 2);
                     };
-                case "swingFrom":
+                case 28:
                     return function(pos) {
                         var s = 1.70158;
                         return pos * pos * ((s + 1) * pos - s);
                     };
-                case "swingTo":
+                case 29:
                     return function(pos) {
                         var s = 1.70158;
                         return (pos -= 1) * pos * ((s + 1) * pos + s) + 1;
                     };
-                case "bounce":
+                case 30:
                     return function(pos) {
                         if (pos < (1 / 2.75)) {
                             return (7.5625 * pos * pos);
@@ -260,7 +252,7 @@
                             return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
                         }
                     };
-                case "bouncePast":
+                case 31:
                     return function(pos) {
                         if (pos < (1 / 2.75)) {
                             return (7.5625 * pos * pos);
@@ -272,69 +264,68 @@
                             return 2 - (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
                         }
                     };
-                case "easeFromTo":
+                case 32:
                     return function(pos) {
                         if ((pos /= 0.5) < 1) return 0.5 * Math.pow(pos, 4);
                         return - 0.5 * ((pos -= 2) * Math.pow(pos, 3) - 2);
                     };
-                case "easeFrom":
+                case 33:
                     return function(pos) {
                         return Math.pow(pos, 4);
                     };
-                case "easeTo":
+                case 34:
                     return function(pos) {
                         return Math.pow(pos, 0.25);
                     }
                 }
             }
 
+            function onlyRefreshTheChartDataWithSeries(receivedSeries) {
+                var receivedSeriesElementArr = JSON.parse(receivedSeries);
 
-        function onlyRefreshTheChartDataWithSeries (receivedSeries) {
-            var receivedSeriesElementArr = JSON.parse(receivedSeries);
-            
-            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
-                var receivedSeriesData = receivedSeriesElementArr[i].data;
-                // 获取series
-                var chartSeries =  globalChart.series[i];
-                // 执行只刷新数据的函数
-                chartSeries.setData(receivedSeriesData);
-            }
-        }
-            
-        //pragma mark -- setter method
-        function setTheChartViewContentWidth (receivedWidth) {
-            var container = document.getElementById('container');//获得元素
-            container.style.width = receivedWidth;//设置宽度
-            globalChart.reflow();
-        }
-        
-        function setTheChartViewContentHeight (receivedHeight) {
-            var container = document.getElementById('container');//获得元素
-            container.style.height = receivedHeight;//设置高度
-            globalChart.reflow();
-        }
-        
-        function setChartSeriesHidden (hidden) {
-            for (var i = 0; i < globalChart.series.length; i++) {
-                var series = globalChart.series[i];
-                if (hidden == true) {
-                    series.hide();
-                } else {
-                    series.show();
+                for (var i = 0; i < receivedSeriesElementArr.length; i++) {
+                    var receivedSeriesData = receivedSeriesElementArr[i].data;
+                    // 获取series
+                    var chartSeries = globalChart.series[i];
+                    // 执行只刷新数据的函数
+                    chartSeries.setData(receivedSeriesData);
                 }
             }
-        }
-        
-        function showTheSeriesElementContentWithIndex (elementIndex) {
-            var series = globalChart.series[elementIndex];
-            series.show();
-        }
-        
-        function hideTheSeriesElementContentWithIndex (elementIndex) {
-            var series = globalChart.series[elementIndex];
-            series.hide();
-        }
-        
-            </script>
+
+            //pragma mark -- setter method
+            function setTheChartViewContentWidth(receivedWidth) {
+                var container = document.getElementById('container'); //获得元素
+                container.style.width = receivedWidth; //设置宽度
+                globalChart.reflow();
+            }
+
+            function setTheChartViewContentHeight(receivedHeight) {
+                var container = document.getElementById('container'); //获得元素
+                container.style.height = receivedHeight; //设置高度
+                globalChart.reflow();
+            }
+
+            function setChartSeriesHidden(hidden) {
+                for (var i = 0; i < globalChart.series.length; i++) {
+                    var series = globalChart.series[i];
+                    if (hidden == true) {
+                        series.hide();
+                    } else {
+                        series.show();
+                    }
+                }
+            }
+
+            function showTheSeriesElementContentWithIndex(elementIndex) {
+                var series = globalChart.series[elementIndex];
+                series.show();
+            }
+
+            function hideTheSeriesElementContentWithIndex(elementIndex) {
+                var series = globalChart.series[elementIndex];
+                series.hide();
+            }
+        </script>
     </body>
+
 </html>

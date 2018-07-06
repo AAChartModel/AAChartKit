@@ -35,6 +35,6 @@
 @interface AAAnimation : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAAnimation, NSNumber *, duration);
-AAPropStatementAndPropSetFuncStatement(copy,   AAAnimation, NSString *, easing);
+AAPropStatementAndPropSetFuncStatement(assign, AAAnimation, NSInteger , easing);
 
 @end
