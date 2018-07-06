@@ -148,7 +148,6 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight);//Subt
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor);//Subtitle flabel font color
 
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series);//图表的数据列内容
-AAPropSetFuncImplementation(AAChartModel, NSArray  *, keys);//Key support
 
 AAPropSetFuncImplementation(AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType);//图表类型
@@ -168,10 +167,6 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelRotation);//Datalabel rotation in degrees 
-AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelAllowOverlap);//Datalabel allow overlapping
-//(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
-//******
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisLabelsFontSize);//x-axis labels font size
@@ -201,11 +196,6 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮�
 //AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
-
-AAPropSetFuncImplementation(AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dAlpha);
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dBeta);
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, options3dDepth);//3D 图形深度
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度

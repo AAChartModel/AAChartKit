@@ -61,7 +61,7 @@
 ```
 
 ### 正式开始
-1. 在你的视图控制器文件中添加
+1. 在你的`ViewController`视图控制器文件中添加
 ```objective-c
 #import "AAChartKit.h"
 ```

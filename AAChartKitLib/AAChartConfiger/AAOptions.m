@@ -64,13 +64,6 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(aaChartModel.polar);
     
-    if (aaChartModel.options3dEnabled == true) {
-        aaChart.options3d = (AAObject(AAOptions3d)
-                             .enabledSet(aaChartModel.options3dEnabled)
-                             .alphaSet(@(-15))
-                             );
-    }
-    
     AATitle *aaTitle = AAObject(AATitle)
     .textSet(aaChartModel.title)//标题文本内容
     .styleSet(AAObject(AAStyle)
@@ -97,9 +90,8 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     
     AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
     .seriesSet(AAObject(AASeries)
-               //             .colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
+               //.colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
                .stackingSet(aaChartModel.stacking)//设置是否百分比堆叠显示图形
-               .keysSet(aaChartModel.keys)//Support for keys
                );
     
     if (aaChartModel.animationType != 0) {
@@ -115,11 +107,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     //   aaPlotOptions.series.events = @{@"click":@"hahaha"};
     
     AALegend *aaLegend = AAObject(AALegend)
-    .enabledSet(aaChartModel.legendEnabled)//是否显示 legend
-    .layoutSet(AALegendLayoutTypeHorizontal)//图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-    .alignSet(AALegendAlignTypeCenter)//设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-    .verticalAlignSet(AALegendVerticalAlignTypeBottom)//设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
-    .itemMarginTopSet(@0);//图例的每一项的顶部外边距，单位px。 默认是：0.
+    .enabledSet(aaChartModel.legendEnabled);//是否显示 legend
     
     AAOptions *aaOptions = AAObject(AAOptions)
     .chartSet(aaChart)
@@ -314,9 +302,6 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                                   .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
                                   .fontWeightSet(aaChartModel.dataLabelFontWeight)
                                   )
-                        .rotationSet(aaChartModel.dataLabelRotation)
-                        .allowOverlapSet(aaChartModel.dataLabelAllowOverlap)
-                        //(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
                         );
     }
     
@@ -356,7 +341,6 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                                 .dataLabelsSet(aaDataLabels));
     } else if ([chartType isEqualToString:AAChartTypePie]) {
         AAPie *aaPie = (AAObject(AAPie)
-                        //.sizeSet(@50)
                         .allowPointSelectSet(true)
                         .cursorSet(@"pointer")
                         .showInLegendSet(true)
@@ -370,11 +354,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                                 .enabledSet(false)
                                 );
         }
-        
         aaPlotOptions.pieSet(aaPie);
-        if (aaChartModel.options3dEnabled == true) {
-            aaPlotOptions.pie.depth = aaChartModel.options3dDepth;//设置3d 图形阴影深度
-        }
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
         [columnRangeDic setValue:@0 forKey:@"borderRadius"];//The color of the border surrounding each column or bar

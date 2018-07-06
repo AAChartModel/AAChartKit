@@ -153,7 +153,6 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontCo
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);//Subtitle label font weight
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);//图表的数据列内容
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys);//Keys support
 
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);//图表类型
@@ -173,10 +172,6 @@ AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabl
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);//Datalabel font color
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);//Datalabel font size
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);//Datalabel font weight
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, dataLabelRotation);//Datalabel rotation in degrees 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelAllowOverlap);//Datalabel allow overlapping
-//(Note: if rotation <> 0, 'dataLabelAllowOverlap' will not work - this is a bug in HighCharts (https://github.com/highcharts/highcharts/issues/7362)
-//******
 
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);//x 轴是否显示数据
 AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);//xAxis font size
@@ -206,11 +201,6 @@ AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSu
 //AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);//是否显示准星线(默认显示)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);//是否显示图例 lengend(图表底部可点按的圆点和文字)
-
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnabled);//是否 3D 化图形(仅对条形图,柱状图有效)
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);//3D 图形深度
 
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);//柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);//折线连接点的半径长度
