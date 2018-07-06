@@ -37,7 +37,7 @@
 #define AAObject(objectName) [[objectName alloc]init]
 
 
-#define AAPropStatementAndFuncStatement(propertyModifier,className, propertyPointerType, propertyName)                  \
+#define AAPropStatementAndPropSetFuncStatement(propertyModifier,className, propertyPointerType, propertyName)                  \
 @property(nonatomic,propertyModifier)propertyPointerType  propertyName;                                                 \
 - (className * (^) (propertyPointerType propertyName)) propertyName##Set;
 

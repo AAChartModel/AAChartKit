@@ -370,77 +370,71 @@ Here are the ten concrete animation types of AAChartKit
 
 ## AAChartModel:chart attribute list
 ```objective-c
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, title);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitle);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, series);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray *,  keys); 
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series);
 
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);
-AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);
-AAPropStatementAndFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       inverted);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       polar);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, categories);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, categories);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);
-AAPropStatementAndFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       connectNulls);
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);
+AAPropStatementAndPropSetFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);
 
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       options3dEnabled);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dAlpha);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dBeta);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, options3dDepth);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
 
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
-
-AAPropStatementAndFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);
-AAPropStatementAndFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);
-AAPropStatementAndFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText);
 
 ```
 

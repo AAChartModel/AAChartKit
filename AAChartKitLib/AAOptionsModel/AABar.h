@@ -36,11 +36,11 @@
 
 @interface AABar : NSObject
 
-AAPropStatementAndFuncStatement(strong, AABar, NSNumber *,     pointPadding);
-AAPropStatementAndFuncStatement(strong, AABar, NSNumber *,     groupPadding);
-AAPropStatementAndFuncStatement(strong, AABar, NSNumber *,     borderWidth);
-AAPropStatementAndFuncStatement(assign, AABar, BOOL,           colorByPoint);//对每个不同的点设置颜色(当图表类型为 column 时,设置为 column 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
-AAPropStatementAndFuncStatement(strong, AABar, AADataLabels *, dataLabels);
-AAPropStatementAndFuncStatement(strong, AABar, NSNumber *,     borderRadius);
+AAPropStatementAndPropSetFuncStatement(strong, AABar, NSNumber *,     pointPadding);
+AAPropStatementAndPropSetFuncStatement(strong, AABar, NSNumber *,     groupPadding);
+AAPropStatementAndPropSetFuncStatement(strong, AABar, NSNumber *,     borderWidth);
+AAPropStatementAndPropSetFuncStatement(assign, AABar, BOOL,           colorByPoint);//对每个不同的点设置颜色(当图表类型为 column 时,设置为 column 对象的属性,当图表类型为 bar 时,应该设置为 bar 对象的属性才有效)
+AAPropStatementAndPropSetFuncStatement(strong, AABar, AADataLabels *, dataLabels);
+AAPropStatementAndPropSetFuncStatement(strong, AABar, NSNumber *,     borderRadius);
 
 @end

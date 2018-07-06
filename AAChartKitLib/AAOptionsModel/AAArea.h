@@ -36,6 +36,6 @@
 
 @interface AAArea : NSObject
 
-AAPropStatementAndFuncStatement(strong, AAArea, AADataLabels *, dataLabels);
+AAPropStatementAndPropSetFuncStatement(strong, AAArea, AADataLabels *, dataLabels);
 
 @end

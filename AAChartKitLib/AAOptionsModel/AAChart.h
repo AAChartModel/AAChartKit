@@ -37,18 +37,18 @@
 
 @interface AAChart : NSObject
 
-AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, type);
-AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, backgroundColor);
-AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, plotBackgroundImage);//指定绘图区背景图片的地址。如果需要设置整个图表的背景，请通过 CSS 来给容器元素（div）设置背景图。另外如果需要在导出图片中包含这个背景图，要求这个地址是公网可以访问的地址（包含可以访问且是绝对路径）。
-AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, pinchType);
-AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          panning);
-//AAPropStatementAndFuncStatement(copy,   AAChart, NSString    *, panKey);
-AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          polar);
-AAPropStatementAndFuncStatement(strong, AAChart, AAOptions3d *, options3d);
-AAPropStatementAndFuncStatement(assign, AAChart, AAAnimation *, animation);//设置启用动画的时间和类型
-AAPropStatementAndFuncStatement(assign, AAChart, BOOL,          inverted);
-AAPropStatementAndFuncStatement(strong, AAChart, NSNumber    *, marginLeft);
-AAPropStatementAndFuncStatement(strong, AAChart, NSNumber    *, marginRight);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, type);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, backgroundColor);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, plotBackgroundImage);//指定绘图区背景图片的地址。如果需要设置整个图表的背景，请通过 CSS 来给容器元素（div）设置背景图。另外如果需要在导出图片中包含这个背景图，要求这个地址是公网可以访问的地址（包含可以访问且是绝对路径）。
+AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, pinchType);
+AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          panning);
+//AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, panKey);
+AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          polar);
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAOptions3d *, options3d);
+AAPropStatementAndPropSetFuncStatement(assign, AAChart, AAAnimation *, animation);//设置启用动画的时间和类型
+AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          inverted);
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft);
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRight);
 
 @end
 

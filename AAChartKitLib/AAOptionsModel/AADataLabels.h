@@ -93,12 +93,12 @@
 //y: -6
 //zIndex
 
-AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , enabled);
-AAPropStatementAndFuncStatement(strong, AADataLabels, AAStyle  *, style);
-AAPropStatementAndFuncStatement(copy,   AADataLabels, NSString *, format);
-AAPropStatementAndFuncStatement(copy,   AADataLabels, NSNumber *, rotation);
-AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , allowOverlap);
-AAPropStatementAndFuncStatement(assign, AADataLabels, BOOL      , useHTML);
-AAPropStatementAndFuncStatement(strong, AADataLabels, NSNumber*, distance);
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , enabled);
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, AAStyle  *, style);
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, format);
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, rotation);
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , allowOverlap);
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , useHTML);
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber*, distance);
 
 @end

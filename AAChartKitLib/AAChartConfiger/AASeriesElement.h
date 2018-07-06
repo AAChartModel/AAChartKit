@@ -36,30 +36,30 @@
 
 @interface AASeriesElement : NSObject
 
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, type);
-AAPropStatementAndFuncStatement(assign, AASeriesElement, BOOL      , allowPointSelect);//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, name);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, data);
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, color);
-//AAPropStatementAndFuncStatement(assign, AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
-AAPropStatementAndFuncStatement(strong, AASeriesElement, AAMarker *, marker);
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, stacking);
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, dashStyle);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, threshold);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth);//折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth)//柱形图、条形图、扇形图等图形的描边宽度
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, borderColor);//柱形图、条形图、扇形图顿号等图形的描边颜色
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, fillColor);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, fillOpacity);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, negativeColor); // The color for the parts of the graph or points that are below the threshold
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius);
-AAPropStatementAndFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, size);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSArray  *, keys);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSNumber *, yAxis);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, AADataLabels*, dataLabels);
-AAPropStatementAndFuncStatement(strong, AASeriesElement, id        , step);//是否转变为直方折线图
-AAPropStatementAndFuncStatement(strong, AASeriesElement, NSDictionary *, states);
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, type);
+AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , allowPointSelect);//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, name);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, data);
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, color);
+//AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAMarker *, marker);
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stacking);
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, dashStyle);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, threshold);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth);//折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth)//柱形图、条形图、扇形图等图形的描边宽度
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor);//柱形图、条形图、扇形图顿号等图形的描边颜色
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, fillColor);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, fillOpacity);//折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, negativeColor); // The color for the parts of the graph or points that are below the threshold
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius);
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, innerSize);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, size);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, keys);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, yAxis);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AADataLabels*, dataLabels);
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , step);//是否转变为直方折线图
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSDictionary *, states);
 
 @end
 

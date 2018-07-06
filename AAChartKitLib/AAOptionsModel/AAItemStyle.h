@@ -34,10 +34,10 @@
 
 @interface AAItemStyle : NSObject
 
-AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, color);
-AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, cursor);
-AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, pointer);
-AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, fontSize);
-AAPropStatementAndFuncStatement(copy, AAItemStyle, NSString *, fontWeight);
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, color);
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, cursor);
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, pointer);
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontSize);
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontWeight);
 
 @end
