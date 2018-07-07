@@ -143,7 +143,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 - ### special area chart two - 带有负数的曲线区域填充图
 
-![IMG_1871.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/AreasplineChart.png)
+![IMG_1871.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/AreaChartOne.png)
 
 - ### special area chart three - 堆积状态的折线区域填充图
 

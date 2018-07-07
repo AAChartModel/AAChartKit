@@ -143,7 +143,7 @@ if you want to refresh chart content,you should do something as follow.According
 
 - ### special area chart two
 
-![IMG_1871.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAChartKit/AreasplineChart.png)
+![IMG_1871.JPG](https://github.com/AAChartModel/loadHtmlCssJsDemo-master/blob/master/AAInfographics/AreaChartOne.png)
 
 - ### special area chart three
 
