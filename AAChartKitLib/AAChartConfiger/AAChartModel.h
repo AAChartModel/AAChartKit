@@ -216,6 +216,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)

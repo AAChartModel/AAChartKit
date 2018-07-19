@@ -104,6 +104,7 @@ AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
         _colorsTheme           = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];//默认颜色主题
         _tooltipEnabled        = YES;//默认启用浮动提示框
         //        _tooltipCrosshairs     = YES;//默认启用准星线
+        _tooltipShared         = YES;//默认多组数据共享一个浮动提示框
         _xAxisLabelsEnabled    = YES;//默认显示 X轴坐标点文字
         _xAxisGridLineWidth    = @0; //设置x轴分割线宽度为0个像素,即是隐藏 X轴分割线
         _xAxisTickInterval     = @1; //x轴坐标点间隔数(默认是1)
@@ -210,6 +211,7 @@ AAPropSetFuncImplementation(AAChartModel, AALineDashSyleType,   yAxisCrosshairDa
 
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
+AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框
 AAPropSetFuncImplementation(AAChartModel, NSString *, tooltipValueSuffix);//浮动提示框单位后缀
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       connectNulls);//设置折线是否断点重连(是否连接空值点)
