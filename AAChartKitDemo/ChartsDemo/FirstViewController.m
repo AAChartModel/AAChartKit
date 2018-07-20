@@ -247,7 +247,7 @@
 
 - (NSArray *)chartTypeNameArr {
     if (!_chartTypeNameArr) {
-        _chartTypeNameArr =@[
+        _chartTypeNameArr = @[
                              /*基础类型图表*/
                              @[@"Column Chart---柱形图",
                                @"Bar Chart---条形图",
@@ -326,7 +326,8 @@
                                @"Double Y Axises Chart---双Y轴混合图",
                                @"Adjust Data Accuracy---调整数据精度",
                                @"Adjust Group Padding---调整group间距",
-                               @"Custom Style Stacked Column---自定义堆积柱状图"
+                               @"Custom Style Stacked Column---自定义堆积柱状图",
+                               @"时间不连续的直方折线填充图连接图"
                                ],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",

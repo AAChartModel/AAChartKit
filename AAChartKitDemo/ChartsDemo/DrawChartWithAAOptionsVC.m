@@ -33,6 +33,7 @@
 #import "DrawChartWithAAOptionsVC.h"
 #import "AAChartKit.h"
 
+#import "AADateUTCTool.h"
 @interface DrawChartWithAAOptionsVC ()
 
 @end
@@ -68,6 +69,7 @@
         case 10: return [self adjustChartSeriesDataAccuracy];
         case 11: return [self adjustGroupPaddingForPolarChart];
         case 12: return [self customStyleStackedColumnChart];
+        case 13: return [self specialStyleStepLineChart];
     }
     return nil;
 }
@@ -984,5 +986,339 @@
     
     return options3;
 }
+
+- (AAOptions *)specialStyleStepLineChart {
+    
+    //Method 1
+    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeLine)//图形类型
+    .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
+    .titleSet(@"STEP LINE CHART")//图形标题
+    .subtitleSet(@"2020/08/08")//图形副标题
+    .dataLabelEnabledSet(NO)//是否显示数字
+    .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
+    .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"價格")
+                 .colorSet(@"#003386")
+                 .stepSet(@true)
+                 .dataSet(@[
+                            @[AADateUTC(2016, 9 - 1, 2),   @389.00],
+                            @[AADateUTC(2016, 10 - 1, 4),  @350.10],
+                            @[AADateUTC(2016, 10 - 1, 4),  @350.10],
+                            @[AADateUTC(2016, 10 - 1, 17), @389.00],
+                            @[AADateUTC(2016, 11 - 1, 24), @233.40],
+                            @[AADateUTC(2016, 11 - 1, 29), @389.00],
+                            @[AADateUTC(2016, 12 - 1, 20), @233.40],
+                            @[AADateUTC(2017, 1 - 1, 5),   @389.00],
+                            @[AADateUTC(2017, 2 - 1, 1),   @233.40],
+                            @[AADateUTC(2017, 2 - 1, 9),   @389.00],
+                            @[AADateUTC(2017, 4 - 1, 26),  @233.40],
+                            @[AADateUTC(2017, 5 - 1, 9),   @389.00],
+                            @[AADateUTC(2017, 7 - 1, 19),  @291.75],
+                            @[AADateUTC(2017, 8 - 1, 2),   @389.00],
+                            @[AADateUTC(2017, 10 - 1, 18), @155.60],
+                            @[AADateUTC(2017, 10 - 1, 31), @389.00],
+                            @[AADateUTC(2017, 11 - 1, 21), @194.50],
+                            @[AADateUTC(2017, 11 - 1, 28), @389.00],
+                            @[AADateUTC(2017, 11 - 1, 29), @194.50],
+                            @[AADateUTC(2017, 12 - 1, 13), @389.00],
+                            @[AADateUTC(2017, 12 - 1, 25), @194.50],
+                            @[AADateUTC(2018, 1 - 1, 9),   @389.00],
+                            @[AADateUTC(2018, 2 - 1, 8),   @194.50],
+                            @[AADateUTC(2018, 2 - 1, 21),  @389.00],
+                            @[AADateUTC(2018, 3 - 1, 8),   @155.60],
+                            @[AADateUTC(2018, 3 - 1, 18),  @389.00],
+                            @[AADateUTC(2018, 6 - 1, 8),   @155.60],
+                            @[AADateUTC(2018, 6 - 1, 18),  @389.00],
+                            @[AADateUTC(2018, 7 - 1, 12),  @194.50],
+                            //                                      @[Date.now(), @194.50]
+                            ]),
+                 AAObject(AASeriesElement)
+                 .nameSet(@"PS+")
+                 .colorSet(@"#FFC535")
+                 .stepSet(@true)
+                 .dataSet(@[
+                            @[AADateUTC(2016, 9 - 1, 2),   @389.00],
+                            @[AADateUTC(2016, 10 - 1, 4),  @311.20],
+                            @[AADateUTC(2016, 10 - 1, 4),  @311.20],
+                            @[AADateUTC(2016, 10 - 1, 17), @389.00],
+                            @[AADateUTC(2016, 11 - 1, 24), @233.40],
+                            @[AADateUTC(2016, 11 - 1, 29), @389.00],
+                            @[AADateUTC(2016, 12 - 1, 20), @233.40],
+                            @[AADateUTC(2017, 1 - 1, 5),   @389.00],
+                            @[AADateUTC(2017, 2 - 1, 1),   @194.50],
+                            @[AADateUTC(2017, 2 - 1, 9),   @389.00],
+                            @[AADateUTC(2017, 4 - 1, 26),  @194.50],
+                            @[AADateUTC(2017, 5 - 1, 9),   @389.00],
+                            @[AADateUTC(2017, 7 - 1, 19),  @194.50],
+                            @[AADateUTC(2017, 8 - 1, 2),   @389.00],
+                            @[AADateUTC(2017, 10 - 1, 18), @155.60],
+                            @[AADateUTC(2017, 10 - 1, 31), @389.00],
+                            @[AADateUTC(2017, 11 - 1, 21), @155.60],
+                            @[AADateUTC(2017, 11 - 1, 28), @389.00],
+                            @[AADateUTC(2017, 11 - 1, 29), @155.60],
+                            @[AADateUTC(2017, 12 - 1, 13), @389.00],
+                            @[AADateUTC(2017, 12 - 1, 25), @155.60],
+                            @[AADateUTC(2018, 1 - 1, 9),   @389.00],
+                            @[AADateUTC(2018, 2 - 1, 8),   @155.60],
+                            @[AADateUTC(2018, 2 - 1, 21),  @389.00],
+                            @[AADateUTC(2018, 3 - 1, 8),   @155.60],
+                            @[AADateUTC(2018, 3 - 1, 18),  @389.00],
+                            @[AADateUTC(2018, 6 - 1, 8),   @155.60],
+                            @[AADateUTC(2018, 6 - 1, 18),  @389.00],
+                            @[AADateUTC(2018, 7 - 1, 12),  @155.60],
+                            //                                      @[Date.now(), @155.60]
+                            ]),
+                 ]
+               )
+    ;
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    NSDictionary *xAxisDic = @{
+                               @"type": @"datetime",
+                               @"dateTimeLabelFormats": @{
+                                       @"month": @"%e.%m.%y"
+                                       }
+                               };
+    
+    aaOptions.xAxis = (id)xAxisDic;
+    return aaOptions;
+    
+ //Method 2
+  NSDictionary *aaOptions2 = @{
+                   @"title": @false,
+                   @"credits": @false,
+                   @"chart": @{
+                           @"type": @"line",
+                           @"backgroundColor": @"#ffffff"
+                           },
+                   @"plotOptions": @{
+                           @"series":@{
+                                   @"animation":@{
+                                           @"easing":@(AAChartAnimationLinear),
+                                           @"duration":@1000
+                                           }
+                                   },
+                           @"line": @{
+                                   @"color": @"#003386",
+                                   @"lineWidth": @1,
+                                   @"dataLabels": @{
+                                           @"enabled": @false,
+                                           @"backgroundColor": @"rgba(255, 255, 255, 1.0)",
+                                           @"format": @"{y} HK$",
+                                           @"zIndex": @3
+                                           },
+                                   @"enableMouseTracking": @true,
+                                   @"marker": @{
+                                           @"fillColor": @"white",
+                                           @"symbol": @"circle",
+                                           @"lineWidth": @1,
+                                           @"lineColor": @"#003386"
+                                           }
+                                   }
+                           },
+                   @"legend": @{
+                           @"layout": @"horizontal",
+                           @"align": @"left",
+                           @"verticalAlign": @"bottom"
+                           },
+                   @"tooltip": @{
+                           @"shared": @true,
+                           @"shadow": @false,
+                           @"crosshairs": @true,
+                           @"backgroundColor": @"#fff",
+                           @"borderColor": @"#5177b4",
+                           @"borderWidth": @1,
+                           @"xDateFormat": @"%Y-%m-%d",
+                           @"valueSuffix": @"  HK$"
+                           },
+                   @"xAxis": @{
+                           @"type": @"datetime",
+                           @"dateTimeLabelFormats": @{
+                                   @"month": @"%e.%m.%y"
+                                   }
+                           },
+                   @"yAxis": @{
+                           @"title": @false,
+                           @"tickPixelInterval": @40,
+                           @"alternateGridColor": @"#fafafa",
+                           @"gridLineColor": @"#f0f0f0",
+                           @"gridLineDashStyle": @"dash",
+                           @"labels": @{
+                                   @"enabled": @true,
+                                   @"format": @"{value} HK$"
+                                   },
+                           @"min": @0,
+                           @"showFirstLabel": @false
+                           },
+                   @"series": @[@{
+                                     @"zIndex": @2,
+                                     @"name": @"價格",
+                                     @"color": @"#003386",
+                                     @"step": @"left",
+                                     @"data": @[
+                                             @[@1472774400000, @389],
+                                             @[@1475539200000, @350.1],
+                                             @[@1475539200000, @350.1],
+                                             @[@1476662400000, @389],
+                                             @[@1479945600000, @233.4],
+                                             @[@1480377600000, @389],
+                                             @[@1482192000000, @233.4],
+                                             @[@1483574400000, @389],
+                                             @[@1485907200000, @233.4],
+                                             @[@1486598400000, @389],
+                                             @[@1493164800000, @233.4],
+                                             @[@1494288000000, @389],
+                                             @[@1500422400000, @291.75],
+                                             @[@1501632000000, @389],
+                                             @[@1508284800000, @155.6],
+                                             @[@1509408000000, @389],
+                                             @[@1511222400000, @194.5],
+                                             @[@1511827200000, @389],
+                                             @[@1511913600000, @194.5],
+                                             @[@1513123200000, @389],
+                                             @[@1514160000000, @194.5],
+                                             @[@1515456000000, @389],
+                                             @[@1518048000000, @194.5],
+                                             @[@1519171200000, @389],
+                                             @[@1520467200000, @155.6],
+                                             @[@1521331200000, @389],
+                                             @[@1528416000000, @155.6],
+                                             @[@1529280000000, @389],
+                                             @[@1531353600000, @194.5],
+                                             @[@1532052447381, @194.5]
+                                             ]
+                                     }, @{
+                                     @"zIndex": @1,
+                                     @"name": @"PS+",
+                                     @"color": @"#FFC535",
+                                     @"marker": @{
+                                             @"lineColor": @"#FFC535"
+                                             },
+                                     @"step": @"left",
+                                     @"data": @[
+                                             @[@1472774400000, @389],
+                                             @[@1475539200000, @311.2],
+                                             @[@1475539200000, @311.2],
+                                             @[@1476662400000, @389],
+                                             @[@1479945600000, @233.4],
+                                             @[@1480377600000, @389],
+                                             @[@1482192000000, @233.4],
+                                             @[@1483574400000, @389],
+                                             @[@1485907200000, @194.5],
+                                             @[@1486598400000, @389],
+                                             @[@1493164800000, @194.5],
+                                             @[@1494288000000, @389],
+                                             @[@1500422400000, @194.5],
+                                             @[@1501632000000, @389],
+                                             @[@1508284800000, @155.6],
+                                             @[@1509408000000, @389],
+                                             @[@1511222400000, @155.6],
+                                             @[@1511827200000, @389],
+                                             @[@1511913600000, @155.6],
+                                             @[@1513123200000, @389],
+                                             @[@1514160000000, @155.6],
+                                             @[@1515456000000, @389],
+                                             @[@1518048000000, @155.6],
+                                             @[@1519171200000, @389],
+                                             @[@1520467200000, @155.6],
+                                             @[@1521331200000, @389],
+                                             @[@1528416000000, @155.6],
+                                             @[@1529280000000, @389],
+                                             @[@1531353600000, @155.6],
+                                             @[@1532052447381, @155.6]
+                                             ]
+                                     }]
+                   };
+
+    return aaOptions2;
+}
+
+//- (NSTimeInterval)pleaseInsertStarTime:(NSString *)starTime andInsertEndTime:(NSString *)endTime{
+//
+//    starTime = @"1970-01-01 00:00:00 000";
+//
+//    NSDateFormatter* formater = [[NSDateFormatter alloc] init];
+//    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss sss"];//根据自己的需求定义格式
+//    NSDate* startDate = [formater dateFromString:starTime];
+//    NSDate* endDate = [formater dateFromString:endTime];
+//    NSTimeInterval time = [endDate timeIntervalSinceDate:startDate];
+//    return time;
+//}
+
+
+
+
+//- (NSNumber *)getDateUTCWithYear:(int )year month:(int )month day:(int )day {
+//    NSString *dateString = [NSString stringWithFormat:@"%d-%d-%d 00:00:00 000",year,month,day];
+////    NSDate *date = [self dateFromStringg:dateString];
+////    NSNumber *utc = [self getUTCTimeWithDate:date];
+//    NSInteger timeUTC = [self timeSwitchTimestampWithFormatter:dateString];
+//    NSNumber *timeNum = [NSNumber numberWithInteger:timeUTC];
+//    return timeNum;
+//}
+
+//
+//
+//- (NSDate *)dateFromStringg:(NSString *)dateString{
+////    dateString = @"2016-7-16 09:33:22";
+//
+//
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+//    NSDate *destDate= [dateFormatter dateFromString:dateString];
+//    return destDate;
+//}
+//
+//-(NSNumber *)getUTCTimeWithDate:(NSDate *)date {
+//    //    NSDate *date = [NSDate date];
+//    NSLog(@"当前日期为:%@",date);
+//    NSTimeInterval timeStamp= [date timeIntervalSince1970];
+//    NSLog(@"日期转换为时间戳 %@ = %f", date, timeStamp);
+//    NSNumber *utcTime = [NSNumber numberWithDouble:timeStamp];
+//    return utcTime;
+//}
+//
+////将某个时间转化成 时间戳
+//
+//#pragma mark - 将某个时间转化成 时间戳
+//
+//-(NSInteger)timeSwitchTimestampWithFormatter:(NSString *)timeString{
+//
+//
+//
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//
+//    [formatter setDateStyle:NSDateFormatterMediumStyle];
+//
+//    [formatter setTimeStyle:NSDateFormatterShortStyle];
+//
+//    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss sss"]; //(@"YYYY-MM-dd hh:mm:ss") ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+//
+//
+//
+//    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+//
+//    [formatter setTimeZone:timeZone];
+//
+//
+//
+//    NSDate* date = [formatter dateFromString:timeString]; //------------将字符串按formatter转成nsdate
+//
+//    //时间转时间戳的方法:
+//
+//    NSInteger timeSp = [[NSNumber numberWithDouble:[date timeIntervalSince1970]] integerValue];
+//
+//
+//
+//    NSLog(@"将某个时间转化成 时间戳&&&&&&&timeSp:%ld",(long)timeSp); //时间戳的值
+//
+//
+//
+//    return timeSp;
+//
+//}
+
 
 @end
