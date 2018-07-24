@@ -66,10 +66,12 @@
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
-                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55]),
+                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
+                 .allowPointSelectSet(YES)
+                 ,
                  ]
                );
-    
+        
     [aaChartView aa_drawChartWithChartModel:aaChartModel];
     
 }
