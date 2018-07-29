@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = 'AAChartKit'
-    s.version      = '3.0.1'
+    s.version      = '3.0.2'
     s.summary      = '📈📊An elegant and friendly chart library for iOS . Powerful,supports line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange, bubble, box plot, error bars, funnel, waterfall and polar chart types.极其精美而又强大的 iOS 图表组件库,支持柱状图、条形图、折线图、曲线图、折线填充图、曲线填充图、气泡图、扇形图、环形图、散点图、雷达图、混合图等各种类型的多达几十种的信息图图表,完全满足工作所需.'
     s.description  = <<-DESC
 ***
