@@ -120,9 +120,9 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .gradientColorEnabledSet(aaChartModel.gradientColorEnabled)//设置主题颜色是否为渐变色
     .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText);//设置重置缩放按钮的默认标题
     
-    if (   ![aaChartModel.chartType isEqualToString:AAChartTypePie]
-        && ![aaChartModel.chartType isEqualToString:AAChartTypePyramid]
-        && ![aaChartModel.chartType isEqualToString:AAChartTypeFunnel]) {
+    if (   aaChartModel.chartType != AAChartTypePie
+        && aaChartModel.chartType != AAChartTypePyramid
+        && aaChartModel.chartType != AAChartTypeFunnel) {
         [self configureAxisContentAndStyleWithAAOptions:aaOptions AAChartModel:aaChartModel];
     }
     
@@ -191,10 +191,10 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
     //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
-    if (   [aaChartModel.chartType isEqualToString:AAChartTypeArea]
-        || [aaChartModel.chartType isEqualToString:AAChartTypeAreaspline]
-        || [aaChartModel.chartType isEqualToString:AAChartTypeLine]
-        || [aaChartModel.chartType isEqualToString:AAChartTypeSpline]) {
+    if (   aaChartModel.chartType == AAChartTypeArea
+        || aaChartModel.chartType == AAChartTypeAreaspline
+        || aaChartModel.chartType == AAChartTypeLine
+        || aaChartModel.chartType == AAChartTypeSpline) {
         AAMarker *aaMarker = AAObject(AAMarker)
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(aaChartModel.symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -228,7 +228,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                         );
     }
     
-    if ([chartType isEqualToString:AAChartTypeColumn]) {
+    if (chartType == AAChartTypeColumn) {
         AAColumn *aaColumn = (AAObject(AAColumn)
                               .borderWidthSet(@0)
                               //.groupPaddingSet(@0.05)
@@ -239,7 +239,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.columnSet(aaColumn);
-    } else if ([chartType isEqualToString:AAChartTypeBar]) {
+    } else if (chartType == AAChartTypeBar) {
         AABar *aaBar = (AAObject(AABar)
                         .borderWidthSet(@0)
                         //.groupPaddingSet(@0.1)
@@ -250,19 +250,19 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.barSet(aaBar);
-    } else if ([chartType isEqualToString:AAChartTypeArea]) {
+    } else if (chartType == AAChartTypeArea) {
         aaPlotOptions.areaSet(AAObject(AAArea)
                               .dataLabelsSet(aaDataLabels));
-    } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
+    } else if (chartType == AAChartTypeAreaspline) {
         aaPlotOptions.areasplineSet(AAObject(AAAreaspline)
                                     .dataLabelsSet(aaDataLabels));
-    } else if ([chartType isEqualToString:AAChartTypeLine]) {
+    } else if (chartType == AAChartTypeLine) {
         aaPlotOptions.lineSet(AAObject(AALine)
                               .dataLabelsSet(aaDataLabels));
-    } else if ([chartType isEqualToString:AAChartTypeSpline]) {
+    } else if (chartType == AAChartTypeSpline) {
         aaPlotOptions.splineSet(AAObject(AASpline)
                                 .dataLabelsSet(aaDataLabels));
-    } else if ([chartType isEqualToString:AAChartTypePie]) {
+    } else if (chartType == AAChartTypePie) {
         AAPie *aaPie = (AAObject(AAPie)
                         .allowPointSelectSet(true)
                         .cursorSet(@"pointer")
@@ -278,13 +278,13 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
                                 );
         }
         aaPlotOptions.pieSet(aaPie);
-    } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
+    } else if (chartType == AAChartTypeColumnrange) {
         NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
         [columnRangeDic setValue:@0 forKey:@"borderRadius"];//The color of the border surrounding each column or bar
         [columnRangeDic setValue:@0 forKey:@"borderWidth"];//The corner radius of the border surrounding each column or bar. default：0.
         [columnRangeDic setValue:aaDataLabels forKey:@"dataLabels"];
         aaPlotOptions.columnrangeSet(columnRangeDic);
-    } else if ([chartType isEqualToString:AAChartTypeArearange]) {
+    } else if (chartType == AAChartTypeArearange) {
         NSDictionary *areaRangeDic = [[NSMutableDictionary alloc]init];
         [areaRangeDic setValue:aaDataLabels forKey:@"dataLabels"];
         aaPlotOptions.arearangeSet(areaRangeDic);
