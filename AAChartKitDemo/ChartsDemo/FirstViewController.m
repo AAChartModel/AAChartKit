@@ -327,7 +327,8 @@
                                @"Adjust Data Accuracy---调整数据精度",
                                @"Adjust Group Padding---调整group间距",
                                @"Custom Style Stacked Column---自定义堆积柱状图",
-                               @"时间不连续的直方折线填充图连接图"
+                               @"时间不连续的直方折线填充图连接图",
+                               @"Disable Animation ---禁用动画效果"
                                ],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",

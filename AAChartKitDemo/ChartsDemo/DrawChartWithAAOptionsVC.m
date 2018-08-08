@@ -70,6 +70,7 @@
         case 11: return [self adjustGroupPaddingForPolarChart];
         case 12: return [self customStyleStackedColumnChart];
         case 13: return [self specialStyleStepLineChart];
+        case 14: return [self disableChartAnimation];//禁用图表的渲染动画效果
     }
     return nil;
 }
@@ -1233,6 +1234,20 @@
                    };
 
     return aaOptions2;
+}
+
+- (AAOptions *)disableChartAnimation {
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2018")
+                 .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+                 ]
+               );
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
+    return aaOptions;
 }
 
 //- (NSTimeInterval)pleaseInsertStarTime:(NSString *)starTime andInsertEndTime:(NSString *)endTime{
