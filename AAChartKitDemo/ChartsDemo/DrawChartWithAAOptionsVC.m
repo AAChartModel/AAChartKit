@@ -674,12 +674,12 @@
                                   .fontSizeSet(@"15px")//yAxis Label font size
                                   .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
                                   )
-                        .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
+                        .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
                         );
     
     AAYAxis *yAxisOne = AAObject(AAYAxis)
     .visibleSet(true)
-    .labelsSet(labels.formatSet(@"{value}°C"))
+    .labelsSet(labels)
     .titleSet(AAObject(AATitle)
               .textSet(@"温度")
               )
@@ -694,10 +694,8 @@
               );
     
     
-    NSArray *yAxisArr = @[// Primary yAxis
-                          yAxisOne,
-                          // Secondary yAxis
-                          yAxisTwo
+    NSArray *yAxisArr = @[yAxisOne,// Primary yAxis
+                          yAxisTwo // Secondary yAxis
                           ];
     AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true).enabledSet(true);
     NSArray *aaSeries = @[
@@ -1249,91 +1247,5 @@
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
     return aaOptions;
 }
-
-//- (NSTimeInterval)pleaseInsertStarTime:(NSString *)starTime andInsertEndTime:(NSString *)endTime{
-//
-//    starTime = @"1970-01-01 00:00:00 000";
-//
-//    NSDateFormatter* formater = [[NSDateFormatter alloc] init];
-//    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss sss"];//根据自己的需求定义格式
-//    NSDate* startDate = [formater dateFromString:starTime];
-//    NSDate* endDate = [formater dateFromString:endTime];
-//    NSTimeInterval time = [endDate timeIntervalSinceDate:startDate];
-//    return time;
-//}
-
-
-
-
-//- (NSNumber *)getDateUTCWithYear:(int )year month:(int )month day:(int )day {
-//    NSString *dateString = [NSString stringWithFormat:@"%d-%d-%d 00:00:00 000",year,month,day];
-////    NSDate *date = [self dateFromStringg:dateString];
-////    NSNumber *utc = [self getUTCTimeWithDate:date];
-//    NSInteger timeUTC = [self timeSwitchTimestampWithFormatter:dateString];
-//    NSNumber *timeNum = [NSNumber numberWithInteger:timeUTC];
-//    return timeNum;
-//}
-
-//
-//
-//- (NSDate *)dateFromStringg:(NSString *)dateString{
-////    dateString = @"2016-7-16 09:33:22";
-//
-//
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
-//    NSDate *destDate= [dateFormatter dateFromString:dateString];
-//    return destDate;
-//}
-//
-//-(NSNumber *)getUTCTimeWithDate:(NSDate *)date {
-//    //    NSDate *date = [NSDate date];
-//    NSLog(@"当前日期为:%@",date);
-//    NSTimeInterval timeStamp= [date timeIntervalSince1970];
-//    NSLog(@"日期转换为时间戳 %@ = %f", date, timeStamp);
-//    NSNumber *utcTime = [NSNumber numberWithDouble:timeStamp];
-//    return utcTime;
-//}
-//
-////将某个时间转化成 时间戳
-//
-//#pragma mark - 将某个时间转化成 时间戳
-//
-//-(NSInteger)timeSwitchTimestampWithFormatter:(NSString *)timeString{
-//
-//
-//
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//
-//    [formatter setDateStyle:NSDateFormatterMediumStyle];
-//
-//    [formatter setTimeStyle:NSDateFormatterShortStyle];
-//
-//    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss sss"]; //(@"YYYY-MM-dd hh:mm:ss") ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
-//
-//
-//
-//    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
-//
-//    [formatter setTimeZone:timeZone];
-//
-//
-//
-//    NSDate* date = [formatter dateFromString:timeString]; //------------将字符串按formatter转成nsdate
-//
-//    //时间转时间戳的方法:
-//
-//    NSInteger timeSp = [[NSNumber numberWithDouble:[date timeIntervalSince1970]] integerValue];
-//
-//
-//
-//    NSLog(@"将某个时间转化成 时间戳&&&&&&&timeSp:%ld",(long)timeSp); //时间戳的值
-//
-//
-//
-//    return timeSp;
-//
-//}
-
 
 @end
