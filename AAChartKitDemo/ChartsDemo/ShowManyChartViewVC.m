@@ -59,9 +59,20 @@
 
     AAChartModel *aaChartModel= AAObject(AAChartModel)
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
+    .titleSet(@"X轴文字垂直显示")
     .subtitleSet(@"")
-    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
+    .categoriesSet(@[@"孤<br>岛<br>危<br>机",
+                     @"使<br>命<br>召<br>唤",
+                     @"荣<br>誉<br>勋<br>章",
+                     @"狙<br>击<br>精<br>英",
+                     @"神<br>秘<br>海<br>域",
+                     @"最<br>后<br>生<br>还<br>者",
+                     @"巫<br>师<br>3<br>狂<br>猎",
+                     @"对<br>马<br>之<br>魂",
+                     @"蝙<br>蝠<br>侠<br>之<br>阿<br>甘<br>骑<br>士",
+                     @"地<br>狱<br>边<br>境",
+                     @"闪<br>客",
+                     @"忍<br>者<br>之<br>印"])
     .yAxisTitleSet(@"")
     .seriesSet(@[
                  AAObject(AASeriesElement)
@@ -86,11 +97,16 @@
     [self.view addSubview:aaChartView2];
     
     AAChartModel *aaChartModel2= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeArea)
+    .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"")
+    .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .xAxisCrosshairWidthSet(@1.5)
+    .xAxisCrosshairColorSet(@"#ff0000")
+    .yAxisCrosshairWidthSet(@1.5)
+    .yAxisCrosshairColorSet(@"#ff0000")
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")
