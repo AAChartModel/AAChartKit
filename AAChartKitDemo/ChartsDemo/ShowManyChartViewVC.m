@@ -74,6 +74,8 @@
                      @"闪<br>客",
                      @"忍<br>者<br>之<br>印"])
     .yAxisTitleSet(@"")
+    .tooltipEnabledSet(false)
+    .borderRadiusSet(@3)
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2017")
@@ -103,10 +105,13 @@
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"")
     .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .markerRadiusSet(@6)
     .xAxisCrosshairWidthSet(@1.5)
     .xAxisCrosshairColorSet(@"#ff0000")
+    .xAxisCrosshairDashStyleTypeSet(AALineDashSyleTypeDashDot)
     .yAxisCrosshairWidthSet(@1.5)
     .yAxisCrosshairColorSet(@"#ff0000")
+    .yAxisCrosshairDashStyleTypeSet(AALineDashSyleTypeLongDashDot)
     .seriesSet(@[
                  AAObject(AASeriesElement)
                  .nameSet(@"2018")

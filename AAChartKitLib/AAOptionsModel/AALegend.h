@@ -32,8 +32,7 @@
  */
 
 #import <Foundation/Foundation.h>
-
-@class AAItemStyle;
+#import "AAItemStyle.h"
 
 typedef NSString *AALegendLayoutType;
 typedef NSString *AALegendAlignType;

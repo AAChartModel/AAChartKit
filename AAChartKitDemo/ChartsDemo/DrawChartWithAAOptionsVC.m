@@ -71,6 +71,8 @@
         case 12: return [self customStyleStackedColumnChart];
         case 13: return [self specialStyleStepLineChart];
         case 14: return [self disableChartAnimation];//禁用图表的渲染动画效果
+        case 15: return [self customChartLengendItemStyle];//自定义图表的 legend 图例样式
+
     }
     return nil;
 }
@@ -1082,7 +1084,7 @@
                                };
     
     aaOptions.xAxis = (id)xAxisDic;
-    return aaOptions;
+//    return aaOptions;
     
  //Method 2
   NSDictionary *aaOptions2 = @{
@@ -1245,6 +1247,34 @@
                );
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
+    return aaOptions;
+}
+
+
+- (AAOptions *)customChartLengendItemStyle {
+    
+    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    .chartTypeSet(AAChartTypeLine)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
+    .seriesSet(@[
+                 AAObject(AASeriesElement)
+                 .nameSet(@"2018")
+                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
+                 ]
+               );
+
+    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。 默认是：{ "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }.
+    AAItemStyle *aaItemStyle = AAObject(AAItemStyle)
+    .colorSet(@"#ff0000")//字体颜色
+    .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+    .fontSizeSet(@"20px")//字体大小
+    .fontWeightSet(AAChartFontWeightTypeThin);//字体为细体字
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.legend.itemStyle = aaItemStyle;
+    
     return aaOptions;
 }
 

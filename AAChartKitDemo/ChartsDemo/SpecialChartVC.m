@@ -150,11 +150,10 @@
         .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:14])
         .gradientColorEnabledSet(true)
         .borderRadiusSet(@5)
-        .seriesSet(@[
-                     @{@"name":@"ElementOne",
-                       @"data":@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3],
-                       @"colorByPoint":@true //.colorByPointSet(true)////When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-                       }
+        .seriesSet(@[AAObject(AASeriesElement)
+                     .nameSet(@"ElementOne")
+                     .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+                     .colorByPointSet((id)@(true)),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
                      ]
                    );
         return aaChartModel;
