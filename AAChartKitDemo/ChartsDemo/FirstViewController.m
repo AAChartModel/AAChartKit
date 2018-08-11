@@ -182,6 +182,7 @@
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = [[DrawChartWithAAOptionsVC alloc]init];
             vc.selectedIndex = indexPath.row;
+            vc.navigationItemTitle = self.chartTypeNameArr[indexPath.section][indexPath.row];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
