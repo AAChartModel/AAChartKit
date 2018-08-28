@@ -149,7 +149,10 @@
         contentHeight = contentHeight - 20;
     }
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",_optionJson,[NSNumber numberWithFloat:chartViewContentWidth],[NSNumber numberWithFloat:chartViewContentHeight-1]];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
+                               _optionJson,
+                               [NSNumber numberWithFloat:chartViewContentWidth],
+                               [NSNumber numberWithFloat:chartViewContentHeight-1]];
     return javaScriptStr;
 }
 

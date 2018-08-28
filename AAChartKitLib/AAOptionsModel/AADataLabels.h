@@ -99,6 +99,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, format)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, rotation);
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , allowOverlap);
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , useHTML);
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber*, distance);
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, distance);
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, x);
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y);
 
 @end
