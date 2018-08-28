@@ -33,10 +33,21 @@
 
 @implementation AAXAxis
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _min = @0;
+        _tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，highcharts官方默认是 between,我这里手动将其改为 on
+    }
+    return self;
+}
+
 AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories);
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      reversed);
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, lineWidth);//x轴轴线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, lineColor);//x轴轴线线颜色
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, max); //x轴最大值
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, min); //x轴最小值（设置为0就不会有负数）
 AAPropSetFuncImplementation(AAXAxis, NSString *, tickColor);//x轴轴线下方刻度线颜色
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth);//x轴网格线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor);//x轴网格线颜色

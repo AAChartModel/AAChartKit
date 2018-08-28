@@ -43,6 +43,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, categories);
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL,       reversed);
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, lineWidth);//x轴轴线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, lineColor);//x轴轴线线颜色
+AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, NSNumber *, max); //x轴最大值
+AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, NSNumber *, min); //x轴最小值（设置为0就不会有负数）
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickColor);//x轴轴线下方刻度线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth);//x轴网格线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineColor);//x轴网格线颜色
