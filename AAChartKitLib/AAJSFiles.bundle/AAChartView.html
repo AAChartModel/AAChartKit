@@ -95,6 +95,16 @@
                         aaOptions.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
                     }
                 }
+                
+                var categories = aaOptions.xAxis.categories;
+                if (categories) { //设置有 categories 时,一样X轴刻度始终和文字对齐
+                    aaOptions.xAxis.categories = null;//这一句代码很关键,如果没有则 categories 文字无法显示,应该是highcharts的小bug
+                    aaOptions.xAxis.labels = {
+                        formatter: function() {
+                            return categories[this.value];
+                        }
+                    };
+                }
 
                 globalChart = Highcharts.chart('container', aaOptions);
             }

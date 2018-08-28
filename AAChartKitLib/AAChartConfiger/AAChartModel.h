@@ -187,9 +187,9 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartFontWeightTy
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);//x 轴网格线的宽度
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth);//设置 x 轴准星线的宽度
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor);//设置 x 轴准星线的颜色
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType);//设置 x 轴准星线的线条样式类型
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);//y 轴是否可见(默认可见)
@@ -210,9 +210,9 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMi
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval);
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);//自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType);
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth);//设置 y 轴准星线的宽度
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor);//设置 y 轴准星线的颜色
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType);//设置 y 轴准星线的线条样式类型
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);//是否显示浮动提示框(默认显示)
