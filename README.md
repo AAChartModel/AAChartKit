@@ -25,11 +25,11 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ***
 ## Features
 
-🎂. Support up from `iOS 6`, `ARC` support.
-🚀. Powerful and easy to use. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
-🦋. The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
-⛓. Supports `chain programming syntax` like *Masonry* 
-💑. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
+* 🎂  Support up from `iOS 6`, `ARC` support.
+* 🚀  Powerful and easy to use. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
+* 🦋  The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
+* ⛓. Supports `chain programming syntax` like *Masonry* 
+* 💑  `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
 
 ## Beauty Appreciation
