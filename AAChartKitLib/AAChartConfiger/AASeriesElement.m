@@ -35,12 +35,23 @@
 
 @implementation AASeriesElement
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _allowPointSelect = false;
+        _colorByPoint = false;
+        _showInLegend = true;
+        _visible = true;
+    }
+    return self;
+}
+
 AAPropSetFuncImplementation(AASeriesElement, NSString *, type);
 AAPropSetFuncImplementation(AASeriesElement, BOOL      , allowPointSelect);//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, color);
-AAPropSetFuncImplementation(AASeriesElement, id      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
+AAPropSetFuncImplementation(AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, dashStyle);
@@ -59,7 +70,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSNumber *, yAxis);
 AAPropSetFuncImplementation(AASeriesElement, AADataLabels*, dataLabels);
 AAPropSetFuncImplementation(AASeriesElement, id        , step);//是否转变为直方折线图
 AAPropSetFuncImplementation(AASeriesElement, NSDictionary *, states);
-AAPropSetFuncImplementation(AASeriesElement, id        , showInLegend);
-
+AAPropSetFuncImplementation(AASeriesElement, BOOL        , showInLegend);//Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
+AAPropSetFuncImplementation(AASeriesElement, BOOL        , visible);//数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 
 @end
