@@ -26,13 +26,13 @@
  
  ***
 
-1. **環境友好,兼容性強**. 適配 `iOS 6 +`,  支持`ARC`,支持 `Objective-C`語言,配置簡單.同時更有 Swift 版本[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)可供使用.
-1. **功能強大,類型多樣**. 支持`柱狀圖` 、`條形圖` 、`折線圖` 、`曲線圖` 、`折線填充圖` 、`曲線填充圖`、`雷達圖`、`極地圖`、`扇形圖`、`氣泡圖`、`散點圖`、`區域範圍圖`、`柱形範圍圖`、`面積範圍圖`、`面積範圍均線圖`、`直方折線圖`、`直方折線填充圖`、`箱線圖`、`瀑布圖`、`熱力圖`、`桑基圖`、`金字塔圖`、`漏鬥圖`、等二十幾種類型的圖形,不可謂之不多.
-1. **交互式圖形動畫**. 有著清晰和充滿細節的用戶交互方式,與此同時,圖形渲染`動畫`效果細膩精致,流暢優美.有三十多種以上渲染動畫效果可供選擇,用戶可自由設置渲染圖形時的動畫時間和動畫類型,關於圖形渲染動畫類型,具體參見[ AAChartKit 動畫類型](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md#當前已支持的圖表渲染動畫類型有三十種以上說明如下).
-1. **支持手勢縮放**.支持圖表的手勢縮放和拖動閱覽,手勢縮放類型具體參見[ AAChartKit 手勢縮放類型](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md#當前已支持的圖表手勢縮放類型共有三種說明如下),默認禁用手勢縮放功能.
-1. **極簡主義**. `AAChartView + AAChartModel = Chart`,在 ***AAChartKit*** 圖表框架當中,遵循這樣一個極簡主義公式:`圖表視圖控件 + 圖表模型 = 你想要的圖表`.同另一款強大、精美而又易用的开源 iOS 圖表框架[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)完全一致.
-1. **鏈式編程語法**. 支持類 *Masonry* `鏈式編程語法`,一行代碼即可配置完成 `AAChartModel`模型對象實例.
-1. **簡潔清晰,輕便易用**. 最少僅僅需要 **五行代碼** 即可完成整個圖表的繪制工作(使用鏈式編程語法配置 `AAChartModel` 實例對象時,無論你寫多少行代碼,理論上只能算作是一行). 😜😜😜
+🎂. **環境友好,兼容性強**. 適配 `iOS 6 +`,  支持`ARC`,支持 `Objective-C`語言,配置簡單.同時更有 Swift 版本[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)可供使用.
+🚀. **功能強大,類型多樣**. 支持`柱狀圖` 、`條形圖` 、`折線圖` 、`曲線圖` 、`折線填充圖` 、`曲線填充圖`、`雷達圖`、`極地圖`、`扇形圖`、`氣泡圖`、`散點圖`、`區域範圍圖`、`柱形範圍圖`、`面積範圍圖`、`面積範圍均線圖`、`直方折線圖`、`直方折線填充圖`、`箱線圖`、`瀑布圖`、`熱力圖`、`桑基圖`、`金字塔圖`、`漏鬥圖`、等二十幾種類型的圖形,不可謂之不多.
+🦋. **交互式圖形動畫**. 有著清晰和充滿細節的用戶交互方式,與此同時,圖形渲染`動畫`效果細膩精致,流暢優美.有三十多種以上渲染動畫效果可供選擇,用戶可自由設置渲染圖形時的動畫時間和動畫類型,關於圖形渲染動畫類型,具體參見[ AAChartKit 動畫類型](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md#當前已支持的圖表渲染動畫類型有三十種以上說明如下).
+👌. **支持手勢縮放**.支持圖表的手勢縮放和拖動閱覽,手勢縮放類型具體參見[ AAChartKit 手勢縮放類型](https://github.com/AAChartModel/AAChartKit/blob/master/TRADITIONAL-CHINESE-README.md#當前已支持的圖表手勢縮放類型共有三種說明如下),默認禁用手勢縮放功能.
+💑. **極簡主義**. `AAChartView + AAChartModel = Chart`,在 ***AAChartKit*** 圖表框架當中,遵循這樣一個極簡主義公式:`圖表視圖控件 + 圖表模型 = 你想要的圖表`.同另一款強大、精美而又易用的开源 iOS 圖表框架[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)完全一致.
+⛓. **鏈式編程語法**. 支持類 *Masonry* `鏈式編程語法`,一行代碼即可配置完成 `AAChartModel`模型對象實例.
+🎈. **簡潔清晰,輕便易用**. 最少僅僅需要 **五行代碼** 即可完成整個圖表的繪制工作(使用鏈式編程語法配置 `AAChartModel` 實例對象時,無論你寫多少行代碼,理論上只能算作是一行). 😜😜😜
 
 ***
 

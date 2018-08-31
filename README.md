@@ -25,11 +25,11 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ***
 ## Features
 
-1. Support up from `iOS 6`, `ARC` support.
-2. Powerful and easy to use. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
-3. The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
-4. Supports `chain programming syntax` like *Masonry* 
-5. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
+🎂. Support up from `iOS 6`, `ARC` support.
+🚀. Powerful and easy to use. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
+🦋. The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
+⛓. Supports `chain programming syntax` like *Masonry* 
+💑. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
 
 ## Beauty Appreciation
@@ -531,32 +531,32 @@ to be
 ```
 ## To-Do list
 
->>>>>>  * - [x] Support user to add delegate events after the graphics content loading was completed
->>>>>>  * - [x] Support graphics to refresh global content dynamically
->>>>>>  * - [x] Support graphics to refresh pure data (`series`) content dynamically
->>>>>>  * - [x] Support graphics to refresh pure data in real time and scroll dynamically
->>>>>>  * - [x] Support color layer gradient effects
->>>>>>  * - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
->>>>  * - [ ] Support `CocoaPods`
->>>>  * - [ ] Support `Carthage`
->>>>  * - [ ] Support  code coverage test
->>>>  * - [ ] Support horizontal screen (full screen) effect
->>>>  * - [ ] Support setting graphics rendering animation freely
->>>>  * - [ ] Support rendered graphics to generate image files
->>>>  * - [ ] Support generating image files saved to the system album
->>>>  * - [ ] Support user to configure `AAOptions` model object properties freely
->>>>>>  * - [x] Support stacking the graphics 
->>>>>>  * - [x] Support reversing the graphics axis 
->>>>>>  * - [x] Support rendering scatter chart
->>>>>>  * - [x] Support rendering column range map
->>>>>>  * - [x] Support rendering area range graph
->>>>>>  * - [x] Support rendering the polar chart
->>>>>>  * - [x] Support rendering the step line chart
->>>>>>  * - [x] Support rendering the step area chart
->>>>>>  * - [x] Support rendering the Nightingale rose 🌹chart
->>>>  * - [ ] Support rendering the rectangular tree hierarchy diagrams
->>>>  * - [ ] Support rendering the circular progress bar chart 
->>>>  * - [ ] Support adding clicked event callbacks for graphics
+ - [x] Support user to add delegate events after the graphics content loading was completed
+ - [x] Support graphics to refresh global content dynamically
+ - [x] Support graphics to refresh pure data (`series`) content dynamically
+ - [x] Support graphics to refresh pure data in real time and scroll dynamically
+ - [x] Support color layer gradient effects
+ - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
+ - [ ] Support `CocoaPods`
+ - [ ] Support `Carthage`
+ - [ ] Support  code coverage test
+ - [ ] Support horizontal screen (full screen) effect
+ - [ ] Support setting graphics rendering animation freely
+ - [ ] Support rendered graphics to generate image files
+ - [ ] Support generating image files saved to the system album
+ - [ ] Support user to configure `AAOptions` model object properties freely
+ - [x] Support stacking the graphics 
+ - [x] Support reversing the graphics axis 
+ - [x] Support rendering scatter chart
+ - [x] Support rendering column range map
+ - [x] Support rendering area range graph
+ - [x] Support rendering the polar chart
+ - [x] Support rendering the step line chart
+ - [x] Support rendering the step area chart
+ - [x] Support rendering the Nightingale rose 🌹chart
+ - [ ] Support rendering the rectangular tree hierarchy diagrams
+ - [ ] Support rendering the circular progress bar chart 
+ - [ ] Support adding clicked event callbacks for graphics
 
 [1]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/1.gif
 [2]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/2.gif
