@@ -45,7 +45,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          panning);
 //AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, panKey);
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          polar);
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAOptions3d *, options3d);
-AAPropStatementAndPropSetFuncStatement(assign, AAChart, AAAnimation *, animation);//设置启用动画的时间和类型
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAAnimation *, animation);//设置启用动画的时间和类型
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          inverted);
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft);
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRight);

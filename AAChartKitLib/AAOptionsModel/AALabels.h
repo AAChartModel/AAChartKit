@@ -36,11 +36,11 @@
 @interface AALabels : NSObject
 
 AAPropStatementAndPropSetFuncStatement(assign, AALabels, BOOL, enabled);
-AAPropStatementAndPropSetFuncStatement(assign, AALabels, NSString *, fontSize);
-AAPropStatementAndPropSetFuncStatement(assign, AALabels, NSString *, fontColor);
-AAPropStatementAndPropSetFuncStatement(assign, AALabels, NSString *, fontWeight);
+AAPropStatementAndPropSetFuncStatement(copy  , AALabels, NSString *, fontSize);
+AAPropStatementAndPropSetFuncStatement(copy  , AALabels, NSString *, fontColor);
+AAPropStatementAndPropSetFuncStatement(copy  , AALabels, NSString *, fontWeight);
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, AAStyle  *, style);
-AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSString *, format);
+AAPropStatementAndPropSetFuncStatement(copy  , AALabels, NSString *, format);
 
 
 @end

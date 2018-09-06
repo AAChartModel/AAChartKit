@@ -96,7 +96,7 @@
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , enabled);
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, AAStyle  *, style);
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, format);
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, rotation);
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, rotation);
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , allowOverlap);
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , useHTML);
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, distance);

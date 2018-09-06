@@ -47,7 +47,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, formatter)
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, headerFormat);
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, pointFormat);
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, footerFormat);
-AAPropStatementAndPropSetFuncStatement(assign, AATooltip, NSNumber *, valueDecimals);//设置取值精确到小数点后几位
+AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, valueDecimals);//设置取值精确到小数点后几位
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       shared);
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       crosshairs);
 

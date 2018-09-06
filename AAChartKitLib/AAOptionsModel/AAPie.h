@@ -41,8 +41,8 @@ AAPropStatementAndPropSetFuncStatement(assign, AAPie, BOOL,           allowPoint
 AAPropStatementAndPropSetFuncStatement(copy,   AAPie, NSString     *, cursor);
 AAPropStatementAndPropSetFuncStatement(strong, AAPie, AADataLabels *, dataLabels);
 AAPropStatementAndPropSetFuncStatement(assign, AAPie, BOOL,           showInLegend);
-AAPropStatementAndPropSetFuncStatement(assign, AAPie, NSNumber     *, startAngle);
-AAPropStatementAndPropSetFuncStatement(assign, AAPie, NSNumber     *, endAngle);
+AAPropStatementAndPropSetFuncStatement(strong, AAPie, NSNumber     *, startAngle);
+AAPropStatementAndPropSetFuncStatement(strong, AAPie, NSNumber     *, endAngle);
 AAPropStatementAndPropSetFuncStatement(strong, AAPie, NSNumber     *, depth);
 
 @end
