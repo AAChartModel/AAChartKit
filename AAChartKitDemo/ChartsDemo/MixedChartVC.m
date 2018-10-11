@@ -314,6 +314,8 @@
     } else if ([chartType isEqualToString:@"scatterMixedLine"]) {
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeScatter)
+        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .markerRadiusSet(@9)
         .seriesSet(@[AAObject(AASeriesElement)
                      .nameSet(@"Scatter")
                      .dataSet(@[
@@ -571,6 +573,13 @@
                      AAObject(AASeriesElement)
                      .nameSet(@"目标")
                      .typeSet(AAChartTypeScatter)
+                     .markerSet(AAObject(AAMarker)
+                                .radiusSet(@7)//曲线连接点半径，默认是4
+                                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                                .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+                                .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                                .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                                )
                      .dataSet(
                               @[@[@161.2, @51.6], @[@167.5, @59.0], @[@159.5, @49.2], @[@157.0, @63.0], @[@155.8, @53.6],
                                 @[@170.0, @59.0], @[@159.1, @47.6], @[@166.0, @69.8], @[@176.2, @66.8], @[@160.2, @75.2],

@@ -117,7 +117,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .legendSet(aaLegend)
     .seriesSet(aaChartModel.series)
     .colorsSet(aaChartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnabledSet(aaChartModel.gradientColorEnabled)//设置主题颜色是否为渐变色
+    .gradientColorEnabledSet(aaChartModel.gradientColorsThemeEnabled)//设置主题颜色是否为渐变色
     .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText);//设置重置缩放按钮的默认标题
     
     if (   aaChartModel.chartType != AAChartTypePie
@@ -194,7 +194,8 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     if (   aaChartModel.chartType == AAChartTypeArea
         || aaChartModel.chartType == AAChartTypeAreaspline
         || aaChartModel.chartType == AAChartTypeLine
-        || aaChartModel.chartType == AAChartTypeSpline) {
+        || aaChartModel.chartType == AAChartTypeSpline
+        || aaChartModel.chartType == AAChartTypeScatter) {
         AAMarker *aaMarker = AAObject(AAMarker)
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(aaChartModel.symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -291,6 +292,8 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     }
     return aaPlotOptions;
 }
+
+
 
 @end
 

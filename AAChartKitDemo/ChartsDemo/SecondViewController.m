@@ -201,13 +201,16 @@
        // _aaChartModel.xAxisTickInterval = @3;//设置 X轴坐标点的间隔数,默认是1(手机端的屏幕较为狭窄, 如果X轴坐标点过多,文字过于密集的时候可以设置此属性值,用户的密集恐惧症将得到有效治疗😝)
     } else if (self.chartType == SecondeViewControllerChartTypeArea
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
+
         _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-        _aaChartModel.gradientColorEnabled = true;//启用渐变色
+        _aaChartModel.gradientColorsThemeEnabled = true;//启用渐变色
         _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
         _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
         _aaChartModel.xAxisCrosshairColor = @"#FFE4C4";//(浓汤)乳脂,番茄色准星线
         _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
-        if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
+        if (self.chartType == SecondeViewControllerChartTypeLine) {
+            _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
+        } else if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
             _aaChartModel.series =@[
                                     AAObject(AASeriesElement)
                                     .nameSet(@"2017")
@@ -230,7 +233,9 @@
         _aaChartModel.xAxisCrosshairWidth = @1;//Zero width to disable crosshair by default
         _aaChartModel.xAxisCrosshairColor = @"#778899";//浅石板灰准星线
         _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDotDot;
-        if (self.chartType == SecondeViewControllerChartTypeSpline) {
+        if (self.chartType == SecondeViewControllerChartTypeLine) {
+            _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
+        } else if (self.chartType == SecondeViewControllerChartTypeSpline) {
             _aaChartModel.markerRadius = @8;
             _aaChartModel.series = @[
                                      AAObject(AASeriesElement)
@@ -255,7 +260,7 @@
                || self.chartType == SecondeViewControllerChartTypeStepArea) {
         _aaChartModel.yAxisVisible = false;
         _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
-        _aaChartModel.gradientColorEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
+        _aaChartModel.gradientColorsThemeEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
         _aaChartModel.series = @[
                                  AAObject(AASeriesElement)
                                  .nameSet(@"Berlin")

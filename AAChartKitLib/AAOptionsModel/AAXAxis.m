@@ -36,7 +36,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _min = @0;
         _tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，highcharts官方默认是 between,我这里手动将其改为 on
     }
     return self;

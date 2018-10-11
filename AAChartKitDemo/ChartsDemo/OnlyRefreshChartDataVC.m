@@ -145,7 +145,7 @@
         || self.chartType == OnlyRefreshChartDataVCChartTypeStepLine) {
         
         self.chartModel
-        .gradientColorEnabledSet(true)
+        .gradientColorsThemeEnabledSet(true)
         .markerRadiusSet(@0)
         .seriesSet(@[
                      AAObject(AASeriesElement)

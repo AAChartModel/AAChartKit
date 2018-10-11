@@ -163,7 +163,7 @@ AAPropSetFuncImplementation(AAChartModel, AAChartAnimation,         animationTyp
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, animationDuration);//设置图表的渲染动画时长(动画单位为毫秒)
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       inverted);//x 轴是否垂直,默认为否
-AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorEnabled);//是否要为渐变色,默认为否
+AAPropSetFuncImplementation(AAChartModel, BOOL,       gradientColorsThemeEnabled);//是否将常规主题颜色数组 colorsTheme 自动转换为半透明渐变效果的颜色数组(),默认为否
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar);//是否极化图形(变为雷达图),默认为否
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelEnabled);//是否显示数据,默认为否

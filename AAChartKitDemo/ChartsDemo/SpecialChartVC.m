@@ -148,7 +148,7 @@
         .titleSet(@"Colorful Column Chart")
         .subtitleSet(@"single data array colorful column chart")
         .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:14])
-        .gradientColorEnabledSet(true)
+        .gradientColorsThemeEnabledSet(true)
         .borderRadiusSet(@5)
         .seriesSet(@[AAObject(AASeriesElement)
                      .nameSet(@"ElementOne")
@@ -232,7 +232,7 @@
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(chartType)
-        .gradientColorEnabledSet(true)
+        .gradientColorsThemeEnabledSet(true)
         //.dataLabelEnabledSet(true)
         .titleSet(@"带有负数的区域填充图")
         .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
@@ -267,7 +267,7 @@
     } else if ([chartType isEqualToString:AAChartTypeArea]) {
         
         AAChartModel *aaChartModel = AAObject(AAChartModel)
-        .chartTypeSet(chartType)
+        .chartTypeSet(AAChartTypeArea)
         .symbolSet(AAChartSymbolTypeCircle)
         .titleSet(@"带有数据阈值标志线的区域填充图")
         .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
@@ -278,22 +278,22 @@
         .dataLabelEnabledSet(true)
         .seriesSet(@[AAObject(AASeriesElement)
                      .nameSet(@"2017")
-                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
                      .lineWidthSet(@5)
-                     .fillColorSet((id)@{
-                                     @"linearGradient": @{
-                                             @"x1": @0,
-                                             @"y1": @1,
-                                             @"x2": @0,
-                                             @"y2": @0
-                                             },
-                                     @"stops": @[@[@0,@"rgba(220,20,60,0.1)"],
-                                                 @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-                                     }),]
+                     .zonesSet(@[@{
+                                    @"value": @10,
+                                    @"color": @"#f7a35c"
+                                    }, @{
+                                    @"value": @20,
+                                    @"color": @"#7cb5ec"
+                                    }, @{
+                                    @"color": @"#90ed7d"
+                                    }])
+                     ,]
                    )
         .yAxisPlotLinesSet(@[
                              AAObject(AAPlotLinesElement)
-                             .colorSet(@"#F05353")//颜色值(16进制)
+                             .colorSet(@"#FF0000")//颜色值(16进制)
                              .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
                              .widthSet(@(1)) //标示线粗细
                              .valueSet(@(10)) //所在位置
@@ -301,7 +301,7 @@
                              .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
                              ,
                              AAObject(AAPlotLinesElement)
-                             .colorSet(@"#33BDFD")
+                             .colorSet(@"#FF0000")
                              .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
                              .widthSet(@(1))
                              .valueSet(@(20))
@@ -360,7 +360,7 @@
         .titleSet(@"Bubble")
         .subtitleSet(@"Virtual data")
         .yAxisTitleSet(@"℃")
-        .gradientColorEnabledSet(true)
+        .gradientColorsThemeEnabledSet(true)
         .yAxisGridLineWidthSet(@0)
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
         .seriesSet(
@@ -427,6 +427,10 @@
         .markerRadiusSet(@9)
         .yAxisGridLineWidthSet(@0)
         .colorsThemeSet(@[@"#c3b1fb",@"#e70b2d",@"#77ed00",@"#00f3d2",@"#83ddff",])
+        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .symbolSet(AAChartSymbolTypeCircle)
+        .markerRadiusSet(@9)
+        .backgroundColorSet(@"#000000")
         .seriesSet(
                    @[
                      AAObject(AASeriesElement)
@@ -1098,7 +1102,7 @@
         AAChartModel *aaChartModel = AAObject(AAChartModel)
         .chartTypeSet(AAChartTypeArea)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
-        .gradientColorEnabledSet(true)//开启主题渐变色
+        .gradientColorsThemeEnabledSet(true)//开启主题渐变色
         .titleSet(@"STEP AREA CHART")//图形标题
         .subtitleSet(@"2020/08/08")//图形副标题
         .dataLabelEnabledSet(NO)//是否显示数字

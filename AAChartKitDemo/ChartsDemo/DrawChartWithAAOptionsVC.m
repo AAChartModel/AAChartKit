@@ -73,7 +73,8 @@
         case 13: return [self specialStyleStepLineChart];
         case 14: return [self disableChartAnimation];//禁用图表的渲染动画效果
         case 15: return [self customChartLengendItemStyle];//自定义图表的 legend 图例样式
-
+        case 16: return [self configureTheMirrorColumnChart];//正负对称的镜像柱状图
+        case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
     }
     return nil;
 }
@@ -331,109 +332,33 @@
 }
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
-    
-    //    第一种写法
-    AAOptions *aaOptions = AAObject(AAOptions)
-    .chartSet(AAObject(AAChart)
-              .typeSet(AAChartTypeColumn))
-    .titleSet(AAObject(AATitle)
-              .textSet(@"分公司效率优化嵌套图"))
-    .xAxisSet(AAObject(AAXAxis)
-              .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]))
-    .yAxisSet((id)@[AAObject(AAYAxis)
-                    .visibleSet(true)
-                    .minSet(0)
-                    .titleSet(AAObject(AATitle)
-                              .textSet(@"雇员")),
-                    AAObject(AAYAxis)
-                    .visibleSet(true)
-                    .titleSet(AAObject(AATitle)
-                              .textSet(@"利润 (millions)"))
-                    .oppositeSet(true)
-                    ])
-    .tooltipSet(AAObject(AATooltip)
-                .sharedSet(true))
-    .plotOptionsSet(AAObject(AAPlotOptions)
-                    .seriesSet(AAObject(AASeries)
-                               .animationSet(AAObject(AAAnimation)
-                                             .easingSet(AAChartAnimationBounce)
-                                             .durationSet(@1000)
-                                             )
-                               )
-                    .columnSet(AAObject(AAColumn)
-                               .groupingSet(false)
-                               .borderWidthSet(@0)))
-    .seriesSet(@[@{
-                     @"name": @"雇员",
-                     @"color": @"rgba(165,170,217,1)",
-                     @"data": @[@150, @73, @20],
-                     @"pointPadding": @0.3,
-                     @"pointPlacement": @-0.2
-                     }, @{
-                     @"name": @"优化的员工",
-                     @"color": @"rgba(126,86,134,.9)",
-                     @"data": @[@140, @90, @40],
-                     @"pointPadding": @0.4,
-                     @"pointPlacement": @-0.2
-                     }, @{
-                     @"name": @"利润",
-                     @"color": @"rgba(248,161,63,1)",
-                     @"data": @[@183.6, @178.8, @198.5],
-                     @"tooltip": @{
-                             @"valuePrefix": @"$",
-                             @"valueSuffix": @" M"
-                             },
-                     @"pointPadding": @0.3,
-                     @"pointPlacement": @0.2,
-                     @"yAxis": @1
-                     }, @{
-                     @"name": @"优化的利润",
-                     @"color": @"rgba(186,60,61,.9)",
-                     @"data": @[@203.6, @198.8, @208.5],
-                     @"tooltip": @{
-                             @"valuePrefix": @"$",
-                             @"valueSuffix": @" M"
-                             },
-                     @"pointPadding": @0.4,
-                     @"pointPlacement": @0.2,
-                     @"yAxis": @1
-                     }]);
-    
-    return aaOptions;
-    
+
    // 下面是更清晰的另一种写法
-    AAChart *aaChart = AAObject(AAChart)
-    .typeSet(AAChartTypeColumn);
+    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
     
-    AATitle *aaTitle = AAObject(AATitle)
-    .textSet(@"分公司效率优化嵌套图");
+    AATitle *aaTitle = AATitle.new.textSet(@"分公司效率优化嵌套图");
     
-    AAXAxis *aaXAxis = AAObject(AAXAxis)
-    .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
+    AAXAxis *aaXAxis = AAXAxis.new.categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
     
-    AAYAxis *aaYAxis1 =
-    AAObject(AAYAxis)
+    AAYAxis *aaYAxis1 = AAYAxis.new
     .visibleSet(true)
     .minSet(0)
-    .titleSet(AAObject(AATitle)
-              .textSet(@"雇员"));
+    .titleSet(AATitle.new.textSet(@"雇员"));
     
-    AAYAxis *aaYAxis2 =
-    AAObject(AAYAxis)
+    AAYAxis *aaYAxis2 = AAYAxis.new
     .visibleSet(true)
-    .titleSet(AAObject(AATitle)
-              .textSet(@"利润 (millions)"))
+    .titleSet(AATitle.new.textSet(@"利润 (millions)"))
     .oppositeSet(true);
     
-    AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true);
-    AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
-    .seriesSet(AAObject(AASeries)
-               .animationSet(AAObject(AAAnimation)
+    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new
+               .animationSet(AAAnimation.new
                              .easingSet(AAChartAnimationBounce)
                              .durationSet(@1000)
                              )
                )
-    .columnSet(AAObject(AAColumn)
+    .columnSet(AAColumn.new
                .groupingSet(false)
                .borderWidthSet(@0));
     
@@ -473,7 +398,7 @@
                               @"yAxis": @1
                               }];
     
-    AAOptions *chartOptions = AAObject(AAOptions);
+    AAOptions *chartOptions = AAOptions.new;
     chartOptions.chart = aaChart;
     chartOptions.title = aaTitle;
     chartOptions.xAxis = aaXAxis;
@@ -494,11 +419,10 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .backgroundColorSet(@"#222733")
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
-    .gradientColorEnabledSet(true)
+    .gradientColorsThemeEnabledSet(true)
     .polarSet(true)
     .seriesSet(@[
                  AAObject(AASeriesElement)
@@ -517,6 +441,11 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.legend
+    .alignSet(AALegendAlignTypeLeft)
+    .layoutSet(AALegendLayoutTypeVertical)
+    .verticalAlignSet(AALegendVerticalAlignTypeTop);
+    
     aaOptions.xAxis.lineWidth = @0;
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     return aaOptions;
@@ -530,7 +459,6 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-//    .backgroundColorSet(@"#222733")
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
@@ -540,7 +468,6 @@
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                  ]
                );
-    
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.column.groupPadding = @0;//设置棱柱之间的间距百分比
@@ -725,6 +652,7 @@
     chartOptions.yAxis = (id)yAxisArr;
     chartOptions.tooltip = aaTooltip;
     chartOptions.series = aaSeries;
+    chartOptions.chart = AAObject(AAChart);
     
     return chartOptions;
 }
@@ -779,6 +707,7 @@
 }
 
 - (AAOptions *)customStyleStackedColumnChart {
+    
     //Method 1
     AAChart *aaChart = AAObject(AAChart)
                         .typeSet(AAChartTypeColumn);
@@ -853,6 +782,8 @@
     .seriesSet(seriesElementArr);
 
     return aaOptions;
+    
+
 
 
      // Method 2
@@ -1273,9 +1204,77 @@
     .fontSizeSet(@"20px")//字体大小
     .fontWeightSet(AAChartFontWeightTypeThin);//字体为细体字
     
+    
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.legend.itemStyle = aaItemStyle;
+//    aaOptions.xAxis.tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
+//    aaOptions.yAxis.minPadding = @0;
+    aaOptions.yAxis.lineWidth = @0;
     
+    return aaOptions;
+}
+
+- (AAOptions *)configureTheMirrorColumnChart {
+    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
+    .titleSet(AATitle.new.textSet(@"正负镜像柱状图"))
+    .xAxisSet(AAXAxis.new.categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
+    .yAxisSet((id)@[AAYAxis.new
+                    .visibleSet(true)
+                    .minSet(0)
+                    .titleSet(AATitle.new.textSet(@"收入")),
+                    AAYAxis.new
+                    .visibleSet(true)
+                    .titleSet(AATitle.new.textSet(@"支出"))
+                    .oppositeSet(true)
+                    ])
+    .tooltipSet(AATooltip.new.enabledSet(true).sharedSet(true))
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .animationSet(AAAnimation.new
+                                             .easingSet(AAChartAnimationBounce)
+                                             .durationSet(@1000)
+                                             )
+                               )
+                    .columnSet(AAColumn.new
+                               .groupingSet(false)
+                               .borderWidthSet(@0)
+                               .borderRadiusSet(@5)
+                               )
+                    )
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"收入")
+                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+                 .negativeColorSet(@"#FF0000"),
+                 AASeriesElement.new
+                 .nameSet(@"支出")
+                 .dataSet(@[@-0.2, @-0.8, @-5.7, @-11.3, @-17.0, @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5]),
+                 ]);
+    return aaOptions;
+}
+
+- (AAOptions *)yAxisOnTheRightSideChart {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"Y轴在右侧的柱状图📊")//图表主标题
+    .subtitleSet(@"设置 aaOptions.yAxis.opposite = YES 即可")//图表副标题
+    .colorsThemeSet(@[@"#ffc069",@"#fe117c",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"2020")
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    //是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，
+    //坐标轴显示在对立面后，x 轴是在上方显示，y 轴是在右方显示（即坐标轴会显示在对立面）。
+    //该配置一般是用于多坐标轴区分展示，另外在 Highstock 中，y 轴默认是在对立面显示的。
+    //默认是：false.
+    aaOptions.yAxis.opposite = YES;
     return aaOptions;
 }
 

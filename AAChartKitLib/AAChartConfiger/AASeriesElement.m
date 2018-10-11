@@ -39,7 +39,6 @@
     self = [super init];
     if (self) {
         _allowPointSelect = false;
-        _colorByPoint = false;
         _showInLegend = true;
         _visible = true;
     }
@@ -51,7 +50,7 @@ AAPropSetFuncImplementation(AASeriesElement, BOOL      , allowPointSelect);//是
 AAPropSetFuncImplementation(AASeriesElement, NSString *, name);
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, data);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, color);
-AAPropSetFuncImplementation(AASeriesElement, BOOL      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
+AAPropSetFuncImplementation(AASeriesElement, id      , colorByPoint);//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropSetFuncImplementation(AASeriesElement, AAMarker *, marker);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stacking);
 AAPropSetFuncImplementation(AASeriesElement, NSString *, dashStyle);
@@ -72,5 +71,6 @@ AAPropSetFuncImplementation(AASeriesElement, id        , step);//是否转变为
 AAPropSetFuncImplementation(AASeriesElement, NSDictionary *, states);
 AAPropSetFuncImplementation(AASeriesElement, BOOL        , showInLegend);//Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
 AAPropSetFuncImplementation(AASeriesElement, BOOL        , visible);//数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
+AAPropSetFuncImplementation(AASeriesElement, NSArray *, zones);
 
 @end

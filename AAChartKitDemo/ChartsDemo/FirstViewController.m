@@ -330,7 +330,9 @@
                                @"Custom Style Stacked Column---自定义堆积柱状图",
                                @"时间不连续的直方折线填充图连接图",
                                @"Disable Animation ---禁用动画效果",
-                               @"Custom Legend Item Style---自定义图例样式"
+                               @"Custom Legend Item Style---自定义图例样式",
+                               @"Mirror Chart ---镜像效果的柱状图",
+                               @"y轴在右侧的图表"
                                ],
                              /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
