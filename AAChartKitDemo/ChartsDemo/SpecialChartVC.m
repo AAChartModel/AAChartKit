@@ -143,14 +143,14 @@
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:@"colorfulColumnChart"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Colorful Column Chart")
         .subtitleSet(@"single data array colorful column chart")
         .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:14])
         .gradientColorsThemeEnabledSet(true)
         .borderRadiusSet(@5)
-        .seriesSet(@[AAObject(AASeriesElement)
+        .seriesSet(@[AASeriesElement.new
                      .nameSet(@"ElementOne")
                      .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
                      .colorByPointSet((id)@(true)),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
@@ -183,18 +183,18 @@
                       @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
           };
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Bar Chart")
         .subtitleSet(@"gradient color bar")
         .borderRadiusSet(@5)
         .xAxisReversedSet(true)
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
                      .colorSet((id)gradientColorDic1),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2021")
                      .dataSet(@[@111,@83,@187,@163,@151,@191,@173,@157,@143,@131,@121,@113,@97,@93])
                      .colorSet((id)gradientColorDic2),
@@ -203,7 +203,7 @@
         return aaChartModel;
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         //.connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
         .titleSet(@"编程语言热度")
@@ -230,7 +230,7 @@
         
     } else if ([chartType isEqualToString:AAChartTypeAreaspline]) {
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(chartType)
         .gradientColorsThemeEnabledSet(true)
         //.dataLabelEnabledSet(true)
@@ -243,19 +243,19 @@
         .yAxisTitleSet(@"")
         .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B"])
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@0, @(-7.5), @(-1.0), @3.7, @0, @(-3), @8, @0,@(-3.6), @4, @(-2), @0]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2018")
                      .dataSet(@[@0, @(-2.2), @2, @(-2.2), @0, @(-1.5), @0, @2.4, @(-1), @3, @(-1), @0]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2019")
                      .dataSet(@[@0, @2.3, @0, @1.2, @(-1), @3, @0, @(-3.3), @0, @2, @(-0.3), @0]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .dataSet(@[@0, @10, @0.13,@2,@0, @2, @0, @3.7, @0, @1, @(-3), @0]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .dataSet(@[@0, @(-4.5), @(-0.9), @5.5, @(-1.9), @1.3, @(-2.8), @0, @(-1.7), @0, @3, @0, ]),
                      ]
@@ -266,7 +266,7 @@
 
     } else if ([chartType isEqualToString:AAChartTypeArea]) {
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .symbolSet(AAChartSymbolTypeCircle)
         .titleSet(@"带有数据阈值标志线的区域填充图")
@@ -276,7 +276,7 @@
         .yAxisTitleSet(@"")
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .dataLabelEnabledSet(true)
-        .seriesSet(@[AAObject(AASeriesElement)
+        .seriesSet(@[AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
                      .lineWidthSet(@5)
@@ -292,7 +292,7 @@
                      ,]
                    )
         .yAxisPlotLinesSet(@[
-                             AAObject(AAPlotLinesElement)
+                            AAPlotLinesElement.new
                              .colorSet(@"#FF0000")//颜色值(16进制)
                              .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
                              .widthSet(@(1)) //标示线粗细
@@ -300,7 +300,7 @@
                              .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                              .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
                              ,
-                             AAObject(AAPlotLinesElement)
+                            AAPlotLinesElement.new
                              .colorSet(@"#FF0000")
                              .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
                              .widthSet(@(1))
@@ -316,7 +316,7 @@
         
         bool bool_false = false;
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypePie)
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
         .titleSet(@"")
@@ -325,7 +325,7 @@
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"语言热度值")
                      .innerSizeSet(@"20%")//内部圆环半径大小占比
                      .sizeSet(@300)//尺寸大小
@@ -355,7 +355,7 @@
         
     } else if ([chartType isEqualToString:AAChartTypeBubble]) {
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"Bubble")
         .subtitleSet(@"Virtual data")
@@ -365,7 +365,7 @@
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(
                               @[
@@ -381,7 +381,7 @@
                                 @[@57, @86, @31]
                                 ]),
                      
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2018")
                      .dataSet(
                               @[
@@ -397,7 +397,7 @@
                                 @[@54, @25, @81]
                                 ]),
                      
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2019")
                      .dataSet(
                               @[
@@ -420,7 +420,7 @@
         
     } else if ([chartType isEqualToString:AAChartTypeScatter]) {
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"按性别划分的身高体重分布图")
         .yAxisTitleSet(@"千克(kg)")
@@ -433,7 +433,7 @@
         .backgroundColorSet(@"#000000")
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"男")
                      .dataSet(@[
                                 @[@161.2, @51.6], @[@167.5, @59.0], @[@159.5, @49.2], @[@157.0, @63.0], @[@155.8, @53.6],
@@ -490,7 +490,7 @@
                                 @[@176.5, @71.8], @[@164.4, @55.5], @[@160.7, @48.6], @[@174.0, @66.4], @[@163.8, @67.3]
                                 ]),
                      
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"女")
                      .dataSet(@[
                                 @[@174.0, @65.6], @[@175.3, @71.8], @[@193.5, @80.7], @[@186.5, @72.6], @[@187.2, @78.8],
@@ -553,7 +553,7 @@
         
     }  else if ([chartType isEqualToString:AAChartTypeArearange]) {
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArearange)
         .titleSet(@"黄昏别馆日气温起伏图")
         .subtitleSet(@"实时监测")
@@ -562,7 +562,7 @@
         .dataLabelEnabledSet(false)
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .typeSet(AAChartTypeArearange)
                      .dataSet(@[
@@ -963,7 +963,7 @@
                                                        @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
                                            };
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArearange)
         .titleSet(@"黄昏别馆日气温起伏图")
         .subtitleSet(@"实时监测")
@@ -972,7 +972,7 @@
         .dataLabelEnabledSet(false)
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .typeSet(AAChartTypeAreasplinerange)
                      .colorSet((id)gradientColorDic)//猩红色
@@ -1031,7 +1031,7 @@
         
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeColumnrange)
         .titleSet(@"")
         .subtitleSet(@"")
@@ -1046,7 +1046,7 @@
         .dataLabelFontColorSet(@"#ffffff")
         .colorsThemeSet(@[@"#06caf4",@"#fe117c",@"#ffc069",@"#7dffc0"])//设置主体颜色数组
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"温度")
                      .dataSet(@[
                                 @[@-9.7,  @9.4],
@@ -1070,7 +1070,7 @@
         
     } else if ([chartType isEqualToString:@"stepLine"]) {
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeLine)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
         .titleSet(@"STEP LINE CHART")//图形标题
@@ -1079,15 +1079,15 @@
         .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
         .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Berlin")
                      .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
                      .stepSet(@"right"), //折线连接点靠右👉
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"New York")
                      .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
                      .stepSet(@"center"),//折线连接点居中
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Tokyo")
                      .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
                      .stepSet(@"left"),//折线连接点靠左边👈
@@ -1099,7 +1099,7 @@
         
     } else if ([chartType isEqualToString:@"stepArea"]) {
         
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArea)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
         .gradientColorsThemeEnabledSet(true)//开启主题渐变色
@@ -1109,17 +1109,17 @@
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
         .markerRadiusSet(@0)//折线连接点半径长度,为0时相当于没有折线连接点
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Berlin")
                      .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
                      .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
                      ,
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"New York")
                      .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
                      .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
                      ,
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Tokyo")
                      .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
                      .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
@@ -1132,7 +1132,7 @@
         
     } else if ([chartType isEqualToString:@"NightingaleRoseChart"]) {
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .titleSet(@"南丁格尔玫瑰图")
         .subtitleSet(@"极地图中的一种")
         .yAxisTitleSet(@"cm")
@@ -1144,7 +1144,7 @@
         .dataLabelEnabledSet(true)
         .polarSet(true)//极地化图形
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"东京")
                      .dataSet(@[@7.0, @6.9, @9.5, @9.6,@13.9, @14.5,@18.3, @18.2, @21.5, @25.2,@26.5, @23.3,  ]),
                      ]
@@ -1155,7 +1155,7 @@
         
     } else if ([chartType isEqualToString:AAChartTypeBoxplot]) {
 
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBoxplot)
         .titleSet(@"BOXPLOT CHART")
         .subtitleSet(@"virtual data")
@@ -1163,7 +1163,7 @@
         .yAxisVisibleSet(true)
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Observed Data")
                      .dataSet(@[
                                 @[@760, @801, @848, @895, @965],
@@ -1181,7 +1181,7 @@
         
     } else if ([chartType isEqualToString:AAChartTypeWaterfall]) {
 
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeWaterfall)
         .titleSet(@"WATERFALL CHART")
         .subtitleSet(@"virtual data")
@@ -1220,14 +1220,14 @@
         return aaChartModel;
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypePyramid)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"横屏查看效果更佳")
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .dataSet(@[
                                 @[@"Swift",       @15654],
@@ -1244,14 +1244,14 @@
         
     } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
         
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"编程语言热度")
         .subtitleSet(@"横屏查看效果更佳")
         .yAxisTitleSet(@"摄氏度")
         .seriesSet(
                    @[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2020")
                      .dataSet(@[
                                 @[@"Swift",       @15654],

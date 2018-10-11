@@ -144,7 +144,7 @@
     NSArray *colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
     //第一种写法
-    AAOptions *options = AAObject(AAOptions);
+    AAOptions *options = AAOptions.new;
     options.chart = (id)chart;
     options.title = (id)title;
     options.subtitle = (id)subtitle;
@@ -182,42 +182,42 @@
 - (AAOptions *)configureTheAAOptionsOfPieChart {
     
     //第一种写法
-    AAOptions *aaOptions = AAObject(AAOptions)
-    .chartSet(AAObject(AAChart)
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new
               .typeSet(AAChartTypePie))
-    .titleSet(AAObject(AATitle)
+    .titleSet(AATitle.new
               .textSet(@"渠道销售额<br>占比")//标题文本内容
               .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
               .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
-              .styleSet(AAObject(AAStyle)
+              .styleSet(AAStyle.new
                         .colorSet(@"#000000")//Title font color
                         .fontSizeSet(@"14 px")//Title font size
                         .fontWeightSet(@"bold")//Title font weight
                         )
               )
-    .plotOptionsSet(AAObject(AAPlotOptions)
-                    .seriesSet(AAObject(AASeries)
-                               .animationSet(AAObject(AAAnimation)
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .animationSet(AAAnimation.new
                                              .easingSet(AAChartAnimationBounce)
                                              .durationSet(@1000)
                                              )
                                )
-                    .pieSet(AAObject(AAPie)
+                    .pieSet(AAPie.new
                             .showInLegendSet(true)
-                            .dataLabelsSet(AAObject(AADataLabels)
+                            .dataLabelsSet(AADataLabels.new
                                            .enabledSet(false)
                                            //.formatSet(@"{point.percentage:.1f}%")
                                            )
                             )
                     )
-    .legendSet(AAObject(AALegend)
+    .legendSet(AALegend.new
                .enabledSet(true)
                .verticalAlignSet(AALegendVerticalAlignTypeTop)
                .layoutSet(AALegendLayoutTypeVertical)
                .alignSet(AALegendAlignTypeCenter)
                )
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"语言热度值")
                  //                 .sizeSet(@300)//环形图的半径大小
                  .innerSizeSet(@"60%")//内部圆环半径大小占比
@@ -238,38 +238,37 @@
     
     
     //下面是另一种更清晰的写法
-    AAChart *aaChart = AAObject(AAChart)
-    .typeSet(AAChartTypePie);
+    AAChart *aaChart = AAChart.new.typeSet(AAChartTypePie);
     
     //标题
-    AATitle *aaTitle = AAObject(AATitle)
+    AATitle *aaTitle = AATitle.new
     .textSet(@"渠道销售额<br>占比")//标题文本内容
     .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
     .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
-    .styleSet(AAObject(AAStyle)
+    .styleSet(AAStyle.new
               .colorSet(@"#000000")//Title font color
               .fontSizeSet(@"14 px")//Title font size
               .fontWeightSet(@"bold")//Title font weight
               );
     
-    AAPlotOptions *aaPlotOptions = (AAObject(AAPlotOptions)
-                                    .seriesSet(AAObject(AASeries)
-                                               .animationSet(AAObject(AAAnimation)
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+                                    .seriesSet(AASeries.new
+                                               .animationSet(AAAnimation.new
                                                              .easingSet(AAChartAnimationBounce)
                                                              .durationSet(@1000)
                                                              )
                                                )
-                                    .pieSet(AAObject(AAPie)
+                                    .pieSet(AAPie.new
                                             .showInLegendSet(true)
-                                            .dataLabelsSet(AAObject(AADataLabels)
+                                            .dataLabelsSet(AADataLabels.new
                                                            .enabledSet(true)
                                                            .formatSet(@"{point.percentage:.1f}%"))
                                             )
-                                    );
+                                    ;
     
     //数据源
     NSArray *aaSeries = @[
-                          AAObject(AASeriesElement)
+                          AASeriesElement.new
                           .nameSet(@"语言热度值")
                           .innerSizeSet(@"80%")//内部圆环半径大小占比
                           .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
@@ -286,7 +285,7 @@
     
     NSArray *aaColors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
     
-    AAOptions *chartOptions = AAObject(AAOptions);
+    AAOptions *chartOptions = AAOptions.new;
     chartOptions.chart = aaChart;
     chartOptions.title = aaTitle;
     chartOptions.plotOptions = aaPlotOptions;
@@ -297,10 +296,9 @@
 }
 
 - (AAOptions *)adjustPieChartTitleAndDataLabelFontStyle {
-    AAOptions *aaOptions = AAObject(AAOptions)
-    .chartSet(AAObject(AAChart)
-              .typeSet(AAChartTypePie))
-    .titleSet(AAObject(AATitle)
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new.typeSet(AAChartTypePie))
+    .titleSet(AATitle.new
               .useHTMLSet(true)
               .textSet(@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>")//标题文本内容
               .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
@@ -309,11 +307,11 @@
               )
     .colorsSet(@[@"#1E90FF",@"#87CEFA",@"#A9A9A9",@"#fd4800",@"#F4A460"])//设置颜色主题
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .sizeSet(@200)//环形图的半径大小
                  .innerSizeSet(@"60%")//内部圆环半径大小占比
                  .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
-                 .dataLabelsSet(AAObject(AADataLabels)
+                 .dataLabelsSet(AADataLabels.new
                                 .enabledSet(true)
                                 .useHTMLSet(true)
                                 .distanceSet(@10)
@@ -412,7 +410,7 @@
 }
 
 - (AAOptions *)configureThePolygonPolarChart {
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
@@ -425,16 +423,16 @@
     .gradientColorsThemeEnabledSet(true)
     .polarSet(true)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2018")
                  .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2019")
                  .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2020")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ]
@@ -452,7 +450,7 @@
 }
 
 - (AAOptions *)configureTheNoGapColunmChart {
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .titleSet(@"中间缝隙很小的柱状图")//图表主标题
     .subtitleSet(@"调整一下groupPadding即可")//图表副标题
@@ -463,7 +461,7 @@
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2020")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                  ]
@@ -486,7 +484,7 @@
 }
 
 - (AAOptions *)configureCustomStyleTooltipChart {
-    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
     .subtitleSet(@"金价(元/克)")//图表副标题
@@ -506,7 +504,7 @@
                      @"12-17",@"12-18",@"12-19",@"12-20",@"12-21",@"12-22",@"12-23",@"12-024",@"12-25",@"12-26",@"12-27",
                      @"12-28",@"12-29",@"12-30"])
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .lineWidthSet(@1.5)
                  .fillOpacitySet(@0.4)
                  .nameSet(@"2018")
@@ -541,7 +539,7 @@
 }
 
 - (AAOptions *)adjustChartLeftAndRightMargin {
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
@@ -550,7 +548,7 @@
     .polarSet(true)
     .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"])
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
                  ]
@@ -563,14 +561,14 @@
 }
 
 - (AAOptions *)configureChartWithBackgroundImage {
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypePie)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
     .dataLabelEnabledSet(true)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(
-               @[AAObject(AASeriesElement)
+               @[AASeriesElement.new
                  .nameSet(@"语言热度占比")
                  .dataSet(@[
                             @[@"Java"  , @67],
@@ -594,12 +592,11 @@
 }
 
 - (AAOptions *)configureDoubleYAxisChartOptions {
-    AATitle *aaTitle = AAObject(AATitle)
-    .textSet(@"双Y轴混合图");
+    AATitle *aaTitle = AATitle.new.textSet(@"双Y轴混合图");
     
-    AALabels *labels = (AAObject(AALabels)
+    AALabels *labels = (AALabels.new
                         .enabledSet(true)//设置 y 轴是否显示数字
-                        .styleSet(AAObject(AAStyle)
+                        .styleSet(AAStyle.new
                                   .colorSet(@"#ff0000")//yAxis Label font color
                                   .fontSizeSet(@"15px")//yAxis Label font size
                                   .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
@@ -607,59 +604,50 @@
                         .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
                         );
     
-    AAYAxis *yAxisOne = AAObject(AAYAxis)
+    AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels)
-    .titleSet(AAObject(AATitle)
-              .textSet(@"温度")
-              )
+    .titleSet(AATitle.new.textSet(@"温度"))
     .oppositeSet(true);
     
     
-    AAYAxis *yAxisTwo = AAObject(AAYAxis)
+    AAYAxis *yAxisTwo = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels.formatSet(@"{value}mm"))
-    .titleSet(AAObject(AATitle)
-              .textSet(@"降雨量")
-              );
+    .titleSet(AATitle.new.textSet(@"降雨量"));
     
     
     NSArray *yAxisArr = @[yAxisOne,// Primary yAxis
                           yAxisTwo // Secondary yAxis
                           ];
-    AATooltip *aaTooltip = AAObject(AATooltip).sharedSet(true).enabledSet(true);
+    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
     NSArray *aaSeries = @[
-                          AAObject(AASeriesElement)
+                          AASeriesElement.new
                           .nameSet(@"2017")
                           .typeSet(AAChartTypeColumn)
                           .yAxisSet(@1)
                           .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                          .dataLabelsSet(AAObject(AADataLabels)
-                                         .enabledSet(true)
-                                         )
+                          .dataLabelsSet(AADataLabels.new.enabledSet(true))
                           ,
-                          AAObject(AASeriesElement)
+                          AASeriesElement.new
                           .nameSet(@"2018")
                           .typeSet(AAChartTypeLine)
                           .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
-                          .dataLabelsSet(AAObject(AADataLabels)
-                                         .enabledSet(true)
-                                         )
+                          .dataLabelsSet(AADataLabels.new.enabledSet(true))
                           ];
     
-    AAOptions *chartOptions = AAObject(AAOptions);
+    AAOptions *chartOptions = AAOptions.new;
     chartOptions.title = aaTitle;
     chartOptions.yAxis = (id)yAxisArr;
     chartOptions.tooltip = aaTooltip;
     chartOptions.series = aaSeries;
-    chartOptions.chart = AAObject(AAChart);
     
     return chartOptions;
 }
 
 
 - (AAOptions *)adjustChartSeriesDataAccuracy {
-    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .titleSet(@"Adjust data accuracy")
     .yAxisTitleSet(@"")
@@ -668,7 +656,7 @@
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
     .yAxisGridLineWidthSet(@0.5)
     .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .seriesSet(@[AAObject(AASeriesElement)
+    .seriesSet(@[AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@(0.0000001),@(0.0000002),@(0.0000003),@(0.0000004),@(0.0000005)])
                  .lineWidthSet(@5)
@@ -685,14 +673,14 @@
 }
 
 - (AAOptions *)adjustGroupPaddingForPolarChart {
-    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
     .borderRadiusSet(@5)
     .polarSet(true)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@211,@183,@157,@133,@111]),
                  ]
@@ -709,30 +697,24 @@
 - (AAOptions *)customStyleStackedColumnChart {
     
     //Method 1
-    AAChart *aaChart = AAObject(AAChart)
-                        .typeSet(AAChartTypeColumn);
+    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
 
-    AATitle *aaTitle = AAObject(AATitle)
-                        .textSet(@"Stacked column chart");
+    AATitle *aaTitle = AATitle.new.textSet(@"Stacked column chart");
 
-    AAXAxis *aaXAsix = AAObject(AAXAxis)
+    AAXAxis *aaXAsix = AAXAxis.new
                         .visibleSet(true)
                         .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]);
 
-    AAYAxis *aaYAxis = AAObject(AAYAxis)
+    AAYAxis *aaYAxis = AAYAxis.new
                         .visibleSet(true)
                         .minSet(@0)
-                        .titleSet(AAObject(AATitle)
-                                  .textSet(@"Total fruit consumption")
-                                  )
-                        .stackLabelsSet(AAObject(AALabels)
+                        .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
+                        .stackLabelsSet(AALabels.new
                                         .enabledSet(true)
-                                        .styleSet(AAObject(AAStyle)
-                                                  .fontWeightSet(AAChartFontWeightTypeBold)
-                                                  )
+                                        .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
                                         );
 
-    AALegend *aaLegend = AAObject(AALegend)
+    AALegend *aaLegend = AALegend.new
                           .enabledSet(true)
                           .alignSet(AALegendAlignTypeRight)
                           .xSet(@(-30))
@@ -741,37 +723,35 @@
                           .borderColorSet(@"#ccc")
                           .borderWidthSet(@1);
 
-    AATooltip *aaTooltip = AAObject(AATooltip)
+    AATooltip *aaTooltip = AATooltip.new
                             .headerFormatSet(@"<b>{point.x}</b><br/>")
                             .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}");
 
-    AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
-                                    .seriesSet(AAObject(AASeries)
-                                               .animationSet(AAObject(AAAnimation)
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+                                    .seriesSet(AASeries.new
+                                               .animationSet(AAAnimation.new
                                                              .easingSet(AAChartAnimationBounce)
                                                              .durationSet(@1000)
                                                              )
                                                )
-                                    .columnSet(AAObject(AAColumn)
+                                    .columnSet(AAColumn.new
                                                .stackingSet(AAChartStackingTypeNormal)
-                                               .dataLabelsSet(AAObject(AADataLabels)
-                                                              .enabledSet(true)
-                                                              )
+                                               .dataLabelsSet(AADataLabels.new.enabledSet(true))
                                                );
 
     NSArray *seriesElementArr = @[
-                                  AAObject(AASeriesElement)
+                                  AASeriesElement.new
                                   .nameSet(@"John")
                                   .dataSet(@[@5, @3, @4, @7, @2]),
-                                  AAObject(AASeriesElement)
+                                  AASeriesElement.new
                                   .nameSet(@"Jane")
                                   .dataSet(@[@5, @3, @4, @7, @2]),
-                                  AAObject(AASeriesElement)
+                                  AASeriesElement.new
                                   .nameSet(@"Joe")
                                   .dataSet(@[@5, @3, @4, @7, @2]),
                                   ];
 
-    AAOptions *aaOptions = AAObject(AAOptions)
+    AAOptions *aaOptions = AAOptions.new
     .chartSet(aaChart)
     .titleSet(aaTitle)
     .xAxisSet(aaXAsix)
@@ -787,31 +767,23 @@
 
 
      // Method 2
-    AAOptions *options2 = AAObject(AAOptions)
-    .chartSet(AAObject(AAChart)
-              .typeSet(AAChartTypeColumn)
-              )
-    .titleSet(AAObject(AATitle)
-              .textSet(@"Stacked column chart")
-              )
-    .xAxisSet(AAObject(AAXAxis)
+    AAOptions *options2 = AAOptions.new
+    .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
+    .titleSet(AATitle.new.textSet(@"Stacked column chart"))
+    .xAxisSet(AAXAxis.new
               .visibleSet(true)
               .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"])
               )
-    .yAxisSet(AAObject(AAYAxis)
+    .yAxisSet(AAYAxis.new
               .visibleSet(true)
               .minSet(@0)
-              .titleSet(AAObject(AATitle)
-                        .textSet(@"Total fruit consumption")
-                        )
-              .stackLabelsSet(AAObject(AALabels)
+              .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
+              .stackLabelsSet(AALabels.new
                               .enabledSet(true)
-                              .styleSet(AAObject(AAStyle)
-                                        .fontWeightSet(AAChartFontWeightTypeBold)
-                                        )
+                              .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
                               )
               )
-    .legendSet(AAObject(AALegend)
+    .legendSet(AALegend.new
                .enabledSet(true)
                .alignSet(AALegendAlignTypeRight)
                .xSet(@(-30))
@@ -820,32 +792,30 @@
                .borderColorSet(@"#ccc")
                .borderWidthSet(@1)
                )
-    .tooltipSet(AAObject(AATooltip)
+    .tooltipSet(AATooltip.new
                 .headerFormatSet(@"<b>{point.x}</b><br/>")
                 .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}")
                 )
-    .plotOptionsSet(AAObject(AAPlotOptions)
-                    .seriesSet(AAObject(AASeries)
-                               .animationSet(AAObject(AAAnimation)
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .animationSet(AAAnimation.new
                                              .easingSet(AAChartAnimationBounce)
                                              .durationSet(@1000)
                                              )
                                )
-                    .columnSet(AAObject(AAColumn)
+                    .columnSet(AAColumn.new
                                .stackingSet(AAChartStackingTypeNormal)
-                               .dataLabelsSet(AAObject(AADataLabels)
-                                              .enabledSet(true)
-                                              )
+                               .dataLabelsSet(AADataLabels.new.enabledSet(true))
                                )
                     )
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"John")
                  .dataSet(@[@5, @3, @4, @7, @2]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"Jane")
                  .dataSet(@[@5, @3, @4, @7, @2]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"Joe")
                  .dataSet(@[@5, @3, @4, @7, @2]),
                  ]);
@@ -923,7 +893,7 @@
 - (AAOptions *)specialStyleStepLineChart {
     
     //Method 1
-    AAChartModel *aaChartModel = AAObject(AAChartModel)
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
@@ -932,7 +902,7 @@
     .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
     .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"價格")
                  .colorSet(@"#003386")
                  .stepSet(@true)
@@ -968,7 +938,7 @@
                             @[AADateUTC(2018, 7 - 1, 12),  @194.50],
                             //                                      @[Date.now(), @194.50]
                             ]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"PS+")
                  .colorSet(@"#FFC535")
                  .stepSet(@true)
@@ -1169,10 +1139,10 @@
 }
 
 - (AAOptions *)disableChartAnimation {
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2018")
                  .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
                  ]
@@ -1185,20 +1155,20 @@
 
 - (AAOptions *)customChartLengendItemStyle {
     
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2018")
                  .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
                  ]
                );
 
     //设定图例项的CSS样式。只支持有关文本的CSS样式设定。 默认是：{ "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }.
-    AAItemStyle *aaItemStyle = AAObject(AAItemStyle)
+    AAItemStyle *aaItemStyle = AAItemStyle.new
     .colorSet(@"#ff0000")//字体颜色
     .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
     .fontSizeSet(@"20px")//字体大小

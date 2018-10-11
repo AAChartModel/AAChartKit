@@ -120,7 +120,7 @@
     //设置 AAChartView 的背景色是否为透明
     self.aaChartView.isClearBackgroundColor = YES;
     
-    self.aaChartModel= AAObject(AAChartModel)
+    self.aaChartModel= AAChartModel.new
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
@@ -131,16 +131,16 @@
     .backgroundColorSet(@"#4b2b7f")
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2018")
                  .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2019")
                  .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2020")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ]
@@ -167,20 +167,20 @@
     .yAxisAllowDecimalsSet(NO)//是否允许Y轴坐标值小数
     .yAxisTickPositionsSet(@[@(0),@(25),@(50),@(75),@(100)])//指定y轴坐标
     .yAxisPlotLinesSet(@[
-                         AAObject(AAPlotLinesElement)
+                         AAPlotLinesElement.new
                          .colorSet(@"#F05353")//颜色值(16进制)
                          .dashStyleSet(AALineDashSyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
                          .widthSet(@(1)) //标示线粗细
                          .valueSet(@(20)) //所在位置
                          .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
                          .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
-                         ,AAObject(AAPlotLinesElement)
+                         ,AAPlotLinesElement.new
                          .colorSet(@"#33BDFD")
                          .dashStyleSet(AALineDashSyleTypeLongDashDot)
                          .widthSet(@(1))
                          .valueSet(@(40))
                          .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-                         ,AAObject(AAPlotLinesElement)
+                         ,AAPlotLinesElement.new
                          .colorSet(@"#ADFF2F")
                          .dashStyleSet(AALineDashSyleTypeLongDashDot)
                          .widthSet(@(1))
@@ -212,17 +212,17 @@
             _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
         } else if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
             _aaChartModel.series =@[
-                                    AAObject(AASeriesElement)
+                                    AASeriesElement.new
                                     .nameSet(@"2017")
                                     .fillOpacitySet(@0.3)
                                     .dataSet(@[@2.73, @21.3, @41.6, @17.2, @19.9, @1.60, @2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
-                                    AAObject(AASeriesElement)
+                                    AASeriesElement.new
                                     .nameSet(@"2018")
                                     .dataSet(@[@1.51, @28.7, @0.94, @1.44, @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
-                                    AAObject(AASeriesElement)
+                                    AASeriesElement.new
                                     .nameSet(@"2019")
                                     .dataSet(@[@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
-                                    AAObject(AASeriesElement)
+                                    AASeriesElement.new
                                     .nameSet(@"2020")
                                     .dataSet(@[@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
                                     ];
@@ -238,19 +238,19 @@
         } else if (self.chartType == SecondeViewControllerChartTypeSpline) {
             _aaChartModel.markerRadius = @8;
             _aaChartModel.series = @[
-                                     AAObject(AASeriesElement)
+                                     AASeriesElement.new
                                      .nameSet(@"2017")
                                      .lineWidthSet(@5)
                                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                                     AAObject(AASeriesElement)
+                                     AASeriesElement.new
                                      .nameSet(@"2018")
                                      .lineWidthSet(@5)
                                      .dataSet(@[@80, @390, @210, @340, @240, @350,]),
-                                     AAObject(AASeriesElement)
+                                     AASeriesElement.new
                                      .nameSet(@"2019")
                                      .lineWidthSet(@5)
                                      .dataSet(@[@100, @370, @180, @280, @260, @300,]),
-                                     AAObject(AASeriesElement)
+                                     AASeriesElement.new
                                      .nameSet(@"2020")
                                      .lineWidthSet(@5)
                                      .dataSet(@[@130, @350, @160, @310, @250, @268,]),
@@ -262,17 +262,17 @@
         _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
         _aaChartModel.gradientColorsThemeEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
         _aaChartModel.series = @[
-                                 AAObject(AASeriesElement)
+                                 AASeriesElement.new
                                  .nameSet(@"Berlin")
                                  .dataSet(@[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4])
                                  .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
                                  ,
-                                 AAObject(AASeriesElement)
+                                 AASeriesElement.new
                                  .nameSet(@"New York")
                                  .dataSet(@[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3])
                                  .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
                                  ,
-                                 AAObject(AASeriesElement)
+                                 AASeriesElement.new
                                  .nameSet(@"Tokyo")
                                  .dataSet(@[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2])
                                  .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈

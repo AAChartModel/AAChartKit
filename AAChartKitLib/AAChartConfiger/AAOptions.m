@@ -56,7 +56,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
 
 + (AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)aaChartModel {
     
-    AAChart *aaChart = AAObject(AAChart)
+    AAChart *aaChart = AAChart.new
     .typeSet(aaChartModel.chartType)//绘图类型
     .invertedSet(aaChartModel.inverted)//设置是否反转坐标轴，使X轴垂直，Y轴水平。 如果值为 true，则 x 轴默认是 倒置 的。 如果图表中出现条形图系列，则会自动反转
     .backgroundColorSet(aaChartModel.backgroundColor)//设置图表的背景色(包含透明度的设置)
@@ -64,38 +64,35 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(aaChartModel.polar);
     
-    AATitle *aaTitle = AAObject(AATitle)
+    AATitle *aaTitle = AATitle.new
     .textSet(aaChartModel.title)//标题文本内容
-    .styleSet(AAObject(AAStyle)
+    .styleSet(AAStyle.new
               .colorSet(aaChartModel.titleFontColor)//Title font color
               .fontSizeSet(AAFontSizeFormat(aaChartModel.titleFontSize))//Title font size
               .fontWeightSet(aaChartModel.titleFontWeight)//Title font weight
               );
     
-    AASubtitle *aaSubtitle = AAObject(AASubtitle)
+    AASubtitle *aaSubtitle = AASubtitle.new
     .textSet(aaChartModel.subtitle)//副标题内容
     .alignSet(aaChartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
-    .styleSet(AAObject(AAStyle)
+    .styleSet(AAStyle.new
               .colorSet(aaChartModel.subtitleFontColor)//Subtitle font color
               .fontSizeSet(AAFontSizeFormat(aaChartModel.subtitleFontSize))//Subtitle font size
               .fontWeightSet(aaChartModel.subtitleFontWeight)//Subtitle font weight
               );
     
-    AATooltip *aaTooltip = AAObject(AATooltip)
+    AATooltip *aaTooltip = AATooltip.new
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(aaChartModel.tooltipShared)//多组数据共享一个浮动提示框
     .crosshairsSet(true)//启用准星线
     //.pointFormatSet(aaChartModel.tooltipValueString)//Tooltip value point format string
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
-    AAPlotOptions *aaPlotOptions = AAObject(AAPlotOptions)
-    .seriesSet(AAObject(AASeries)
-               //.colorByPointSet(false)//决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
-               .stackingSet(aaChartModel.stacking)//设置是否百分比堆叠显示图形
-               );
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new.stackingSet(aaChartModel.stacking));//设置是否百分比堆叠显示图形
     
     if (aaChartModel.animationType != 0) {
-        aaPlotOptions.series.animation = (AAObject(AAAnimation)
+        aaPlotOptions.series.animation = (AAAnimation.new
                                           .easingSet(aaChartModel.animationType)
                                           .durationSet(aaChartModel.animationDuration)
                                           );
@@ -105,10 +102,10 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     aaPlotOptions = [self configureTheAAPlotOptionsWithPlotOptions:aaPlotOptions chartModel:aaChartModel];
     //   aaPlotOptions.series.events = @{@"click":@"hahaha"};
     
-    AALegend *aaLegend = AAObject(AALegend)
+    AALegend *aaLegend = AALegend.new
     .enabledSet(aaChartModel.legendEnabled);//是否显示 legend
     
-    AAOptions *aaOptions = AAObject(AAOptions)
+    AAOptions *aaOptions = AAOptions.new
     .chartSet(aaChart)
     .titleSet(aaTitle)
     .subtitleSet(aaSubtitle)
@@ -131,10 +128,10 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
 
 + (void)configureAxisContentAndStyleWithAAOptions:(AAOptions *)aaOptions AAChartModel:(AAChartModel *)aaChartModel {
     
-    AAXAxis *aaXAxis = AAObject(AAXAxis)
-    .labelsSet(AAObject(AALabels)
+    AAXAxis *aaXAxis = AAXAxis.new
+    .labelsSet(AALabels.new
                .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
-               .styleSet(AAObject(AAStyle)
+               .styleSet(AAStyle.new
                          .colorSet(aaChartModel.xAxisLabelsFontColor)//xAxis Label font color
                          .fontSizeSet(AAFontSizeFormat(aaChartModel.xAxisLabelsFontSize))//xAxis Label font size
                          .fontWeightSet(aaChartModel.xAxisLabelsFontWeight)//xAxis Label font weight
@@ -147,17 +144,17 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
     
     if ([aaChartModel.xAxisCrosshairWidth floatValue]>0) {
-        aaXAxis.crosshairSet(AAObject(AACrosshair)
+        aaXAxis.crosshairSet(AACrosshair.new
                              .widthSet(aaChartModel.xAxisCrosshairWidth)
                              .colorSet(aaChartModel.xAxisCrosshairColor)
                              .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
                              );
     }
     
-    AAYAxis *aaYAxis = AAObject(AAYAxis)
-    .labelsSet(AAObject(AALabels)
+    AAYAxis *aaYAxis = AAYAxis.new
+    .labelsSet(AALabels.new
                .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
-               .styleSet(AAObject(AAStyle)
+               .styleSet(AAStyle.new
                          .colorSet(aaChartModel.yAxisLabelsFontColor)//yAxis Label font color
                          .fontSizeSet(AAFontSizeFormat(aaChartModel.yAxisLabelsFontSize))//yAxis Label font size
                          .fontWeightSet(aaChartModel.yAxisLabelsFontWeight)//yAxis Label font weight
@@ -171,14 +168,13 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     .plotLinesSet(aaChartModel.yAxisPlotLines) //标示线设置
     .reversedSet(aaChartModel.yAxisReversed)
     .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
-    .titleSet(AAObject(AATitle)
-              .textSet(aaChartModel.yAxisTitle))//y 轴标题
+    .titleSet(AATitle.new.textSet(aaChartModel.yAxisTitle))//y 轴标题
     .lineWidthSet(aaChartModel.yAxisLineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval);
     
     if ([aaChartModel.yAxisCrosshairWidth floatValue]>0) {
-        aaYAxis.crosshairSet(AAObject(AACrosshair)
+        aaYAxis.crosshairSet(AACrosshair.new
                              .widthSet(aaChartModel.yAxisCrosshairWidth)
                              .colorSet(aaChartModel.yAxisCrosshairColor)
                              .dashStyleSet(aaChartModel.yAxisCrosshairDashStyleType)
@@ -196,7 +192,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
         || aaChartModel.chartType == AAChartTypeLine
         || aaChartModel.chartType == AAChartTypeSpline
         || aaChartModel.chartType == AAChartTypeScatter) {
-        AAMarker *aaMarker = AAObject(AAMarker)
+        AAMarker *aaMarker = AAMarker.new
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(aaChartModel.symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
         if (aaChartModel.symbolStyle == AAChartSymbolStyleTypeInnerBlank) {
@@ -219,9 +215,9 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     
     AADataLabels *aaDataLabels;
     if (aaChartModel.dataLabelEnabled == true) {
-        aaDataLabels = (AAObject(AADataLabels)
+        aaDataLabels = (AADataLabels.new
                         .enabledSet(aaChartModel.dataLabelEnabled)
-                        .styleSet(AAObject(AAStyle)
+                        .styleSet(AAStyle.new
                                   .colorSet(aaChartModel.dataLabelFontColor)
                                   .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
                                   .fontWeightSet(aaChartModel.dataLabelFontWeight)
@@ -230,53 +226,43 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     }
     
     if (chartType == AAChartTypeColumn) {
-        AAColumn *aaColumn = (AAObject(AAColumn)
+        AAColumn *aaColumn = AAColumn.new
                               .borderWidthSet(@0)
-                              //.groupPaddingSet(@0.05)
                               .borderRadiusSet(aaChartModel.borderRadius)
-                              .dataLabelsSet(aaDataLabels));
-        if (aaChartModel.polar == YES) {
+                              .dataLabelsSet(aaDataLabels);
+        if (aaChartModel.polar == true) {
             aaColumn.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.columnSet(aaColumn);
     } else if (chartType == AAChartTypeBar) {
-        AABar *aaBar = (AAObject(AABar)
+        AABar *aaBar = (AABar.new
                         .borderWidthSet(@0)
-                        //.groupPaddingSet(@0.1)
                         .borderRadiusSet(aaChartModel.borderRadius)
                         .dataLabelsSet(aaDataLabels));
-        if (aaChartModel.polar == YES) {
+        if (aaChartModel.polar == true) {
             aaBar.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.barSet(aaBar);
     } else if (chartType == AAChartTypeArea) {
-        aaPlotOptions.areaSet(AAObject(AAArea)
-                              .dataLabelsSet(aaDataLabels));
+        aaPlotOptions.areaSet(AAArea.new.dataLabelsSet(aaDataLabels));
     } else if (chartType == AAChartTypeAreaspline) {
-        aaPlotOptions.areasplineSet(AAObject(AAAreaspline)
-                                    .dataLabelsSet(aaDataLabels));
+        aaPlotOptions.areasplineSet(AAAreaspline.new.dataLabelsSet(aaDataLabels));
     } else if (chartType == AAChartTypeLine) {
-        aaPlotOptions.lineSet(AAObject(AALine)
-                              .dataLabelsSet(aaDataLabels));
+        aaPlotOptions.lineSet(AALine.new.dataLabelsSet(aaDataLabels));
     } else if (chartType == AAChartTypeSpline) {
-        aaPlotOptions.splineSet(AAObject(AASpline)
-                                .dataLabelsSet(aaDataLabels));
+        aaPlotOptions.splineSet(AASpline.new.dataLabelsSet(aaDataLabels));
     } else if (chartType == AAChartTypePie) {
-        AAPie *aaPie = (AAObject(AAPie)
+        AAPie *aaPie = (AAPie.new
                         .allowPointSelectSet(true)
                         .cursorSet(@"pointer")
                         .showInLegendSet(true)
                         );
         if (aaChartModel.dataLabelEnabled == true) {
-            aaPie.dataLabelsSet(aaDataLabels
-                                .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
-                                );
+            aaPie.dataLabelsSet(aaDataLabels.formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %"));
         } else {
-            aaPie.dataLabelsSet(AAObject(AADataLabels)
-                                .enabledSet(false)
-                                );
+            aaPie.dataLabelsSet(AADataLabels.new.enabledSet(false));
         }
         aaPlotOptions.pieSet(aaPie);
     } else if (chartType == AAChartTypeColumnrange) {

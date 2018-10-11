@@ -49,7 +49,7 @@
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:@"arearangeMixedLine"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .titleSet(@"面积范围均线图")
         .subtitleSet(@"混合图的一种")
         .yAxisGridLineWidthSet(@0)
@@ -144,7 +144,7 @@
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"columnrangeMixedLine"]) {
-        AAChartModel *aaChartModel= AAObject(AAChartModel)
+        AAChartModel *aaChartModel= AAChartModel.new
         .titleSet(@"城市气温指数")
         .subtitleSet(@"虚拟数据")
         .yAxisTitleSet(@"摄氏度")
@@ -157,7 +157,7 @@
         .dataLabelEnabledSet(true)
         .colorsThemeSet(@[@"#1e90ff",@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .typeSet(AAChartTypeColumnrange)
                      .nameSet(@"温度")
                      .dataSet(@[
@@ -174,19 +174,19 @@
                                 @[@(-5.2),@10.4],
                                 @[@(-9.9),@16.8]
                                 ]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .typeSet(AAChartTypeLine)
                      .nameSet(@"东京")
                      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .typeSet(AAChartTypeLine)
                      .nameSet(@"纽约")
                      .dataSet(@[@-0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .typeSet(AAChartTypeLine)
                      .nameSet(@"柏林")
                      .dataSet(@[@-0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .typeSet(AAChartTypeLine)
                      .nameSet(@"伦敦")
                      .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
@@ -196,52 +196,52 @@
         
         return aaChartModel;
     } else if ([chartType isEqualToString:@"stackingColumnMixedLine"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"16年1月-16年11月充值客单分析")
         .subtitleSet(@"BY MICVS")
         .stackingSet(AAChartStackingTypeNormal)
         .colorsThemeSet(@[@"rgba(255,144,128,1)",@"rgba(0,191,183,1)", @"rgba(252,230,48,1)",])//主题颜色数组
         .seriesSet(@[
-                    AAObject(AASeriesElement)
+                    AASeriesElement.new
                     .nameSet(@"新用户")
                     .dataSet(@[@82.89,@67.54,@62.07,@59.43,@67.02,@67.09,@35.66,@71.78,@81.61,@78.85,@79.12,@72.30])
-                    .dataLabelsSet((AAObject(AADataLabels)
+                    .dataLabelsSet(AADataLabels.new
                                     .enabledSet(YES)
-                                    .styleSet(AAObject(AAStyle)
+                                    .styleSet(AAStyle.new
                                               .colorSet(@"#000000")
                                               .fontSizeSet(@"11px")
                                               )
-                                    ))
+                                    )
                     ,
-                    AAObject(AASeriesElement)
+                    AASeriesElement.new
                     .nameSet(@"老用户")
                     .dataSet(@[@198.66,@330.81,@151.95,@160.12,@222.56,@229.05,@128.53,@250.91,@224.47,@473.99,@126.85,@260.50])
-                    .dataLabelsSet((AAObject(AADataLabels)
-                                    .enabledSet(YES)
-                                    .styleSet(AAObject(AAStyle)
-                                              .colorSet(@"#000000")
-                                              .fontSizeSet(@"11px")
-                                              )
-                                    ))
+                    .dataLabelsSet(AADataLabels.new
+                                   .enabledSet(YES)
+                                   .styleSet(AAStyle.new
+                                             .colorSet(@"#000000")
+                                             .fontSizeSet(@"11px")
+                                             )
+                                   )
                     ,
-                    AAObject(AASeriesElement)
+                    AASeriesElement.new
                     .typeSet(AAChartTypeLine)
                     .nameSet(@"总量")
                     .dataSet(@[@281.55,@398.35,@214.02,@219.55,@289.57,@296.14,@164.18,@322.69,@306.08,@552.84,@205.97,@332.79])
-                    .dataLabelsSet((AAObject(AADataLabels)
+                    .dataLabelsSet(AADataLabels.new
                                     .enabledSet(YES)
-                                    .styleSet(AAObject(AAStyle)
+                                    .styleSet(AAStyle.new
                                               .colorSet(@"#000000")
                                               .fontSizeSet(@"15px")
                                               .fontWeightSet(AAChartFontWeightTypeBold)
                                               )
-                                    ))
+                                    )
                     ,
                    ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"dashStyleTypeMixed"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)//图表类型
         .titleSet(@"")//图表主标题
         .subtitleSet(@"")//图表副标题
@@ -254,36 +254,36 @@
         //.legendEnabledSet(false)//隐藏图例
         .markerRadiusSet(@0)//隐藏连接点
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"SolidSpline")
                      .lineWidthSet(@3)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(AALineDashSyleTypeDash)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(AALineDashSyleTypeDashDot)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(AALineDashSyleTypeLongDash)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeLongDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(AALineDashSyleTypeLongDashDot)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeLongDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(AALineDashSyleTypeShortDashDot)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeShortDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(AALineDashSyleTypeShortDashDotDot)
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
@@ -293,12 +293,12 @@
         return aaChartModel;
         
     } else if ([chartType isEqualToString:@"negativeColorMixed"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .dataLabelEnabledSet(true)
         .markerRadiusSet(@3)
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Column")
                      .dataSet(@[
                                 @-6.4, @-5.2, @-3.0, @0.2, @2.3, @5.5, @8.4, @8.3, @5.1, @0.9, @-1.1, @-4.0,
@@ -312,11 +312,11 @@
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"scatterMixedLine"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
         .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .markerRadiusSet(@9)
-        .seriesSet(@[AAObject(AASeriesElement)
+        .seriesSet(@[AASeriesElement.new
                      .nameSet(@"Scatter")
                      .dataSet(@[
                                 @[@0.067732, @3.176513],
@@ -523,12 +523,12 @@
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"negativeColorMixedBubble"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
         .dataLabelEnabledSet(true)
         .markerRadiusSet(@3)
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Bubble")
                      .dataSet(@[
                                 @[@0,@0,@5],@[@0,@1,@1],@[@0,@2,@0],@[@0,@3,@0],@[@0,@4,@0],@[@0,@5,@0],@[@0,@6,@0],
@@ -561,19 +561,19 @@
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"polygonMixedScatter"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"目标")
                      .typeSet(AAChartTypePolygon)
                      .dataSet(@[@[@153, @42], @[@149, @46], @[@149, @55], @[@152, @60], @[@159, @70], @[@170, @77], @[@180, @70],
                                 @[@180, @60], @[@173, @52], @[@166, @45]])
                      .colorSet(@"rgba(112, 128, 144, 0.5)")//浅石板灰
                      ,
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"目标")
                      .typeSet(AAChartTypeScatter)
-                     .markerSet(AAObject(AAMarker)
+                     .markerSet(AAMarker.new
                                 .radiusSet(@7)//曲线连接点半径，默认是4
                                 .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                                 .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
@@ -639,19 +639,19 @@
         
         return aaChartModel;
     } else if ([chartType isEqualToString:@"polarChartMixed"]) {
-        AAChartModel *aaChartModel = AAObject(AAChartModel)
+        AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .polarSet(true)
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Column")
                      .typeSet(AAChartTypeColumn)
                      .dataSet(@[@8, @7, @6, @5, @4, @3, @2, @1]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Line")
                      .typeSet(AAChartTypeLine)
                      .dataSet(@[@1, @2, @3, @4, @5, @6, @7, @8]),
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"Area")
                      .typeSet(AAChartTypeArea)
                      .dataSet(@[@1, @8, @2, @7, @3, @6, @4, @5])

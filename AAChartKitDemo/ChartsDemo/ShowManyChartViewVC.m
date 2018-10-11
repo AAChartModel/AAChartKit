@@ -57,7 +57,7 @@
     aaChartView.scrollEnabled = NO;
     [self.view addSubview:aaChartView];
 
-    AAChartModel *aaChartModel= AAObject(AAChartModel)
+    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"X轴文字垂直显示")
     .subtitleSet(@"")
@@ -77,7 +77,7 @@
     .tooltipEnabledSet(false)
     .borderRadiusSet(@3)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
                  .allowPointSelectSet(YES)
@@ -98,7 +98,7 @@
     aaChartView2.scrollEnabled = NO;
     [self.view addSubview:aaChartView2];
     
-    AAChartModel *aaChartModel2= AAObject(AAChartModel)
+    AAChartModel *aaChartModel2= AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"")
@@ -113,7 +113,7 @@
     .yAxisCrosshairColorSet(@"#ff0000")
     .yAxisCrosshairDashStyleTypeSet(AALineDashSyleTypeLongDashDot)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
+                 AASeriesElement.new
                  .nameSet(@"2018")
                  .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
                  ]

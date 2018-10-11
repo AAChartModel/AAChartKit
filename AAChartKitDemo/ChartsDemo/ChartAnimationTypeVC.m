@@ -81,7 +81,7 @@
    // self.chartView.contentHeight = self.view.frame.size.height-220;
     [self.view addSubview:self.chartView];
     
-    self.chartModel = AAObject(AAChartModel)
+    self.chartModel = AAChartModel.new
     .chartTypeSet(chartType)
     .animationDurationSet(@1500)
     .titleSet(@"")
@@ -96,7 +96,7 @@
         .gradientColorsThemeEnabledSet(true)
         .markerRadiusSet(@0)
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
                      .stepSet((id)@(true))
@@ -119,7 +119,7 @@
         .markerRadiusSet(@0)
         .gradientColorsThemeEnabledSet(true)
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0])
                      .colorSet((id)gradientColorDic)
@@ -127,7 +127,7 @@
                      ]);
     } else if (self.chartType == ChartAnimationTypeVCChartTypeScatter) {
         self.chartModel.seriesSet(@[
-                                    AAObject(AASeriesElement)
+                                    AASeriesElement.new
                                     .nameSet(@"男")
                                     .dataSet(@[
                                                @[@161.2, @51.6], @[@167.5, @59.0], @[@159.5, @49.2], @[@157.0, @63.0], @[@155.8, @53.6],
@@ -186,7 +186,7 @@
                                     ]);
     } else if (self.chartType == ChartAnimationTypeVCChartTypePie) {
       self.chartModel.seriesSet(@[
-          AAObject(AASeriesElement)
+        AASeriesElement.new
           .nameSet(@"语言热度值")
           .innerSizeSet(@"20%")//内部圆环半径大小占比
           .borderWidthSet(@0)//描边的宽度
@@ -216,7 +216,7 @@
         
         self.chartModel
         .seriesSet(@[
-                     AAObject(AASeriesElement)
+                     AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])
                      .colorSet((id)gradientColorDic)
