@@ -93,14 +93,14 @@
 //y: -6
 //zIndex
 
-AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , enabled);
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, AAStyle  *, style);
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, format);
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, rotation);
-AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , allowOverlap);
-AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , useHTML);
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, distance);
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, x);
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y);
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , enabled) 
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, AAStyle  *, style) 
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, format) 
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, rotation) 
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , allowOverlap) 
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , useHTML) 
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, distance) 
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, x) 
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y) 
 
 @end

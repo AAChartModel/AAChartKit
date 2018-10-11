@@ -35,9 +35,9 @@
 
 @interface AAStyle : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, color);
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontSize);
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontWeight);
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline);
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, color) 
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontSize) 
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontWeight) 
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline) 
 
 @end

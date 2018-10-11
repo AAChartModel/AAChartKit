@@ -34,8 +34,8 @@
 
 @implementation AACrosshair
 
-AAPropSetFuncImplementation(AACrosshair, NSString *, dashStyle); //准星线样式
-AAPropSetFuncImplementation(AACrosshair, NSString *, color); //准星线颜色
-AAPropSetFuncImplementation(AACrosshair, NSNumber *, width); //准星线宽度
+AAPropSetFuncImplementation(AACrosshair, NSString *, dashStyle)  //准星线样式
+AAPropSetFuncImplementation(AACrosshair, NSString *, color)  //准星线颜色
+AAPropSetFuncImplementation(AACrosshair, NSNumber *, width)  //准星线宽度
 
 @end

@@ -34,11 +34,11 @@
 
 @implementation AALabels
 
-AAPropSetFuncImplementation(AALabels, BOOL, enabled);
-AAPropSetFuncImplementation(AALabels, NSString *, fontSize);
-AAPropSetFuncImplementation(AALabels, NSString *, fontColor);
-AAPropSetFuncImplementation(AALabels, NSString *, fontWeight);
-AAPropSetFuncImplementation(AALabels, AAStyle  *, style);
-AAPropSetFuncImplementation(AALabels, NSString *, format);
+AAPropSetFuncImplementation(AALabels, BOOL, enabled) 
+AAPropSetFuncImplementation(AALabels, NSString *, fontSize) 
+AAPropSetFuncImplementation(AALabels, NSString *, fontColor) 
+AAPropSetFuncImplementation(AALabels, NSString *, fontWeight) 
+AAPropSetFuncImplementation(AALabels, AAStyle  *, style) 
+AAPropSetFuncImplementation(AALabels, NSString *, format) 
 
 @end

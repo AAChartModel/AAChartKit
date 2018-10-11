@@ -34,8 +34,8 @@
 
 @implementation AAOptions3d
 
-AAPropSetFuncImplementation(AAOptions3d, BOOL,       enabled);
-AAPropSetFuncImplementation(AAOptions3d, NSNumber *, alpha);
-AAPropSetFuncImplementation(AAOptions3d, NSNumber *, beta);
+AAPropSetFuncImplementation(AAOptions3d, BOOL,       enabled) 
+AAPropSetFuncImplementation(AAOptions3d, NSNumber *, alpha) 
+AAPropSetFuncImplementation(AAOptions3d, NSNumber *, beta) 
 
 @end

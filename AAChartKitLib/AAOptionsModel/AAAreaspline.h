@@ -36,6 +36,6 @@
 
 @interface AAAreaspline : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAAreaspline, AADataLabels *, dataLabels);
+AAPropStatementAndPropSetFuncStatement(strong, AAAreaspline, AADataLabels *, dataLabels) 
 
 @end

@@ -36,7 +36,7 @@
 
 @interface AASpline : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AASpline, AADataLabels *, dataLabels);
-//AAPropStatementAndPropSetFuncStatement(assign, AASpline, BOOL, enableMouseTracking);
+AAPropStatementAndPropSetFuncStatement(strong, AASpline, AADataLabels *, dataLabels) 
+//AAPropStatementAndPropSetFuncStatement(assign, AASpline, BOOL, enableMouseTracking) 
 
 @end

@@ -59,18 +59,18 @@
 
 @interface AAOptions : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAChart       *, chart);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AATitle       *, title);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AASubtitle    *, subtitle);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAXAxis       *, xAxis);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAYAxis       *, yAxis);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AATooltip     *, tooltip);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPlotOptions *, plotOptions);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, series);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legend);
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors);
-AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL,            gradientColorEnabled);
-AAPropStatementAndPropSetFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText); //String to display in 'zoom reset button"
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAChart       *, chart) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AATitle       *, title) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AASubtitle    *, subtitle) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAXAxis       *, xAxis) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAYAxis       *, yAxis) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AATooltip     *, tooltip) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPlotOptions *, plotOptions) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, series) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legend) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors) 
+AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL,            gradientColorEnabled) 
+AAPropStatementAndPropSetFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
 
 @end
 

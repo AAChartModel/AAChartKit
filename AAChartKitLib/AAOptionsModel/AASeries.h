@@ -37,16 +37,16 @@
 
 @interface AASeries : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadius);
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAMarker     *, marker);
-AAPropStatementAndPropSetFuncStatement(copy,   AASeries, NSString     *, stacking);
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAAnimation  *, animation);
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSArray      *, keys);
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadius) 
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAMarker     *, marker) 
+AAPropStatementAndPropSetFuncStatement(copy,   AASeries, NSString     *, stacking) 
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAAnimation  *, animation) 
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSArray      *, keys) 
 //colorByPoint 决定了图表是否给每个数据列或每个点分配一个颜色，默认值是 false， 即默认是给每个数据类分配颜色，
-//AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL , colorByPoint);//设置为 true 则是给每个点分配颜色。
+//AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL , colorByPoint) //设置为 true 则是给每个点分配颜色。
 //plotOptions.series.connectNulls
 //https://www.zhihu.com/question/24173311
-AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL ,          connectNulls);//设置折线是否断点重连
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSDictionary *, events);
+AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL ,          connectNulls) //设置折线是否断点重连
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSDictionary *, events) 
 
 @end

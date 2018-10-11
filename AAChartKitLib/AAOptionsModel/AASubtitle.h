@@ -36,8 +36,8 @@
 
 @interface AASubtitle : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AASubtitle, NSString *, text);
-AAPropStatementAndPropSetFuncStatement(copy,   AASubtitle, NSString *, align);
-AAPropStatementAndPropSetFuncStatement(strong, AASubtitle, AAStyle  *, style);
+AAPropStatementAndPropSetFuncStatement(copy,   AASubtitle, NSString *, text) 
+AAPropStatementAndPropSetFuncStatement(copy,   AASubtitle, NSString *, align) 
+AAPropStatementAndPropSetFuncStatement(strong, AASubtitle, AAStyle  *, style) 
 
 @end

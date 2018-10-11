@@ -34,6 +34,6 @@
 
 @implementation AAArea
 
-AAPropSetFuncImplementation(AAArea, AADataLabels *, dataLabels);
+AAPropSetFuncImplementation(AAArea, AADataLabels *, dataLabels) 
 
 @end

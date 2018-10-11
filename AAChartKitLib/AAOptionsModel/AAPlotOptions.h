@@ -36,15 +36,15 @@
 
 @interface AAPlotOptions : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn     *, column);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine       *, line);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie        *, pie);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar        *, bar);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline     *, spline);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries     *, series);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea       *, area);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, columnrange);
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, arearange);
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn     *, column) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine       *, line) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie        *, pie) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar        *, bar) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline     *, spline) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries     *, series) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea       *, area) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, columnrange) 
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, arearange) 
 
 @end

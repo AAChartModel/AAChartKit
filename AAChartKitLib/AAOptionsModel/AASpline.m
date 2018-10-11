@@ -34,7 +34,7 @@
 
 @implementation AASpline
 
-AAPropSetFuncImplementation(AASpline, AADataLabels *, dataLabels);
-//AAPropSetFuncImplementation(AASpline, BOOL , enableMouseTracking);
+AAPropSetFuncImplementation(AASpline, AADataLabels *, dataLabels) 
+//AAPropSetFuncImplementation(AASpline, BOOL , enableMouseTracking) 
 
 @end

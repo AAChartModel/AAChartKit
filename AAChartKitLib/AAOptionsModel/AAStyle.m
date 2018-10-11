@@ -46,9 +46,9 @@
 //    return self;
 //}
 
-AAPropSetFuncImplementation(AAStyle, NSString *, color);
-AAPropSetFuncImplementation(AAStyle, NSString *, fontSize);
-AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight);
-AAPropSetFuncImplementation(AAStyle, NSString *, textOutline);
+AAPropSetFuncImplementation(AAStyle, NSString *, color) 
+AAPropSetFuncImplementation(AAStyle, NSString *, fontSize) 
+AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight) 
+AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) 
 
 @end
