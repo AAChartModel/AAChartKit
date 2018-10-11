@@ -167,7 +167,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,  
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration) //设置图表的渲染动画时长(动画单位为毫秒)
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted) //x 轴是否垂直,默认为否
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       gradientColorsThemeEnabled) //是否将常规主题颜色数组 colorsTheme 自动转换为半透明渐变效果的颜色数组(),默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       gradientColorsThemeEnabled) //是否将常规主题颜色数组 colorsTheme 自动转换为半透明渐变效果的颜色数组(设置后就不用自己再手动去写渐变色字典,相当于是设置渐变色的一个快捷方式,当然了,如果需要细致地自定义渐变色效果,还是需要自己手动配置渐变颜色字典内容,具体方法参见图表示例中的`颜色渐变条形图`示例代码),默认为否
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) //是否极化图形(变为雷达图),默认为否
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled) //是否显示数据,默认为否
