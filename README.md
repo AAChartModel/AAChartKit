@@ -52,6 +52,9 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 
 ## Usage
 
+**Waring❗️:DO NOT support Cocoapods and Carthage yet ,Just support old school way for now**
+
+
 ### The required 'pre' work
 1. Drag the `AAChartKitLib` folder into your project.
 

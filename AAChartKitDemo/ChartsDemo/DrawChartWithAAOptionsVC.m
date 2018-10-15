@@ -594,15 +594,15 @@
 - (AAOptions *)configureDoubleYAxisChartOptions {
     AATitle *aaTitle = AATitle.new.textSet(@"双Y轴混合图");
     
-    AALabels *labels = (AALabels.new
-                        .enabledSet(true)//设置 y 轴是否显示数字
-                        .styleSet(AAStyle.new
-                                  .colorSet(@"#ff0000")//yAxis Label font color
-                                  .fontSizeSet(@"15px")//yAxis Label font size
-                                  .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
-                                  )
-                        .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
-                        );
+    AALabels *labels = AALabels.new
+    .enabledSet(true)//设置 y 轴是否显示数字
+    .styleSet(AAStyle.new
+              .colorSet(@"#ff0000")//yAxis Label font color
+              .fontSizeSet(@"15px")//yAxis Label font size
+              .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
+              )
+    .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
+    ;
     
     AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)

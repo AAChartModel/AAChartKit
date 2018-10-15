@@ -52,6 +52,9 @@
 ## 使用方法
 
 ### 準備工作
+
+**注意❗️:暂不支持 Cocoapods 及 Carthage 导入,仅支持手动导入**
+
 1. 將項目`Demo`中的文件夾`AAChartKitLib`拖入到所需項目中.
 1. 在你的項目的 `.pch` 全局宏定義文件中添加
 ```objective-c
