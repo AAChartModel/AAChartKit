@@ -105,16 +105,17 @@
                    );
     } else if (self.chartType == ChartAnimationTypeVCChartTypeArea
                || self.chartType == ChartAnimationTypeVCChartTypeAreaspline) {
-        NSDictionary *gradientColorDic = @{
-                                           @"linearGradient": @{
-                                                   @"x1": @0,
-                                                   @"y1": @1,
-                                                   @"x2": @0,
-                                                   @"y2": @0
-                                                   },
-                                           @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
-                                                       @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-                                           };
+        NSDictionary *gradientColorDic =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @1,
+                  @"x2": @0,
+                  @"y2": @0
+                  },
+          @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
+                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
         self.chartModel
         .markerRadiusSet(@0)
         .gradientColorsThemeEnabledSet(true)
@@ -203,16 +204,17 @@
                    ),
           ]);
     } else {
-        NSDictionary *gradientColorDic = @{
-                                           @"linearGradient": @{
-                                                   @"x1": @0,
-                                                   @"y1": @0,
-                                                   @"x2": @0,
-                                                   @"y2": @1
-                                                   },
-                                           @"stops": @[@[@0,@"#8A2BE2"],
-                                                       @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-                                           };
+        NSDictionary *gradientColorDic =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @0,
+                  @"x2": @0,
+                  @"y2": @1
+                  },
+          @"stops": @[@[@0,@"#8A2BE2"],
+                      @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
         
         self.chartModel
         .seriesSet(@[

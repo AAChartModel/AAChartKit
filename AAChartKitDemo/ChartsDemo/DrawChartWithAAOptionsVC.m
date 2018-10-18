@@ -1190,7 +1190,9 @@
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
     .titleSet(AATitle.new.textSet(@"正负镜像柱状图"))
-    .xAxisSet(AAXAxis.new.categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
+    .xAxisSet(AAXAxis.new
+              .visibleSet(true)
+              .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
     .yAxisSet((id)@[AAYAxis.new
                     .visibleSet(true)
                     .minSet(0)
