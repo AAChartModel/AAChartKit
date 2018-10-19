@@ -128,7 +128,9 @@
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *webPath = [bundle pathForResource:@"AAChartView" ofType:@"html" inDirectory:@"AAJSFiles.bundle"];
+    NSString *webPath = [bundle pathForResource:@"AAChartView"
+                                         ofType:@"html"
+                                    inDirectory:@"AAJSFiles.bundle"];
     NSURL *webURL = [NSURL fileURLWithPath:webPath];
     NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
     return URLRequest;
@@ -314,17 +316,17 @@
 
 @implementation AAJsonConverter
 
-+ (NSDictionary*)getObjectData:(id)obj {
++ (NSDictionary*)getObjectData:(id)objc {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     unsigned int propsCount;
-    Class class = [obj class];
+    Class class = [objc class];
     do {
         objc_property_t *props = class_copyPropertyList(class, &propsCount);
         for (int i = 0;i < propsCount; i++) {
             objc_property_t prop = props[i];
             
             NSString *propName = [NSString stringWithUTF8String:property_getName(prop)];
-            id value = [obj valueForKey:propName];
+            id value = [objc valueForKey:propName];
             if (value == nil) {
                 value = [NSNull null];
                 continue;
@@ -340,40 +342,44 @@
     return dic;
 }
 
-+ (NSData*)getJSON:(id)obj options:(NSJSONWritingOptions)options error:(NSError**)error {
-    return [NSJSONSerialization dataWithJSONObject:[self getObjectData:obj] options:options error:error];
++ (NSData*)getJSON:(id)objc options:(NSJSONWritingOptions)options error:(NSError**)error {
+    return [NSJSONSerialization dataWithJSONObject:[self getObjectData:objc]
+                                           options:options
+                                             error:error];
 }
 
-+ (id)getObjectInternal:(id)obj {
-    if (   [obj isKindOfClass:[NSString class]]
-        || [obj isKindOfClass:[NSNumber class]]
-        || [obj isKindOfClass:[NSNull   class]] ) {
-        return obj;
++ (id)getObjectInternal:(id)objc {
+    if (   [objc isKindOfClass:[NSString class]]
+        || [objc isKindOfClass:[NSNumber class]]
+        || [objc isKindOfClass:[NSNull   class]] ) {
+        return objc;
     }
     
-    if ([obj isKindOfClass:[NSArray class]]) {
-        NSArray *objarr = obj;
-        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objarr.count];
-        for (int i = 0;i < objarr.count; i++) {
-            [arr setObject:[self getObjectInternal:[objarr objectAtIndex:i]] atIndexedSubscript:i];
+    if ([objc isKindOfClass:[NSArray class]]) {
+        NSArray *objcArr = objc;
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
+        for (int i = 0;i < objcArr.count; i++) {
+            [arr setObject:[self getObjectInternal:[objcArr objectAtIndex:i]] atIndexedSubscript:i];
         }
         return arr;
     }
     
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *objdic = obj;
-        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[objdic count]];
-        for (NSString *key in objdic.allKeys) {
-            [dic setObject:[self getObjectInternal:[objdic objectForKey:key]] forKey:key];
+    if ([objc isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *objcDic = objc;
+        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[objcDic count]];
+        for (NSString *key in objcDic.allKeys) {
+            [dic setObject:[self getObjectInternal:[objcDic objectForKey:key]] forKey:key];
         }
         return dic;
     }
-    return [self getObjectData:obj];
+    return [self getObjectData:objc];
 }
 
 + (NSString*)convertDictionaryIntoJson:(NSDictionary *)dictionary {
     NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&parseError];
     NSString *string =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return string;
 }
@@ -397,7 +403,9 @@
 
 + (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series {
     NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:series options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:series
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&parseError];
     NSString *seriesStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
