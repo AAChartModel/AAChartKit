@@ -71,6 +71,8 @@ AAPropSetFuncImplementation(AASeriesElement, id        , step) //是否转变为
 AAPropSetFuncImplementation(AASeriesElement, NSDictionary *, states) 
 AAPropSetFuncImplementation(AASeriesElement, BOOL        , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
 AAPropSetFuncImplementation(AASeriesElement, BOOL        , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
-AAPropSetFuncImplementation(AASeriesElement, NSArray *, zones) 
+AAPropSetFuncImplementation(AASeriesElement, NSArray  *, zones)
+AAPropSetFuncImplementation(AASeriesElement, NSString *, zoneAxis)
+
 
 @end

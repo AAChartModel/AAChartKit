@@ -210,20 +210,17 @@
         .subtitleSet(@"虚拟数据")
         .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
         .yAxisTitleSet(@"摄氏度")
-        .seriesSet(@[
-                     @{  @"name":@"本专业",
-                         @"data": @[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55],
-                         @"zoneAxis":@"x",
-                         @"gridLineWidth":@0,
-                         @"zones":@[
+        .seriesSet(@[AASeriesElement.new
+                     .nameSet(@"本专业")
+                     .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
+                     .zoneAxisSet(@"x")
+                     .zonesSet(@[
                                  @{@"value": @8},
                                  @{@"dashStyle": AALineDashSyleTypeDash}
-                                 ]
-                         },
-                     @{  @"name":@"所有专业",
-                         @"gridLineWidth":@0,
-                         @"data":@[@"",@"",@100,@109,@89,@"",@"",@120,@"",@"",@"",@""],
-                         },
+                                 ]),
+                     AASeriesElement.new
+                     .nameSet(@"所有专业")
+                     .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
                      ]);
         
         return aaChartModel;
@@ -238,8 +235,7 @@
         .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")
         .yAxisGridLineWidthSet(@0)
-        .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",
-                         @"Go",@"C",@"C#",@"C++",@"HTML",@"CSS",@"Perl",@"R",@"MATLAB",@"SQL"])
+        .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"HTML",@"CSS",@"Perl",@"R",@"MATLAB",@"SQL"])
         .yAxisTitleSet(@"")
         .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B"])
         .seriesSet(@[
@@ -1040,9 +1036,9 @@
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
         .invertedSet(true)
-        .dataLabelEnabledSet(true)
-        //.gradientColorEnabledSet(true)
+        .gradientColorsThemeEnabledSet(true)
         .backgroundColorSet(@"#4b2b7f")
+        .dataLabelEnabledSet(true)
         .dataLabelFontColorSet(@"#ffffff")
         .colorsThemeSet(@[@"#06caf4",@"#fe117c",@"#ffc069",@"#7dffc0"])//设置主体颜色数组
         .seriesSet(@[
