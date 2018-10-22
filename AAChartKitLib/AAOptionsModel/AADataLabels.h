@@ -101,6 +101,9 @@ AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , allowOv
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , useHTML) 
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, distance) 
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, x) 
-AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y) 
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, shape)
+
 
 @end

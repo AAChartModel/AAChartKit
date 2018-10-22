@@ -80,103 +80,56 @@
 }
 
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
-/****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
-    NSDictionary *chart = @{@"type":@"area"};
     
-    //标题
-    NSDictionary *title = @{@"text":@"AAChartKit"};
-    
-    //副标题
-    NSDictionary *subtitle = @{@"subtitle":@"Source: https://github.com/AAChartModel/AAChartKit"};
-    
-    //X轴
-    NSDictionary *xAxis = @{
-                           @"categories": @[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
-                                            @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]
-                           };
-    
-    //Y轴
-    NSDictionary *yAxis = @{
-                           @"title":@{
-                                   @"text":@"Temperature (xB0C)"
-                                   },
-                           @"plotLines":@[@{
-                                              @"value":@0,
-                                              @"width":@1,
-                                              @"color":@"#808080"
-                                              }]
-                           
-                           };
-    
-    //浮动提示框
-    NSDictionary *tooltip = @{
-                              @"valueSuffix": @"xB0C"
-                              };
-    
-    //图例
-    NSDictionary *legend = @{
-                             @"layout": @"vertical",
-                             @"align": @"right",
-                             @"verticalAlign": @"top",
-                             @"borderWidth": @0
-                             };
-    
-    //数据源
-    NSArray *series = @[
-                        @{
-                            @"name": @"Tokyo",
-                            @"data": @[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2,
-                                       @26.5, @23.3, @18.3, @13.9, @9.6]
-                            },
-                        @{
-                            @"name": @"New York",
-                            @"data": @[@-0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8,
-                                         @24.1, @20.1, @14.1, @8.6, @2.5]
-                            },
-                        @{
-                            @"name": @"London",
-                            @"data": @[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0,
-                                       @16.6, @14.2, @10.3, @6.6, @4.8]
-                            }
-                        ];
-
-    
-    NSArray *colors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
-    
+    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeArea);
+    AATitle *aaTitle = AATitle.new.textSet(@"AAChartKit");
+    AASubtitle *aaSubtitle = AASubtitle.new
+    .textSet(@"Source: https://github.com/AAChartModel/AAChartKit")
+    .alignSet(AAChartTitleAlignTypeLeft);
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]);
+    AAYAxis *aaYAXis = AAYAxis.new
+    .visibleSet(true)
+    .titleSet(AATitle.new
+              .textSet(@"Temperature (xB0C)"))
+    .plotLinesSet(@[AAPlotLinesElement.new
+                    .valueSet(@0)
+                    .widthSet(@1)
+                    .colorSet(@"#808080")]);
+    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).valueSuffixSet(@"xB0C");
+    AALegend *aaLegend = AALegend.new
+    .enabledSet(true)
+    .alignSet(AALegendAlignTypeRight)
+    .layoutSet(AALegendLayoutTypeVertical)
+    .verticalAlignSet(AALegendVerticalAlignTypeTop);
+    NSArray *aaSeries = @[
+                          AASeriesElement.new
+                          .nameSet(@"2017")
+                          .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+                          AASeriesElement.new
+                          .nameSet(@"2018")
+                          .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+                          AASeriesElement.new
+                          .nameSet(@"2019")
+                          .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+                          AASeriesElement.new
+                          .nameSet(@"2020")
+                          .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+                          ];
+    NSArray *aaColors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
     //第一种写法
-    AAOptions *options = AAOptions.new;
-    options.chart = (id)chart;
-    options.title = (id)title;
-    options.subtitle = (id)subtitle;
-    options.xAxis = (id)xAxis;
-    options.yAxis = (id)yAxis;
-    options.tooltip = (id)tooltip;
-    options.legend = (id)legend;
-    options.series = (id)series;
-    options.colors = colors;
-    
-    return options;
-    
-    
-    //另一种写法
-    AAOptions *chartOptions = AAObject(AAOptions)
-    .chartSet((id)chart)
-    .titleSet((id)title)
-    .subtitleSet((id)subtitle)
-    .xAxisSet((id)xAxis)
-    .yAxisSet((id)yAxis)
-    .tooltipSet((id)tooltip)
-    .legendSet((id)legend)
-    .seriesSet((id)series)
-    .colorsSet(colors);
-    
-    return chartOptions;
-    
-
-
-/****************************************************参照原生 JavaScript 代码仿写构建生成 AAOptions 实例对象(方法1)****************************************************/
- 
-
+    AAOptions *aaOptions = AAOptions.new;
+    aaOptions.chart = aaChart;
+    aaOptions.title = aaTitle;
+    aaOptions.subtitle = aaSubtitle;
+    aaOptions.xAxis = aaXAxis;
+    aaOptions.yAxis = aaYAXis;
+    aaOptions.tooltip = aaTooltip;
+    aaOptions.legend = aaLegend;
+    aaOptions.series = aaSeries;
+    aaOptions.colors = aaColors;
+    return aaOptions;
 }
 
 - (AAOptions *)configureTheAAOptionsOfPieChart {
@@ -321,7 +274,7 @@
                           @[
                             @[@"Firefox",   @150],
                             @[@"Opera",      @15],
-                            @[@"Others",    @35]
+                            @[@"Others",     @35]
                             ]
                           ),
                  ]);
@@ -345,8 +298,8 @@
     
     AAYAxis *aaYAxis2 = AAYAxis.new
     .visibleSet(true)
-    .titleSet(AATitle.new.textSet(@"利润 (millions)"))
-    .oppositeSet(true);
+    .oppositeSet(true)
+    .titleSet(AATitle.new.textSet(@"利润 (millions)"));
     
     AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
@@ -358,54 +311,49 @@
                )
     .columnSet(AAColumn.new
                .groupingSet(false)
-               .borderWidthSet(@0));
+               .borderWidthSet(@0)
+               )
+    ;
     
-    NSArray *aaSeries = @[@{
-                              @"name": @"雇员",
-                              @"color": @"rgba(165,170,217,1)",
-                              @"data": @[@150, @73, @20],
-                              @"pointPadding": @0.3,
-                              @"pointPlacement": @-0.2
-                              }, @{
-                              @"name": @"优化的员工",
-                              @"color": @"rgba(126,86,134,.9)",
-                              @"data": @[@140, @90, @40],
-                              @"pointPadding": @0.4,
-                              @"pointPlacement": @-0.2
-                              }, @{
-                              @"name": @"利润",
-                              @"color": @"rgba(248,161,63,1)",
-                              @"data": @[@183.6, @178.8, @198.5],
-                              @"tooltip": @{
-                                      @"valuePrefix": @"$",
-                                      @"valueSuffix": @" M"
-                                      },
-                              @"pointPadding": @0.3,
-                              @"pointPlacement": @0.2,
-                              @"yAxis": @1
-                              }, @{
-                              @"name": @"优化的利润",
-                              @"color": @"rgba(186,60,61,.9)",
-                              @"data": @[@203.6, @198.8, @208.5],
-                              @"tooltip": @{
-                                      @"valuePrefix": @"$",
-                                      @"valueSuffix": @" M"
-                                      },
-                              @"pointPadding": @0.4,
-                              @"pointPlacement": @0.2,
-                              @"yAxis": @1
-                              }];
+    NSArray *aaSeries = @[
+                          AAColumn.new
+                          .nameSet(@"雇员")
+                          .dataSet(@[@150, @73, @20])
+                          .colorSet(@"rgba(165,170,217,1)")
+                          .pointPaddingSet(@0.3)
+                          .pointPlacementSet(@(-0.2)),
+                          AAColumn.new
+                          .nameSet(@"优化的员工")
+                          .dataSet(@[@140, @90, @40])
+                          .colorSet(@"rgba(126,86,134,.9)")
+                          .pointPaddingSet(@0.4)
+                          .pointPlacementSet(@(-0.2)),
+                          AAColumn.new
+                          .nameSet(@"利润")
+                          .dataSet(@[@183.6, @178.8, @198.5])
+                          .colorSet(@"rgba(248,161,63,1)")
+                          .pointPaddingSet(@0.3)
+                          .pointPlacementSet(@(0.2))
+                          .yAxisSet(@1),
+                          AAColumn.new
+                          .nameSet(@"优化的利润")
+                          .dataSet(@[@203.6, @198.8, @208.5])
+                          .colorSet(@"rgba(186,60,61,.9)")
+                          .pointPaddingSet(@0.4)
+                          .pointPlacementSet(@(0.2))
+                          .yAxisSet(@1),
+                          ];
     
-    AAOptions *chartOptions = AAOptions.new;
-    chartOptions.chart = aaChart;
-    chartOptions.title = aaTitle;
-    chartOptions.xAxis = aaXAxis;
-    chartOptions.yAxis = (id)@[aaYAxis1,aaYAxis2];
-    chartOptions.tooltip = aaTooltip;
-    chartOptions.plotOptions = aaPlotOptions;
-    chartOptions.series = aaSeries;
+    AAOptions *aaOptions = AAOptions.new;
+    aaOptions.chart = aaChart;
+    aaOptions.title = aaTitle;
+    aaOptions.xAxis = aaXAxis;
+    aaOptions.yAxis = (id)@[aaYAxis1,aaYAxis2];
+    aaOptions.tooltip = aaTooltip;
+    aaOptions.plotOptions = aaPlotOptions;
+    aaOptions.series = aaSeries;
     
-    return chartOptions;
+    return aaOptions;
 
 }
 
@@ -468,22 +416,22 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.plotOptions.column.groupPadding = @0;//设置棱柱之间的间距百分比
-    aaOptions.plotOptions.column.dataLabels = (id)@{
-                                                @"enabled": @(true),
-                                                @"verticalAlign": @"bottom",
-                                                @"y": @(-10),
-                                                @"shape":@"callout",
-                                                @"backgroundColor":@"rgba(0, 0, 0, 0.75)",
-                                                @"style": @{
-                                                        @"color":@"#FFFFFF",
-                                                        @"textOutline":@"none"
-                                                        }
-                                                };
+    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
+    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
+    
+    aaOptions.plotOptions.column.dataLabels = AADataLabels.new
+    .enabledSet(true)
+    .ySet(@(-10))
+    .backgroundColorSet(@"rgba(0, 0, 0, 0.75)")
+    .shapeSet(@"callout")
+    .styleSet(AAStyle.new
+              .colorSet(@"#FFFFFF")
+              .textOutlineSet(@"none"));
     return aaOptions;
 }
 
 - (AAOptions *)configureCustomStyleTooltipChart {
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
@@ -520,8 +468,8 @@
                );
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
-    AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    AATooltip *tooltip = options.tooltip;
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .useHTMLSet(true)
     .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
@@ -533,7 +481,7 @@
                 @"fontSize":@"12px",})
     ;
 
-    return options;
+    return aaOptions;
     
     
 }
@@ -592,17 +540,17 @@
 }
 
 - (AAOptions *)configureDoubleYAxisChartOptions {
+    
     AATitle *aaTitle = AATitle.new.textSet(@"双Y轴混合图");
     
     AALabels *labels = AALabels.new
     .enabledSet(true)//设置 y 轴是否显示数字
+    .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
     .styleSet(AAStyle.new
               .colorSet(@"#ff0000")//yAxis Label font color
               .fontSizeSet(@"15px")//yAxis Label font size
               .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
-              )
-    .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
-    ;
+              );
     
     AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)
@@ -610,17 +558,17 @@
     .titleSet(AATitle.new.textSet(@"温度"))
     .oppositeSet(true);
     
-    
     AAYAxis *yAxisTwo = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels.formatSet(@"{value}mm"))
     .titleSet(AATitle.new.textSet(@"降雨量"));
     
+    NSArray *aaYAxisArr = @[yAxisOne,// Primary yAxis
+                            yAxisTwo // Secondary yAxis
+                            ];
     
-    NSArray *yAxisArr = @[yAxisOne,// Primary yAxis
-                          yAxisTwo // Secondary yAxis
-                          ];
     AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
+    
     NSArray *aaSeries = @[
                           AASeriesElement.new
                           .nameSet(@"2017")
@@ -636,13 +584,13 @@
                           .dataLabelsSet(AADataLabels.new.enabledSet(true))
                           ];
     
-    AAOptions *chartOptions = AAOptions.new;
-    chartOptions.title = aaTitle;
-    chartOptions.yAxis = (id)yAxisArr;
-    chartOptions.tooltip = aaTooltip;
-    chartOptions.series = aaSeries;
+    AAOptions *aaOptions = AAOptions.new;
+    aaOptions.title = aaTitle;
+    aaOptions.yAxis = (id)aaYAxisArr;
+    aaOptions.tooltip = aaTooltip;
+    aaOptions.series = aaSeries;
     
-    return chartOptions;
+    return aaOptions;
 }
 
 
@@ -673,6 +621,7 @@
 }
 
 - (AAOptions *)adjustGroupPaddingForPolarChart {
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"Colorful Column Chart")
@@ -685,6 +634,7 @@
                  .dataSet(@[@211,@183,@157,@133,@111]),
                  ]
                );
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AAColumn *aaColumn = aaOptions.plotOptions.column;
     aaColumn.groupPadding = @0.05;
@@ -698,13 +648,10 @@
     
     //Method 1
     AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
-
     AATitle *aaTitle = AATitle.new.textSet(@"Stacked column chart");
-
     AAXAxis *aaXAsix = AAXAxis.new
                         .visibleSet(true)
                         .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]);
-
     AAYAxis *aaYAxis = AAYAxis.new
                         .visibleSet(true)
                         .minSet(@0)
@@ -713,7 +660,6 @@
                                         .enabledSet(true)
                                         .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
                                         );
-
     AALegend *aaLegend = AALegend.new
                           .enabledSet(true)
                           .alignSet(AALegendAlignTypeRight)
@@ -722,11 +668,9 @@
                           .ySet(@25)
                           .borderColorSet(@"#ccc")
                           .borderWidthSet(@1);
-
     AATooltip *aaTooltip = AATooltip.new
                             .headerFormatSet(@"<b>{point.x}</b><br/>")
                             .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}");
-
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
                                     .seriesSet(AASeries.new
                                                .animationSet(AAAnimation.new
@@ -738,7 +682,6 @@
                                                .stackingSet(AAChartStackingTypeNormal)
                                                .dataLabelsSet(AADataLabels.new.enabledSet(true))
                                                );
-
     NSArray *seriesElementArr = @[
                                   AASeriesElement.new
                                   .nameSet(@"John")
@@ -763,9 +706,6 @@
 
     return aaOptions;
     
-
-
-
      // Method 2
     AAOptions *options2 = AAOptions.new
     .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
@@ -1173,8 +1113,6 @@
     .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
     .fontSizeSet(@"20px")//字体大小
     .fontWeightSet(AAChartFontWeightTypeThin);//字体为细体字
-    
-    
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.legend.itemStyle = aaItemStyle;

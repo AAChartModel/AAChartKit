@@ -55,6 +55,8 @@ AAPropSetFuncImplementation(AADataLabels, BOOL      , allowOverlap)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , useHTML) 
 AAPropSetFuncImplementation(AADataLabels, NSNumber*, distance) 
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, x) 
-AAPropSetFuncImplementation(AADataLabels, NSNumber *, y) 
+AAPropSetFuncImplementation(AADataLabels, NSNumber *, y)
+AAPropSetFuncImplementation(AADataLabels, NSString *, backgroundColor)
+AAPropSetFuncImplementation(AADataLabels, NSString *, shape)
 
 @end

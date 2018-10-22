@@ -34,21 +34,19 @@
 
 @implementation AAColumn
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.grouping = YES;
-    }
-    return self;
-}
+AAPropSetFuncImplementation(AAColumn, NSString *,     name)
+AAPropSetFuncImplementation(AAColumn, NSArray  *,     data)
+AAPropSetFuncImplementation(AAColumn, NSString *,     color)
+AAPropSetFuncImplementation(AAColumn, id,             grouping)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPadding)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPlacement)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     groupPadding)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderWidth)
+AAPropSetFuncImplementation(AAColumn, BOOL ,          colorByPoint)
+AAPropSetFuncImplementation(AAColumn, AADataLabels *, dataLabels)
+AAPropSetFuncImplementation(AAColumn, NSString *,     stacking)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderRadius)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     yAxis)
 
-AAPropSetFuncImplementation(AAColumn, BOOL,           grouping) 
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPadding) 
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     groupPadding) 
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderWidth) 
-AAPropSetFuncImplementation(AAColumn, BOOL ,          colorByPoint) 
-AAPropSetFuncImplementation(AAColumn, AADataLabels *, dataLabels) 
-AAPropSetFuncImplementation(AAColumn, NSString *,     stacking) 
-AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderRadius) 
 
 @end
