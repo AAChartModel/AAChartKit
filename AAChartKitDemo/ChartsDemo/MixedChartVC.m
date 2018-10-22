@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) AAChartModel *aaChartModel;
 @property (nonatomic, strong) AAChartView  *aaChartView;
+@property (nonatomic, strong) NSArray *mixedChartNamesArr;
+
 
 @end
 
@@ -29,22 +31,37 @@
     [self.view addSubview:self.aaChartView];
     
     
-    
-    
-    NSArray *mixedChartNamesArr = @[@"arearangeMixedLine",
-                                    @"columnrangeMixedLine",
-                                    @"stackingColumnMixedLine",
-                                    @"dashStyleTypeMixed",
-                                    @"negativeColorMixed",
-                                    @"scatterMixedLine",
-                                    @"negativeColorMixedBubble",
-                                    @"polygonMixedScatter",
-                                    @"polarChartMixed"];
-    NSString *chartType = mixedChartNamesArr[self.chartTypeIndex];
+    self.mixedChartNamesArr = @[@"arearangeMixedLine",
+                                @"columnrangeMixedLine",
+                                @"stackingColumnMixedLine",
+                                @"dashStyleTypeMixed",
+                                @"negativeColorMixed",
+                                @"scatterMixedLine",
+                                @"negativeColorMixedBubble",
+                                @"polygonMixedScatter",
+                                @"polarChartMixed"];
+    NSString *chartType = self.mixedChartNamesArr[self.chartTypeIndex];
     self.aaChartModel = [self configureTheChartModel:chartType];
 
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(monitorTap)];
+}
+
+
+- (void)monitorTap {
+    if (self.chartTypeIndex == self.mixedChartNamesArr.count - 1) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.chartTypeIndex = self.chartTypeIndex + 1;
+        NSString *chartType = self.mixedChartNamesArr[self.chartTypeIndex];
+        self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+        _aaChartModel = [self configureTheChartModel:chartType];
+        [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    }
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {

@@ -36,6 +36,9 @@
 #import "AADateUTCTool.h"
 @interface DrawChartWithAAOptionsVC ()
 
+@property (nonatomic, strong) AAChartView *aaChartView;
+@property (nonatomic, strong) NSArray *navigationItemTitleArr;
+
 @end
 
 @implementation DrawChartWithAAOptionsVC
@@ -49,10 +52,46 @@
     aaChartView.contentHeight = aaChartView.frame.size.height-80;
     [self.view addSubview:aaChartView];
     aaChartView.scrollEnabled = NO;
+    self.aaChartView = aaChartView;
     
     AAOptions *aaOptions = [self configureChartOptions];
     [aaChartView aa_drawChartWithOptions:aaOptions];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(monitorTap)];
+    self.navigationItemTitleArr = @[@"绘制legend居顶部的区域填充图",
+                                    @"绘制带有中心标题的环形图",
+                                    @"调整扇形图的标题和DataLabel字体样式",
+                                    @"绘制嵌套的柱状图",
+                                    @"多边形线框的雷达图",
+                                    @"缝隙很小的柱状图",
+                                    @"Custom style tooltip--自定义浮动提示框",
+                                    @"调整图表的左右边距",
+                                    @"设置图表绘图区的背景图片",
+                                    @"Double Y Axises Chart---双Y轴混合图",
+                                    @"Adjust Data Accuracy---调整数据精度",
+                                    @"Adjust Group Padding---调整group间距",
+                                    @"Custom Style Stacked Column---自定义堆积柱状图",
+                                    @"时间不连续的直方折线填充图连接图",
+                                    @"Disable Animation ---禁用动画效果",
+                                    @"Custom Legend Item Style---自定义图例样式",
+                                    @"Mirror Chart ---镜像效果的柱状图",
+                                    @"y轴在右侧的图表"
+                                    ];
+}
+
+
+- (void)monitorTap {
+    if (self.selectedIndex == 17) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.selectedIndex = self.selectedIndex + 1;
+        self.title = self.navigationItemTitleArr[self.selectedIndex];
+        AAOptions *aaOptions = [self configureChartOptions];
+        [self.aaChartView aa_refreshChartWithOptions:aaOptions];
+    }
 }
 
 - (AAOptions *)configureChartOptions {
@@ -82,13 +121,17 @@
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
     
     AAChart *aaChart = AAChart.new.typeSet(AAChartTypeArea);
+    
     AATitle *aaTitle = AATitle.new.textSet(@"AAChartKit");
+    
     AASubtitle *aaSubtitle = AASubtitle.new
     .textSet(@"Source: https://github.com/AAChartModel/AAChartKit")
     .alignSet(AAChartTitleAlignTypeLeft);
+    
     AAXAxis *aaXAxis = AAXAxis.new
     .visibleSet(true)
     .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]);
+    
     AAYAxis *aaYAXis = AAYAxis.new
     .visibleSet(true)
     .titleSet(AATitle.new
@@ -97,12 +140,15 @@
                     .valueSet(@0)
                     .widthSet(@1)
                     .colorSet(@"#808080")]);
+    
     AATooltip *aaTooltip = AATooltip.new.enabledSet(true).valueSuffixSet(@"xB0C");
+    
     AALegend *aaLegend = AALegend.new
     .enabledSet(true)
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop);
+    
     NSArray *aaSeries = @[
                           AASeriesElement.new
                           .nameSet(@"2017")
@@ -118,7 +164,7 @@
                           .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                           ];
     NSArray *aaColors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
-    //第一种写法
+
     AAOptions *aaOptions = AAOptions.new;
     aaOptions.chart = aaChart;
     aaOptions.title = aaTitle;
@@ -312,8 +358,7 @@
     .columnSet(AAColumn.new
                .groupingSet(false)
                .borderWidthSet(@0)
-               )
-    ;
+               );
     
     NSArray *aaSeries = @[
                           AAColumn.new
@@ -477,13 +522,12 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet(@{@"color":@"#FFD700"/*(纯金色)*/,
-                @"fontSize":@"12px",})
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px"))
     ;
 
     return aaOptions;
-    
-    
 }
 
 - (AAOptions *)adjustChartLeftAndRightMargin {
@@ -649,7 +693,7 @@
     //Method 1
     AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
     AATitle *aaTitle = AATitle.new.textSet(@"Stacked column chart");
-    AAXAxis *aaXAsix = AAXAxis.new
+    AAXAxis *aaXAxis = AAXAxis.new
                         .visibleSet(true)
                         .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]);
     AAYAxis *aaYAxis = AAYAxis.new
@@ -682,27 +726,27 @@
                                                .stackingSet(AAChartStackingTypeNormal)
                                                .dataLabelsSet(AADataLabels.new.enabledSet(true))
                                                );
-    NSArray *seriesElementArr = @[
-                                  AASeriesElement.new
-                                  .nameSet(@"John")
-                                  .dataSet(@[@5, @3, @4, @7, @2]),
-                                  AASeriesElement.new
-                                  .nameSet(@"Jane")
-                                  .dataSet(@[@5, @3, @4, @7, @2]),
-                                  AASeriesElement.new
-                                  .nameSet(@"Joe")
-                                  .dataSet(@[@5, @3, @4, @7, @2]),
-                                  ];
+    NSArray *aaSeriesArr = @[
+                             AASeriesElement.new
+                             .nameSet(@"John")
+                             .dataSet(@[@5, @3, @4, @7, @2]),
+                             AASeriesElement.new
+                             .nameSet(@"Jane")
+                             .dataSet(@[@5, @3, @4, @7, @2]),
+                             AASeriesElement.new
+                             .nameSet(@"Joe")
+                             .dataSet(@[@5, @3, @4, @7, @2]),
+                             ];
 
-    AAOptions *aaOptions = AAOptions.new
-    .chartSet(aaChart)
-    .titleSet(aaTitle)
-    .xAxisSet(aaXAsix)
-    .yAxisSet(aaYAxis)
-    .legendSet(aaLegend)
-    .tooltipSet(aaTooltip)
-    .plotOptionsSet(aaPlotOptions)
-    .seriesSet(seriesElementArr);
+    AAOptions *aaOptions = AAOptions.new;
+    aaOptions.chart = aaChart;
+    aaOptions.title = aaTitle;
+    aaOptions.xAxis = aaXAxis;
+    aaOptions.yAxis = aaYAxis;
+    aaOptions.tooltip = aaTooltip;
+    aaOptions.plotOptions = aaPlotOptions;
+    aaOptions.legend = aaLegend;
+    aaOptions.series = aaSeriesArr;
 
     return aaOptions;
     

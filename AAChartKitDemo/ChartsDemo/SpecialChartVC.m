@@ -42,74 +42,98 @@
 
 @implementation SpecialChartVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AAChartType chartType;
-    
-    switch (self.chartType) {
-        case SpecialChartVCChartTypeColorfulColumnChart:
-            chartType = @"colorfulColumnChart";
-            break;
-        case SpecialChartVCChartTypeGradientColorBar:
-            chartType = @"gradientColorBar";
-            break;
-        case SpecialChartVCChartTypeMixedLine:
-            chartType = AAChartTypeLine;
-            break;
-        case SpecialChartVCChartTypeArea:
-            chartType = AAChartTypeArea;
-            break;
-        case SpecialChartVCChartTypeAreaspline:
-            chartType = AAChartTypeAreaspline;
-            break;
-        case SpecialChartVCChartTypePie:
-            chartType = AAChartTypePie;
-            break;
-        case SpecialChartVCChartTypeBubble:
-            chartType = AAChartTypeBubble;
-            break;
-        case SpecialChartVCChartTypeScatter:
-            chartType = AAChartTypeScatter;
-            break;
-        case SpecialChartVCChartTypeArearange:
-            chartType = AAChartTypeArearange;
-            break;
-        case SpecialChartVCChartTypeAreasplinerange:
-            chartType = AAChartTypeAreasplinerange;
-            break;
-        case SpecialChartVCChartTypeColumnrange:
-            chartType = AAChartTypeColumnrange;
-            break;
-        case SpecialChartVCChartTypeStepLine:
-            chartType = @"stepLine";
-            break;
-        case SpecialChartVCChartTypeStepArea:
-            chartType = @"stepArea";
-            break;
-        case SpecialChartVCChartTypeNightingaleRoseChart:
-            chartType = @"NightingaleRoseChart";
-            break;
-        case SpecialChartVCChartTypeBoxplot:
-            chartType = AAChartTypeBoxplot;
-            break;
-        case SpecialChartVCChartTypeWaterfall:
-            chartType = AAChartTypeWaterfall;
-            break;
-        case SpecialChartVCChartTypePyramid:
-            chartType = AAChartTypePyramid;
-            break;
-        case SpecialChartVCChartTypeFunnel:
-            chartType = AAChartTypeFunnel;
-            break;
-            
-        default:
-            break;
-    }
+    NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
     
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     
     [self configureTheChartView:chartType];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(monitorTap)];
+}
+
+
+- (void)monitorTap {
+    if (self.chartType == SpecialChartVCChartTypeFunnel) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.chartType = self.chartType + 1;
+        NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
+        self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+        _aaChartModel = [self configureTheChartModel:chartType];
+        [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    }
+}
+
+- (NSString *)configureTheChartTypeWithIntenger:(NSInteger)intenger {
+    AAChartType chartType;
+    
+    switch (self.chartType) {
+        case SpecialChartVCChartTypeColorfulColumnChart:
+        chartType = @"colorfulColumnChart";
+        break;
+        case SpecialChartVCChartTypeGradientColorBar:
+        chartType = @"gradientColorBar";
+        break;
+        case SpecialChartVCChartTypeMixedLine:
+        chartType = AAChartTypeLine;
+        break;
+        case SpecialChartVCChartTypeArea:
+        chartType = AAChartTypeArea;
+        break;
+        case SpecialChartVCChartTypeAreaspline:
+        chartType = AAChartTypeAreaspline;
+        break;
+        case SpecialChartVCChartTypePie:
+        chartType = AAChartTypePie;
+        break;
+        case SpecialChartVCChartTypeBubble:
+        chartType = AAChartTypeBubble;
+        break;
+        case SpecialChartVCChartTypeScatter:
+        chartType = AAChartTypeScatter;
+        break;
+        case SpecialChartVCChartTypeArearange:
+        chartType = AAChartTypeArearange;
+        break;
+        case SpecialChartVCChartTypeAreasplinerange:
+        chartType = AAChartTypeAreasplinerange;
+        break;
+        case SpecialChartVCChartTypeColumnrange:
+        chartType = AAChartTypeColumnrange;
+        break;
+        case SpecialChartVCChartTypeStepLine:
+        chartType = @"stepLine";
+        break;
+        case SpecialChartVCChartTypeStepArea:
+        chartType = @"stepArea";
+        break;
+        case SpecialChartVCChartTypeNightingaleRoseChart:
+        chartType = @"NightingaleRoseChart";
+        break;
+        case SpecialChartVCChartTypeBoxplot:
+        chartType = AAChartTypeBoxplot;
+        break;
+        case SpecialChartVCChartTypeWaterfall:
+        chartType = AAChartTypeWaterfall;
+        break;
+        case SpecialChartVCChartTypePyramid:
+        chartType = AAChartTypePyramid;
+        break;
+        case SpecialChartVCChartTypeFunnel:
+        chartType = AAChartTypeFunnel;
+        break;
+        
+        default:
+        break;
+    }
+    return chartType;
 }
 
 - (void)configureTheChartView:(AAChartType)chartType {
@@ -122,7 +146,6 @@
     
     self.aaChartModel = [self configureTheChartModel:chartType];
 //    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];
-//    self.aaChartModel.colorsTheme = self.colors;
 
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
@@ -143,21 +166,24 @@
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:@"colorfulColumnChart"]) {
+        
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Colorful Column Chart")
         .subtitleSet(@"single data array colorful column chart")
         .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:14])
         .gradientColorsThemeEnabledSet(true)
-        .borderRadiusSet(@5)
         .seriesSet(@[AASeriesElement.new
                      .nameSet(@"ElementOne")
                      .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
                      .colorByPointSet((id)@(true)),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
                      ]
                    );
+        
         return aaChartModel;
+        
     } else if ([chartType isEqualToString:@"gradientColorBar"]) {
+        
         NSDictionary *gradientColorDic1 =
         @{
           @"linearGradient": @{
@@ -200,7 +226,9 @@
                      .colorSet((id)gradientColorDic2),
                      ]
                    );
+        
         return aaChartModel;
+        
     } else if ([chartType isEqualToString:AAChartTypeLine]) {
         
         AAChartModel *aaChartModel = AAChartModel.new
@@ -222,6 +250,54 @@
                      .nameSet(@"所有专业")
                      .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
                      ]);
+        
+        return aaChartModel;
+        
+    } else if ([chartType isEqualToString:AAChartTypeArea]) {
+        
+        AAChartModel *aaChartModel = AAChartModel.new
+        .chartTypeSet(AAChartTypeArea)
+        .symbolSet(AAChartSymbolTypeCircle)
+        .titleSet(@"带有数据阈值标志线的区域填充图")
+        .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
+        .subtitleSet(@"横屏查看效果更佳")
+        .yAxisGridLineWidthSet(@0.5)
+        .yAxisTitleSet(@"")
+        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .dataLabelEnabledSet(true)
+        .seriesSet(@[AASeriesElement.new
+                     .nameSet(@"2017")
+                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
+                     .lineWidthSet(@5)
+                     .zonesSet(@[@{
+                                    @"value": @10,
+                                    @"color": @"#EA007B"
+                                    }, @{
+                                    @"value": @20,
+                                    @"color": @"#FDC20A"
+                                    }, @{
+                                    @"color": @"#F78320"
+                                    }])
+                     ,]
+                   )
+        .yAxisPlotLinesSet(@[
+                            AAPlotLinesElement.new
+                             .colorSet(@"#FF0000")//颜色值(16进制)
+                             .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+                             .widthSet(@(1)) //标示线粗细
+                             .valueSet(@(10)) //所在位置
+                             .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                             .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                             ,
+                            AAPlotLinesElement.new
+                             .colorSet(@"#FF0000")
+                             .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
+                             .widthSet(@(1))
+                             .valueSet(@(20))
+                             .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                             ]
+                           )
+        ;
         
         return aaChartModel;
         
@@ -259,56 +335,8 @@
         ;
         
         return aaChartModel;
-
-    } else if ([chartType isEqualToString:AAChartTypeArea]) {
         
-        AAChartModel *aaChartModel = AAChartModel.new
-        .chartTypeSet(AAChartTypeArea)
-        .symbolSet(AAChartSymbolTypeCircle)
-        .titleSet(@"带有数据阈值标志线的区域填充图")
-        .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
-        .subtitleSet(@"横屏查看效果更佳")
-        .yAxisGridLineWidthSet(@0.5)
-        .yAxisTitleSet(@"")
-        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-        .dataLabelEnabledSet(true)
-        .seriesSet(@[AASeriesElement.new
-                     .nameSet(@"2017")
-                     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
-                     .lineWidthSet(@5)
-                     .zonesSet(@[@{
-                                    @"value": @10,
-                                    @"color": @"#f7a35c"
-                                    }, @{
-                                    @"value": @20,
-                                    @"color": @"#7cb5ec"
-                                    }, @{
-                                    @"color": @"#90ed7d"
-                                    }])
-                     ,]
-                   )
-        .yAxisPlotLinesSet(@[
-                            AAPlotLinesElement.new
-                             .colorSet(@"#FF0000")//颜色值(16进制)
-                             .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
-                             .widthSet(@(1)) //标示线粗细
-                             .valueSet(@(10)) //所在位置
-                             .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                             .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
-                             ,
-                            AAPlotLinesElement.new
-                             .colorSet(@"#FF0000")
-                             .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
-                             .widthSet(@(1))
-                             .valueSet(@(20))
-                             .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-                             ]
-                           )
-        ;
-        
-        return aaChartModel;
-        
-    } else if ([chartType isEqualToString:AAChartTypePie]) {
+    }  else if ([chartType isEqualToString:AAChartTypePie]) {
         
         bool bool_false = false;
         
