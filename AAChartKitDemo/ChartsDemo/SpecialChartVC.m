@@ -47,28 +47,10 @@
     [super viewDidLoad];
     
     NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
-    
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     
-    [self configureTheChartView:chartType];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(monitorTap)];
-}
-
-
-- (void)monitorTap {
-    if (self.chartType == SpecialChartVCChartTypeFunnel) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.chartType = self.chartType + 1;
-        NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
-        self.title = [NSString stringWithFormat:@"%@ chart",chartType];
-        _aaChartModel = [self configureTheChartModel:chartType];
-        [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
-    }
+    [self setUpTheChartView:chartType];
+    [self setUpTheNextTypeChartButton];
 }
 
 - (NSString *)configureTheChartTypeWithIntenger:(NSInteger)intenger {
@@ -76,67 +58,67 @@
     
     switch (self.chartType) {
         case SpecialChartVCChartTypeColorfulColumnChart:
-        chartType = @"colorfulColumnChart";
-        break;
+            chartType = @"colorfulColumnChart";
+            break;
         case SpecialChartVCChartTypeGradientColorBar:
-        chartType = @"gradientColorBar";
-        break;
+            chartType = @"gradientColorBar";
+            break;
         case SpecialChartVCChartTypeMixedLine:
-        chartType = AAChartTypeLine;
-        break;
+            chartType = AAChartTypeLine;
+            break;
         case SpecialChartVCChartTypeArea:
-        chartType = AAChartTypeArea;
-        break;
+            chartType = AAChartTypeArea;
+            break;
         case SpecialChartVCChartTypeAreaspline:
-        chartType = AAChartTypeAreaspline;
-        break;
+            chartType = AAChartTypeAreaspline;
+            break;
         case SpecialChartVCChartTypePie:
-        chartType = AAChartTypePie;
-        break;
+            chartType = AAChartTypePie;
+            break;
         case SpecialChartVCChartTypeBubble:
-        chartType = AAChartTypeBubble;
-        break;
+            chartType = AAChartTypeBubble;
+            break;
         case SpecialChartVCChartTypeScatter:
-        chartType = AAChartTypeScatter;
-        break;
+            chartType = AAChartTypeScatter;
+            break;
         case SpecialChartVCChartTypeArearange:
-        chartType = AAChartTypeArearange;
-        break;
+            chartType = AAChartTypeArearange;
+            break;
         case SpecialChartVCChartTypeAreasplinerange:
-        chartType = AAChartTypeAreasplinerange;
-        break;
+            chartType = AAChartTypeAreasplinerange;
+            break;
         case SpecialChartVCChartTypeColumnrange:
-        chartType = AAChartTypeColumnrange;
-        break;
+            chartType = AAChartTypeColumnrange;
+            break;
         case SpecialChartVCChartTypeStepLine:
-        chartType = @"stepLine";
-        break;
+            chartType = @"stepLine";
+            break;
         case SpecialChartVCChartTypeStepArea:
-        chartType = @"stepArea";
-        break;
+            chartType = @"stepArea";
+            break;
         case SpecialChartVCChartTypeNightingaleRoseChart:
-        chartType = @"NightingaleRoseChart";
-        break;
+            chartType = @"NightingaleRoseChart";
+            break;
         case SpecialChartVCChartTypeBoxplot:
-        chartType = AAChartTypeBoxplot;
-        break;
+            chartType = AAChartTypeBoxplot;
+            break;
         case SpecialChartVCChartTypeWaterfall:
-        chartType = AAChartTypeWaterfall;
-        break;
+            chartType = AAChartTypeWaterfall;
+            break;
         case SpecialChartVCChartTypePyramid:
-        chartType = AAChartTypePyramid;
-        break;
+            chartType = AAChartTypePyramid;
+            break;
         case SpecialChartVCChartTypeFunnel:
-        chartType = AAChartTypeFunnel;
-        break;
-        
+            chartType = AAChartTypeFunnel;
+            break;
+            
         default:
-        break;
+            break;
     }
     return chartType;
 }
 
-- (void)configureTheChartView:(AAChartType)chartType {
+- (void)setUpTheChartView:(AAChartType)chartType {
     
     self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -234,7 +216,7 @@
         AAChartModel *aaChartModel = AAChartModel.new
         //.connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(chartType)
-        .titleSet(@"编程语言热度")
+        .titleSet(@"")
         .subtitleSet(@"虚拟数据")
         .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
         .yAxisTitleSet(@"摄氏度")
@@ -976,16 +958,17 @@
         
     } else if ([chartType isEqualToString:AAChartTypeAreasplinerange]) {
         
-        NSDictionary *gradientColorDic = @{
-                                           @"linearGradient": @{
-                                                   @"x1": @0,
-                                                   @"y1": @1,
-                                                   @"x2": @0,
-                                                   @"y2": @0
-                                                   },
-                                           @"stops": @[@[@0,@"rgba(255,140,0,0.6)"],
-                                                       @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-                                           };
+        NSDictionary *gradientColorDic =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @1,
+                  @"x2": @0,
+                  @"y2": @0
+                  },
+          @"stops": @[@[@0,@"rgba(255,140,0,0.6)"],
+                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
         
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArearange)
@@ -1293,6 +1276,26 @@
     }
     
     return nil;
+}
+
+- (void)setUpTheNextTypeChartButton {
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = btnItem;
+}
+
+- (void)monitorTap {
+    if (self.chartType == SpecialChartVCChartTypeFunnel) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.chartType = self.chartType + 1;
+        NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
+        self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+        _aaChartModel = [self configureTheChartModel:chartType];
+        [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    }
 }
 
 @end

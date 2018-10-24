@@ -45,61 +45,42 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"#4b2b7f"];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor grayColor]}];
+    NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor grayColor]};
+    [self.navigationController.navigationBar setTitleTextAttributes:titleTextAttributes];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[self colorWithHexString:@"#4b2b7f"]}];
+    NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName:[self colorWithHexString:@"#4b2b7f"]};
+    [self.navigationController.navigationBar setTitleTextAttributes:titleTextAttributes];
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [self colorWithHexString:@"#4b2b7f"];
 
-    
     [self setUpTheSegmentedControls];
     [self setUpTheSwitchs];
     
-    AAChartType chartType;
-    switch (self.chartType) {
-        case 0:
-            chartType = AAChartTypeColumn;
-            break;
-        case 1:
-            chartType = AAChartTypeBar;
-            break;
-        case 2:
-            chartType = AAChartTypeArea;
-            break;
-        case 3:
-            chartType = AAChartTypeAreaspline;
-            break;
-        case 4:
-            chartType = AAChartTypeLine;
-            break;
-        case 5:
-            chartType = AAChartTypeSpline;
-            break;
-        case 6:
-            chartType = AAChartTypeLine;
-            break;
-        case 7:
-            chartType = AAChartTypeArea;
-            break;
-        case 8:
-            chartType = AAChartTypeScatter;
-            break;
-        default:
-            break;
-    }
-    
+    AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
-    
     [self setUpTheAAChartViewWithChartType:chartType];
-    
+    [self setUpTheNextTypeChartButton];
+}
+
+- (AAChartType)configureTheChartType {
+    switch (self.chartType) {
+        case SecondeViewControllerChartTypeColumn: return AAChartTypeColumn;
+        case SecondeViewControllerChartTypeBar: return AAChartTypeBar;
+        case SecondeViewControllerChartTypeArea: return AAChartTypeArea;
+        case SecondeViewControllerChartTypeAreaspline: return AAChartTypeAreaspline;
+        case SecondeViewControllerChartTypeLine: return AAChartTypeLine;
+        case SecondeViewControllerChartTypeSpline: return AAChartTypeSpline;
+        case SecondeViewControllerChartTypeStepLine: return AAChartTypeLine;
+        case SecondeViewControllerChartTypeStepArea: return AAChartTypeArea;
+        case SecondeViewControllerChartTypeScatter: return AAChartTypeScatter;
+    }
 }
 
 - (void)setUpTheAAChartViewWithChartType:(AAChartType)chartType {
@@ -433,23 +414,17 @@
 
 - (void)switchViewClicked:(UISwitch *)switchView {
     switch (switchView.tag) {
-        case 0:
-            self.aaChartModel.xAxisReversed = switchView.on;
+        case 0: self.aaChartModel.xAxisReversed = switchView.on;
             break;
-        case 1:
-            self.aaChartModel.yAxisReversed = switchView.on;
+        case 1: self.aaChartModel.yAxisReversed = switchView.on;
             break;
-        case 2:
-            self.aaChartModel.inverted = switchView.on;
+        case 2: self.aaChartModel.inverted = switchView.on;
             break;
-        case 3:
-            self.aaChartModel.polar = switchView.on;
+        case 3: self.aaChartModel.polar = switchView.on;
             break;
-        case 4:
-            self.aaChartModel.dataLabelEnabled = switchView.on;
+        case 4: self.aaChartModel.dataLabelEnabled = switchView.on;
             break;
-        case 5:
-            self.aaChartModel.markerRadius = switchView.on ? @0 : @5;
+        case 5: self.aaChartModel.markerRadius = switchView.on ? @0 : @5;
             break;
         default:
             break;
@@ -457,6 +432,39 @@
 
     [self refreshTheChartView];
     
+}
+
+- (void)setUpTheNextTypeChartButton {
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Type"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = btnItem;
+}
+
+- (void)monitorTap {
+    self.chartType = self.chartType + 1;
+    NSString *chartType = [self configureTheChartType];
+    self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+    _aaChartModel.chartType = chartType;
+    if (self.chartType == SecondeViewControllerChartTypeStepArea
+        || self.chartType == SecondeViewControllerChartTypeStepLine) {
+        [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            AASeriesElement *element = obj;
+            element.step = (id)@YES;
+        }];
+    } else if (self.chartType == SecondeViewControllerChartTypeScatter) {
+        [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            AASeriesElement *element = obj;
+            element.step = (id)@NO;
+        }];
+    }
+    
+    [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    
+    if (self.chartType == SecondeViewControllerChartTypeScatter) {
+        self.chartType = -1;//重新开始
+    }
 }
 
 - (UIColor *) colorWithHexString: (NSString *)color {
