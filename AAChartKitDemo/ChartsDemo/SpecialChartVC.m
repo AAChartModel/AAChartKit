@@ -1172,6 +1172,7 @@
                    @[
                      AASeriesElement.new
                      .nameSet(@"Observed Data")
+                     .fillColorSet(@"#04d69f")
                      .dataSet(@[
                                 @[@760, @801, @848, @895, @965],
                                 @[@733, @853, @939, @980, @1080],
@@ -1198,6 +1199,7 @@
                    @[@{
                          @"upColor":@"#9b43b4",
                          @"color": @"#ef476f",
+                         @"borderWidth":@0,
                          @"data": @[@{
                                         @"name": @"启动资金",
                                         @"y": @120000
@@ -1222,7 +1224,6 @@
                                         @"isSum": @true,
                                         @"color": @"#04d69f"
                                         }],
-                         @"pointPadding": @0
                          }]);
         return aaChartModel;
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {

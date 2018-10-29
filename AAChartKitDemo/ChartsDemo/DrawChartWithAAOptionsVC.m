@@ -1119,7 +1119,7 @@
                                      }]
                    };
 
-    return aaOptions2;
+    return (id)aaOptions2;
 }
 
 - (AAOptions *)disableChartAnimation {
