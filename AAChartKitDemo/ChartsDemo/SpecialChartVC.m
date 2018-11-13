@@ -220,6 +220,7 @@
         .subtitleSet(@"虚拟数据")
         .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
         .yAxisTitleSet(@"摄氏度")
+        .dataLabelEnabledSet(true)
         .seriesSet(@[AASeriesElement.new
                      .nameSet(@"本专业")
                      .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
@@ -1047,7 +1048,6 @@
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
         .invertedSet(true)
-        .gradientColorsThemeEnabledSet(true)
         .backgroundColorSet(@"#4b2b7f")
         .dataLabelEnabledSet(true)
         .dataLabelFontColorSet(@"#ffffff")

@@ -41,7 +41,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , allo
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, name) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, data) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, color) 
-AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, id      , colorByPoint) //When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
+AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, id        , colorByPoint) //When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAMarker *, marker) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stacking) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, dashStyle) 
@@ -60,11 +60,10 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, yAxi
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AADataLabels*, dataLabels) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , step) //是否转变为直方折线图
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSDictionary *, states) 
-AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL        , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
-AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL        , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
+AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
+AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, zones)
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zoneAxis)
-
 
 @end
 

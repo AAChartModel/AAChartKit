@@ -39,6 +39,7 @@
 		1E66D218210AF4ED007EAB8C /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1F8210AF4EC007EAB8C /* AASeriesElement.m */; };
 		272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */; };
 		278989BB204F8DBA003940CC /* ChartListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 278989BA204F8DBA003940CC /* ChartListVC.m */; };
+		27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
 		44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartVC.m */; };
@@ -156,6 +157,8 @@
 		27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsVC.h; sourceTree = "<group>"; };
 		278989B9204F8DBA003940CC /* ChartListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartListVC.h; sourceTree = "<group>"; };
 		278989BA204F8DBA003940CC /* ChartListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartListVC.m; sourceTree = "<group>"; };
+		27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleChartVC.h; sourceTree = "<group>"; };
+		27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleChartVC.m; sourceTree = "<group>"; };
 		27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartAnimationTypeVC.h; sourceTree = "<group>"; };
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
 		27F0CA7721018998004BD904 /* AADateUTCTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateUTCTool.h; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				44711744217E2C87009D9FB0 /* SpecialChartVC.m */,
 				27F5AD9A20A740910086CD33 /* MixedChartVC.h */,
 				44711745217E2C87009D9FB0 /* MixedChartVC.m */,
+				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
+				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
 			);
 			name = MainContent;
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 				278989BB204F8DBA003940CC /* ChartListVC.m in Sources */,
 				27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */,
 				1E66D20E210AF4ED007EAB8C /* AAAnimation.m in Sources */,
+				27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,
