@@ -61,26 +61,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"即时刷新数据";
-    [self setUpTheView];
     myBasicValue = 0;
     _selectedElementIndex = arc4random()%2;
+    
+    [self setUpBasicViews];
 }
 
-- (AAChartType)configureTheChartType {
-    switch (self.chartType) {
-        case 0: return AAChartTypeColumn;
-        case 1: return AAChartTypeBar;
-        case 2: return AAChartTypeArea;
-        case 3: return AAChartTypeAreaspline;
-        case 4: return AAChartTypeLine;
-        case 5: return AAChartTypeSpline;
-        case 6: return AAChartTypeLine;
-        case 7: return AAChartTypeArea;
-        case 8: return AAChartTypeScatter;
-    }
+- (void)setUpBasicViews {
+    [self setUpButtons];
+    
+    [self setUpChartView];
+    [self setUpChartModel];
+    [self.chartView aa_drawChartWithChartModel:self.chartModel];
 }
 
-- (void)setUpTheView {
+- (void)setUpButtons {
     for (int i = 0; i<4; i++) {
         NSArray *titleNameArr = @[
                                   @"Click to update whole chart data",
@@ -101,12 +96,17 @@
         [btn addTarget:self action:@selector(oneOfTwoButtonsClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
-    
+}
+
+- (void)setUpChartView {
     self.chartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-250)];
     self.chartView.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.chartView];
+}
 
+
+- (void)setUpChartModel {
     self.chartModel= AAChartModel.new
     .chartTypeSet([self configureTheChartType])//图表类型随机
     .xAxisVisibleSet(true)
@@ -188,21 +188,41 @@
                                     ]
                                   );
     }
-    [self.chartView aa_drawChartWithChartModel:self.chartModel];
 }
+
+- (AAChartType)configureTheChartType {
+    switch (self.chartType) {
+        case 0: return AAChartTypeColumn;
+        case 1: return AAChartTypeBar;
+        case 2: return AAChartTypeArea;
+        case 3: return AAChartTypeAreaspline;
+        case 4: return AAChartTypeLine;
+        case 5: return AAChartTypeSpline;
+        case 6: return AAChartTypeLine;
+        case 7: return AAChartTypeArea;
+        case 8: return AAChartTypeScatter;
+    }
+}
+
+
 
 - (void)oneOfTwoButtonsClicked:(UIButton *)sender {
     //关闭定时器
     [_timer setFireDate:[NSDate distantFuture]];
-    if (sender.tag == 0) {
-        [self virtualUpdateTheChartViewDataInRealTime];
-    } else if (sender.tag == 1){
-        self.chartView.chartSeriesHidden = YES;
-    } else if (sender.tag == 2) {
-        [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
-    } else {
-        [self.chartView aa_hideTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
+    
+    switch (sender.tag) {
+        case 0: [self virtualUpdateTheChartViewDataInRealTime];
+            break;
+        case 1: self.chartView.chartSeriesHidden = YES;
+            break;
+        case 2: [self.chartView aa_showTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
+            break;
+        case 3: [self.chartView aa_hideTheSeriesElementContentWithSeriesElementIndex:_selectedElementIndex];
+            break;
+        default:
+            break;
     }
+    
 }
 
 - (void)virtualUpdateTheChartViewDataInRealTime {
