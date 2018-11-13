@@ -536,6 +536,31 @@
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"negativeColorMixedBubble"]) {
+        NSDictionary *gradientColorDic1 =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @0,
+                  @"x2": @0,
+                  @"y2": @1
+                  },
+          @"stops": @[@[@0,@"#8A2BE2"],
+                      @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
+        
+        
+        NSDictionary *gradientColorDic2 =
+        @{
+          @"linearGradient": @{
+                  @"x1": @0,
+                  @"y1": @1,
+                  @"x2": @0,
+                  @"y2": @0
+                  },
+          @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
+                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+          };
+        
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
         .dataLabelEnabledSet(true)
@@ -567,8 +592,8 @@
                                 @[@6,@4,@0],@[@6,@5,@0],@[@6,@6,@0],@[@6,@7,@0],@[@6,@8,@0],@[@6,@9,@0],@[@6,@10,@1],
                                 @[@6,@11,@0],@[@6,@12,@2],@[@6,@13,@1],@[@6,@14,@3],@[@6,@15,@4],@[@6,@16,@0],@[@6,@17,@0],
                                 @[@6,@18,@0],@[@6,@19,@0],@[@6,@20,@1],@[@6,@21,@2],@[@6,@22,@2],@[@6,@23,@6]])
-                     .colorSet(@"#0088ff")
-                     .negativeColorSet(@"#FF0000")
+                     .colorSet((id)gradientColorDic2)
+                     .negativeColorSet((id)gradientColorDic1)
                      .thresholdSet(@5)//default:0
                      ,
                      ]);
@@ -587,15 +612,8 @@
                      .colorSet(@"rgba(112, 128, 144, 0.5)")//浅石板灰
                      ,
                      AASeriesElement.new
-                     .nameSet(@"目标")
+                     .nameSet(@"实际值")
                      .typeSet(AAChartTypeScatter)
-                     .markerSet(AAMarker.new
-                                .radiusSet(@7)//曲线连接点半径，默认是4
-                                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                                .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
-                                .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                                .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                                )
                      .dataSet(
                               @[@[@161.2, @51.6], @[@167.5, @59.0], @[@159.5, @49.2], @[@157.0, @63.0], @[@155.8, @53.6],
                                 @[@170.0, @59.0], @[@159.1, @47.6], @[@166.0, @69.8], @[@176.2, @66.8], @[@160.2, @75.2],
@@ -651,6 +669,13 @@
                                 @[@176.5, @71.8], @[@164.4, @55.5], @[@160.7, @48.6], @[@174.0, @66.4], @[@163.8, @67.3],
                                 ])
                      .colorSet(@"#0088ff")
+                     .markerSet(AAMarker.new
+                                .radiusSet(@7)//曲线连接点半径，默认是4
+                                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                                .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+                                .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                                .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                                )
                      ,
                      ]);
         
