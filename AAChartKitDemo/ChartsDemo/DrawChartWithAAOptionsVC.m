@@ -365,18 +365,21 @@
                           .nameSet(@"雇员")
                           .dataSet(@[@150, @73, @20])
                           .colorSet(@"rgba(165,170,217,1)")
+                          .groupingSet(false)
                           .pointPaddingSet(@0.3)
                           .pointPlacementSet(@(-0.2)),
                           AAColumn.new
                           .nameSet(@"优化的员工")
                           .dataSet(@[@140, @90, @40])
                           .colorSet(@"rgba(126,86,134,.9)")
+                          .groupingSet(false)
                           .pointPaddingSet(@0.4)
                           .pointPlacementSet(@(-0.2)),
                           AAColumn.new
                           .nameSet(@"利润")
                           .dataSet(@[@183.6, @178.8, @198.5])
                           .colorSet(@"rgba(248,161,63,1)")
+                          .groupingSet(false)
                           .pointPaddingSet(@0.3)
                           .pointPlacementSet(@(0.2))
                           .yAxisSet(@1),
@@ -384,6 +387,7 @@
                           .nameSet(@"优化的利润")
                           .dataSet(@[@203.6, @198.8, @208.5])
                           .colorSet(@"rgba(186,60,61,.9)")
+                          .groupingSet(false)
                           .pointPaddingSet(@0.4)
                           .pointPlacementSet(@(0.2))
                           .yAxisSet(@1),

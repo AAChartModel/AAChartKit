@@ -33,11 +33,19 @@
 #import "AAColumn.h"
 
 @implementation AAColumn
+    
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _grouping = true;
+    }
+    return self;
+}
 
 AAPropSetFuncImplementation(AAColumn, NSString *,     name)
 AAPropSetFuncImplementation(AAColumn, NSArray  *,     data)
 AAPropSetFuncImplementation(AAColumn, NSString *,     color)
-AAPropSetFuncImplementation(AAColumn, id,             grouping)
+AAPropSetFuncImplementation(AAColumn, BOOL,             grouping)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPadding)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointPlacement)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     groupPadding)
