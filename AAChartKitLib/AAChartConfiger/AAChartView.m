@@ -48,7 +48,7 @@
 
 #define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-@interface AAChartView()<WKNavigationDelegate,UIWebViewDelegate> {
+@interface AAChartView()<WKUIDelegate, WKNavigationDelegate, UIWebViewDelegate> {
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
     NSString  *_optionJson;
@@ -78,6 +78,7 @@
     
     if (AASYSTEM_VERSION >= 9.0) {
         _wkWebView = [[WKWebView alloc] init];
+        _wkWebView.UIDelegate = self;
         _wkWebView.navigationDelegate = self;
         _wkWebView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_wkWebView];
@@ -207,6 +208,15 @@
 //
 //=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FBI WARNING" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }])];
+    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [rootVC presentViewController:alertController animated:YES completion:nil];
+}
+    
 - (void)drawChart {
     NSString *javaScriptStr = [self configTheJavaScriptString];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
