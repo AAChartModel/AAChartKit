@@ -8,6 +8,7 @@
 
 #import "CustomStyleChartVC.h"
 #import "AAChartKit.h"
+#import "AAGradientColor.h"
 
 @interface CustomStyleChartVC ()
 
@@ -17,7 +18,74 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+   
 }
+    
+    - (AAChartModel *)setUpColorfulGradientColorChart {
+        NSArray *gradientColorNamesArr = @[
+                                           @"oceanBlue",
+                                           @"sanguine",
+                                           @"lusciousLime",
+                                           @"purpleLake",
+                                           @"freshPapaya",
+                                           @"ultramarine",
+                                           @"pinkSugar",
+                                           @"lemonDrizzle",
+                                           @"victoriaPurple",
+                                           @"springGreens",
+                                           @"mysticMauve",
+                                           @"reflexSilver",
+                                           @"newLeaf",
+                                           @"cottonCandy",
+                                           @"pixieDust",
+                                           @"fizzyPeach",
+                                           @"sweetDream",
+                                           @"firebrick",
+                                           @"wroughtIron",
+                                           @"deepSea",
+                                           @"coastalBreeze",
+                                           @"eveningDelight",
+                                           ];
+        NSArray *gradientColorArr = @[AAGradientColor.oceanBlue,
+                                      AAGradientColor.sanguine,
+                                      AAGradientColor.lusciousLime,
+                                      AAGradientColor.purpleLake,
+                                      AAGradientColor.freshPapaya,
+                                      AAGradientColor.ultramarine,
+                                      AAGradientColor.pinkSugar,
+                                      AAGradientColor.lemonDrizzle,
+                                      AAGradientColor.victoriaPurple,
+                                      AAGradientColor.springGreens,
+                                      AAGradientColor.mysticMauve,
+                                      AAGradientColor.reflexSilver,
+                                      AAGradientColor.newLeaf,
+                                      AAGradientColor.cottonCandy,
+                                      AAGradientColor.pixieDust,
+                                      AAGradientColor.fizzyPeach,
+                                      AAGradientColor.sweetDream,
+                                      AAGradientColor.firebrick,
+                                      AAGradientColor.wroughtIron,
+                                      AAGradientColor.deepSea,
+                                      AAGradientColor.coastalBreeze,
+                                      AAGradientColor.eveningDelight,
+                                      ];
+        
+        AAChartModel *aaChartModel = AAChartModel.new
+        .chartTypeSet(AAChartTypeBar)
+        .titleSet(@"Colorful Column Chart")
+        .subtitleSet(@"single data array colorful column chart")
+        .categoriesSet(gradientColorNamesArr)
+        .colorsThemeSet(gradientColorArr)
+        .seriesSet(@[AASeriesElement.new
+                     .nameSet(@"ElementOne")
+                     .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])
+                     .colorByPointSet((id)@(true)),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+                     ]
+                   );
+        return aaChartModel;
+    }
 
 - (AAChartModel *)setUpDiscontinuousDataChart {
     NSDictionary *gradientColorDic1 =

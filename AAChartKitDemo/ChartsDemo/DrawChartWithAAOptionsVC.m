@@ -1172,15 +1172,40 @@
 }
 
 - (AAOptions *)configureTheMirrorColumnChart {
+    NSDictionary *gradientColorDic1 = @{
+      @"linearGradient": @{
+              @"x1": @0,
+              @"y1": @1,
+              @"x2": @0,
+              @"y2": @0
+              },
+      @"stops": @[@[@0,@"#7052f4"],
+                  @[@1,@"#00b0ff"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    NSDictionary *gradientColorDic2 = @{
+      @"linearGradient": @{
+              @"x1": @0,
+              @"y1": @1,
+              @"x2": @0,
+              @"y2": @0
+              },
+      @"stops": @[@[@0,@"#EF71FF"],
+                  @[@1,@"#4740C8"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
     
     AAOptions *aaOptions = AAOptions.new
-    .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeColumn)
+//              .backgroundColorSet(@"#161139")
+              )
     .titleSet(AATitle.new.textSet(@"正负镜像柱状图"))
     .xAxisSet(AAXAxis.new
               .visibleSet(true)
               .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
     .yAxisSet((id)@[AAYAxis.new
                     .visibleSet(true)
+                    .gridLineWidthSet(@0)
                     .minSet(0)
                     .titleSet(AATitle.new.textSet(@"收入")),
                     AAYAxis.new
@@ -1205,12 +1230,13 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"收入")
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                 .negativeColorSet(@"#FF0000"),
+                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9,@7.0, @6.9, @9.5, @14.5,])
+                 .colorSet((id)gradientColorDic1),
                  AASeriesElement.new
                  .nameSet(@"支出")
-                 .dataSet(@[@-0.2, @-0.8, @-5.7, @-11.3, @-17.0, @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5]),
-                 ]);
+                 .dataSet(@[@-20.1, @-14.1, @-8.6, @-2.5, @-0.8, @-5.7, @-11.3, @-17.0, @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5])
+                 .colorSet((id)gradientColorDic2),
+]);
     return aaOptions;
 }
 
