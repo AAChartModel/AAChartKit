@@ -11,35 +11,34 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AAGradientColor : NSObject
-    
-    
-    + (NSDictionary *)oceanBlue;
-    + (NSDictionary *)sanguine;
-    + (NSDictionary *)lusciousLime;
-    + (NSDictionary *)purpleLake;
-    + (NSDictionary *)freshPapaya;
-    + (NSDictionary *)ultramarine;
-    + (NSDictionary *)pinkSugar;
-    + (NSDictionary *)lemonDrizzle;
-    + (NSDictionary *)victoriaPurple;
-    + (NSDictionary *)springGreens;
-    + (NSDictionary *)mysticMauve;
-    + (NSDictionary *)reflexSilver;
-    + (NSDictionary *)neonGlow;
-    + (NSDictionary *)berrySmoothie;
-    + (NSDictionary *)newLeaf;
-    + (NSDictionary *)cottonCandy;
-    + (NSDictionary *)pixieDust;
-    + (NSDictionary *)fizzyPeach;
-    + (NSDictionary *)sweetDream;
-    + (NSDictionary *)firebrick;
-    + (NSDictionary *)wroughtIron;
-    + (NSDictionary *)deepSea;
-    + (NSDictionary *)coastalBreeze;
-    + (NSDictionary *)eveningDelight;
-    
-    
-    @end
+
++ (NSDictionary *)oceanBlueColor;
++ (NSDictionary *)sanguineColor;
++ (NSDictionary *)lusciousLimeColor;
++ (NSDictionary *)purpleLakeColor;
++ (NSDictionary *)freshPapayaColor;
++ (NSDictionary *)ultramarineColor;
++ (NSDictionary *)pinkSugarColor;
++ (NSDictionary *)lemonDrizzleColor;
++ (NSDictionary *)victoriaPurpleColor;
++ (NSDictionary *)springGreensColor;
++ (NSDictionary *)mysticMauveColor;
++ (NSDictionary *)reflexSilverColor;
++ (NSDictionary *)neonGlowColor;
++ (NSDictionary *)berrySmoothieColor;
++ (NSDictionary *)newLeafColor;
++ (NSDictionary *)cottonCandyColor;
++ (NSDictionary *)pixieDustColor;
++ (NSDictionary *)fizzyPeachColor;
++ (NSDictionary *)sweetDreamColor;
++ (NSDictionary *)firebrickColor;
++ (NSDictionary *)wroughtIronColor;
++ (NSDictionary *)deepSeaColor;
++ (NSDictionary *)coastalBreezeColor;
++ (NSDictionary *)eveningDelightColor;
+
+@end
 
 NS_ASSUME_NONNULL_END
+
 

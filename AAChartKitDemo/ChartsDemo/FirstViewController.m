@@ -36,7 +36,6 @@
 #import "OnlyRefreshChartDataVC.h"
 #import "ChartAnimationTypeVC.h"
 #import "DrawChartWithAAOptionsVC.h"
-#import "DrilldownChartVC.h"
 #import "ShowManyChartViewVC.h"
 #import "ChartListVC.h"
 #import "MixedChartVC.h"
@@ -197,13 +196,6 @@
                 [self.navigationController pushViewController:listVC animated:YES];
             }
 
-        }
-            break;
-            
-        case 7: {
-            /*可向下钻取类型图表*/
-            DrilldownChartVC *vc = [[DrilldownChartVC alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         
