@@ -32,6 +32,7 @@
 
 #import "ShowManyChartViewVC.h"
 #import "AAChartView.h"
+#import "AAGradientColor.h"
 @interface ShowManyChartViewVC ()
 
 @end
@@ -57,34 +58,24 @@
     aaChartView.scrollEnabled = NO;
     [self.view addSubview:aaChartView];
 
-    NSDictionary *gradientColorDic =
-    @{
-      @"linearGradient": @{
-              @"x1": @0,
-              @"y1": @0,
-              @"x2": @0,
-              @"y2": @1
-              },
-      @"stops": @[@[@0,@"#8A2BE2"],
-                  @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-      };
-    
+    NSArray *categories = @[@"孤<br>岛<br>危<br>机",
+                            @"使<br>命<br>召<br>唤",
+                            @"荣<br>誉<br>勋<br>章",
+                            @"狙<br>击<br>精<br>英",
+                            @"神<br>秘<br>海<br>域",
+                            @"最<br>后<br>生<br>还<br>者",
+                            @"巫<br>师<br>3<br>狂<br>猎",
+                            @"对<br>马<br>之<br>魂",
+                            @"蝙<br>蝠<br>侠<br>阿<br>甘<br>骑<br>士<br> .",
+                            @"地<br>狱<br>边<br>境",
+                            @"闪<br>客",
+                            @"忍<br>者<br>之<br>印"];
+    NSDictionary *gradientColorDic = [AAGradientColor oceanBlueColor];
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"")
     .subtitleSet(@"")
-    .categoriesSet(@[@"孤<br>岛<br>危<br>机",
-                     @"使<br>命<br>召<br>唤",
-                     @"荣<br>誉<br>勋<br>章",
-                     @"狙<br>击<br>精<br>英",
-                     @"神<br>秘<br>海<br>域",
-                     @"最<br>后<br>生<br>还<br>者",
-                     @"巫<br>师<br>3<br>狂<br>猎",
-                     @"对<br>马<br>之<br>魂",
-                     @"蝙<br>蝠<br>侠<br>阿<br>甘<br>骑<br>士<br> .",
-                     @"地<br>狱<br>边<br>境",
-                     @"闪<br>客",
-                     @"忍<br>者<br>之<br>印"])
+    .categoriesSet(categories)
     .yAxisTitleSet(@"")
     .tooltipEnabledSet(false)
     .borderRadiusSet(@3)
@@ -111,7 +102,7 @@
     aaChartView2.scrollEnabled = NO;
     [self.view addSubview:aaChartView2];
     
-    AAChartModel *aaChartModel2= AAChartModel.new
+    AAChartModel *aaChartModel2 = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"")

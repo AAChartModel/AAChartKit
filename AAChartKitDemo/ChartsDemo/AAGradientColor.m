@@ -4,7 +4,31 @@
 //
 //  Created by AnAn on 2018/11/18.
 //  Copyright © 2018 Danny boy. All rights reserved.
-//
+//*************** ...... SOURCE CODE ...... ***************
+//***...................................................***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
+//***...................................................***
+//*************** ...... SOURCE CODE ...... ***************
+
+/*
+ 
+ * -------------------------------------------------------------------------------
+ *
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
+ *
+ * Please contact me on GitHub,if there are any problems encountered in use.
+ * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
+ * -------------------------------------------------------------------------------
+ * And if you want to contribute for this project, please contact me as well
+ * GitHub        : https://github.com/AAChartModel
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * JianShu       : http://www.jianshu.com/u/f1e6753d4254
+ * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+ *
+ * -------------------------------------------------------------------------------
+ 
+ */
 
 #import "AAGradientColor.h"
 
@@ -108,16 +132,13 @@
 
 + (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
                                               endColorString:(NSString *)endColorStr {
-    return @{
-             @"linearGradient": @{
-                     @"x1": @0,
-                     @"y1": @1,
-                     @"x2": @0,
-                     @"y2": @0
-                     },
-             @"stops": @[@[@0,[NSString stringWithFormat:@"#%@",startColorStr]],
-                         @[@1,[NSString stringWithFormat:@"#%@",endColorStr]]]//颜色字符串设置支持十六进制类型和 rgba 类型
-             };
+    NSDictionary *linearGradientDic = @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
+    NSArray *stopsArr = @[@[@(0),[NSString stringWithFormat:@"#%@",startColorStr]],
+                          @[@(1),[NSString stringWithFormat:@"#%@",endColorStr]]];
+    NSMutableDictionary *gradientColorDic = [NSMutableDictionary dictionary];
+    [gradientColorDic setValue:linearGradientDic forKey:@"linearGradient"];
+    [gradientColorDic setValue:stopsArr forKey:@"stops"];
+    return gradientColorDic;
 }
 
 @end
