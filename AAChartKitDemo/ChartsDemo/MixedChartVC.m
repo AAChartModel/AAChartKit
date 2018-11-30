@@ -16,7 +16,6 @@
 @property (nonatomic, strong) AAChartView  *aaChartView;
 @property (nonatomic, strong) NSArray *mixedChartNamesArr;
 
-
 @end
 
 @implementation MixedChartVC

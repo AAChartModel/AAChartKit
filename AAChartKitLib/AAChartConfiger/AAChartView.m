@@ -397,9 +397,9 @@
 }
 
 + (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
-    NSString *str =[originalString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    return str;
+    originalString = [originalString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    originalString = [originalString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    return originalString;
 }
 
 + (NSString *)getPureOptionsString:(id)optionsObject {
