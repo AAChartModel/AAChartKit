@@ -397,7 +397,7 @@
 }
 
 + (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
-    originalString = [originalString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    originalString = [originalString stringByReplacingOccurrencesOfString:@"\0" withString:@""];
     originalString = [originalString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return originalString;
 }
