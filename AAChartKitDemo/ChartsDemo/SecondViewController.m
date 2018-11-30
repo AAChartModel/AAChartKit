@@ -194,18 +194,17 @@
         } else if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
             _aaChartModel.series =@[
                                     AASeriesElement.new
-                                    .nameSet(@"2017")
-                                    .fillOpacitySet(@0.3)
-                                    .dataSet(@[@2.73, @21.3, @41.6, @17.2, @19.9, @1.60, @2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
+                                    .nameSet(@"Tokyo Hot")
+                                    .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
                                     AASeriesElement.new
-                                    .nameSet(@"2018")
-                                    .dataSet(@[@1.51, @28.7, @0.94, @1.44, @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
+                                    .nameSet(@"Berlin Hot")
+                                    .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
                                     AASeriesElement.new
-                                    .nameSet(@"2019")
-                                    .dataSet(@[@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
+                                    .nameSet(@"London Hot")
+                                    .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
                                     AASeriesElement.new
-                                    .nameSet(@"2020")
-                                    .dataSet(@[@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
+                                    .nameSet(@"NewYork Hot")
+                                    .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
                                     ];
         }
     } else if (self.chartType == SecondeViewControllerChartTypeLine
@@ -281,12 +280,12 @@
 
 - (void)setUpTheSegmentedControls{
     
-    NSArray *segmentedArray;
+    NSArray *segmentedNamesArr;
     NSArray *typeLabelNameArr;
     
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
-        segmentedArray = @[@[@"No stacking",
+        segmentedNamesArr = @[@[@"No stacking",
                              @"Normal stacking",
                              @"Percent stacking"],
                            @[@"Square corners",
@@ -296,7 +295,7 @@
         typeLabelNameArr = @[@"Stacking type selection",
                              @"Corners Style type selection"];
     } else {
-        segmentedArray = @[@[@"No stacking",
+        segmentedNamesArr = @[@[@"No stacking",
                              @"Normal stacking",
                              @"Percent stacking"],
                            @[@"Circle",
@@ -309,20 +308,28 @@
                              @"Chart symbol type selection"];
     }
     
-    for (int i=0; i<segmentedArray.count; i++) {
+    for (int i=0; i<segmentedNamesArr.count; i++) {
         
-        UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray[i]];
-        segmentedControl.frame = CGRectMake(20, 40*i+(self.view.frame.size.height-145), self.view.frame.size.width-40, 20);
+        UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedNamesArr[i]];
+        segmentedControl.frame = CGRectMake(20,
+                                            40 * i + (self.view.frame.size.height - 145),
+                                            self.view.frame.size.width - 40,
+                                            20);
         segmentedControl.tintColor = [UIColor redColor];
-//        segmentedControl.tintColor = [UIColor lightGrayColor];
+        //        segmentedControl.tintColor = [UIColor lightGrayColor];
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
-        [segmentedControl addTarget:self action:@selector(customsegmentedControlCellValueBeChanged:) forControlEvents:UIControlEventValueChanged];
+        [segmentedControl addTarget:self
+                             action:@selector(customsegmentedControlCellValueBeChanged:)
+                   forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:segmentedControl];
         
         UILabel *typeLabel = [[UILabel alloc]init];
         typeLabel.textColor = [UIColor lightGrayColor];
-        typeLabel.frame =CGRectMake(20, 40*i+(self.view.frame.size.height-165), self.view.frame.size.width-40, 20);
+        typeLabel.frame =CGRectMake(20,
+                                    40 * i + (self.view.frame.size.height - 165),
+                                    self.view.frame.size.width - 40,
+                                    20);
         typeLabel.text = typeLabelNameArr[i];
         typeLabel.font = [UIFont systemFontOfSize:11.0f];
         [self.view addSubview:typeLabel];
