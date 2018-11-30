@@ -164,7 +164,7 @@
         .markerRadiusSet(@6)
         .yAxisVisibleSet(true)
         .yAxisGridLineWidthSet(@0)
-        .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
         .chartTypeSet(AAChartTypeLine)
         .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
         .dataLabelEnabledSet(true)
@@ -327,7 +327,7 @@
     } else if ([chartType isEqualToString:@"scatterMixedLine"]) {
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
-        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .markerRadiusSet(@9)
         .seriesSet(@[AASeriesElement.new
                      .nameSet(@"Scatter")

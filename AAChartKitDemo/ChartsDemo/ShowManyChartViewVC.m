@@ -108,7 +108,7 @@
     .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"")
-    .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .markerRadiusSet(@6)
     .xAxisCrosshairWidthSet(@1.5)
     .xAxisCrosshairColorSet(@"#ff0000")

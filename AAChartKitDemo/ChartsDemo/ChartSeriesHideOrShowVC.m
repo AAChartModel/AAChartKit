@@ -38,7 +38,6 @@
     self.aaChartView = [[AAChartView alloc]init];
     self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
     self.aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
-    self.aaChartView.contentHeight = chartViewHeight - 20;
     [self.view addSubview:self.aaChartView];
 }
 

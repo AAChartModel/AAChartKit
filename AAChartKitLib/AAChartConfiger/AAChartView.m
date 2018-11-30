@@ -46,7 +46,9 @@
 #define AADetailLog(...)
 #endif
 
-#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define AA_iPhoneX [UIScreen mainScreen].bounds.size.height == 812
+#define AA_iPhoneXsMax_OR_XR [UIScreen mainScreen].bounds.size.height == 896
+#define AA_isHairIPhone (AA_iPhoneX || AA_iPhoneXsMax_OR_XR)
 
 @interface AAChartView()<WKUIDelegate, WKNavigationDelegate, UIWebViewDelegate> {
     UIWebView *_uiWebView;
@@ -148,7 +150,7 @@
 - (NSString *)configTheJavaScriptString {
     CGFloat chartViewContentWidth = self.contentWidth;
     CGFloat contentHeight = self.frame.size.height;
-    if (kDevice_Is_iPhoneX == YES) {
+    if (AA_isHairIPhone == YES) {
         contentHeight = contentHeight - 20;
     }
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;

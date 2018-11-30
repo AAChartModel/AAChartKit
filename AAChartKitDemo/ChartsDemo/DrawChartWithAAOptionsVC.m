@@ -486,7 +486,7 @@
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
     .subtitleSet(@"金价(元/克)")//图表副标题
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
-    .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
@@ -648,10 +648,10 @@
     .titleSet(@"Adjust data accuracy")
     .yAxisTitleSet(@"")
     .dataLabelEnabledSet(true)
-    .symbolSet(AAChartSymbolTypeCircle)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
     .yAxisGridLineWidthSet(@0.5)
-    .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .seriesSet(@[AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@(0.0000001),@(0.0000002),@(0.0000003),@(0.0000004),@(0.0000005)])
@@ -887,7 +887,7 @@
     .titleSet(@"STEP LINE CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
     .dataLabelEnabledSet(NO)//是否显示数字
-    .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
     .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
                  AASeriesElement.new

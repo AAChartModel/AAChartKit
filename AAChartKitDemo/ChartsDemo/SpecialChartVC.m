@@ -240,13 +240,13 @@
         
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
-        .symbolSet(AAChartSymbolTypeCircle)
+        .markerSymbolSet(AAChartSymbolTypeCircle)
         .titleSet(@"带有数据阈值标志线的区域填充图")
         .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
         .subtitleSet(@"横屏查看效果更佳")
         .yAxisGridLineWidthSet(@0.5)
         .yAxisTitleSet(@"")
-        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .dataLabelEnabledSet(true)
         .seriesSet(@[AASeriesElement.new
                      .nameSet(@"2017")
@@ -434,8 +434,8 @@
         .markerRadiusSet(@9)
         .yAxisGridLineWidthSet(@0)
         .colorsThemeSet(@[@"#c3b1fb",@"#e70b2d",@"#77ed00",@"#00f3d2",@"#83ddff",])
-        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-        .symbolSet(AAChartSymbolTypeCircle)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .markerSymbolSet(AAChartSymbolTypeCircle)
         .markerRadiusSet(@9)
         .backgroundColorSet(@"#000000")
         .seriesSet(
@@ -1083,7 +1083,7 @@
         .titleSet(@"STEP LINE CHART")//图形标题
         .subtitleSet(@"2020/08/08")//图形副标题
         .dataLabelEnabledSet(NO)//是否显示数字
-        .symbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
         .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
         .seriesSet(@[
                      AASeriesElement.new
@@ -1113,7 +1113,7 @@
         .titleSet(@"STEP AREA CHART")//图形标题
         .subtitleSet(@"2020/08/08")//图形副标题
         .dataLabelEnabledSet(NO)//是否显示数字
-        .symbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
         .markerRadiusSet(@0)//折线连接点半径长度,为0时相当于没有折线连接点
         .seriesSet(@[
                      AASeriesElement.new
