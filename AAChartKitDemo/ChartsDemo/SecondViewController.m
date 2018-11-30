@@ -183,7 +183,7 @@
     } else if (self.chartType == SecondeViewControllerChartTypeArea
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
 
-        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
+        _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
         _aaChartModel.gradientColorsThemeEnabled = true;//启用渐变色
         _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
         _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
@@ -209,7 +209,7 @@
         }
     } else if (self.chartType == SecondeViewControllerChartTypeLine
                || self.chartType == SecondeViewControllerChartTypeSpline) {
-        _aaChartModel.symbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
+        _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
         _aaChartModel.xAxisCrosshairWidth = @1;//Zero width to disable crosshair by default
         _aaChartModel.xAxisCrosshairColor = @"#778899";//浅石板灰准星线
         _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDotDot;
@@ -239,7 +239,7 @@
     } else if (self.chartType == SecondeViewControllerChartTypeStepLine
                || self.chartType == SecondeViewControllerChartTypeStepArea) {
         _aaChartModel.yAxisVisible = false;
-        _aaChartModel.symbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
+        _aaChartModel.markerSymbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
         _aaChartModel.gradientColorsThemeEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
         _aaChartModel.series = @[
                                  AASeriesElement.new
@@ -359,7 +359,7 @@
                                        AAChartSymbolTypeDiamond,
                                        AAChartSymbolTypeTriangle,
                                        AAChartSymbolTypeTriangle_down];
-                self.aaChartModel.symbol = symbolArr[segmentedControl.selectedSegmentIndex];
+                self.aaChartModel.markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
             }
         }
             break;

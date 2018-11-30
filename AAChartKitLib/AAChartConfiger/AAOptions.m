@@ -194,12 +194,12 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //
         || aaChartModel.chartType == AAChartTypeScatter) {
         AAMarker *aaMarker = AAMarker.new
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
-        .symbolSet(aaChartModel.symbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-        if (aaChartModel.symbolStyle == AAChartSymbolStyleTypeInnerBlank) {
+        .symbolSet(aaChartModel.markerSymbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+        if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeInnerBlank) {
             aaMarker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-        } else if (aaChartModel.symbolStyle == AAChartSymbolStyleTypeBorderBlank) {
+        } else if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeBorderBlank) {
             aaMarker.lineWidthSet(@2)
             .lineColorSet(aaChartModel.backgroundColor);
         }

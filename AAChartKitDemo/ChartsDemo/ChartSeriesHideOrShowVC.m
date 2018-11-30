@@ -95,7 +95,7 @@
                       .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
                       ];
         if ([chartType isEqualToString:AAChartTypeScatter]) {
-            self.aaChartModel.symbolStyle = AAChartSymbolStyleTypeInnerBlank;
+            self.aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeInnerBlank;
             self.aaChartModel.markerRadius = @6.0;
         }
     } else if (   [chartType isEqualToString:@"StepLineChart"]
