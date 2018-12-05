@@ -405,12 +405,12 @@
 		7172A3D51E763EA6000D5B99 /* AAChartKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				713F54341E7B71C000D506C7 /* ChartsDemo */,
 				7172A4581E763FDB000D5B99 /* PrefixHeader.pch */,
 				7172A3D91E763EA6000D5B99 /* AppDelegate.h */,
 				7172A3DA1E763EA6000D5B99 /* AppDelegate.m */,
 				7172A3DF1E763EA6000D5B99 /* Main.storyboard */,
 				7172A3E41E763EA6000D5B99 /* LaunchScreen.storyboard */,
-				713F54341E7B71C000D506C7 /* ChartsDemo */,
 				7172A3E21E763EA6000D5B99 /* Assets.xcassets */,
 				7172A3E71E763EA6000D5B99 /* Info.plist */,
 				7172A3D61E763EA6000D5B99 /* Supporting Files */,
