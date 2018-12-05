@@ -21,7 +21,6 @@
 		1E66D206210AF4ED007EAB8C /* AACrosshair.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1D0210AF4EC007EAB8C /* AACrosshair.m */; };
 		1E66D207210AF4ED007EAB8C /* AAColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1D5210AF4EC007EAB8C /* AAColumn.m */; };
 		1E66D208210AF4ED007EAB8C /* AAPlotLinesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1D6210AF4EC007EAB8C /* AAPlotLinesElement.m */; };
-		1E66D209210AF4ED007EAB8C /* AAOptions3d.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1D8210AF4EC007EAB8C /* AAOptions3d.m */; };
 		1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1DA210AF4EC007EAB8C /* AAStyle.m */; };
 		1E66D20B210AF4ED007EAB8C /* AABar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1DB210AF4EC007EAB8C /* AABar.m */; };
 		1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1DC210AF4EC007EAB8C /* AATitle.m */; };
@@ -102,7 +101,6 @@
 		1E66D1C3210AF4EC007EAB8C /* AABar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABar.h; sourceTree = "<group>"; };
 		1E66D1C4210AF4EC007EAB8C /* AASeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASeries.m; sourceTree = "<group>"; };
 		1E66D1C5210AF4EC007EAB8C /* AAXAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAXAxis.m; sourceTree = "<group>"; };
-		1E66D1C6210AF4EC007EAB8C /* AAOptions3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAOptions3d.h; sourceTree = "<group>"; };
 		1E66D1C7210AF4EC007EAB8C /* AAPlotOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPlotOptions.m; sourceTree = "<group>"; };
 		1E66D1C8210AF4EC007EAB8C /* AADataLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADataLabels.m; sourceTree = "<group>"; };
 		1E66D1C9210AF4EC007EAB8C /* AALine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AALine.m; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		1E66D1D5210AF4EC007EAB8C /* AAColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAColumn.m; sourceTree = "<group>"; };
 		1E66D1D6210AF4EC007EAB8C /* AAPlotLinesElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPlotLinesElement.m; sourceTree = "<group>"; };
 		1E66D1D7210AF4EC007EAB8C /* AAXAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAXAxis.h; sourceTree = "<group>"; };
-		1E66D1D8210AF4EC007EAB8C /* AAOptions3d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAOptions3d.m; sourceTree = "<group>"; };
 		1E66D1D9210AF4EC007EAB8C /* AASeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASeries.h; sourceTree = "<group>"; };
 		1E66D1DA210AF4EC007EAB8C /* AAStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAStyle.m; sourceTree = "<group>"; };
 		1E66D1DB210AF4EC007EAB8C /* AABar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABar.m; sourceTree = "<group>"; };
@@ -255,8 +252,6 @@
 			children = (
 				1E66D1D4210AF4EC007EAB8C /* AAChart.h */,
 				1E66D1EF210AF4EC007EAB8C /* AAChart.m */,
-				1E66D1C6210AF4EC007EAB8C /* AAOptions3d.h */,
-				1E66D1D8210AF4EC007EAB8C /* AAOptions3d.m */,
 				1E66D1E2210AF4EC007EAB8C /* AATooltip.h */,
 				1E66D1CC210AF4EC007EAB8C /* AATooltip.m */,
 				1E66D1C0210AF4EC007EAB8C /* AATitle.h */,
@@ -655,7 +650,6 @@
 				1E66D1FD210AF4ED007EAB8C /* AALabels.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
-				1E66D209210AF4ED007EAB8C /* AAOptions3d.m in Sources */,
 				44209B0921B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m in Sources */,
 				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
 				1E66D20D210AF4ED007EAB8C /* AAArea.m in Sources */,

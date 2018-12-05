@@ -519,8 +519,6 @@ If you want to shrink the size of the `AAChartKit` lib, you should do something 
 </script>
 <script src="AAHighchartsMore.js">
 </script>
-<script src="AAHighcharts-3d.js">
-</script>
 <script src="AAFunnel.js">
 </script>
 ```
