@@ -555,6 +555,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
 </script>
 <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
 </script>
+<script src="https://img.hcharts.cn/highcharts/modules/funnel.js">
+</script>
 ```
 即可.
 

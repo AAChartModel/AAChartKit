@@ -530,8 +530,6 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //St
 </script>
 <script src="AAHighchartsMore.js">
 </script>
-<script src="AAHighcharts-3d.js">
-</script>
 <script src="AAFunnel.js">
 </script>
 ```
@@ -540,6 +538,8 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //St
 <script src="https://img.hcharts.cn/highcharts/highcharts.js">
 </script>
 <script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
+</script>
+<script src="https://img.hcharts.cn/highcharts/modules/funnel.js">
 </script>
 ```
 即可.
