@@ -250,7 +250,11 @@
     if (AASYSTEM_VERSION >= 9.0) {
         [_wkWebView  evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
             if (error) {
-                AADetailLog(@"☠️☠️💀☠️☠️WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
+                NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
+                [errorDic setValue:error.domain forKey:@"domain"];
+                [errorDic setValue:@(error.code) forKey:@"code"];
+                [errorDic setValue:error.userInfo forKey:@"userInfo"];
+                AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
             }
         }];
     } else {

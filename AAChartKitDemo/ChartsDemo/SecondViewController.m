@@ -285,25 +285,27 @@
     
     if (self.chartType == SecondeViewControllerChartTypeColumn
         ||self.chartType == SecondeViewControllerChartTypeBar) {
-        segmentedNamesArr = @[@[@"No stacking",
-                             @"Normal stacking",
-                             @"Percent stacking"],
-                           @[@"Square corners",
-                             @"Rounded corners",
-                             @"Wedge"],
-                           ];
+        segmentedNamesArr = @[
+                              @[@"No stacking",
+                                @"Normal stacking",
+                                @"Percent stacking"],
+                              @[@"Square corners",
+                                @"Rounded corners",
+                                @"Wedge"],
+                              ];
         typeLabelNameArr = @[@"Stacking type selection",
                              @"Corners Style type selection"];
     } else {
-        segmentedNamesArr = @[@[@"No stacking",
-                             @"Normal stacking",
-                             @"Percent stacking"],
-                           @[@"Circle",
-                             @"Square",
-                             @"Diamond",
-                             @"Triangle",
-                             @"Triangle-down"]
-                           ];
+        segmentedNamesArr = @[
+                              @[@"No stacking",
+                                @"Normal stacking",
+                                @"Percent stacking"],
+                              @[@"Circle",
+                                @"Square",
+                                @"Diamond",
+                                @"Triangle",
+                                @"Triangle-down"]
+                              ];
         typeLabelNameArr = @[@"Stacking type selection",
                              @"Chart symbol type selection"];
     }
