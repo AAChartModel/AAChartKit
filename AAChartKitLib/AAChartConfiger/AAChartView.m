@@ -211,12 +211,18 @@
 //=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FBI WARNING" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:([UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FBI WARNING"
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"Okay"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
     }])];
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [rootVC presentViewController:alertController animated:YES completion:nil];
+    [rootVC presentViewController:alertController
+                         animated:YES
+                       completion:nil];
 }
     
 - (void)drawChart {

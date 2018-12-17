@@ -538,7 +538,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
 1.  删除在本 ***AAChartKit*** 项目文件中,`AAJSFiles`文件夹下的`4`项`.js`文件.需要被删除的文件名称如下
 * AAHighchartsLib.js
 * AAHighchartsMore.js
-* AAHighcharts-3d.js
 * AAFunnel.js
 2.  将`AAChartView.html`文件中的以下内容
 ``` html

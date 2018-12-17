@@ -34,7 +34,7 @@
 
 @implementation AAColor
 
-+ (NSString *)blackColor  {
++ (NSString *)blackColor {
     return @"blackColor";
 };
 

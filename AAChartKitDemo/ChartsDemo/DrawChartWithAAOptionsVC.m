@@ -603,13 +603,23 @@
     AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels)
-    .titleSet(AATitle.new.textSet(@"温度"))
+    .titleSet(AATitle.new.textSet(@"温度")
+              .styleSet(AAStyle.new
+                        .colorSet(@"#00ff00")//Title font color
+                        .fontSizeSet(@"14px")//Title font size
+                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+                        ))
     .oppositeSet(true);
     
     AAYAxis *yAxisTwo = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels.formatSet(@"{value}mm"))
-    .titleSet(AATitle.new.textSet(@"降雨量"));
+    .titleSet(AATitle.new.textSet(@"降雨量")
+              .styleSet(AAStyle.new
+                        .colorSet(@"#ff0000")//Title font color
+                        .fontSizeSet(@"14px")//Title font size
+                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+                        ));
     
     NSArray *aaYAxisArr = @[yAxisOne,// Primary yAxis
                             yAxisTwo // Secondary yAxis
@@ -1175,7 +1185,7 @@
     NSDictionary *gradientColorDic1 = @{
       @"linearGradient": @{
               @"x1": @0,
-              @"y1": @1,
+              @"y1": @1,  
               @"x2": @0,
               @"y2": @0
               },

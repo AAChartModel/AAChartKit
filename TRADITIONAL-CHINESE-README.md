@@ -522,7 +522,6 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText); //St
 1.  刪除在本 ***AAChartKit*** 項目文件中,`AAJSFiles`文件夾下的`4`項`.js`文件.需要被刪除的文件名稱如下
 * AAHighchartsLib.js
 * AAHighchartsMore.js
-* AAHighcharts-3d.js
 * AAFunnel.js
 2.  將`AAChartView.html`文件中的以下內容
 ``` html

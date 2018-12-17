@@ -510,7 +510,6 @@ If you want to shrink the size of the `AAChartKit` lib, you should do something 
 
 * AAHighchartsLib.js
 * AAHighchartsMore.js
-* AAHighcharts-3d.js
 * AAFunnel.js
 
 2.Change the content of `AAChartView.html` file 
