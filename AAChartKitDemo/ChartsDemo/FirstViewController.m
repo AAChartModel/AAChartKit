@@ -41,7 +41,6 @@
 #import "MixedChartVC.h"
 #import "ChartSeriesHideOrShowVC.h"
 
-#warning revise
 #import "MonitorViewController.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
@@ -52,7 +51,6 @@
 
 @property (nonatomic, strong) NSArray *chartTypeNameArr;
 @property (nonatomic, strong) NSArray *sectionTypeArr;
-@property (nonatomic, strong) NSArray <NSLayoutConstraint *>*constraintArr;
 
 @end
 
@@ -71,11 +69,13 @@
 
     [self configTheTableView];
     
-#warning revise
     // 监听点击入口。
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Touch Delegate" style:UIBarButtonItemStylePlain target:self action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Touch Delegate"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(monitorTap)];
 }
-#warning revise
+
 - (void)monitorTap {
     MonitorViewController *monitorVC = [[MonitorViewController alloc] init];
     [self.navigationController pushViewController:monitorVC animated:YES];

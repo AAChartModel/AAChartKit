@@ -47,6 +47,7 @@
 		44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartVC.m */; };
 		44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartVC.m */; };
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
+		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACB1EC36307005B8021 /* IMG_1875.JPG */; };
 		64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACF1EC36897005B8021 /* IMG_1877.JPG */; };
@@ -172,6 +173,8 @@
 		44711744217E2C87009D9FB0 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		44711745217E2C87009D9FB0 /* MixedChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixedChartVC.m; sourceTree = "<group>"; };
 		44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
+		447B4B3121C9E04E00FDA965 /* AAEasyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAEasyTool.h; sourceTree = "<group>"; };
+		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
 		64245ACB1EC36307005B8021 /* IMG_1875.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1875.JPG; sourceTree = "<group>"; };
 		64245ACF1EC36897005B8021 /* IMG_1877.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1877.JPG; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 				272BBE7A21A28D0C00DBE69D /* AAColor.m */,
 				44143D3721A1950300D44657 /* AAGradientColor.h */,
 				44143D3821A1950300D44657 /* AAGradientColor.m */,
+				447B4B3121C9E04E00FDA965 /* AAEasyTool.h */,
+				447B4B3221C9E04E00FDA965 /* AAEasyTool.m */,
 			);
 			name = AATools;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
 				1E66D202210AF4ED007EAB8C /* AALine.m in Sources */,
 				1E66D206210AF4ED007EAB8C /* AACrosshair.m in Sources */,
+				447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */,
 				272BBE7B21A28D0C00DBE69D /* AAColor.m in Sources */,
 				1E66D218210AF4ED007EAB8C /* AASeriesElement.m in Sources */,
 				1E66D205210AF4ED007EAB8C /* AAYAxis.m in Sources */,

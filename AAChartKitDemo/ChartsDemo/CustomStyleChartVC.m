@@ -146,12 +146,13 @@
                                   ];
     
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeBar)
+    .chartTypeSet(AAChartTypeArea)
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
     .categoriesSet(gradientColorNamesArr)
     .colorsThemeSet(gradientColorArr)
     .yAxisTitleSet(@"gradient color")
+    .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[AASeriesElement.new
                  .nameSet(@"ElementOne")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])

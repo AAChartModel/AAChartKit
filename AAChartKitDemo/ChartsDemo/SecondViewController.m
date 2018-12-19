@@ -32,6 +32,7 @@
 
 #import "SecondViewController.h"
 #import "AAChartKit.h"
+#import "AAEasyTool.h"
 
 @interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
 
@@ -44,7 +45,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"#4b2b7f"];
+    self.navigationController.navigationBar.barTintColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
     NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor grayColor]};
     [self.navigationController.navigationBar setTitleTextAttributes:titleTextAttributes];
 }
@@ -52,13 +53,13 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName:[self colorWithHexString:@"#4b2b7f"]};
+    NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName:[AAEasyTool colorWithHexString:@"#4b2b7f"]};
     [self.navigationController.navigationBar setTitleTextAttributes:titleTextAttributes];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [self colorWithHexString:@"#4b2b7f"];
+    self.view.backgroundColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
 
     [self setUpTheSegmentedControls];
     [self setUpTheSwitchs];
@@ -84,7 +85,6 @@
 }
 
 - (void)setUpTheAAChartViewWithChartType:(AAChartType)chartType {
-    
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat chartViewHeight = self.view.frame.size.height-220;
     self.aaChartView = [[AAChartView alloc]init];
@@ -96,6 +96,7 @@
 //    设置aaChartVie 的内容宽度(content  width)
 //    self.aaChartView.contentWidth = chartViewWidth*2;
     [self.view addSubview:self.aaChartView];
+    self.aaChartView.backgroundColor = [UIColor clearColor];
     
     
     //设置 AAChartView 的背景色是否为透明
@@ -154,7 +155,7 @@
                          .widthSet(@(1)) //标示线粗细
                          .valueSet(@(20)) //所在位置
                          .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                         .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                         .labelSet(@{@"align":@"left",@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
                          ,AAPlotLinesElement.new
                          .colorSet(@"#33BDFD")
                          .dashStyleSet(AALineDashSyleTypeLongDashDot)
@@ -239,8 +240,11 @@
     } else if (self.chartType == SecondeViewControllerChartTypeStepLine
                || self.chartType == SecondeViewControllerChartTypeStepArea) {
         _aaChartModel.yAxisVisible = false;
-        _aaChartModel.markerSymbolStyle = (self.chartType == SecondeViewControllerChartTypeStepLine) ? AAChartSymbolStyleTypeBorderBlank : nil ;
-        _aaChartModel.gradientColorsThemeEnabled = (self.chartType == SecondeViewControllerChartTypeStepArea) ? true : false ;
+        if (self.chartType == SecondeViewControllerChartTypeStepLine) {
+            _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeBorderBlank;
+        } else {
+            _aaChartModel.gradientColorsThemeEnabled = true;
+        }
         _aaChartModel.series = @[
                                  AASeriesElement.new
                                  .nameSet(@"Berlin")
@@ -279,7 +283,6 @@
 }
 
 - (void)setUpTheSegmentedControls{
-    
     NSArray *segmentedNamesArr;
     NSArray *typeLabelNameArr;
     
@@ -311,7 +314,6 @@
     }
     
     for (int i=0; i<segmentedNamesArr.count; i++) {
-        
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedNamesArr[i]];
         segmentedControl.frame = CGRectMake(20,
                                             40 * i + (self.view.frame.size.height - 145),
@@ -350,7 +352,6 @@
             break;
             
         case 1: {
-            
             if (self.chartType == 0 || self.chartType == 1 ) {
                 NSArray *borderRadiusArr = @[ @0, @10, @100 ];
                 self.aaChartModel.borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
@@ -374,7 +375,6 @@
 }
 
 - (void)refreshTheChartView {
-    //    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];//random colors theme, Just for fun!!!
     [self.aaChartView aa_refreshChartWithChartModel:self.aaChartModel];
 }
 
@@ -399,12 +399,9 @@
     CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
     
     for (int i=0; i<nameArr.count; i++) {
-        
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
-        //        switchView.backgroundColor = [UIColor blueColor];
-//        switchView.onTintColor = [UIColor colorWithRed:0/255 green:191/255 blue:255/255 alpha:0.6];
-        switchView.onTintColor = [self colorWithHexString:@"#FFDEAD"];
+        switchView.onTintColor = [AAEasyTool colorWithHexString:@"#FFDEAD"];
         switchView.thumbTintColor = [UIColor whiteColor];
         switchView.on = NO;
         switchView.tag = i;
@@ -474,36 +471,6 @@
     if (self.chartType == SecondeViewControllerChartTypeScatter) {
         self.chartType = -1;//重新开始
     }
-}
-
-- (UIColor *) colorWithHexString: (NSString *)color {
-    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) {
-        return [UIColor clearColor];
-    }
-    if ([cString hasPrefix:@"0X"])
-        cString = [cString substringFromIndex:2];
-    if ([cString hasPrefix:@"#"])
-        cString = [cString substringFromIndex:1];
-    if ([cString length] != 6)
-        return [UIColor clearColor];
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    NSString *rString = [cString substringWithRange:range];
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
 @end

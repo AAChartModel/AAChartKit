@@ -32,6 +32,7 @@
 
 #import "SpecialChartVC.h"
 #import "AAChartKit.h"
+#import "AAEasyTool.h"
 
 @interface SpecialChartVC ()
 
@@ -120,15 +121,16 @@
 
 - (void)setUpTheChartView:(AAChartType)chartType {
     
-    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0,
+                                                                    0,
+                                                                    self.view.frame.size.width,
+                                                                    self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.aaChartView.scrollEnabled = NO;
     self.aaChartView.contentHeight = self.aaChartView.frame.size.height-80;
     [self.view addSubview:self.aaChartView];
     
     self.aaChartModel = [self configureTheChartModel:chartType];
-//    self.aaChartModel.colorsTheme = [self configureTheRandomColorArray];
-
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
@@ -153,7 +155,7 @@
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Colorful Column Chart")
         .subtitleSet(@"single data array colorful column chart")
-        .colorsThemeSet([self configureTheRandomColorArrayWithColorNumber:14])
+        .colorsThemeSet([AAEasyTool configureTheRandomColorArrayWithColorNumber:14])
         .gradientColorsThemeEnabledSet(true)
         .seriesSet(@[AASeriesElement.new
                      .nameSet(@"ElementOne")
