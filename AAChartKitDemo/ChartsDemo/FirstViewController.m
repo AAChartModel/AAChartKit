@@ -284,7 +284,7 @@
                                 @"Stacking Column Mixed Line---堆积柱形图混合折线图",
                                 @"Dash Style Types Mixed---多种类型曲线混合图",
                                 @"Negative Color Mixed---基准线以下异色混合图",
-                                @"scatterMixedLine---散点图混合折线图(待完成)",
+                                @"scatterMixedLine---散点图混合折线图",
                                 @"Negative Color Mixed bubble---基准线以下异色气泡图",
                                 @"Polygon Mixed Scatter---多边形混合散点图",
                                 @"Polar Chart Mixed---极地混合图"
@@ -331,7 +331,9 @@
                                 @"Disable Animation ---禁用动画效果",
                                 @"Custom Legend Item Style---自定义图例样式",
                                 @"Mirror Chart ---镜像效果的柱状图",
-                                @"y轴在右侧的图表"
+                                @"y轴在右侧的图表",
+                                @"简易仪表图",
+                                @"带有颜色带的仪表图"
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",

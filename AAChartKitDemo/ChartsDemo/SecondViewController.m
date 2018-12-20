@@ -265,18 +265,6 @@
     }
 }
 
-- (NSArray *)configureTheRandomColorArray {
-    NSMutableArray *colorStringArr = [[NSMutableArray alloc]init];
-    for (int i=0; i<5; i++) {
-        int R = (arc4random() % 256) ;
-        int G = (arc4random() % 256) ;
-        int B = (arc4random() % 256) ;
-        NSString *colorStr = [NSString stringWithFormat:@"rgba(%d,%d,%d,0.9)",R,G,B];
-        [colorStringArr addObject:colorStr];
-    }
-    return colorStringArr;
-}
-
 #pragma mark -- AAChartView delegate
 - (void)AAChartViewDidFinishLoad {
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");

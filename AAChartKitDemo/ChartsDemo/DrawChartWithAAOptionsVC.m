@@ -114,6 +114,8 @@
         case 15: return [self customChartLengendItemStyle];//自定义图表的 legend 图例样式
         case 16: return [self configureTheMirrorColumnChart];//正负对称的镜像柱状图
         case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
+        case 18: return [self simpleGaugeChart];//简易仪表图
+        case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
     }
     return nil;
 }
@@ -1273,4 +1275,77 @@
     return aaOptions;
 }
 
+- (AAOptions *)simpleGaugeChart {
+    NSDictionary *aaOptions =
+    @{
+      @"chart": @{
+              @"type": @"gauge"
+              },
+      @"pane": @{
+              @"startAngle": @-150,
+              @"endAngle": @150
+              },
+      @"yAxis": @{
+              @"min": @0,
+              @"max": @100,
+              @"plotBands": @[
+                      @{
+                          @"from": @0,
+                          @"to": @60,
+                          @"color": @"#FF0000",
+                          @"outerRadius": @"105%",
+                          @"thickness": @"5%"
+                          }]
+              },
+      @"series": @[@{
+                       @"data": @[@80]
+                       }]
+      };
+    
+    return (id)aaOptions;
+}
+
+- (AAOptions *)gaugeChartWithPlotBand {
+    NSDictionary *aaOptions =
+    @{
+      @"chart": @{
+              @"type": @"gauge",
+              },
+      @"title": @{
+              @"text": @"速度仪"
+              },
+      @"pane": @{
+              @"startAngle": @-150,
+              @"endAngle": @150,
+              },
+      // the value axis
+      @"yAxis": @{
+              @"min": @0,
+              @"max": @200,
+              
+              @"title": @{
+                      @"text": @"km/h"
+                      },
+              @"plotBands": @[@{
+                               @"from":@ 0,
+                               @"to": @120,
+                               @"color": @"#ffc069"
+                               }, @{
+                               @"from": @120,
+                               @"to": @160,
+                               @"color": @"#fe117c"
+                               }, @{
+                               @"from": @160,
+                               @"to": @200,
+                               @"color": @"#06caf4"
+                               }]
+              },
+      @"series": @[@{
+                    @"name": @"Speed",
+                    @"data": @[@80],
+                    }]
+      };
+    
+    return (id)aaOptions;
+}
 @end

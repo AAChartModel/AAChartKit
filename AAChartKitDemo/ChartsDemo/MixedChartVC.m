@@ -352,8 +352,8 @@
         .chartTypeSet(AAChartTypeScatter)
         .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
         .markerRadiusSet(@9)
-        .seriesSet(@[AASeriesElement.new
-                     .nameSet(@"Scatter")
+        .seriesSet(@[ AASeriesElement.new
+                     .nameSet(@"观测值")
                      .dataSet(@[
                                 @[@0.067732, @3.176513],
                                 @[@0.42781,  @3.816464],
@@ -555,7 +555,12 @@
                                 @[@0.070095, @3.213817],
                                 @[@0.52707,  @3.952681],
                                 @[@0.116163, @3.129283]
-                                ])
+                                ]),
+                      AASeriesElement.new
+                      .typeSet(AAChartTypeLine)
+                      .nameSet(@"线性回归线")
+                      .dataSet(@[@[@0.014, @3.078], @[@0.969, @4.655]])
+                      .markerSet(AAMarker.new.radiusSet(@0)),
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"negativeColorMixedBubble"]) {
