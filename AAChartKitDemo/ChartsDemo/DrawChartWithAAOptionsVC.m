@@ -1144,6 +1144,7 @@
 - (AAOptions *)disableChartAnimation {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
+    .yAxisLineWidthSet(@0)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2018")
@@ -1152,6 +1153,7 @@
                );
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
+    aaOptions.yAxis.gridLineDashStyle = AALineDashSyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashSyleTypeLongDash
     return aaOptions;
 }
 
