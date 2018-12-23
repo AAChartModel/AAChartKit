@@ -116,6 +116,8 @@
         case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 18: return [self simpleGaugeChart];//简易仪表图
         case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
+        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的图表
+
     }
     return nil;
 }
@@ -1219,7 +1221,6 @@
     .yAxisSet((id)@[AAYAxis.new
                     .visibleSet(true)
                     .gridLineWidthSet(@0)
-                    .minSet(0)
                     .titleSet(AATitle.new.textSet(@"收入")),
                     AAYAxis.new
                     .visibleSet(true)
@@ -1347,5 +1348,56 @@
       };
     
     return (id)aaOptions;
+}
+
+- (AAOptions *)configureAAPlotBandsForChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .backgroundColorSet(@"#FFFFFF")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .markerRadiusSet(@0)
+    .yAxisMaxSet(@50)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"2017")
+                 .colorSet(@"#FFFFFF")
+                 .lineWidthSet(@10)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    NSArray *aaPlotBandsArr = @[
+                                AAPlotBandsElement.new
+                                .fromSet(@0)
+                                .toSet(@5)
+                                .colorSet(@"#BC2B44"),
+                                AAPlotBandsElement.new
+                                .fromSet(@5)
+                                .toSet(@10)
+                                .colorSet(@"#EC6444"),
+                                AAPlotBandsElement.new
+                                .fromSet(@10)
+                                .toSet(@15)
+                                .colorSet(@"#f19742"),
+                                AAPlotBandsElement.new
+                                .fromSet(@15)
+                                .toSet(@20)
+                                .colorSet(@"#f3da60"),
+                                AAPlotBandsElement.new
+                                .fromSet(@20)
+                                .toSet(@25)
+                                .colorSet(@"#9bd040"),
+                                AAPlotBandsElement.new
+                                .fromSet(@25)
+                                .toSet(@50)
+                                .colorSet(@"#acf08f"),];
+    AAYAxis *aaYAxis = aaOptions.yAxis;
+    aaYAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
 }
 @end

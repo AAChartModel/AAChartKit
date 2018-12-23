@@ -41,9 +41,10 @@ static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationPolygon = 
 @interface AAYAxis : NSObject
 
 //AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       min) 
-AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AATitle  *, title) 
-AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, plotLines) 
-AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       reversed) 
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AATitle  *, title)
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, plotBands)
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, plotLines)
+AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       reversed)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridLineWidth) // y 轴网格线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineColor) // y 轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, alternateGridColor) //backcolor of every other grid line area

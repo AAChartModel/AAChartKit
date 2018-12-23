@@ -38,7 +38,7 @@
 
 @interface AAXAxis : NSObject
 
-
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, plotBands)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, categories) 
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL,       reversed) 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, lineWidth) //x轴轴线宽度

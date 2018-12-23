@@ -39,6 +39,7 @@
 #import "AASubtitle.h"
 #import "AAXAxis.h"
 #import "AAYAxis.h"
+#import "AAPlotBandsElement.h"
 #import "AACrosshair.h"
 #import "AALabels.h"
 #import "AATooltip.h"
