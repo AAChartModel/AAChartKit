@@ -55,48 +55,21 @@
 }
 
 - (NSString *)configureTheChartTypeWithIntenger:(NSInteger)intenger {
-    AAChartType chartType;
-    
     switch (self.chartType) {
-        case SpecialChartVCChartTypePie:
-            chartType = AAChartTypePie;
-            break;
-        case SpecialChartVCChartTypeBubble:
-            chartType = AAChartTypeBubble;
-            break;
-        case SpecialChartVCChartTypeScatter:
-            chartType = AAChartTypeScatter;
-            break;
-        case SpecialChartVCChartTypeArearange:
-            chartType = AAChartTypeArearange;
-            break;
-        case SpecialChartVCChartTypeAreasplinerange:
-            chartType = AAChartTypeAreasplinerange;
-            break;
-        case SpecialChartVCChartTypeColumnrange:
-            chartType = AAChartTypeColumnrange;
-            break;
-        case SpecialChartVCChartTypeBoxplot:
-            chartType = AAChartTypeBoxplot;
-            break;
-        case SpecialChartVCChartTypeWaterfall:
-            chartType = AAChartTypeWaterfall;
-            break;
-        case SpecialChartVCChartTypePyramid:
-            chartType = AAChartTypePyramid;
-            break;
-        case SpecialChartVCChartTypeFunnel:
-            chartType = AAChartTypeFunnel;
-            break;
-            
-        default:
-            break;
+        case SpecialChartVCChartTypePie: return AAChartTypePie;
+        case SpecialChartVCChartTypeBubble: return AAChartTypeBubble;
+        case SpecialChartVCChartTypeScatter: return AAChartTypeScatter;
+        case SpecialChartVCChartTypeArearange: return AAChartTypeArearange;
+        case SpecialChartVCChartTypeAreasplinerange: return AAChartTypeAreasplinerange;
+        case SpecialChartVCChartTypeColumnrange: return AAChartTypeColumnrange;
+        case SpecialChartVCChartTypeBoxplot: return AAChartTypeBoxplot;
+        case SpecialChartVCChartTypeWaterfall: return AAChartTypeWaterfall;
+        case SpecialChartVCChartTypePyramid: return AAChartTypePyramid;
+        case SpecialChartVCChartTypeFunnel: return AAChartTypeFunnel;
     }
-    return chartType;
 }
 
 - (void)setUpTheChartView:(AAChartType)chartType {
-    
     self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0,
                                                                     0,
                                                                     self.view.frame.size.width,
@@ -109,18 +82,6 @@
     self.aaChartModel = [self configureTheChartModel:chartType];
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
-}
-
-- (NSArray *)configureTheRandomColorArrayWithColorNumber:(NSInteger)colorNumber {
-    NSMutableArray *colorStringArr = [[NSMutableArray alloc]init];
-    for (int i=0; i < colorNumber; i++) {
-        int R = (arc4random() % 256) ;
-        int G = (arc4random() % 256) ;
-        int B = (arc4random() % 256) ;
-        NSString *colorStr = [NSString stringWithFormat:@"rgba(%d,%d,%d,0.9)",R,G,B];
-        [colorStringArr addObject:colorStr];
-    }
-    return colorStringArr;
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {

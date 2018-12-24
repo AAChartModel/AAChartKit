@@ -88,12 +88,12 @@
     .categoriesSet(colorsNameArr)
     .colorsThemeSet(colorsArr)
     .stackingSet(AAChartStackingTypePercent)
-    .seriesSet(@[AASeriesElement.new
+    .seriesSet(@[
+                 AASeriesElement.new
                  .nameSet(@"Tokyo")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
                  .colorByPointSet(@true)
                  ]);
-    
     return aaChartModel;
 }
 
@@ -154,13 +154,12 @@
     .colorsThemeSet(gradientColorArr)
     .yAxisTitleSet(@"gradient color")
     .stackingSet(AAChartStackingTypeNormal)
-    .seriesSet(@[AASeriesElement.new
+    .seriesSet(@[
+                 AASeriesElement.new
                  .nameSet(@"ElementOne")
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])
                  .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-                 ]
-               );
-    
+                 ]);
     return aaChartModel;
 }
 
@@ -175,9 +174,7 @@
                  .nameSet(@"所有专业")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2,[NSNull null],[NSNull null],[NSNull null],[NSNull null], @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
                  .colorSet((id)[AAGradientColor deepSeaColor])
-                 ])
-    ;
-    
+                 ]);
     return aaChartModel;
 }
 
@@ -190,7 +187,8 @@
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .dataLabelEnabledSet(true)
-    .seriesSet(@[AASeriesElement.new
+    .seriesSet(@[
+                 AASeriesElement.new
                  .nameSet(@"本专业")
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
                  .zoneAxisSet(@"x")
@@ -202,9 +200,7 @@
                  .nameSet(@"所有专业")
                  .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
                  ]);
-    
     return aaChartModel;
-    
 }
 
 - (AAChartModel *)configureColorfulColumnChart {
@@ -214,16 +210,14 @@
     .subtitleSet(@"single data array colorful column chart")
     .colorsThemeSet([AAEasyTool configureTheRandomColorArrayWithColorNumber:14])
     .gradientColorsThemeEnabledSet(true)
-    .seriesSet(@[AASeriesElement.new
+    .seriesSet(@[
+                 AASeriesElement.new
                  .nameSet(@"ElementOne")
                  .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
                  .colorByPointSet((id)@(true)),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-                 ]
-               );
-    
+                 ]);
     return aaChartModel;
 }
-
 
 - (AAChartModel *)configureGradientColorBarChart {
     AAChartModel *aaChartModel = AAChartModel.new
@@ -243,11 +237,27 @@
                  .colorSet((id)[AAGradientColor sanguineColor]),
                  ]
                );
-    
     return aaChartModel;
 }
 
 - (AAChartModel *)configureWithPlotLinesChart {
+    NSArray *aaPlotLinesArr = @[
+                                AAPlotLinesElement.new
+                                .colorSet(@"#FF0000")//颜色值(16进制)
+                                .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+                                .widthSet(@(1)) //标示线粗细
+                                .valueSet(@(10)) //所在位置
+                                .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                                .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                                ,
+                                AAPlotLinesElement.new
+                                .colorSet(@"#FF0000")
+                                .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
+                                .widthSet(@(1))
+                                .valueSet(@(20))
+                                .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                                ];
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .markerSymbolSet(AAChartSymbolTypeCircle)
@@ -258,34 +268,17 @@
     .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .dataLabelEnabledSet(true)
-    .seriesSet(@[AASeriesElement.new
+    .yAxisPlotLinesSet(aaPlotLinesArr)
+    .seriesSet(@[
+                 AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
                  .lineWidthSet(@5)
                  .zonesSet(@[@{@"value": @10,@"color": @"#EA007B"},
                              @{@"value": @20,@"color": @"#FDC20A"},
-                             @{@"color": @"#F78320"}])
-                 ,]
-               )
-    .yAxisPlotLinesSet(@[
-                         AAPlotLinesElement.new
-                         .colorSet(@"#FF0000")//颜色值(16进制)
-                         .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
-                         .widthSet(@(1)) //标示线粗细
-                         .valueSet(@(10)) //所在位置
-                         .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                         .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
-                         ,
-                         AAPlotLinesElement.new
-                         .colorSet(@"#FF0000")
-                         .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
-                         .widthSet(@(1))
-                         .valueSet(@(20))
-                         .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-                         ]
-                       )
+                             @{@"color": @"#F78320"}]),
+                 ])
     ;
-    
     return aaChartModel;
 }
 
@@ -320,9 +313,7 @@
                  ]
                )
     ;
-    
     return aaChartModel;
-    
 }
 
 - (AAChartModel *)configureStepLineChart {
@@ -350,7 +341,6 @@
                  ]
                )
     ;
-    
     return aaChartModel;
 }
 
@@ -383,7 +373,6 @@
                  ]
                )
     ;
-    
     return aaChartModel;
 }
 
@@ -406,7 +395,6 @@
                  ]
                )
     ;
-    
     return aaChartModel;
 }
 

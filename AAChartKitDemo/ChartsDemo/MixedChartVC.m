@@ -237,7 +237,7 @@
         .titleSet(@"16年1月-16年11月充值客单分析")
         .subtitleSet(@"BY MICVS")
         .stackingSet(AAChartStackingTypeNormal)
-        .colorsThemeSet(@[@"rgba(255,144,128,1)",@"rgba(0,191,183,1)", @"rgba(252,230,48,1)",])//主题颜色数组
+        .colorsThemeSet(@[AAGradientColor.deepSeaColor,AAGradientColor.berrySmoothieColor, AAGradientColor.firebrickColor,])//主题颜色数组
         .seriesSet(@[
                     AASeriesElement.new
                     .nameSet(@"新用户")
@@ -263,6 +263,7 @@
                     ,
                     AASeriesElement.new
                     .typeSet(AAChartTypeLine)
+                    .lineWidthSet(@5)
                     .nameSet(@"总量")
                     .dataSet(@[@281.55,@398.35,@214.02,@219.55,@289.57,@296.14,@164.18,@322.69,@306.08,@552.84,@205.97,@332.79])
                     .dataLabelsSet(AADataLabels.new
