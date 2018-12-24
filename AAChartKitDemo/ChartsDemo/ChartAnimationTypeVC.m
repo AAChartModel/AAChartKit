@@ -105,17 +105,6 @@
                    );
     } else if (self.chartType == ChartAnimationTypeVCChartTypeArea
                || self.chartType == ChartAnimationTypeVCChartTypeAreaspline) {
-        NSDictionary *gradientColorDic =
-        @{
-          @"linearGradient": @{
-                  @"x1": @0,
-                  @"y1": @1,
-                  @"x2": @0,
-                  @"y2": @0
-                  },
-          @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
-                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-          };
         self.chartModel
         .markerRadiusSet(@0)
         .gradientColorsThemeEnabledSet(true)
@@ -123,7 +112,7 @@
                      AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0])
-                     .colorSet((id)gradientColorDic)
+                     .colorSet((id)[AAGradientColor neonGlowColor])
                      ,
                      ]);
     } else if (self.chartType == ChartAnimationTypeVCChartTypeScatter) {
@@ -204,24 +193,12 @@
                    ),
           ]);
     } else {
-        NSDictionary *gradientColorDic =
-        @{
-          @"linearGradient": @{
-                  @"x1": @0,
-                  @"y1": @0,
-                  @"x2": @0,
-                  @"y2": @1
-                  },
-          @"stops": @[@[@0,@"#8A2BE2"],
-                      @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-          };
-        
         self.chartModel
         .seriesSet(@[
                      AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])
-                     .colorSet((id)gradientColorDic)
+                     .colorSet((id)[AAGradientColor deepSeaColor])
                      ,
                      ]);
     }

@@ -116,31 +116,6 @@
     .yAxisTitleSet(@"摄氏度")
     .colorsThemeSet(@[@"#1e90ff",@"#dc143c"]);
     
-    NSDictionary *gradientColorDic1 =
-    @{
-      @"linearGradient": @{
-              @"x1": @0,
-              @"y1": @0,
-              @"x2": @0,
-              @"y2": @1
-              },
-      @"stops": @[@[@0,@"#8A2BE2"],
-                  @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-      };
-    
-    
-    NSDictionary *gradientColorDic2 =
-    @{
-      @"linearGradient": @{
-              @"x1": @0,
-              @"y1": @1,
-              @"x2": @0,
-              @"y2": @0
-              },
-      @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
-                  @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-      };
-    
     if (self.chartType == OnlyRefreshChartDataVCChartTypeStepArea
         || self.chartType == OnlyRefreshChartDataVCChartTypeStepLine) {
         
@@ -151,13 +126,13 @@
                      AASeriesElement.new
                      .nameSet(@"2017")
                      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                     .colorSet((id)gradientColorDic1)
+                     .colorSet((id)[AAGradientColor sanguineColor])
                      .stepSet((id)@(true))
                      ,
                      AASeriesElement.new
                      .nameSet(@"2018")
                      .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
-                     .colorSet((id)gradientColorDic2)
+                     .colorSet((id)[AAGradientColor firebrickColor])
                      .stepSet((id)@(true))
                      ,
                      ]
@@ -178,12 +153,12 @@
                                     AASeriesElement.new
                                     .nameSet(@"2017")
                                     .dataSet(sinNumArr)
-                                    .colorSet((id)gradientColorDic1)
+                                    .colorSet((id)[AAGradientColor ultramarineColor])
                                     ,
                                     AASeriesElement.new
                                     .nameSet(@"2018")
                                     .dataSet(sinNumArr2)
-                                    .colorSet((id)gradientColorDic2)
+                                    .colorSet((id)[AAGradientColor deepSeaColor])
                                     ,
                                     ]
                                   );

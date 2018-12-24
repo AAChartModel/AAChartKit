@@ -33,21 +33,12 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
-    SpecialChartVCChartTypeColorfulColumnChart = 0,
-    SpecialChartVCChartTypeGradientColorBar ,
-    SpecialChartVCChartTypeMixedLine,
-    SpecialChartVCChartTypeArea,
-    SpecialChartVCChartTypeAreaspline,
-    SpecialChartVCChartTypePie,
+    SpecialChartVCChartTypePie = 0,
     SpecialChartVCChartTypeBubble,
     SpecialChartVCChartTypeScatter,
-//    SpecialChartVCChartTypeTreeMap,
     SpecialChartVCChartTypeArearange,
     SpecialChartVCChartTypeAreasplinerange,
     SpecialChartVCChartTypeColumnrange,
-    SpecialChartVCChartTypeStepLine,
-    SpecialChartVCChartTypeStepArea,
-    SpecialChartVCChartTypeNightingaleRoseChart,
     SpecialChartVCChartTypeBoxplot,
     SpecialChartVCChartTypeWaterfall,
     SpecialChartVCChartTypePyramid,

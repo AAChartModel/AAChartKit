@@ -897,7 +897,7 @@
     
     //Method 1
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图形类型
+    .chartTypeSet(AAChartTypeArea)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
