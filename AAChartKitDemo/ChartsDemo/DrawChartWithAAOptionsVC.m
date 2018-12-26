@@ -469,8 +469,8 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
-    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
+    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1. https://api.hcharts.cn/plotOptions.column.groupPadding
+    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2. https://api.hcharts.cn/plotOptions.column.pointPadding
     
     aaOptions.plotOptions.column.dataLabels = AADataLabels.new
     .enabledSet(true)
@@ -604,6 +604,11 @@
               .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
               );
     
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .minSet(@0)
+    .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);
+    
     AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels)
@@ -612,9 +617,11 @@
                         .colorSet(@"#00ff00")//Title font color
                         .fontSizeSet(@"14px")//Title font size
                         .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+                        .textOutlineSet(@"0px 0px contrast")
                         ))
     .oppositeSet(true);
     
+
     AAYAxis *yAxisTwo = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels.formatSet(@"{value}mm"))
@@ -649,6 +656,7 @@
     
     AAOptions *aaOptions = AAOptions.new;
     aaOptions.title = aaTitle;
+    aaOptions.xAxis = aaXAxis;
     aaOptions.yAxis = (id)aaYAxisArr;
     aaOptions.tooltip = aaTooltip;
     aaOptions.series = aaSeries;
@@ -711,40 +719,57 @@
     
     //Method 1
     AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
+    
     AATitle *aaTitle = AATitle.new.textSet(@"Stacked column chart");
+    
     AAXAxis *aaXAxis = AAXAxis.new
-                        .visibleSet(true)
-                        .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]);
+    .visibleSet(true)
+    .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]);
+    
     AAYAxis *aaYAxis = AAYAxis.new
-                        .visibleSet(true)
-                        .minSet(@0)
-                        .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
-                        .stackLabelsSet(AALabels.new
-                                        .enabledSet(true)
-                                        .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
-                                        );
+    .visibleSet(true)
+    .minSet(@0)
+    .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
+    .stackLabelsSet(AALabels.new
+                    .enabledSet(true)
+                    .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
+                    );
+    
     AALegend *aaLegend = AALegend.new
-                          .enabledSet(true)
-                          .alignSet(AALegendAlignTypeRight)
-                          .xSet(@(-30))
-                          .verticalAlignSet(AALegendVerticalAlignTypeTop)
-                          .ySet(@25)
-                          .borderColorSet(@"#ccc")
-                          .borderWidthSet(@1);
+    .enabledSet(true)
+    .alignSet(AALegendAlignTypeRight)
+    .xSet(@(-30))
+    .verticalAlignSet(AALegendVerticalAlignTypeTop)
+    .ySet(@25)
+    .borderColorSet(@"#ccc")
+    .borderWidthSet(@1);
+    
     AATooltip *aaTooltip = AATooltip.new
-                            .headerFormatSet(@"<b>{point.x}</b><br/>")
-                            .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}");
+    .headerFormatSet(@"<b>{point.x}</b><br/>")
+    .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}");
+    
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-                                    .seriesSet(AASeries.new
-                                               .animationSet(AAAnimation.new
-                                                             .easingSet(AAChartAnimationBounce)
-                                                             .durationSet(@1000)
-                                                             )
-                                               )
-                                    .columnSet(AAColumn.new
-                                               .stackingSet(AAChartStackingTypeNormal)
-                                               .dataLabelsSet(AADataLabels.new.enabledSet(true))
-                                               );
+    .seriesSet(AASeries.new
+               .animationSet(AAAnimation.new
+                             .easingSet(AAChartAnimationBounce)
+                             .durationSet(@1000)
+                             )
+               )
+    .columnSet(AAColumn.new
+               .stackingSet(AAChartStackingTypeNormal)
+               .dataLabelsSet(AADataLabels.new
+                              .enabledSet(true)
+                              .styleSet(AAStyle.new
+                                        .colorSet(@"#FFFFFF")
+                                        .fontSizeSet(@"15px")
+                                        .fontWeightSet(AAChartFontWeightTypeThin)
+                                        .textOutlineSet(@"0px 0px contrast")
+                                        )
+                              )
+               .pointPaddingSet(@0)//Padding between each value groups, in x axis units. default：0.2.
+               .groupPaddingSet(@0.005)//Padding between each column or bar, in x axis units. default：0.1.
+               .borderWidthSet(@0));//The width of the border surrounding each column or bar.(调整边缘线宽度) https://api.hcharts.cn/plotOptions.column.borderWidth
+    
     NSArray *aaSeriesArr = @[
                              AASeriesElement.new
                              .nameSet(@"John")
@@ -756,7 +781,7 @@
                              .nameSet(@"Joe")
                              .dataSet(@[@5, @3, @4, @7, @2]),
                              ];
-
+    
     AAOptions *aaOptions = AAOptions.new;
     aaOptions.chart = aaChart;
     aaOptions.title = aaTitle;
@@ -766,10 +791,11 @@
     aaOptions.plotOptions = aaPlotOptions;
     aaOptions.legend = aaLegend;
     aaOptions.series = aaSeriesArr;
-
+    aaOptions.colors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
+    
     return aaOptions;
     
-     // Method 2
+    // Method 2
     AAOptions *options2 = AAOptions.new
     .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
     .titleSet(AATitle.new.textSet(@"Stacked column chart"))
@@ -822,7 +848,7 @@
                  .nameSet(@"Joe")
                  .dataSet(@[@5, @3, @4, @7, @2]),
                  ]);
-
+    
     return options2;
     
     //Method 3
