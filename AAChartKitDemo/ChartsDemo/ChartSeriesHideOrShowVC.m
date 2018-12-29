@@ -31,7 +31,6 @@
  */
 
 #import "ChartSeriesHideOrShowVC.h"
-#import "AAGradientColor.h"
 
 @interface ChartSeriesHideOrShowVC ()
 

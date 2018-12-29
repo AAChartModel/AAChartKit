@@ -57,6 +57,7 @@
 #import "AASeries.h"
 #import "AAMarker.h"
 #import "AAGradientColor.h"
+#import "AAColor.h"
 
 @interface AAOptions : NSObject
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AAEasyTool : NSObject
 
-+ (UIColor *) colorWithHexString: (NSString *)color;
++ (UIColor *)colorWithHexString: (NSString *)color;
 + (NSArray *)configureTheRandomColorArray;
 + (NSArray *)configureTheRandomColorArrayWithColorNumber:(NSInteger)colorNumber;
 

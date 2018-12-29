@@ -40,7 +40,7 @@
 #import "ChartListVC.h"
 #import "MixedChartVC.h"
 #import "ChartSeriesHideOrShowVC.h"
-
+#import "CustomStyleChartVC.h"
 #import "MonitorViewController.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
@@ -153,7 +153,16 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
         case 2: {
+            /*一些自定义样式图表*/
+            CustomStyleChartVC *vc = CustomStyleChartVC.new;
+            vc.chartType = indexPath.row;
+            [self.navigationController  pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 3: {
             /*图表数据动态刷新*/
             MixedChartVC *vc = MixedChartVC.new;
             vc.chartTypeIndex = indexPath.row;
@@ -161,16 +170,15 @@
         }
             break;
             
-            
-        case 3: {
+        case 4: {
             /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = OnlyRefreshChartDataVC.new;
             vc.chartType = indexPath.row;
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
-        
-        case 4: {
+            
+        case 5: {
             /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = ChartAnimationTypeVC.new;
             vc.chartType = indexPath.row;
@@ -178,7 +186,7 @@
         }
             break;
         
-        case 5: {
+        case 6: {
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = DrawChartWithAAOptionsVC.new;
             vc.selectedIndex = indexPath.row;
@@ -187,7 +195,7 @@
         }
             break;
             
-        case 6: {
+        case 7: {
             /*同时显示多个 AAChartView*/
             if (indexPath.row == 0) {
                 ShowManyChartViewVC *vc = ShowManyChartViewVC.new;
@@ -199,7 +207,7 @@
         }
             break;
             
-        case 7: {
+        case 8: {
             ChartSeriesHideOrShowVC *vc = ChartSeriesHideOrShowVC.new;
             vc.chartTypeIndex = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
@@ -260,24 +268,29 @@
                                 @"Scatter Chart---散点图"
                                 ],
                               /*特殊类型图表*/
-                              @[@"Colorful Column Chart---多彩柱形图",
-                                @"Gradient Color Bar---颜色渐变条形图",
-                                @"Mixed Line Chart---虚实线混合折线图",
-                                @"With Dividing Line---带有阈值分割线区域图",
-                                @"Area Chart with minus--带有负数的区域填充图",
-                                @"Pie Chart---扇形图",
+                              @[@"Pie Chart---扇形图",
                                 @"Bubble Chart---气泡图",
                                 @"Scatter Chart--散点图",
                                 @"Arearange Chart--区域面积图",
                                 @"Area Spline range Chart--曲线区域面积图",
                                 @"Column Range Chart--柱形范围图",
-                                @"Step Line Chart--直方折线图",
-                                @"Step Area Chart--直方折线填充图",
-                                @"Nightingale Rose Chart---南丁格尔玫瑰图",
                                 @"Box Plot Chart---箱线图",
                                 @"Water Fall---瀑布图",
                                 @"Pyramid Chart---金字塔图",
                                 @"Funnel Chart---漏斗图",],
+                              /*一些自定义风格样式图表*/
+                              @[@"Colorful Column Chart---多彩条形图",
+                                @"Colorful Gradient Color Column Chart---多彩颜色渐变条形图",
+                                @"Gradient Color Bar---颜色渐变条形图",
+                                @"Discontinuous Data Chart---数值不连续的图表",
+                                @"Mixed Line Chart---虚实线混合折线图",
+                                @"Colorful Column Chart---多彩柱形图",
+                                @"Gradient Color Bar Chart---颜色渐变条形图",
+                                @"With Dividing Line---带有阈值分割线区域图",
+                                @"Area Chart with minus--带有负数的区域填充图",
+                                @"Step Line Chart--直方折线图",
+                                @"Step Area Chart--直方折线填充图",
+                                @"Nightingale Rose Chart---南丁格尔玫瑰图"],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
                                 @"Columnrange Mixed Line---柱形范围图混合折线图",
@@ -360,6 +373,7 @@
     if (!_sectionTypeArr) {
         _sectionTypeArr = @[@"Basic Type---基础类型",
                             @"Special Type---特别类型",
+                            @"Some Custom Style---一些自定义风格样式图表",
                             @"Mixed Type Chart---混合图表",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---渲染动画",

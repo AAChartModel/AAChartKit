@@ -35,7 +35,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomStyleChartVC : UIViewController
-
+@property (nonatomic, assign) NSInteger chartType;
 @end
 
 NS_ASSUME_NONNULL_END

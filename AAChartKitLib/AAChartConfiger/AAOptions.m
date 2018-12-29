@@ -114,7 +114,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //
     .legendSet(aaLegend)
     .seriesSet(aaChartModel.series)
     .colorsSet(aaChartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnabledSet(aaChartModel.gradientColorsThemeEnabled)//设置主题颜色是否为渐变色
+    .gradientColorEnabledSet(aaChartModel.easyGradientColors)//设置主题颜色是否为渐变色
     .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText);//设置重置缩放按钮的默认标题
     
     if (   aaChartModel.chartType != AAChartTypePie
@@ -186,7 +186,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //
 }
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel plotOptions:(AAPlotOptions *)aaPlotOptions {
-    //数据点标记相关配置，只有线性图(折线图、曲线图、折线区域填充图、曲线区域填充图)才有数据点标记
+    //数据点标记相关配置，只有折线图、曲线图、折线区域填充图、曲线区域填充图、散点图才有数据点标记
     if (   aaChartModel.chartType == AAChartTypeArea
         || aaChartModel.chartType == AAChartTypeAreaspline
         || aaChartModel.chartType == AAChartTypeLine

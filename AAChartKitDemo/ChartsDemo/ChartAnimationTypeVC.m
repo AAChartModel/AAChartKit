@@ -93,7 +93,7 @@
     if (self.chartType == ChartAnimationTypeVCChartTypeStepArea
         || self.chartType == ChartAnimationTypeVCChartTypeStepLine) {
        self.chartModel
-        .gradientColorsThemeEnabledSet(true)
+        .easyGradientColorsSet(true)
         .markerRadiusSet(@0)
         .seriesSet(@[
                      AASeriesElement.new
@@ -107,7 +107,7 @@
                || self.chartType == ChartAnimationTypeVCChartTypeAreaspline) {
         self.chartModel
         .markerRadiusSet(@0)
-        .gradientColorsThemeEnabledSet(true)
+        .easyGradientColorsSet(true)
         .seriesSet(@[
                      AASeriesElement.new
                      .nameSet(@"2017")

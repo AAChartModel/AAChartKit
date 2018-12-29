@@ -32,11 +32,12 @@
 
 #import "CustomStyleChartVC.h"
 #import "AAChartKit.h"
-#import "AAColor.h"
-#import "AAGradientColor.h"
 #import "AAEasyTool.h"
 
 @interface CustomStyleChartVC ()
+
+@property (nonatomic, strong) AAChartModel *aaChartModel;
+@property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
@@ -44,12 +45,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    self.aaChartView = [self setUpAAChartView];
+    self.aaChartModel = [self setUpAAChartModel];
+    [self.aaChartView aa_drawChartWithChartModel:self.aaChartModel];
 }
 
-- (AAChartModel *)setUpColorfulChart {
+- (AAChartView *)setUpAAChartView {
+    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0,
+                                                                            0,
+                                                                            self.view.frame.size.width,
+                                                                            self.view.frame.size.height)];
+    aaChartView.scrollEnabled = NO;
+    aaChartView.contentHeight = aaChartView.frame.size.height-80;
+    [self.view addSubview:aaChartView];
+    return aaChartView;
+}
+
+- (AAChartModel *)setUpAAChartModel {
+    switch (self.chartType) {
+        case 0:
+            return [self setUpColorfulBarChart];
+        case 1:
+            return [self setUpColorfulGradientColorChart];
+        case 2:
+            return [self setUpDiscontinuousDataChart];
+        case 3:
+            return [self configureMixedLineChart];
+        case 4:
+            return [self configureColorfulColumnChart];
+        case 5:
+            return [self configureGradientColorBarChart];
+        case 6:
+            return [self configureHavePlotLinesChart];
+        case 7:
+            return [self configrueWithMinusNumberChart];
+        case 8:
+            return [self configureStepLineChart];
+        case 9:
+            return [self configureStepAreaChart];
+        case 10:
+            return [self configureNightingaleRoseChart];
+        default:
+            return nil;
+    }
+}
+
+- (AAChartModel *)setUpColorfulBarChart {
     NSArray *colorsNameArr = @[@"red",
                                @"orange",
                                @"yellow",
@@ -147,13 +190,13 @@
                                   ];
     
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)
+    .chartTypeSet(AAChartTypeBar)
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
     .categoriesSet(gradientColorNamesArr)
     .colorsThemeSet(gradientColorArr)
     .yAxisTitleSet(@"gradient color")
-    .stackingSet(AAChartStackingTypeNormal)
+    .stackingSet(AAChartStackingTypePercent)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"ElementOne")
@@ -209,7 +252,7 @@
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
     .colorsThemeSet([AAEasyTool configureTheRandomColorArrayWithColorNumber:14])
-    .gradientColorsThemeEnabledSet(true)
+    .easyGradientColorsSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"ElementOne")
@@ -226,6 +269,7 @@
     .subtitleSet(@"gradient color bar")
     .borderRadiusSet(@5)
     .xAxisReversedSet(true)
+    .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2020")
@@ -240,7 +284,7 @@
     return aaChartModel;
 }
 
-- (AAChartModel *)configureWithPlotLinesChart {
+- (AAChartModel *)configureHavePlotLinesChart {
     NSArray *aaPlotLinesArr = @[
                                 AAPlotLinesElement.new
                                 .colorSet(@"#FF0000")//颜色值(16进制)
@@ -285,7 +329,7 @@
 - (AAChartModel *)configrueWithMinusNumberChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .gradientColorsThemeEnabledSet(true)
+    .easyGradientColorsSet(true)
     //.dataLabelEnabledSet(true)
     .titleSet(@"带有负数的区域填充图")
     .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
@@ -348,7 +392,7 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
-    .gradientColorsThemeEnabledSet(true)//开启主题渐变色
+    .easyGradientColorsSet(true)//开启主题渐变色
     .titleSet(@"STEP AREA CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
     .dataLabelEnabledSet(NO)//是否显示数字

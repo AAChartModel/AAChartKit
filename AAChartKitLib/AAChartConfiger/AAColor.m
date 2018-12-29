@@ -35,59 +35,59 @@
 @implementation AAColor
 
 + (NSString *)blackColor {
-    return @"blackColor";
+    return @"black";
 };
 
 + (NSString *)darkGrayColor {
-    return @"darkGrayColor";
+    return @"darkGray";
 };
 
 + (NSString *)lightGrayColor {
-    return @"lightGrayColor";
+    return @"lightGray";
 };
 
 + (NSString *)whiteColor {
-    return @"whiteColor";
+    return @"white";
 };
 
 + (NSString *)grayColor {
-    return @"grayColor";
+    return @"gray";
 };
 
 + (NSString *)redColor {
-    return @"redColor";
+    return @"red";
 };
 
 + (NSString *)greenColor {
-    return @"greenColor";
+    return @"green";
 };
 
 + (NSString *)blueColor {
-    return @"blueColor";
+    return @"blue";
 };
 
 + (NSString *)cyanColor {
-    return @"cyanColor";
+    return @"cyan";
 };
 
 + (NSString *)yellowColor {
-    return @"yellowColor";
+    return @"yellow";
 };
 
 + (NSString *)magentaColor {
-    return @"magentaColor";
+    return @"magenta";
 };
 
 + (NSString *)orangeColor {
-    return @"orangeColor";
+    return @"orange";
 };
 
 + (NSString *)purpleColor {
-    return @"purpleColor";
+    return @"purple";
 };
 
 + (NSString *)brownColor {
-    return @"brownColor";
+    return @"brown";
 };
 
 + (NSString *)clearColor {

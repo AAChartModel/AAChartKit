@@ -32,7 +32,6 @@
 
 #import "ShowManyChartViewVC.h"
 #import "AAChartView.h"
-#import "AAGradientColor.h"
 @interface ShowManyChartViewVC ()
 
 @end

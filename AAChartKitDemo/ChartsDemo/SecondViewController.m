@@ -185,7 +185,7 @@
                || self.chartType == SecondeViewControllerChartTypeAreaspline) {
 
         _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-        _aaChartModel.gradientColorsThemeEnabled = true;//启用渐变色
+        _aaChartModel.easyGradientColors = true;//启用渐变色
         _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
         _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
         _aaChartModel.xAxisCrosshairColor = @"#FFE4C4";//(浓汤)乳脂,番茄色准星线
@@ -243,7 +243,7 @@
         if (self.chartType == SecondeViewControllerChartTypeStepLine) {
             _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeBorderBlank;
         } else {
-            _aaChartModel.gradientColorsThemeEnabled = true;
+            _aaChartModel.easyGradientColors = true;
         }
         _aaChartModel.series = @[
                                  AASeriesElement.new

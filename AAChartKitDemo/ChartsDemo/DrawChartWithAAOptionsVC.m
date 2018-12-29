@@ -421,7 +421,7 @@
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
-    .gradientColorsThemeEnabledSet(true)
+    .easyGradientColorsSet(true)
     .polarSet(true)
     .seriesSet(@[
                  AASeriesElement.new

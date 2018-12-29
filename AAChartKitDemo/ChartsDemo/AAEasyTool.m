@@ -9,7 +9,7 @@
 #import "AAEasyTool.h"
 
 @implementation AAEasyTool
-+ (UIColor *) colorWithHexString: (NSString *)color {
++ (UIColor *)colorWithHexString: (NSString *)color {
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
