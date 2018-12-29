@@ -1442,12 +1442,16 @@
     .yAxisLineWidthSet(0)
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
+    .xAxisCrosshairWidthSet(@1)
+    .xAxisCrosshairDashStyleTypeSet(AALineDashSyleTypeLongDashDot)
+    .xAxisCrosshairColorSet(AAColor.grayColor)
+    .tooltipEnabledSet(false)
     .categoriesSet(@[
                      @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
                      @"10-12",@"10-13",@"10-14",@"10-15",])
     .seriesSet(@[
                  AASeriesElement.new
-                 .colorSet(@"#1e90ff")// blue color
+                 .colorSet(AAColor.redColor)// blue color
                  .nameSet(@"2020")
                  .dataSet(@[@1.51, @6.7, @0.94, @1.44, @3.87, @3.24, @4.90, @4.61, @4.10,
                             @4.17, @3.85, @4.17, @3.46, @3.46, @3.55,]),
@@ -1459,10 +1463,10 @@
     AADataLabels *aaDatalables = aaOptions.plotOptions.line.dataLabels;
     aaDatalables
     .ySet(@-10)
-    .formatSet(@"${y}")
-    .colorSet(@"#1e90ff")// blue color
-    .backgroundColorSet(@"#ffffff")// white color
-    .borderColorSet(@"#1e90ff")// blue color
+    .formatSet(@"{y}美元")
+    .colorSet(AAColor.redColor)// blue color
+    .backgroundColorSet(AAColor.whiteColor)// white color
+    .borderColorSet(AAColor.redColor)// blue color
     .borderRadiusSet(@1)
     .borderWidthSet(@1);
     return aaOptions;
