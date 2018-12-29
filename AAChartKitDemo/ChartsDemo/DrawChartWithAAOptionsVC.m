@@ -117,6 +117,8 @@
         case 18: return [self simpleGaugeChart];//简易仪表图
         case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
         case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的图表
+        case 21: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
+
 
     }
     return nil;
@@ -1428,4 +1430,42 @@
     aaYAxis.plotBands = aaPlotBandsArr;
     return aaOptions;
 }
+
+- (AAOptions *)adjustChartDataLabelsStyle {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .markerRadiusSet(@7)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .dataLabelEnabledSet(true)
+    .yAxisLineWidthSet(0)
+    .yAxisTitleSet(@"")
+    .legendEnabledSet(false)
+    .categoriesSet(@[
+                     @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
+                     @"10-12",@"10-13",@"10-14",@"10-15",])
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .colorSet(@"#1e90ff")// blue color
+                 .nameSet(@"2020")
+                 .dataSet(@[@1.51, @6.7, @0.94, @1.44, @3.87, @3.24, @4.90, @4.61, @4.10,
+                            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55,]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.gridLineDashStyle = AALineDashSyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashSyleTypeLongDash
+    AADataLabels *aaDatalables = aaOptions.plotOptions.line.dataLabels;
+    aaDatalables
+    .ySet(@-10)
+    .formatSet(@"${y}")
+    .colorSet(@"#1e90ff")// blue color
+    .backgroundColorSet(@"#ffffff")// white color
+    .borderColorSet(@"#1e90ff")// blue color
+    .borderRadiusSet(@1)
+    .borderWidthSet(@1);
+    return aaOptions;
+}
+
 @end

@@ -103,9 +103,12 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, distanc
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, verticalAlign)
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, x) 
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderRadius)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, shape)
-
 
 
 @end
