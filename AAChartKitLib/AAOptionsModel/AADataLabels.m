@@ -34,19 +34,6 @@
 
 @implementation AADataLabels
 
-//- (instancetype)init {
-//    self = [super init];
-//    if (self) {
-//        NSDictionary *styleDic = @{@"color": @"contrast",//设置图表数据文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
-//                                   @"fontSize": @"10.5px",//数据文字大小
-//                                   @"fontWeight": @"thin",//默认数据加粗,另外可设置为 thin 即是细体字
-//                                   @"textOutline": @"1px 1px contrast" };//文字轮廓描边
-//        self.style = (id)styleDic;
-//    }
-//
-//    return self;
-//}
-
 AAPropSetFuncImplementation(AADataLabels, BOOL      , enabled) 
 AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style) 
 AAPropSetFuncImplementation(AADataLabels, NSString *, format) 

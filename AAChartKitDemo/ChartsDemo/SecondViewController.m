@@ -155,19 +155,29 @@
                          .widthSet(@(1)) //标示线粗细
                          .valueSet(@(20)) //所在位置
                          .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                         .labelSet(@{@"align":@"left",@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                         .labelSet(AALabel.new
+                                   .textSet(@"标示线1")
+                                   .styleSet(AAStyle.new
+                                             .colorSet(@"#ff0000")))
                          ,AAPlotLinesElement.new
                          .colorSet(@"#33BDFD")
                          .dashStyleSet(AALineDashSyleTypeLongDashDot)
                          .widthSet(@(1))
                          .valueSet(@(40))
-                         .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                         .labelSet(AALabel.new
+                                   .textSet(@"标示线2")
+                                   .styleSet(AAStyle.new
+                                             .colorSet(@"#00ff00")))
                          ,AAPlotLinesElement.new
                          .colorSet(@"#ADFF2F")
                          .dashStyleSet(AALineDashSyleTypeLongDashDot)
                          .widthSet(@(1))
                          .valueSet(@(60))
-                         .labelSet(@{@"text":@"标示线3",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                         .labelSet(AALabel.new
+                                   .textSet(@"标示线3")
+                                   .styleSet(AAStyle.new
+                                             .colorSet(@"#0000ff")))
+
                          ]
                    );
 }

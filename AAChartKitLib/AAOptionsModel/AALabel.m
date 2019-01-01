@@ -1,9 +1,9 @@
 //
-//  AAStyle.m
-//  AAChartKit
+//  AALabel.m
+//  AAChartKitDemo
 //
-//  Created by An An on 17/1/6.
-//  Copyright © 2017年 An An. All rights reserved.
+//  Created by AnAn on 2018/12/30.
+//  Copyright © 2018 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -30,25 +30,18 @@
  
  */
 
-#import "AAStyle.h"
-//Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
+#import "AALabel.h"
 
-@implementation AAStyle
+@implementation AALabel
 
-//-(instancetype)init{
-//    self = [super init];
-//    if (self) {
-//        self.color = @"#000000";//设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
-//        self.fontSize = @"11px";//数据文字大小
-//        self.fontWeight = @"bold";//可选的值有 bold 和 thin 两种,分别对应的是加粗字体和纤细字体
-//        self.textOutline = @"1px 1px contrast";//文字轮廓描边
-//    }
-//    return self;
-//}
-
-AAPropSetFuncImplementation(AAStyle, NSString *, color) 
-AAPropSetFuncImplementation(AAStyle, NSString *, fontSize) 
-AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight) 
-AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) 
+AAPropSetFuncImplementation(AALabel, NSString *, align)//标签的对齐方式，可用的值有 "left"、"center" 及 "right"。默认值是根据坐标轴的位置（在图表中的位置）即标签的旋转角度进行智能判断的。 默认是：center.
+AAPropSetFuncImplementation(AALabel, NSNumber *, rotation)//标签的旋转角度 默认是：0.
+AAPropSetFuncImplementation(AALabel, NSString *, text)//文字
+AAPropSetFuncImplementation(AALabel, NSString *, textAlign)//文字对齐
+AAPropSetFuncImplementation(AALabel, BOOL      , useHTML)//HTML渲染
+AAPropSetFuncImplementation(AALabel, NSString *, verticalAlign)//竖直对齐
+AAPropSetFuncImplementation(AALabel, AAStyle  *, style)//轴标签的 CSS 样式
+AAPropSetFuncImplementation(AALabel, NSNumber *, x)//水平偏移
+AAPropSetFuncImplementation(AALabel, NSNumber *, y)// 竖直偏移
 
 @end

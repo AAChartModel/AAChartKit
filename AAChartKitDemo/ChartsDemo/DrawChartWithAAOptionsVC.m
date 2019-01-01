@@ -117,7 +117,8 @@
         case 18: return [self simpleGaugeChart];//简易仪表图
         case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
         case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的图表
-        case 21: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
+        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线的图表
+        case 22: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
 
 
     }
@@ -463,6 +464,7 @@
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
+    .dataLabelEnabledSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2020")
@@ -474,9 +476,9 @@
     aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1. https://api.hcharts.cn/plotOptions.column.groupPadding
     aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2. https://api.hcharts.cn/plotOptions.column.pointPadding
     
-    aaOptions.plotOptions.column.dataLabels = AADataLabels.new
-    .enabledSet(true)
-    .ySet(@(-10))
+    aaOptions.plotOptions.column.dataLabels
+    .ySet(@-10)
+    .formatSet(@" {y} 美元 ")
     .backgroundColorSet(@"rgba(0, 0, 0, 0.75)")
     .shapeSet(@"callout")
     .styleSet(AAStyle.new
@@ -1244,7 +1246,7 @@
               .typeSet(AAChartTypeColumn)
 //              .backgroundColorSet(@"#161139")
               )
-    .titleSet(AATitle.new.textSet(@"正负镜像柱状图"))
+    .titleSet(AATitle.new.textSet(@""))
     .xAxisSet(AAXAxis.new
               .visibleSet(true)
               .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
@@ -1289,15 +1291,19 @@
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .titleSet(@"Y轴在右侧的柱状图📊")//图表主标题
     .subtitleSet(@"设置 aaOptions.yAxis.opposite = YES 即可")//图表副标题
-    .colorsThemeSet(@[@"#ffc069",@"#fe117c",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",])
+    .borderRadiusSet(@9)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2020")
+                 .colorSet((id)AAGradientColor.sanguineColor)
                  .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                  ]
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAColumn *aaColumn = aaOptions.plotOptions.column;
+    aaColumn.groupPadding = @0.02;
     //是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，
     //坐标轴显示在对立面后，x 轴是在上方显示，y 轴是在右方显示（即坐标轴会显示在对立面）。
     //该配置一般是用于多坐标轴区分展示，另外在 Highstock 中，y 轴默认是在对立面显示的。
@@ -1382,19 +1388,26 @@
 
 - (AAOptions *)configureAAPlotBandsForChart {
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)
+    .chartTypeSet(AAChartTypeSpline)
     .titleSet(@"")
     .subtitleSet(@"")
+    .yAxisTitleSet(@"")
     .backgroundColorSet(@"#FFFFFF")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
+    .xAxisCrosshairWidthSet(@1.5)
+    .xAxisCrosshairColorSet(AAColor.grayColor)
+    .xAxisCrosshairDashStyleTypeSet(AALineDashSyleTypeLongDashDotDot)
+    .yAxisCrosshairWidthSet(@1.5)
+    .yAxisCrosshairColorSet(AAColor.grayColor)
+    .yAxisCrosshairDashStyleTypeSet(AALineDashSyleTypeLongDashDotDot)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2017")
-                 .colorSet(@"#FFFFFF")
+                 .colorSet(AAColor.whiteColor)
                  .lineWidthSet(@10)
                  .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                  ]
@@ -1428,6 +1441,70 @@
                                 .colorSet(@"#acf08f"),];
     AAYAxis *aaYAxis = aaOptions.yAxis;
     aaYAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
+}
+
+- (AAOptions *)configureAAPlotLinesForChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"")
+    .backgroundColorSet(@"#FFFFFF")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .markerRadiusSet(@0)
+    .yAxisMaxSet(@50)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"2019")
+                 .fillOpacitySet(@0.5)
+                 .lineWidthSet(@10)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+                 .zonesSet(@[@{@"value": @12,@"color": @"#1e90ff"},
+                             @{@"value": @24,@"color": @"#ef476f"},
+                             @{@"value": @36,@"color": @"#04d69f"},
+                             @{@"color": @"#ffd066"}]),
+                 ]
+               );
+//    @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    NSArray *aaPlotLinesArr = @[
+                                AAPlotLinesElement.new
+                                .colorSet(@"#1e90ff")//颜色值(16进制)
+                                .dashStyleSet(AALineDashSyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+                                .widthSet(@(1)) //标示线粗细
+                                .valueSet(@(12)) //所在位置
+                                .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                                .labelSet(AALabel.new
+                                          .textSet(@"PLOT LINES ONE")
+                                          .styleSet(AAStyle.new
+                                                    .colorSet(@"#1e90ff")
+                                                    .fontWeightSet(AAChartFontWeightTypeBold)))
+                                ,AAPlotLinesElement.new
+                                .colorSet(@"#ef476f")
+                                .dashStyleSet(AALineDashSyleTypeLongDashDot)
+                                .widthSet(@(1))
+                                .valueSet(@(24))
+                                .labelSet(AALabel.new
+                                          .textSet(@"PLOT LINES TWO")
+                                          .styleSet(AAStyle.new
+                                                    .colorSet(@"#ef476f")
+                                                    .fontWeightSet(AAChartFontWeightTypeBold)))
+                                ,AAPlotLinesElement.new
+                                .colorSet(@"#04d69f")
+                                .dashStyleSet(AALineDashSyleTypeLongDashDot)
+                                .widthSet(@(1))
+                                .valueSet(@(36))
+                                .labelSet(AALabel.new
+                                          .textSet(@"PLOT LINES THREE")
+                                          .styleSet(AAStyle.new
+                                                    .colorSet(@"#04d69f")
+                                                    .fontWeightSet(AAChartFontWeightTypeBold)))
+                                ];
+    AAYAxis *aaYAxis = aaOptions.yAxis;
+    aaYAxis.plotLines = aaPlotLinesArr;
     return aaOptions;
 }
 

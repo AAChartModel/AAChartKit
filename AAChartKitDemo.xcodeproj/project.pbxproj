@@ -49,6 +49,7 @@
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
+		44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F5F9A021D80BDB002A8D25 /* AALabel.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACB1EC36307005B8021 /* IMG_1875.JPG */; };
 		64245AD01EC36897005B8021 /* IMG_1877.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACF1EC36897005B8021 /* IMG_1877.JPG */; };
@@ -178,6 +179,8 @@
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
 		449D447821CFDF5D00E43D9C /* AAPlotBandsElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPlotBandsElement.h; sourceTree = "<group>"; };
 		449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPlotBandsElement.m; sourceTree = "<group>"; };
+		44F5F99F21D80BDB002A8D25 /* AALabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALabel.h; sourceTree = "<group>"; };
+		44F5F9A021D80BDB002A8D25 /* AALabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AALabel.m; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
 		64245ACB1EC36307005B8021 /* IMG_1875.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1875.JPG; sourceTree = "<group>"; };
 		64245ACF1EC36897005B8021 /* IMG_1877.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1877.JPG; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 				1E66D1DA210AF4EC007EAB8C /* AAStyle.m */,
 				1E66D1DD210AF4EC007EAB8C /* AALabels.h */,
 				1E66D1C1210AF4EC007EAB8C /* AALabels.m */,
+				44F5F99F21D80BDB002A8D25 /* AALabel.h */,
+				44F5F9A021D80BDB002A8D25 /* AALabel.m */,
 				1E66D1E5210AF4EC007EAB8C /* AADataLabels.h */,
 				1E66D1C8210AF4EC007EAB8C /* AADataLabels.m */,
 			);
@@ -645,6 +650,7 @@
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
+				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,
 				1E66D215210AF4ED007EAB8C /* AAChartView.m in Sources */,
 				1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */,
 				1E66D201210AF4ED007EAB8C /* AADataLabels.m in Sources */,

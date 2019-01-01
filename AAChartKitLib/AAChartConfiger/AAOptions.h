@@ -42,6 +42,7 @@
 #import "AAPlotBandsElement.h"
 #import "AACrosshair.h"
 #import "AALabels.h"
+#import "AALabel.h"
 #import "AATooltip.h"
 #import "AAPlotOptions.h"
 #import "AAColumn.h"

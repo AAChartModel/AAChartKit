@@ -132,7 +132,7 @@
                      AASeriesElement.new
                      .nameSet(@"2018")
                      .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
-                     .colorSet((id)[AAGradientColor firebrickColor])
+                     .colorSet((id)[AAGradientColor deepSeaColor])
                      .stepSet((id)@(true))
                      ,
                      ]
@@ -158,7 +158,7 @@
                                     AASeriesElement.new
                                     .nameSet(@"2018")
                                     .dataSet(sinNumArr2)
-                                    .colorSet((id)[AAGradientColor deepSeaColor])
+                                    .colorSet((id)[AAGradientColor sanguineColor])
                                     ,
                                     ]
                                   );

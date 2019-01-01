@@ -31,6 +31,7 @@
  */
 
 #import <Foundation/Foundation.h>
+@class AALabel;
 
 @interface AAPlotLinesElement : NSObject
 
@@ -39,6 +40,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAPlotLinesElement, NSString *, d
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, width) //基线宽度
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, value) //显示位置
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, zIndex)//层叠，标示线在图表中显示的层叠级别，值越大，显示越向前，默认标示线显示在数据线之后
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSDictionary *, label) //标示线的文字标签，用来描述标示线
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, AALabel *, label) //标示线的文字标签，用来描述标示线
 
 @end

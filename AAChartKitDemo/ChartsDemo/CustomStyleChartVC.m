@@ -200,7 +200,8 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"ElementOne")
-                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8])
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,
+                            @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3,])
                  .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
                  ]);
     return aaChartModel;
@@ -292,14 +293,14 @@
                                 .widthSet(@(1)) //标示线粗细
                                 .valueSet(@(10)) //所在位置
                                 .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                                .labelSet(@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
+                                .labelSet((id)@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
                                 ,
                                 AAPlotLinesElement.new
                                 .colorSet(@"#FF0000")
                                 .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
                                 .widthSet(@(1))
                                 .valueSet(@(20))
-                                .labelSet(@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
+                                .labelSet((id)@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
                                 ];
     
     AAChartModel *aaChartModel = AAChartModel.new
