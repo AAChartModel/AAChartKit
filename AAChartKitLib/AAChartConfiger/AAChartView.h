@@ -45,6 +45,11 @@
 
 @property (nonatomic, weak)   id<AAChartViewDidFinishLoadDelegate> delegate;
 
+/* Configure the behavior of adjustedContentInset.
+ Default is UIScrollViewContentInsetAdjustmentAutomatic.
+ */
+@property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior API_AVAILABLE(ios(11.0),tvos(11.0));
+
 /**
  Set the chart view can scroll or not
  */

@@ -270,6 +270,15 @@
 
 #pragma mark -- setter method
 
+- (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
+    _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
+    if (AASYSTEM_VERSION >= 9.0) {
+        _wkWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
+    } else {
+        _uiWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
+    }
+}
+
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
     if (AASYSTEM_VERSION >= 9.0) {
