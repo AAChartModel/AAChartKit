@@ -46,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    CGRect chartViewFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.view.backgroundColor = [UIColor whiteColor];
     self.aaChartView.scrollEnabled = NO;
@@ -89,7 +89,6 @@
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:@"arearangeMixedLine"]) {
-        
         AAChartModel *aaChartModel = AAChartModel.new
         .titleSet(@"面积范围均线图")
         .subtitleSet(@"混合图的一种")
@@ -229,18 +228,18 @@
                      ]
                    )
         ;
-        
         return aaChartModel;
     } else if ([chartType isEqualToString:@"stackingColumnMixedLine"]) {
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"16年1月-16年11月充值客单分析")
         .subtitleSet(@"BY MICVS")
+        .yAxisTitleSet(@"")
         .stackingSet(AAChartStackingTypeNormal)
-        .colorsThemeSet(@[AAGradientColor.deepSeaColor,AAGradientColor.berrySmoothieColor, AAGradientColor.firebrickColor,])//主题颜色数组
         .seriesSet(@[
                     AASeriesElement.new
                     .nameSet(@"新用户")
+                    .colorSet((id)AAGradientColor.mysticMauveColor)
                     .dataSet(@[@82.89,@67.54,@62.07,@59.43,@67.02,@67.09,@35.66,@71.78,@81.61,@78.85,@79.12,@72.30])
                     .dataLabelsSet(AADataLabels.new
                                     .enabledSet(YES)
@@ -252,6 +251,7 @@
                     ,
                     AASeriesElement.new
                     .nameSet(@"老用户")
+                    .colorSet((id)AAGradientColor.deepSeaColor)
                     .dataSet(@[@198.66,@330.81,@151.95,@160.12,@222.56,@229.05,@128.53,@250.91,@224.47,@473.99,@126.85,@260.50])
                     .dataLabelsSet(AADataLabels.new
                                    .enabledSet(YES)
@@ -265,6 +265,7 @@
                     .typeSet(AAChartTypeLine)
                     .lineWidthSet(@5)
                     .nameSet(@"总量")
+                    .colorSet((id)AAGradientColor.sanguineColor)
                     .dataSet(@[@281.55,@398.35,@214.02,@219.55,@289.57,@296.14,@164.18,@322.69,@306.08,@552.84,@205.97,@332.79])
                     .dataLabelsSet(AADataLabels.new
                                     .enabledSet(YES)
@@ -292,45 +293,47 @@
         .markerRadiusSet(@0)//隐藏连接点
         .seriesSet(@[
                      AASeriesElement.new
-                     .nameSet(@"SolidSpline")
+                     .nameSet(@"Solid")
                      .lineWidthSet(@3)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
-                     .nameSet(AALineDashSyleTypeDash)
+                     .nameSet(@"Dash")
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
-                     .nameSet(AALineDashSyleTypeDashDot)
+                     .nameSet(@"DashDot")
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
-                     .nameSet(AALineDashSyleTypeLongDash)
+                     .nameSet(@"LongDash")
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeLongDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
-                     .nameSet(AALineDashSyleTypeLongDashDot)
+                     .nameSet(@"LongDashDot")
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeLongDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
-                     .nameSet(AALineDashSyleTypeShortDashDot)
+                     .nameSet(@"ShortDashDot")
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeShortDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
-                     .nameSet(AALineDashSyleTypeShortDashDotDot)
+                     .nameSet(@"ShortDashDotDot")
                      .lineWidthSet(@3)
                      .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      ]
                    );
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:@"negativeColorMixed"]) {
         AAChartModel *aaChartModel = AAChartModel.new
+        .titleSet(@"")
+        .yAxisTitleSet(@"")
+        .legendEnabledSet(false)
         .chartTypeSet(AAChartTypeColumn)
         .dataLabelEnabledSet(true)
         .markerRadiusSet(@3)
@@ -342,8 +345,8 @@
                                 @-6.4, @-5.2, @-3.0, @0.2, @2.3, @5.5, @8.4, @8.3, @5.1, @0.9, @-1.1, @-4.0,
                                 @-6.4, @-5.2, @-3.0, @0.2, @2.3, @5.5, @8.4, @8.3, @5.1, @0.9, @-1.1, @-4.0,
                                   ])
-                     .colorSet(@"#0088ff")
-                     .negativeColorSet(@"#FF0000")
+                     .colorSet((id)AAGradientColor.pixieDustColor)
+                     .negativeColorSet((id)AAGradientColor.springGreensColor)
                      .thresholdSet(@4)//default:0
                      ,
                      ]);
@@ -352,8 +355,9 @@
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
         .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-        .markerRadiusSet(@9)
-        .seriesSet(@[ AASeriesElement.new
+        .markerRadiusSet(@13)
+        .seriesSet(@[
+                     AASeriesElement.new
                      .nameSet(@"观测值")
                      .dataSet(@[
                                 @[@0.067732, @3.176513],
@@ -561,6 +565,8 @@
                       .typeSet(AAChartTypeLine)
                       .nameSet(@"线性回归线")
                       .dataSet(@[@[@0.014, @3.078], @[@0.969, @4.655]])
+                      .colorSet((id)AAGradientColor.sanguineColor)
+                      .lineWidthSet(@4)
                       .markerSet(AAMarker.new.radiusSet(@0)),
                      ]);
         return aaChartModel;
@@ -592,6 +598,9 @@
         
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
+        .titleSet(@"")
+        .yAxisTitleSet(@"")
+        .legendEnabledSet(false)
         .dataLabelEnabledSet(true)
         .markerRadiusSet(@3)
         .seriesSet(@[
@@ -707,7 +716,6 @@
                                 )
                      ,
                      ]);
-        
         return aaChartModel;
     } else if ([chartType isEqualToString:@"polarChartMixed"]) {
         AAChartModel *aaChartModel = AAChartModel.new

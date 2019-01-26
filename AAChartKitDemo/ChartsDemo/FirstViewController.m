@@ -271,7 +271,7 @@
                               @[@"Pie Chart---扇形图",
                                 @"Bubble Chart---气泡图",
                                 @"Scatter Chart--散点图",
-                                @"Arearange Chart--区域面积图",
+                                @"Area Range Chart--折线区域面积图",
                                 @"Area Spline range Chart--曲线区域面积图",
                                 @"Column Range Chart--柱形范围图",
                                 @"Box Plot Chart---箱线图",
@@ -280,8 +280,7 @@
                                 @"Funnel Chart---漏斗图",],
                               /*一些自定义风格样式图表*/
                               @[@"Colorful Column Chart---多彩条形图",
-                                @"Colorful Gradient Color Column Chart---多彩颜色渐变条形图",
-                                @"Gradient Color Bar---颜色渐变条形图",
+                                @"Colorful Gradient Color Chart---多彩颜色渐变条形图",
                                 @"Discontinuous Data Chart---数值不连续的图表",
                                 @"Mixed Line Chart---虚实线混合折线图",
                                 @"Colorful Column Chart---多彩柱形图",

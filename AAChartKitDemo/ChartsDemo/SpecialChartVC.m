@@ -86,9 +86,7 @@
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:AAChartTypePie]) {
-        
         bool bool_false = false;
-        
         AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypePie)
         .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
@@ -103,7 +101,7 @@
                      .innerSizeSet(@"20%")//内部圆环半径大小占比
                      .sizeSet(@300)//尺寸大小
                      .borderWidthSet(@0)//描边的宽度
-                     .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+                     .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                      .statesSet(@{@"hover": @{@"enabled": @(bool_false)}})//禁用点击区块之后出现的半透明遮罩层 (先定义bool变量的原因是，直接用true，false，处理完成之后容易变成0或者1。https://www.cnblogs.com/haojuncong/p/4652998.html )
                      .dataSet(
                               @[
@@ -111,7 +109,7 @@
                                 @[@"IE",        @26.8],
                                 @{
                                     @"name":@"Chrome",
-                                    @"y":@100.8,
+                                    @"y":@666.8,
                                     @"sliced":@(true),
                                     @"selected":@(true)
                                     },
@@ -123,11 +121,8 @@
                      ]
                    )
         ;
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeBubble]) {
-        
         AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"Bubble")
@@ -153,7 +148,6 @@
                                 @[@38, @23, @33],
                                 @[@57, @86, @31]
                                 ]),
-                     
                      AASeriesElement.new
                      .nameSet(@"2018")
                      .dataSet(
@@ -169,7 +163,6 @@
                                 @[@15, @67, @48],
                                 @[@54, @25, @81]
                                 ]),
-                     
                      AASeriesElement.new
                      .nameSet(@"2019")
                      .dataSet(
@@ -188,11 +181,8 @@
                      ]
                    )
         ;
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeScatter]) {
-        
         AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"按性别划分的身高体重分布图")
@@ -262,7 +252,6 @@
                                 @[@169.5, @67.3], @[@160.0, @75.5], @[@172.7, @68.2], @[@162.6, @61.4], @[@157.5, @76.8],
                                 @[@176.5, @71.8], @[@164.4, @55.5], @[@160.7, @48.6], @[@174.0, @66.4], @[@163.8, @67.3]
                                 ]),
-                     
                      AASeriesElement.new
                      .nameSet(@"女")
                      .dataSet(@[
@@ -317,15 +306,11 @@
                                 @[@170.2, @62.3], @[@177.8, @82.7], @[@179.1, @79.1], @[@190.5, @98.2], @[@177.8, @84.1],
                                 @[@180.3, @83.2], @[@180.3, @83.2]
                                 ])
-                     
                      ]
                    )
         ;
-        
         return aaChartModel;
-        
     }  else if ([chartType isEqualToString:AAChartTypeArearange]) {
-        
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArearange)
         .titleSet(@"黄昏别馆日气温起伏图")
@@ -338,6 +323,7 @@
                      AASeriesElement.new
                      .nameSet(@"2020")
                      .typeSet(AAChartTypeArearange)
+                     .colorSet((id)AAGradientColor.sanguineColor)
                      .dataSet(@[
                                 /* 2014-01-01 */
                                 @[@1388538000000, @1.1,  @4.7],
@@ -586,16 +572,16 @@
                                 @[@1408924800000, @8.4, @19.5],
                                 @[@1409011200000, @6.6, @19.9],
                                 @[@1409097600000, @6.4, @19.7],
-                                @[@1409184000000, @0, @0],
-                                @[@1409270400000, @0, @0],
-                                @[@1409356800000, @0, @0],
-                                @[@1409443200000, @0, @0],
+                                @[@1409184000000, NSNull.null, NSNull.null],
+                                @[@1409270400000, NSNull.null, NSNull.null],
+                                @[@1409356800000, NSNull.null, NSNull.null],
+                                @[@1409443200000, NSNull.null, NSNull.null],
                                 /* 2014-09-01 */
-                                @[@1409529600000, @0, @0],
-                                @[@1409616000000, @0, @0],
-                                @[@1409702400000, @0, @0],
-                                @[@1409788800000, @0, @0],
-                                @[@1409875200000, @0, @0],
+                                @[@1409529600000, NSNull.null, NSNull.null],
+                                @[@1409616000000, NSNull.null, NSNull.null],
+                                @[@1409702400000, NSNull.null, NSNull.null],
+                                @[@1409788800000, NSNull.null, NSNull.null],
+                                @[@1409875200000, NSNull.null, NSNull.null],
                                 @[@1409961600000, @13.4,@13.4],
                                 @[@1410048000000, @13.2,@17.1],
                                 @[@1410134400000, @11.9,@18.9],
@@ -720,23 +706,8 @@
                      ),
                      ]
                    );
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeAreasplinerange]) {
-        
-        NSDictionary *gradientColorDic =
-        @{
-          @"linearGradient": @{
-                  @"x1": @0,
-                  @"y1": @1,
-                  @"x2": @0,
-                  @"y2": @0
-                  },
-          @"stops": @[@[@0,@"rgba(255,140,0,0.6)"],
-                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-          };
-        
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeAreasplinerange)
         .titleSet(@"黄昏别馆日气温起伏图")
@@ -749,7 +720,7 @@
                      AASeriesElement.new
                      .nameSet(@"2020")
                      .typeSet(AAChartTypeAreasplinerange)
-                     .colorSet((id)gradientColorDic)//猩红色
+                     .colorSet((id)AAGradientColor.pixieDustColor)
                      .dataSet(@[
                                 /* 2014-03-01 */
                                 @[@1393635600000, @2.1,  @8.9],
@@ -800,11 +771,8 @@
                               ),
                      ]
                    );
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        
         AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeColumnrange)
         .titleSet(@"")
@@ -817,10 +785,10 @@
         .backgroundColorSet(@"#4b2b7f")
         .dataLabelEnabledSet(true)
         .dataLabelFontColorSet(@"#ffffff")
-        .colorsThemeSet(@[@"#06caf4",@"#fe117c",@"#ffc069",@"#7dffc0"])//设置主体颜色数组
         .seriesSet(@[
                      AASeriesElement.new
                      .nameSet(@"温度")
+                     .colorSet(@"#06caf4")
                      .dataSet(@[
                                 @[@-9.7,  @9.4],
                                 @[@-8.7,  @6.5],
@@ -838,11 +806,8 @@
                      ]
                    )
         ;
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeBoxplot]) {
-
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBoxplot)
         .titleSet(@"BOXPLOT CHART")
@@ -853,7 +818,8 @@
                    @[
                      AASeriesElement.new
                      .nameSet(@"Observed Data")
-                     .fillColorSet(@"#04d69f")
+                     .lineWidthSet(@1.8)
+                     .fillColorSet((id)AAGradientColor.mysticMauveColor)
                      .dataSet(@[
                                 @[@760, @801, @848, @895, @965],
                                 @[@733, @853, @939, @980, @1080],
@@ -863,13 +829,8 @@
                                 ]),
                      ]
                    );
-        
-        
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeWaterfall]) {
-
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeWaterfall)
         .titleSet(@"WATERFALL CHART")
@@ -908,7 +869,6 @@
                          }]);
         return aaChartModel;
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {
-        
         AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypePyramid)
         .titleSet(@"编程语言热度")
@@ -928,11 +888,8 @@
                      ]
                    )
         ;
-        
         return aaChartModel;
-        
     } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
-        
         AAChartModel *aaChartModel= AAChartModel.new
         .chartTypeSet(AAChartTypeFunnel)
         .titleSet(@"编程语言热度")
@@ -952,11 +909,8 @@
                      ]
                    )
         ;
-        
         return aaChartModel;
-        
     }
-    
     return nil;
 }
 

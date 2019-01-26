@@ -69,7 +69,7 @@
                             @"地<br>狱<br>边<br>境",
                             @"闪<br>客",
                             @"忍<br>者<br>之<br>印"];
-    NSDictionary *gradientColorDic = [AAGradientColor oceanBlueColor];
+
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"")
@@ -82,7 +82,7 @@
                  AASeriesElement.new
                  .nameSet(@"2017")
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                 .colorSet((id)gradientColorDic)
+                 .colorSet((id)[AAGradientColor oceanBlueColor])
                  .allowPointSelectSet(YES)
                  ,
                  ]

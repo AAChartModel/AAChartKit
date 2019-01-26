@@ -53,10 +53,8 @@
 }
 
 - (AAChartView *)setUpAAChartView {
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0,
-                                                                            0,
-                                                                            self.view.frame.size.width,
-                                                                            self.view.frame.size.height)];
+    CGRect chartViewFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
     aaChartView.scrollEnabled = NO;
     aaChartView.contentHeight = aaChartView.frame.size.height-80;
     [self.view addSubview:aaChartView];
@@ -65,28 +63,17 @@
 
 - (AAChartModel *)setUpAAChartModel {
     switch (self.chartType) {
-        case 0:
-            return [self setUpColorfulBarChart];
-        case 1:
-            return [self setUpColorfulGradientColorChart];
-        case 2:
-            return [self setUpDiscontinuousDataChart];
-        case 3:
-            return [self configureMixedLineChart];
-        case 4:
-            return [self configureColorfulColumnChart];
-        case 5:
-            return [self configureGradientColorBarChart];
-        case 6:
-            return [self configureHavePlotLinesChart];
-        case 7:
-            return [self configrueWithMinusNumberChart];
-        case 8:
-            return [self configureStepLineChart];
-        case 9:
-            return [self configureStepAreaChart];
-        case 10:
-            return [self configureNightingaleRoseChart];
+        case 0: return [self setUpColorfulBarChart];
+        case 1: return [self setUpColorfulGradientColorChart];
+        case 2: return [self setUpDiscontinuousDataChart];
+        case 3: return [self configureMixedLineChart];
+        case 4: return [self configureColorfulColumnChart];
+        case 5: return [self configureGradientColorBarChart];
+        case 6: return [self configureHavePlotLinesChart];
+        case 7: return [self configrueWithMinusNumberChart];
+        case 8: return [self configureStepLineChart];
+        case 9: return [self configureStepAreaChart];
+        case 10:return [self configureNightingaleRoseChart];
         default:
             return nil;
     }
@@ -236,12 +223,16 @@
                  .nameSet(@"本专业")
                  .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
                  .zoneAxisSet(@"x")
+                 .colorSet((id)AAGradientColor.freshPapayaColor)
+                 .lineWidthSet(@5)
                  .zonesSet(@[
                              @{@"value": @8},
-                             @{@"dashStyle": AALineDashSyleTypeDash}
+                             @{@"dashStyle": AALineDashSyleTypeDot}
                              ]),
                  AASeriesElement.new
                  .nameSet(@"所有专业")
+                 .colorSet((id)AAGradientColor.pixieDustColor)
+                 .lineWidthSet(@5)
                  .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
                  ]);
     return aaChartModel;
@@ -258,7 +249,7 @@
                  AASeriesElement.new
                  .nameSet(@"ElementOne")
                  .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
-                 .colorByPointSet((id)@(true)),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+                 .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
                  ]);
     return aaChartModel;
 }
@@ -270,12 +261,11 @@
     .subtitleSet(@"gradient color bar")
     .borderRadiusSet(@5)
     .xAxisReversedSet(true)
-    .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2020")
                  .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
-                 .colorSet((id)[AAGradientColor ultramarineColor]),
+                 .colorSet((id)[AAGradientColor oceanBlueColor]),
                  AASeriesElement.new
                  .nameSet(@"2021")
                  .dataSet(@[@111,@83,@187,@163,@151,@191,@173,@157,@143,@131,@121,@113,@97,@93])

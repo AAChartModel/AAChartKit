@@ -338,11 +338,14 @@
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
 
    // 下面是更清晰的另一种写法
-    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
+    AAChart *aaChart = AAChart.new
+    .typeSet(AAChartTypeColumn);
     
-    AATitle *aaTitle = AATitle.new.textSet(@"分公司效率优化嵌套图");
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"分公司效率优化嵌套图");
     
-    AAXAxis *aaXAxis = AAXAxis.new.categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
+    AAXAxis *aaXAxis = AAXAxis.new
+    .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
     
     AAYAxis *aaYAxis1 = AAYAxis.new
     .visibleSet(true)
@@ -352,9 +355,13 @@
     AAYAxis *aaYAxis2 = AAYAxis.new
     .visibleSet(true)
     .oppositeSet(true)
-    .titleSet(AATitle.new.textSet(@"利润 (millions)"));
+    .titleSet(AATitle.new
+              .textSet(@"利润 (millions)"));
     
-    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
     .seriesSet(AASeries.new
                .animationSet(AAAnimation.new
@@ -400,14 +407,14 @@
                           .yAxisSet(@1),
                           ];
     
-    AAOptions *aaOptions = AAOptions.new;
-    aaOptions.chart = aaChart;
-    aaOptions.title = aaTitle;
-    aaOptions.xAxis = aaXAxis;
-    aaOptions.yAxis = (id)@[aaYAxis1,aaYAxis2];
-    aaOptions.tooltip = aaTooltip;
-    aaOptions.plotOptions = aaPlotOptions;
-    aaOptions.series = aaSeries;
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[aaYAxis1,aaYAxis2])
+    .tooltipSet(aaTooltip)
+    .plotOptionsSet(aaPlotOptions)
+    .seriesSet(aaSeries);
     
     return aaOptions;
 
@@ -424,11 +431,11 @@
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
-    .easyGradientColorsSet(true)
     .polarSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2017")
+                 .colorSet((id)AAGradientColor.deepSeaColor)
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
                  AASeriesElement.new
                  .nameSet(@"2018")
@@ -618,7 +625,7 @@
     .labelsSet(labels)
     .titleSet(AATitle.new.textSet(@"温度")
               .styleSet(AAStyle.new
-                        .colorSet(@"#00ff00")//Title font color
+                        .colorSet(@"#1e90ff")//Title font color
                         .fontSizeSet(@"14px")//Title font size
                         .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
                         .textOutlineSet(@"0px 0px contrast")
@@ -631,7 +638,7 @@
     .labelsSet(labels.formatSet(@"{value}mm"))
     .titleSet(AATitle.new.textSet(@"降雨量")
               .styleSet(AAStyle.new
-                        .colorSet(@"#ff0000")//Title font color
+                        .colorSet(@"#1e90ff")//Title font color
                         .fontSizeSet(@"14px")//Title font size
                         .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
                         ));
@@ -646,6 +653,8 @@
                           AASeriesElement.new
                           .nameSet(@"2017")
                           .typeSet(AAChartTypeColumn)
+                          .borderRadiusSet(@4)
+                          .colorSet((id)AAGradientColor.mysticMauveColor)
                           .yAxisSet(@1)
                           .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
                           .dataLabelsSet(AADataLabels.new.enabledSet(true))
@@ -653,6 +662,7 @@
                           AASeriesElement.new
                           .nameSet(@"2018")
                           .typeSet(AAChartTypeLine)
+                          .colorSet(AAColor.redColor)
                           .yAxisSet(@0)
                           .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
                           .dataLabelsSet(AADataLabels.new.enabledSet(true))
@@ -722,9 +732,11 @@
 - (AAOptions *)customStyleStackedColumnChart {
     
     //Method 1
-    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
+    AAChart *aaChart = AAChart.new
+    .typeSet(AAChartTypeColumn);
     
-    AATitle *aaTitle = AATitle.new.textSet(@"Stacked column chart");
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"Stacked column chart");
     
     AAXAxis *aaXAxis = AAXAxis.new
     .visibleSet(true)
@@ -736,7 +748,8 @@
     .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
     .stackLabelsSet(AALabels.new
                     .enabledSet(true)
-                    .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
+                    .styleSet(AAStyle.new.
+                              fontWeightSet(AAChartFontWeightTypeBold))
                     );
     
     AALegend *aaLegend = AALegend.new
@@ -797,7 +810,7 @@
     aaOptions.series = aaSeriesArr;
     aaOptions.colors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
     
-    return aaOptions;
+//    return aaOptions;
     
     // Method 2
     AAOptions *options2 = AAOptions.new
@@ -927,7 +940,7 @@
     
     //Method 1
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)//图形类型
+    .chartTypeSet(AAChartTypeLine)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
@@ -937,7 +950,6 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"價格")
-                 .colorSet(@"#003386")
                  .stepSet(@true)
                  .dataSet(@[
                             @[AADateUTC(2016, 9 - 1, 2),   @389.00],
@@ -1019,7 +1031,7 @@
                                };
     
     aaOptions.xAxis = (id)xAxisDic;
-//    return aaOptions;
+    return aaOptions;
     
  //Method 2
   NSDictionary *aaOptions2 = @{
@@ -1257,9 +1269,12 @@
                     AAYAxis.new
                     .visibleSet(true)
                     .titleSet(AATitle.new.textSet(@"支出"))
+                    .lineWidthSet(@1)
                     .oppositeSet(true)
                     ])
-    .tooltipSet(AATooltip.new.enabledSet(true).sharedSet(true))
+    .tooltipSet(AATooltip.new
+                .enabledSet(true)
+                .sharedSet(true))
     .plotOptionsSet(AAPlotOptions.new
                     .seriesSet(AASeries.new
                                .animationSet(AAAnimation.new
@@ -1524,8 +1539,8 @@
     .xAxisCrosshairColorSet(AAColor.grayColor)
     .tooltipEnabledSet(false)
     .categoriesSet(@[
-                     @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
-                     @"10-12",@"10-13",@"10-14",@"10-15",])
+                     @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",
+                     @"10-10",@"10-11",@"10-12",@"10-13",@"10-14",@"10-15",])
     .seriesSet(@[
                  AASeriesElement.new
                  .colorSet(AAColor.redColor)// blue color
@@ -1537,8 +1552,8 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AALineDashSyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashSyleTypeLongDash
-    AADataLabels *aaDatalables = aaOptions.plotOptions.line.dataLabels;
-    aaDatalables
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.line.dataLabels;
+    aaDatalabels
     .ySet(@-10)
     .formatSet(@"{y}美元")
     .colorSet(AAColor.redColor)// blue color
