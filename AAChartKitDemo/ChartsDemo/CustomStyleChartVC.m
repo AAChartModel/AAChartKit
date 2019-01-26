@@ -53,10 +53,9 @@
 }
 
 - (AAChartView *)setUpAAChartView {
-    CGRect chartViewFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
     aaChartView.scrollEnabled = NO;
-    aaChartView.contentHeight = aaChartView.frame.size.height-80;
     [self.view addSubview:aaChartView];
     return aaChartView;
 }

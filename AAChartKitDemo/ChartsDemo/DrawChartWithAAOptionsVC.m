@@ -48,8 +48,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.navigationItemTitle;
     
-    AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    aaChartView.contentHeight = aaChartView.frame.size.height-80;
+    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
+    AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:chartViewFrame];
     [self.view addSubview:aaChartView];
     aaChartView.scrollEnabled = NO;
     self.aaChartView = aaChartView;

@@ -46,11 +46,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect chartViewFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    self.aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
+    self.aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
     self.view.backgroundColor = [UIColor whiteColor];
     self.aaChartView.scrollEnabled = NO;
-    self.aaChartView.contentHeight = self.aaChartView.frame.size.height-80;
     [self.view addSubview:self.aaChartView];
     
     
