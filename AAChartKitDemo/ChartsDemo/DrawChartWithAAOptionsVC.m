@@ -78,13 +78,18 @@
                                     @"Disable Animation ---禁用动画效果",
                                     @"Custom Legend Item Style---自定义图例样式",
                                     @"Mirror Chart ---镜像效果的柱状图",
-                                    @"y轴在右侧的图表"
+                                    @"y轴在右侧的图表",
+                                    @"简易仪表图",
+                                    @"带有颜色带的仪表图",
+                                    @"带有颜色标志带的曲线图表",
+                                    @"带有颜色标志线及文字的曲线图表",
+                                    @"自定义DataLabels样式",
                                     ];
 }
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 17) {
+    if (self.selectedIndex == 22) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -96,16 +101,16 @@
 
 - (AAOptions *)configureChartOptions {
     switch (self.selectedIndex) {
-        case 0: return [self configureTheAAOptionsOfAreaChart];
-        case 1: return [self configureTheAAOptionsOfPieChart];
-        case 2: return [self adjustPieChartTitleAndDataLabelFontStyle];
-        case 3: return [self configureTheAAOptionsOfSpecialNestedColumnChart];
-        case 4: return [self configureThePolygonPolarChart];
-        case 5: return [self configureTheNoGapColunmChart];
-        case 6: return [self configureCustomStyleTooltipChart];
-        case 7: return [self adjustChartLeftAndRightMargin];
-        case 8: return [self configureChartWithBackgroundImage];
-        case 9: return [self configureDoubleYAxisChartOptions];
+        case 0:  return [self configureTheAAOptionsOfAreaChart];
+        case 1:  return [self configureTheAAOptionsOfPieChart];
+        case 2:  return [self adjustPieChartTitleAndDataLabelFontStyle];
+        case 3:  return [self configureTheAAOptionsOfSpecialNestedColumnChart];
+        case 4:  return [self configureThePolygonPolarChart];
+        case 5:  return [self configureTheNoGapColunmChart];
+        case 6:  return [self configureCustomStyleTooltipChart];
+        case 7:  return [self adjustChartLeftAndRightMargin];
+        case 8:  return [self configureChartWithBackgroundImage];
+        case 9:  return [self configureDoubleYAxisChartOptions];
         case 10: return [self adjustChartSeriesDataAccuracy];
         case 11: return [self adjustGroupPaddingForPolarChart];
         case 12: return [self customStyleStackedColumnChart];
@@ -116,11 +121,9 @@
         case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 18: return [self simpleGaugeChart];//简易仪表图
         case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
-        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的图表
-        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线的图表
+        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图表
+        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的曲线图表
         case 22: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
-
-
     }
     return nil;
 }
@@ -1258,7 +1261,7 @@
 
 - (AAOptions *)adjustChartDataLabelsStyle {
     AAChartModel *aaChartModel= AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图表类型
+    .chartTypeSet(AAChartTypeSpline)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
     .markerRadiusSet(@7)
@@ -1285,7 +1288,7 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AALineDashSyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashSyleTypeLongDash
-    AADataLabels *aaDatalabels = aaOptions.plotOptions.line.dataLabels;
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.spline.dataLabels;
     aaDatalabels
     .ySet(@-10)
     .formatSet(@"{y}美元")
