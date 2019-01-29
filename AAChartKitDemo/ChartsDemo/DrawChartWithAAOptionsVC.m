@@ -442,8 +442,15 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1. https://api.hcharts.cn/plotOptions.column.groupPadding
-    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2. https://api.hcharts.cn/plotOptions.column.pointPadding
+    
+    //    *  关于 `pointPadding`
+    //https://api.highcharts.com.cn/highcharts#plotOptions.column.groupPadding
+    //
+    //    * 关于 `pointPadding`
+    //https://api.highcharts.com.cn/highcharts#plotOptions.column.pointPadding
+    
+    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
+    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
     
     aaOptions.plotOptions.column.dataLabels
     .ySet(@-10)

@@ -571,31 +571,6 @@
                      ]);
         return aaChartModel;
     } else if ([chartType isEqualToString:@"negativeColorMixedBubble"]) {
-        NSDictionary *gradientColorDic1 =
-        @{
-          @"linearGradient": @{
-                  @"x1": @0,
-                  @"y1": @0,
-                  @"x2": @0,
-                  @"y2": @1
-                  },
-          @"stops": @[@[@0,@"#8A2BE2"],
-                      @[@1,@"#1E90FF"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-          };
-        
-        
-        NSDictionary *gradientColorDic2 =
-        @{
-          @"linearGradient": @{
-                  @"x1": @0,
-                  @"y1": @1,
-                  @"x2": @0,
-                  @"y2": @0
-                  },
-          @"stops": @[@[@0,@"rgba(255,140,0,0.2)"],
-                      @[@1,@"rgba(220,20,60,1)"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-          };
-        
         AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
         .titleSet(@"")
@@ -630,8 +605,8 @@
                                 @[@6,@4,@0],@[@6,@5,@0],@[@6,@6,@0],@[@6,@7,@0],@[@6,@8,@0],@[@6,@9,@0],@[@6,@10,@1],
                                 @[@6,@11,@0],@[@6,@12,@2],@[@6,@13,@1],@[@6,@14,@3],@[@6,@15,@4],@[@6,@16,@0],@[@6,@17,@0],
                                 @[@6,@18,@0],@[@6,@19,@0],@[@6,@20,@1],@[@6,@21,@2],@[@6,@22,@2],@[@6,@23,@6]])
-                     .colorSet((id)gradientColorDic2)
-                     .negativeColorSet((id)gradientColorDic1)
+                     .colorSet((id)[AAGradientColor oceanBlueColor])
+                     .negativeColorSet((id)[AAGradientColor pinkSugarColor])
                      .thresholdSet(@5)//default:0
                      ,
                      ]);
