@@ -54,7 +54,9 @@ AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL ,      startOnTick)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AACrosshair *, crosshair)  //准星线样式设置
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickmarkPlacement) //本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
-
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickWidth) //坐标轴刻度线的宽度，设置为 0 时则不显示刻度线
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickLength)//坐标轴刻度线的长度。 默认是：10.
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickPosition) //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
 
 
 //lineWidth :0,
