@@ -61,6 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)coastalBreezeColor;
 + (NSDictionary *)eveningDelightColor;
 
++ (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
+                                              endColorString:(NSString *)endColorStr;
+
 @end
 
 NS_ASSUME_NONNULL_END
