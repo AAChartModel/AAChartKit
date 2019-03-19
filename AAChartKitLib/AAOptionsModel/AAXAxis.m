@@ -51,6 +51,7 @@ AAPropSetFuncImplementation(AAXAxis, NSNumber *, min)  //x轴最小值（设置�
 AAPropSetFuncImplementation(AAXAxis, NSString *, tickColor) //x轴轴线下方刻度线颜色
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, offset) //x轴垂直偏移
 AAPropSetFuncImplementation(AAXAxis, AALabels *, labels) 
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      visible) 
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, tickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
