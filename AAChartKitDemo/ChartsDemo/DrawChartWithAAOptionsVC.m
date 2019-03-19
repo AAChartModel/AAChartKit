@@ -323,16 +323,29 @@
     .textSet(@"分公司效率优化嵌套图");
     
     AAXAxis *aaXAxis = AAXAxis.new
+    .tickWidthSet(@3)
+    .tickLengthSet(@10)
+    .tickPositionSet(@"outside")
+    .lineWidthSet(@3)
+    .visibleSet(true)
     .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
     
     AAYAxis *aaYAxis1 = AAYAxis.new
     .visibleSet(true)
     .minSet(0)
+    .tickWidthSet(@3)
+    .tickLengthSet(@10)
+    .tickPositionSet(@"outside")
+    .lineWidthSet(@3)
     .titleSet(AATitle.new.textSet(@"雇员"));
     
     AAYAxis *aaYAxis2 = AAYAxis.new
     .visibleSet(true)
     .oppositeSet(true)
+    .tickWidthSet(@3)
+    .tickLengthSet(@20)
+    .tickPositionSet(@"inside")
+    .lineWidthSet(@3)
     .titleSet(AATitle.new
               .textSet(@"利润 (millions)"));
     
