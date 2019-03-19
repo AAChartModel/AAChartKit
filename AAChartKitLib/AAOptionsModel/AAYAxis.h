@@ -53,6 +53,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAYAxisGridLineInterpola
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, labels) //用于设置 y 轴是否显示
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, lineWidth) // y 轴线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, lineColor) // y 轴线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, offset) // y 轴线水平偏移
 
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       allowDecimals)  //y轴是否允许显示小数
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, NSNumber *, max)  //y轴最大值
