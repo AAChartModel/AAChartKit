@@ -48,8 +48,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.navigationItemTitle;
     
-    AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    aaChartView.contentHeight = aaChartView.frame.size.height-80;
+    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
+    AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:chartViewFrame];
     [self.view addSubview:aaChartView];
     aaChartView.scrollEnabled = NO;
     self.aaChartView = aaChartView;
@@ -78,13 +78,18 @@
                                     @"Disable Animation ---禁用动画效果",
                                     @"Custom Legend Item Style---自定义图例样式",
                                     @"Mirror Chart ---镜像效果的柱状图",
-                                    @"y轴在右侧的图表"
+                                    @"y轴在右侧的图表",
+                                    @"简易仪表图",
+                                    @"带有颜色带的仪表图",
+                                    @"带有颜色标志带的曲线图表",
+                                    @"带有颜色标志线及文字的曲线图表",
+                                    @"自定义DataLabels样式",
                                     ];
 }
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 17) {
+    if (self.selectedIndex == 22) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -96,16 +101,16 @@
 
 - (AAOptions *)configureChartOptions {
     switch (self.selectedIndex) {
-        case 0: return [self configureTheAAOptionsOfAreaChart];
-        case 1: return [self configureTheAAOptionsOfPieChart];
-        case 2: return [self adjustPieChartTitleAndDataLabelFontStyle];
-        case 3: return [self configureTheAAOptionsOfSpecialNestedColumnChart];
-        case 4: return [self configureThePolygonPolarChart];
-        case 5: return [self configureTheNoGapColunmChart];
-        case 6: return [self configureCustomStyleTooltipChart];
-        case 7: return [self adjustChartLeftAndRightMargin];
-        case 8: return [self configureChartWithBackgroundImage];
-        case 9: return [self configureDoubleYAxisChartOptions];
+        case 0:  return [self configureTheAAOptionsOfAreaChart];
+        case 1:  return [self configureTheAAOptionsOfPieChart];
+        case 2:  return [self adjustPieChartTitleAndDataLabelFontStyle];
+        case 3:  return [self configureTheAAOptionsOfSpecialNestedColumnChart];
+        case 4:  return [self configureThePolygonPolarChart];
+        case 5:  return [self configureTheNoGapColunmChart];
+        case 6:  return [self configureCustomStyleTooltipChart];
+        case 7:  return [self adjustChartLeftAndRightMargin];
+        case 8:  return [self configureChartWithBackgroundImage];
+        case 9:  return [self configureDoubleYAxisChartOptions];
         case 10: return [self adjustChartSeriesDataAccuracy];
         case 11: return [self adjustGroupPaddingForPolarChart];
         case 12: return [self customStyleStackedColumnChart];
@@ -116,72 +121,48 @@
         case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 18: return [self simpleGaugeChart];//简易仪表图
         case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
-        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的图表
-        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线的图表
+        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图表
+        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的曲线图表
         case 22: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
-
-
     }
     return nil;
 }
 
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .stackingSet(AAChartStackingTypeNormal)
+    .colorsThemeSet(@[
+                      [AAGradientColor oceanBlueColor],
+                      [AAGradientColor sanguineColor],
+                      [AAGradientColor lusciousLimeColor],
+                      [AAGradientColor mysticMauveColor],
+                      ])
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+                 AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+                 AASeriesElement.new
+                 .nameSet(@"London Hot")
+                 .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+                 AASeriesElement.new
+                 .nameSet(@"NewYork Hot")
+                 .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+                 ]
+               );
     
-    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeArea);
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
-    AATitle *aaTitle = AATitle.new.textSet(@"AAChartKit");
-    
-    AASubtitle *aaSubtitle = AASubtitle.new
-    .textSet(@"Source: https://github.com/AAChartModel/AAChartKit")
-    .alignSet(AAChartTitleAlignTypeLeft);
-    
-    AAXAxis *aaXAxis = AAXAxis.new
-    .visibleSet(true)
-    .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]);
-    
-    AAYAxis *aaYAXis = AAYAxis.new
-    .visibleSet(true)
-    .titleSet(AATitle.new
-              .textSet(@"Temperature (xB0C)"))
-    .plotLinesSet(@[AAPlotLinesElement.new
-                    .valueSet(@0)
-                    .widthSet(@1)
-                    .colorSet(@"#808080")]);
-    
-    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).valueSuffixSet(@"xB0C");
-    
-    AALegend *aaLegend = AALegend.new
+    aaOptions.legend = AALegend.new
     .enabledSet(true)
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop);
-    
-    NSArray *aaSeries = @[
-                          AASeriesElement.new
-                          .nameSet(@"2017")
-                          .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                          AASeriesElement.new
-                          .nameSet(@"2018")
-                          .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                          AASeriesElement.new
-                          .nameSet(@"2019")
-                          .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                          AASeriesElement.new
-                          .nameSet(@"2020")
-                          .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-                          ];
-    NSArray *aaColors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
-
-    AAOptions *aaOptions = AAOptions.new;
-    aaOptions.chart = aaChart;
-    aaOptions.title = aaTitle;
-    aaOptions.subtitle = aaSubtitle;
-    aaOptions.xAxis = aaXAxis;
-    aaOptions.yAxis = aaYAXis;
-    aaOptions.tooltip = aaTooltip;
-    aaOptions.legend = aaLegend;
-    aaOptions.series = aaSeries;
-    aaOptions.colors = aaColors;
     return aaOptions;
 }
 
@@ -239,7 +220,6 @@
                           ),
                  ])
     .colorsSet(@[@"#1E90FF",@"#e7a701",@"#50c18d",@"#fd4800",@"#F4A460"]);//设置颜色主题
-    
     return aaOptions;
     
     
@@ -297,7 +277,6 @@
     chartOptions.plotOptions = aaPlotOptions;
     chartOptions.series = aaSeries;
     chartOptions.colors = aaColors;
-    
     return chartOptions;
 }
 
@@ -331,18 +310,20 @@
                             ]
                           ),
                  ]);
-    
     return aaOptions;
 }
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
 
    // 下面是更清晰的另一种写法
-    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
+    AAChart *aaChart = AAChart.new
+    .typeSet(AAChartTypeColumn);
     
-    AATitle *aaTitle = AATitle.new.textSet(@"分公司效率优化嵌套图");
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"分公司效率优化嵌套图");
     
-    AAXAxis *aaXAxis = AAXAxis.new.categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
+    AAXAxis *aaXAxis = AAXAxis.new
+    .categoriesSet(@[@"伦敦总部",@"柏林分部",@"纽约分部",]);
     
     AAYAxis *aaYAxis1 = AAYAxis.new
     .visibleSet(true)
@@ -352,9 +333,13 @@
     AAYAxis *aaYAxis2 = AAYAxis.new
     .visibleSet(true)
     .oppositeSet(true)
-    .titleSet(AATitle.new.textSet(@"利润 (millions)"));
+    .titleSet(AATitle.new
+              .textSet(@"利润 (millions)"));
     
-    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
     .seriesSet(AASeries.new
                .animationSet(AAAnimation.new
@@ -400,17 +385,15 @@
                           .yAxisSet(@1),
                           ];
     
-    AAOptions *aaOptions = AAOptions.new;
-    aaOptions.chart = aaChart;
-    aaOptions.title = aaTitle;
-    aaOptions.xAxis = aaXAxis;
-    aaOptions.yAxis = (id)@[aaYAxis1,aaYAxis2];
-    aaOptions.tooltip = aaTooltip;
-    aaOptions.plotOptions = aaPlotOptions;
-    aaOptions.series = aaSeries;
-    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[aaYAxis1,aaYAxis2])
+    .tooltipSet(aaTooltip)
+    .plotOptionsSet(aaPlotOptions)
+    .seriesSet(aaSeries);
     return aaOptions;
-
 }
 
 - (AAOptions *)configureThePolygonPolarChart {
@@ -424,31 +407,17 @@
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
-    .easyGradientColorsSet(true)
     .polarSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2017")
+                 .colorSet((id)AAGradientColor.deepSeaColor)
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                 AASeriesElement.new
-                 .nameSet(@"2018")
-                 .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                 AASeriesElement.new
-                 .nameSet(@"2019")
-                 .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                 AASeriesElement.new
-                 .nameSet(@"2020")
-                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ]
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.legend
-    .alignSet(AALegendAlignTypeLeft)
-    .layoutSet(AALegendLayoutTypeVertical)
-    .verticalAlignSet(AALegendVerticalAlignTypeTop);
-    
-    aaOptions.xAxis.lineWidth = @0;
+    aaOptions.xAxis.visible = false;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     return aaOptions;
 }
@@ -473,8 +442,15 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1. https://api.hcharts.cn/plotOptions.column.groupPadding
-    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2. https://api.hcharts.cn/plotOptions.column.pointPadding
+    
+    //    *  关于 `pointPadding`
+    //https://api.highcharts.com.cn/highcharts#plotOptions.column.groupPadding
+    //
+    //    * 关于 `pointPadding`
+    //https://api.highcharts.com.cn/highcharts#plotOptions.column.pointPadding
+    
+    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
+    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
     
     aaOptions.plotOptions.column.dataLabels
     .ySet(@-10)
@@ -538,7 +514,6 @@
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px"))
     ;
-
     return aaOptions;
 }
 
@@ -618,7 +593,7 @@
     .labelsSet(labels)
     .titleSet(AATitle.new.textSet(@"温度")
               .styleSet(AAStyle.new
-                        .colorSet(@"#00ff00")//Title font color
+                        .colorSet(@"#1e90ff")//Title font color
                         .fontSizeSet(@"14px")//Title font size
                         .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
                         .textOutlineSet(@"0px 0px contrast")
@@ -631,7 +606,7 @@
     .labelsSet(labels.formatSet(@"{value}mm"))
     .titleSet(AATitle.new.textSet(@"降雨量")
               .styleSet(AAStyle.new
-                        .colorSet(@"#ff0000")//Title font color
+                        .colorSet(@"#1e90ff")//Title font color
                         .fontSizeSet(@"14px")//Title font size
                         .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
                         ));
@@ -646,6 +621,8 @@
                           AASeriesElement.new
                           .nameSet(@"2017")
                           .typeSet(AAChartTypeColumn)
+                          .borderRadiusSet(@4)
+                          .colorSet((id)AAGradientColor.mysticMauveColor)
                           .yAxisSet(@1)
                           .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
                           .dataLabelsSet(AADataLabels.new.enabledSet(true))
@@ -653,6 +630,7 @@
                           AASeriesElement.new
                           .nameSet(@"2018")
                           .typeSet(AAChartTypeLine)
+                          .colorSet(AAColor.redColor)
                           .yAxisSet(@0)
                           .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
                           .dataLabelsSet(AADataLabels.new.enabledSet(true))
@@ -664,7 +642,6 @@
     aaOptions.yAxis = (id)aaYAxisArr;
     aaOptions.tooltip = aaTooltip;
     aaOptions.series = aaSeries;
-    
     return aaOptions;
 }
 
@@ -691,12 +668,10 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip.valueDecimals = @9;//设置tooltip取值精确到小数点后9位
     aaOptions.plotOptions.area.dataLabels.format = @"{point.y:.9f}";//设置dataLabels取值精确到小数点后9位
-
     return aaOptions;
 }
 
 - (AAOptions *)adjustGroupPaddingForPolarChart {
-    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"Colorful Column Chart")
@@ -714,17 +689,16 @@
     AAColumn *aaColumn = aaOptions.plotOptions.column;
     aaColumn.groupPadding = @0.05;
     aaColumn.colorByPoint = true;
-    
     return aaOptions;
-    
 }
 
 - (AAOptions *)customStyleStackedColumnChart {
-    
     //Method 1
-    AAChart *aaChart = AAChart.new.typeSet(AAChartTypeColumn);
+    AAChart *aaChart = AAChart.new
+    .typeSet(AAChartTypeColumn);
     
-    AATitle *aaTitle = AATitle.new.textSet(@"Stacked column chart");
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"Stacked column chart");
     
     AAXAxis *aaXAxis = AAXAxis.new
     .visibleSet(true)
@@ -736,7 +710,8 @@
     .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
     .stackLabelsSet(AALabels.new
                     .enabledSet(true)
-                    .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
+                    .styleSet(AAStyle.new.
+                              fontWeightSet(AAChartFontWeightTypeBold))
                     );
     
     AALegend *aaLegend = AALegend.new
@@ -797,7 +772,7 @@
     aaOptions.series = aaSeriesArr;
     aaOptions.colors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
     
-    return aaOptions;
+//    return aaOptions;
     
     // Method 2
     AAOptions *options2 = AAOptions.new
@@ -854,80 +829,12 @@
                  ]);
     
     return options2;
-    
-    //Method 3
-    AAOptions *options3 = (id)@{
-                            @"chart": @{
-                                    @"type": @"column"
-                                    },
-                            @"title": @{
-                                    @"text": @"Stacked column chart"
-                                    },
-                            @"xAxis": @{
-                                    @"categories": @[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]
-                                    },
-                            @"yAxis": @{
-                                    @"min": @0,
-                                    @"title": @{
-                                            @"text": @"Total fruit consumption"
-                                            },
-                                    @"stackLabels": @{
-                                            @"enabled": @(true),
-                                            @"style": @{
-                                                    @"fontWeight": @"bold",
-                                                    }
-                                            }
-                                    },
-                            @"legend": @{
-                                    @"align": @"right",
-                                    @"x": @-30,
-                                    @"verticalAlign": @"top",
-                                    @"y": @25,
-                                    @"floating": @(true),
-                                    
-                                    @"borderColor": @"#CCC",
-                                    @"borderWidth": @1,
-                                    @"shadow": @(false)
-                                    },
-                            @"tooltip": @{
-                                    @"headerFormat": @"<b>{point.x}</b><br/>",
-                                    @"pointFormat": @"{series.name}: {point.y}<br/>Total: {point.stackTotal}"
-                                    },
-                            @"plotOptions": @{
-                                    @"series":@{
-                                            @"animation":@{
-                                                    @"easing":@(AAChartAnimationBounce),
-                                                    @"duration":@1000
-                                                    }
-                                            },
-                                    @"column": @{
-                                            @"stacking": @"normal",
-                                            @"dataLabels": @{
-                                                    @"enabled": @(true),
-                                                    
-                                                    }
-                                            }
-                                    },
-                            @"series": @[@{
-                                             @"name": @"John",
-                                             @"data": @[@5, @3, @4, @7, @2]
-                                             }, @{
-                                             @"name": @"Jane",
-                                             @"data": @[@2, @2, @3, @2, @1]
-                                             }, @{
-                                             @"name": @"Joe",
-                                             @"data": @[@3, @4, @4, @2, @5]
-                                             }]
-                            };
-    
-    return options3;
 }
 
 - (AAOptions *)specialStyleStepLineChart {
-    
     //Method 1
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)//图形类型
+    .chartTypeSet(AAChartTypeLine)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
@@ -937,7 +844,6 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"價格")
-                 .colorSet(@"#003386")
                  .stepSet(@true)
                  .dataSet(@[
                             @[AADateUTC(2016, 9 - 1, 2),   @389.00],
@@ -1019,156 +925,7 @@
                                };
     
     aaOptions.xAxis = (id)xAxisDic;
-//    return aaOptions;
-    
- //Method 2
-  NSDictionary *aaOptions2 = @{
-                   @"title": @false,
-                   @"credits": @false,
-                   @"chart": @{
-                           @"type": @"line",
-                           @"backgroundColor": @"#ffffff"
-                           },
-                   @"plotOptions": @{
-                           @"series":@{
-                                   @"animation":@{
-                                           @"easing":@(AAChartAnimationLinear),
-                                           @"duration":@1000
-                                           }
-                                   },
-                           @"line": @{
-                                   @"color": @"#003386",
-                                   @"lineWidth": @1,
-                                   @"dataLabels": @{
-                                           @"enabled": @false,
-                                           @"backgroundColor": @"rgba(255, 255, 255, 1.0)",
-                                           @"format": @"{y} HK$",
-                                           @"zIndex": @3
-                                           },
-                                   @"enableMouseTracking": @true,
-                                   @"marker": @{
-                                           @"fillColor": @"white",
-                                           @"symbol": @"circle",
-                                           @"lineWidth": @1,
-                                           @"lineColor": @"#003386"
-                                           }
-                                   }
-                           },
-                   @"legend": @{
-                           @"layout": @"horizontal",
-                           @"align": @"left",
-                           @"verticalAlign": @"bottom"
-                           },
-                   @"tooltip": @{
-                           @"shared": @true,
-                           @"shadow": @false,
-                           @"crosshairs": @true,
-                           @"backgroundColor": @"#fff",
-                           @"borderColor": @"#5177b4",
-                           @"borderWidth": @1,
-                           @"xDateFormat": @"%Y-%m-%d",
-                           @"valueSuffix": @"  HK$"
-                           },
-                   @"xAxis": @{
-                           @"type": @"datetime",
-                           @"dateTimeLabelFormats": @{
-                                   @"month": @"%e.%m.%y"
-                                   }
-                           },
-                   @"yAxis": @{
-                           @"title": @false,
-                           @"tickPixelInterval": @40,
-                           @"alternateGridColor": @"#fafafa",
-                           @"gridLineColor": @"#f0f0f0",
-                           @"gridLineDashStyle": @"dash",
-                           @"labels": @{
-                                   @"enabled": @true,
-                                   @"format": @"{value} HK$"
-                                   },
-                           @"min": @0,
-                           @"showFirstLabel": @false
-                           },
-                   @"series": @[@{
-                                     @"zIndex": @2,
-                                     @"name": @"價格",
-                                     @"color": @"#003386",
-                                     @"step": @"left",
-                                     @"data": @[
-                                             @[@1472774400000, @389],
-                                             @[@1475539200000, @350.1],
-                                             @[@1475539200000, @350.1],
-                                             @[@1476662400000, @389],
-                                             @[@1479945600000, @233.4],
-                                             @[@1480377600000, @389],
-                                             @[@1482192000000, @233.4],
-                                             @[@1483574400000, @389],
-                                             @[@1485907200000, @233.4],
-                                             @[@1486598400000, @389],
-                                             @[@1493164800000, @233.4],
-                                             @[@1494288000000, @389],
-                                             @[@1500422400000, @291.75],
-                                             @[@1501632000000, @389],
-                                             @[@1508284800000, @155.6],
-                                             @[@1509408000000, @389],
-                                             @[@1511222400000, @194.5],
-                                             @[@1511827200000, @389],
-                                             @[@1511913600000, @194.5],
-                                             @[@1513123200000, @389],
-                                             @[@1514160000000, @194.5],
-                                             @[@1515456000000, @389],
-                                             @[@1518048000000, @194.5],
-                                             @[@1519171200000, @389],
-                                             @[@1520467200000, @155.6],
-                                             @[@1521331200000, @389],
-                                             @[@1528416000000, @155.6],
-                                             @[@1529280000000, @389],
-                                             @[@1531353600000, @194.5],
-                                             @[@1532052447381, @194.5]
-                                             ]
-                                     }, @{
-                                     @"zIndex": @1,
-                                     @"name": @"PS+",
-                                     @"color": @"#FFC535",
-                                     @"marker": @{
-                                             @"lineColor": @"#FFC535"
-                                             },
-                                     @"step": @"left",
-                                     @"data": @[
-                                             @[@1472774400000, @389],
-                                             @[@1475539200000, @311.2],
-                                             @[@1475539200000, @311.2],
-                                             @[@1476662400000, @389],
-                                             @[@1479945600000, @233.4],
-                                             @[@1480377600000, @389],
-                                             @[@1482192000000, @233.4],
-                                             @[@1483574400000, @389],
-                                             @[@1485907200000, @194.5],
-                                             @[@1486598400000, @389],
-                                             @[@1493164800000, @194.5],
-                                             @[@1494288000000, @389],
-                                             @[@1500422400000, @194.5],
-                                             @[@1501632000000, @389],
-                                             @[@1508284800000, @155.6],
-                                             @[@1509408000000, @389],
-                                             @[@1511222400000, @155.6],
-                                             @[@1511827200000, @389],
-                                             @[@1511913600000, @155.6],
-                                             @[@1513123200000, @389],
-                                             @[@1514160000000, @155.6],
-                                             @[@1515456000000, @389],
-                                             @[@1518048000000, @155.6],
-                                             @[@1519171200000, @389],
-                                             @[@1520467200000, @155.6],
-                                             @[@1521331200000, @389],
-                                             @[@1528416000000, @155.6],
-                                             @[@1529280000000, @389],
-                                             @[@1531353600000, @155.6],
-                                             @[@1532052447381, @155.6]
-                                             ]
-                                     }]
-                   };
-
-    return (id)aaOptions2;
+    return aaOptions;
 }
 
 - (AAOptions *)disableChartAnimation {
@@ -1189,7 +946,6 @@
 
 
 - (AAOptions *)customChartLengendItemStyle {
-    
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
@@ -1214,7 +970,6 @@
 //    aaOptions.xAxis.tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
 //    aaOptions.yAxis.minPadding = @0;
     aaOptions.yAxis.lineWidth = @0;
-    
     return aaOptions;
 }
 
@@ -1257,9 +1012,12 @@
                     AAYAxis.new
                     .visibleSet(true)
                     .titleSet(AATitle.new.textSet(@"支出"))
+                    .lineWidthSet(@1)
                     .oppositeSet(true)
                     ])
-    .tooltipSet(AATooltip.new.enabledSet(true).sharedSet(true))
+    .tooltipSet(AATooltip.new
+                .enabledSet(true)
+                .sharedSet(true))
     .plotOptionsSet(AAPlotOptions.new
                     .seriesSet(AASeries.new
                                .animationSet(AAAnimation.new
@@ -1510,7 +1268,7 @@
 
 - (AAOptions *)adjustChartDataLabelsStyle {
     AAChartModel *aaChartModel= AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图表类型
+    .chartTypeSet(AAChartTypeSpline)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
     .markerRadiusSet(@7)
@@ -1524,8 +1282,8 @@
     .xAxisCrosshairColorSet(AAColor.grayColor)
     .tooltipEnabledSet(false)
     .categoriesSet(@[
-                     @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
-                     @"10-12",@"10-13",@"10-14",@"10-15",])
+                     @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",
+                     @"10-10",@"10-11",@"10-12",@"10-13",@"10-14",@"10-15",])
     .seriesSet(@[
                  AASeriesElement.new
                  .colorSet(AAColor.redColor)// blue color
@@ -1537,8 +1295,8 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AALineDashSyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashSyleTypeLongDash
-    AADataLabels *aaDatalables = aaOptions.plotOptions.line.dataLabels;
-    aaDatalables
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.spline.dataLabels;
+    aaDatalabels
     .ySet(@-10)
     .formatSet(@"{y}美元")
     .colorSet(AAColor.redColor)// blue color

@@ -259,17 +259,17 @@
                                  AASeriesElement.new
                                  .nameSet(@"Berlin")
                                  .dataSet(@[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4])
-                                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+                                 .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
                                  ,
                                  AASeriesElement.new
                                  .nameSet(@"New York")
                                  .dataSet(@[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3])
-                                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+                                 .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
                                  ,
                                  AASeriesElement.new
                                  .nameSet(@"Tokyo")
                                  .dataSet(@[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2])
-                                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+                                 .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
                                  ,
                                  ];
     }
@@ -455,12 +455,12 @@
         || self.chartType == SecondeViewControllerChartTypeStepLine) {
         [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
-            element.step = (id)@YES;
+            element.step = @YES;
         }];
     } else if (self.chartType == SecondeViewControllerChartTypeScatter) {
         [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
-            element.step = (id)@NO;
+            element.step = @NO;
         }];
     }
     
