@@ -97,6 +97,27 @@
                     }
                 }
                 
+                // 添加鼠标事件
+                if (aaOptions.plotOptions.series) {
+                    var pointEvents = {
+                        point:{
+                            events:{
+                                mouseOver:function(){
+                                    console.log(this)
+                                    window.webkit.messageHandlers.MouseOver.postMessage({
+                                                                                        y :this.y,
+                                                                                        x: this.x,
+                                                                                        category:this.category,
+                                                                                        offset:{plotX:this.plotX,plotY:this.plotY},
+                                                                                        index: this.index,
+                                                                                        });
+                                }
+                            }
+                        }
+                    }
+                    aaOptions.plotOptions.series = Object.assign(pointEvents,aaOptions.plotOptions.series)
+                }
+                
                 globalChart = Highcharts.chart('container', aaOptions);
             }
 
