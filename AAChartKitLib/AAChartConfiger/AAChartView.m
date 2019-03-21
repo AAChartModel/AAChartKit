@@ -125,11 +125,19 @@
               ];
 }
 
++ (NSBundle *)webBundle
+{
+    static NSBundle *bundle = nil;
+    if (bundle == nil) {
+        NSBundle *webBundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[AAChartView class]] pathForResource:@"AAChartKitLib.bundle/AAJSFiles" ofType:@"bundle"]];
+        bundle = webBundle ?: [NSBundle mainBundle];
+    }
+    return bundle;
+}
+
 - (NSURLRequest *)getJavaScriptFileURLRequest {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *webPath = [bundle pathForResource:@"AAChartView"
-                                         ofType:@"html"
-                                    inDirectory:@"AAJSFiles.bundle"];
+
+    NSString *webPath = [[AAChartView webBundle]pathForResource:@"AAChartView" ofType:@"html"];
     NSURL *webURL = [NSURL fileURLWithPath:webPath];
     NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
     return URLRequest;
