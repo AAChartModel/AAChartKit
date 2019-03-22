@@ -46,7 +46,9 @@
 #define AADetailLog(...)
 #endif
 
-@interface AAChartView()<WKUIDelegate, WKNavigationDelegate, UIWebViewDelegate> {
+static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
+
+@interface AAChartView()<WKUIDelegate, WKNavigationDelegate, UIWebViewDelegate, WKScriptMessageHandler> {
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
     NSString  *_optionJson;
@@ -75,7 +77,11 @@
 - (void)setUpBasicWebView {
     
     if (AASYSTEM_VERSION >= 9.0) {
-        _wkWebView = [[WKWebView alloc] init];
+        WKUserContentController *userContentController = [[WKUserContentController alloc] init];
+        [userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.userContentController = userContentController;
+        _wkWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
         _wkWebView.UIDelegate = self;
         _wkWebView.navigationDelegate = self;
         _wkWebView.backgroundColor = [UIColor whiteColor];
@@ -261,6 +267,15 @@
     }
 }
 
+// WKScriptMessageHandler
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:selecetIndex:Y:Category:)]) {
+            [self.delegate AAChartView:self selecetIndex:[message.body[@"index"] unsignedIntegerValue] Y:message.body[@"y"] Category:message.body[@"category"]];
+        }
+    }
+}
+
 #pragma mark -- setter method
 
 - (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
@@ -432,6 +447,21 @@
                                                          error:&parseError];
     NSString *seriesStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
+}
+
++ (NSDictionary *)jsonDictWithString:(NSString *)string
+{
+    if (string && 0 != string.length){
+        NSError *error;
+        NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+        if (error) {
+            NSLog(@"json解析失败：%@", error);
+            return nil;
+        }
+        return jsonDict;
+    }
+    return nil;
 }
 
 @end

@@ -32,12 +32,16 @@
 #import <UIKit/UIKit.h>
 #import "AAOptions.h"
 
+@class AAChartView;
+
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
 
 /**
  The delegate method of chart view finish loading
  */
 - (void)AAChartViewDidFinishLoad;
+
+- (void)AAChartView:(AAChartView *)chartView selecetIndex:(NSUInteger)index Y:(NSNumber *)y Category:(NSString *)category;
 
 @end
 
@@ -166,6 +170,8 @@
  @return Pure series string without "\r" && "\n"
  */
 + (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series;
+
++ (NSDictionary *)jsonDictWithString:(NSString *)string;
 
 @end
 
