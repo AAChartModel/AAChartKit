@@ -132,12 +132,12 @@
 
 + (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
                                               endColorString:(NSString *)endColorStr {
-    NSDictionary *linearGradientDic = @{@"#x1":@(0), @"#y1":@(1), @"#x2":@(0), @"#y2":@(0)};
+    NSDictionary *linearGradientDic = @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
     NSArray *stopsArr = @[@[@(0),startColorStr],
                           @[@(1),endColorStr]];
     NSMutableDictionary *gradientColorDic = [NSMutableDictionary dictionary];
-    [gradientColorDic setValue:linearGradientDic forKey:@"#linearGradient"];
-    [gradientColorDic setValue:stopsArr forKey:@"#stops"];
+    [gradientColorDic setValue:linearGradientDic forKey:@"linearGradient"];
+    [gradientColorDic setValue:stopsArr forKey:@"stops"];
     return gradientColorDic;
 }
 
