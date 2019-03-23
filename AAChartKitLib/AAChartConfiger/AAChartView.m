@@ -131,19 +131,11 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
               ];
 }
 
-+ (NSBundle *)webBundle
-{
-    static NSBundle *bundle = nil;
-    if (bundle == nil) {
-        NSBundle *webBundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[AAChartView class]] pathForResource:@"AAChartKitLib.bundle/AAJSFiles" ofType:@"bundle"]];
-        bundle = webBundle ?: [NSBundle mainBundle];
-    }
-    return bundle;
-}
-
 - (NSURLRequest *)getJavaScriptFileURLRequest {
-
-    NSString *webPath = [[AAChartView webBundle]pathForResource:@"AAChartView" ofType:@"html"];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *webPath = [bundle pathForResource:@"AAChartView"
+                                         ofType:@"html"
+                                    inDirectory:@"AAJSFiles.bundle"];
     NSURL *webURL = [NSURL fileURLWithPath:webPath];
     NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
     return URLRequest;
