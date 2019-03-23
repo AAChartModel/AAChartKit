@@ -36,6 +36,8 @@
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
 
+@optional
+
 /**
  The delegate method of chart view finish loading
  */
