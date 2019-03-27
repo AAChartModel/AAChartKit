@@ -95,27 +95,28 @@
                         var animationEasingType = animation.easing;
                         aaOptions.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
                     }
-                }
-                
-                // 添加鼠标事件
-                if (aaOptions.plotOptions.series) {
-                    var pointEvents = {
-                        point:{
-                            events:{
-                                mouseOver:function(){
-                                    console.log(this)
-                                    window.webkit.messageHandlers.MouseOver.postMessage({
-                                                                                        y :this.y,
-                                                                                        x: this.x,
-                                                                                        category:this.category,
-                                                                                        offset:{plotX:this.plotX,plotY:this.plotY},
-                                                                                        index: this.index,
-                                                                                        });
+                    
+                    // 添加鼠标事件
+                    if (aaOptions.plotOptions.series) {
+                        var pointEvents = {
+                            point:{
+                                events:{
+                                    mouseOver:function(){
+                                        //console.log(this)
+                                        var message = {
+                                            y :this.y,
+                                            x: this.x,
+                                            category:this.category,
+                                            offset:{plotX:this.plotX,plotY:this.plotY},
+                                            index: this.index,
+                                        };
+                                        window.webkit.messageHandlers.MouseOver.postMessage(message);
+                                    }
                                 }
                             }
                         }
+                        aaOptions.plotOptions.series = Object.assign(pointEvents,aaOptions.plotOptions.series)
                     }
-                    aaOptions.plotOptions.series = Object.assign(pointEvents,aaOptions.plotOptions.series)
                 }
                 
                 globalChart = Highcharts.chart('container', aaOptions);
