@@ -299,32 +299,32 @@
                      AASeriesElement.new
                      .nameSet(@"Dash")
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeDash)
+                     .dashStyleSet(AALineDashStyleTypeDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
                      .nameSet(@"DashDot")
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeDashDot)
+                     .dashStyleSet(AALineDashStyleTypeDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
                      .nameSet(@"LongDash")
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeLongDash)
+                     .dashStyleSet(AALineDashStyleTypeLongDash)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
                      .nameSet(@"LongDashDot")
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeLongDashDot)
+                     .dashStyleSet(AALineDashStyleTypeLongDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
                      .nameSet(@"ShortDashDot")
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeShortDashDot)
+                     .dashStyleSet(AALineDashStyleTypeShortDashDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      AASeriesElement.new
                      .nameSet(@"ShortDashDotDot")
                      .lineWidthSet(@3)
-                     .dashStyleSet(AALineDashSyleTypeShortDashDotDot)
+                     .dashStyleSet(AALineDashStyleTypeShortDashDotDot)
                      .dataSet(@[@50, @320, @230, @370, @230, @400,]),
                      ]
                    );

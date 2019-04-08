@@ -78,17 +78,17 @@ AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";
 AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular";
 AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
 
-AALineDashSyleType const AALineDashSyleTypeSolid           = @"Solid";
-AALineDashSyleType const AALineDashSyleTypeShortDash       = @"ShortDash";
-AALineDashSyleType const AALineDashSyleTypeShortDot        = @"ShortDot";
-AALineDashSyleType const AALineDashSyleTypeShortDashDot    = @"ShortDashDot";
-AALineDashSyleType const AALineDashSyleTypeShortDashDotDot = @"ShortDashDotDot";
-AALineDashSyleType const AALineDashSyleTypeDot             = @"Dot";
-AALineDashSyleType const AALineDashSyleTypeDash            = @"Dash";
-AALineDashSyleType const AALineDashSyleTypeLongDash        = @"LongDash";
-AALineDashSyleType const AALineDashSyleTypeDashDot         = @"DashDot";
-AALineDashSyleType const AALineDashSyleTypeLongDashDot     = @"LongDashDot";
-AALineDashSyleType const AALineDashSyleTypeLongDashDotDot  = @"LongDashDotDot";
+AALineDashStyleType const AALineDashStyleTypeSolid           = @"Solid";
+AALineDashStyleType const AALineDashStyleTypeShortDash       = @"ShortDash";
+AALineDashStyleType const AALineDashStyleTypeShortDot        = @"ShortDot";
+AALineDashStyleType const AALineDashStyleTypeShortDashDot    = @"ShortDashDot";
+AALineDashStyleType const AALineDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
+AALineDashStyleType const AALineDashStyleTypeDot             = @"Dot";
+AALineDashStyleType const AALineDashStyleTypeDash            = @"Dash";
+AALineDashStyleType const AALineDashStyleTypeLongDash        = @"LongDash";
+AALineDashStyleType const AALineDashStyleTypeDashDot         = @"DashDot";
+AALineDashStyleType const AALineDashStyleTypeLongDashDot     = @"LongDashDot";
+AALineDashStyleType const AALineDashStyleTypeLongDashDotDot  = @"LongDashDotDot";
 
 @implementation AAChartModel
 
@@ -185,7 +185,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisTickInterval) //x轴�
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisCrosshairWidth) 
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisCrosshairColor) 
-AAPropSetFuncImplementation(AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType) 
+AAPropSetFuncImplementation(AAChartModel, AALineDashStyleType,   xAxisCrosshairDashStyleType) 
 
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
@@ -207,7 +207,7 @@ AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions) //自�
 
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisCrosshairWidth) 
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisCrosshairColor) 
-AAPropSetFuncImplementation(AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType) 
+AAPropSetFuncImplementation(AAChartModel, AALineDashStyleType,   yAxisCrosshairDashStyleType) 
 
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)

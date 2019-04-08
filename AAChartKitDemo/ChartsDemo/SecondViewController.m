@@ -151,7 +151,7 @@
     .yAxisPlotLinesSet(@[
                          AAPlotLinesElement.new
                          .colorSet(@"#F05353")//颜色值(16进制)
-                         .dashStyleSet(AALineDashSyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+                         .dashStyleSet(AALineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
                          .widthSet(@(1)) //标示线粗细
                          .valueSet(@(20)) //所在位置
                          .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -161,7 +161,7 @@
                                              .colorSet(@"#ff0000")))
                          ,AAPlotLinesElement.new
                          .colorSet(@"#33BDFD")
-                         .dashStyleSet(AALineDashSyleTypeLongDashDot)
+                         .dashStyleSet(AALineDashStyleTypeLongDashDot)
                          .widthSet(@(1))
                          .valueSet(@(40))
                          .labelSet(AALabel.new
@@ -170,7 +170,7 @@
                                              .colorSet(@"#00ff00")))
                          ,AAPlotLinesElement.new
                          .colorSet(@"#ADFF2F")
-                         .dashStyleSet(AALineDashSyleTypeLongDashDot)
+                         .dashStyleSet(AALineDashStyleTypeLongDashDot)
                          .widthSet(@(1))
                          .valueSet(@(60))
                          .labelSet(AALabel.new
@@ -199,7 +199,7 @@
         _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
         _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
         _aaChartModel.xAxisCrosshairColor = @"#FFE4C4";//(浓汤)乳脂,番茄色准星线
-        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
+        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashStyleTypeLongDashDot;
         if (self.chartType == SecondeViewControllerChartTypeLine) {
             _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
         } else if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
@@ -223,7 +223,7 @@
         _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
         _aaChartModel.xAxisCrosshairWidth = @1;//Zero width to disable crosshair by default
         _aaChartModel.xAxisCrosshairColor = @"#778899";//浅石板灰准星线
-        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDotDot;
+        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashStyleTypeLongDashDotDot;
         if (self.chartType == SecondeViewControllerChartTypeLine) {
             _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
         } else if (self.chartType == SecondeViewControllerChartTypeSpline) {

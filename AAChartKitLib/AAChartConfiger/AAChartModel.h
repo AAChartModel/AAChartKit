@@ -81,7 +81,7 @@ typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
-typedef NSString *AALineDashSyleType;
+typedef NSString *AALineDashStyleType;
 
 AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;
@@ -128,17 +128,17 @@ AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
 AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
 AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeSolid;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDash;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDot;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDot;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeShortDashDotDot;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDot;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDash;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDash;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeDashDot;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDot;
-AACHARTKIT_EXTERN AALineDashSyleType const AALineDashSyleTypeLongDashDotDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeSolid;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDash;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDashDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDashDotDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeDash;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeLongDash;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeDashDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeLongDashDot;
+AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeLongDashDotDot;
 
 @interface AAChartModel : NSObject
 
@@ -189,7 +189,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTi
 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth) //设置 x 轴准星线的宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor) //设置 x 轴准星线的颜色
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType) //设置 x 轴准星线的线条样式类型
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashStyleType,   xAxisCrosshairDashStyleType) //设置 x 轴准星线的线条样式类型
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
@@ -215,7 +215,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTi
 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth) //设置 y 轴准星线的宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor) //设置 y 轴准星线的颜色
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType) //设置 y 轴准星线的线条样式类型
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashStyleType,   yAxisCrosshairDashStyleType) //设置 y 轴准星线的线条样式类型
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)

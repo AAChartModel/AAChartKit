@@ -226,7 +226,7 @@
                  .lineWidthSet(@5)
                  .zonesSet(@[
                              @{@"value": @8},
-                             @{@"dashStyle": AALineDashSyleTypeDot}
+                             @{@"dashStyle": AALineDashStyleTypeDot}
                              ]),
                  AASeriesElement.new
                  .nameSet(@"所有专业")
@@ -278,7 +278,7 @@
     NSArray *aaPlotLinesArr = @[
                                 AAPlotLinesElement.new
                                 .colorSet(@"#FF0000")//颜色值(16进制)
-                                .dashStyleSet(AALineDashSyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+                                .dashStyleSet(AALineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
                                 .widthSet(@(1)) //标示线粗细
                                 .valueSet(@(10)) //所在位置
                                 .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -286,7 +286,7 @@
                                 ,
                                 AAPlotLinesElement.new
                                 .colorSet(@"#FF0000")
-                                .dashStyleSet(AALineDashSyleTypeLongDashDotDot)
+                                .dashStyleSet(AALineDashStyleTypeLongDashDotDot)
                                 .widthSet(@(1))
                                 .valueSet(@(20))
                                 .labelSet((id)@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
