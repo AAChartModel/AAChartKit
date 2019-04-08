@@ -66,5 +66,4 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickPosition
 //enabled:false 
 //}
 
-//个人吐槽日记:(想不到一个简单的属性修饰词使用错误竟然造成了这么严重的后果,因为是复制粘贴,所以一开始我的属性修饰词用的是 assign, 救国造成的诡异的问题就是 crosshair 莫名其妙的 变成了 AAStyle 类型,浪费了我一下午好几个小时时间,真的很心塞啊,为什么要犯这种低级的智障错误呢???(貌似是从 AAYAxis 类中的布尔属性复制粘贴过来的))
 @end
