@@ -165,6 +165,8 @@
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop);
+    
+    aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
     return aaOptions;
 }
 
