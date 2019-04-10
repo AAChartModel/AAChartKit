@@ -289,7 +289,8 @@
                                 @"Area Chart with minus--带有负数的区域填充图",
                                 @"Step Line Chart--直方折线图",
                                 @"Step Area Chart--直方折线填充图",
-                                @"Nightingale Rose Chart---南丁格尔玫瑰图"],
+                                @"Nightingale Rose Chart---南丁格尔玫瑰图",
+                                @"Specific Data Customize Datalabel"],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
                                 @"Columnrange Mixed Line---柱形范围图混合折线图",
@@ -348,7 +349,8 @@
                                 @"带有颜色带的仪表图",
                                 @"带有颜色标志带的图表",
                                 @"带有颜色标志线的图表",
-                                @"自定义DataLabels样式"
+                                @"自定义DataLabels样式",
+                                @"单独自定义指定的data的DataLabels样式"
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",

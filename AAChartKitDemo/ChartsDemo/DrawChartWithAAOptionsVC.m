@@ -89,7 +89,7 @@
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 22) {
+    if (self.selectedIndex == 23) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -124,16 +124,18 @@
         case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图表
         case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的曲线图表
         case 22: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
+        case 23: return [self customizeEveryDataLabelBySinglely];//单独自定义指定的data的DataLabels样式
     }
     return nil;
 }
 
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
     AAChartModel *aaChartModel= AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)
+    .chartTypeSet(AAChartTypeAreaspline)
     .titleSet(@"")
     .subtitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@0)
     .colorsThemeSet(@[
                       [AAGradientColor oceanBlueColor],
                       [AAGradientColor sanguineColor],
@@ -1317,6 +1319,87 @@
     .borderColorSet(AAColor.redColor)// blue color
     .borderRadiusSet(@1)
     .borderWidthSet(@1);
+    return aaOptions;
+}
+
+- (AAOptions *)customizeEveryDataLabelBySinglely {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .dataLabelEnabledSet(true)
+    .tooltipEnabledSet(false)
+    .colorsThemeSet(@[AAColor.lightGrayColor])
+    .markerRadiusSet(@0)
+    .legendEnabledSet(false)
+    .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .colorSet((id)AAGradientColor.fizzyPeachColor)
+                 .dataSet(@[
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 美元")
+                                           )
+                            .ySet(@7.1),
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 欧元")
+                                           )
+                            .ySet(@6.9),
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 人民币")
+                                           )
+                            .ySet(@2.5),
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 日元")
+                                           )
+                            .ySet(@14.5),
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 韩元")
+                                           )
+                            .ySet(@18.2),
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 越南盾")
+                                           )
+                            .ySet(@18.2),
+                            AAData.new
+                            .dataLabelsSet(AADataLabels.new
+                                           .enabledSet(true)
+                                           .formatSet(@"{y} 港币")
+                                           )
+                            .ySet(@21.5),
+                         ]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.gridLineDashStyle = AALineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashStyleTypeLongDash
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.areaspline.dataLabels;
+    aaDatalabels
+    .xSet(@3)
+    .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
+    .ySet(@-20)
+    .styleSet(AAStyle.new
+              .fontSizeSet(@"10px")
+              .fontWeightSet(AAChartFontWeightTypeBold)
+              .colorSet(AAColor.redColor)
+              .textOutlineSet(@"1px 1px contrast")
+              )
+    .backgroundColorSet(AAColor.whiteColor)// white color
+    .borderColorSet(AAColor.redColor)// red color
+    .borderRadiusSet(@1.5)
+    .borderWidthSet(@1.3);
     return aaOptions;
 }
 

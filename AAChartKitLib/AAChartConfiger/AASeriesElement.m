@@ -75,3 +75,11 @@ AAPropSetFuncImplementation(AASeriesElement, NSArray  *, zones)
 AAPropSetFuncImplementation(AASeriesElement, NSString *, zoneAxis)
 
 @end
+
+
+@implementation AAData
+
+AAPropSetFuncImplementation(AAData, AADataLabels *, dataLabels)
+AAPropSetFuncImplementation(AAData, NSNumber *, y)
+
+@end

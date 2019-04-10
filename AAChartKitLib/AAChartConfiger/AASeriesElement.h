@@ -68,3 +68,11 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zone
 @end
 
 
+@interface AAData : NSObject
+
+AAPropStatementAndPropSetFuncStatement(strong, AAData, AADataLabels *, dataLabels)
+AAPropStatementAndPropSetFuncStatement(strong, AAData, NSNumber *, y)
+
+@end
+
+

@@ -73,6 +73,7 @@
         case 8: return [self configureStepLineChart];
         case 9: return [self configureStepAreaChart];
         case 10:return [self configureNightingaleRoseChart];
+        case 11 :return [self configureCustomSingleDataLabelChart];
         default:
             return nil;
     }
@@ -431,6 +432,76 @@
     ;
     return aaChartModel;
 }
+
+- (AAChartModel*)configureCustomSingleDataLabelChart {
+    NSArray *dataArr =
+    @[AAData.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .styleSet(AAStyle.new
+                               .fontSizeSet(@"20px")
+                               .fontWeightSet(AAChartFontWeightTypeBold)
+                               .colorSet(AAColor.redColor)
+                               .textOutlineSet(@"1px 1px contrast")
+                               )
+                     .formatSet(@"{y} 美元🇺🇸💲")
+                     .xSet(@3)
+                     .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
+                     )
+      .ySet(@7.0),
+      @14.5,
+      @18.2,
+      @21.5,
+      @25.2,
+      AAData.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .styleSet(AAStyle.new
+                               .fontSizeSet(@"20px")
+                               .fontWeightSet(AAChartFontWeightTypeBold)
+                               .colorSet(AAColor.blueColor)
+                               .textOutlineSet(@"0.5px 0.5px contrast")
+                               )
+                     .formatSet(@"{y} 英镑🇬🇧£")
+                     .xSet(@3)
+                     .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
+                     )
+      .ySet(@26.5),
+      @23.3,
+      @18.3,
+      @13.9,
+      @9.6,
+      AAData.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .styleSet(AAStyle.new
+                               .fontSizeSet(@"20px")
+                               .fontWeightSet(AAChartFontWeightTypeBold)
+                               .colorSet(AAColor.greenColor)
+                               .textOutlineSet(@"1px 1px contrast")
+                               )
+                     .formatSet(@"{y} 日元🇯🇵￥")
+                     .xSet(@3)
+                     .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
+                     )
+      .ySet(@6.9),
+      ];
+    
+    
+    AAChartModel *aaChartModel= AAChartModel.new
+    .titleSet(@"单独自定义某个指定数据元素的DataLabel")
+    .subtitleSet(@"")
+    .colorsThemeSet(@[AAColor.grayColor])
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"货币")
+                 .dataSet(dataArr),
+                 ]
+               )
+    ;
+    return aaChartModel;
+}
+
 
 @end
 
