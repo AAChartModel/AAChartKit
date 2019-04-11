@@ -209,10 +209,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMa
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin) //y 轴最小值（设置为0就不会有负数）
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
-//AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickWidth) //坐标轴刻度线的宽度，设置为 0 时则不显示刻度线
-//AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickLength) //坐标轴刻度线的长度。 默认是：10.
-//AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTickmarkPlacement)   //本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
-
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth) //设置 y 轴准星线的宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor) //设置 y 轴准星线的颜色
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashStyleType,   yAxisCrosshairDashStyleType) //设置 y 轴准星线的线条样式类型

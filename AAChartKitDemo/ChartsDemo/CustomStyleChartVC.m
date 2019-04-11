@@ -226,8 +226,7 @@
                  .zoneAxisSet(@"x")
                  .colorSet((id)AAGradientColor.freshPapayaColor)
                  .lineWidthSet(@5)
-                 .zonesSet(@[
-                             @{@"value": @8},
+                 .zonesSet(@[@{@"value": @8},
                              @{@"dashStyle": AALineDashStyleTypeDot}
                              ]),
                  AASeriesElement.new
@@ -427,7 +426,7 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"东京")
-                 .dataSet(@[@7.0, @6.9, @9.5, @9.6,@13.9, @14.5,@18.3, @18.2, @21.5, @25.2,@26.5, @23.3,  ]),
+                 .dataSet(@[@7.0, @6.9, @9.5, @9.6, @13.9, @14.5, @18.3, @18.2, @21.5, @25.2, @26.5, @23.3]),
                  ]
                )
     ;
@@ -515,13 +514,14 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"Tokoyo")
-                 .dataSet(@[@7.0, @6.9, @9.5, @9.6,@13.9, @14.5,@18.3, @18.2, @21.5, @25.2,@26.5, @23.3,  ])
+                 .dataSet(@[@7.0, @6.9, @9.5, @9.6, @13.9, @14.5, @18.3, @18.2, @21.5, @25.2, @26.5, @23.3])
                  .shadowSet(AAShadow.new
-                            .colorSet(AAColor.redColor)
                             .offsetXSet(@15.0)
                             .offsetYSet(@15.0)
                             .opacitySet(@0.1)
-                            .widthSet(@8.0)),
+                            .widthSet(@8.0)
+                            .colorSet(AAColor.redColor)
+                            ),
                  ]
                )
     ;
