@@ -73,7 +73,8 @@
         case 8: return [self configureStepLineChart];
         case 9: return [self configureStepAreaChart];
         case 10:return [self configureNightingaleRoseChart];
-        case 11 :return [self configureCustomSingleDataLabelChart];
+        case 11:return [self configureCustomSingleDataLabelChart];
+        case 12:return [self configureChartWithShadowStyle];
         default:
             return nil;
     }
@@ -491,11 +492,36 @@
     AAChartModel *aaChartModel= AAChartModel.new
     .titleSet(@"单独自定义某个指定数据元素的DataLabel")
     .subtitleSet(@"")
-    .colorsThemeSet(@[AAColor.grayColor])
+    .colorsThemeSet(@[AAGradientColor.mysticMauveColor])
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"货币")
                  .dataSet(dataArr),
+                 ]
+               )
+    ;
+    return aaChartModel;
+}
+
+- (AAChartModel *)configureChartWithShadowStyle {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .titleSet(@"Chart with shadow style")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"cm")
+    .chartTypeSet(AAChartTypeLine)
+    .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokoyo")
+                 .dataSet(@[@7.0, @6.9, @9.5, @9.6,@13.9, @14.5,@18.3, @18.2, @21.5, @25.2,@26.5, @23.3,  ])
+                 .shadowSet(AAShadow.new
+                            .colorSet(AAColor.redColor)
+                            .offsetXSet(@15.0)
+                            .offsetYSet(@15.0)
+                            .opacitySet(@0.1)
+                            .widthSet(@8.0)),
                  ]
                )
     ;
