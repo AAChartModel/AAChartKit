@@ -268,10 +268,14 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
 }
 
 // WKScriptMessageHandler
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+- (void)userContentController:(WKUserContentController *)userContentController
+      didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:selecetIndex:Y:Category:)]) {
-            [self.delegate AAChartView:self selecetIndex:[message.body[@"index"] unsignedIntegerValue] Y:message.body[@"y"] Category:message.body[@"category"]];
+            [self.delegate AAChartView:self
+                          selecetIndex:[message.body[@"index"] unsignedIntegerValue]
+                                     Y:message.body[@"y"]
+                              Category:message.body[@"category"]];
         }
     }
 }
@@ -451,12 +455,14 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
 
 + (NSDictionary *)jsonDictWithString:(NSString *)string
 {
-    if (string && 0 != string.length){
+    if (string && 0 != string.length) {
         NSError *error;
         NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                 options:NSJSONReadingMutableContainers
+                                                                   error:&error];
         if (error) {
-            NSLog(@"json解析失败：%@", error);
+            AADetailLog(@"serialize json failed：%@", error);
             return nil;
         }
         return jsonDict;

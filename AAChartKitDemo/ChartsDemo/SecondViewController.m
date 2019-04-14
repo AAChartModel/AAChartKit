@@ -112,6 +112,7 @@
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .backgroundColorSet(@"#4b2b7f")
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .touchEventEnabledSet(true)//支持用户点击事件
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2017")
@@ -280,7 +281,14 @@
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
-- (void)setUpTheSegmentedControls{
+- (void)AAChartView:(AAChartView *)chartView
+       selecetIndex:(NSUInteger)index
+                  Y:(NSNumber *)y
+           Category:(NSString *)category {
+    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the touch event index: %lu, y: %@, category: %@",(unsigned long)index,y,category);
+}
+
+- (void)setUpTheSegmentedControls {
     NSArray *segmentedNamesArr;
     NSArray *typeLabelNameArr;
     

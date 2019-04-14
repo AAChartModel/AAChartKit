@@ -46,6 +46,7 @@ AAPropSetFuncImplementation(AAOptions, AALegend      *, legend)
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors)
 AAPropSetFuncImplementation(AAOptions, BOOL,            gradientColorEnabled)
 AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
+AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
 @end
 
@@ -114,8 +115,9 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //
     .legendSet(aaLegend)
     .seriesSet(aaChartModel.series)
     .colorsSet(aaChartModel.colorsTheme)//设置颜色主题
-    .gradientColorEnabledSet(aaChartModel.easyGradientColors)//设置主题颜色是否为渐变色
-    .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText);//设置重置缩放按钮的默认标题
+    .gradientColorEnabledSet(aaChartModel.easyGradientColors)//主题颜色是否为渐变色
+    .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText)//重置缩放按钮的默认标题
+    .touchEventEnabledSet(aaChartModel.touchEventEnabled);//是否支持点击事件
     
     if (   aaChartModel.chartType != AAChartTypePie
         && aaChartModel.chartType != AAChartTypePyramid

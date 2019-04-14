@@ -43,7 +43,19 @@
  */
 - (void)AAChartViewDidFinishLoad;
 
-- (void)AAChartView:(AAChartView *)chartView selecetIndex:(NSUInteger)index Y:(NSNumber *)y Category:(NSString *)category;
+
+/**
+ The delegate method of getting move over event
+
+ @param chartView The instance object of chart view
+ @param index the  moving finger selected index
+ @param y the y axis value
+ @param category the x axis category string
+ */
+- (void)AAChartView:(AAChartView *)chartView
+       selecetIndex:(NSUInteger)index
+                  Y:(NSNumber *)y
+           Category:(NSString *)category;
 
 @end
 
