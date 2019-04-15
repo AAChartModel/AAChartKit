@@ -33,6 +33,17 @@
 
 #import "AALegend.h"
 
+AALegendLayoutType const AALegendLayoutTypeHorizontal = @"horizontal";
+AALegendLayoutType const AALegendLayoutTypeVertical   = @"vertical";
+
+AALegendAlignType const AALegendAlignTypeLeft   = @"left";
+AALegendAlignType const AALegendAlignTypeCenter = @"center";
+AALegendAlignType const AALegendAlignTypeRight  = @"right";
+
+AALegendVerticalAlignType const AALegendVerticalAlignTypeTop    = @"top";
+AALegendVerticalAlignType const AALegendVerticalAlignTypeMiddle = @"middle";
+AALegendVerticalAlignType const AALegendVerticalAlignTypeBottom = @"bottom";
+
 @implementation AALegend
 
 AAPropSetFuncImplementation(AALegend, AALegendLayoutType,        layout) 

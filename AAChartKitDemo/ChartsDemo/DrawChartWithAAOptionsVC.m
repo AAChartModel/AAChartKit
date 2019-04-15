@@ -1237,10 +1237,12 @@
                  .fillOpacitySet(@0.5)
                  .lineWidthSet(@10)
                  .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-                 .zonesSet(@[@{@"value": @12,@"color": @"#1e90ff"},
-                             @{@"value": @24,@"color": @"#ef476f"},
-                             @{@"value": @36,@"color": @"#04d69f"},
-                             @{@"color": @"#ffd066"}]),
+                 .zonesSet(@[
+                             @{@"value": @12, @"color": @"#1e90ff"},
+                             @{@"value": @24, @"color": @"#ef476f"},
+                             @{@"value": @36, @"color": @"#04d69f"},
+                             @{@"color": @"#ffd066"}
+                             ]),
                  ]
                );
 //    @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]

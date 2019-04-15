@@ -38,16 +38,16 @@ typedef NSString *AALegendLayoutType;
 typedef NSString *AALegendAlignType;
 typedef NSString *AALegendVerticalAlignType;
 
-static AALegendLayoutType const AALegendLayoutTypeHorizontal = @"horizontal";
-static AALegendLayoutType const AALegendLayoutTypeVertical   = @"vertical";
+extern AALegendLayoutType const AALegendLayoutTypeHorizontal;
+extern AALegendLayoutType const AALegendLayoutTypeVertical;
 
-static AALegendAlignType const AALegendAlignTypeLeft   = @"left";
-static AALegendAlignType const AALegendAlignTypeCenter = @"center";
-static AALegendAlignType const AALegendAlignTypeRight  = @"right";
+extern AALegendAlignType const AALegendAlignTypeLeft;
+extern AALegendAlignType const AALegendAlignTypeCenter;
+extern AALegendAlignType const AALegendAlignTypeRight;
 
-static AALegendVerticalAlignType const AALegendVerticalAlignTypeTop    = @"top";
-static AALegendVerticalAlignType const AALegendVerticalAlignTypeMiddle = @"middle";
-static AALegendVerticalAlignType const AALegendVerticalAlignTypeBottom = @"bottom";
+extern AALegendVerticalAlignType const AALegendVerticalAlignTypeTop;
+extern AALegendVerticalAlignType const AALegendVerticalAlignTypeMiddle;
+extern AALegendVerticalAlignType const AALegendVerticalAlignTypeBottom;
 
 @interface AALegend : NSObject
 
