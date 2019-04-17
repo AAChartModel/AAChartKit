@@ -33,6 +33,10 @@
 #import "AAChartView.h"
 #import <WebKit/WebKit.h>
 
+@implementation AAMoveOverEventMessageModel
+
+@end
+
 /**
  *  Get the system version number
  */
@@ -141,11 +145,11 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
     return URLRequest;
 }
 
-- (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)options {
+- (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
     if (self.isClearBackgroundColor == YES) {
-        options.chart.backgroundColor = @"rgba(0,0,0,0)";
+        aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
-    _optionJson = [AAJsonConverter getPureOptionsString:options];
+    _optionJson = [AAJsonConverter getPureOptionsString:aaOptions];
  
 }
 
@@ -232,13 +236,17 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
 ///WKWebView did finish load
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
-    [self.delegate AAChartViewDidFinishLoad];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
+        [self.delegate AAChartViewDidFinishLoad];
+    }
 }
 
 //UIWebView did finish load
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
-    [self.delegate AAChartViewDidFinishLoad];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
+        [self.delegate AAChartViewDidFinishLoad];
+    }
 }
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
@@ -271,11 +279,16 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:selecetIndex:Y:Category:)]) {
-            [self.delegate AAChartView:self
-                          selecetIndex:[message.body[@"index"] unsignedIntegerValue]
-                                     Y:message.body[@"y"]
-                              Category:message.body[@"category"]];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:messageModel:)]) {
+            AAMoveOverEventMessageModel *eventMessageModel = AAMoveOverEventMessageModel.new;
+            id messageBody = message.body;
+            eventMessageModel.name = messageBody[@"name"];
+            eventMessageModel.x = messageBody[@"x"];
+            eventMessageModel.y = messageBody[@"y"];
+            eventMessageModel.category = messageBody[@"category"];
+            eventMessageModel.offset = messageBody[@"offset"];
+            eventMessageModel.index = [messageBody[@"index"] unsignedIntegerValue];
+            [self.delegate AAChartView:self messageModel:eventMessageModel];
         }
     }
 }

@@ -32,6 +32,18 @@
 #import <UIKit/UIKit.h>
 #import "AAOptions.h"
 
+@interface AAMoveOverEventMessageModel : NSObject
+
+@property (nonatomic, copy)   NSString *name;
+@property (nonatomic, strong) NSNumber *x;
+@property (nonatomic, strong) NSNumber *y;
+@property (nonatomic, copy)   NSString *category;
+@property (nonatomic, strong) NSDictionary *offset;
+@property (nonatomic, assign) NSUInteger index;
+
+@end
+
+
 @class AAChartView;
 
 @protocol AAChartViewDidFinishLoadDelegate<NSObject>
@@ -43,19 +55,14 @@
  */
 - (void)AAChartViewDidFinishLoad;
 
-
 /**
- The delegate method of getting move over event
+ The delegate method of getting move over event message model
 
  @param chartView The instance object of chart view
- @param index the  moving finger selected index
- @param y the y axis value
- @param category the x axis category string
+ @param messageModel move over event message model
  */
 - (void)AAChartView:(AAChartView *)chartView
-       selecetIndex:(NSUInteger)index
-                  Y:(NSNumber *)y
-           Category:(NSString *)category;
+       messageModel:(AAMoveOverEventMessageModel *)messageModel;
 
 @end
 

@@ -281,11 +281,9 @@
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
-- (void)AAChartView:(AAChartView *)chartView
-       selecetIndex:(NSUInteger)index
-                  Y:(NSNumber *)y
-           Category:(NSString *)category {
-    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the touch event index: %lu, y: %@, category: %@",(unsigned long)index,y,category);
+-(void)AAChartView:(AAChartView *)chartView messageModel:(AAMoveOverEventMessageModel *)messageModel {
+    NSLog(@"🚀selected point series element name%@",messageModel.name);
+    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message%@",[AAJsonConverter getPureOptionsString:messageModel]);
 }
 
 - (void)setUpTheSegmentedControls {
