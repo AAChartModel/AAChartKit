@@ -37,7 +37,7 @@
 #define AAGrayColor             [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 #define AABlueColor             AAColorWithRGB(63, 153,231,1)
 
-@interface OnlyRefreshChartDataVC ()<AAChartViewDidFinishLoadDelegate> {
+@interface OnlyRefreshChartDataVC ()<AAChartViewEventDelegate> {
     NSTimer *_timer;
     int myBasicValue;
     int _selectedElementIndex;

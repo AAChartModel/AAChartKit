@@ -279,7 +279,7 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:messageModel:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:moveOverEventWithMessage:)]) {
             AAMoveOverEventMessageModel *eventMessageModel = AAMoveOverEventMessageModel.new;
             id messageBody = message.body;
             eventMessageModel.name = messageBody[@"name"];
@@ -288,7 +288,7 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
             eventMessageModel.category = messageBody[@"category"];
             eventMessageModel.offset = messageBody[@"offset"];
             eventMessageModel.index = [messageBody[@"index"] unsignedIntegerValue];
-            [self.delegate AAChartView:self messageModel:eventMessageModel];
+            [self.delegate AAChartView:self moveOverEventWithMessage:eventMessageModel];
         }
     }
 }

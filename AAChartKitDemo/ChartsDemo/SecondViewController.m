@@ -34,7 +34,7 @@
 #import "AAChartKit.h"
 #import "AAEasyTool.h"
 
-@interface SecondViewController ()<AAChartViewDidFinishLoadDelegate>
+@interface SecondViewController ()<AAChartViewEventDelegate>
 
 @property (nonatomic, strong) AAChartModel *aaChartModel;
 @property (nonatomic, strong) AAChartView  *aaChartView;
@@ -281,10 +281,11 @@
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
--(void)AAChartView:(AAChartView *)chartView messageModel:(AAMoveOverEventMessageModel *)messageModel {
-    NSLog(@"🚀selected point series element name%@",messageModel.name);
-    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message%@",[AAJsonConverter getPureOptionsString:messageModel]);
+- (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
+    NSLog(@"🚀selected point series element name: %@",message.name);
+    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message: %@",[AAJsonConverter jsonDictWithString:[AAJsonConverter getPureOptionsString:message]] );
 }
+
 
 - (void)setUpTheSegmentedControls {
     NSArray *segmentedNamesArr;

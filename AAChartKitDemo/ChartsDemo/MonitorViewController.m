@@ -35,7 +35,7 @@
 
 #define PostNum 14  // 柱状图行数，对应x轴数量
 
-@interface MonitorViewController ()<AAChartViewDidFinishLoadDelegate, UIGestureRecognizerDelegate>
+@interface MonitorViewController ()<AAChartViewEventDelegate, UIGestureRecognizerDelegate>
 {
     UIScrollView *_monitorScrollView;
 }

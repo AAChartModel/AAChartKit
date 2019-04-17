@@ -46,7 +46,7 @@
 
 @class AAChartView;
 
-@protocol AAChartViewDidFinishLoadDelegate<NSObject>
+@protocol AAChartViewEventDelegate<NSObject>
 
 @optional
 
@@ -59,16 +59,15 @@
  The delegate method of getting move over event message model
 
  @param chartView The instance object of chart view
- @param messageModel move over event message model
+ @param message move over event message model
  */
-- (void)AAChartView:(AAChartView *)chartView
-       messageModel:(AAMoveOverEventMessageModel *)messageModel;
+- (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message;
 
 @end
 
 @interface AAChartView:UIView
 
-@property (nonatomic, weak)   id<AAChartViewDidFinishLoadDelegate> delegate;
+@property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
 
 /* Configure the behavior of adjustedContentInset.
  Default is UIScrollViewContentInsetAdjustmentAutomatic.
