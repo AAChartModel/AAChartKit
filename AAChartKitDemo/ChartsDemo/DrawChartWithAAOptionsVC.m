@@ -54,6 +54,8 @@
     aaChartView.scrollEnabled = NO;
     self.aaChartView = aaChartView;
     
+
+    
     AAOptions *aaOptions = [self configureChartOptions];
     [aaChartView aa_drawChartWithOptions:aaOptions];
     
@@ -964,14 +966,23 @@
 
 - (AAOptions *)customChartLengendItemStyle {
     AAChartModel *aaChartModel= AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)
+    .chartTypeSet(AAChartTypeArea)
     .titleSet(@"")
     .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .seriesSet(@[
                  AASeriesElement.new
+                 .nameSet(@"2017")
+                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+                 AASeriesElement.new
                  .nameSet(@"2018")
-                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
+                 .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+                 AASeriesElement.new
+                 .nameSet(@"2019")
+                 .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+                 AASeriesElement.new
+                 .nameSet(@"2020")
+                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                  ]
                );
 
@@ -983,7 +994,12 @@
     .fontWeightSet(AAChartFontWeightTypeThin);//字体为细体字
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.legend.itemStyle = aaItemStyle;
+    aaOptions.legend
+    .alignSet(AALegendAlignTypeRight)
+    .layoutSet(AALegendLayoutTypeVertical)
+    .verticalAlignSet(AALegendVerticalAlignTypeTop)
+    .itemStyleSet(aaItemStyle)
+    ;
 //    aaOptions.xAxis.tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
 //    aaOptions.yAxis.minPadding = @0;
     aaOptions.yAxis.lineWidth = @0;
@@ -1388,6 +1404,9 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.plotOptions.pie.dataLabels.allowOverlap = true;
+    
+    
     aaOptions.yAxis.gridLineDashStyle = AALineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashStyleTypeLongDash
     AADataLabels *aaDatalabels = aaOptions.plotOptions.areaspline.dataLabels;
     aaDatalabels
