@@ -50,9 +50,13 @@
 #define AADetailLog(...)
 #endif
 
-static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
+static NSString * const kUserContentMessageNameMouseOver = @"mouseover";
 
-@interface AAChartView()<WKUIDelegate, WKNavigationDelegate, UIWebViewDelegate, WKScriptMessageHandler> {
+@interface AAChartView() <
+WKUIDelegate,
+WKNavigationDelegate,
+WKScriptMessageHandler,
+UIWebViewDelegate > {
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
     NSString  *_optionJson;
@@ -150,17 +154,18 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
         aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
     _optionJson = [AAJsonConverter getPureOptionsString:aaOptions];
- 
 }
 
 - (NSString *)configTheJavaScriptString {
     CGFloat chartViewContentWidth = self.contentWidth;
     CGFloat contentHeight = self.frame.size.height;
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
+    BOOL isWKWebView = (_wkWebView != nil);
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@','%@')",
                                _optionJson,
                                [NSNumber numberWithFloat:chartViewContentWidth],
-                               [NSNumber numberWithFloat:chartViewContentHeight-1]];
+                               [NSNumber numberWithFloat:chartViewContentHeight-1],
+                               [NSNumber numberWithBool:isWKWebView]];
     return javaScriptStr;
 }
 
@@ -212,7 +217,7 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
 }
 //
 //=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
-
+#pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FBI WARNING"
                                                                              message:message
@@ -233,20 +238,70 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-///WKWebView did finish load
+#pragma mark - WKNavigationDelegate
+//WKWebView did finish load
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
-        [self.delegate AAChartViewDidFinishLoad];
+    if (self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
+            [self.delegate AAChartViewDidFinishLoad];
+        }
     }
 }
 
+#pragma mark - WKScriptMessageHandler
+- (void)userContentController:(WKUserContentController *)userContentController
+      didReceiveScriptMessage:(WKScriptMessage *)message {
+    if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
+        if (self.delegate ) {
+            if ([self.delegate respondsToSelector:@selector(AAChartView:moveOverEventWithMessage:)]) {
+                AAMoveOverEventMessageModel *eventMessageModel = [self eventMessageModelWithMessageBody:message.body];
+                [self.delegate AAChartView:self moveOverEventWithMessage:eventMessageModel];
+            }
+        }
+    }
+}
+
+#pragma mark - UIWebViewDelegate
 //UIWebView did finish load
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
-        [self.delegate AAChartViewDidFinishLoad];
+    if (self.delegate ) {
+        if ([self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
+            [self.delegate AAChartViewDidFinishLoad];
+        }
     }
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSURL *URL = request.URL;
+    NSString *scheme = [URL scheme];
+    if ([scheme isEqualToString:kUserContentMessageNameMouseOver]) {
+        if (self.delegate ) {
+            if ([self.delegate respondsToSelector:@selector(AAChartView:moveOverEventWithMessage:)]) {
+                NSString *messageStr = [URL absoluteString];
+                messageStr = [messageStr stringByReplacingOccurrencesOfString:@"mouseover://?" withString:@""];
+                NSString *decodedMessageStr = [messageStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];
+                NSDictionary *messageDic = [AAJsonConverter jsonDictWithString:decodedMessageStr];
+                AAMoveOverEventMessageModel *messageModel = [self eventMessageModelWithMessageBody:messageDic];
+                [self.delegate AAChartView:self moveOverEventWithMessage:messageModel];
+            }
+        }
+        return NO;
+    }
+    return YES;
+}
+
+- (AAMoveOverEventMessageModel *)eventMessageModelWithMessageBody:(id)messageBody {
+    AAMoveOverEventMessageModel *eventMessageModel = AAMoveOverEventMessageModel.new;
+    eventMessageModel.name = messageBody[@"name"];
+    eventMessageModel.x = messageBody[@"x"];
+    eventMessageModel.y = messageBody[@"y"];
+    eventMessageModel.category = messageBody[@"category"];
+    eventMessageModel.offset = messageBody[@"offset"];
+    eventMessageModel.index = [messageBody[@"index"] unsignedIntegerValue];
+    return eventMessageModel;
 }
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
@@ -272,24 +327,6 @@ static NSString * const kUserContentMessageNameMouseOver = @"MouseOver";
         }];
     } else {
         [_uiWebView  stringByEvaluatingJavaScriptFromString:functionNameStr];
-    }
-}
-
-// WKScriptMessageHandler
-- (void)userContentController:(WKUserContentController *)userContentController
-      didReceiveScriptMessage:(WKScriptMessage *)message {
-    if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(AAChartView:moveOverEventWithMessage:)]) {
-            AAMoveOverEventMessageModel *eventMessageModel = AAMoveOverEventMessageModel.new;
-            id messageBody = message.body;
-            eventMessageModel.name = messageBody[@"name"];
-            eventMessageModel.x = messageBody[@"x"];
-            eventMessageModel.y = messageBody[@"y"];
-            eventMessageModel.category = messageBody[@"category"];
-            eventMessageModel.offset = messageBody[@"offset"];
-            eventMessageModel.index = [messageBody[@"index"] unsignedIntegerValue];
-            [self.delegate AAChartView:self moveOverEventWithMessage:eventMessageModel];
-        }
     }
 }
 

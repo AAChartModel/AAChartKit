@@ -51,12 +51,14 @@
     </head>
     <body>
         <div id="container" style="width: min-450px; height: 200px; margin: -8px">
+           
         </div>
         <script>
-
+           
+        
             var globalChart;
 
-            function loadTheHighChartView(sender, receivedWidth, receivedHeight) {
+            function loadTheHighChartView(sender, receivedWidth, receivedHeight,isWKWebView) {
                 var container = document.getElementById('container'); //获得元素
                 if (receivedWidth != 0) {
                     container.style.width = receivedWidth; //设置宽度
@@ -98,21 +100,29 @@
                     
                     // 添加鼠标事件
                     if (aaOptions.touchEventEnabled == true && aaOptions.plotOptions.series) {
+                        var mouseOverFunc = function() {
+                            //console.log(this)
+                            var message = {
+                                name: this.series.name,
+                                y :this.y,
+                                x: this.x,
+                                category:this.category,
+                                offset:{plotX:this.plotX,plotY:this.plotY},
+                                index: this.index,
+                            };
+                            
+                            if (isWKWebView == true) {
+                                window.webkit.messageHandlers.mouseover.postMessage(message);
+                            } else {
+                                var messageStr = JSON.stringify(message);
+                                uiWebViewLoadURL("mouseover://?"+ messageStr);
+                            }
+                        };
+                        
                         var pointEvents = {
                             point:{
                                 events:{
-                                    mouseOver:function(){
-                                        //console.log(this)
-                                        var message = {
-                                            name: this.series.name,
-                                            y :this.y,
-                                            x: this.x,
-                                            category:this.category,
-                                            offset:{plotX:this.plotX,plotY:this.plotY},
-                                            index: this.index,
-                                        };
-                                        window.webkit.messageHandlers.MouseOver.postMessage(message);
-                                    }
+                                    mouseOver: mouseOverFunc,
                                 }
                             }
                         }
@@ -122,6 +132,20 @@
                 
                 globalChart = Highcharts.chart('container', aaOptions);
             }
+        
+        function uiWebViewLoadURL(url) {
+            var iFrame;
+            iFrame = document.createElement("iframe");
+            iFrame.setAttribute("src", url);
+            iFrame.setAttribute("style", "display:none;");
+            iFrame.setAttribute("height", "0px");
+            iFrame.setAttribute("width", "0px");
+            iFrame.setAttribute("frameborder", "0");
+            document.body.appendChild(iFrame);
+            // 发起请求后这个iFrame就没用了，所以把它从dom上移除掉
+            iFrame.parentNode.removeChild(iFrame);
+            iFrame = null;
+        }
 
             function configureTheChartAnimationEasingType(easingType) {
                 switch (easingType) {
