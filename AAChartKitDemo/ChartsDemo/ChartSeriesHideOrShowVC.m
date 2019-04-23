@@ -224,7 +224,7 @@
     UILabel *label = [[UILabel alloc]init];
     label.textColor = [UIColor lightGrayColor];
     label.numberOfLines = 0;
-    label.frame = CGRectMake(switchWidth*i + 20,
+    label.frame = CGRectMake(switchWidth * i + 20,
                              self.view.frame.size.height - 40,
                              switchWidth,
                              40);

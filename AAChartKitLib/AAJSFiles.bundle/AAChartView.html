@@ -61,7 +61,7 @@
                     var animation = aaOptions.plotOptions.series.animation;
                     if (animation) {
                         var animationEasingType = animation.easing;
-                        aaOptions.plotOptions.series.animation.easing = configureTheChartAnimationEasingType(animationEasingType);
+                        animation.easing = configureTheChartAnimationEasingType(animationEasingType);
                     }
                     
                     // 添加鼠标事件
@@ -116,7 +116,6 @@
             iFrame.setAttribute("width", "0px");
             iFrame.setAttribute("frameborder", "0");
             document.body.appendChild(iFrame);
-            // 发起请求后这个iFrame就没用了，所以把它从dom上移除掉
             iFrame.parentNode.removeChild(iFrame);
             iFrame = null;
         }

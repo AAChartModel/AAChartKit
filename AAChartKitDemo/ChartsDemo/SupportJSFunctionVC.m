@@ -82,7 +82,7 @@
         + ' The Gold Price For <b>2020 '
         +  this.x
         + ' </b> Is <b> '
-        + this.y
+        +  this.y
         + ' </b> Dollars ';
     }))
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
@@ -92,6 +92,9 @@
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px"))
     ;
+    
+    
+    
     
     return aaOptions;
 }

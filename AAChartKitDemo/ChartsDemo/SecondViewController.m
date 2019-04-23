@@ -384,38 +384,49 @@
 
 - (void)setUpTheSwitchs {
     NSArray *nameArr;
-    if (self.chartType == SecondeViewControllerChartTypeColumn
-        ||self.chartType == SecondeViewControllerChartTypeBar) {
-        nameArr = @[@"xAxisReversed",
+    if (self.chartType == SecondeViewControllerChartTypeColumn || self.chartType == SecondeViewControllerChartTypeBar) {
+        nameArr = @[
+                    @"xAxisReversed",
                     @"yAxisReversed",
                     @"xAxisInverted",
                     @"Polarization",
-                    @"DataLabelShow",];
+                    @"DataLabelShow",
+                    ];
     } else {
-        nameArr = @[@"xReversed",
+        nameArr = @[
+                    @"xReversed",
                     @"yReversed",
                     @"xAxisInverted",
                     @"Polarization",
                     @"DataShow",
-                    @"HideMarker"];
+                    @"HideMarker"
+                    ];
     }
     
     CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
     
     for (int i=0; i<nameArr.count; i++) {
         UISwitch * switchView = [[UISwitch alloc]init];
-        switchView.frame = CGRectMake(switchWidth*i+20, self.view.frame.size.height-70, switchWidth, 20);
+        switchView.frame = CGRectMake(switchWidth * i + 20,
+                                      self.view.frame.size.height - 70,
+                                      switchWidth,
+                                      20);
         switchView.onTintColor = [AAEasyTool colorWithHexString:@"#FFDEAD"];
         switchView.thumbTintColor = [UIColor whiteColor];
         switchView.on = NO;
         switchView.tag = i;
-        [switchView addTarget:self action:@selector(switchViewClicked:) forControlEvents:UIControlEventValueChanged];
+        [switchView addTarget:self
+                       action:@selector(switchViewClicked:)
+             forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:switchView];
         
         UILabel *label = [[UILabel alloc]init];
         label.textColor = [UIColor lightGrayColor];
         label.numberOfLines = 0;
-        label.frame = CGRectMake(switchWidth*i+20,  self.view.frame.size.height-40, switchWidth, 40);
+        label.frame = CGRectMake(switchWidth * i + 20,
+                                 self.view.frame.size.height - 40,
+                                 switchWidth,
+                                 40);
         label.text = nameArr[i];
         label.font = [UIFont systemFontOfSize:8.0f];
         [self.view addSubview:label];
