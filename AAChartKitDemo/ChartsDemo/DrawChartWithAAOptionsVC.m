@@ -519,57 +519,20 @@
                  ]
                );
     
-  
-    
-    NSString * preprocessorJSCode = @AAJSFunc(
-    (function () {
-        return "The value for <b>" + this.x +
-        "</b> is <b>" + this.y + "</b>";
-    })
-    );// END preprocessorJSCode
-    
-    
-    NSString *jsFunc = @AAJSFunc((
-                                  function () {
-                                      var s = '<b>' + this.x + '</b>';
-                                      $.each(this.points, function () {
-                                          s += '<br/>' + this.series.name + ': ' +
-                                          this.y + 'm';
-                                      });
-                                      return s;
-                                  }
-                                  ));// END preprocessorJSCode
-    
-    
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .useHTMLSet(true)
-//    .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
-//    .pointFormatSet(@"<b>{point.y}</b>&nbsp元/克")
-    .formatterSet(@AAJSFunc(
-                            function () {
-                                var s = '<b>' + this.x + '</b>';
-                                $.each(this.points, function () {
-                                    s += '<br/>' + this.series.name + ': ' +
-                                    this.y + 'm';
-                                });
-                                return s;
-                            }
-                            ))
-
-//    .formatterSet([AAJSFunction getJSFunctionWithString:@"(function () {  return    \"🚀🚀🚀🚀🚀🚀<b>\"+this.x+\"</b>is<b>\"+this.y+\"</b>\";   })"])
-//    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-//    .backgroundColorSet(@"#000000")
-//    .borderColorSet(@"#000000")
+    .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
+    .pointFormatSet(@"<b>{point.y}</b>&nbsp元/克")
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
     .styleSet((id)AAStyle.new
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px"))
     ;
-    
-
-    
     return aaOptions;
 }
 
