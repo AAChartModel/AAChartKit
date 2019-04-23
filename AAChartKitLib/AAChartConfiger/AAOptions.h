@@ -36,7 +36,6 @@
 #import "AAChart.h"
 #import "AAAnimation.h"
 #import "AATitle.h"
-#import "AASubtitle.h"
 #import "AAXAxis.h"
 #import "AAYAxis.h"
 #import "AAPlotBandsElement.h"
@@ -59,6 +58,8 @@
 #import "AAMarker.h"
 #import "AAGradientColor.h"
 #import "AAColor.h"
+
+#define AAJSFunc(x) #x
 
 @interface AAOptions : NSObject
 

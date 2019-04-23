@@ -519,20 +519,57 @@
                  ]
                );
     
+  
+    
+    NSString * preprocessorJSCode = @AAJSFunc(
+    (function () {
+        return "The value for <b>" + this.x +
+        "</b> is <b>" + this.y + "</b>";
+    })
+    );// END preprocessorJSCode
+    
+    
+    NSString *jsFunc = @AAJSFunc((
+                                  function () {
+                                      var s = '<b>' + this.x + '</b>';
+                                      $.each(this.points, function () {
+                                          s += '<br/>' + this.series.name + ': ' +
+                                          this.y + 'm';
+                                      });
+                                      return s;
+                                  }
+                                  ));// END preprocessorJSCode
+    
+    
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .useHTMLSet(true)
-    .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
-    .pointFormatSet(@"<b>{point.y}</b>&nbsp元/克")
-    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
+//    .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
+//    .pointFormatSet(@"<b>{point.y}</b>&nbsp元/克")
+    .formatterSet(@AAJSFunc(
+                            function () {
+                                var s = '<b>' + this.x + '</b>';
+                                $.each(this.points, function () {
+                                    s += '<br/>' + this.series.name + ': ' +
+                                    this.y + 'm';
+                                });
+                                return s;
+                            }
+                            ))
+
+//    .formatterSet([AAJSFunction getJSFunctionWithString:@"(function () {  return    \"🚀🚀🚀🚀🚀🚀<b>\"+this.x+\"</b>is<b>\"+this.y+\"</b>\";   })"])
+//    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+//    .backgroundColorSet(@"#000000")
+//    .borderColorSet(@"#000000")
     .styleSet((id)AAStyle.new
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px"))
     ;
+    
+
+    
     return aaOptions;
 }
 
@@ -986,19 +1023,17 @@
                  ]
                );
 
-    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。 默认是：{ "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }.
-    AAItemStyle *aaItemStyle = AAItemStyle.new
-    .colorSet(@"#ff0000")//字体颜色
-    .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
-    .fontSizeSet(@"20px")//字体大小
-    .fontWeightSet(AAChartFontWeightTypeThin);//字体为细体字
-    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.legend
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop)
-    .itemStyleSet(aaItemStyle)
+    .itemStyleSet(AAItemStyle.new  //设定图例项的CSS样式。只支持有关文本的CSS样式设定。 默认是：{ "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }.
+                  .colorSet(@"#ff0000")//字体颜色
+                  .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+                  .fontSizeSet(@"20px")//字体大小
+                  .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
+                  )
     ;
 //    aaOptions.xAxis.tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
 //    aaOptions.yAxis.minPadding = @0;
@@ -1357,43 +1392,43 @@
                  AASeriesElement.new
                  .colorSet((id)AAGradientColor.fizzyPeachColor)
                  .dataSet(@[
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 美元")
                                            )
                             .ySet(@7.1),
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 欧元")
                                            )
                             .ySet(@6.9),
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 人民币")
                                            )
                             .ySet(@2.5),
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 日元")
                                            )
                             .ySet(@14.5),
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 韩元")
                                            )
                             .ySet(@18.2),
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 越南盾")
                                            )
                             .ySet(@18.2),
-                            AAData.new
+                            AADataElement.new
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(true)
                                            .formatSet(@"{y} 港币")

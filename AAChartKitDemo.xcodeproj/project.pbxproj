@@ -16,7 +16,6 @@
 		1E66D201210AF4ED007EAB8C /* AADataLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1C8210AF4EC007EAB8C /* AADataLabels.m */; };
 		1E66D202210AF4ED007EAB8C /* AALine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1C9210AF4EC007EAB8C /* AALine.m */; };
 		1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1CC210AF4EC007EAB8C /* AATooltip.m */; };
-		1E66D204210AF4ED007EAB8C /* AASubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1CE210AF4EC007EAB8C /* AASubtitle.m */; };
 		1E66D205210AF4ED007EAB8C /* AAYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1CF210AF4EC007EAB8C /* AAYAxis.m */; };
 		1E66D206210AF4ED007EAB8C /* AACrosshair.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1D0210AF4EC007EAB8C /* AACrosshair.m */; };
 		1E66D207210AF4ED007EAB8C /* AAColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1D5210AF4EC007EAB8C /* AAColumn.m */; };
@@ -29,7 +28,6 @@
 		1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1E1210AF4EC007EAB8C /* AALegend.m */; };
 		1E66D210210AF4ED007EAB8C /* AAMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1E3210AF4EC007EAB8C /* AAMarker.m */; };
 		1E66D211210AF4ED007EAB8C /* AASpline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1E7210AF4EC007EAB8C /* AASpline.m */; };
-		1E66D212210AF4ED007EAB8C /* AAItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1E8210AF4EC007EAB8C /* AAItemStyle.m */; };
 		1E66D213210AF4ED007EAB8C /* AAPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1E9210AF4EC007EAB8C /* AAPie.m */; };
 		1E66D214210AF4ED007EAB8C /* AAChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1EF210AF4EC007EAB8C /* AAChart.m */; };
 		1E66D215210AF4ED007EAB8C /* AAChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E66D1F2210AF4EC007EAB8C /* AAChartView.m */; };
@@ -49,6 +47,7 @@
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
+		44C8C491226F4D4100AB9E50 /* SupportJSFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */; };
 		44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F5F9A021D80BDB002A8D25 /* AALabel.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACB1EC36307005B8021 /* IMG_1875.JPG */; };
@@ -111,11 +110,9 @@
 		1E66D1CB210AF4EC007EAB8C /* AALegend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AALegend.h; sourceTree = "<group>"; };
 		1E66D1CC210AF4EC007EAB8C /* AATooltip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATooltip.m; sourceTree = "<group>"; };
 		1E66D1CD210AF4EC007EAB8C /* AAAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAAnimation.h; sourceTree = "<group>"; };
-		1E66D1CE210AF4EC007EAB8C /* AASubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASubtitle.m; sourceTree = "<group>"; };
 		1E66D1CF210AF4EC007EAB8C /* AAYAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAYAxis.m; sourceTree = "<group>"; };
 		1E66D1D0210AF4EC007EAB8C /* AACrosshair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AACrosshair.m; sourceTree = "<group>"; };
 		1E66D1D1210AF4EC007EAB8C /* AAPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPie.h; sourceTree = "<group>"; };
-		1E66D1D2210AF4EC007EAB8C /* AAItemStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAItemStyle.h; sourceTree = "<group>"; };
 		1E66D1D3210AF4EC007EAB8C /* AASpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASpline.h; sourceTree = "<group>"; };
 		1E66D1D4210AF4EC007EAB8C /* AAChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChart.h; sourceTree = "<group>"; };
 		1E66D1D5210AF4EC007EAB8C /* AAColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAColumn.m; sourceTree = "<group>"; };
@@ -136,11 +133,9 @@
 		1E66D1E5210AF4EC007EAB8C /* AADataLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADataLabels.h; sourceTree = "<group>"; };
 		1E66D1E6210AF4EC007EAB8C /* AAPlotOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPlotOptions.h; sourceTree = "<group>"; };
 		1E66D1E7210AF4EC007EAB8C /* AASpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASpline.m; sourceTree = "<group>"; };
-		1E66D1E8210AF4EC007EAB8C /* AAItemStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAItemStyle.m; sourceTree = "<group>"; };
 		1E66D1E9210AF4EC007EAB8C /* AAPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPie.m; sourceTree = "<group>"; };
 		1E66D1EA210AF4EC007EAB8C /* AACrosshair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AACrosshair.h; sourceTree = "<group>"; };
 		1E66D1EB210AF4EC007EAB8C /* AAYAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAYAxis.h; sourceTree = "<group>"; };
-		1E66D1EC210AF4EC007EAB8C /* AASubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASubtitle.h; sourceTree = "<group>"; };
 		1E66D1ED210AF4EC007EAB8C /* AAPlotLinesElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPlotLinesElement.h; sourceTree = "<group>"; };
 		1E66D1EE210AF4EC007EAB8C /* AAColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAColumn.h; sourceTree = "<group>"; };
 		1E66D1EF210AF4EC007EAB8C /* AAChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAChart.m; sourceTree = "<group>"; };
@@ -179,6 +174,8 @@
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
 		449D447821CFDF5D00E43D9C /* AAPlotBandsElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPlotBandsElement.h; sourceTree = "<group>"; };
 		449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPlotBandsElement.m; sourceTree = "<group>"; };
+		44C8C48F226F4D4100AB9E50 /* SupportJSFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportJSFunctionVC.h; sourceTree = "<group>"; };
+		44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportJSFunctionVC.m; sourceTree = "<group>"; };
 		44F5F99F21D80BDB002A8D25 /* AALabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALabel.h; sourceTree = "<group>"; };
 		44F5F9A021D80BDB002A8D25 /* AALabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AALabel.m; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
@@ -265,8 +262,6 @@
 				1E66D1CC210AF4EC007EAB8C /* AATooltip.m */,
 				1E66D1C0210AF4EC007EAB8C /* AATitle.h */,
 				1E66D1DC210AF4EC007EAB8C /* AATitle.m */,
-				1E66D1EC210AF4EC007EAB8C /* AASubtitle.h */,
-				1E66D1CE210AF4EC007EAB8C /* AASubtitle.m */,
 				1E66D1EE210AF4EC007EAB8C /* AAColumn.h */,
 				1E66D1D5210AF4EC007EAB8C /* AAColumn.m */,
 				1E66D1C3210AF4EC007EAB8C /* AABar.h */,
@@ -291,8 +286,6 @@
 				1E66D1E0210AF4EC007EAB8C /* AAAnimation.m */,
 				1E66D1CB210AF4EC007EAB8C /* AALegend.h */,
 				1E66D1E1210AF4EC007EAB8C /* AALegend.m */,
-				1E66D1D2210AF4EC007EAB8C /* AAItemStyle.h */,
-				1E66D1E8210AF4EC007EAB8C /* AAItemStyle.m */,
 				1E66D1D7210AF4EC007EAB8C /* AAXAxis.h */,
 				1E66D1C5210AF4EC007EAB8C /* AAXAxis.m */,
 				1E66D1EB210AF4EC007EAB8C /* AAYAxis.h */,
@@ -381,6 +374,8 @@
 				44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
 				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
+				44C8C48F226F4D4100AB9E50 /* SupportJSFunctionVC.h */,
+				44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */,
 			);
 			name = AdditionalContent;
 			sourceTree = "<group>";
@@ -547,7 +542,7 @@
 				TargetAttributes = {
 					7172A3D21E763EA6000D5B99 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = H89WQT8Z9D;
+						DevelopmentTeam = BPAYP34L8N;
 						ProvisioningStyle = Automatic;
 					};
 					7172A3EB1E763EA6000D5B99 = {
@@ -567,6 +562,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -631,7 +627,6 @@
 			files = (
 				44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */,
 				1E66D213210AF4ED007EAB8C /* AAPie.m in Sources */,
-				1E66D204210AF4ED007EAB8C /* AASubtitle.m in Sources */,
 				449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */,
 				1E66D200210AF4ED007EAB8C /* AAPlotOptions.m in Sources */,
 				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
@@ -648,6 +643,7 @@
 				1E66D20E210AF4ED007EAB8C /* AAAnimation.m in Sources */,
 				27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
+				44C8C491226F4D4100AB9E50 /* SupportJSFunctionVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
@@ -657,7 +653,6 @@
 				1E66D201210AF4ED007EAB8C /* AADataLabels.m in Sources */,
 				1E66D211210AF4ED007EAB8C /* AASpline.m in Sources */,
 				44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */,
-				1E66D212210AF4ED007EAB8C /* AAItemStyle.m in Sources */,
 				1E66D1FF210AF4ED007EAB8C /* AAXAxis.m in Sources */,
 				1E66D216210AF4ED007EAB8C /* AAChartModel.m in Sources */,
 				1E66D207210AF4ED007EAB8C /* AAColumn.m in Sources */,
@@ -825,14 +820,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H89WQT8Z9D;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BPAYP34L8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKith;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -840,14 +838,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H89WQT8Z9D;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BPAYP34L8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKith;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

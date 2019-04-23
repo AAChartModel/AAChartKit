@@ -78,10 +78,10 @@ AAPropSetFuncImplementation(AASeriesElement, id, shadow) //数据列的阴影效
 @end
 
 
-@implementation AAData
+@implementation AADataElement
 
-AAPropSetFuncImplementation(AAData, AADataLabels *, dataLabels)
-AAPropSetFuncImplementation(AAData, NSNumber *, y)
+AAPropSetFuncImplementation(AADataElement, AADataLabels *, dataLabels)
+AAPropSetFuncImplementation(AADataElement, NSNumber *, y)
 
 @end
 

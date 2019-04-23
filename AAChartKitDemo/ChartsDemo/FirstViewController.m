@@ -42,6 +42,7 @@
 #import "ChartSeriesHideOrShowVC.h"
 #import "CustomStyleChartVC.h"
 #import "MonitorViewController.h"
+#import "SupportJSFunctionVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -213,6 +214,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
+        case 9: {
+            SupportJSFunctionVC *vc = SupportJSFunctionVC.new;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         
         default:
             break;
@@ -368,6 +376,7 @@
                                 @"Step Area Chart--直方折线填充图",
                                 @"Scatter Chart---散点图"
                                 ],
+                              @[@"support tooltip formatter JS Function"]
                               ];
     }
     return _chartTypeNameArr;
@@ -383,7 +392,8 @@
                             @"Animation Type---渲染动画",
                             @"AAOptions---Use AAOptions",
                             @"同时显示多个 AAChartView",
-                            @"Hide Or Show Chart Series---隐藏或显示内容",];
+                            @"Hide Or Show Chart Series---隐藏或显示内容",
+                            @"Support JS Funtion"];
     }
     return _sectionTypeArr;
 }

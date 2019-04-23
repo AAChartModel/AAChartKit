@@ -435,7 +435,7 @@
 
 - (AAChartModel*)configureCustomSingleDataLabelChart {
     NSArray *dataArr =
-    @[AAData.new
+    @[AADataElement.new
       .dataLabelsSet(AADataLabels.new
                      .enabledSet(true)
                      .styleSet(AAStyle.new
@@ -453,7 +453,7 @@
       @18.2,
       @21.5,
       @25.2,
-      AAData.new
+      AADataElement.new
       .dataLabelsSet(AADataLabels.new
                      .enabledSet(true)
                      .styleSet(AAStyle.new
@@ -471,7 +471,7 @@
       @18.3,
       @13.9,
       @9.6,
-      AAData.new
+      AADataElement.new
       .dataLabelsSet(AADataLabels.new
                      .enabledSet(true)
                      .styleSet(AAStyle.new

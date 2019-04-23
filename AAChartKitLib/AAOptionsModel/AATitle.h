@@ -35,14 +35,15 @@
 @class AAStyle;
 
 typedef NSString * AAChartTitleAlignType;
-static AAChartTitleAlignType const AAChartTitleAlignTypeLeft   = @"left";
-static AAChartTitleAlignType const AAChartTitleAlignTypeCenter = @"center";
-static AAChartTitleAlignType const AAChartTitleAlignTypeRight  = @"right";
-
 typedef NSString * AAChartTitleVerticalAlignType;
-static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeTop    = @"top";
-static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeMiddle = @"middle";
-static AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeBottom = @"bottom";
+
+extern AAChartTitleAlignType const AAChartTitleAlignTypeLeft;
+extern AAChartTitleAlignType const AAChartTitleAlignTypeCenter;
+extern AAChartTitleAlignType const AAChartTitleAlignTypeRight;
+
+extern AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeTop;
+extern AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeMiddle;
+extern AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeBottom;
 
 @interface AATitle : NSObject
 
@@ -52,5 +53,17 @@ AAPropStatementAndPropSetFuncStatement(copy,   AATitle, AAChartTitleAlignType, a
 AAPropStatementAndPropSetFuncStatement(copy,   AATitle, AAChartTitleVerticalAlignType, verticalAlign) 
 AAPropStatementAndPropSetFuncStatement(strong, AATitle, NSNumber *, y) //标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
 AAPropStatementAndPropSetFuncStatement(assign, AATitle, BOOL          , useHTML) //是否 使用HTML渲染标题。 默认是：false.
+
+@end
+
+
+
+@class AAStyle;
+
+@interface AASubtitle : NSObject
+
+AAPropStatementAndPropSetFuncStatement(copy,   AASubtitle, NSString *, text)
+AAPropStatementAndPropSetFuncStatement(copy,   AASubtitle, NSString *, align)
+AAPropStatementAndPropSetFuncStatement(strong, AASubtitle, AAStyle  *, style)
 
 @end

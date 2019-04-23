@@ -32,6 +32,14 @@
 
 #import "AATitle.h"
 
+AAChartTitleAlignType const AAChartTitleAlignTypeLeft   = @"left";
+AAChartTitleAlignType const AAChartTitleAlignTypeCenter = @"center";
+AAChartTitleAlignType const AAChartTitleAlignTypeRight  = @"right";
+
+AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeTop    = @"top";
+AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeMiddle = @"middle";
+AAChartTitleVerticalAlignType const AAChartTitleVerticalAlignTypeBottom = @"bottom";
+
 @implementation AATitle
 
 AAPropSetFuncImplementation(AATitle, NSString *, text) 
@@ -41,5 +49,14 @@ AAPropSetFuncImplementation(AATitle, AAChartTitleVerticalAlignType, verticalAlig
 AAPropSetFuncImplementation(AATitle, NSNumber *, y) //标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
 AAPropSetFuncImplementation(AATitle, BOOL          , useHTML) //是否 使用HTML渲染标题。 默认是：false.
 
+@end
+
+
+
+@implementation AASubtitle
+
+AAPropSetFuncImplementation(AASubtitle, NSString *, text)
+AAPropSetFuncImplementation(AASubtitle, NSString *, align)
+AAPropSetFuncImplementation(AASubtitle, AAStyle  *, style)
 
 @end

@@ -184,95 +184,94 @@
 }
 
 - (void)configureTheStyleForDifferentTypeChart {
-    if (self.chartType == SecondeViewControllerChartTypeColumn
-        || self.chartType == SecondeViewControllerChartTypeBar) {
-        _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
-        _aaChartModel.animationType = AAChartAnimationBounce;//图形的渲染动画为弹性动画
-        _aaChartModel.yAxisTitle = @"";
-        _aaChartModel.animationDuration = @1200;//图形渲染动画时长为1200毫秒
-     
-       // _aaChartModel.xAxisTickInterval = @3;//设置 X轴坐标点的间隔数,默认是1(手机端的屏幕较为狭窄, 如果X轴坐标点过多,文字过于密集的时候可以设置此属性值,用户的密集恐惧症将得到有效治疗😝)
-    } else if (self.chartType == SecondeViewControllerChartTypeArea
-               || self.chartType == SecondeViewControllerChartTypeAreaspline) {
-
-        _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-        _aaChartModel.easyGradientColors = true;//启用渐变色
-        _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
-        _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
-        _aaChartModel.xAxisCrosshairColor = @"#FFE4C4";//(浓汤)乳脂,番茄色准星线
-        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashStyleTypeLongDashDot;
+    if (self.chartType == SecondeViewControllerChartTypeColumn || self.chartType == SecondeViewControllerChartTypeBar) {
+        _aaChartModel
+        .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"])//设置 X 轴坐标文字内容
+        .animationTypeSet(AAChartAnimationBounce)//图形的渲染动画为弹性动画
+        .animationDurationSet(@(1200))//图形渲染动画时长为1200毫秒
+        .yAxisTitleSet(@"");
+    } else if (self.chartType == SecondeViewControllerChartTypeArea || self.chartType == SecondeViewControllerChartTypeAreaspline) {
+        _aaChartModel
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//设置折线连接点样式为:内部白色
+        .easyGradientColorsSet(true)//启用渐变色
+        .animationTypeSet(AAChartAnimationEaseOutQuart)//图形的渲染动画为 EaseOutQuart 动画
+        .xAxisCrosshairWidthSet(@0.9)//Zero width to disable crosshair by default
+        .xAxisCrosshairColorSet(@"#FFE4C4")//(浓汤)乳脂,番茄色准星线
+        .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeLongDashDot);
         if (self.chartType == SecondeViewControllerChartTypeLine) {
-            _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
+            _aaChartModel
+            .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);//设置 X 轴坐标文字内容
         } else if (self.chartType == SecondeViewControllerChartTypeAreaspline) {
-            _aaChartModel.series =@[
-                                    AASeriesElement.new
-                                    .nameSet(@"Tokyo Hot")
-                                    .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
-                                    AASeriesElement.new
-                                    .nameSet(@"Berlin Hot")
-                                    .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
-                                    AASeriesElement.new
-                                    .nameSet(@"London Hot")
-                                    .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
-                                    AASeriesElement.new
-                                    .nameSet(@"NewYork Hot")
-                                    .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-                                    ];
+            _aaChartModel
+            .xAxisTickIntervalSet(@3)//设置 X轴坐标点的间隔数,默认是1(手机端的屏幕较为狭窄, 如果X轴坐标点过多,文字过于密集的时候可以设置此属性值,用户的密集恐惧症将得到有效治疗😝)
+            .seriesSet(@[
+                         AASeriesElement.new
+                         .nameSet(@"Tokyo Hot")
+                         .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+                         AASeriesElement.new
+                         .nameSet(@"Berlin Hot")
+                         .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+                         AASeriesElement.new
+                         .nameSet(@"London Hot")
+                         .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+                         AASeriesElement.new
+                         .nameSet(@"NewYork Hot")
+                         .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+                         ]);
         }
-    } else if (self.chartType == SecondeViewControllerChartTypeLine
-               || self.chartType == SecondeViewControllerChartTypeSpline) {
-        _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeBorderBlank;//设置折线连接点样式为:边缘白色
-        _aaChartModel.xAxisCrosshairWidth = @1;//Zero width to disable crosshair by default
-        _aaChartModel.xAxisCrosshairColor = @"#778899";//浅石板灰准星线
-        _aaChartModel.xAxisCrosshairDashStyleType = AALineDashStyleTypeLongDashDotDot;
+    } else if (self.chartType == SecondeViewControllerChartTypeLine || self.chartType == SecondeViewControllerChartTypeSpline) {
+        _aaChartModel
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//设置折线连接点样式为:边缘白色
+        .xAxisCrosshairWidthSet(@01.2)//Zero width to disable crosshair by default
+        .xAxisCrosshairColorSet(@"#778899")//浅石板灰准星线
+        .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeLongDashDotDot);
+
         if (self.chartType == SecondeViewControllerChartTypeLine) {
-            _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
+            _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
         } else if (self.chartType == SecondeViewControllerChartTypeSpline) {
-            _aaChartModel.markerRadius = @8;
-            _aaChartModel.series = @[
-                                     AASeriesElement.new
-                                     .nameSet(@"2017")
-                                     .lineWidthSet(@5)
-                                     .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                                     AASeriesElement.new
-                                     .nameSet(@"2018")
-                                     .lineWidthSet(@5)
-                                     .dataSet(@[@80, @390, @210, @340, @240, @350,]),
-                                     AASeriesElement.new
-                                     .nameSet(@"2019")
-                                     .lineWidthSet(@5)
-                                     .dataSet(@[@100, @370, @180, @280, @260, @300,]),
-                                     AASeriesElement.new
-                                     .nameSet(@"2020")
-                                     .lineWidthSet(@5)
-                                     .dataSet(@[@130, @350, @160, @310, @250, @268,]),
-                                     ];        }
-        
-    } else if (self.chartType == SecondeViewControllerChartTypeStepLine
-               || self.chartType == SecondeViewControllerChartTypeStepArea) {
-        _aaChartModel.yAxisVisible = false;
-        if (self.chartType == SecondeViewControllerChartTypeStepLine) {
-            _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeBorderBlank;
-        } else {
-            _aaChartModel.easyGradientColors = true;
+            _aaChartModel
+            .markerRadiusSet(@0)
+            .seriesSet(@[
+                         AASeriesElement.new
+                         .nameSet(@"2017")
+                         .lineWidthSet(@5.0)
+                         .dataSet(@[@50.1, @320.2, @230.3, @370.4, @230.5, @400.6,]),
+                         AASeriesElement.new
+                         .nameSet(@"2018")
+                         .lineWidthSet(@5.0)
+                         .dataSet(@[@80.1, @390.2, @210.3, @340.4, @240.5, @350.6,]),
+                         AASeriesElement.new
+                         .nameSet(@"2019")
+                         .lineWidthSet(@5.0)
+                         .dataSet(@[@100.1, @370.2, @180.3, @280.4, @260.5, @300.6,]),
+                         AASeriesElement.new
+                         .nameSet(@"2020")
+                         .lineWidthSet(@5.0)
+                         .dataSet(@[@130.1, @350.2, @160.3, @310.4, @250.5, @268.6,]),
+                         ]);
         }
-        _aaChartModel.series = @[
-                                 AASeriesElement.new
-                                 .nameSet(@"Berlin")
-                                 .dataSet(@[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4])
-                                 .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
-                                 ,
-                                 AASeriesElement.new
-                                 .nameSet(@"New York")
-                                 .dataSet(@[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3])
-                                 .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
-                                 ,
-                                 AASeriesElement.new
-                                 .nameSet(@"Tokyo")
-                                 .dataSet(@[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2])
-                                 .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
-                                 ,
-                                 ];
+    } else if (self.chartType == SecondeViewControllerChartTypeStepLine || self.chartType == SecondeViewControllerChartTypeStepArea) {
+        _aaChartModel.yAxisVisibleSet(false);
+        if (self.chartType == SecondeViewControllerChartTypeStepLine) {
+            _aaChartModel.markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
+        } else {
+            _aaChartModel.easyGradientColorsSet(true);
+        }
+        _aaChartModel
+        .seriesSet(@[
+                     AASeriesElement.new
+                     .nameSet(@"Berlin")
+                     .dataSet(@[@149.9, @171.5, @106.4, @129.2, @144.0, @176.0, @135.6, @188.5, @276.4, @214.1, @95.6, @54.4])
+                     .stepSet(@true),//设置折线样式为直方折线,连接点位置默认靠左👈
+                     AASeriesElement.new
+                     .nameSet(@"New York")
+                     .dataSet(@[@83.6, @78.8, @188.5, @93.4, @106.0, @84.5, @105.0, @104.3, @131.2, @153.5, @226.6, @192.3])
+                     .stepSet(@true),//设置折线样式为直方折线,连接点位置默认靠左👈
+                     AASeriesElement.new
+                     .nameSet(@"Tokyo")
+                     .dataSet(@[@48.9, @38.8, @19.3, @41.4, @47.0, @28.3, @59.0, @69.6, @52.4, @65.2, @53.3, @72.2])
+                     .stepSet(@true)//设置折线样式为直方折线,连接点位置默认靠左👈
+                     ]);
     }
 }
 

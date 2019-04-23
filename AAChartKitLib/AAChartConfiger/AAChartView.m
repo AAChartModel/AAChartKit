@@ -169,7 +169,7 @@ UIWebViewDelegate > {
     return javaScriptStr;
 }
 
-//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
+#pragma mark -***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 //
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
@@ -185,11 +185,11 @@ UIWebViewDelegate > {
     [self aa_onlyRefreshTheChartDataWithOptionsSeries:series];
 }
 //
-//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
+#pragma mark -***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 
 
 
-//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+#pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 //
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     if (!_optionJson) {
@@ -216,7 +216,9 @@ UIWebViewDelegate > {
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 //
-//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+#pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+
+
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FBI WARNING"
@@ -503,8 +505,7 @@ UIWebViewDelegate > {
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
 
-+ (NSDictionary *)jsonDictWithString:(NSString *)string
-{
++ (NSDictionary *)jsonDictWithString:(NSString *)string {
     if (string && 0 != string.length) {
         NSError *error;
         NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];

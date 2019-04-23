@@ -69,10 +69,10 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id, shadow) //æ•
 @end
 
 
-@interface AAData : NSObject
+@interface AADataElement : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAData, AADataLabels *, dataLabels)
-AAPropStatementAndPropSetFuncStatement(strong, AAData, NSNumber *, y)
+AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AADataLabels *, dataLabels)
+AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
 
 @end
 

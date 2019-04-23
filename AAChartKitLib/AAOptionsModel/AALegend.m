@@ -58,3 +58,15 @@ AAPropSetFuncImplementation(AALegend, NSNumber    *, x)
 AAPropSetFuncImplementation(AALegend, NSNumber    *, y) 
 
 @end
+
+
+
+@implementation AAItemStyle
+
+AAPropSetFuncImplementation(AAItemStyle, NSString *, color)
+AAPropSetFuncImplementation(AAItemStyle, NSString *, cursor)
+AAPropSetFuncImplementation(AAItemStyle, NSString *, pointer)
+AAPropSetFuncImplementation(AAItemStyle, NSString *, fontSize)
+AAPropSetFuncImplementation(AAItemStyle, NSString *, fontWeight)
+
+@end

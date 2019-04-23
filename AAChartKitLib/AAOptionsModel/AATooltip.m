@@ -43,15 +43,41 @@ AAPropSetFuncImplementation(AATooltip, NSDictionary *, style) //为提示框添�
 
 AAPropSetFuncImplementation(AATooltip, BOOL,       enabled) 
 AAPropSetFuncImplementation(AATooltip, BOOL,       useHTML) 
-AAPropSetFuncImplementation(AATooltip, NSString *, formatter) 
-AAPropSetFuncImplementation(AATooltip, NSString *, headerFormat) 
+//AAPropSetFuncImplementation(AATooltip, NSString *, formatter)
+AAPropSetFuncImplementation(AATooltip, NSString *, headerFormat)
 AAPropSetFuncImplementation(AATooltip, NSString *, pointFormat) 
 AAPropSetFuncImplementation(AATooltip, NSString *, footerFormat) 
 AAPropSetFuncImplementation(AATooltip, NSNumber *, valueDecimals) //设置取值精确到小数点后几位
 AAPropSetFuncImplementation(AATooltip, BOOL,       shared) 
 AAPropSetFuncImplementation(AATooltip, BOOL,       crosshairs) 
 AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix) 
-//AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove) 
+//AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 
+- (void)setFormatter:(NSString *)formatter {
+    _formatter = [self getFinalJSFuncStringWithString:formatter];
+}
+
+- (AATooltip * (^) (NSString * formatter))formatterSet {
+    return ^(NSString * formatter) {
+        _formatter = [self getFinalJSFuncStringWithString:formatter];
+        return self;
+    };
+}
+
+- (NSString *)getFinalJSFuncStringWithString:(NSString *)jsString {
+    NSString *finalJSFunc = [NSString stringWithFormat:@"(%@)",jsString];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"'" withString:@"\""];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\0" withString:@""];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\f" withString:@"\\f"];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\u2028" withString:@"\\u2028"];
+    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\u2029" withString:@"\\u2029"];
+    return finalJSFunc;
+}
 
 @end

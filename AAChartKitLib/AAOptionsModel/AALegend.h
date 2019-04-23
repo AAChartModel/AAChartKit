@@ -32,7 +32,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AAItemStyle.h"
+@class AAItemStyle;
 
 typedef NSString *AALegendLayoutType;
 typedef NSString *AALegendAlignType;
@@ -61,5 +61,17 @@ AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, itemMarg
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, AAItemStyle *, itemStyle) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, x) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, y) 
+
+@end
+
+
+
+@interface AAItemStyle : NSObject
+
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, cursor)
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, pointer)
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontSize)
+AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontWeight)
 
 @end

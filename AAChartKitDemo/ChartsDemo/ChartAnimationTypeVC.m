@@ -203,6 +203,8 @@
                      ]);
     }
     
+    self.chartModel.polar = true;
+    
     [self.chartView aa_drawChartWithChartModel:self.chartModel];
 }
 
