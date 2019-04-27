@@ -198,15 +198,16 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 ### 支持用户点击事件
 
   可通过给 AAChartView 示例对象设置代理方法,来实现监听用户的点击事件和单指滑动事件
-  ```objc
+ ```objective-c
   #pragma mark -- AAChartView delegate
   - (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
   NSLog(@"🚀selected point series element name: %@",message.name);
   }
   ```
+
   在监听用户交互事件时,获取的事件信息`AAMoveOverEventMessageModel`共包含以下内容
   
-  ```objc
+  ```objective-c
   interface AAMoveOverEventMessageModel : NSObject
   
   @property (nonatomic, copy)   NSString *name; 
@@ -223,10 +224,31 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 ### 支持通过`JavaScript` 函数来自定义 `AATooltip`视图显示效果
 有时系统默认的 tooltip 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 AATooltip 的 formatter 函数来实现视图的特殊定制化
 例如,如下配置 AATooltip 实例对象属性
-```objc
-
+```objective-c
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AATooltip *tooltip = aaOptions.tooltip;
+    tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        return ' 🌕 🌖 🌗 🌘🌑 🌒 🌓 🌔 <br/> '
+        + ' Support JavaScript Function Just Right Now !!! <br/> '
+        + ' The Gold Price For <b>2020 '
+        +  this.x
+        + ' </b> Is <b> '
+        +  this.y
+        + ' </b> Dollars ';
+    }))
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px"))
+    ;
 ```
-即可完成图表的浮动提示框的特殊定制化.
+即可完成图表的浮动提示框的特殊定制化.得到的浮动提示框的视觉效果图如下👇
+![Custom Tooltip Style](https://user-images.githubusercontent.com/16357599/56589690-543c5880-6618-11e9-9d18-6bc0fe2fa53f.png)
+
 
   
 ### 当前已支持的图表类型有十种以上,说明如下
