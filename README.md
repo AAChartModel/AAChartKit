@@ -546,7 +546,7 @@ to be
  - [ ] Support setting graphics rendering animation freely
  - [ ] Support rendered graphics to generate image files
  - [ ] Support generating image files saved to the system album
- - [ ] Support user to configure `AAOptions` model object properties freely
+ - [x] Support user to configure `AAOptions` model object properties freely
  - [x] Support stacking the graphics 
  - [x] Support reversing the graphics axis 
  - [x] Support rendering scatter chart
@@ -556,9 +556,8 @@ to be
  - [x] Support rendering the step line chart
  - [x] Support rendering the step area chart
  - [x] Support rendering the Nightingale rose 🌹chart
- - [ ] Support rendering the rectangular tree hierarchy diagrams
- - [ ] Support rendering the circular progress bar chart 
- - [ ] Support adding clicked event callbacks for graphics
+ - [x] Support rendering the circular progress bar chart 
+ - [x] Support adding clicked event callbacks for graphics
 
 [1]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/1.gif
 [2]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/2.gif
