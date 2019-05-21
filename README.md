@@ -53,7 +53,12 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ## Installation
 
 ### CocoaPods (recommend)
-1. Add pod `pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'` to your Podfile.
+1. Add following content
+```ruby
+pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
+```
+ to your Podfile.
+ 
 2. Run pod install or pod update.
 
 
@@ -514,7 +519,7 @@ If you want to shrink the size of the `AAChartKit` lib, you should do something 
 * AAHighchartsMore.js
 * AAFunnel.js
 
-2.Change the content of `AAChartView.html` file 
+2. Change the content of `AAChartView.html` file 
 ``` html
 <script src="AAHighchartsLib.js">
 </script>

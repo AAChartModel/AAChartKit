@@ -33,7 +33,7 @@
 * 🦋        极简主义 . `AAChartView + AAChartModel = Chart`,在 ***AAChartKit*** 图表框架当中,遵循这样一个极简主义公式:`图表视图控件 + 图表模型 = 你想要的图表`.同另一款强大而又精美的图表库[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)完全一致.
 * ⛓        链式编程语法 . 支持类 *Masonry* `链式编程语法`,一行代码即可配置完成 `AAChartModel`模型对象实例.
 * 🎈        简洁清晰,轻便易用 . 最少仅仅需要 **五行代码** 即可完成整个图表的绘制工作(使用链式编程语法配置 `AAChartModel` 实例对象时,无论你写多少行代码,理论上只能算作是一行). 😜😜😜
-* 🖱        支持图表的[用户点击事件及单指滑动事件](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#%E6%94%AF%E6%8C%81%E7%94%A8%E6%88%B7%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6),可在此基础上实现双表联动乃至多表联动,以及其他更多更复杂的自定义用户交互效果.
+* 🖱        支持图表的[用户点击事件及单指滑动事件](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#支持监听用户点击事件及单指滑动事件),可在此基础上实现双表联动乃至多表联动,以及其他更多更复杂的自定义用户交互效果.
 
 ***
 
@@ -57,8 +57,12 @@
 ## 使用前安装
 
 ### CocoaPods 安装 (推荐)
-1. 在 Podfile 中添加 `pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'`。
-1. 执行 pod install 或 pod update。
+1. 在 Podfile 中添加以下内容
+ ```ruby
+ pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
+ ```
+
+2. 执行 pod install 或 pod update。
 
 
 ### 手动安装
@@ -235,7 +239,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
     tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
-        return ' 🌕 🌖 🌗 🌘🌑 🌒 🌓 🌔 <br/> '
+        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
         + ' Support JavaScript Function Just Right Now !!! <br/> '
         + ' The Gold Price For <b>2020 '
         +  this.x
