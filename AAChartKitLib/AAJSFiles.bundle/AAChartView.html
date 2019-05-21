@@ -33,19 +33,7 @@
                 var aaOptions = JSON.parse(sender);
 
                 if (aaOptions.gradientColorEnabled == true) { //开启图表渐变色功能
-                    var colors = aaOptions.colors;
-                    aaOptions.colors = Highcharts.map(colors,
-                    function(color) {
-                        return {
-                            linearGradient: {
-                                x1: 0,
-                                y1: 0,
-                                x2: 0,
-                                y2: 1
-                            },
-                            stops: [[0, color], [1, Highcharts.Color(color).setOpacity(0.6).get('rgba')]]
-                        };
-                    });
+                 configureEasyGradientColor(aaOptions);
                 }
 
                 Highcharts.setOptions({
@@ -58,16 +46,7 @@
                     enabled: false
                 }; //去掉表格右下角版权信息
                 if (aaOptions.plotOptions) {
-                    var animation = aaOptions.plotOptions.series.animation;
-                    if (animation) {
-                        var animationEasingType = animation.easing;
-                        animation.easing = configureTheChartAnimationEasingType(animationEasingType);
-                    }
-                    
-                    // 添加鼠标事件
-                    if (aaOptions.touchEventEnabled == true && aaOptions.plotOptions.series) {
-                        configureChartTouchEvent(aaOptions,isWKWebView);
-                    }
+                    configurePlotOptions(aaOptions,isWKWebView);
                 }
                 
                 if (aaOptions.tooltip.formatter) {
@@ -77,7 +56,42 @@
                 globalChart = Highcharts.chart('container', aaOptions);
             }
         
-        function configureChartTouchEvent(aaOptions,isWKWebView) {
+        function configureEasyGradientColor(aaOptions) {
+            var colors = aaOptions.colors;
+            aaOptions.colors = Highcharts.map(colors,
+            function(color) {
+                return {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops: [[0, color],
+                            [1, Highcharts
+                             .Color(color)
+                             .setOpacity(0.6)
+                             .get('rgba')]
+                            ]
+                        };
+                    });  
+        }
+        
+        function configurePlotOptions(aaOptions,isWKWebView) {
+            var aaPlotOptions = aaOptions.plotOptions;
+            var animation = aaPlotOptions.series.animation;
+            if (animation) {
+                var animationEasingType = animation.easing;
+                animation.easing = configureTheChartAnimationEasingType(animationEasingType);
+            }
+            
+            // 添加鼠标事件
+            if (aaOptions.touchEventEnabled == true && aaPlotOptions.series) {
+                configureChartTouchEvent(aaPlotOptions,isWKWebView);
+            }
+        }
+        
+        function configureChartTouchEvent(aaPlotOptions,isWKWebView) {
             var mouseOverFunc = function() {
                 //console.log(this)
                 var message = {
@@ -104,7 +118,7 @@
                     }
                 }
             }
-            aaOptions.plotOptions.series = Object.assign(pointEvents,aaOptions.plotOptions.series)
+            aaPlotOptions.series = Object.assign(pointEvents,aaPlotOptions.series)
         }
         
         function uiWebViewLoadURL(url) {
