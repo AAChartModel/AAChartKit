@@ -33,6 +33,7 @@
 * 🦋        极简主义 . `AAChartView + AAChartModel = Chart`,在 ***AAChartKit*** 图表框架当中,遵循这样一个极简主义公式:`图表视图控件 + 图表模型 = 你想要的图表`.同另一款强大而又精美的图表库[AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)完全一致.
 * ⛓        链式编程语法 . 支持类 *Masonry* `链式编程语法`,一行代码即可配置完成 `AAChartModel`模型对象实例.
 * 🎈        简洁清晰,轻便易用 . 最少仅仅需要 **五行代码** 即可完成整个图表的绘制工作(使用链式编程语法配置 `AAChartModel` 实例对象时,无论你写多少行代码,理论上只能算作是一行). 😜😜😜
+* 🖱        支持图表的[用户点击事件及单指滑动事件](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#%E6%94%AF%E6%8C%81%E7%94%A8%E6%88%B7%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6),可在此基础上实现双表联动乃至多表联动,以及其他更多更复杂的自定义用户交互效果.
 
 ***
 
@@ -194,107 +195,64 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ## 特别说明
 
-### 特殊类型图表配置
+### 支持监听用户点击事件及单指滑动事件
 
-***AAChartKit*** 中`扇形图`、`气泡图`都归属为特殊类型,所以想要绘制`扇形图`、`气泡图`,图表模型 `AAChartModel` 的属性 `series` 设置稍有不同,示例如下
+  可通过给 AAChartView 示例对象设置代理方法,来实现监听用户的点击事件和单指滑动事件
+ ```objective-c
+  //设置 AAChartView 事件代理
+  self.aaChartView.delegate = self;
 
-- 绘制扇形图,你需要这样配置模型 `AAChartModel`
+  //实现对 AAChartView 事件代理的监听
+  #pragma mark -- AAChartView delegate
+  - (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
+  NSLog(@"🚀selected point series element name: %@",message.name);
+  }
+  ```
+
+  在监听用户交互事件时,获取的事件信息`AAMoveOverEventMessageModel`共包含以下内容
+  ```objective-c
+  @interface AAMoveOverEventMessageModel : NSObject
+  
+  @property (nonatomic, copy)   NSString *name; 
+  @property (nonatomic, strong) NSNumber *x; 
+  @property (nonatomic, strong) NSNumber *y;
+  @property (nonatomic, copy)   NSString *category;
+  @property (nonatomic, strong) NSDictionary *offset;
+  @property (nonatomic, assign) NSUInteger index;
+  
+  @end
+  ```
+
+
+### 支持通过`JavaScript` 函数来自定义 `AATooltip`视图显示效果
+有时系统默认的 tooltip 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 AATooltip 的 formatter 函数来实现视图的特殊定制化
+例如,如下配置 AATooltip 实例对象属性
 ```objective-c
-AAChartModel *chartModel= AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypePie)
-        .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
-        .dataLabelEnabledSet(true)//是否直接显示扇形图数据
-        .yAxisTitleSet(@"摄氏度")
-        .seriesSet(
-                   @[AAObject(AASeriesElement)
-                     .nameSet(@"语言热度占比")
-                     .dataSet(@[
-                                @[@"Java"  , @67],
-                                @[@"Swift" , @44],
-                                @[@"Python", @83],
-                                @[@"OC"    , @11],
-                                @[@"Ruby"  , @42],
-                                @[@"PHP"   , @31],
-                                @[@"Go"    , @63],
-                                @[@"C"     , @24],
-                                @[@"C#"    , @888],
-                                @[@"C++"   , @66],
-                                ]),
-                     ]
-                   
-                   )
-        ;
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AATooltip *tooltip = aaOptions.tooltip;
+    tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        return ' 🌕 🌖 🌗 🌘🌑 🌒 🌓 🌔 <br/> '
+        + ' Support JavaScript Function Just Right Now !!! <br/> '
+        + ' The Gold Price For <b>2020 '
+        +  this.x
+        + ' </b> Is <b> '
+        +  this.y
+        + ' </b> Dollars ';
+    }))
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px"))
+    ;
 ```
-- 绘制气泡图,你需要这样配置模型 `AAChartModel`
+即可完成图表的浮动提示框的特殊定制化.得到的浮动提示框的视觉效果图如下👇
+![Custom Tooltip Style](https://user-images.githubusercontent.com/16357599/56589690-543c5880-6618-11e9-9d18-6bc0fe2fa53f.png)
 
 
-```objective-c
-
-
-AAChartModel *chartModel= AAObject(AAChartModel)
-        .chartTypeSet(AAChartTypeBubble)
-        .titleSet(@"编程语言热度")
-        .subtitleSet(@"虚拟数据")
-        .yAxisTitleSet(@"摄氏度")
-        .seriesSet(
-                   @[
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2017")
-                     .dataSet(
-                              @[
-                                @[@97, @36, @79],
-                                @[@94, @74, @60],
-                                @[@68, @76, @58],
-                                @[@64, @87, @56],
-                                @[@68, @27, @73],
-                                @[@74, @99, @42],
-                                @[@7,  @93, @87],
-                                @[@51, @69, @40],
-                                @[@38, @23, @33],
-                                @[@57, @86, @31]
-                                ]),
-                     
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2018")
-                     .dataSet(
-                              @[
-                                @[@25, @10, @87],
-                                @[@2,  @75, @59],
-                                @[@11, @54, @8 ],
-                                @[@86, @55, @93],
-                                @[@5,  @3,  @58],
-                                @[@90, @63, @44],
-                                @[@91, @33, @17],
-                                @[@97, @3,  @56],
-                                @[@15, @67, @48],
-                                @[@54, @25, @81]
-                                ]),
-                     
-                     AAObject(AASeriesElement)
-                     .nameSet(@"2019")
-                     .dataSet(
-                              @[
-                                @[@47, @47, @21],
-                                @[@20, @12, @4 ],
-                                @[@6,  @76, @91],
-                                @[@38, @30, @60],
-                                @[@57, @98, @64],
-                                @[@61, @17, @80],
-                                @[@83, @60, @13],
-                                @[@67, @78, @75],
-                                @[@64, @12, @10],
-                                @[@30, @77, @82]
-                                ]),
-                     
-                     ]
-                   )
-        ;
-        
-
-```
-
-***NOTE:*** 关于更多类型特殊图表的 `AAChartModel`实例对象属性配置,详情请见 ***AAChartKit*** 工程 `Demo` 中的`SpecialChartVC.m`文件内容,查看文件内容详情请点击[这里](https://github.com/AAChartModel/AAChartKit/blob/master/AAChartKitDemo/ChartsDemo/SpecialChartVC.m),您也可以选择下载 `Demo` 后,在  `Xcode` 中查看 ***AAChartKit*** 的`SpecialChartVC.m`内容
   
 ### 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
@@ -587,9 +545,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
  - [x] 支持渲染折线直方图
  - [x] 支持渲染折线直方填充图
  - [x] 支持渲染南丁格尔🌹玫瑰图
- - [ ] 支持渲染矩形树状层级关系图
- - [ ] 支持渲染活动刻度仪表图
- - [ ] 支持为图形添加点击事件回调
+ - [x] 支持渲染活动刻度仪表图
+ - [x] 支持为图形添加点击事件回调
 
 
 
