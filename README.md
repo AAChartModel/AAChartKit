@@ -50,12 +50,14 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 | :----:  | :----: | :----: |
 | ![image1](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/BubbleChart.png) | ![image1](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/ArearangeAverageValueChart.png) | ![image1](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/ColumnMixedLineChart.png) |
 
-## Usage
+## Installation
 
-**Waring❗️:DO NOT support Cocoapods and Carthage yet ,Just support old school way for now**
+### CocoaPods (recommend)
+1. Add pod `pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'` to your Podfile.
+2. Run pod install or pod update.
 
 
-### The required 'pre' work
+### Manually (old school way)
 1. Drag the `AAChartKitLib` folder into your project.
 
 2. Add the following to your `.pch` file.
@@ -63,7 +65,7 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 #import "AAGlobalMacro.h"
 ```
 
-### The 'real' work
+### Usage
 1. Add the following to your view controller file:
 ```objective-c
 #import "AAChartKit.h"
@@ -539,7 +541,7 @@ to be
  - [x] Support graphics to refresh pure data in real time and scroll dynamically
  - [x] Support color layer gradient effects
  - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
- - [ ] Support `CocoaPods`
+ - [x] Support `CocoaPods`
  - [ ] Support `Carthage`
  - [ ] Support  code coverage test
  - [ ] Support horizontal screen (full screen) effect

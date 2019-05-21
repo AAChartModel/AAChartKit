@@ -54,19 +54,21 @@
 | :----:  | :----: | :----: |
 | ![image1](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/BubbleChart.png) | ![image1](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/ArearangeAverageValueChart.png) | ![image1](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAInfographics/ColumnMixedLineChart.png) |
 
-## 使用方法
+## 使用前安装
 
-### 准备工作
+### CocoaPods 安装 (推荐)
+1. 在 Podfile 中添加 `pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'`。
+1. 执行 pod install 或 pod update。
 
-**注意❗️:暂不支持 Cocoapods 及 Carthage 导入,仅支持手动导入**
 
+### 手动安装
 1. 将项目`Demo`中的文件夹`AAChartKitLib`拖入到所需项目中.
 1. 在你的项目的 `.pch` 全局宏定义文件中添加
 ```objective-c
 #import "AAGlobalMacro.h"
 ```
 
-### 正式开始
+## 正式开始使用
 1. 在你的`ViewController`视图控制器文件中添加
 ```objective-c
 #import "AAChartKit.h"
@@ -86,7 +88,7 @@ _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 3. 配置视图模型`AAChartModel`
 ```objective-c
 AAChartModel *aaChartModel= AAObject(AAChartModel)
-.chartTypeSet(AAChartTypeColumn)//设置图表的类型(这里以设置的为柱状图为例)
+.chartTypeSet(AAChartTypeLine)//设置图表的类型(这里以设置的为折线图为例)
 .titleSet(@"编程语言热度")//设置图表标题
 .subtitleSet(@"虚拟数据")//设置图表副标题
 .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])//图表横轴的内容
@@ -225,7 +227,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 
 ### 支持通过`JavaScript` 函数来自定义 `AATooltip`视图显示效果
-有时系统默认的 tooltip 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 AATooltip 的 formatter 函数来实现视图的特殊定制化
+有时系统默认的 tooltip 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 AATooltip 的 `headerFormat` 和 `pointFormat`字符串属性来自定义浮动提示框的显示内容,如仍旧不能满足需求,更可以通过 AATooltip 的 `formatter` 函数来实现视图的特殊定制化
 例如,如下配置 AATooltip 实例对象属性
 ```objective-c
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
@@ -527,13 +529,10 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
  - [ ] 支持图形实时刷新纯数据并动态滚动
  - [x] 支持色彩图层渐变效果
  - [x] 支持3D图形效果,仅对`柱状图`、`条形图`、`扇形图`、`散点图`、`气泡图`等部分图形有效
- - [ ] 支持代码覆盖率测试
- - [ ] 支持使用`CocoaPods` 导入
+ - [x] 支持使用`CocoaPods` 导入
  - [ ] 支持使用`Carthage` 导入
  - [x] 支持横屏(全屏)效果
  - [x] 支持自由设置图形渲染动画
- - [ ] 支持已渲染图形生成图片文件
- - [ ] 支持生成图片文件保存至系统相册
  - [x] 支持用户自由配置`AAOptions`模型对象属性
  - [x] 支持图形堆叠
  - [x] 支持图形坐标轴反转
@@ -547,6 +546,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
  - [x] 支持渲染南丁格尔🌹玫瑰图
  - [x] 支持渲染活动刻度仪表图
  - [x] 支持为图形添加点击事件回调
+ - [ ] 支持代码覆盖率测试
+
 
 
 
