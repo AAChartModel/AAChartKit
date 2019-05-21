@@ -57,9 +57,9 @@ AAChartKit is an elegant, friendly and easy to use chart library for iOS, based 
 ```ruby
 pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
 ```
- to your Podfile.
+ to your `Podfile`.
  
-2. Run pod install or pod update.
+2. Run `pod install` or `pod update`.
 
 
 ### Manually (old school way)

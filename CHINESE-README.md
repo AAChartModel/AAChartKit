@@ -57,12 +57,12 @@
 ## 使用前安装
 
 ### CocoaPods 安装 (推荐)
-1. 在 Podfile 中添加以下内容
+1. 在 `Podfile` 中添加以下内容
  ```ruby
  pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
  ```
 
-2. 执行 pod install 或 pod update。
+2. 执行  `pod install`  或  `pod update`。
 
 
 ### 手动安装
@@ -231,8 +231,8 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 
 ### 支持通过`JavaScript` 函数来自定义 `AATooltip`视图显示效果
-有时系统默认的 tooltip 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 AATooltip 的 `headerFormat` 和 `pointFormat`字符串属性来自定义浮动提示框的显示内容,如仍旧不能满足需求,更可以通过 AATooltip 的 `formatter` 函数来实现视图的特殊定制化
-例如,如下配置 AATooltip 实例对象属性
+有时系统默认的 `tooltip` 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 `AATooltip` 的 `headerFormat` 和 `pointFormat`字符串属性来自定义浮动提示框的显示内容,如仍旧不能满足需求,更可以通过 `AATooltip` 的 `formatter` 函数来实现视图的特殊定制化
+例如,如下配置 `AATooltip` 实例对象属性
 ```objective-c
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AATooltip *tooltip = aaOptions.tooltip;
