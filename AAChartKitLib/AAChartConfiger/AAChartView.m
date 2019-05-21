@@ -143,6 +143,9 @@ UIWebViewDelegate > {
     NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
     NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    if (!bundle) { //installed manually
+        bundle = [NSBundle bundleForClass:[self class]];
+    }
     NSString *webPath = [bundle pathForResource:@"AAChartView"
                                          ofType:@"html"
                                     inDirectory:@"AAJSFiles.bundle"];
