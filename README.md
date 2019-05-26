@@ -294,6 +294,17 @@ The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you 
                )
     ;
 ```
+
+### Support value range segmentation 
+
+
+* chart with value range segmentation `bands 🎀`
+![plotBandsChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotBandsChart.png)
+
+
+* chart with value range segmentation `lines 🧶`
+![plotLinesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotLinesChart.png)
+
 ### Supported chart types for now
 ```objective-c
 typedef NSString *AAChartType;
