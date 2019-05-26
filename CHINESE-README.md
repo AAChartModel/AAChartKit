@@ -258,6 +258,15 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 即可完成图表的浮动提示框的特殊定制化.得到的浮动提示框的视觉效果图如下👇
 ![Custom Tooltip Style](https://user-images.githubusercontent.com/16357599/56589690-543c5880-6618-11e9-9d18-6bc0fe2fa53f.png)
 
+### 支持添加值域分割功能
+
+* 添加颜色带🎀值域分割
+![plotBandsChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotBandsChart.png)
+
+
+* 添加颜色线🧶值域分割
+![plotLinesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotLinesChart.png)
+
 
   
 ### 当前已支持的图表类型有十种以上,说明如下
