@@ -48,6 +48,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, step)//显�
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, AAStyle  *, style)//轴标签的 CSS 样式
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, x)//相对于坐标轴刻度线的水平偏移。 默认是：0.
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, y)//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
+AAPropStatementAndPropSetFuncStatement(assign, AALabels, BOOL      , useHTML)//HTML渲染
+
 
 
 

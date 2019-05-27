@@ -47,4 +47,6 @@ AAPropSetFuncImplementation(AALabels, NSNumber *, step)//显示 n 的倍数标�
 AAPropSetFuncImplementation(AALabels, AAStyle  *, style)//轴标签的 CSS 样式
 AAPropSetFuncImplementation(AALabels, NSNumber *, x)//相对于坐标轴刻度线的水平偏移。 默认是：0.
 AAPropSetFuncImplementation(AALabels, NSNumber *, y)//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
+AAPropSetFuncImplementation(AALabels, BOOL      , useHTML)//HTML渲染
+
 @end
