@@ -72,9 +72,11 @@
         case 7: return [self configrueWithMinusNumberChart];
         case 8: return [self configureStepLineChart];
         case 9: return [self configureStepAreaChart];
-        case 10:return [self configureNightingaleRoseChart];
-        case 11:return [self configureCustomSingleDataLabelChart];
-        case 12:return [self configureChartWithShadowStyle];
+        case 10: return [self configureNightingaleRoseChart];
+        case 11: return [self configureCustomSingleDataLabelChart];
+        case 12: return [self configureChartWithShadowStyle];
+        case 13: return [self configureColorfulGradientAreaChart];
+        case 14: return [self configureColorfulGradientSplineChart];
         default:
             return nil;
     }
@@ -110,7 +112,7 @@
                            [AAColor blackColor]
                            ];
     
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
     .animationTypeSet(AAChartAnimationBounce)
     .titleSet(@"Colorful Chart")
@@ -125,7 +127,6 @@
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
                  .colorByPointSet(@true)
                  ]);
-    return aaChartModel;
 }
 
 - (AAChartModel *)setUpColorfulGradientColorChart {
@@ -177,7 +178,7 @@
                                   [AAGradientColor eveningDelightColor],
                                   ];
     
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
@@ -192,11 +193,10 @@
                             @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3,])
                  .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
                  ]);
-    return aaChartModel;
 }
 
 - (AAChartModel *)setUpDiscontinuousDataChart {
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelEnabledSet(true)//是否显示值
@@ -207,12 +207,11 @@
                  .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2,[NSNull null],[NSNull null],[NSNull null],[NSNull null], @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
                  .colorSet((id)[AAGradientColor deepSeaColor])
                  ]);
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureMixedLineChart {
-    AAChartModel *aaChartModel = AAChartModel.new
-    //.connectNullsSet(true)//设置折线是否断点重连
+    return AAChartModel.new
+//    .connectNullsSet(true)//设置折线是否断点重连
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"虚拟数据")
@@ -235,11 +234,10 @@
                  .lineWidthSet(@5)
                  .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
                  ]);
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureColorfulColumnChart {
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
@@ -251,11 +249,10 @@
                  .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
                  .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
                  ]);
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureGradientColorBarChart {
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
     .titleSet(@"Bar Chart")
     .subtitleSet(@"gradient color bar")
@@ -272,7 +269,6 @@
                  .colorSet((id)[AAGradientColor sanguineColor]),
                  ]
                );
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureHavePlotLinesChart {
@@ -293,7 +289,7 @@
                                 .labelSet((id)@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
                                 ];
     
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .titleSet(@"带有数据阈值标志线的区域填充图")
@@ -314,11 +310,10 @@
                              @{@"color": @"#F78320"}]),
                  ])
     ;
-    return aaChartModel;
 }
 
 - (AAChartModel *)configrueWithMinusNumberChart {
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .easyGradientColorsSet(true)
     //.dataLabelEnabledSet(true)
@@ -348,11 +343,10 @@
                  ]
                )
     ;
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureStepLineChart {
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
@@ -376,11 +370,10 @@
                  ]
                )
     ;
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureStepAreaChart {
-    AAChartModel *aaChartModel = AAChartModel.new
+    return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .easyGradientColorsSet(true)//开启主题渐变色
@@ -408,11 +401,10 @@
                  ]
                )
     ;
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureNightingaleRoseChart {
-    AAChartModel *aaChartModel= AAChartModel.new
+    return AAChartModel.new
     .titleSet(@"南丁格尔玫瑰图")
     .subtitleSet(@"极地图中的一种")
     .yAxisTitleSet(@"cm")
@@ -430,7 +422,6 @@
                  ]
                )
     ;
-    return aaChartModel;
 }
 
 - (AAChartModel*)configureCustomSingleDataLabelChart {
@@ -488,7 +479,7 @@
       ];
     
     
-    AAChartModel *aaChartModel= AAChartModel.new
+    return AAChartModel.new
     .titleSet(@"单独自定义某个指定数据元素的DataLabel")
     .subtitleSet(@"")
     .colorsThemeSet(@[AAGradientColor.mysticMauveColor])
@@ -499,33 +490,108 @@
                  ]
                )
     ;
-    return aaChartModel;
 }
 
 - (AAChartModel *)configureChartWithShadowStyle {
-    AAChartModel *aaChartModel= AAChartModel.new
-    .titleSet(@"Chart with shadow style")
+    return AAChartModel.new
+    .titleSet(@"")
     .subtitleSet(@"")
-    .yAxisTitleSet(@"cm")
-    .chartTypeSet(AAChartTypeLine)
+    .yAxisVisibleSet(false)
+    .chartTypeSet(AAChartTypeSpline)
     .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .markerRadiusSet(@8.0)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"Tokoyo")
-                 .dataSet(@[@7.0, @6.9, @9.5, @9.6, @13.9, @14.5, @18.3, @18.2, @21.5, @25.2, @26.5, @23.3])
+                 .lineWidthSet(@8.0)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
                  .shadowSet(AAShadow.new
                             .offsetXSet(@15.0)
                             .offsetYSet(@15.0)
-                            .opacitySet(@0.1)
+                            .opacitySet(@0.2)
                             .widthSet(@8.0)
                             .colorSet(AAColor.redColor)
                             ),
                  ]
                )
     ;
-    return aaChartModel;
+}
+
+- (AAChartModel *)configureColorfulGradientAreaChart {
+    NSDictionary *gradientColorDic1 =
+    @{@"linearGradient": @{
+              @"x1": @0,
+              @"y1": @0,
+              @"x2": @1,
+              @"y2": @0
+              },
+      @"stops": @[@[@0.0, @"#febc0f"],
+                  @[@0.5, @"#FF14d4"],
+                  @[@1.0, @"#0bf8f5"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisTitleSet(@"")
+    .backgroundColorSet(@"#FFFFFF")
+    .markerRadiusSet(@0)
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .stackingSet(AAChartStackingTypeNormal)
+    .easyGradientColorsSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .colorSet((id)gradientColorDic1)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
+}
+
+- (AAChartModel *)configureColorfulGradientSplineChart {
+    NSDictionary *gradientColorDic1 =
+    @{@"linearGradient": @{
+              @"x1": @0,
+              @"y1": @0,
+              @"x2": @1,
+              @"y2": @0
+              },
+      @"stops": @[@[@0.00, @"#febc0f"],
+                  @[@0.25, @"#FF14d4"],
+                  @[@0.50, @"#0bf8f5"],
+                  @[@0.75, @"#F33c52"],
+                  @[@1.00, @"#1904dd"],
+                  ]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisTitleSet(@"")
+    .markerRadiusSet(@0)
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .stackingSet(AAChartStackingTypeNormal)
+    .easyGradientColorsSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .lineWidthSet(@13)
+                 .colorSet((id)gradientColorDic1)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
 }
 
 

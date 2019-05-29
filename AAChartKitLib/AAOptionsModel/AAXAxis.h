@@ -49,6 +49,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickColor) //x轴轴线下方刻度线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineDashStyle) //x轴网格线样式
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, offset) //x轴垂直偏移
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AALabels *, labels) //用于设置 x 轴文字相关的
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL ,      visible) //用于设置 x 轴以及 x 轴文字是否显示
