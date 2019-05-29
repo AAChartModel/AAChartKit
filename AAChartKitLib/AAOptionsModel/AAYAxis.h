@@ -50,7 +50,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineColo
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineDashStyle) //网格线线条样式，所有可用的线条样式参考：Highcharts线条样式
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, alternateGridColor) //backcolor of every other grid line area
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAYAxisGridLineInterpolation, gridLineInterpolation) //Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
-AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, labels) //用于设置 y 轴是否显示
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, labels) //用于设置 y 轴文字相关的
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, lineWidth) // y 轴线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, lineColor) // y 轴线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, offset) // y 轴线水平偏移

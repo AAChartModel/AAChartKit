@@ -42,6 +42,7 @@
 }
 
 AAPropSetFuncImplementation(AAXAxis, NSArray  *, plotBands)
+AAPropSetFuncImplementation(AAXAxis, NSArray  *, plotLines)
 AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories) 
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      reversed) 
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, lineWidth) //x轴轴线宽度
