@@ -301,7 +301,8 @@
                                 @"Specific Data Customize Datalabel",
                                 @"Chart With Shadow Style---带有阴影效果の图表",
                                 @"Colorful gradient Areaspline Chart---多层次渐变区域填充图",
-                                @"Colorful gradient Spline Chart---多层次渐变曲线图"],
+                                @"Colorful gradient Spline Chart---多层次渐变曲线图",
+                                @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图"],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
                                 @"Columnrange Mixed Line---柱形范围图混合折线图",

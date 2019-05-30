@@ -77,6 +77,7 @@
         case 12: return [self configureChartWithShadowStyle];
         case 13: return [self configureColorfulGradientAreaChart];
         case 14: return [self configureColorfulGradientSplineChart];
+        case 15: return [self configureGradientColorAreasplineChart];
         default:
             return nil;
     }
@@ -594,6 +595,45 @@
                );
 }
 
+
+- (AAChartModel *)configureGradientColorAreasplineChart {
+    NSDictionary *gradientColorDic1 =
+    @{@"linearGradient": @{
+              @"x1": @0.0,
+              @"y1": @0.0,
+              @"x2": @0.0,
+              @"y2": @1.0
+              },
+      @"stops": @[@[@0.00, @"rgba(2255,20,147,1)"],//深粉色, alpha 透明度 1
+                  @[@1.00, @"rgba(255,105,180,0.1)"],//热情的粉红, alpha 透明度 0.1
+                  ]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisTitleSet(@"")
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+    .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .stackingSet(AAChartStackingTypeNormal)
+    .easyGradientColorsSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .lineWidthSet(@5.0)
+                 .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+                 .fillColorSet((id)gradientColorDic1)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
+}
 
 @end
 
