@@ -290,7 +290,7 @@ UIWebViewDelegate > {
                 NSString *messageStr = [URL absoluteString];
                 messageStr = [messageStr stringByReplacingOccurrencesOfString:@"mouseover://?" withString:@""];
                 NSString *decodedMessageStr = [messageStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];
-                NSDictionary *messageDic = [AAJsonConverter jsonDictWithString:decodedMessageStr];
+                NSDictionary *messageDic = [AAJsonConverter dictionaryWithJsonString:decodedMessageStr];
                 AAMoveOverEventMessageModel *messageModel = [self eventMessageModelWithMessageBody:messageDic];
                 [self.delegate aaChartView:self moveOverEventWithMessage:messageModel];
             }
@@ -510,18 +510,18 @@ UIWebViewDelegate > {
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
 
-+ (NSDictionary *)jsonDictWithString:(NSString *)string {
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)string {
     if (string && 0 != string.length) {
         NSError *error;
         NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                  options:NSJSONReadingMutableContainers
                                                                    error:&error];
         if (error) {
             AADetailLog(@"serialize json failed：%@", error);
             return nil;
         }
-        return jsonDict;
+        return jsonDic;
     }
     return nil;
 }

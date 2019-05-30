@@ -191,7 +191,13 @@
  */
 + (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series;
 
-+ (NSDictionary *)jsonDictWithString:(NSString *)string;
+/**
+ Get dictionary from json string
+
+ @param string json string
+ @return dictionary
+ */
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)string;
 
 @end
 
