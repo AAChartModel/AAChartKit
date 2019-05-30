@@ -276,11 +276,11 @@
 }
 
 #pragma mark -- AAChartView delegate
-- (void)AAChartViewDidFinishLoad {
+- (void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
 }
 
-- (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
+- (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
     NSLog(@"🚀selected point series element name: %@",message.name);
     NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message: %@",[AAJsonConverter jsonDictWithString:[AAJsonConverter getPureOptionsString:message]] );
 }

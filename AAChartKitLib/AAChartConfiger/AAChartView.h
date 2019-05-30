@@ -53,15 +53,15 @@
 /**
  The delegate method of chart view finish loading
  */
-- (void)AAChartViewDidFinishLoad;
+- (void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView;
 
 /**
  The delegate method of getting move over event message model
 
- @param chartView The instance object of chart view
+ @param aaChartView The instance object of chart view
  @param message move over event message model
  */
-- (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message;
+- (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message;
 
 @end
 

@@ -250,8 +250,8 @@ UIWebViewDelegate > {
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
     if (self.delegate) {
-        if ([self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
-            [self.delegate AAChartViewDidFinishLoad];
+        if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
+            [self.delegate aaChartViewDidFinishLoad:self];
         }
     }
 }
@@ -261,9 +261,9 @@ UIWebViewDelegate > {
       didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
         if (self.delegate ) {
-            if ([self.delegate respondsToSelector:@selector(AAChartView:moveOverEventWithMessage:)]) {
+            if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
                 AAMoveOverEventMessageModel *eventMessageModel = [self eventMessageModelWithMessageBody:message.body];
-                [self.delegate AAChartView:self moveOverEventWithMessage:eventMessageModel];
+                [self.delegate aaChartView:self moveOverEventWithMessage:eventMessageModel];
             }
         }
     }
@@ -274,8 +274,8 @@ UIWebViewDelegate > {
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
     if (self.delegate ) {
-        if ([self.delegate respondsToSelector:@selector(AAChartViewDidFinishLoad)]) {
-            [self.delegate AAChartViewDidFinishLoad];
+        if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
+            [self.delegate aaChartViewDidFinishLoad:self];
         }
     }
 }
@@ -286,13 +286,13 @@ UIWebViewDelegate > {
     NSString *scheme = [URL scheme];
     if ([scheme isEqualToString:kUserContentMessageNameMouseOver]) {
         if (self.delegate ) {
-            if ([self.delegate respondsToSelector:@selector(AAChartView:moveOverEventWithMessage:)]) {
+            if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
                 NSString *messageStr = [URL absoluteString];
                 messageStr = [messageStr stringByReplacingOccurrencesOfString:@"mouseover://?" withString:@""];
                 NSString *decodedMessageStr = [messageStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];
                 NSDictionary *messageDic = [AAJsonConverter jsonDictWithString:decodedMessageStr];
                 AAMoveOverEventMessageModel *messageModel = [self eventMessageModelWithMessageBody:messageDic];
-                [self.delegate AAChartView:self moveOverEventWithMessage:messageModel];
+                [self.delegate aaChartView:self moveOverEventWithMessage:messageModel];
             }
         }
         return NO;

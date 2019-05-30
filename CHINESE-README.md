@@ -213,7 +213,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
   //实现对 AAChartView 事件代理的监听
   #pragma mark -- AAChartView delegate
-  - (void)AAChartView:(AAChartView *)chartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
+  - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
   NSLog(@"🚀selected point series element name: %@",message.name);
   }
   ```
