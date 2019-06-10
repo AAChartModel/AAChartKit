@@ -49,7 +49,7 @@
                     configurePlotOptions(aaOptions,isWKWebView);
                 }
                 
-                if (aaOptions.tooltip.formatter) {
+                if (aaOptions.tooltip && aaOptions.tooltip.formatter) {
                     aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
                 }
                 
