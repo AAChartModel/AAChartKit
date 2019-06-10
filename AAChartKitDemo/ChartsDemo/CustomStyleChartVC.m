@@ -545,7 +545,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .stackingSet(AAChartStackingTypeNormal)
     .easyGradientColorsSet(true)
     .seriesSet(@[
                  AASeriesElement.new
@@ -583,7 +582,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .stackingSet(AAChartStackingTypeNormal)
     .easyGradientColorsSet(true)
     .seriesSet(@[
                  AASeriesElement.new
@@ -622,7 +620,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .stackingSet(AAChartStackingTypeNormal)
     .easyGradientColorsSet(true)
     .seriesSet(@[
                  AASeriesElement.new
