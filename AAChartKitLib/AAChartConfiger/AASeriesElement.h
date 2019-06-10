@@ -71,6 +71,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id, shadow) //æ•
 
 @interface AADataElement : NSObject
 
+AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
 
