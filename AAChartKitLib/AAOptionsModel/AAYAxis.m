@@ -37,7 +37,8 @@
 //AAPropSetFuncImplementation(AAYAxis, BOOL,       min) tickWidth
 AAPropSetFuncImplementation(AAYAxis, AATitle  *, title)
 AAPropSetFuncImplementation(AAYAxis, NSArray  *, plotBands)
-AAPropSetFuncImplementation(AAYAxis, NSArray  *, plotLines) 
+AAPropSetFuncImplementation(AAYAxis, NSArray  *, plotLines)
+AAPropSetFuncImplementation(AAYAxis, NSArray  *, categories)
 AAPropSetFuncImplementation(AAYAxis, BOOL,       reversed) 
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, gridLineWidth) 
 AAPropSetFuncImplementation(AAYAxis, NSString *, gridLineColor)
