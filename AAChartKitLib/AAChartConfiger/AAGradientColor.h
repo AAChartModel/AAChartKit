@@ -34,6 +34,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, AALinerGradientDirection) {
+    AALinerGradientDirectionToTop = 0,
+    AALinerGradientDirectionToBottom,
+    AALinerGradientDirectionToLeft,
+    AALinerGradientDirectionToRight,
+    AALinerGradientDirectionToTopLeft,
+    AALinerGradientDirectionToTopRight,
+    AALinerGradientDirectionToBottomLeft,
+    AALinerGradientDirectionToBottomRight,
+};
+
 @interface AAGradientColor : NSObject
 
 + (NSDictionary *)oceanBlueColor;
@@ -63,6 +74,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
                                               endColorString:(NSString *)endColorStr;
+
++ (NSDictionary *)configureGradientColorWithDirection:(AALinerGradientDirection)direction
+                                     startColorString:(NSString *)startColorStr
+                                       endColorString:(NSString *)endColorStr;
 
 @end
 

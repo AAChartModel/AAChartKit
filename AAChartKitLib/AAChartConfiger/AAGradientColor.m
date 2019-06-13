@@ -132,13 +132,54 @@
 
 + (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
                                               endColorString:(NSString *)endColorStr {
-    NSDictionary *linearGradientDic = @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
+    return [self configureGradientColorWithDirection:AALinerGradientDirectionToTop
+                                    startColorString:startColorStr
+                                      endColorString:endColorStr];
+}
+
++ (NSDictionary *)configureGradientColorWithDirection:(AALinerGradientDirection)direction
+                                     startColorString:(NSString *)startColorStr
+                                       endColorString:(NSString *)endColorStr {
+    NSDictionary *linearGradientDic = [self configureLinearGradientDictionaryWithDirection:direction];
     NSArray *stopsArr = @[@[@(0),startColorStr],
                           @[@(1),endColorStr]];
     NSMutableDictionary *gradientColorDic = [NSMutableDictionary dictionary];
     [gradientColorDic setValue:linearGradientDic forKey:@"linearGradient"];
     [gradientColorDic setValue:stopsArr forKey:@"stops"];
     return gradientColorDic;
+}
+
+/**
+  (0,0) ----------- (1,0)
+   |                   |
+   |                   |
+   |                   |
+   |                   |
+   |                   |
+  (0,1) ----------- (1,1)
+ */
++ (NSDictionary *)configureLinearGradientDictionaryWithDirection:(AALinerGradientDirection)direction {
+    switch (direction) {
+        case AALinerGradientDirectionToTop:
+            return @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
+        case AALinerGradientDirectionToBottom:
+            return @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
+        case AALinerGradientDirectionToLeft:
+            return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(0)};
+        case AALinerGradientDirectionToRight:
+            return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(0)};
+        case AALinerGradientDirectionToTopLeft:
+            return @{@"x1":@(1), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
+        case AALinerGradientDirectionToTopRight:
+            return @{@"x1":@(0), @"y1":@(1), @"x2":@(1), @"y2":@(0)};
+        case AALinerGradientDirectionToBottomLeft:
+            return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
+        case AALinerGradientDirectionToBottomRight:
+            return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(1)};
+            
+        default:
+            break;
+    }
 }
 
 @end
