@@ -132,12 +132,12 @@
 
 + (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
                                               endColorString:(NSString *)endColorStr {
-    return [self configureGradientColorWithDirection:AALinerGradientDirectionToTop
+    return [self configureGradientColorWithDirection:AALinearGradientDirectionToTop
                                     startColorString:startColorStr
                                       endColorString:endColorStr];
 }
 
-+ (NSDictionary *)configureGradientColorWithDirection:(AALinerGradientDirection)direction
++ (NSDictionary *)configureGradientColorWithDirection:(AALinearGradientDirection)direction
                                      startColorString:(NSString *)startColorStr
                                        endColorString:(NSString *)endColorStr {
     NSDictionary *linearGradientDic = [self configureLinearGradientDictionaryWithDirection:direction];
@@ -158,23 +158,23 @@
    |                   |
   (0,1) ----------- (1,1)
  */
-+ (NSDictionary *)configureLinearGradientDictionaryWithDirection:(AALinerGradientDirection)direction {
++ (NSDictionary *)configureLinearGradientDictionaryWithDirection:(AALinearGradientDirection)direction {
     switch (direction) {
-        case AALinerGradientDirectionToTop:
+        case AALinearGradientDirectionToTop:
             return @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
-        case AALinerGradientDirectionToBottom:
+        case AALinearGradientDirectionToBottom:
             return @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
-        case AALinerGradientDirectionToLeft:
+        case AALinearGradientDirectionToLeft:
             return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(0)};
-        case AALinerGradientDirectionToRight:
+        case AALinearGradientDirectionToRight:
             return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(0)};
-        case AALinerGradientDirectionToTopLeft:
+        case AALinearGradientDirectionToTopLeft:
             return @{@"x1":@(1), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
-        case AALinerGradientDirectionToTopRight:
+        case AALinearGradientDirectionToTopRight:
             return @{@"x1":@(0), @"y1":@(1), @"x2":@(1), @"y2":@(0)};
-        case AALinerGradientDirectionToBottomLeft:
+        case AALinearGradientDirectionToBottomLeft:
             return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
-        case AALinerGradientDirectionToBottomRight:
+        case AALinearGradientDirectionToBottomRight:
             return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(1)};
             
         default:
