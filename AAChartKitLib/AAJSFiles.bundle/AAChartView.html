@@ -23,7 +23,7 @@
         <div id="container" style="width: min-450px; height: 200px; margin: -8px">
         </div>
         <script>
-        var globalChart;
+        var aaGlobalChart;
         function loadTheHighChartView(sender, receivedWidth, receivedHeight,isWKWebView) {
                 var container = document.getElementById('container'); //获得元素
                 if (receivedWidth != 0) {
@@ -53,7 +53,7 @@
                     aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
                 }
                 
-                globalChart = Highcharts.chart('container', aaOptions);
+                aaGlobalChart = Highcharts.chart('container', aaOptions);
             }
         
         function configureEasyGradientColor(aaOptions) {
@@ -140,7 +140,7 @@
             for (var i = 0; i < receivedSeriesElementArr.length; i++) {
                 var receivedSeriesData = receivedSeriesElementArr[i].data;
                 // 获取series
-                var chartSeries = globalChart.series[i];
+                var chartSeries = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
                 chartSeries.setData(receivedSeriesData);
             }
@@ -150,18 +150,18 @@
         function setTheChartViewContentWidth(receivedWidth) {
             var container = document.getElementById('container'); //获得元素
             container.style.width = receivedWidth; //设置宽度
-            globalChart.reflow();
+            aaGlobalChart.reflow();
         }
         
         function setTheChartViewContentHeight(receivedHeight) {
             var container = document.getElementById('container'); //获得元素
             container.style.height = receivedHeight; //设置高度
-            globalChart.reflow();
+            aaGlobalChart.reflow();
         }
         
         function setChartSeriesHidden(hidden) {
-            for (var i = 0; i < globalChart.series.length; i++) {
-                var series = globalChart.series[i];
+            for (var i = 0; i < aaGlobalChart.series.length; i++) {
+                var series = aaGlobalChart.series[i];
                 if (hidden == true) {
                     series.hide();
                 } else {
@@ -171,12 +171,12 @@
         }
         
         function showTheSeriesElementContentWithIndex(elementIndex) {
-            var series = globalChart.series[elementIndex];
+            var series = aaGlobalChart.series[elementIndex];
             series.show();
         }
         
         function hideTheSeriesElementContentWithIndex(elementIndex) {
-            var series = globalChart.series[elementIndex];
+            var series = aaGlobalChart.series[elementIndex];
             series.hide();
         }
         
