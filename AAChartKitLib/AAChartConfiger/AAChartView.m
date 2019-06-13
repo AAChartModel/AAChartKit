@@ -312,12 +312,12 @@ UIWebViewDelegate > {
 }
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex(%ld)",(long)elementIndex];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex(%ld)",(long)elementIndex];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
@@ -359,19 +359,19 @@ UIWebViewDelegate > {
 
 - (void)setContentWidth:(CGFloat)contentWidth {
     _contentWidth = contentWidth;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth(%f)",_contentWidth];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth('%f')",_contentWidth];
     [self evaluateJavaScriptWithSetterMethodNameString:javaScriptStr];
 }
 
 - (void)setContentHeight:(CGFloat)contentHeight {
     _contentHeight = contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight(%f)",_contentHeight];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight('%f')",_contentHeight];
     [self evaluateJavaScriptWithSetterMethodNameString:javaScriptStr];
 }
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
-    NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden(%d)",_chartSeriesHidden];
+    NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden('%d')",_chartSeriesHidden];
     [self evaluateJavaScriptWithSetterMethodNameString:jsStr];
 }
 
