@@ -202,98 +202,77 @@ if you want to refresh chart content,you should do something as follow.According
 
 ## Special instructions
 
-### Special chart types in ***AAChartKit***
+### Support user click events and move over events
 
-The `pie chart` as well as the `bubble chart` are special in AAChartKit. If you want to draw these types of charts, you need to prepare the property `series` of AAChartModel differently:
+you can monitor the user touch events message through implementing delegate function for AAChartView instance object
 
-- To draw a pie chart, you should configure the properties of `AAChartModel` like this:
-```objective-c
-   AAChartModel *chartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypePie)
-    .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
-    .subtitleSet(@"Virtual Data")
-    .yAxisTitleSet(@"Degrees Celsius")
-    .seriesSet(
-               @[AAObject(AASeriesElement)
-                 .nameSet(@"Percent")
-                 .dataSet(@[
-                            @[@"Java"  , @67],
-                            @[@"Swift" , @44],
-                            @[@"Python", @83],
-                            @[@"OC"    , @11],
-                            @[@"Ruby"  , @42],
-                            @[@"PHP"   , @31],
-                            @[@"Go"    , @63],
-                            @[@"C"     , @24],
-                            @[@"C#"    , @888],
-                            @[@"C++"   , @66],
-                            ]),
-                 ]
-               
-               )
+
+```objc
+ //Set AAChartView events delegate
+ self.aaChartView.delegate = self;
+ 
+ //set AAChartModel support user touch event
+ self.aaChartModel.touchEventEnabledSet(true)
+
+ //implement AAChartView user touch events delegate function
+ #pragma mark -- AAChartView delegate
+ - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
+ NSLog(@"🚀selected point series element name: %@",message.name);
+ }
+
+```
+
+The received touch events message contain following content
+
+```objc
+@interface AAMoveOverEventMessageModel : NSObject
+
+@property (nonatomic, copy)   NSString *name; 
+@property (nonatomic, strong) NSNumber *x; 
+@property (nonatomic, strong) NSNumber *y;
+@property (nonatomic, copy)   NSString *category;
+@property (nonatomic, strong) NSDictionary *offset;
+@property (nonatomic, assign) NSUInteger index;
+
+@end
+}
+```
+
+
+### Support for custom the style of chart AATooltip through `JavaScript` function
+
+As we all know, AAInfographics support using HTML String.  Most of time, the `headerFormat` 、`pointFormat`、`footerFormat` HTML string is enough for customing chart tooltip string content, However, sometimes the needs of APP is so weird to satified, in this time, you can even customize the chart tooltip style through `JavaScript` function. 
+
+For example, configuring AATooltip instance object properties as follow:
+
+
+```objc
+
+ /*Custom Tooltip Style ---*/
+    AATooltip *tooltip = aaOptions.tooltip;
+    tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
+        + ' Support JavaScript Function Just Right Now !!! <br/> '
+        + ' The Gold Price For <b>2020 '
+        +  this.x
+        + ' </b> Is <b> '
+        +  this.y
+        + ' </b> Dollars ';
+    }))
+    .valueDecimalsSet(@2)
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px"))
     ;
 ```
--  To draw a bubble chart, you should configure the properties of `AAChartModel` like this:
-```objective-c
-   AAChartModel *chartModel= AAObject(AAChartModel)
-    .chartTypeSet(AAChartTypeBubble)
-    .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
-    .subtitleSet(@"Virtual Data")
-    .yAxisTitleSet(@"Degrees Celsius")
-    .seriesSet(
-               @[
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2017")
-                 .dataSet(
-                          @[
-                            @[@97, @36, @79],
-                            @[@94, @74, @60],
-                            @[@68, @76, @58],
-                            @[@64, @87, @56],
-                            @[@68, @27, @73],
-                            @[@74, @99, @42],
-                            @[@7,  @93, @87],
-                            @[@51, @69, @40],
-                            @[@38, @23, @33],
-                            @[@57, @86, @31]
-                            ]),
-                 
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2018")
-                 .dataSet(
-                          @[
-                            @[@25, @10, @87],
-                            @[@2,  @75, @59],
-                            @[@11, @54, @8 ],
-                            @[@86, @55, @93],
-                            @[@5,  @3,  @58],
-                            @[@90, @63, @44],
-                            @[@91, @33, @17],
-                            @[@97, @3,  @56],
-                            @[@15, @67, @48],
-                            @[@54, @25, @81]
-                            ]),
-                 
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2019")
-                 .dataSet(
-                          @[
-                            @[@47, @47, @21],
-                            @[@20, @12, @4 ],
-                            @[@6,  @76, @91],
-                            @[@38, @30, @60],
-                            @[@57, @98, @64],
-                            @[@61, @17, @80],
-                            @[@83, @60, @13],
-                            @[@67, @78, @75],
-                            @[@64, @12, @10],
-                            @[@30, @77, @82]
-                            ]),
-                 
-                 ]
-               )
-    ;
-```
+
+you can get the customized tooltip style chart like this👇
+![](https://user-images.githubusercontent.com/16357599/56589690-543c5880-6618-11e9-9d18-6bc0fe2fa53f.png)
+
 
 ### Support value range segmentation 
 
