@@ -235,11 +235,10 @@ The received touch events message contain following content
 @property (nonatomic, assign) NSUInteger index;
 
 @end
-}
 ```
 
 
-### Support for custom the style of chart AATooltip through `JavaScript` function
+### Support for custom the style of chart `AATooltip` through `JavaScript` function
 
 As we all know, AAInfographics support using HTML String.  Most of time, the `headerFormat` 、`pointFormat`、`footerFormat` HTML string is enough for customing chart tooltip string content, However, sometimes the needs of APP is so weird to satified, in this time, you can even customize the chart tooltip style through `JavaScript` function. 
 
@@ -247,7 +246,6 @@ For example, configuring AATooltip instance object properties as follow:
 
 
 ```objc
-
  /*Custom Tooltip Style ---*/
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
