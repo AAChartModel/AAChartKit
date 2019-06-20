@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SupportJSFunctionVC : UIViewController
+@property (nonatomic, assign) NSInteger selectedIndex;
 
 @end
 

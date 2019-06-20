@@ -217,6 +217,7 @@
             
         case 9: {
             SupportJSFunctionVC *vc = SupportJSFunctionVC.new;
+            vc.selectedIndex = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -362,7 +363,7 @@
                                 @"带有颜色标志带的图表",
                                 @"带有颜色标志线的图表",
                                 @"自定义DataLabels样式",
-                                @"单独自定义指定的data的DataLabels样式"
+                                @"单独自定义指定的data的DataLabels样式",
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
@@ -379,7 +380,9 @@
                                 @"Step Area Chart--直方折线填充图",
                                 @"Scatter Chart---散点图"
                                 ],
-                              @[@"support tooltip formatter JS Function"]
+                              @[@"support tooltip formatter JS Function1",
+                                @"support tooltip formatter JS Function2",
+                                @"自定义箱线图的浮动提示框头部内容"]
                               ];
     }
     return _chartTypeNameArr;

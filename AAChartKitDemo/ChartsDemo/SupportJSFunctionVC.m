@@ -10,8 +10,10 @@
 #import "AAChartKit.h"
 
 @interface SupportJSFunctionVC ()
+    
 @property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
+    
 @end
 
 @implementation SupportJSFunctionVC
@@ -22,19 +24,28 @@
     AAChartView *aaChartView = [self configureChartView];
     AAOptions *aaOptions = [self configureChartOptions];
     [aaChartView aa_drawChartWithOptions:aaOptions];
-
 }
 
 - (AAChartView *)configureChartView {
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height-30)];
-//    self.chartView.delegate = self;
+    CGRect frame = CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height-30);
+    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:frame];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:aaChartView];
+
     return aaChartView;
 }
 
 - (AAOptions *)configureChartOptions {
-    
+    if (self.selectedIndex == 0) {
+        return [self customAreaChartTooltipStyleWithFormatterFunction1];
+    } else if (self.selectedIndex == 1) {
+        return [self customAreaChartTooltipStyleWithFormatterFunction2];
+    } else {
+        return [self customBoxplotTooltipContent];
+    }
+}
+
+- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction1 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
@@ -90,15 +101,118 @@
     .borderColorSet(@"#000000")
     .styleSet((id)AAStyle.new
               .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px"))
+              .fontSizeSet(@"12px")
+              )
     ;
-    
-    
-    
-    
     return aaOptions;
 }
 
+    
+
+    
+- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor configureGradientColorWithDirection:AALinearGradientDirectionToTop
+                                        startColorString:@"rgba(256,0,0,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                          endColorString:@"rgba(256,0,0,1.0)"];
+    
+    NSDictionary *gradientColorDic2 =
+    [AAGradientColor configureGradientColorWithDirection:AALinearGradientDirectionToTop
+                                        startColorString:@"rgba(0,0,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                          endColorString:@"rgba(0,0,256,1.0)"];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .titleSet(@"2014 ~ 2020 汪星人生存指数")//图表主标题
+    .subtitleSet(@"数据来源：www.无任何可靠依据.com")//图表副标题
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
+    .stackingSet(AAChartStackingTypeNormal)
+    //    .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .lineWidthSet(@1.5)
+                 .colorSet((id)gradientColorDic1)
+                 .nameSet(@"🐶狗子")
+                 .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
+                 AASeriesElement.new
+                 .lineWidthSet(@1.5)
+                 .colorSet((id)gradientColorDic2)
+                 .nameSet(@"🌲树木")
+                 .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
+        let colorDot1 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:blue; font-size:13px\"' + '>◉</span> ';
+        let s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
+        let s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        s += s1 + s2;
+        return s;
+    }))
+    ;
+    return aaOptions;
+}
+
+
+- (AAOptions *)customBoxplotTooltipContent {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeBoxplot)
+    .titleSet(@"箱线图")
+    .subtitleSet(@"虚拟数据")
+    .yAxisTitleSet(@"摄氏度")
+    .yAxisVisibleSet(true)
+    .seriesSet(
+               @[
+                 AASeriesElement.new
+                 .nameSet(@"观测值")
+                 .lineWidthSet(@1.8)
+                 .fillColorSet((id)AAGradientColor.deepSeaColor)
+                 .dataSet(@[
+                            @[@760, @801, @848, @895, @965],
+                            @[@733, @853, @939, @980, @1080],
+                            @[@714, @762, @817, @870, @918],
+                            @[@724, @802, @806, @871, @950],
+                            @[@834, @836, @864, @882, @910]
+                            ]),
+                 ]
+               );
+
+//    https://jshare.com.cn/demos/hhhhiQ
+//    https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/tooltip/footerformat/
+//pointFormat: '' + // eslint-disable-line no-dupe-keys
+
+    NSString *str1 = @"<span style=""color:{point.color}"">◉</span> <b> {series.name}</b><br/>";
+    NSString *str2 = @"最大值: {point.high}<br/>";
+    NSString *str3 = @"Q2: {point.q3}<br/>";
+    NSString *str4 = @"中位数: {point.median}<br/>";
+    NSString *str5 = @"Q1: {point.q1}<br/>";
+    NSString *str6 = @"最小值: {point.low}<br/>";
+    NSString *pointFormatStr = [NSString stringWithFormat:@"%@%@%@%@%@%@",str1,str2,str3,str4,str5,str6];
+    
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .headerFormatSet(@"<em>实验号码： {point.key}</em><br/>")
+    .pointFormatSet(pointFormatStr)
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#1e90ff")
+              .fontSizeSet(@"12px")
+              )
+    ;
+    
+    return aaOptions;
+}
 
 
 
