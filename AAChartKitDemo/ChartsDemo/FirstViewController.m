@@ -380,8 +380,10 @@
                                 @"Step Area Chart--直方折线填充图",
                                 @"Scatter Chart---散点图"
                                 ],
-                              @[@"support tooltip formatter JS Function1",
-                                @"support tooltip formatter JS Function2",
+                              @[@"简单字符串拼接",
+                                @"自定义不同单位后缀",
+                                @"值为0时,在tooltip中不显示",
+                                @"自定义多彩颜色文字",
                                 @"自定义箱线图的浮动提示框头部内容"]
                               ];
     }

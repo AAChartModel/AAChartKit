@@ -34,14 +34,16 @@
 
     return aaChartView;
 }
-
+    
 - (AAOptions *)configureChartOptions {
-    if (self.selectedIndex == 0) {
-        return [self customAreaChartTooltipStyleWithFormatterFunction1];
-    } else if (self.selectedIndex == 1) {
-        return [self customAreaChartTooltipStyleWithFormatterFunction2];
-    } else {
-        return [self customBoxplotTooltipContent];
+    switch (self.selectedIndex) {
+        case 0: return [self customAreaChartTooltipStyleWithFormatterFunction1];//简单字符串拼接
+        case 1: return [self customAreaChartTooltipStyleWithFormatterFunction2];//自定义不同单位后缀
+        case 2: return [self customAreaChartTooltipStyleWithFormatterFunction3];//值为0时,在tooltip中不显示
+        case 3: return [self customAreaChartTooltipStyleWithFormatterFunction4];//自定义多彩颜色文字
+        case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
+        default:
+        return nil;
     }
 }
 
@@ -106,9 +108,6 @@
     ;
     return aaOptions;
 }
-
-    
-
     
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
     NSDictionary *gradientColorDic1 =
@@ -159,6 +158,128 @@
     ;
     return aaOptions;
 }
+    
+- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
+    .markerRadiusSet(@8.0)
+    .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeDashDot)
+    .xAxisCrosshairWidthSet(@1.0)
+    .xAxisCrosshairColorSet(AAColor.darkGrayColor)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"上市")
+                 .dataSet(@[@0,@0,@7]),
+                 AASeriesElement.new
+                 .nameSet(@"终止")
+                 .dataSet(@[@4,@5,@1]),
+                 AASeriesElement.new
+                 .nameSet(@"无进展")
+                 .dataSet(@[@2,@0,@1]),
+                 AASeriesElement.new
+                 .nameSet(@"进行中")
+                 .dataSet(@[@3,@5,@2]),
+                 ]
+               );
+    
+    
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
+        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
+        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
+        let colorDotArr = [];
+        colorDotArr.push(colorDot0);
+        colorDotArr.push(colorDot1);
+        colorDotArr.push(colorDot2);
+        colorDotArr.push(colorDot3);
+        let wholeContentString = this.points[0].x + '<br/>';
+        for (let i = 0;i < 4;i++) {
+            let yValue = this.points[i].y;
+            if (yValue != 0) {
+                let prefixStr = colorDotArr[i];
+                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
+            }
+        }
+        return wholeContentString;
+    }))
+    ;
+    return aaOptions;
+}
+    
+- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction4 {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .lineWidthSet(@5.0)
+                 .fillOpacitySet(@0.4)
+                 .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+                 AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .lineWidthSet(@5.0)
+                 .fillOpacitySet(@0.4)
+                 .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+                 AASeriesElement.new
+                 .nameSet(@"London Hot")
+                 .lineWidthSet(@5.0)
+                 .fillOpacitySet(@0.4)
+                 .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+                 AASeriesElement.new
+                 .nameSet(@"NewYork Hot")
+                 .lineWidthSet(@5.0)
+                 .fillOpacitySet(@0.4)
+                 .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let colorsArr = [];
+        colorsArr.push("mediumspringgreen");
+        colorsArr.push("deepskyblue");
+        colorsArr.push("red");
+        colorsArr.push("sandybrown");
+        let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        for (let i = 0;i < 4;i++) {
+            let thisPoint = this.points[i];
+            let yValue = thisPoint.y;
+            if (yValue != 0) {
+                let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+                let spanStyleEndStr = '</span> <br/>';
+                wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+            }
+        }
+        return wholeContentString;
+    }))
+    .backgroundColorSet(@"#050505")
+    .borderColorSet(@"#050505")
+    ;
+    return aaOptions;
+}
+
 
 
 - (AAOptions *)customBoxplotTooltipContent {
