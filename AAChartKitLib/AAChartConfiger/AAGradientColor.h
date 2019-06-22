@@ -35,14 +35,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
-    AALinearGradientDirectionToTop = 0,
-    AALinearGradientDirectionToBottom,
-    AALinearGradientDirectionToLeft,
-    AALinearGradientDirectionToRight,
-    AALinearGradientDirectionToTopLeft,
-    AALinearGradientDirectionToTopRight,
-    AALinearGradientDirectionToBottomLeft,
-    AALinearGradientDirectionToBottomRight,
+    AALinearGradientDirectionToTop = 0,     //⇧⇧⇧⇧
+    AALinearGradientDirectionToBottom,      //⇩⇩⇩⇩
+    AALinearGradientDirectionToLeft,        //⇦⇦⇦⇦
+    AALinearGradientDirectionToRight,       //⇨⇨⇨⇨
+    AALinearGradientDirectionToTopLeft,     //⇖⇖⇖⇖⇖⇖
+    AALinearGradientDirectionToTopRight,    //⇗⇗⇗⇗⇗⇗
+    AALinearGradientDirectionToBottomLeft,  //⇙⇙⇙⇙⇙⇙
+    AALinearGradientDirectionToBottomRight, //⇘⇘⇘⇘⇘⇘
 };
 
 @interface AAGradientColor : NSObject
@@ -72,12 +72,12 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 + (NSDictionary *)coastalBreezeColor;
 + (NSDictionary *)eveningDelightColor;
 
-+ (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
-                                              endColorString:(NSString *)endColorStr;
-
-+ (NSDictionary *)configureGradientColorWithDirection:(AALinearGradientDirection)direction
-                                     startColorString:(NSString *)startColorStr
-                                       endColorString:(NSString *)endColorStr;
++ (NSDictionary *)gradientColorWithStartColorString:(NSString *)startColorStr
+                                     endColorString:(NSString *)endColorStr;
+    
++ (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
+                            startColorString:(NSString *)startColorStr
+                              endColorString:(NSString *)endColorStr;
 
 @end
 

@@ -35,112 +35,112 @@
 @implementation AAGradientColor
 
 + (NSDictionary *)oceanBlueColor {
-    return [self configureGradientColorWithStartColorString:@"#2E3192" endColorString:@"#1BFFFF"];
+    return [self gradientColorWithStartColorString:@"#2E3192" endColorString:@"#1BFFFF"];
 }
 
 + (NSDictionary *)sanguineColor {
-    return [self configureGradientColorWithStartColorString:@"#D4145A" endColorString:@"#FBB03B"];
+    return [self gradientColorWithStartColorString:@"#D4145A" endColorString:@"#FBB03B"];
 }
 
 + (NSDictionary *)lusciousLimeColor {
-    return [self configureGradientColorWithStartColorString:@"#009245" endColorString:@"#FCEE21"];
+    return [self gradientColorWithStartColorString:@"#009245" endColorString:@"#FCEE21"];
 }
 
 + (NSDictionary *)purpleLakeColor {
-    return [self configureGradientColorWithStartColorString:@"#662D8C" endColorString:@"#ED1E79"];
+    return [self gradientColorWithStartColorString:@"#662D8C" endColorString:@"#ED1E79"];
 }
 
 + (NSDictionary *)freshPapayaColor {
-    return [self configureGradientColorWithStartColorString:@"#ED1C24" endColorString:@"#FCEE21"];
+    return [self gradientColorWithStartColorString:@"#ED1C24" endColorString:@"#FCEE21"];
 }
 
 + (NSDictionary *)ultramarineColor {
-    return [self configureGradientColorWithStartColorString:@"#00A8C5" endColorString:@"#FFFF7E"];
+    return [self gradientColorWithStartColorString:@"#00A8C5" endColorString:@"#FFFF7E"];
 }
 
 + (NSDictionary *)pinkSugarColor {
-    return [self configureGradientColorWithStartColorString:@"#D74177" endColorString:@"#FFE98A"];
+    return [self gradientColorWithStartColorString:@"#D74177" endColorString:@"#FFE98A"];
 }
 
 + (NSDictionary *)lemonDrizzleColor {
-    return [self configureGradientColorWithStartColorString:@"#FB872B" endColorString:@"#D9E021"];
+    return [self gradientColorWithStartColorString:@"#FB872B" endColorString:@"#D9E021"];
 }
 
 + (NSDictionary *)victoriaPurpleColor {
-    return [self configureGradientColorWithStartColorString:@"#312A6C" endColorString:@"#852D91"];
+    return [self gradientColorWithStartColorString:@"#312A6C" endColorString:@"#852D91"];
 }
 
 + (NSDictionary *)springGreensColor {
-    return [self configureGradientColorWithStartColorString:@"#009E00" endColorString:@"#FFFF96"];
+    return [self gradientColorWithStartColorString:@"#009E00" endColorString:@"#FFFF96"];
 }
 
 + (NSDictionary *)mysticMauveColor {
-    return [self configureGradientColorWithStartColorString:@"#B066FE" endColorString:@"#63E2FF"];
+    return [self gradientColorWithStartColorString:@"#B066FE" endColorString:@"#63E2FF"];
 }
 
 + (NSDictionary *)reflexSilverColor {
-    return [self configureGradientColorWithStartColorString:@"#808080" endColorString:@"#E6E6E6"];
+    return [self gradientColorWithStartColorString:@"#808080" endColorString:@"#E6E6E6"];
 }
 
 + (NSDictionary *)neonGlowColor {
-    return [self configureGradientColorWithStartColorString:@"#00FFA1" endColorString:@"#00FFFF"];
+    return [self gradientColorWithStartColorString:@"#00FFA1" endColorString:@"#00FFFF"];
 }
 
 + (NSDictionary *)berrySmoothieColor {
-    return [self configureGradientColorWithStartColorString:@"#8E78FF" endColorString:@"#FC7D7B"];
+    return [self gradientColorWithStartColorString:@"#8E78FF" endColorString:@"#FC7D7B"];
 }
 
 + (NSDictionary *)newLeafColor {
-    return [self configureGradientColorWithStartColorString:@"#00537E" endColorString:@"#3AA17E"];
+    return [self gradientColorWithStartColorString:@"#00537E" endColorString:@"#3AA17E"];
 }
 
 + (NSDictionary *)cottonCandyColor {
-    return [self configureGradientColorWithStartColorString:@"#FCA5F1" endColorString:@"#B5FFFF"];
+    return [self gradientColorWithStartColorString:@"#FCA5F1" endColorString:@"#B5FFFF"];
 }
 
 + (NSDictionary *)pixieDustColor {
-    return [self configureGradientColorWithStartColorString:@"#D585FF" endColorString:@"#00FFEE"];
+    return [self gradientColorWithStartColorString:@"#D585FF" endColorString:@"#00FFEE"];
 }
 
 + (NSDictionary *)fizzyPeachColor {
-    return [self configureGradientColorWithStartColorString:@"#F24645" endColorString:@"#EBC08D"];
+    return [self gradientColorWithStartColorString:@"#F24645" endColorString:@"#EBC08D"];
 }
 
 + (NSDictionary *)sweetDreamColor {
-    return [self configureGradientColorWithStartColorString:@"#3A3897" endColorString:@"#A3A1FF"];
+    return [self gradientColorWithStartColorString:@"#3A3897" endColorString:@"#A3A1FF"];
 }
 
 + (NSDictionary *)firebrickColor {
-    return [self configureGradientColorWithStartColorString:@"#45145A" endColorString:@"#FF5300"];
+    return [self gradientColorWithStartColorString:@"#45145A" endColorString:@"#FF5300"];
 }
 
 + (NSDictionary *)wroughtIronColor {
-    return [self configureGradientColorWithStartColorString:@"#333333" endColorString:@"#5A5454"];
+    return [self gradientColorWithStartColorString:@"#333333" endColorString:@"#5A5454"];
 }
 
 + (NSDictionary *)deepSeaColor {
-    return [self configureGradientColorWithStartColorString:@"#4F00BC" endColorString:@"#29ABE2"];
+    return [self gradientColorWithStartColorString:@"#4F00BC" endColorString:@"#29ABE2"];
 }
 
 + (NSDictionary *)coastalBreezeColor {
-    return [self configureGradientColorWithStartColorString:@"#00B7FF" endColorString:@"#FFFFC7"];
+    return [self gradientColorWithStartColorString:@"#00B7FF" endColorString:@"#FFFFC7"];
 }
 
 + (NSDictionary *)eveningDelightColor {
-    return [self configureGradientColorWithStartColorString:@"#93278F" endColorString:@"#00A99D"];
+    return [self gradientColorWithStartColorString:@"#93278F" endColorString:@"#00A99D"];
 }
 
-+ (NSDictionary *)configureGradientColorWithStartColorString:(NSString *)startColorStr
-                                              endColorString:(NSString *)endColorStr {
-    return [self configureGradientColorWithDirection:AALinearGradientDirectionToTop
-                                    startColorString:startColorStr
-                                      endColorString:endColorStr];
++ (NSDictionary *)gradientColorWithStartColorString:(NSString *)startColorStr
+                                     endColorString:(NSString *)endColorStr {
+    return [self gradientColorWithDirection:AALinearGradientDirectionToTop
+                           startColorString:startColorStr
+                             endColorString:endColorStr];
 }
-
-+ (NSDictionary *)configureGradientColorWithDirection:(AALinearGradientDirection)direction
-                                     startColorString:(NSString *)startColorStr
-                                       endColorString:(NSString *)endColorStr {
-    NSDictionary *linearGradientDic = [self configureLinearGradientDictionaryWithDirection:direction];
+    
++ (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
+                            startColorString:(NSString *)startColorStr
+                              endColorString:(NSString *)endColorStr {
+    NSDictionary *linearGradientDic = [self linearGradientDictionaryWithDirection:direction];
     NSArray *stopsArr = @[@[@(0),startColorStr],
                           @[@(1),endColorStr]];
     NSMutableDictionary *gradientColorDic = [NSMutableDictionary dictionary];
@@ -158,7 +158,7 @@
    |                   |
   (0,1) ----------- (1,1)
  */
-+ (NSDictionary *)configureLinearGradientDictionaryWithDirection:(AALinearGradientDirection)direction {
++ (NSDictionary *)linearGradientDictionaryWithDirection:(AALinearGradientDirection)direction {
     switch (direction) {
         case AALinearGradientDirectionToTop:
             return @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};

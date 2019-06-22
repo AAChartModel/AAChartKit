@@ -1006,14 +1006,14 @@
 
 - (AAOptions *)configureTheMirrorColumnChart {
     NSDictionary *gradientColorDic1 =
-    [AAGradientColor configureGradientColorWithDirection:AALinearGradientDirectionToTopLeft
-                                        startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                          endColorString:@"#00b0ff"];
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTopLeft
+                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"#00b0ff"];
     
     NSDictionary *gradientColorDic2 =
-    [AAGradientColor configureGradientColorWithDirection:AALinearGradientDirectionToBottomRight
-                                        startColorString:@"#EF71FF"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                          endColorString:@"#4740C8"];
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottomRight
+                               startColorString:@"#EF71FF"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"#4740C8"];
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeColumn)

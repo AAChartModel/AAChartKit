@@ -111,14 +111,14 @@
     
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
     NSDictionary *gradientColorDic1 =
-    [AAGradientColor configureGradientColorWithDirection:AALinearGradientDirectionToTop
-                                        startColorString:@"rgba(256,0,0,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                          endColorString:@"rgba(256,0,0,1.0)"];
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                               startColorString:@"rgba(256,0,0,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"rgba(256,0,0,1.0)"];
     
     NSDictionary *gradientColorDic2 =
-    [AAGradientColor configureGradientColorWithDirection:AALinearGradientDirectionToTop
-                                        startColorString:@"rgba(0,0,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                          endColorString:@"rgba(0,0,256,1.0)"];
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                               startColorString:@"rgba(0,0,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"rgba(0,0,256,1.0)"];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
@@ -132,14 +132,14 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .lineWidthSet(@1.5)
-                 .colorSet((id)gradientColorDic1)
+                 .fillColorSet((id)gradientColorDic1)
                  .nameSet(@"🐶狗子")
-                 .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
+                 .dataSet(@[@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,]),
                  AASeriesElement.new
                  .lineWidthSet(@1.5)
-                 .colorSet((id)gradientColorDic2)
+                 .fillColorSet((id)gradientColorDic2)
                  .nameSet(@"🌲树木")
-                 .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
+                 .dataSet(@[@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,]),
                  ]
                );
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
