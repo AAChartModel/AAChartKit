@@ -38,10 +38,6 @@
 @end
 
 /**
- *  Get the system version number
- */
-#define AASYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
-/**
  *  The console output log
  */
 #ifdef DEBUG // Debug status, open the LOG function
@@ -84,7 +80,7 @@ UIWebViewDelegate > {
 
 - (void)setUpBasicWebView {
     
-    if (AASYSTEM_VERSION >= 9.0) {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
         WKUserContentController *userContentController = [[WKUserContentController alloc] init];
         [userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
@@ -200,7 +196,7 @@ UIWebViewDelegate > {
     if (!_optionJson) {
         [self configureTheOptionsJsonStringWithAAOptions:options];
         NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-        if (AASYSTEM_VERSION >= 9.0) {
+        if (_wkWebView) {
             [_wkWebView loadRequest:URLRequest];
         } else {
             [_uiWebView loadRequest:URLRequest];
@@ -260,7 +256,7 @@ UIWebViewDelegate > {
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
-        if (self.delegate ) {
+        if (self.delegate) {
             if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
                 AAMoveOverEventMessageModel *eventMessageModel = [self eventMessageModelWithMessageBody:message.body];
                 [self.delegate aaChartView:self moveOverEventWithMessage:eventMessageModel];
@@ -273,7 +269,7 @@ UIWebViewDelegate > {
 //UIWebView did finish load
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self drawChart];
-    if (self.delegate ) {
+    if (self.delegate) {
         if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
             [self.delegate aaChartViewDidFinishLoad:self];
         }
@@ -322,7 +318,7 @@ UIWebViewDelegate > {
 }
 
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)functionNameStr {
-    if (AASYSTEM_VERSION >= 9.0) {
+    if (_wkWebView) {
         [_wkWebView  evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
             if (error) {
                 NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
@@ -341,7 +337,7 @@ UIWebViewDelegate > {
 
 - (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
-    if (AASYSTEM_VERSION >= 9.0) {
+    if (_wkWebView) {
         _wkWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
     } else {
         _uiWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
@@ -350,7 +346,7 @@ UIWebViewDelegate > {
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
-    if (AASYSTEM_VERSION >= 9.0) {
+    if (_wkWebView) {
         _wkWebView.scrollView.scrollEnabled = _scrollEnabled;
     } else {
         _uiWebView.scrollView.scrollEnabled = _scrollEnabled;
@@ -385,7 +381,7 @@ UIWebViewDelegate > {
     _isClearBackgroundColor = isClearBackgroundColor;
     if (_isClearBackgroundColor == YES) {
         self.backgroundColor = [UIColor clearColor];
-        if (AASYSTEM_VERSION >= 9.0) {
+        if (_wkWebView) {
             [_wkWebView setBackgroundColor:[UIColor clearColor]];
             [_wkWebView setOpaque:NO];
         } else {
