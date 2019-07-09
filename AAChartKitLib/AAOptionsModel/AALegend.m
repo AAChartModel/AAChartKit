@@ -53,7 +53,11 @@ AAPropSetFuncImplementation(AALegend, BOOL,          enabled)
 AAPropSetFuncImplementation(AALegend, NSString    *, borderColor) 
 AAPropSetFuncImplementation(AALegend, NSNumber    *, borderWidth) 
 AAPropSetFuncImplementation(AALegend, NSNumber    *, itemMarginTop) 
-AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle) 
+AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle)
+AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolHeight)//标志高度
+AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolPadding)//标志后距
+AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolRadius)//图标圆角
+AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolWidth)//图标宽度
 AAPropSetFuncImplementation(AALegend, NSNumber    *, x) 
 AAPropSetFuncImplementation(AALegend, NSNumber    *, y) 
 

@@ -988,6 +988,9 @@
 
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.legend
+    .symbolRadius(@10)//图标圆角
+    .symbolHeight(@20)//标志高度
+    .symbolWidth(@20)//图标宽度
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop)

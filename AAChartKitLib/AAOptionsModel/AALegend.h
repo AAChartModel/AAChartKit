@@ -58,9 +58,13 @@ AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          enabled)
 AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, borderColor) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, borderWidth) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, itemMarginTop) //图例的每一项的顶部外边距，单位px。 默认是：0.
-AAPropStatementAndPropSetFuncStatement(strong, AALegend, AAItemStyle *, itemStyle) 
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, AAItemStyle *, itemStyle)
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolHeight)//标志高度
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolPadding)//标志后距
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolRadius)//图标圆角
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolWidth)//图标宽度
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, x) 
-AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, y) 
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, y)
 
 @end
 
