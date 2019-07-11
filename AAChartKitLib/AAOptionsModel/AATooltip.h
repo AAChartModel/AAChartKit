@@ -34,7 +34,7 @@
 
 @interface AATooltip : NSObject
 
-//AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       animation) //是否启用动画是否启用动画(设置 animation == false,禁用 tooltip 动画能够在一定程度上节省程序的计算资源,提高运行效率,但是在现如今移动设备的性能如此强劲的时代大背景下,节省的这一点计算资源基本上没有任何意义,所以我注释掉了这个属性)
+AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       animation) //是否启用动画是否启用动画(设置 animation == false,禁用 tooltip 动画能够在一定程度上节省程序的计算资源,提高运行效率)
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, backgroundColor) //背景色
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, borderColor) //边框颜色
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderRadius) //边框的圆角半径
