@@ -34,7 +34,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AAGlobalMacro.h"
-@class AAAnimation,AAOptions3d;
+@class AAAnimation;
 
 @interface AAChart : NSObject
 
@@ -45,7 +45,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, pinchType
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          panning) 
 //AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, panKey) 
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          polar) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAOptions3d *, options3d) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAAnimation *, animation) //设置启用动画的时间和类型
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          inverted) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft) 
