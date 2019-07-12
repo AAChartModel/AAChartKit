@@ -41,6 +41,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, autoRotatio
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, distance)//只针对极地图有效，定义周标签与绘图区边缘的距离。 默认是：15.
 AAPropStatementAndPropSetFuncStatement(assign, AALabels, BOOL      , enabled)//是否显示坐标轴标签 默认是：true.
 AAPropStatementAndPropSetFuncStatement(copy,   AALabels, NSString *, format)//坐标轴格式化字符串。 默认是：{value}.
+AAPropStatementAndPropSetFuncStatement(copy,   AALabels, NSString *, formatter)//坐标轴格式化字符串。 默认是：{value}.
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, padding)//轴标签的内间距，作用是保证轴标签之间有空隙。 默认是：5.
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, rotation)//轴标签的旋转角度 默认是：0.
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, staggerLines)//只针对水平轴有效，定义轴标签显示行数。

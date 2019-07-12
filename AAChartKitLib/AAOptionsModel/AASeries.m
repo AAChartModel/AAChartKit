@@ -42,6 +42,8 @@ AAPropSetFuncImplementation(AASeries, AAAnimation  *, animation)
 AAPropSetFuncImplementation(AASeries, NSArray      *, keys) 
 //AAPropSetFuncImplementation(AASeries, BOOL , colorByPoint) //设置为 true 则是给每个点分配颜色。
 AAPropSetFuncImplementation(AASeries, BOOL ,          connectNulls) 
-AAPropSetFuncImplementation(AASeries, NSDictionary *, events) 
+AAPropSetFuncImplementation(AASeries, NSDictionary *, events)
+AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
+
 
 @end
