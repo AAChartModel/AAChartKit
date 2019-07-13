@@ -51,9 +51,9 @@ AAChartType const AAChartTypeBoxplot         = @"boxplot";
 AAChartType const AAChartTypeWaterfall       = @"waterfall";
 AAChartType const AAChartTypePolygon         = @"polygon";
 
-AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft   = @"left";
-AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter = @"center";
-AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight  = @"right";
+AAAlignType const AAAlignTypeLeft   = @"left";
+AAAlignType const AAAlignTypeCenter = @"center";
+AAAlignType const AAAlignTypeRight  = @"right";
 
 AAChartZoomType const AAChartZoomTypeNone = @"none";
 AAChartZoomType const AAChartZoomTypeX    = @"x";
@@ -98,7 +98,7 @@ AALineDashStyleType const AALineDashStyleTypeLongDashDotDot  = @"LongDashDotDot"
         _chartType             = AAChartTypeColumn;//默认图表类型为柱状图
         _animationType         = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
         _animationDuration     = @800;//默认动画时长为800毫秒
-        _subtitleAlign         = AAChartSubtitleAlignTypeLeft;//默认图表副标题居左显示
+        _subtitleAlign         = AAAlignTypeLeft;//默认图表副标题居左显示
         _stacking              = AAChartStackingTypeFalse;//默认不开启图表数据的堆积效果
         _zoomType              = AAChartZoomTypeNone ;//默认禁用图表的手势缩放功能
         _colorsTheme           = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];//默认颜色主题
@@ -153,7 +153,7 @@ AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, categories) //x轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series) //图表的数据列内容
 
-AAPropSetFuncImplementation(AAChartModel, AAChartSubtitleAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+AAPropSetFuncImplementation(AAChartModel, AAAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType) //图表类型
 AAPropSetFuncImplementation(AAChartModel, AAChartStackingType,      stacking) //堆积样式
 AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"

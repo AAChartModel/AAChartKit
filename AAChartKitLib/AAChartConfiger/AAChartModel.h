@@ -75,7 +75,7 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 };
 
 typedef NSString *AAChartType;
-typedef NSString *AAChartSubtitleAlignType;
+typedef NSString *AAAlignType;
 typedef NSString *AAChartZoomType;
 typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
@@ -101,9 +101,9 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;
 AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;
 
-AACHARTKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeLeft;
-AACHARTKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeCenter;
-AACHARTKIT_EXTERN AAChartSubtitleAlignType const AAChartSubtitleAlignTypeRight;
+AACHARTKIT_EXTERN AAAlignType const AAAlignTypeLeft;
+AACHARTKIT_EXTERN AAAlignType const AAAlignTypeCenter;
+AACHARTKIT_EXTERN AAAlignType const AAAlignTypeRight;
 
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
@@ -157,7 +157,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSStri
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories) //x轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series) //图表的数据列内容
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType) //图表类型
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking) //堆积样式
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
