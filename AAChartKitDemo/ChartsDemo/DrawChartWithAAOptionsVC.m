@@ -173,15 +173,22 @@
 }
 
 - (AAOptions *)configureTheAAOptionsOfPieChart {
+    //计算X轴偏移量
+    CGFloat xOffSet = (self.aaChartView.frame.size.width - 40) * 0.1;
     
     //第一种写法
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
-              .typeSet(AAChartTypePie))
+              .typeSet(AAChartTypePie)
+              .marginLeftSet(@0)
+              .marginRightSet(@0)
+              )
     .titleSet(AATitle.new
-              .textSet(@"渠道销售额<br>占比")//标题文本内容
+              .textSet(@"渠道销售额<br/>占比")//标题文本内容
               .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
               .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .xSet(@(-xOffSet))
+              .ySet(@(-5))
               .styleSet(AAStyle.new
                         .colorSet(@"#000000")//Title font color
                         .fontSizeSet(@"14 px")//Title font size
@@ -197,6 +204,7 @@
                                )
                     .pieSet(AAPie.new
                             .showInLegendSet(true)
+                            .centerSet(@[@"40%",@"50%"])
                             .dataLabelsSet(AADataLabels.new
                                            .enabledSet(false)
                                            //.formatSet(@"{point.percentage:.1f}%")
@@ -205,15 +213,16 @@
                     )
     .legendSet(AALegend.new
                .enabledSet(true)
-               .verticalAlignSet(AALegendVerticalAlignTypeTop)
+               
+               .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
                .layoutSet(AALegendLayoutTypeVertical)
-               .alignSet(AALegendAlignTypeCenter)
+               .alignSet(AALegendAlignTypeRight)
                )
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"语言热度值")
-                 //                 .sizeSet(@300)//环形图的半径大小
-                 .innerSizeSet(@"60%")//内部圆环半径大小占比
+                 .sizeSet(@240)//环形图的半径大小
+                 .innerSizeSet(@"65%")//内部圆环半径大小占比
                  .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
                  .dataSet(
                           @[
@@ -225,7 +234,7 @@
                             ]
                           ),
                  ])
-    .colorsSet(@[@"#1E90FF",@"#e7a701",@"#50c18d",@"#fd4800",@"#F4A460"]);//设置颜色主题
+    .colorsSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]);//设置颜色主题
     return aaOptions;
     
     
@@ -244,19 +253,19 @@
               );
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-                                    .seriesSet(AASeries.new
-                                               .animationSet(AAAnimation.new
-                                                             .easingSet(AAChartAnimationBounce)
-                                                             .durationSet(@1000)
-                                                             )
-                                               )
-                                    .pieSet(AAPie.new
-                                            .showInLegendSet(true)
-                                            .dataLabelsSet(AADataLabels.new
-                                                           .enabledSet(true)
-                                                           .formatSet(@"{point.percentage:.1f}%"))
-                                            )
-                                    ;
+    .seriesSet(AASeries.new
+               .animationSet(AAAnimation.new
+                             .easingSet(AAChartAnimationBounce)
+                             .durationSet(@1000)
+                             )
+               )
+    .pieSet(AAPie.new
+            .showInLegendSet(true)
+            .dataLabelsSet(AADataLabels.new
+                           .enabledSet(true)
+                           .formatSet(@"{point.percentage:.1f}%"))
+            )
+    ;
     
     //数据源
     NSArray *aaSeries = @[
@@ -988,9 +997,9 @@
 
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.legend
-    .symbolRadius(@10)//图标圆角
-    .symbolHeight(@20)//标志高度
-    .symbolWidth(@20)//图标宽度
+    .symbolRadiusSet(@10)//图标圆角
+    .symbolHeightSet(@20)//标志高度
+    .symbolWidthSet(@20)//图标宽度
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop)
