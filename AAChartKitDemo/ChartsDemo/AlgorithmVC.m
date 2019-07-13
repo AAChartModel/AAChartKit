@@ -99,11 +99,11 @@
             AASeriesElement *element = AASeriesElement.new
             .nameSet(@"所有专业")
             .dataSet(result);
-            NSArray *seriesArr = @[[AAJsonConverter getObjectData:element]];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:seriesArr];
-                NSLog(@"%@",result);
-            });
+//            NSArray *seriesArr = @[[AAJsonConverter getObjectData:element]];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [self.aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:seriesArr];
+//                NSLog(@"%@",result);
+//            });
           
             [NSThread sleepForTimeInterval:3];
 
@@ -150,8 +150,8 @@
             
             [attributedDataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 AADataElement *element = obj;
-               NSDictionary *elementDic = [AAJsonConverter getObjectData:element];
-                attributedDataArr2[idx] = elementDic;
+//               NSDictionary *elementDic = [AAJsonConverter getObjectData:element];
+//                attributedDataArr2[idx] = elementDic;
             }];
             
             AASeriesElement *seriesElemnt =  AASeriesElement.new
@@ -159,7 +159,7 @@
             .dataSet(attributedDataArr2);
             
             NSArray *seriesDicArr = @[
-                                      [AAJsonConverter getObjectData:seriesElemnt]
+//                                      [AAJsonConverter getObjectData:seriesElemnt]
                                       ];
             NSLog(@"%@",seriesDicArr);
         
