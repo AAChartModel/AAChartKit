@@ -352,7 +352,7 @@
     .tickLengthSet(@10)
     .tickPositionSet(@"outside")
     .lineWidthSet(@3)
-    .titleSet(AATitle.new.textSet(@"雇员"));
+    .titleSet(AAAxisTitle.new.textSet(@"雇员"));
     
     AAYAxis *aaYAxis2 = AAYAxis.new
     .visibleSet(true)
@@ -361,7 +361,7 @@
     .tickLengthSet(@20)
     .tickPositionSet(@"inside")
     .lineWidthSet(@3)
-    .titleSet(AATitle.new
+    .titleSet(AAAxisTitle.new
               .textSet(@"利润 (millions)"));
     
     AATooltip *aaTooltip = AATooltip.new
@@ -619,7 +619,8 @@
     AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels)
-    .titleSet(AATitle.new.textSet(@"温度")
+    .titleSet(AAAxisTitle.new
+              .textSet(@"温度")
               .styleSet(AAStyle.new
                         .colorSet(@"#1e90ff")//Title font color
                         .fontSizeSet(@"14px")//Title font size
@@ -632,7 +633,8 @@
     AAYAxis *yAxisTwo = AAYAxis.new
     .visibleSet(true)
     .labelsSet(labels.formatSet(@"{value}mm"))
-    .titleSet(AATitle.new.textSet(@"降雨量")
+    .titleSet(AAAxisTitle.new
+              .textSet(@"降雨量")
               .styleSet(AAStyle.new
                         .colorSet(@"#1e90ff")//Title font color
                         .fontSizeSet(@"14px")//Title font size
@@ -735,7 +737,7 @@
     AAYAxis *aaYAxis = AAYAxis.new
     .visibleSet(true)
     .minSet(@0)
-    .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
+    .titleSet(AAAxisTitle.new.textSet(@"Total fruit consumption"))
     .stackLabelsSet(AALabels.new
                     .enabledSet(true)
                     .styleSet(AAStyle.new.
@@ -813,7 +815,7 @@
     .yAxisSet(AAYAxis.new
               .visibleSet(true)
               .minSet(@0)
-              .titleSet(AATitle.new.textSet(@"Total fruit consumption"))
+              .titleSet(AAAxisTitle.new.textSet(@"Total fruit consumption"))
               .stackLabelsSet(AALabels.new
                               .enabledSet(true)
                               .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
@@ -1038,10 +1040,10 @@
     .yAxisSet((id)@[AAYAxis.new
                     .visibleSet(true)
                     .gridLineWidthSet(@0)
-                    .titleSet(AATitle.new.textSet(@"收入")),
+                    .titleSet(AAAxisTitle.new.textSet(@"收入")),
                     AAYAxis.new
                     .visibleSet(true)
-                    .titleSet(AATitle.new.textSet(@"支出"))
+                    .titleSet(AAAxisTitle.new.textSet(@"支出"))
                     .lineWidthSet(@1)
                     .oppositeSet(true)
                     ])
