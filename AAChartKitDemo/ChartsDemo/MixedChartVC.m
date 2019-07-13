@@ -74,29 +74,6 @@
                                                                              action:@selector(nextChartButtonClicked)];
 }
 
-- (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if ([chartType isEqualToString:@"arearangeMixedLine"]) {
-        [self configureArearangeMixedLineChart];
-    } else if ([chartType isEqualToString:@"columnrangeMixedLine"]) {
-        [self configureColumnrangeMixedLineChart];
-    } else if ([chartType isEqualToString:@"stackingColumnMixedLine"]) {
-        [self configureStackingColumnMixedLineChart];
-    } else if ([chartType isEqualToString:@"dashStyleTypeMixed"]) {
-        [self configureDashStyleTypeMixedChart];
-    } else if ([chartType isEqualToString:@"negativeColorMixed"]) {
-        [self configureNegativeColorMixedChart];
-    } else if ([chartType isEqualToString:@"scatterMixedLine"]) {
-        [self configureScatterMixedLineChart];
-    } else if ([chartType isEqualToString:@"negativeColorMixedBubble"]) {
-        [self configureNegativeColorMixedBubbleChart];
-    } else if ([chartType isEqualToString:@"polygonMixedScatter"]) {
-        [self configurePolygonMixedScatterChart];
-    } else if ([chartType isEqualToString:@"polarChartMixed"]) {
-        [self configurePolarMixedChart];
-    }
-    return nil;
-}
-
 - (void)nextChartButtonClicked {
     if (self.chartTypeIndex == self.mixedChartNamesArr.count - 1) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
@@ -107,6 +84,29 @@
         _aaChartModel = [self configureTheChartModel:chartType];
         [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
     }
+}
+
+- (AAChartModel *)configureTheChartModel:(NSString *)chartType {
+    if ([chartType isEqualToString:@"arearangeMixedLine"]) {
+        return [self configureArearangeMixedLineChart];
+    } else if ([chartType isEqualToString:@"columnrangeMixedLine"]) {
+        return [self configureColumnrangeMixedLineChart];
+    } else if ([chartType isEqualToString:@"stackingColumnMixedLine"]) {
+        return [self configureStackingColumnMixedLineChart];
+    } else if ([chartType isEqualToString:@"dashStyleTypeMixed"]) {
+        return [self configureDashStyleTypeMixedChart];
+    } else if ([chartType isEqualToString:@"negativeColorMixed"]) {
+        return [self configureNegativeColorMixedChart];
+    } else if ([chartType isEqualToString:@"scatterMixedLine"]) {
+        return [self configureScatterMixedLineChart];
+    } else if ([chartType isEqualToString:@"negativeColorMixedBubble"]) {
+        return [self configureNegativeColorMixedBubbleChart];
+    } else if ([chartType isEqualToString:@"polygonMixedScatter"]) {
+        return [self configurePolygonMixedScatterChart];
+    } else if ([chartType isEqualToString:@"polarChartMixed"]) {
+        return [self configurePolarMixedChart];
+    }
+    return nil;
 }
 
 - (AAChartModel *)configureArearangeMixedLineChart {

@@ -83,25 +83,25 @@
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
     if ([chartType isEqualToString:AAChartTypePie]) {
-        [self configurePieChart];
+       return [self configurePieChart];
     } else if ([chartType isEqualToString:AAChartTypeBubble]) {
-        [self configureBubbleChart];
+       return [self configureBubbleChart];
     } else if ([chartType isEqualToString:AAChartTypeScatter]) {
-        [self configureScatterChart];
+       return [self configureScatterChart];
     }  else if ([chartType isEqualToString:AAChartTypeArearange]) {
-        [self configureArearangeChart];
+       return [self configureArearangeChart];
     } else if ([chartType isEqualToString:AAChartTypeAreasplinerange]) {
-        [self configureArealinerangeChart];
+       return [self configureArealinerangeChart];
     } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
-        [self configureColumnrangeChart];
+       return [self configureColumnrangeChart];
     } else if ([chartType isEqualToString:AAChartTypeBoxplot]) {
-        [self configureBoxplotChart];
+       return [self configureBoxplotChart];
     } else if ([chartType isEqualToString:AAChartTypeWaterfall]) {
         [self confiureWaterfallChart];
     } else if ([chartType isEqualToString:AAChartTypePyramid]) {
-        [self configurePyramidChart];
+       return [self configurePyramidChart];
     } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
-        [self configureFunnelChart];
+       return [self configureFunnelChart];
     }
     return nil;
 }
@@ -302,7 +302,7 @@
                             @[@157.2, @58.4], @[@180.3, @83.2], @[@170.2, @72.7], @[@177.8, @64.1], @[@172.7, @72.3],
                             @[@165.1, @65.0], @[@186.7, @86.4], @[@165.1, @65.0], @[@174.0, @88.6], @[@175.3, @84.1],
                             @[@185.4, @66.8], @[@177.8, @75.5], @[@180.3, @93.2], @[@180.3, @82.7], @[@177.8, @58.0],
-                            @[@177.8, @79.5], @[@177.8, @78.6], @[@177.8, @71.8], @[@177.8, @11.0], @[@163.8, @72.2],
+                            @[@177.8, @79.5], @[@177.8, @78.6], @[@177.8, @71.8], @[@177.8, @99.0], @[@163.8, @72.2],
                             @[@188.0, @83.6], @[@198.1, @85.5], @[@175.3, @90.9], @[@166.4, @85.9], @[@190.5, @89.1],
                             @[@166.4, @75.0], @[@177.8, @77.7], @[@179.7, @86.4], @[@172.7, @90.9], @[@190.5, @73.6],
                             @[@185.4, @76.4], @[@168.9, @69.1], @[@167.6, @84.5], @[@175.3, @64.5], @[@170.2, @69.1],
