@@ -35,10 +35,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
-    AALinearGradientDirectionToTop = 0,     //⇧⇧⇧⇧
-    AALinearGradientDirectionToBottom,      //⇩⇩⇩⇩
-    AALinearGradientDirectionToLeft,        //⇦⇦⇦⇦
-    AALinearGradientDirectionToRight,       //⇨⇨⇨⇨
+    AALinearGradientDirectionToTop = 0,     //⇧⇧⇧⇧⇧⇧
+    AALinearGradientDirectionToBottom,      //⇩⇩⇩⇩⇩⇩
+    AALinearGradientDirectionToLeft,        //⇦⇦⇦⇦⇦⇦
+    AALinearGradientDirectionToRight,       //⇨⇨⇨⇨⇨⇨
     AALinearGradientDirectionToTopLeft,     //⇖⇖⇖⇖⇖⇖
     AALinearGradientDirectionToTopRight,    //⇗⇗⇗⇗⇗⇗
     AALinearGradientDirectionToBottomLeft,  //⇙⇙⇙⇙⇙⇙

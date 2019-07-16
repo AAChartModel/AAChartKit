@@ -170,7 +170,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .plotLinesSet(aaChartModel.yAxisPlotLines) //标示线设置
     .reversedSet(aaChartModel.yAxisReversed)
     .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
-    .titleSet(AATitle.new.textSet(aaChartModel.yAxisTitle))//y 轴标题
+    .titleSet(AAAxisTitle.new.textSet(aaChartModel.yAxisTitle))//y 轴标题
     .lineWidthSet(aaChartModel.yAxisLineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
     .visibleSet(aaChartModel.yAxisVisible)
     .tickIntervalSet(aaChartModel.yAxisTickInterval);
