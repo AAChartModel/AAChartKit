@@ -359,18 +359,19 @@
     .yAxis.labels
     .formatterSet(@AAJSFunc(function () {
         let yValue = this.value;
-        if( yValue >=200) {
+        if (yValue >= 200) {
             return "极佳";
-        } else if( yValue >=150 && yValue< 200 ) {
+        } else if (yValue >= 150 && yValue < 200) {
             return "非常棒";
-        } else if( yValue >=100 && yValue< 150) {
+        } else if (yValue >= 100 && yValue < 150) {
             return "相当棒";
-        } else if( yValue >=50 && yValue< 100)  {
+        } else if (yValue >= 50 && yValue < 100) {
             return "还不错";
         } else {
             return "一般";
         }
-    }));
+    }))
+    ;
     return aaOptions;
 }
 
