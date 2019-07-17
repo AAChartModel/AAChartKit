@@ -34,6 +34,14 @@
 
 @implementation AAYAxis
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _visible = true;
+    }
+    return self;
+}
+
 //AAPropSetFuncImplementation(AAYAxis, BOOL,       min) tickWidth
 AAPropSetFuncImplementation(AAYAxis, AAAxisTitle  *, title)
 AAPropSetFuncImplementation(AAYAxis, NSArray  *, plotBands)
