@@ -31,7 +31,7 @@
  */
 
 #import "AATooltip.h"
-
+#import "AAJSStringPurer.h"
 @implementation AATooltip
 
 - (instancetype)init {
@@ -62,30 +62,14 @@ AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix)
 //AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 
 - (void)setFormatter:(NSString *)formatter {
-    _formatter = [self getFinalJSFuncStringWithString:formatter];
+    _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
 }
 
 - (AATooltip * (^) (NSString * formatter))formatterSet {
     return ^(NSString * formatter) {
-        _formatter = [self getFinalJSFuncStringWithString:formatter];
+        _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
         return self;
     };
-}
-
-- (NSString *)getFinalJSFuncStringWithString:(NSString *)jsString {
-    NSString *finalJSFunc = [NSString stringWithFormat:@"(%@)",jsString];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"'" withString:@"\""];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\0" withString:@""];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\f" withString:@"\\f"];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\u2028" withString:@"\\u2028"];
-    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\u2029" withString:@"\\u2029"];
-    return finalJSFunc;
 }
 
 @end

@@ -31,7 +31,7 @@
  */
 
 #import "AALabels.h"
-
+#import "AAJSStringPurer.h"
 @implementation AALabels
 
 AAPropSetFuncImplementation(AALabels, NSString *, align)//轴标签的对齐方式，可用的值有 "left"、"center" 及 "right"。默认值是根据坐标轴的位置（在图表中的位置）即标签的旋转角度进行智能判断的。 默认是：center.
@@ -40,7 +40,7 @@ AAPropSetFuncImplementation(AALabels, NSNumber *, autoRotationLimit)//当每个�
 AAPropSetFuncImplementation(AALabels, NSNumber *, distance)//只针对极地图有效，定义周标签与绘图区边缘的距离。 默认是：15.
 AAPropSetFuncImplementation(AALabels, BOOL      , enabled)//是否显示坐标轴标签 默认是：true.
 AAPropSetFuncImplementation(AALabels, NSString *, format)//坐标轴格式化字符串。 默认是：{value}.
-AAPropSetFuncImplementation(AALabels, NSString *, formatter)//坐标轴格式化字符串。 默认是：{value}.
+//AAPropSetFuncImplementation(AALabels, NSString *, formatter)//坐标轴格式化字符串。 默认是：{value}.
 AAPropSetFuncImplementation(AALabels, NSNumber *, padding)//轴标签的内间距，作用是保证轴标签之间有空隙。 默认是：5.
 AAPropSetFuncImplementation(AALabels, NSNumber *, rotation)//轴标签的旋转角度 默认是：0.
 AAPropSetFuncImplementation(AALabels, NSNumber *, staggerLines)//只针对水平轴有效，定义轴标签显示行数。
@@ -49,5 +49,16 @@ AAPropSetFuncImplementation(AALabels, AAStyle  *, style)//轴标签的 CSS 样�
 AAPropSetFuncImplementation(AALabels, NSNumber *, x)//相对于坐标轴刻度线的水平偏移。 默认是：0.
 AAPropSetFuncImplementation(AALabels, NSNumber *, y)//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
 AAPropSetFuncImplementation(AALabels, BOOL      , useHTML)//HTML渲染
+
+- (void)setFormatter:(NSString *)formatter {
+    _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+}
+
+- (AALabels * (^) (NSString * formatter))formatterSet {
+    return ^(NSString * formatter) {
+        _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        return self;
+    };
+}
 
 @end

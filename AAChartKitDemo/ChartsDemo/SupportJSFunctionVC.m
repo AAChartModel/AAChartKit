@@ -42,6 +42,7 @@
         case 2: return [self customAreaChartTooltipStyleWithFormatterFunction3];//值为0时,在tooltip中不显示
         case 3: return [self customAreaChartTooltipStyleWithFormatterFunction4];//自定义多彩颜色文字
         case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
+        case 5: return [self customYAxisLabels];//自定义Y轴文字
         default:
         return nil;
     }
@@ -132,14 +133,14 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .lineWidthSet(@1.5)
-                 .fillColorSet((id)gradientColorDic1)
+                 .colorSet((id)gradientColorDic1)
                  .nameSet(@"🐶狗子")
-                 .dataSet(@[@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,]),
+                 .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
                  AASeriesElement.new
                  .lineWidthSet(@1.5)
-                 .fillColorSet((id)gradientColorDic2)
+                 .colorSet((id)gradientColorDic2)
                  .nameSet(@"🌲树木")
-                 .dataSet(@[@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,@0.0,]),
+                 .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
                  ]
                );
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
@@ -224,7 +225,6 @@
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisVisibleSet(false)
@@ -335,6 +335,43 @@
     return aaOptions;
 }
 
-
+- (AAOptions *)customYAxisLabels {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为内部白色
+    .markerRadiusSet(@8)
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .lineWidthSet(@5.0)
+                 .fillOpacitySet(@0.4)
+                 .dataSet( @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions
+    .yAxis.labels
+    .formatterSet(@AAJSFunc(function () {
+        let yValue = this.value;
+        if( yValue >=200) {
+            return "极佳";
+        } else if( yValue >=150 && yValue< 200 ) {
+            return "非常棒";
+        } else if( yValue >=100 && yValue< 150) {
+            return "相当棒";
+        } else if( yValue >=50 && yValue< 100)  {
+            return "还不错";
+        } else {
+            return "一般";
+        }
+    }));
+    return aaOptions;
+}
 
 @end
