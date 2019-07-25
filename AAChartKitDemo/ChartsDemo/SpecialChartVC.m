@@ -82,25 +82,25 @@
 }
 
 - (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if ([chartType isEqualToString:AAChartTypePie]) {
+    if (chartType == AAChartTypePie) {
        return [self configurePieChart];
-    } else if ([chartType isEqualToString:AAChartTypeBubble]) {
+    } else if (chartType == AAChartTypeBubble) {
        return [self configureBubbleChart];
-    } else if ([chartType isEqualToString:AAChartTypeScatter]) {
+    } else if (chartType == AAChartTypeScatter) {
        return [self configureScatterChart];
-    }  else if ([chartType isEqualToString:AAChartTypeArearange]) {
+    }  else if (chartType == AAChartTypeArearange) {
        return [self configureArearangeChart];
-    } else if ([chartType isEqualToString:AAChartTypeAreasplinerange]) {
+    } else if (chartType == AAChartTypeAreasplinerange) {
        return [self configureArealinerangeChart];
-    } else if ([chartType isEqualToString:AAChartTypeColumnrange]) {
+    } else if (chartType == AAChartTypeColumnrange) {
        return [self configureColumnrangeChart];
-    } else if ([chartType isEqualToString:AAChartTypeBoxplot]) {
+    } else if (chartType == AAChartTypeBoxplot) {
        return [self configureBoxplotChart];
-    } else if ([chartType isEqualToString:AAChartTypeWaterfall]) {
+    } else if (chartType == AAChartTypeWaterfall) {
         [self confiureWaterfallChart];
-    } else if ([chartType isEqualToString:AAChartTypePyramid]) {
+    } else if (chartType == AAChartTypePyramid) {
        return [self configurePyramidChart];
-    } else if ([chartType isEqualToString:AAChartTypeFunnel]) {
+    } else if (chartType == AAChartTypeFunnel) {
        return [self configureFunnelChart];
     }
     return nil;
