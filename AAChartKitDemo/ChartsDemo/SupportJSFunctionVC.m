@@ -43,6 +43,7 @@
         case 3: return [self customAreaChartTooltipStyleWithFormatterFunction4];//自定义多彩颜色文字
         case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
         case 5: return [self customYAxisLabels];//自定义Y轴文字
+        case 6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
         default:
         return nil;
     }
@@ -372,6 +373,54 @@
         }
     }))
     ;
+    return aaOptions;
+}
+
+- (AAOptions *)customStackedAndGroupedColumnChartTooltip {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .titleSet(@"Total fruit consumtion, grouped by gender")
+    .subtitleSet(@"stacked and grouped")
+    .yAxisTitleSet(@"Number of fruits")
+    .chartTypeSet(AAChartTypeColumn)
+    .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
+    .stackingSet(AAChartStackingTypeNormal)
+    .categoriesSet(@[@"Apples", @"Oranges", @"Pears",@"Grapes",@"Bananas",])
+    .dataLabelEnabledSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"John")
+                 .dataSet(@[@5,@3,@4,@7,@2,])
+                 .stackSet(@"male"),
+                 AASeriesElement.new
+                 .nameSet(@"Joe")
+                 .dataSet(@[@3,@4,@4,@2,@5,])
+                 .stackSet(@"male"),
+                 AASeriesElement.new
+                 .nameSet(@"Jane")
+                 .dataSet(@[@2,@5,@6,@2,@1,])
+                 .stackSet(@"female"),
+                 AASeriesElement.new
+                 .nameSet(@"Janet")
+                 .dataSet(@[@3,@0,@4, @4,@3,])
+                 .stackSet(@"female"),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .sharedSet(false)
+    .formatterSet(@AAJSFunc(function () {
+        return '<b>'
+        + this.x
+        + '</b><br/>'
+        + this.series.name
+        + ': '
+        + this.y
+        + '<br/>'
+        + 'Total: '
+        + this.point.stackTotal;
+    }
+                            ));
     return aaOptions;
 }
 

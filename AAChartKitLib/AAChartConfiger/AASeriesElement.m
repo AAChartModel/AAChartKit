@@ -74,6 +74,9 @@ AAPropSetFuncImplementation(AASeriesElement, BOOL      , visible) //数据列是
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, zones)
 AAPropSetFuncImplementation(AASeriesElement, NSString *, zoneAxis)
 AAPropSetFuncImplementation(AASeriesElement, id, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
+AAPropSetFuncImplementation(AASeriesElement, NSString *, stack)
+
+
 
 @end
 
