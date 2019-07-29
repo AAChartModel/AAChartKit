@@ -86,12 +86,15 @@
                                     @"带有颜色标志带的曲线图表",
                                     @"带有颜色标志线及文字的曲线图表",
                                     @"自定义DataLabels样式",
+                                    @"单独自定义指定的data的DataLabels样式",
+                                    @"通过HTML字符串自定义X轴文字颜色",
+                                    @"通过HTML字符串自定义X轴文字颜色和字体大小"
                                     ];
 }
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 23) {
+    if (self.selectedIndex == 25) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -127,6 +130,8 @@
         case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的曲线图表
         case 22: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
         case 23: return [self customizeEveryDataLabelBySinglely];//单独自定义指定的data的DataLabels样式
+        case 24: return [self configureXAxisLabelsFontColorWithHTMLString];//通过HTML字符串自定义X轴文字颜色
+        case 25: return [self configureXAxisLabelsFontColorAndFontSizeWithHTMLString];//通过HTML字符串自定义X轴文字颜色和字体大小
     }
     return nil;
 }
@@ -1422,6 +1427,78 @@
     .borderColorSet(AAColor.redColor)// red color
     .borderRadiusSet(@1.5)
     .borderWidthSet(@1.3);
+    return aaOptions;
+}
+
+- (AAOptions *)configureXAxisLabelsFontColorWithHTMLString {
+    NSArray *categories = @[@"<font color=\\\"#CC0066\\\">孤岛危机<\\/font>",
+                            @"<font color=\\\"#CC0033\\\">使命召唤<\\/font>",
+                            @"<font color=\\\"#FF0066\\\">荣誉勋章<\\/font>",
+                            @"<font color=\\\"##66FF99\\\">狙击精英<\\/font>",
+                            @"<font color=\\\"#00FF00\\\">神秘海域<\\/font>",
+                            @"<font color=\\\"#00CC00\\\">美国末日<\\/font>",
+                            @"<font color=\\\"#666FF\\\">巫师狂猎<\\/font>",
+                            @"<font color=\\\"#000CC\\\">死亡搁浅<\\/font>",
+                            @"<font color=\\\"#9933CC\\\">地狱边境<\\/font>",
+                            @"<font color=\\\"##FFCC99\\\">忍者之印<\\/font>",
+                            @"<font color=\\\"#FFCC00\\\">合金装备<\\/font>",
+                            @"<font color=\\\"#CC99090\\\">全战三国<\\/font>",
+                            ];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .stackingSet(AAChartStackingTypeNormal)
+    .categoriesSet(categories)
+    .markerRadiusSet(@0)
+    .seriesSet(@[AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .colorSet((id)[AAGradientColor mysticMauveColor])
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
+    aaOptions.xAxis.labels.useHTML = true;
+    return aaOptions;
+}
+
+- (AAOptions *)configureXAxisLabelsFontColorAndFontSizeWithHTMLString {
+    NSArray *categories = @[
+                            @"<span style=\\\"color:#CC0066;font-weight:bold;font-size:10px\\\">使命召唤</span>",
+                            @"<span style=\\\"color:#CC0033;font-weight:bold;font-size:11px\\\">荣誉勋章</span>",
+                            @"<span style=\\\"color:#FF0066;font-weight:bold;font-size:12px\\\">狙击精英</span>",
+                            @"<span style=\\\"color:#66FF99;font-weight:bold;font-size:13px\\\">神秘海域</span>",
+                            @"<span style=\\\"color:#00FF00;font-weight:bold;font-size:14px\\\">美国末日</span>",
+                            @"<span style=\\\"color:#00CC00;font-weight:bold;font-size:15px\\\">巫师狂猎</span>",
+                            @"<span style=\\\"color:#666FF;font-weight:bold;font-size:15px\\\">孤岛危机</span>",
+                            @"<span style=\\\"color:#000CC;font-weight:bold;font-size:14px\\\">地狱边境</span>",
+                            @"<span style=\\\"color:#9933CC;font-weight:bold;font-size:13px\\\">忍者之印</span>",
+                            @"<span style=\\\"color:#FFCC99;font-weight:bold;font-size:12px\\\">合金装备</span>",
+                            @"<span style=\\\"color:#FFCC00;font-weight:bold;font-size:11px\\\">全战三国</span>",
+                            @"<span style=\\\"color:#CC99090;font-weight:bold;font-size:10px\\\">死亡搁浅</span>",
+                            ];
+    
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisVisibleSet(false)
+    .categoriesSet(categories)
+    .markerRadiusSet(@0)
+    .seriesSet(@[AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .colorSet((id)[AAGradientColor deepSeaColor])
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
+    aaOptions.xAxis.labels.useHTML = true;
     return aaOptions;
 }
 

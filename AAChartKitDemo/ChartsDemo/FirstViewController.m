@@ -364,6 +364,8 @@
                                 @"带有颜色标志线的图表",
                                 @"自定义DataLabels样式",
                                 @"单独自定义指定的data的DataLabels样式",
+                                @"通过HTML字符串自定义X轴文字颜色",
+                                @"通过HTML字符串自定义X轴文字颜色和字体大小"
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
