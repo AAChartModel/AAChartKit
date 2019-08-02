@@ -52,7 +52,8 @@ AAPropSetFuncImplementation(AALegend, AALegendVerticalAlignType, verticalAlign)
 AAPropSetFuncImplementation(AALegend, BOOL,          enabled) 
 AAPropSetFuncImplementation(AALegend, NSString    *, borderColor) 
 AAPropSetFuncImplementation(AALegend, NSNumber    *, borderWidth) 
-AAPropSetFuncImplementation(AALegend, NSNumber    *, itemMarginTop) 
+AAPropSetFuncImplementation(AALegend, NSNumber    *, itemMarginTop)
+AAPropSetFuncImplementation(AALegend, NSNumber    *, itemMarginBottom)
 AAPropSetFuncImplementation(AALegend, AAItemStyle *, itemStyle)
 AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolHeight)//标志高度
 AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolPadding)//标志后距
