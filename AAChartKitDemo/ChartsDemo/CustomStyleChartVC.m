@@ -78,6 +78,7 @@
         case 13: return [self configureColorfulGradientAreaChart];
         case 14: return [self configureColorfulGradientSplineChart];
         case 15: return [self configureGradientColorAreasplineChart];
+        case 16: return [self configureSpecialStyleMarkerOfSingleDataElementChart];
         default:
             return nil;
     }
@@ -630,6 +631,51 @@
                  .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                  ]
                );
+}
+
+- (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
+    NSDictionary *gradientColorDic1 =
+    @{@"linearGradient": @{
+              @"x1": @0,
+              @"y1": @0,
+              @"x2": @1,
+              @"y2": @0
+              },
+      @"stops": @[@[@0.00, @"#febc0f"],
+                  @[@0.25, @"#FF14d4"],
+                  @[@0.50, @"#0bf8f5"],
+                  @[@0.75, @"#F33c52"],
+                  @[@1.00, @"#1904dd"],
+                  ]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    AADataElement *singleSpecialData = AADataElement.new
+    .markerSet(AAMarker.new
+               .radiusSet(@8)//曲线连接点半径
+               .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+               .lineColorSet(@"#FF0000")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+               )
+    .ySet(@26.5);
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .titleSet(@"")
+    .backgroundColorSet(@"#4b2b7f")
+    .yAxisTitleSet(@"")//设置Y轴标题
+    .dataLabelsEnabledSet(false)//是否显示值
+    .tooltipEnabledSet(true)
+    .markerRadiusSet(@0)
+    .xAxisVisibleSet(false)
+    .yAxisVisibleSet(false)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Virtual Data")
+                 .lineWidthSet(@6)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+                 .colorSet((id)gradientColorDic1)
+                 ]);
 }
 
 @end

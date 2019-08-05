@@ -86,6 +86,7 @@
     UITableView *tableView = [[UITableView alloc]init];
     tableView.delegate =self;
     tableView.dataSource =self;
+    tableView.frame = CGRectMake(0, 0, 100, self.view.frame.size.height);
     [self.view addSubview:tableView];
     
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -303,7 +304,8 @@
                                 @"Chart With Shadow Style---带有阴影效果の图表",
                                 @"Colorful gradient Areaspline Chart---多层次渐变区域填充图",
                                 @"Colorful gradient Spline Chart---多层次渐变曲线图",
-                                @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图"],
+                                @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图",
+                                @"Special Style Marker Of Single Data Element Chart"],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
                                 @"Columnrange Mixed Line---柱形范围图混合折线图",

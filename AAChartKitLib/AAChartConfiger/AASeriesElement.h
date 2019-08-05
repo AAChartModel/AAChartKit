@@ -76,6 +76,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stac
 
 AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AADataLabels *, dataLabels)
+AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AAMarker *, marker)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
 
 @end
