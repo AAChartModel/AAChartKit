@@ -385,7 +385,7 @@
     .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
     .stackingSet(AAChartStackingTypeNormal)
     .categoriesSet(@[@"Apples", @"Oranges", @"Pears",@"Grapes",@"Bananas",])
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"John")

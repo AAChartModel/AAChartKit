@@ -220,9 +220,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         aaDataLabels = (AADataLabels.new
                         .enabledSet(aaChartModel.dataLabelsEnabled)
                         .styleSet(AAStyle.new
-                                  .colorSet(aaChartModel.dataLabelFontColor)
-                                  .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
-                                  .fontWeightSet(aaChartModel.dataLabelFontWeight)
+                                  .colorSet(aaChartModel.dataLabelsFontColor)
+                                  .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelsFontSize))
+                                  .fontWeightSet(aaChartModel.dataLabelsFontWeight)
                                   )
                         );
     }

@@ -171,9 +171,9 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       easyGra
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) //是否极化图形(变为雷达图),默认为否
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelsEnabled) //是否显示数据,默认为否
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor) //Datalabel font color
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize) //Datalabel font size
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight) //Datalabel font weight
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelsFontColor) //Datalabel font color
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelsFontSize) //Datalabel font size
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelsFontWeight) //Datalabel font weight
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) //x 轴是否可见(默认可见)

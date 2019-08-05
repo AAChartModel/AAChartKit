@@ -211,7 +211,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .chartTypeSet(AAChartTypeLine)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .colorsThemeSet(@[@"#1e90ff",@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
     .seriesSet(@[
                  AASeriesElement.new
@@ -360,7 +360,7 @@
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .chartTypeSet(AAChartTypeColumn)
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .markerRadiusSet(@3)
     .seriesSet(@[
                  AASeriesElement.new
@@ -603,8 +603,12 @@
     .titleSet(@"")
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .markerRadiusSet(@3)
+    .backgroundColorSet(@"#4b2b7f")
+    .xAxisVisibleSet(false)
+    .yAxisVisibleSet(false)
+    .xAxisReversedSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"Bubble")

@@ -125,9 +125,9 @@ AALineDashStyleType const AALineDashStyleTypeLongDashDotDot  = @"LongDashDotDot"
         _subtitleFontColor     = @"#000000";//副标题字体颜色为黑色
         _subtitleFontWeight    = AAChartFontWeightTypeRegular;//常规字体
         _subtitleFontSize      = @9;
-        _dataLabelFontColor    = @"#000000";//数据标签默认颜色为黑色
-        _dataLabelFontWeight   = AAChartFontWeightTypeBold;//图表的数据字体为粗体
-        _dataLabelFontSize     = @10;
+        _dataLabelsFontColor    = @"#000000";//数据标签默认颜色为黑色
+        _dataLabelsFontWeight   = AAChartFontWeightTypeBold;//图表的数据字体为粗体
+        _dataLabelsFontSize     = @10;
         _xAxisLabelsFontSize   = @11;//x轴字体大小
         _xAxisLabelsFontColor  = @"#778899";//浅石板灰色字体
         _xAxisLabelsFontWeight = AAChartFontWeightTypeThin;//细体字
@@ -167,9 +167,9 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       easyGradientColors) //是�
 AAPropSetFuncImplementation(AAChartModel, BOOL,       polar) //是否极化图形(变为雷达图),默认为否
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       dataLabelsEnabled) //是否显示数据,默认为否
-AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontColor) //Datalabel font color
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelFontSize) //Datalabel font size
-AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelFontWeight) //Datalabel font weight
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelsFontColor) //Datalabel font color
+AAPropSetFuncImplementation(AAChartModel, NSNumber *, dataLabelsFontSize) //Datalabel font size
+AAPropSetFuncImplementation(AAChartModel, NSString *, dataLabelsFontWeight) //Datalabel font weight
 
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisVisible) //x 轴是否可见(默认可见)

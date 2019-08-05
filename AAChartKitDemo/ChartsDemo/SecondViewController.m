@@ -443,7 +443,7 @@
             break;
         case 3: self.aaChartModel.polar = switchView.on;
             break;
-        case 4: self.aaChartModel.dataLabelEnabled = switchView.on;
+        case 4: self.aaChartModel.dataLabelsEnabled = switchView.on;
             break;
         case 5: self.aaChartModel.markerRadius = switchView.on ? @0 : @5;
             break;
