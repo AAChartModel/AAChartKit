@@ -113,7 +113,7 @@
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
     .titleSet(@"")
     .subtitleSet(@"")
-    .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(
                @[
@@ -342,7 +342,7 @@
     .subtitleSet(@"实时监测")
     .yAxisTitleSet(@"摄氏度")
     .xAxisVisibleSet(false)
-    .dataLabelEnabledSet(false)
+    .dataLabelsEnabledSet(false)
     .seriesSet(
                @[
                  AASeriesElement.new
@@ -740,7 +740,7 @@
     .subtitleSet(@"实时监测")
     .yAxisTitleSet(@"摄氏度")
     .xAxisVisibleSet(false)
-    .dataLabelEnabledSet(false)
+    .dataLabelsEnabledSet(false)
     .seriesSet(
                @[
                  AASeriesElement.new
@@ -807,10 +807,10 @@
     .yAxisGridLineWidthSet(@0)
     .yAxisTitleSet(@"℃")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .invertedSet(true)
     .backgroundColorSet(@"#4b2b7f")
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .dataLabelFontColorSet(@"#ffffff")
     .seriesSet(@[
                  AASeriesElement.new

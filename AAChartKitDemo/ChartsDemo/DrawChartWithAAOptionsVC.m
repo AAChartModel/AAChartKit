@@ -466,7 +466,7 @@
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
     .markerRadiusSet(@0)
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2020")
@@ -577,7 +577,7 @@
     .chartTypeSet(AAChartTypePie)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
-    .dataLabelEnabledSet(true)//是否直接显示扇形图数据
+    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(
                @[AASeriesElement.new
@@ -686,7 +686,7 @@
     .chartTypeSet(AAChartTypeArea)
     .titleSet(@"Adjust data accuracy")
     .yAxisTitleSet(@"")
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
     .yAxisGridLineWidthSet(@0.5)
@@ -873,7 +873,7 @@
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
-    .dataLabelEnabledSet(NO)//是否显示数字
+    .dataLabelsEnabledSet(NO)//是否显示数字
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
     .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
@@ -1313,7 +1313,7 @@
     .subtitleSet(@"")//图表副标题
     .markerRadiusSet(@7)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .yAxisLineWidthSet(0)
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
@@ -1352,7 +1352,7 @@
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .tooltipEnabledSet(false)
     .colorsThemeSet(@[AAColor.lightGrayColor])
     .markerRadiusSet(@0)

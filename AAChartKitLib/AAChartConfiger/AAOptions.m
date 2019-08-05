@@ -216,9 +216,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     AAChartType chartType = aaChartModel.chartType;
     
     AADataLabels *aaDataLabels;
-    if (aaChartModel.dataLabelEnabled == true) {
+    if (aaChartModel.dataLabelsEnabled == true) {
         aaDataLabels = (AADataLabels.new
-                        .enabledSet(aaChartModel.dataLabelEnabled)
+                        .enabledSet(aaChartModel.dataLabelsEnabled)
                         .styleSet(AAStyle.new
                                   .colorSet(aaChartModel.dataLabelFontColor)
                                   .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelFontSize))
@@ -261,7 +261,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
                         .cursorSet(@"pointer")
                         .showInLegendSet(true)
                         );
-        if (aaChartModel.dataLabelEnabled == true) {
+        if (aaChartModel.dataLabelsEnabled == true) {
             aaPie.dataLabelsSet(aaDataLabels.formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %"));
         } else {
             aaPie.dataLabelsSet(AADataLabels.new.enabledSet(false));

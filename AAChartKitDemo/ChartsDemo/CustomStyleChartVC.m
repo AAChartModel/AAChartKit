@@ -118,7 +118,7 @@
     .animationTypeSet(AAChartAnimationBounce)
     .titleSet(@"Colorful Chart")
     .subtitleSet(@"use AAColor to get color string")
-    .dataLabelEnabledSet(false)
+    .dataLabelsEnabledSet(false)
     .categoriesSet(colorsNameArr)
     .colorsThemeSet(colorsArr)
     .stackingSet(AAChartStackingTypePercent)
@@ -200,7 +200,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .yAxisTitleSet(@"")//设置Y轴标题
-    .dataLabelEnabledSet(true)//是否显示值
+    .dataLabelsEnabledSet(true)//是否显示值
     .tooltipEnabledSet(true)
     .seriesSet(@[
                  AASeriesElement.new
@@ -218,7 +218,7 @@
     .subtitleSet(@"虚拟数据")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"本专业")
@@ -299,7 +299,7 @@
     .yAxisGridLineWidthSet(@0.5)
     .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .yAxisPlotLinesSet(aaPlotLinesArr)
     .seriesSet(@[
                  AASeriesElement.new
@@ -317,7 +317,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .easyGradientColorsSet(true)
-    //.dataLabelEnabledSet(true)
+    //.dataLabelsEnabledSet(true)
     .titleSet(@"带有负数的区域填充图")
     .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
     .subtitleSet(@"横屏查看效果更佳")
@@ -352,7 +352,7 @@
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
     .titleSet(@"STEP LINE CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
-    .dataLabelEnabledSet(NO)//是否显示数字
+    .dataLabelsEnabledSet(NO)//是否显示数字
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
     .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
@@ -380,7 +380,7 @@
     .easyGradientColorsSet(true)//开启主题渐变色
     .titleSet(@"STEP AREA CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
-    .dataLabelEnabledSet(NO)//是否显示数字
+    .dataLabelsEnabledSet(NO)//是否显示数字
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
     .markerRadiusSet(@0)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
@@ -414,7 +414,7 @@
     //.yAxisVisibleSet(false)//是否显示中间的多个圆环
     .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .dataLabelEnabledSet(true)
+    .dataLabelsEnabledSet(true)
     .polarSet(true)//极地化图形
     .seriesSet(@[
                  AASeriesElement.new
