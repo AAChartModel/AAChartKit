@@ -101,7 +101,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     
     [self configureTheStyleOfConnectNodeWithChartModel:aaChartModel plotOptions:aaPlotOptions];
     aaPlotOptions = [self configureTheAAPlotOptionsWithPlotOptions:aaPlotOptions chartModel:aaChartModel];
-    //   aaPlotOptions.series.events = @{@"click":@"hahaha"};
     
     AALegend *aaLegend = AALegend.new
     .enabledSet(aaChartModel.legendEnabled);//是否显示 legend

@@ -367,7 +367,8 @@
                                 @"自定义DataLabels样式",
                                 @"单独自定义指定的data的DataLabels样式",
                                 @"通过HTML字符串自定义X轴文字颜色",
-                                @"通过HTML字符串自定义X轴文字颜色和字体大小"
+                                @"通过HTML字符串自定义X轴文字颜色和字体大小",
+                                @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式"
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",

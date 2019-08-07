@@ -88,13 +88,14 @@
                                     @"自定义DataLabels样式",
                                     @"单独自定义指定的data的DataLabels样式",
                                     @"通过HTML字符串自定义X轴文字颜色",
-                                    @"通过HTML字符串自定义X轴文字颜色和字体大小"
+                                    @"通过HTML字符串自定义X轴文字颜色和字体大小",
+                                    @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式"
                                     ];
 }
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 25) {
+    if (self.selectedIndex == 26) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -132,6 +133,7 @@
         case 23: return [self customizeEveryDataLabelBySinglely];//单独自定义指定的data的DataLabels样式
         case 24: return [self configureXAxisLabelsFontColorWithHTMLString];//通过HTML字符串自定义X轴文字颜色
         case 25: return [self configureXAxisLabelsFontColorAndFontSizeWithHTMLString];//通过HTML字符串自定义X轴文字颜色和字体大小
+        case 26: return [self configure_DataLabels_XAXis_YAxis_Legend_Style];//配置DataLabels、XAXis、YAxis、Legend等图表元素样式
     }
     return nil;
 }
@@ -167,7 +169,7 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
-    aaOptions.legend = AALegend.new
+    aaOptions.legend 
     .enabledSet(true)
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
@@ -491,7 +493,7 @@
     .backgroundColorSet(@"rgba(0, 0, 0, 0.75)")
     .shapeSet(@"callout")
     .styleSet(AAStyle.new
-              .colorSet(@"#FFFFFF")
+              .colorSet(AAColor.whiteColor)
               .textOutlineSet(@"none"));
     return aaOptions;
 }
@@ -774,7 +776,7 @@
                .dataLabelsSet(AADataLabels.new
                               .enabledSet(true)
                               .styleSet(AAStyle.new
-                                        .colorSet(@"#FFFFFF")
+                                        .colorSet(AAColor.whiteColor)
                                         .fontSizeSet(@"15px")
                                         .fontWeightSet(AAChartFontWeightTypeThin)
                                         .textOutlineSet(@"0px 0px contrast")
@@ -1188,7 +1190,7 @@
     .titleSet(@"")
     .subtitleSet(@"")
     .yAxisTitleSet(@"")
-    .backgroundColorSet(@"#FFFFFF")
+    .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
@@ -1246,7 +1248,7 @@
     .titleSet(@"")
     .subtitleSet(@"")
     .yAxisTitleSet(@"")
-    .backgroundColorSet(@"#FFFFFF")
+    .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
@@ -1500,6 +1502,81 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
     aaOptions.xAxis.labels.useHTML = true;
+    return aaOptions;
+}
+
+-(AAOptions *)configure_DataLabels_XAXis_YAxis_Legend_Style {
+    NSDictionary *fillColorGradientColor =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop//渐变色方向向上🔼
+                               startColorString:@"rgba(256,256,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"rgba(256,256,256,1.0)"];
+    
+    NSDictionary *backgroundColorGradientColor =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTopLeft//渐变色方向向左上↖️
+                               startColorString:@"#4F00BC"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"#29ABE2"];
+    
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .backgroundColorSet((id)backgroundColorGradientColor)
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisVisibleSet(true)
+    .yAxisTitleSet(@"")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .markerRadiusSet(@0)
+    .seriesSet(@[AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .colorSet(AAColor.whiteColor)
+                 .lineWidthSet(@7)
+                 .fillColorSet((id)fillColorGradientColor)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    aaOptions.plotOptions.areaspline
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .styleSet(AAStyle.new
+                             .colorSet(AAColor.whiteColor)
+                             .fontSizeSet(@"14px")
+                             .fontWeightSet(AAChartFontWeightTypeThin)
+                             .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
+                             ))
+    ;
+
+    aaOptions.yAxis
+    .lineWidthSet(@1.5)//Y轴轴线颜色
+    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
+    .gridLineWidthSet(@0)//Y轴网格线宽度
+    .labels.style.colorSet(AAColor.whiteColor)//Y轴文字颜色
+    ;
+    
+    aaOptions.xAxis
+    .tickWidthSet(@0)//X轴刻度线宽度
+    .lineWidthSet(@1.5)//X轴轴线宽度
+    .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
+    .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
+    ;
+    
+    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
+    /*默认是：{
+    "color": "#333333",
+    "cursor": "pointer",
+    "fontSize": "12px",
+    "fontWeight": "bold"
+     }
+     */
+    aaOptions.legend
+    .itemStyleSet(AAItemStyle.new
+                  .colorSet(AAColor.whiteColor)//字体颜色
+                  .fontSizeSet(@"13px")//字体大小
+                  .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
+                  );
+
     return aaOptions;
 }
 
