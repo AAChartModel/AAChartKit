@@ -287,7 +287,8 @@
                                 @"Box Plot Chart---箱线图",
                                 @"Water Fall---瀑布图",
                                 @"Pyramid Chart---金字塔图",
-                                @"Funnel Chart---漏斗图",],
+                                @"Funnel Chart---漏斗图",
+                                ],
                               /*一些自定义风格样式图表*/
                               @[@"Colorful Column Chart---多彩条形图",
                                 @"Colorful Gradient Color Chart---多彩颜色渐变条形图",
@@ -305,7 +306,9 @@
                                 @"Colorful gradient Areaspline Chart---多层次渐变区域填充图",
                                 @"Colorful gradient Spline Chart---多层次渐变曲线图",
                                 @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图",
-                                @"Special Style Marker Of Single Data Element Chart"],
+                                @"Special Style Marker Of Single Data Element Chart",
+                                @"X轴带有颜色标志带的混合图表",
+                                ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
                                 @"Columnrange Mixed Line---柱形范围图混合折线图",
@@ -316,7 +319,6 @@
                                 @"Negative Color Mixed bubble---基准线以下异色气泡图",
                                 @"Polygon Mixed Scatter---多边形混合散点图",
                                 @"Polar Chart Mixed---极地混合图"
-                                
                                 ],
                               /*图表数据动态刷新*/
                               @[@"Column Chart---柱形图",

@@ -83,19 +83,20 @@
                                     @"y轴在右侧的图表",
                                     @"简易仪表图",
                                     @"带有颜色带的仪表图",
-                                    @"带有颜色标志带的曲线图表",
-                                    @"带有颜色标志线及文字的曲线图表",
+                                    @"Y轴带有颜色标志带的曲线图表",
+                                    @"Y轴带有颜色标志线及文字的曲线图表",
                                     @"自定义DataLabels样式",
                                     @"单独自定义指定的data的DataLabels样式",
                                     @"通过HTML字符串自定义X轴文字颜色",
                                     @"通过HTML字符串自定义X轴文字颜色和字体大小",
-                                    @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式"
+                                    @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式",
+                                    @"X轴带有颜色标志带的混合图表",
                                     ];
 }
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 26) {
+    if (self.selectedIndex == 27) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -134,6 +135,8 @@
         case 24: return [self configureXAxisLabelsFontColorWithHTMLString];//通过HTML字符串自定义X轴文字颜色
         case 25: return [self configureXAxisLabelsFontColorAndFontSizeWithHTMLString];//通过HTML字符串自定义X轴文字颜色和字体大小
         case 26: return [self configure_DataLabels_XAXis_YAxis_Legend_Style];//配置DataLabels、XAXis、YAxis、Legend等图表元素样式
+        case 27: return [self configureXAxisPlotBand];//X轴带有颜色标志带的混合图表
+
     }
     return nil;
 }
@@ -1505,7 +1508,58 @@
     return aaOptions;
 }
 
--(AAOptions *)configure_DataLabels_XAXis_YAxis_Legend_Style {
+- (AAOptions *)configureXAxisPlotBand {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisTitleSet(@"")
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+    .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .easyGradientColorsSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"New York Hot")
+                 .lineWidthSet(@5.0)
+                 .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 AASeriesElement.new
+                 .typeSet(AAChartTypeColumn)
+                 .nameSet(@"Berlin Hot")
+                 .colorSet(@"#25547c")
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]);
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
+    NSArray *aaPlotBandsArr = @[
+                                AAPlotBandsElement.new
+                                .fromSet(@-0.25)//值域颜色带X轴起始值
+                                .toSet(@4.75)//值域颜色带X轴结束值
+                                .colorSet(@"#ef476f66")//值域颜色带填充色
+                                .zIndexSet(0),//层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                                AAPlotBandsElement.new
+                                .fromSet(@4.75)
+                                .toSet(@8.25)
+                                .colorSet(@"#ffd06666")
+                                .zIndexSet(0),
+                                AAPlotBandsElement.new
+                                .fromSet(@8.25)
+                                .toSet(@11.25)
+                                .colorSet(@"#04d69f66")
+                                .zIndexSet(0),
+                                ];
+    AAXAxis *aaXAxis = aaOptions.xAxis;
+    aaXAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
+}
+
+- (AAOptions *)configure_DataLabels_XAXis_YAxis_Legend_Style {
     NSDictionary *fillColorGradientColor =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop//渐变色方向向上🔼
                                startColorString:@"rgba(256,256,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
