@@ -479,8 +479,10 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
 
 Language Version | Project Name | Source Code Link |
 ------------ | ------------- | ------------- |
-Objective C | AAChartKit | https://github.com/AAChartModel/AAChartKit |
+Kotlin | AAInfographics | https://github.com/AAChartModel/AAChartCore |
+Java | AAChartCore | https://github.com/AAChartModel/AAChartCore |
 Swift | AAInfographics | https://github.com/AAChartModel/AAChartKit-Swift |
+Objective C | AAChartKit | https://github.com/AAChartModel/AAChartKit |
 
 ## LICENSE
 

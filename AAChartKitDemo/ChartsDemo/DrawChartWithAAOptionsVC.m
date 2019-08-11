@@ -1508,57 +1508,6 @@
     return aaOptions;
 }
 
-- (AAOptions *)configureXAxisPlotBand {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
-    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
-                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .yAxisTitleSet(@"")
-    .markerRadiusSet(@8.0)//marker点半径为8个像素
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
-    .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
-    .yAxisLineWidthSet(@0)
-    .yAxisGridLineWidthSet(@0)
-    .legendEnabledSet(false)
-    .easyGradientColorsSet(true)
-    .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"New York Hot")
-                 .lineWidthSet(@5.0)
-                 .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-                 AASeriesElement.new
-                 .typeSet(AAChartTypeColumn)
-                 .nameSet(@"Berlin Hot")
-                 .colorSet(@"#25547c")
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-                 ]);
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
-    NSArray *aaPlotBandsArr = @[
-                                AAPlotBandsElement.new
-                                .fromSet(@-0.25)//值域颜色带X轴起始值
-                                .toSet(@4.75)//值域颜色带X轴结束值
-                                .colorSet(@"#ef476f66")//值域颜色带填充色
-                                .zIndexSet(0),//层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                                AAPlotBandsElement.new
-                                .fromSet(@4.75)
-                                .toSet(@8.25)
-                                .colorSet(@"#ffd06666")
-                                .zIndexSet(0),
-                                AAPlotBandsElement.new
-                                .fromSet(@8.25)
-                                .toSet(@11.25)
-                                .colorSet(@"#04d69f66")
-                                .zIndexSet(0),
-                                ];
-    AAXAxis *aaXAxis = aaOptions.xAxis;
-    aaXAxis.plotBands = aaPlotBandsArr;
-    return aaOptions;
-}
-
 - (AAOptions *)configure_DataLabels_XAXis_YAxis_Legend_Style {
     NSDictionary *fillColorGradientColor =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop//渐变色方向向上🔼
@@ -1631,6 +1580,57 @@
                   .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
                   );
 
+    return aaOptions;
+}
+
+- (AAOptions *)configureXAxisPlotBand {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisTitleSet(@"")
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+    .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .easyGradientColorsSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"New York Hot")
+                 .lineWidthSet(@5.0)
+                 .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 AASeriesElement.new
+                 .typeSet(AAChartTypeColumn)
+                 .nameSet(@"Berlin Hot")
+                 .colorSet(@"#25547c")
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+                 ]);
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
+    NSArray *aaPlotBandsArr = @[
+                                AAPlotBandsElement.new
+                                .fromSet(@-0.25)//值域颜色带X轴起始值
+                                .toSet(@4.75)//值域颜色带X轴结束值
+                                .colorSet(@"#ef476f66")//值域颜色带填充色
+                                .zIndexSet(0),//层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                                AAPlotBandsElement.new
+                                .fromSet(@4.75)
+                                .toSet(@8.25)
+                                .colorSet(@"#ffd06666")
+                                .zIndexSet(0),
+                                AAPlotBandsElement.new
+                                .fromSet(@8.25)
+                                .toSet(@11.25)
+                                .colorSet(@"#04d69f66")
+                                .zIndexSet(0),
+                                ];
+    AAXAxis *aaXAxis = aaOptions.xAxis;
+    aaXAxis.plotBands = aaPlotBandsArr;
     return aaOptions;
 }
 
