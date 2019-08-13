@@ -55,6 +55,7 @@ WKScriptMessageHandler,
 UIWebViewDelegate > {
     UIWebView *_uiWebView;
     WKWebView *_wkWebView;
+    WKUserContentController *_userContentController;
     NSString  *_optionJson;
 }
 
@@ -81,10 +82,10 @@ UIWebViewDelegate > {
 - (void)setUpBasicWebView {
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
-        WKUserContentController *userContentController = [[WKUserContentController alloc] init];
-        [userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
+        _userContentController = [[WKUserContentController alloc] init];
+        [_userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-        configuration.userContentController = userContentController;
+        configuration.userContentController = _userContentController;
         _wkWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
         _wkWebView.UIDelegate = self;
         _wkWebView.navigationDelegate = self;
@@ -402,6 +403,10 @@ UIWebViewDelegate > {
         effectView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:effectView toItem:self]];
     }
+}
+
+-(void)dealloc{
+    [_userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
 }
 
 @end
