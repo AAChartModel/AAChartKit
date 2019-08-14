@@ -307,7 +307,7 @@
                                 @"Colorful gradient Spline Chart---多层次渐变曲线图",
                                 @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图",
                                 @"Special Style Marker Of Single Data Element Chart",
-                                @"X轴带有颜色标志带的混合图表",
+                                @"Special Style Column Of Single Data Element Chart",
                                 ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
@@ -370,7 +370,8 @@
                                 @"单独自定义指定的data的DataLabels样式",
                                 @"通过HTML字符串自定义X轴文字颜色",
                                 @"通过HTML字符串自定义X轴文字颜色和字体大小",
-                                @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式"
+                                @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式",
+                                @"X轴带有颜色标志带的混合图表",
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
@@ -393,7 +394,9 @@
                                 @"自定义多彩颜色文字",
                                 @"自定义箱线图的浮动提示框头部内容",
                                 @"自定义Y轴文字",
-                                @"自定义分组堆积柱状图tooltip内容"]
+                                @"自定义分组堆积柱状图tooltip内容",
+                                @"每根棱柱都有白色背景的柱形图",
+                                @"每根棱柱都有空心白色边缘线的柱形图",]
                               ];
     }
     return _chartTypeNameArr;

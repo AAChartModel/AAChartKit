@@ -20,14 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // highcharts default colors ["#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1"]
+
     AAChartView *aaChartView = [self configureChartView];
     AAOptions *aaOptions = [self configureChartOptions];
     [aaChartView aa_drawChartWithOptions:aaOptions];
 }
 
 - (AAChartView *)configureChartView {
-    CGRect frame = CGRectMake(0, 30, self.view.frame.size.width, self.view.frame.size.height-30);
+    CGRect frame = CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80);
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:frame];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:aaChartView];
@@ -44,8 +45,10 @@
         case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
         case 5: return [self customYAxisLabels];//自定义Y轴文字
         case 6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
+        case 7: return [self everySingleColumnHasGrayBackground];
+        case 8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];
         default:
-        return nil;
+            return nil;
     }
 }
 
@@ -281,8 +284,6 @@
     return aaOptions;
 }
 
-
-
 - (AAOptions *)customBoxplotTooltipContent {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeBoxplot)
@@ -376,6 +377,154 @@
     return aaOptions;
 }
 
+- (AAOptions *)everySingleColumnHasGrayBackground {
+    NSDictionary *gradientColorDic1 =
+    @{@"linearGradient": @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)},
+      @"stops": @[@[@0.0, @"#00feff"],
+                  @[@0.5, @"#027eff"],
+                  @[@1.0, @"#0286ff"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .backgroundColorSet(@"#111c4e")
+    .xAxisLabelsFontSizeSet(@9)
+    .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisMaxSet(@250.0)
+    .yAxisTitleSet(@"")
+    .legendEnabledSet(false)
+    .yAxisLineWidthSet(@1)
+    .stackingSet(AAChartStackingTypeNormal)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .colorSet(@"rgba(255,255,255,0.3)")
+                 .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
+                 AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .colorSet((id)gradientColorDic1)
+                 .dataSet( @[@29.9, @71.5, @106.4, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,]),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis
+    .lineWidthSet(@1)
+    .lineColorSet(@"rgba(255,255,255,0.3)")
+    .tickWidthSet(@0);
+    
+    aaOptions.yAxis
+    .gridLineWidthSet(@0)
+    .lineColorSet(@"rgba(255,255,255,0.3)");
+    
+    aaOptions.plotOptions
+    .seriesSet(AASeries.new
+               .animationSet((id)@false)
+               )
+    .columnSet(AAColumn.new
+               .groupingSet(false)
+               .borderWidthSet(@0)
+               .borderRadiusSet(@8)
+               )
+    ;
+    
+    aaOptions.tooltip
+    .sharedSet(false)
+    .backgroundColorSet(AAColor.darkGrayColor)
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px")
+              )
+    .formatterSet(@AAJSFunc(function () {
+        return '<b>'
+        + this.x
+        + '</b><br/>'
+        + this.series.name
+        + ': '
+        + this.y
+    }));
+    return aaOptions;
+}
+
+- (AAOptions *)everySingleColumnHasWhiteEmptyBorderLineBackground {
+    NSDictionary *gradientColorDic1 =
+    @{@"linearGradient": @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)},
+      @"stops": @[@[@0.0, @"#00feff"],
+                  @[@0.5, @"#027eff"],
+                  @[@1.0, @"#0286ff"]]//颜色字符串设置支持十六进制类型和 rgba 类型
+      };
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .backgroundColorSet(@"#111c4e")
+    .xAxisLabelsFontSizeSet(@9)
+    .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisMaxSet(@250.0)
+    .yAxisTitleSet(@"")
+    .legendEnabledSet(false)
+    .yAxisLineWidthSet(@1)
+    .stackingSet(AAChartStackingTypeNormal)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .colorSet(@"rgba(0,0,0,0)")
+                 .borderColorSet(AAColor.lightGrayColor)
+                 .borderWidthSet(@2.0)
+                 .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
+                 AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .colorSet((id)gradientColorDic1)
+                 .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis
+    .lineWidthSet(@1)
+    .lineColorSet(@"rgba(255,255,255,0.3)")
+    .tickWidthSet(@0);
+    
+    aaOptions.yAxis
+    .gridLineWidthSet(@0)
+    .lineColorSet(@"rgba(255,255,255,0.3)");
+    
+    aaOptions.plotOptions
+    .seriesSet(AASeries.new
+               .animationSet((id)@false)
+               )
+    .columnSet(AAColumn.new
+               .groupingSet(false)
+               .borderWidthSet(@0)
+               .borderRadiusSet(@8)
+               )
+    ;
+    
+    aaOptions.tooltip
+    .sharedSet(false)
+    .backgroundColorSet(AAColor.darkGrayColor)
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px")
+              )
+    .formatterSet(@AAJSFunc(function () {
+        return '<b>'
+        + this.x
+        + '</b><br/>'
+        + this.series.name
+        + ': '
+        + this.y
+    }));
+    return aaOptions;
+}
+
 - (AAOptions *)customStackedAndGroupedColumnChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .titleSet(@"Total fruit consumtion, grouped by gender")
@@ -423,5 +572,4 @@
                             ));
     return aaOptions;
 }
-
 @end

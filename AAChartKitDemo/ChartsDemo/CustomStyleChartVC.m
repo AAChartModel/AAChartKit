@@ -79,6 +79,7 @@
         case 14: return [self configureColorfulGradientSplineChart];
         case 15: return [self configureGradientColorAreasplineChart];
         case 16: return [self configureSpecialStyleMarkerOfSingleDataElementChart];
+        case 17: return [self configureSpecialStyleColumnOfSingleDataElementChart];
         default:
             return nil;
     }
@@ -648,7 +649,7 @@
                   @[@1.00, @"#1904dd"],
                   ]//颜色字符串设置支持十六进制类型和 rgba 类型
       };
-    
+
     AADataElement *singleSpecialData = AADataElement.new
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
@@ -658,7 +659,7 @@
                .lineColorSet(@"#FF0000")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                )
     .ySet(@26.5);
-    
+
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
     .titleSet(@"")
@@ -675,6 +676,29 @@
                  .lineWidthSet(@6)
                  .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
                  .colorSet((id)gradientColorDic1)
+                 ]);
+}
+
+- (AAChartModel *)configureSpecialStyleColumnOfSingleDataElementChart {
+    AADataElement *singleSpecialData = AADataElement.new
+    .colorSet((id)AAGradientColor.freshPapayaColor)
+    .ySet(@49.5);
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"")
+    .yAxisTitleSet(@"")//设置Y轴标题
+    .dataLabelsEnabledSet(false)//是否显示值
+    .tooltipEnabledSet(false)
+    .markerRadiusSet(@0)
+    .xAxisVisibleSet(false)
+    .yAxisVisibleSet(false)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Virtual Data")
+                 .lineWidthSet(@6)
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @26.5, @13.9, @9.6])
+                 .colorSet((id)AAGradientColor.oceanBlueColor)
                  ]);
 }
 
