@@ -308,7 +308,9 @@
                                 @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图",
                                 @"Special Style Marker Of Single Data Element Chart",
                                 @"Special Style Column Of Single Data Element Chart",
-                                @"configure Area Chart Threshold"
+                                @"configure Area Chart Threshold---自定义阈值",
+                                @"custom Scatter Chart Marker Symbol Content---自定义散点图的标志点内容",
+                                @"custom Line Chart Marker Symbol Content---自定义折线图的标志点内容"
                                 ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
