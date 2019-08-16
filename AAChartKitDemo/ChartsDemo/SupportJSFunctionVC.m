@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // highcharts default colors ["#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1"]
-
+    // rainbow colors 🌈 [@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC'];
     AAChartView *aaChartView = [self configureChartView];
     AAOptions *aaOptions = [self configureChartOptions];
     [aaChartView aa_drawChartWithOptions:aaOptions];
@@ -45,8 +45,9 @@
         case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
         case 5: return [self customYAxisLabels];//自定义Y轴文字
         case 6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
-        case 7: return [self everySingleColumnHasGrayBackground];
-        case 8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];
+        case 7: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
+        case 8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
+        case 9: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
         default:
             return nil;
     }
@@ -377,6 +378,54 @@
     return aaOptions;
 }
 
+- (AAOptions *)customStackedAndGroupedColumnChartTooltip {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .titleSet(@"Total fruit consumtion, grouped by gender")
+    .subtitleSet(@"stacked and grouped")
+    .yAxisTitleSet(@"Number of fruits")
+    .chartTypeSet(AAChartTypeColumn)
+    .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
+    .stackingSet(AAChartStackingTypeNormal)
+    .categoriesSet(@[@"Apples", @"Oranges", @"Pears",@"Grapes",@"Bananas",])
+    .dataLabelsEnabledSet(true)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"John")
+                 .dataSet(@[@5,@3,@4,@7,@2,])
+                 .stackSet(@"male"),
+                 AASeriesElement.new
+                 .nameSet(@"Joe")
+                 .dataSet(@[@3,@4,@4,@2,@5,])
+                 .stackSet(@"male"),
+                 AASeriesElement.new
+                 .nameSet(@"Jane")
+                 .dataSet(@[@2,@5,@6,@2,@1,])
+                 .stackSet(@"female"),
+                 AASeriesElement.new
+                 .nameSet(@"Janet")
+                 .dataSet(@[@3,@0,@4, @4,@3,])
+                 .stackSet(@"female"),
+                 ]
+               );
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .sharedSet(false)
+    .formatterSet(@AAJSFunc(function () {
+        return '<b>'
+        + this.x
+        + '</b><br/>'
+        + this.series.name
+        + ': '
+        + this.y
+        + '<br/>'
+        + 'Total: '
+        + this.point.stackTotal;
+    }
+                            ));
+    return aaOptions;
+}
+
 - (AAOptions *)everySingleColumnHasGrayBackground {
     NSDictionary *gradientColorDic1 =
     @{@"linearGradient": @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)},
@@ -434,9 +483,9 @@
     
     aaOptions.tooltip
     .sharedSet(false)
-    .backgroundColorSet(AAColor.darkGrayColor)
+    .backgroundColorSet((id)gradientColorDic1)
     .styleSet((id)AAStyle.new
-              .colorSet(@"#FFD700")
+              .colorSet(@"#FFFFFF")
               .fontSizeSet(@"12px")
               )
     .formatterSet(@AAJSFunc(function () {
@@ -525,39 +574,71 @@
     return aaOptions;
 }
 
-- (AAOptions *)customStackedAndGroupedColumnChartTooltip {
+- (AAOptions *)colorfulSpecialStyleColumnChart {
     AAChartModel *aaChartModel = AAChartModel.new
-    .titleSet(@"Total fruit consumtion, grouped by gender")
-    .subtitleSet(@"stacked and grouped")
-    .yAxisTitleSet(@"Number of fruits")
-    .chartTypeSet(AAChartTypeColumn)
-    .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .backgroundColorSet(@"#111c4e")
+    .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])
+    .xAxisLabelsFontSizeSet(@9)
+    .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisMaxSet(@250.0)
+    .yAxisTitleSet(@"")
+    .legendEnabledSet(false)
+    .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
-    .categoriesSet(@[@"Apples", @"Oranges", @"Pears",@"Grapes",@"Bananas",])
-    .dataLabelsEnabledSet(true)
     .seriesSet(@[
                  AASeriesElement.new
-                 .nameSet(@"John")
-                 .dataSet(@[@5,@3,@4,@7,@2,])
-                 .stackSet(@"male"),
+                 .nameSet(@"Tokyo Hot")
+                 .colorSet(@"rgba(0,0,0,0)")
+                 .colorByPointSet(@false)
+                 .borderWidthSet(@2.0)
+                 .borderColorSet(@"rgba(255,255,255,0.3)")
+                 .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
                  AASeriesElement.new
-                 .nameSet(@"Joe")
-                 .dataSet(@[@3,@4,@4,@2,@5,])
-                 .stackSet(@"male"),
+                 .nameSet(@"Berlin Hot")
+                 .colorByPointSet(@true)
+                 .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
                  AASeriesElement.new
-                 .nameSet(@"Jane")
-                 .dataSet(@[@2,@5,@6,@2,@1,])
-                 .stackSet(@"female"),
-                 AASeriesElement.new
-                 .nameSet(@"Janet")
-                 .dataSet(@[@3,@0,@4, @4,@3,])
-                 .stackSet(@"female"),
+                 .typeSet(AAChartTypeScatter)
+                 .colorByPointSet(@true)
+                 .markerSet(AAMarker.new
+                            .radiusSet(@21))
+                 .dataSet(@[@0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f,]),
                  ]
                );
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis
+    .lineWidthSet(@1)
+    .lineColorSet(@"rgba(255,255,255,0.3)")
+    .tickWidthSet(@0);
+    
+    aaOptions.yAxis
+    .gridLineWidthSet(@0)
+    .lineColorSet(@"rgba(255,255,255,0.3)");
+    
+    aaOptions.plotOptions
+    .seriesSet(AASeries.new
+               .animationSet((id)@false)
+               )
+    .columnSet(AAColumn.new
+               .groupingSet(false)
+               .borderWidthSet(@0)
+               .borderRadiusSet(@8)
+               )
+    ;
+    
     aaOptions.tooltip
     .sharedSet(false)
+    .backgroundColorSet(AAColor.darkGrayColor)
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px")
+              )
     .formatterSet(@AAJSFunc(function () {
         return '<b>'
         + this.x
@@ -565,11 +646,8 @@
         + this.series.name
         + ': '
         + this.y
-        + '<br/>'
-        + 'Total: '
-        + this.point.stackTotal;
-    }
-                            ));
+    }));
     return aaOptions;
 }
+
 @end
