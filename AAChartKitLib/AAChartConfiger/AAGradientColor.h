@@ -79,6 +79,9 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
                             startColorString:(NSString *)startColorStr
                               endColorString:(NSString *)endColorStr;
 
++ (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
+                                  stopsArray:(NSArray *)stopsArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

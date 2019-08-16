@@ -140,12 +140,17 @@
 + (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
                             startColorString:(NSString *)startColorStr
                               endColorString:(NSString *)endColorStr {
-    NSDictionary *linearGradientDic = [self linearGradientDictionaryWithDirection:direction];
     NSArray *stopsArr = @[@[@(0),startColorStr],
                           @[@(1),endColorStr]];
+    return [self gradientColorWithDirection:direction stopsArray:stopsArr];
+}
+
++ (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
+                            stopsArray:(NSArray *)stopsArray {
+    NSDictionary *linearGradientDic = [self linearGradientDictionaryWithDirection:direction];
     NSMutableDictionary *gradientColorDic = [NSMutableDictionary dictionary];
     [gradientColorDic setValue:linearGradientDic forKey:@"linearGradient"];
-    [gradientColorDic setValue:stopsArr forKey:@"stops"];
+    [gradientColorDic setValue:stopsArray forKey:@"stops"];
     return gradientColorDic;
 }
 

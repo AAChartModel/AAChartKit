@@ -427,12 +427,12 @@
 }
 
 - (AAOptions *)everySingleColumnHasGrayBackground {
+    NSArray *stopsArr = @[@[@0.0, @"#00feff"],//颜色字符串设置支持十六进制类型和 rgba 类型
+                          @[@0.5, @"#027eff"],
+                          @[@1.0, @"#0286ff"]];
     NSDictionary *gradientColorDic1 =
-    @{@"linearGradient": @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)},
-      @"stops": @[@[@0.0, @"#00feff"],
-                  @[@0.5, @"#027eff"],
-                  @[@1.0, @"#0286ff"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-      };
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:stopsArr];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
@@ -500,12 +500,12 @@
 }
 
 - (AAOptions *)everySingleColumnHasWhiteEmptyBorderLineBackground {
+    NSArray *stopsArr = @[@[@0.0, @"#00feff"],//颜色字符串设置支持十六进制类型和 rgba 类型
+                          @[@0.5, @"#027eff"],
+                          @[@1.0, @"#0286ff"]];
     NSDictionary *gradientColorDic1 =
-    @{@"linearGradient": @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)},
-      @"stops": @[@[@0.0, @"#00feff"],
-                  @[@0.5, @"#027eff"],
-                  @[@1.0, @"#0286ff"]]//颜色字符串设置支持十六进制类型和 rgba 类型
-      };
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:stopsArr];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
