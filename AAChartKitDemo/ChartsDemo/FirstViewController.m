@@ -308,6 +308,7 @@
                                 @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图",
                                 @"Special Style Marker Of Single Data Element Chart",
                                 @"Special Style Column Of Single Data Element Chart",
+                                @"configure Area Chart Threshold"
                                 ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",

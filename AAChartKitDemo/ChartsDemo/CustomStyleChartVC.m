@@ -80,6 +80,7 @@
         case 15: return [self configureGradientColorAreasplineChart];
         case 16: return [self configureSpecialStyleMarkerOfSingleDataElementChart];
         case 17: return [self configureSpecialStyleColumnOfSingleDataElementChart];
+        case 18: return [self configureAreaChartThreshold];
         default:
             return nil;
     }
@@ -503,7 +504,7 @@
     .chartTypeSet(AAChartTypeSpline)
     .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .markerRadiusSet(@8.0)
     .seriesSet(@[
                  AASeriesElement.new
@@ -598,16 +599,9 @@
 
 - (AAChartModel *)configureGradientColorAreasplineChart {
     NSDictionary *gradientColorDic1 =
-    @{@"linearGradient": @{
-              @"x1": @0.0,
-              @"y1": @0.0,
-              @"x2": @0.0,
-              @"y2": @1.0
-              },
-      @"stops": @[@[@0.00, @"rgba(2255,20,147,1)"],//深粉色, alpha 透明度 1
-                  @[@1.00, @"rgba(255,105,180,0.1)"],//热情的粉红, alpha 透明度 0.1
-                  ]//颜色字符串设置支持十六进制类型和 rgba 类型
-      };
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                               startColorString:@"rgba(255,20,147,1)"//深粉色, alpha 透明度 1
+                                 endColorString:@"rgba(255,20,147,0.3)"];//热情的粉红, alpha 透明度 0.3
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
@@ -699,6 +693,33 @@
                  .lineWidthSet(@6)
                  .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @26.5, @13.9, @9.6])
                  .colorSet((id)AAGradientColor.oceanBlueColor)
+                 ]);
+}
+
+- (AAChartModel *)configureAreaChartThreshold {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                               startColorString:@"rgba(30, 144, 255,1)"//DodgerBlue, alpha 透明度 1
+                                 endColorString:@"rgba(30, 144, 255,0.1)"];//DodgerBlue, alpha 透明度 0.1
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"")
+    .yAxisTitleSet(@"")//设置Y轴标题
+    .yAxisGridLineWidthSet(@0)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .dataLabelsEnabledSet(false)//是否显示值
+    .markerRadiusSet(@8)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .legendEnabledSet(false)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .thresholdSet(@(-200))
+                 .dataSet(@[@106.4, @129.2, @269.9, @-100.5, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
+                 .lineWidthSet(@6)
+                 .colorSet(@"rgba(30, 144, 255,1)")
+                 .fillColorSet((id)gradientColorDic1)
                  ]);
 }
 
