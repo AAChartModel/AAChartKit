@@ -310,7 +310,11 @@
                                 @"Special Style Column Of Single Data Element Chart",
                                 @"configure Area Chart Threshold---自定义阈值",
                                 @"custom Scatter Chart Marker Symbol Content---自定义散点图的标志点内容",
-                                @"custom Line Chart Marker Symbol Content---自定义折线图的标志点内容"
+                                @"custom Line Chart Marker Symbol Content---自定义折线图的标志点内容",
+                                @"Triangle Radar Chart---三角形雷达图",
+                                @"Quadrangle Radar Chart---四角形雷达图",
+                                @"Pentagon Radar Chart---五角形雷达图",
+                                @"Hexagon Radar Chart----六角形雷达图"
                                 ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",

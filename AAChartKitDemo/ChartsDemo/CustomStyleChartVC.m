@@ -83,6 +83,11 @@
         case 18: return [self configureAreaChartThreshold];
         case 19: return [self customScatterChartMarkerSymbolContent];
         case 20: return [self customLineChartMarkerSymbolContent];
+        case 21: return [self configureTriangleRadarChart];
+        case 22: return [self configureQuadrangleRadarChart];
+        case 23: return [self configurePentagonRadarChart];
+        case 24: return [self configureHexagonRadarChart];
+
         default:
             return nil;
     }
@@ -802,6 +807,103 @@
     .markerRadiusSet(@8)
     .seriesSet(@[element1,element2,element3,element4]);
 }
+
+//三角形雷达图
+- (AAChartModel *)configureTriangleRadarChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"")
+    .yAxisMaxSet(@15.0)
+    .yAxisGridLineWidthSet(@0)
+    .xAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .polarSet(true)//是否极化图形
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .dataSet(@[@15.0,@15.0,@15.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@9.0,@9.0,@9.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@6.0,@6.0,@6.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@3.0,@3.0,@3.0,]),
+                 ]);
+}
+
+//四边形雷达图
+- (AAChartModel *)configureQuadrangleRadarChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"")
+    .yAxisMaxSet(@15.0)
+    .yAxisGridLineWidthSet(@0)
+    .xAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .polarSet(true)//是否极化图形
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,]),
+                 ]);
+}
+
+//五边形雷达图
+- (AAChartModel *)configurePentagonRadarChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"")
+    .yAxisMaxSet(@15.0)
+    .yAxisGridLineWidthSet(@0)
+    .xAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .polarSet(true)//是否极化图形
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,]),
+                 ]);
+}
+
+//六边形雷达图
+- (AAChartModel *)configureHexagonRadarChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"")
+    .yAxisMaxSet(@15.0)
+    .yAxisGridLineWidthSet(@0)
+    .xAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .polarSet(true)//是否极化图形
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,@15.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,@9.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
+                 ]);
+}
+
 
 @end
 
