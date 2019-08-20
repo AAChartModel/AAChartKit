@@ -48,6 +48,7 @@
         case 7: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
         case 8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
         case 9: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
+        case 10: return [self configureSpecialStyleTrianglePolarChart];//外部显示六边形边框的三角形雷达图
         default:
             return nil;
     }
@@ -96,7 +97,7 @@
     tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
-        return ' 🌕 🌖 🌗 🌘🌑 🌒 🌓 🌔 <br/> '
+        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
         + ' Support JavaScript Function Just Right Now !!! <br/> '
         + ' The Gold Price For <b>2020 '
         +  this.x
@@ -647,6 +648,86 @@
         + ': '
         + this.y
     }));
+    return aaOptions;
+}
+
+- (AAOptions *)configureSpecialStyleTrianglePolarChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .connectNullsSet(true)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"")
+    .yAxisMaxSet(@13.0)
+    .yAxisGridLineWidthSet(@2)
+    //    .categoriesSet(@[@"Java", @"Swift",@"C", @"C#", @"C++", @"Perl",])
+    .markerRadiusSet(@0)
+    .polarSet(true)//是否极化图形
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,@15.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,@9.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
+                 AASeriesElement.new
+                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
+                 ])
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"2020")
+                 .colorSet((id)AAGradientColor.deepSeaColor)
+                 .dataSet(@[@9.9,NSNull.null, @9.9,NSNull.null,@9.9, NSNull.null, ]),
+                 ]
+               )
+    ;
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
+    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions
+    .xAxis.labels
+    .formatterSet(@AAJSFunc(function () {
+        let categoriesArr = [];
+        categoriesArr.push("Swift");
+        categoriesArr.push("");
+        categoriesArr.push("Ruby");
+        categoriesArr.push("");
+        categoriesArr.push("Go");
+        categoriesArr.push("");
+        let thisCategory = categoriesArr[this.value];
+        return thisCategory;
+    }));
+    
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let categoriesArr = [];
+        categoriesArr.push("Swift");
+        categoriesArr.push("");
+        categoriesArr.push("Ruby");
+        categoriesArr.push("");
+        categoriesArr.push("Go");
+        categoriesArr.push("");
+        let thisCategory = categoriesArr[this.x];
+        
+        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
+        + ' 此处支持使用JavaScript函数来自定义tooltip <br/> '
+        + '2020 年编程语言热度  <b> '
+        +  thisCategory
+        + ' </b> Is <b> '
+        +  this.y
+        + ' </b> 摄氏度 ';
+    }))
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#1e90ff")
+              .fontSizeSet(@"12px")
+              )
+    ;
+    
     return aaOptions;
 }
 
