@@ -109,6 +109,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, borderC
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderRadius)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, shape)
-
+AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , crop)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, overflow)//该参数用于处理当数据标签超出绘图区时处理方式，默认值是 justify，即将超过绘图区的数据标签对齐绘图区内，对于柱形，也就意味着数据标签将会被移动到柱子内部。通过设置 crop 为 false 及 overflow 为"none" 可以让数据标签显示在绘图区的外面。 默认是：justify.
 
 @end

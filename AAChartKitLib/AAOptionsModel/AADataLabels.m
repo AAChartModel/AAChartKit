@@ -50,5 +50,7 @@ AAPropSetFuncImplementation(AADataLabels, NSString *, borderColor)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, borderRadius)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, borderWidth)
 AAPropSetFuncImplementation(AADataLabels, NSString *, shape)
+AAPropSetFuncImplementation(AADataLabels, BOOL      , crop)
+AAPropSetFuncImplementation(AADataLabels, NSString *, overflow)
 
 @end

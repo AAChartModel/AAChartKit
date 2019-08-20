@@ -136,7 +136,7 @@
         case 25: return [self configureXAxisLabelsFontColorAndFontSizeWithHTMLString];//通过HTML字符串自定义X轴文字颜色和字体大小
         case 26: return [self configure_DataLabels_XAXis_YAxis_Legend_Style];//配置DataLabels、XAXis、YAxis、Legend等图表元素样式
         case 27: return [self configureXAxisPlotBand];//X轴带有颜色标志带的混合图表
-
+        case 28: return [self configureStackingColumnChartDataLabelsOverflow];//允许DataLabels文字溢出绘图区
     }
     return nil;
 }
@@ -1631,6 +1631,47 @@
                                 ];
     AAXAxis *aaXAxis = aaOptions.xAxis;
     aaXAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
+}
+
+- (AAOptions *)configureStackingColumnChartDataLabelsOverflow {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"")
+    .subtitleSet(@"检测数量")
+    .yAxisTitleSet(@"")
+    .dataLabelsEnabledSet(true)
+    .categoriesSet(@[@"呋喃西林代谢物",@"孔雀石绿🦚",@"氯霉素",@"呋喃唑酮代谢物"])
+    .stackingSet(AAChartStackingTypeNormal)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"不合格")
+                 .colorSet(@"#F55E4E")
+                 .dataSet(@[@3,@1,@1,@0])
+                 ,
+                 AASeriesElement.new
+                 .nameSet(@"合格")
+                 .colorSet(@"#5274BC")
+                 .dataSet(@[@4,@0.0,@1,@1])
+                 ,
+                 ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AADataLabels *aaDataLabels = aaOptions.plotOptions.column.dataLabels;
+    
+    //通过设置 crop 为 false 及 overflow 为"none" 可以让数据标签显示在绘图区的外面
+    //参见:https://api.highcharts.com.cn/highcharts#plotOptions.column.dataLabels.overflow
+    aaDataLabels
+    .enabledSet(YES)
+    .allowOverlapSet(YES)
+    .cropSet(false)
+    .overflowSet(@"none")
+    .styleSet(AAStyle.new
+              .colorSet(@"#000000")
+              .fontSizeSet(@"11px")
+              )
+    ;
+    
     return aaOptions;
 }
 
