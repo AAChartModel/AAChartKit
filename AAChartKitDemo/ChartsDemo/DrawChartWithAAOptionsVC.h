@@ -35,6 +35,6 @@
 @interface DrawChartWithAAOptionsVC : UIViewController
 
 @property (nonatomic, assign) NSInteger selectedIndex;
-@property (nonatomic, copy) NSString *navigationItemTitle;
+@property (nonatomic, strong) NSArray *navigationItemTitleArr;
 
 @end

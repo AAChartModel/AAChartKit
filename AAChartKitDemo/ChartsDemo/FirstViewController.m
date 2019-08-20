@@ -60,7 +60,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-
 }
 
 - (void)viewDidLoad {
@@ -69,17 +68,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     [self configTheTableView];
-    
-    // 监听点击入口。
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Touch Delegate"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(monitorTap)];
-}
-
-- (void)monitorTap {
-    MonitorViewController *monitorVC = [[MonitorViewController alloc] init];
-    [self.navigationController pushViewController:monitorVC animated:YES];
 }
 
 - (void)configTheTableView {
@@ -160,6 +148,7 @@
             /*一些自定义样式图表*/
             CustomStyleChartVC *vc = CustomStyleChartVC.new;
             vc.chartType = indexPath.row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -192,7 +181,7 @@
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = DrawChartWithAAOptionsVC.new;
             vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitle = self.chartTypeNameArr[indexPath.section][indexPath.row];
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

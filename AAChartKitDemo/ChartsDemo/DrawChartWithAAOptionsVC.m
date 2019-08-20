@@ -37,7 +37,6 @@
 @interface DrawChartWithAAOptionsVC ()
 
 @property (nonatomic, strong) AAChartView *aaChartView;
-@property (nonatomic, strong) NSArray *navigationItemTitleArr;
 
 @end
 
@@ -46,52 +45,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = self.navigationItemTitle;
+    self.title = self.navigationItemTitleArr[self.selectedIndex];
     
+    [self setUpChartView];
+}
+
+- (void)setUpChartView {
     CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
     AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:chartViewFrame];
     [self.view addSubview:aaChartView];
     aaChartView.scrollEnabled = NO;
     self.aaChartView = aaChartView;
     
-
-    
     AAOptions *aaOptions = [self configureChartOptions];
     [aaChartView aa_drawChartWithOptions:aaOptions];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(monitorTap)];
-    self.navigationItemTitleArr = @[@"绘制legend居顶部的区域填充图",
-                                    @"绘制带有中心标题的环形图",
-                                    @"调整扇形图的标题和DataLabel字体样式",
-                                    @"绘制嵌套的柱状图",
-                                    @"多边形线框的雷达图",
-                                    @"缝隙很小的柱状图",
-                                    @"Custom style tooltip--自定义浮动提示框",
-                                    @"调整图表的左右边距",
-                                    @"设置图表绘图区的背景图片",
-                                    @"Double Y Axises Chart---双Y轴混合图",
-                                    @"Adjust Data Accuracy---调整数据精度",
-                                    @"Adjust Group Padding---调整group间距",
-                                    @"Custom Style Stacked Column---自定义堆积柱状图",
-                                    @"时间不连续的直方折线填充图连接图",
-                                    @"Disable Animation ---禁用动画效果",
-                                    @"Custom Legend Item Style---自定义图例样式",
-                                    @"Mirror Chart ---镜像效果的柱状图",
-                                    @"y轴在右侧的图表",
-                                    @"简易仪表图",
-                                    @"带有颜色带的仪表图",
-                                    @"Y轴带有颜色标志带的曲线图表",
-                                    @"Y轴带有颜色标志线及文字的曲线图表",
-                                    @"自定义DataLabels样式",
-                                    @"单独自定义指定的data的DataLabels样式",
-                                    @"通过HTML字符串自定义X轴文字颜色",
-                                    @"通过HTML字符串自定义X轴文字颜色和字体大小",
-                                    @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式",
-                                    @"X轴带有颜色标志带的混合图表",
-                                    ];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 
@@ -747,7 +720,8 @@
     AAYAxis *aaYAxis = AAYAxis.new
     .visibleSet(true)
     .minSet(@0)
-    .titleSet(AAAxisTitle.new.textSet(@"Total fruit consumption"))
+    .titleSet(AAAxisTitle.new
+              .textSet(@"Total fruit consumption"))
     .stackLabelsSet(AALabels.new
                     .enabledSet(true)
                     .styleSet(AAStyle.new.
@@ -757,15 +731,32 @@
     AALegend *aaLegend = AALegend.new
     .enabledSet(true)
     .alignSet(AALegendAlignTypeRight)
-    .xSet(@(-30))
     .verticalAlignSet(AALegendVerticalAlignTypeTop)
-    .ySet(@25)
     .borderColorSet(@"#ccc")
-    .borderWidthSet(@1);
+    .borderWidthSet(@1)
+    .xSet(@(-30))
+    .ySet(@25)
+    ;
     
     AATooltip *aaTooltip = AATooltip.new
     .headerFormatSet(@"<b>{point.x}</b><br/>")
     .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}");
+    
+    AAColumn *aaColumn = AAColumn.new
+    .stackingSet(AAChartStackingTypeNormal)
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .styleSet(AAStyle.new
+                             .colorSet(AAColor.whiteColor)
+                             .fontSizeSet(@"15px")
+                             .fontWeightSet(AAChartFontWeightTypeThin)
+                             .textOutlineSet(@"0px 0px contrast")
+                             )
+                   )
+    .pointPaddingSet(@0)//Padding between each value groups, in x axis units. default：0.2.
+    .groupPaddingSet(@0.005)//Padding between each column or bar, in x axis units. default：0.1.
+    .borderWidthSet(@0)//The width of the border surrounding each column or bar.(调整边缘线宽度) https://api.hcharts.cn/plotOptions.column.borderWidth
+    ;
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
     .seriesSet(AASeries.new
@@ -774,20 +765,7 @@
                              .durationSet(@1000)
                              )
                )
-    .columnSet(AAColumn.new
-               .stackingSet(AAChartStackingTypeNormal)
-               .dataLabelsSet(AADataLabels.new
-                              .enabledSet(true)
-                              .styleSet(AAStyle.new
-                                        .colorSet(AAColor.whiteColor)
-                                        .fontSizeSet(@"15px")
-                                        .fontWeightSet(AAChartFontWeightTypeThin)
-                                        .textOutlineSet(@"0px 0px contrast")
-                                        )
-                              )
-               .pointPaddingSet(@0)//Padding between each value groups, in x axis units. default：0.2.
-               .groupPaddingSet(@0.005)//Padding between each column or bar, in x axis units. default：0.1.
-               .borderWidthSet(@0));//The width of the border surrounding each column or bar.(调整边缘线宽度) https://api.hcharts.cn/plotOptions.column.borderWidth
+    .columnSet(aaColumn);
     
     NSArray *aaSeriesArr = @[
                              AASeriesElement.new
@@ -1008,6 +986,22 @@
                );
 
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
+    /*默认是：{
+     "color": "#333333",
+     "cursor": "pointer",
+     "fontSize": "12px",
+     "fontWeight": "bold"
+     }
+     */
+    AAItemStyle *aaItemStyle = AAItemStyle.new
+    .colorSet(@"#ff0000")//字体颜色
+    .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+    .fontSizeSet(@"20px")//字体大小
+    .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
+    ;
+    
     aaOptions.legend
     .itemMarginBottomSet(@20)
     .symbolRadiusSet(@10)//图标圆角
@@ -1016,13 +1010,9 @@
     .alignSet(AALegendAlignTypeRight)
     .layoutSet(AALegendLayoutTypeVertical)
     .verticalAlignSet(AALegendVerticalAlignTypeTop)
-    .itemStyleSet(AAItemStyle.new  //设定图例项的CSS样式。只支持有关文本的CSS样式设定。 默认是：{ "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "bold" }.
-                  .colorSet(@"#ff0000")//字体颜色
-                  .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
-                  .fontSizeSet(@"20px")//字体大小
-                  .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
-                  )
+    .itemStyleSet(aaItemStyle)
     ;
+    
 //    aaOptions.xAxis.tickmarkPlacement = @"on";//本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
 //    aaOptions.yAxis.minPadding = @0;
     aaOptions.yAxis.lineWidth = @0;
@@ -1652,7 +1642,7 @@
                  AASeriesElement.new
                  .nameSet(@"合格")
                  .colorSet(@"#5274BC")
-                 .dataSet(@[@4,@0.0,@1,@1])
+                 .dataSet(@[@4,@0,@1,@1])
                  ,
                  ]);
     

@@ -46,10 +46,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = self.navigationItemTitleArr[self.chartType];
 
     self.aaChartView = [self setUpAAChartView];
-    self.aaChartModel = [self setUpAAChartModel];
+    self.aaChartModel = [self setUpAAChartModelWithIndex:self.chartType];
     [self.aaChartView aa_drawChartWithChartModel:self.aaChartModel];
+    
+    [self setUpBarButtonItem];
 }
 
 - (AAChartView *)setUpAAChartView {
@@ -60,18 +63,37 @@
     return aaChartView;
 }
 
-- (AAChartModel *)setUpAAChartModel {
-    switch (self.chartType) {
-        case 0: return [self setUpColorfulBarChart];
-        case 1: return [self setUpColorfulGradientColorChart];
-        case 2: return [self setUpDiscontinuousDataChart];
-        case 3: return [self configureMixedLineChart];
-        case 4: return [self configureColorfulColumnChart];
-        case 5: return [self configureGradientColorBarChart];
-        case 6: return [self configureHavePlotLinesChart];
-        case 7: return [self configrueWithMinusNumberChart];
-        case 8: return [self configureStepLineChart];
-        case 9: return [self configureStepAreaChart];
+- (void)setUpBarButtonItem {
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = barItem;
+}
+
+- (void)monitorTap {
+    if (self.selectedIndex == 24) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.selectedIndex = self.selectedIndex + 1;
+        self.title = self.navigationItemTitleArr[self.selectedIndex];
+        AAChartModel *aaChartModel = [self setUpAAChartModelWithIndex:self.selectedIndex];
+        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
+    }
+}
+
+- (AAChartModel *)setUpAAChartModelWithIndex:(NSUInteger)index {
+    switch (index) {
+        case 0:  return [self setUpColorfulBarChart];
+        case 1:  return [self setUpColorfulGradientColorChart];
+        case 2:  return [self setUpDiscontinuousDataChart];
+        case 3:  return [self configureMixedLineChart];
+        case 4:  return [self configureColorfulColumnChart];
+        case 5:  return [self configureGradientColorBarChart];
+        case 6:  return [self configureHavePlotLinesChart];
+        case 7:  return [self configrueWithMinusNumberChart];
+        case 8:  return [self configureStepLineChart];
+        case 9:  return [self configureStepAreaChart];
         case 10: return [self configureNightingaleRoseChart];
         case 11: return [self configureCustomSingleDataLabelChart];
         case 12: return [self configureChartWithShadowStyle];
