@@ -72,6 +72,31 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 + (NSDictionary *)coastalBreezeColor;
 + (NSDictionary *)eveningDelightColor;
 
++ (NSDictionary *)oceanBlueColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)sanguineColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)lusciousLimeColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)purpleLakeColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)freshPapayaColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)ultramarineColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)pinkSugarColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)lemonDrizzleColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)victoriaPurpleColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)springGreensColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)mysticMauveColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)reflexSilverColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)neonGlowColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)berrySmoothieColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)newLeafColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)cottonCandyColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)pixieDustColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)fizzyPeachColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)sweetDreamColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)firebrickColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)wroughtIronColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)deepSeaColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)coastalBreezeColorWithDirection:(AALinearGradientDirection)direction;
++ (NSDictionary *)eveningDelightColorWithDirection:(AALinearGradientDirection)direction;
+
 + (NSDictionary *)gradientColorWithStartColorString:(NSString *)startColorStr
                                      endColorString:(NSString *)endColorStr;
     

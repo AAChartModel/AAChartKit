@@ -80,7 +80,6 @@ UIWebViewDelegate > {
 }
 
 - (void)setUpBasicWebView {
-    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
         _userContentController = [[WKUserContentController alloc] init];
         [_userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
@@ -423,7 +422,7 @@ UIWebViewDelegate > {
     Class class = [objc class];
     do {
         objc_property_t *props = class_copyPropertyList(class, &propsCount);
-        for (int i = 0;i < propsCount; i++) {
+        for (int i = 0; i < propsCount; i++) {
             objc_property_t prop = props[i];
             
             NSString *propName = [NSString stringWithUTF8String:property_getName(prop)];
