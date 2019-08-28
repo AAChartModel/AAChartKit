@@ -83,7 +83,7 @@
 }
 
 + (NSDictionary *)neonGlowColor {
-    return [self newLeafColorWithDirection:AALinearGradientDirectionToTop];
+    return [self neonGlowColorWithDirection:AALinearGradientDirectionToTop];
 }
 
 + (NSDictionary *)berrySmoothieColor {
@@ -103,7 +103,7 @@
 }
 
 + (NSDictionary *)fizzyPeachColor {
-    return [self firebrickColorWithDirection:AALinearGradientDirectionToTop];
+    return [self fizzyPeachColorWithDirection:AALinearGradientDirectionToTop];
 }
 
 + (NSDictionary *)sweetDreamColor {
@@ -326,9 +326,6 @@
             return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
         case AALinearGradientDirectionToBottomRight:
             return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(1)};
-            
-        default:
-            break;
     }
 }
 

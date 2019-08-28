@@ -151,7 +151,7 @@ UIWebViewDelegate > {
 }
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
-    if (self.isClearBackgroundColor == YES) {
+    if (self.isClearBackgroundColor) {
         aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
     _optionJson = [AAJsonConverter getPureOptionsString:aaOptions];
@@ -163,10 +163,10 @@ UIWebViewDelegate > {
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
     BOOL isWKWebView = (_wkWebView != nil);
     NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@','%@')",
-                               _optionJson,
-                               [NSNumber numberWithFloat:chartViewContentWidth],
-                               [NSNumber numberWithFloat:chartViewContentHeight-1],
-                               [NSNumber numberWithBool:isWKWebView]];
+                                                         _optionJson,
+                                                         @(chartViewContentWidth),
+                                                         @(chartViewContentHeight - 1),
+                                                         @(isWKWebView)];
     return javaScriptStr;
 }
 
@@ -379,7 +379,7 @@ UIWebViewDelegate > {
 
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
     _isClearBackgroundColor = isClearBackgroundColor;
-    if (_isClearBackgroundColor == YES) {
+    if (_isClearBackgroundColor) {
         self.backgroundColor = [UIColor clearColor];
         if (_wkWebView) {
             [_wkWebView setBackgroundColor:[UIColor clearColor]];
@@ -422,7 +422,7 @@ UIWebViewDelegate > {
     Class class = [objc class];
     do {
         objc_property_t *props = class_copyPropertyList(class, &propsCount);
-        for (int i = 0; i < propsCount; i++) {
+        for (NSUInteger i = 0; i < propsCount; i++) {
             objc_property_t prop = props[i];
             
             NSString *propName = [NSString stringWithUTF8String:property_getName(prop)];
@@ -433,7 +433,7 @@ UIWebViewDelegate > {
             } else {
                 value = [self getObjectInternal:value];
             }
-            [dic setObject:value forKey:propName];
+            dic[propName] = value;
         }
         free(props);
         class = [class superclass];
@@ -458,8 +458,8 @@ UIWebViewDelegate > {
     if ([objc isKindOfClass:[NSArray class]]) {
         NSArray *objcArr = objc;
         NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
-        for (int i = 0;i < objcArr.count; i++) {
-            [arr setObject:[self getObjectInternal:[objcArr objectAtIndex:i]] atIndexedSubscript:i];
+        for (NSUInteger i = 0; i < objcArr.count; i++) {
+            arr[i] = [self getObjectInternal:objcArr[i]];
         }
         return arr;
     }
@@ -468,7 +468,7 @@ UIWebViewDelegate > {
         NSDictionary *objcDic = objc;
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[objcDic count]];
         for (NSString *key in objcDic.allKeys) {
-            [dic setObject:[self getObjectInternal:[objcDic objectForKey:key]] forKey:key];
+            dic[key] = [self getObjectInternal:objcDic[key]];
         }
         return dic;
     }

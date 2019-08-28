@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomStyleChartVC : UIViewController
 
-@property (nonatomic, assign) NSInteger chartType;
-@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, assign) NSUInteger chartType;
+@property (nonatomic, assign) NSUInteger selectedIndex;
 @property (nonatomic, strong) NSArray *navigationItemTitleArr;
 
 @end
