@@ -45,10 +45,10 @@
 
 + (NSArray *)configureTheRandomColorArrayWithColorNumber:(NSInteger)colorNumber {
     NSMutableArray *colorStringArr = [[NSMutableArray alloc]init];
-    for (int i=0; i < colorNumber; i++) {
-        int R = (arc4random() % 256) ;
-        int G = (arc4random() % 256) ;
-        int B = (arc4random() % 256) ;
+    for (unsigned int i=0; i < colorNumber; i++) {
+        unsigned int R = (arc4random() % 256) ;
+        unsigned int G = (arc4random() % 256) ;
+        unsigned int B = (arc4random() % 256) ;
         NSString *colorStr = [NSString stringWithFormat:@"rgba(%d,%d,%d,0.9)",R,G,B];
         [colorStringArr addObject:colorStr];
     }
