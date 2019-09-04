@@ -51,7 +51,32 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"AAInfographics";
     
-    _chartTypeArr = @[AAChartTypeColumn,AAChartTypeBar,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble,AAChartTypeColumn,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble,AAChartTypeColumn,AAChartTypeLine,AAChartTypeSpline,AAChartTypeArea,AAChartTypeAreaspline,AAChartTypeBubble];
+    _chartTypeArr = @[AAChartTypeColumn,
+                      AAChartTypeBar,
+                      AAChartTypeLine,
+                      AAChartTypeSpline,
+                      AAChartTypeArea,
+                      AAChartTypeAreaspline,
+                      AAChartTypeColumn,
+                      AAChartTypeBar,
+                      AAChartTypeLine,
+                      AAChartTypeSpline,
+                      AAChartTypeArea,
+                      AAChartTypeAreaspline,
+                      AAChartTypeBubble,
+                      AAChartTypeColumn,
+                      AAChartTypeLine,
+                      AAChartTypeSpline,
+                      AAChartTypeArea,
+                      AAChartTypeAreaspline,
+                      AAChartTypeBubble,
+                      AAChartTypeColumn,
+                      AAChartTypeLine,
+                      AAChartTypeSpline,
+                      AAChartTypeArea,
+                      AAChartTypeAreaspline,
+                      AAChartTypeBubble,
+                      ];
     
     [self setUpBasicView];
 }
@@ -91,77 +116,205 @@
         cell = [[ChartListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.userInteractionEnabled = false;
     AAChartModel *chartModel = [self configureAAChartModel];
     chartModel.chartType = _chartTypeArr[indexPath.row];
     NSString *chartType = chartModel.chartType;
     
     if ([chartType isEqualToString:AAChartTypeSpline]|| [chartType isEqualToString:AAChartTypeAreaspline]) {
         chartModel.markerRadius = @0;
-        chartModel.series = @[
-                              AAObject(AASeriesElement)
-                              .nameSet(@"2017")
-                              .fillOpacitySet(@0.3)
-                              .lineWidthSet(@5)
-                              .dataSet(@[@50, @320, @230, @370, @230, @400,]),
-                              AAObject(AASeriesElement)
-                              .nameSet(@"2018")
-                              .fillOpacitySet(@0.3)
-                              .lineWidthSet(@5)
-                              .dataSet(@[@80, @390, @210, @340, @240, @350,]),
-                              AAObject(AASeriesElement)
-                              .nameSet(@"2019")
-                              .fillOpacitySet(@0.3)
-                              .lineWidthSet(@5)
-                              .dataSet(@[@100, @370, @180, @280, @260, @300,]),
-                              AAObject(AASeriesElement)
-                              .nameSet(@"2020")
-                              .fillOpacitySet(@0.3)
-                              .lineWidthSet(@5)
-                              .dataSet(@[@130, @350, @160, @310, @250, @268,]),
-                              ];
+//        chartModel.series = @[
+//                              AAObject(AASeriesElement)
+//                              .nameSet(@"2017")
+//                              .lineWidthSet(@5)
+//                              .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+//                              AAObject(AASeriesElement)
+//                              .nameSet(@"2018")
+//                              .lineWidthSet(@5)
+//                              .dataSet(@[@80, @390, @210, @340, @240, @350,]),
+//                              AAObject(AASeriesElement)
+//                              .nameSet(@"2019")
+//                              .lineWidthSet(@5)
+//                              .dataSet(@[@100, @370, @180, @280, @260, @300,]),
+//                              AAObject(AASeriesElement)
+//                              .nameSet(@"2020")
+//                              .lineWidthSet(@5)
+//                              .dataSet(@[@130, @350, @160, @310, @250, @268,]),
+//                              ];
     } else if ([chartType isEqualToString:AAChartTypeArea] || [chartType isEqualToString:AAChartTypeLine]) {
         chartModel.stacking = AAChartStackingTypeFalse;
+    } else if ([chartType isEqualToString:AAChartTypeBubble]) {
+        chartModel.series = @[
+                              AASeriesElement.new
+                              .nameSet(@"2017")
+                              .fillColorSet(@"rgba(255,255,255,0.33)")
+                              .dataSet(
+                                       @[
+                                         @[@97, @36, @79],
+                                         @[@94, @74, @60],
+                                         @[@68, @76, @58],
+                                         @[@64, @87, @56],
+                                         @[@68, @27, @73],
+                                         @[@74, @99, @42],
+                                         @[@7 , @93, @87],
+                                         @[@51, @69, @40],
+                                         @[@38, @23, @33],
+                                         @[@57, @86, @31]
+                                         ]),
+                              AASeriesElement.new
+                              .nameSet(@"2018")
+                              .fillColorSet(@"rgba(255,255,255,0.66)")
+                              .dataSet(
+                                       @[
+                                         @[@25, @10, @87],
+                                         @[@2 , @75, @59],
+                                         @[@11, @54, @8 ],
+                                         @[@86, @55, @93],
+                                         @[@5 , @3 , @58],
+                                         @[@90, @63, @44],
+                                         @[@91, @33, @17],
+                                         @[@97, @3 , @56],
+                                         @[@15, @67, @48],
+                                         @[@54, @25, @81]
+                                         ]),
+                              AASeriesElement.new
+                              .nameSet(@"2019")
+                              .fillColorSet(@"rgba(255,255,255,0.99)")
+                              .dataSet(
+                                       @[
+                                         @[@47, @47, @21],
+                                         @[@20, @12, @4 ],
+                                         @[@6 , @76, @91],
+                                         @[@38, @30, @60],
+                                         @[@57, @98, @64],
+                                         @[@61, @17, @80],
+                                         @[@83, @60, @13],
+                                         @[@67, @78, @75],
+                                         @[@64, @12, @10],
+                                         @[@30, @77, @82]
+                                         ]),
+                              ];
     }
-    
     if (indexPath.row > 6 && indexPath.row <= 12) {
+        chartModel.stacking = AAChartStackingTypePercent;
+    } else if (indexPath.row > 12 && indexPath.row <= 18) {
         chartModel.polar = true;
-    } else if (indexPath.row > 12) {
+    } else if (indexPath.row > 18) {
         chartModel.polar = true;
         chartModel.stacking = AAChartStackingTypePercent;
     }
     
-    [cell.aaChartView aa_drawChartWithChartModel:chartModel];
-
-
+    AAOptions *aaOptions = [self configureChartStyleWithChartModel:chartModel index:indexPath.row];
+    [cell.aaChartView aa_drawChartWithOptions:aaOptions];
+    
     return cell;
 }
 
+- (AAOptions *)configureChartStyleWithChartModel:(AAChartModel *)chartModel index:(NSUInteger)index {
+    NSArray *gradientColorArr =
+    @[[AAGradientColor oceanBlueColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor sanguineColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor lusciousLimeColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor purpleLakeColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor freshPapayaColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor ultramarineColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor pinkSugarColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor lemonDrizzleColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor victoriaPurpleColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor springGreensColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor mysticMauveColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor reflexSilverColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor newLeafColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor pixieDustColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor fizzyPeachColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor sweetDreamColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor firebrickColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor wroughtIronColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor deepSeaColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor coastalBreezeColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor eveningDelightColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor cottonCandyColorWithDirection:AALinearGradientDirectionToTopLeft],
+      //重复颜色
+      [AAGradientColor oceanBlueColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor sanguineColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor lusciousLimeColorWithDirection:AALinearGradientDirectionToTopLeft],
+      [AAGradientColor purpleLakeColorWithDirection:AALinearGradientDirectionToTopLeft],
+      ];
+    
+    NSDictionary *gradientColor = gradientColorArr[index];
+    chartModel.colorsThemeSet(@[@"rgba(255,255,255,0.4)",
+                                @"rgba(255,255,255,0.6)",
+                                @"rgba(255,255,255,0.8)",
+                                @"rgba(255,255,255,1.0)",
+                                ]);//设置主体颜色数组
+
+    chartModel.backgroundColor = (id)gradientColor;
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    
+    aaOptions.plotOptions
+    .columnrangeSet(AALine.new
+                    .dataLabelsSet(AADataLabels.new
+                                   .enabledSet(true)
+                                   .styleSet(AAStyle.new
+                                             .colorSet(AAColor.whiteColor)
+                                             .fontSizeSet(@"14px")
+                                             .fontWeightSet(AAChartFontWeightTypeThin)
+                                             .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
+                                             )));
+    aaOptions.plotOptions.series.animation = (id)@false;//禁用图表的渲染动画效果
+    
+    aaOptions.yAxis
+    .lineWidthSet(@1.5)//Y轴轴线颜色
+    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
+    .gridLineWidthSet(@0)//Y轴网格线宽度
+    .labels.style.colorSet(AAColor.whiteColor)//Y轴文字颜色
+    ;
+    
+    aaOptions.xAxis
+    .tickWidthSet(@0)//X轴刻度线宽度
+    .lineWidthSet(@1.5)//X轴轴线宽度
+    .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
+    .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
+    ;
+
+    aaOptions.legend
+    .itemStyleSet(AAItemStyle.new
+                  .colorSet(AAColor.whiteColor)//字体颜色
+                  .fontSizeSet(@"13px")//字体大小
+                  .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
+                  );
+    return aaOptions;
+}
+
 - (AAChartModel *)configureAAChartModel {
-   AAChartModel *aaChartModel= AAObject(AAChartModel)
+   AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
-    .colorsThemeSet(@[@"#9b43b4",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .backgroundColorSet(@"#ffffff")
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
     .borderRadiusSet(@5)
     .seriesSet(@[
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2017")
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2018")
-                 .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2019")
-                 .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-                 AAObject(AASeriesElement)
-                 .nameSet(@"2020")
-                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .fillColorSet(@"rgba(255,255,255,0.4)")
+                 .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+                 AASeriesElement.new
+                 .nameSet(@"Berlin Hot")
+                 .fillColorSet(@"rgba(255,255,255,0.6)")
+                 .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+                 AASeriesElement.new
+                 .nameSet(@"London Hot")
+                 .fillColorSet(@"rgba(255,255,255,0.8)")
+                 .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+                 AASeriesElement.new
+                 .nameSet(@"NewYork Hot")
+                 .fillColorSet(@"rgba(255,255,255,1.0)")
+                 .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
                  ]
                );
     return aaChartModel;
