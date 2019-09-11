@@ -116,34 +116,36 @@
 }
 
 - (AAChartModel *)setUpColorfulBarChart {
-    NSArray *colorsNameArr = @[@"red",
-                               @"orange",
-                               @"yellow",
-                               @"green",
-                               @"cyan",
-                               @"blue",
-                               @"purple",
-                               @"gray",
-                               @"darkGray",
-                               @"lightGray",
-                               @"magenta",
-                               @"brown",
-                               @"black"];
+    NSArray *colorsNameArr =
+    @[@"red",
+      @"orange",
+      @"yellow",
+      @"green",
+      @"cyan",
+      @"blue",
+      @"purple",
+      @"gray",
+      @"darkGray",
+      @"lightGray",
+      @"magenta",
+      @"brown",
+      @"black"];
     
-    NSArray *colorsArr = @[[AAColor redColor],
-                           [AAColor orangeColor],
-                           [AAColor yellowColor],
-                           [AAColor greenColor],
-                           [AAColor cyanColor],
-                           [AAColor blueColor],
-                           [AAColor purpleColor],
-                           [AAColor grayColor],
-                           [AAColor darkGrayColor],
-                           [AAColor lightGrayColor],
-                           [AAColor magentaColor],
-                           [AAColor brownColor],
-                           [AAColor blackColor]
-                           ];
+    NSArray *colorsArr =
+    @[[AAColor redColor],
+      [AAColor orangeColor],
+      [AAColor yellowColor],
+      [AAColor greenColor],
+      [AAColor cyanColor],
+      [AAColor blueColor],
+      [AAColor purpleColor],
+      [AAColor grayColor],
+      [AAColor darkGrayColor],
+      [AAColor lightGrayColor],
+      [AAColor magentaColor],
+      [AAColor brownColor],
+      [AAColor blackColor]
+      ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
@@ -163,53 +165,55 @@
 }
 
 - (AAChartModel *)setUpColorfulGradientColorChart {
-    NSArray *gradientColorNamesArr = @[@"oceanBlue",
-                                       @"sanguine",
-                                       @"lusciousLime",
-                                       @"purpleLake",
-                                       @"freshPapaya",
-                                       @"ultramarine",
-                                       @"pinkSugar",
-                                       @"lemonDrizzle",
-                                       @"victoriaPurple",
-                                       @"springGreens",
-                                       @"mysticMauve",
-                                       @"reflexSilver",
-                                       @"newLeaf",
-                                       @"cottonCandy",
-                                       @"pixieDust",
-                                       @"fizzyPeach",
-                                       @"sweetDream",
-                                       @"firebrick",
-                                       @"wroughtIron",
-                                       @"deepSea",
-                                       @"coastalBreeze",
-                                       @"eveningDelight",
-                                       ];
+    NSArray *gradientColorNamesArr =
+    @[@"oceanBlue",
+      @"sanguine",
+      @"lusciousLime",
+      @"purpleLake",
+      @"freshPapaya",
+      @"ultramarine",
+      @"pinkSugar",
+      @"lemonDrizzle",
+      @"victoriaPurple",
+      @"springGreens",
+      @"mysticMauve",
+      @"reflexSilver",
+      @"newLeaf",
+      @"cottonCandy",
+      @"pixieDust",
+      @"fizzyPeach",
+      @"sweetDream",
+      @"firebrick",
+      @"wroughtIron",
+      @"deepSea",
+      @"coastalBreeze",
+      @"eveningDelight",
+      ];
     
-    NSArray *gradientColorArr = @[[AAGradientColor oceanBlueColor],
-                                  [AAGradientColor sanguineColor],
-                                  [AAGradientColor lusciousLimeColor],
-                                  [AAGradientColor purpleLakeColor],
-                                  [AAGradientColor freshPapayaColor],
-                                  [AAGradientColor ultramarineColor],
-                                  [AAGradientColor pinkSugarColor],
-                                  [AAGradientColor lemonDrizzleColor],
-                                  [AAGradientColor victoriaPurpleColor],
-                                  [AAGradientColor springGreensColor],
-                                  [AAGradientColor mysticMauveColor],
-                                  [AAGradientColor reflexSilverColor],
-                                  [AAGradientColor newLeafColor],
-                                  [AAGradientColor cottonCandyColor],
-                                  [AAGradientColor pixieDustColor],
-                                  [AAGradientColor fizzyPeachColor],
-                                  [AAGradientColor sweetDreamColor],
-                                  [AAGradientColor firebrickColor],
-                                  [AAGradientColor wroughtIronColor],
-                                  [AAGradientColor deepSeaColor],
-                                  [AAGradientColor coastalBreezeColor],
-                                  [AAGradientColor eveningDelightColor],
-                                  ];
+    NSArray *gradientColorArr =
+    @[[AAGradientColor oceanBlueColor],
+      [AAGradientColor sanguineColor],
+      [AAGradientColor lusciousLimeColor],
+      [AAGradientColor purpleLakeColor],
+      [AAGradientColor freshPapayaColor],
+      [AAGradientColor ultramarineColor],
+      [AAGradientColor pinkSugarColor],
+      [AAGradientColor lemonDrizzleColor],
+      [AAGradientColor victoriaPurpleColor],
+      [AAGradientColor springGreensColor],
+      [AAGradientColor mysticMauveColor],
+      [AAGradientColor reflexSilverColor],
+      [AAGradientColor newLeafColor],
+      [AAGradientColor cottonCandyColor],
+      [AAGradientColor pixieDustColor],
+      [AAGradientColor fizzyPeachColor],
+      [AAGradientColor sweetDreamColor],
+      [AAGradientColor firebrickColor],
+      [AAGradientColor wroughtIronColor],
+      [AAGradientColor deepSeaColor],
+      [AAGradientColor coastalBreezeColor],
+      [AAGradientColor eveningDelightColor],
+      ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
@@ -305,22 +309,28 @@
 }
 
 - (AAChartModel *)configureHavePlotLinesChart {
-    NSArray *aaPlotLinesArr = @[
-                                AAPlotLinesElement.new
-                                .colorSet(@"#FF0000")//颜色值(16进制)
-                                .dashStyleSet(AALineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
-                                .widthSet(@(1)) //标示线粗细
-                                .valueSet(@(10)) //所在位置
-                                .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                                .labelSet((id)@{@"text":@"标示线1",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})/*这里其实也可以像AAPlotLinesElement这样定义个对象来赋值（偷点懒直接用了字典，最会终转为js代码，可参考https://www.hcharts.cn/docs/basic-plotLines来写字典）*/
-                                ,
-                                AAPlotLinesElement.new
-                                .colorSet(@"#FF0000")
-                                .dashStyleSet(AALineDashStyleTypeLongDashDotDot)
-                                .widthSet(@(1))
-                                .valueSet(@(20))
-                                .labelSet((id)@{@"text":@"标示线2",@"x":@(0),@"style":@{@"color":@"#33bdfd"}})
-                                ];
+    NSArray *aaPlotLinesArr =
+    @[AAPlotLinesElement.new
+      .colorSet(@"#FF0000")//颜色值(16进制)
+      .dashStyleSet(AALineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+      .widthSet(@(1)) //标示线粗细
+      .valueSet(@(10)) //所在位置
+      .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+      .labelSet(AALabel.new
+                .textSet(@"标示线1")
+                .styleSet(AAStyle.new
+                          .colorSet(@"#ff0000")))
+      ,
+      AAPlotLinesElement.new
+      .colorSet(@"#FF0000")
+      .dashStyleSet(AALineDashStyleTypeLongDashDotDot)
+      .widthSet(@(1))
+      .valueSet(@(20))
+      .labelSet(AALabel.new
+                .textSet(@"标示线2")
+                .styleSet(AAStyle.new
+                          .colorSet(@"#00ff00")))
+      ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
@@ -341,8 +351,7 @@
                  .zonesSet(@[@{@"value": @10,@"color": @"#EA007B"},
                              @{@"value": @20,@"color": @"#FDC20A"},
                              @{@"color": @"#F78320"}]),
-                 ])
-    ;
+                 ]);
 }
 
 - (AAChartModel *)configrueWithMinusNumberChart {
@@ -374,8 +383,7 @@
                  .nameSet(@"2020")
                  .dataSet(@[@0, @(-4.5), @(-0.9), @5.5, @(-1.9), @1.3, @(-2.8), @0, @(-1.7), @0, @3, @0, ]),
                  ]
-               )
-    ;
+               );
 }
 
 - (AAChartModel *)configureStepLineChart {
@@ -401,8 +409,7 @@
                  .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
                  .stepSet(@"left"),//折线连接点靠左边👈
                  ]
-               )
-    ;
+               );
 }
 
 - (AAChartModel *)configureStepAreaChart {
@@ -432,8 +439,7 @@
                  .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
                  ,
                  ]
-               )
-    ;
+               );
 }
 
 - (AAChartModel *)configureNightingaleRoseChart {
@@ -482,8 +488,7 @@
                  .nameSet(@"货币")
                  .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, aaDataElement, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
                  ]
-               )
-    ;
+               );
 }
 
 - (AAChartModel *)configureChartWithShadowStyle {
@@ -509,8 +514,7 @@
                             .colorSet(AAColor.redColor)
                             ),
                  ]
-               )
-    ;
+               );
 }
 
 - (AAChartModel *)configureColorfulGradientAreaChart {
@@ -544,12 +548,14 @@
 }
 
 - (AAChartModel *)configureColorfulGradientSplineChart {
-    NSArray *stopsArr = @[@[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-                          @[@0.25, @"#FF14d4"],
-                          @[@0.50, @"#0bf8f5"],
-                          @[@0.75, @"#F33c52"],
-                          @[@1.00, @"#1904dd"],
-                          ];
+    NSArray *stopsArr =
+    @[@[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
+      @[@0.25, @"#FF14d4"],
+      @[@0.50, @"#0bf8f5"],
+      @[@0.75, @"#F33c52"],
+      @[@1.00, @"#1904dd"],
+      ];
+    
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
                                      stopsArray:stopsArr];
@@ -609,26 +615,29 @@
 }
 
 - (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
-    NSArray *stopsArr = @[@[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-                          @[@0.25, @"#FF14d4"],
-                          @[@0.50, @"#0bf8f5"],
-                          @[@0.75, @"#F33c52"],
-                          @[@1.00, @"#1904dd"],
-                          ];
+    NSArray *stopsArr =
+    @[@[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
+      @[@0.25, @"#FF14d4"],
+      @[@0.50, @"#0bf8f5"],
+      @[@0.75, @"#F33c52"],
+      @[@1.00, @"#1904dd"],
+      ];
+    
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
                                      stopsArray:stopsArr];
-
+    
     AADataElement *singleSpecialData = AADataElement.new
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
                .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-               .lineColorSet(@"#FF0000")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+               //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+               .lineColorSet(@"#FF0000")
                )
     .ySet(@26.5);
-
+    
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
     .titleSet(@"")
