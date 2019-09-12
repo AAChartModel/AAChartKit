@@ -53,7 +53,7 @@ WKUIDelegate,
 WKNavigationDelegate,
 WKScriptMessageHandler,
 UIWebViewDelegate > {
-    UIWebView *_uiWebView;
+//    UIWebView *_uiWebView;
     WKWebView *_wkWebView;
     WKUserContentController *_userContentController;
     NSString  *_optionJson;
@@ -92,13 +92,6 @@ UIWebViewDelegate > {
         [self addSubview:_wkWebView];
         _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
-    } else {
-        _uiWebView = [[UIWebView alloc] init];
-        _uiWebView.delegate = self;
-        _uiWebView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_uiWebView];
-        _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
     }
 }
 
@@ -198,8 +191,6 @@ UIWebViewDelegate > {
         NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
         if (_wkWebView) {
             [_wkWebView loadRequest:URLRequest];
-        } else {
-            [_uiWebView loadRequest:URLRequest];
         }
     } else {
         [self aa_refreshChartWithOptions:options];
@@ -328,8 +319,6 @@ UIWebViewDelegate > {
                 AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
             }
         }];
-    } else {
-        [_uiWebView  stringByEvaluatingJavaScriptFromString:functionNameStr];
     }
 }
 
@@ -339,8 +328,6 @@ UIWebViewDelegate > {
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
     if (_wkWebView) {
         _wkWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
-    } else {
-        _uiWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
     }
 }
 
@@ -348,8 +335,6 @@ UIWebViewDelegate > {
     _scrollEnabled = scrollEnabled;
     if (_wkWebView) {
         _wkWebView.scrollView.scrollEnabled = _scrollEnabled;
-    } else {
-        _uiWebView.scrollView.scrollEnabled = _scrollEnabled;
     }
 }
 
@@ -384,9 +369,6 @@ UIWebViewDelegate > {
         if (_wkWebView) {
             [_wkWebView setBackgroundColor:[UIColor clearColor]];
             [_wkWebView setOpaque:NO];
-        } else {
-            [_uiWebView setBackgroundColor:[UIColor clearColor]];
-            [_uiWebView setOpaque:NO];
         }
     }
 }

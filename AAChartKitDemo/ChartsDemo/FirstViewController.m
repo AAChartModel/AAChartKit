@@ -122,6 +122,7 @@
         cell = [[customTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.label.text = self.chartTypeNameArr[indexPath.section][indexPath.row];
+    cell.label.numberOfLines = 0;
     return cell;
 }
 
