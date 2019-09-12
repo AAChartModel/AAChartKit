@@ -74,38 +74,6 @@ WKScriptMessageHandler
     return self;
 }
 
-- (NSURLRequest *)getJavaScriptFileURLRequest {
-    NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
-    NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
-    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
-    if (!bundle) { //installed manually
-        bundle = [NSBundle bundleForClass:[self class]];
-    }
-    NSString *webPath = [bundle pathForResource:@"AAChartView"
-                                         ofType:@"html"
-                                    inDirectory:@"AAJSFiles.bundle"];
-    NSURL *webURL = [NSURL fileURLWithPath:webPath];
-    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
-    return URLRequest;
-}
-
-- (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
-    if (self.isClearBackgroundColor) {
-        aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
-    }
-    _optionJson = [AAJsonConverter getPureOptionsString:aaOptions];
-}
-
-- (NSString *)configTheJavaScriptString {
-    CGFloat chartViewContentWidth = self.contentWidth;
-    CGFloat contentHeight = self.frame.size.height;
-    CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
-                                                         _optionJson,
-                                                         @(chartViewContentWidth),
-                                                         @(chartViewContentHeight - 1)];
-    return javaScriptStr;
-}
 
 #pragma mark -***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 //
@@ -151,6 +119,40 @@ WKScriptMessageHandler
 }
 //
 #pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+
+
+- (NSURLRequest *)getJavaScriptFileURLRequest {
+    NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
+    NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    if (!bundle) { //installed manually
+        bundle = [NSBundle bundleForClass:[self class]];
+    }
+    NSString *webPath = [bundle pathForResource:@"AAChartView"
+                                         ofType:@"html"
+                                    inDirectory:@"AAJSFiles.bundle"];
+    NSURL *webURL = [NSURL fileURLWithPath:webPath];
+    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
+    return URLRequest;
+}
+
+- (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
+    if (self.isClearBackgroundColor) {
+        aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
+    }
+    _optionJson = [AAJsonConverter getPureOptionsString:aaOptions];
+}
+
+- (NSString *)configTheJavaScriptString {
+    CGFloat chartViewContentWidth = self.contentWidth;
+    CGFloat contentHeight = self.frame.size.height;
+    CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
+                                                         _optionJson,
+                                                         @(chartViewContentWidth),
+                                                         @(chartViewContentHeight - 1)];
+    return javaScriptStr;
+}
 
 
 #pragma mark - WKUIDelegate
