@@ -117,12 +117,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    customTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[customTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
-    cell.label.text = self.chartTypeNameArr[indexPath.section][indexPath.row];
-    cell.label.numberOfLines = 0;
+    cell.textLabel.text = self.chartTypeNameArr[indexPath.section][indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    cell.textLabel.textColor = [UIColor blackColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
     return cell;
 }
 
@@ -417,25 +420,6 @@
                             @"Support JS Funtion"];
     }
     return _sectionTypeArr;
-}
-
-@end
-
-
-@implementation customTableViewCell
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        _label = [[UILabel alloc]init];
-        _label.frame = CGRectMake(60, 0, self.frame.size.width-40, 40);
-        _label.textAlignment = NSTextAlignmentLeft;
-        _label.font = [UIFont systemFontOfSize:12.f];
-        _label.textColor = [UIColor darkGrayColor];
-        [self addSubview:_label];
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    return self;
 }
 
 @end
