@@ -30,6 +30,7 @@
  
  */
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import "AAOptions.h"
 
 @interface AAMoveOverEventMessageModel : NSObject
@@ -65,7 +66,7 @@
 
 @end
 
-@interface AAChartView:UIView
+@interface AAChartView:WKWebView
 
 @property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
 

@@ -31,7 +31,6 @@
  */
 
 #import "AAChartView.h"
-#import <WebKit/WebKit.h>
 
 @implementation AAMoveOverEventMessageModel
 
@@ -51,10 +50,8 @@ static NSString * const kUserContentMessageNameMouseOver = @"mouseover";
 @interface AAChartView() <
 WKUIDelegate,
 WKNavigationDelegate,
-WKScriptMessageHandler,
-UIWebViewDelegate > {
-//    UIWebView *_uiWebView;
-    WKWebView *_wkWebView;
+WKScriptMessageHandler
+> {
     WKUserContentController *_userContentController;
     NSString  *_optionJson;
 }
@@ -64,68 +61,17 @@ UIWebViewDelegate > {
 @implementation AAChartView
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+    _userContentController = [[WKUserContentController alloc] init];
+    [_userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.userContentController = _userContentController;
+    self = [super initWithFrame:frame configuration:configuration];
     if (self) {
-        [self setUpBasicWebView];
+        self.UIDelegate = self;
+        self.navigationDelegate = self;
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setUpBasicWebView];
-    }
-    return self;
-}
-
-- (void)setUpBasicWebView {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
-        _userContentController = [[WKUserContentController alloc] init];
-        [_userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
-        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-        configuration.userContentController = _userContentController;
-        _wkWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
-        _wkWebView.UIDelegate = self;
-        _wkWebView.navigationDelegate = self;
-        _wkWebView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_wkWebView];
-        _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
-    }
-}
-
-- (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView {
-    return  @[[NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeLeft
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeLeft
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeRight
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeRight
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeTop
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeTop
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeBottom
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeBottom
-                                          multiplier:1.0
-                                            constant:0],
-              
-              ];
 }
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
@@ -154,12 +100,10 @@ UIWebViewDelegate > {
     CGFloat chartViewContentWidth = self.contentWidth;
     CGFloat contentHeight = self.frame.size.height;
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    BOOL isWKWebView = (_wkWebView != nil);
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@','%@')",
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
                                                          _optionJson,
                                                          @(chartViewContentWidth),
-                                                         @(chartViewContentHeight - 1),
-                                                         @(isWKWebView)];
+                                                         @(chartViewContentHeight - 1)];
     return javaScriptStr;
 }
 
@@ -189,9 +133,7 @@ UIWebViewDelegate > {
     if (!_optionJson) {
         [self configureTheOptionsJsonStringWithAAOptions:options];
         NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-        if (_wkWebView) {
-            [_wkWebView loadRequest:URLRequest];
-        }
+        [self loadRequest:URLRequest];
     } else {
         [self aa_refreshChartWithOptions:options];
     }
@@ -309,33 +251,27 @@ UIWebViewDelegate > {
 }
 
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)functionNameStr {
-    if (_wkWebView) {
-        [_wkWebView  evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
-            if (error) {
-                NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
-                [errorDic setValue:error.domain forKey:@"domain"];
-                [errorDic setValue:@(error.code) forKey:@"code"];
-                [errorDic setValue:error.userInfo forKey:@"userInfo"];
-                AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
-            }
-        }];
-    }
+    [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
+        if (error) {
+            NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
+            [errorDic setValue:error.domain forKey:@"domain"];
+            [errorDic setValue:@(error.code) forKey:@"code"];
+            [errorDic setValue:error.userInfo forKey:@"userInfo"];
+            AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
+        }
+    }];
 }
 
 #pragma mark -- setter method
 
 - (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
-    if (_wkWebView) {
-        _wkWebView.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
-    }
+        self.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
 }
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
-    if (_wkWebView) {
-        _wkWebView.scrollView.scrollEnabled = _scrollEnabled;
-    }
+        self.scrollView.scrollEnabled = _scrollEnabled;
 }
 
 - (void)setContentWidth:(CGFloat)contentWidth {
@@ -359,6 +295,8 @@ UIWebViewDelegate > {
 - (void)evaluateJavaScriptWithSetterMethodNameString:(NSString *)JSFunctionStr {
     if (_optionJson) {
           [self evaluateJavaScriptWithFunctionNameString:JSFunctionStr];
+    } else {
+        AADetailLog("AAChartView did not finish loading!!!")
     }
 }
 
@@ -366,10 +304,8 @@ UIWebViewDelegate > {
     _isClearBackgroundColor = isClearBackgroundColor;
     if (_isClearBackgroundColor) {
         self.backgroundColor = [UIColor clearColor];
-        if (_wkWebView) {
-            [_wkWebView setBackgroundColor:[UIColor clearColor]];
-            [_wkWebView setOpaque:NO];
-        }
+        [self setBackgroundColor:[UIColor clearColor]];
+        [self setOpaque:NO];
     }
 }
 
@@ -384,6 +320,39 @@ UIWebViewDelegate > {
         effectView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:effectView toItem:self]];
     }
+}
+
+- (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView {
+    return  @[[NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeLeft
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeLeft
+                                          multiplier:1.0
+                                            constant:0],
+              [NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeRight
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeRight
+                                          multiplier:1.0
+                                            constant:0],
+              [NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeTop
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeTop
+                                          multiplier:1.0
+                                            constant:0],
+              [NSLayoutConstraint constraintWithItem:childView
+                                           attribute:NSLayoutAttributeBottom
+                                           relatedBy:NSLayoutRelationEqual
+                                              toItem:fatherView
+                                           attribute:NSLayoutAttributeBottom
+                                          multiplier:1.0
+                                            constant:0],
+              
+              ];
 }
 
 -(void)dealloc{
