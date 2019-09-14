@@ -200,37 +200,6 @@ WKScriptMessageHandler
     }
 }
 
-#pragma mark - UIWebViewDelegate
-//UIWebView did finish load
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self drawChart];
-    if (self.delegate) {
-        if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
-            [self.delegate aaChartViewDidFinishLoad:self];
-        }
-    }
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    NSURL *URL = request.URL;
-    NSString *scheme = [URL scheme];
-    if ([scheme isEqualToString:kUserContentMessageNameMouseOver]) {
-        if (self.delegate ) {
-            if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
-                NSString *messageStr = [URL absoluteString];
-                messageStr = [messageStr stringByReplacingOccurrencesOfString:@"mouseover://?" withString:@""];
-                NSString *decodedMessageStr = [messageStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];
-                NSDictionary *messageDic = [AAJsonConverter dictionaryWithJsonString:decodedMessageStr];
-                AAMoveOverEventMessageModel *messageModel = [self eventMessageModelWithMessageBody:messageDic];
-                [self.delegate aaChartView:self moveOverEventWithMessage:messageModel];
-            }
-        }
-        return NO;
-    }
-    return YES;
-}
-
 - (AAMoveOverEventMessageModel *)eventMessageModelWithMessageBody:(id)messageBody {
     AAMoveOverEventMessageModel *eventMessageModel = AAMoveOverEventMessageModel.new;
     eventMessageModel.name = messageBody[@"name"];
