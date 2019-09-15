@@ -363,38 +363,39 @@
                .borderWidthSet(@0)
                );
     
-    NSArray *aaSeries = @[
-                          AAColumn.new
-                          .nameSet(@"雇员")
-                          .dataSet(@[@150, @73, @20])
-                          .colorSet(@"rgba(165,170,217,1)")
-                          .groupingSet(false)
-                          .pointPaddingSet(@0.3)
-                          .pointPlacementSet(@(-0.2)),
-                          AAColumn.new
-                          .nameSet(@"优化的员工")
-                          .dataSet(@[@140, @90, @40])
-                          .colorSet(@"rgba(126,86,134,.9)")
-                          .groupingSet(false)
-                          .pointPaddingSet(@0.4)
-                          .pointPlacementSet(@(-0.2)),
-                          AAColumn.new
-                          .nameSet(@"利润")
-                          .dataSet(@[@183.6, @178.8, @198.5])
-                          .colorSet(@"rgba(248,161,63,1)")
-                          .groupingSet(false)
-                          .pointPaddingSet(@0.3)
-                          .pointPlacementSet(@(0.2))
-                          .yAxisSet(@1),
-                          AAColumn.new
-                          .nameSet(@"优化的利润")
-                          .dataSet(@[@203.6, @198.8, @208.5])
-                          .colorSet(@"rgba(186,60,61,.9)")
-                          .groupingSet(false)
-                          .pointPaddingSet(@0.4)
-                          .pointPlacementSet(@(0.2))
-                          .yAxisSet(@1),
-                          ];
+    NSArray *aaSeries =
+    @[
+      AAColumn.new
+      .nameSet(@"雇员")
+      .dataSet(@[@150, @73, @20])
+      .colorSet(@"rgba(165,170,217,1)")
+      .groupingSet(false)
+      .pointPaddingSet(@0.3)
+      .pointPlacementSet(@(-0.2)),
+      AAColumn.new
+      .nameSet(@"优化的员工")
+      .dataSet(@[@140, @90, @40])
+      .colorSet(@"rgba(126,86,134,.9)")
+      .groupingSet(false)
+      .pointPaddingSet(@0.4)
+      .pointPlacementSet(@(-0.2)),
+      AAColumn.new
+      .nameSet(@"利润")
+      .dataSet(@[@183.6, @178.8, @198.5])
+      .colorSet(@"rgba(248,161,63,1)")
+      .groupingSet(false)
+      .pointPaddingSet(@0.3)
+      .pointPlacementSet(@(0.2))
+      .yAxisSet(@1),
+      AAColumn.new
+      .nameSet(@"优化的利润")
+      .dataSet(@[@203.6, @198.8, @208.5])
+      .colorSet(@"rgba(186,60,61,.9)")
+      .groupingSet(false)
+      .pointPaddingSet(@0.4)
+      .pointPlacementSet(@(0.2))
+      .yAxisSet(@1),
+      ];
     
     AAOptions *aaOptions = AAOptions.new
     .chartSet(aaChart)
@@ -630,24 +631,25 @@
     
     AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
     
-    NSArray *aaSeries = @[
-                          AASeriesElement.new
-                          .nameSet(@"2017")
-                          .typeSet(AAChartTypeColumn)
-                          .borderRadiusSet(@4)
-                          .colorSet((id)AAGradientColor.mysticMauveColor)
-                          .yAxisSet(@1)
-                          .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                          .dataLabelsSet(AADataLabels.new.enabledSet(true))
-                          ,
-                          AASeriesElement.new
-                          .nameSet(@"2018")
-                          .typeSet(AAChartTypeLine)
-                          .colorSet(AAColor.redColor)
-                          .yAxisSet(@0)
-                          .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
-                          .dataLabelsSet(AADataLabels.new.enabledSet(true))
-                          ];
+    NSArray *aaSeries =
+    @[
+      AASeriesElement.new
+      .nameSet(@"2017")
+      .typeSet(AAChartTypeColumn)
+      .borderRadiusSet(@4)
+      .colorSet((id)AAGradientColor.mysticMauveColor)
+      .yAxisSet(@1)
+      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+      .dataLabelsSet(AADataLabels.new.enabledSet(true))
+      ,
+      AASeriesElement.new
+      .nameSet(@"2018")
+      .typeSet(AAChartTypeLine)
+      .colorSet(AAColor.redColor)
+      .yAxisSet(@0)
+      .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
+      .dataLabelsSet(AADataLabels.new.enabledSet(true))
+      ];
     
     AAOptions *aaOptions = AAOptions.new;
     aaOptions.title = aaTitle;
@@ -1205,31 +1207,34 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    NSArray *aaPlotBandsArr = @[
-                                AAPlotBandsElement.new
-                                .fromSet(@0)
-                                .toSet(@5)
-                                .colorSet(@"#BC2B44"),
-                                AAPlotBandsElement.new
-                                .fromSet(@5)
-                                .toSet(@10)
-                                .colorSet(@"#EC6444"),
-                                AAPlotBandsElement.new
-                                .fromSet(@10)
-                                .toSet(@15)
-                                .colorSet(@"#f19742"),
-                                AAPlotBandsElement.new
-                                .fromSet(@15)
-                                .toSet(@20)
-                                .colorSet(@"#f3da60"),
-                                AAPlotBandsElement.new
-                                .fromSet(@20)
-                                .toSet(@25)
-                                .colorSet(@"#9bd040"),
-                                AAPlotBandsElement.new
-                                .fromSet(@25)
-                                .toSet(@50)
-                                .colorSet(@"#acf08f"),];
+    NSArray *aaPlotBandsArr =
+    @[
+      AAPlotBandsElement.new
+      .fromSet(@0)
+      .toSet(@5)
+      .colorSet(@"#BC2B44"),
+      AAPlotBandsElement.new
+      .fromSet(@5)
+      .toSet(@10)
+      .colorSet(@"#EC6444"),
+      AAPlotBandsElement.new
+      .fromSet(@10)
+      .toSet(@15)
+      .colorSet(@"#f19742"),
+      AAPlotBandsElement.new
+      .fromSet(@15)
+      .toSet(@20)
+      .colorSet(@"#f3da60"),
+      AAPlotBandsElement.new
+      .fromSet(@20)
+      .toSet(@25)
+      .colorSet(@"#9bd040"),
+      AAPlotBandsElement.new
+      .fromSet(@25)
+      .toSet(@50)
+      .colorSet(@"#acf08f"),
+      ];
+    
     AAYAxis *aaYAxis = aaOptions.yAxis;
     aaYAxis.plotBands = aaPlotBandsArr;
     return aaOptions;
@@ -1263,39 +1268,42 @@
                );
 //    @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    NSArray *aaPlotLinesArr = @[
-                                AAPlotLinesElement.new
-                                .colorSet(@"#1e90ff")//颜色值(16进制)
-                                .dashStyleSet(AALineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
-                                .widthSet(@(1)) //标示线粗细
-                                .valueSet(@(12)) //所在位置
-                                .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                                .labelSet(AALabel.new
-                                          .textSet(@"PLOT LINES ONE")
-                                          .styleSet(AAStyle.new
-                                                    .colorSet(@"#1e90ff")
-                                                    .fontWeightSet(AAChartFontWeightTypeBold)))
-                                ,AAPlotLinesElement.new
-                                .colorSet(@"#ef476f")
-                                .dashStyleSet(AALineDashStyleTypeLongDashDot)
-                                .widthSet(@(1))
-                                .valueSet(@(24))
-                                .labelSet(AALabel.new
-                                          .textSet(@"PLOT LINES TWO")
-                                          .styleSet(AAStyle.new
-                                                    .colorSet(@"#ef476f")
-                                                    .fontWeightSet(AAChartFontWeightTypeBold)))
-                                ,AAPlotLinesElement.new
-                                .colorSet(@"#04d69f")
-                                .dashStyleSet(AALineDashStyleTypeLongDashDot)
-                                .widthSet(@(1))
-                                .valueSet(@(36))
-                                .labelSet(AALabel.new
-                                          .textSet(@"PLOT LINES THREE")
-                                          .styleSet(AAStyle.new
-                                                    .colorSet(@"#04d69f")
-                                                    .fontWeightSet(AAChartFontWeightTypeBold)))
-                                ];
+    
+    NSArray *aaPlotLinesArr =
+    @[
+      AAPlotLinesElement.new
+      .colorSet(@"#1e90ff")//颜色值(16进制)
+      .dashStyleSet(AALineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+      .widthSet(@(1)) //标示线粗细
+      .valueSet(@(12)) //所在位置
+      .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+      .labelSet(AALabel.new
+                .textSet(@"PLOT LINES ONE")
+                .styleSet(AAStyle.new
+                          .colorSet(@"#1e90ff")
+                          .fontWeightSet(AAChartFontWeightTypeBold)))
+      ,AAPlotLinesElement.new
+      .colorSet(@"#ef476f")
+      .dashStyleSet(AALineDashStyleTypeLongDashDot)
+      .widthSet(@(1))
+      .valueSet(@(24))
+      .labelSet(AALabel.new
+                .textSet(@"PLOT LINES TWO")
+                .styleSet(AAStyle.new
+                          .colorSet(@"#ef476f")
+                          .fontWeightSet(AAChartFontWeightTypeBold)))
+      ,AAPlotLinesElement.new
+      .colorSet(@"#04d69f")
+      .dashStyleSet(AALineDashStyleTypeLongDashDot)
+      .widthSet(@(1))
+      .valueSet(@(36))
+      .labelSet(AALabel.new
+                .textSet(@"PLOT LINES THREE")
+                .styleSet(AAStyle.new
+                          .colorSet(@"#04d69f")
+                          .fontWeightSet(AAChartFontWeightTypeBold)))
+      ];
+    
     AAYAxis *aaYAxis = aaOptions.yAxis;
     aaYAxis.plotLines = aaPlotLinesArr;
     return aaOptions;
@@ -1427,19 +1435,20 @@
 }
 
 - (AAOptions *)configureXAxisLabelsFontColorWithHTMLString {
-    NSArray *categories = @[@"<font color=\\\"#CC0066\\\">孤岛危机<\\/font>",
-                            @"<font color=\\\"#CC0033\\\">使命召唤<\\/font>",
-                            @"<font color=\\\"#FF0066\\\">荣誉勋章<\\/font>",
-                            @"<font color=\\\"##66FF99\\\">狙击精英<\\/font>",
-                            @"<font color=\\\"#00FF00\\\">神秘海域<\\/font>",
-                            @"<font color=\\\"#00CC00\\\">美国末日<\\/font>",
-                            @"<font color=\\\"#666FF\\\">巫师狂猎<\\/font>",
-                            @"<font color=\\\"#000CC\\\">死亡搁浅<\\/font>",
-                            @"<font color=\\\"#9933CC\\\">地狱边境<\\/font>",
-                            @"<font color=\\\"##FFCC99\\\">忍者之印<\\/font>",
-                            @"<font color=\\\"#FFCC00\\\">合金装备<\\/font>",
-                            @"<font color=\\\"#CC99090\\\">全战三国<\\/font>",
-                            ];
+    NSArray *categories =
+    @[@"<font color=\\\"#CC0066\\\">孤岛危机<\\/font>",
+      @"<font color=\\\"#CC0033\\\">使命召唤<\\/font>",
+      @"<font color=\\\"#FF0066\\\">荣誉勋章<\\/font>",
+      @"<font color=\\\"##66FF99\\\">狙击精英<\\/font>",
+      @"<font color=\\\"#00FF00\\\">神秘海域<\\/font>",
+      @"<font color=\\\"#00CC00\\\">美国末日<\\/font>",
+      @"<font color=\\\"#666FF\\\">巫师狂猎<\\/font>",
+      @"<font color=\\\"#000CC\\\">死亡搁浅<\\/font>",
+      @"<font color=\\\"#9933CC\\\">地狱边境<\\/font>",
+      @"<font color=\\\"##FFCC99\\\">忍者之印<\\/font>",
+      @"<font color=\\\"#FFCC00\\\">合金装备<\\/font>",
+      @"<font color=\\\"#CC99090\\\">全战三国<\\/font>",
+      ];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
@@ -1462,20 +1471,21 @@
 }
 
 - (AAOptions *)configureXAxisLabelsFontColorAndFontSizeWithHTMLString {
-    NSArray *categories = @[
-                            @"<span style=\\\"color:#CC0066;font-weight:bold;font-size:10px\\\">使命召唤</span>",
-                            @"<span style=\\\"color:#CC0033;font-weight:bold;font-size:11px\\\">荣誉勋章</span>",
-                            @"<span style=\\\"color:#FF0066;font-weight:bold;font-size:12px\\\">狙击精英</span>",
-                            @"<span style=\\\"color:#66FF99;font-weight:bold;font-size:13px\\\">神秘海域</span>",
-                            @"<span style=\\\"color:#00FF00;font-weight:bold;font-size:14px\\\">美国末日</span>",
-                            @"<span style=\\\"color:#00CC00;font-weight:bold;font-size:15px\\\">巫师狂猎</span>",
-                            @"<span style=\\\"color:#666FF;font-weight:bold;font-size:15px\\\">孤岛危机</span>",
-                            @"<span style=\\\"color:#000CC;font-weight:bold;font-size:14px\\\">地狱边境</span>",
-                            @"<span style=\\\"color:#9933CC;font-weight:bold;font-size:13px\\\">忍者之印</span>",
-                            @"<span style=\\\"color:#FFCC99;font-weight:bold;font-size:12px\\\">合金装备</span>",
-                            @"<span style=\\\"color:#FFCC00;font-weight:bold;font-size:11px\\\">全战三国</span>",
-                            @"<span style=\\\"color:#CC99090;font-weight:bold;font-size:10px\\\">死亡搁浅</span>",
-                            ];
+    NSArray *categories =
+    @[
+      @"<span style=\\\"color:#CC0066;font-weight:bold;font-size:10px\\\">使命召唤</span>",
+      @"<span style=\\\"color:#CC0033;font-weight:bold;font-size:11px\\\">荣誉勋章</span>",
+      @"<span style=\\\"color:#FF0066;font-weight:bold;font-size:12px\\\">狙击精英</span>",
+      @"<span style=\\\"color:#66FF99;font-weight:bold;font-size:13px\\\">神秘海域</span>",
+      @"<span style=\\\"color:#00FF00;font-weight:bold;font-size:14px\\\">美国末日</span>",
+      @"<span style=\\\"color:#00CC00;font-weight:bold;font-size:15px\\\">巫师狂猎</span>",
+      @"<span style=\\\"color:#666FF;font-weight:bold;font-size:15px\\\">孤岛危机</span>",
+      @"<span style=\\\"color:#000CC;font-weight:bold;font-size:14px\\\">地狱边境</span>",
+      @"<span style=\\\"color:#9933CC;font-weight:bold;font-size:13px\\\">忍者之印</span>",
+      @"<span style=\\\"color:#FFCC99;font-weight:bold;font-size:12px\\\">合金装备</span>",
+      @"<span style=\\\"color:#FFCC00;font-weight:bold;font-size:11px\\\">全战三国</span>",
+      @"<span style=\\\"color:#CC99090;font-weight:bold;font-size:10px\\\">死亡搁浅</span>",
+      ];
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
@@ -1601,24 +1611,27 @@
                  .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                  ]);
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
     //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
-    NSArray *aaPlotBandsArr = @[
-                                AAPlotBandsElement.new
-                                .fromSet(@-0.25)//值域颜色带X轴起始值
-                                .toSet(@4.75)//值域颜色带X轴结束值
-                                .colorSet(@"#ef476f66")//值域颜色带填充色
-                                .zIndexSet(0),//层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-                                AAPlotBandsElement.new
-                                .fromSet(@4.75)
-                                .toSet(@8.25)
-                                .colorSet(@"#ffd06666")
-                                .zIndexSet(0),
-                                AAPlotBandsElement.new
-                                .fromSet(@8.25)
-                                .toSet(@11.25)
-                                .colorSet(@"#04d69f66")
-                                .zIndexSet(0),
-                                ];
+    NSArray *aaPlotBandsArr =
+    @[
+      AAPlotBandsElement.new
+      .fromSet(@-0.25)//值域颜色带X轴起始值
+      .toSet(@4.75)//值域颜色带X轴结束值
+      .colorSet(@"#ef476f66")//值域颜色带填充色
+      .zIndexSet(0),//层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+      AAPlotBandsElement.new
+      .fromSet(@4.75)
+      .toSet(@8.25)
+      .colorSet(@"#ffd06666")
+      .zIndexSet(0),
+      AAPlotBandsElement.new
+      .fromSet(@8.25)
+      .toSet(@11.25)
+      .colorSet(@"#04d69f66")
+      .zIndexSet(0),
+      ];
+    
     AAXAxis *aaXAxis = aaOptions.xAxis;
     aaXAxis.plotBands = aaPlotBandsArr;
     return aaOptions;
