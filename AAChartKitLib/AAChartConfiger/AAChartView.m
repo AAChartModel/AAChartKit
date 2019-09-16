@@ -298,52 +298,6 @@ WKScriptMessageHandler
     }
 }
 
-- (void)setBlurEffectEnabled:(BOOL)blurEffectEnabled {
-    _blurEffectEnabled = blurEffectEnabled;
-    if (_blurEffectEnabled) {
-        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-        [self addSubview:effectView];
-        [self sendSubviewToBack:effectView];
-        
-        effectView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[self configureTheConstraintArrayWithItem:effectView toItem:self]];
-    }
-}
-
-- (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView {
-    return  @[[NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeLeft
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeLeft
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeRight
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeRight
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeTop
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeTop
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:childView
-                                           attribute:NSLayoutAttributeBottom
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:fatherView
-                                           attribute:NSLayoutAttributeBottom
-                                          multiplier:1.0
-                                            constant:0],
-              
-              ];
-}
-
 - (void)dealloc{
     [_userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
 }

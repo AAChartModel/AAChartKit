@@ -101,11 +101,6 @@
  */
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
-/**
- Set the chart view blur effect
- */
-@property (nonatomic, assign) BOOL blurEffectEnabled;
-
 
 //***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 /**
