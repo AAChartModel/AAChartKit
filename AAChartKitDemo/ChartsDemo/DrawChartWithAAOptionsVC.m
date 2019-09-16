@@ -1351,6 +1351,52 @@
 }
 
 - (AAOptions *)customizeEveryDataLabelBySinglely {
+   NSArray *dataArr =
+    @[
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 美元")
+                     )
+      .ySet(@7.1),
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 欧元")
+                     )
+      .ySet(@6.9),
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 人民币")
+                     )
+      .ySet(@2.5),
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 日元")
+                     )
+      .ySet(@14.5),
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 韩元")
+                     )
+      .ySet(@18.2),
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 越南盾")
+                     )
+      .ySet(@18.2),
+      AADataElement.new
+      .dataLabelsSet(AADataLabels.new
+                     .enabledSet(true)
+                     .formatSet(@"{y} 港币")
+                     )
+      .ySet(@21.5),
+      ];
+    
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .titleSet(@"")//图表主标题
@@ -1364,50 +1410,7 @@
     .seriesSet(@[
                  AASeriesElement.new
                  .colorSet((id)AAGradientColor.fizzyPeachColor)
-                 .dataSet(@[
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 美元")
-                                           )
-                            .ySet(@7.1),
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 欧元")
-                                           )
-                            .ySet(@6.9),
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 人民币")
-                                           )
-                            .ySet(@2.5),
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 日元")
-                                           )
-                            .ySet(@14.5),
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 韩元")
-                                           )
-                            .ySet(@18.2),
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 越南盾")
-                                           )
-                            .ySet(@18.2),
-                            AADataElement.new
-                            .dataLabelsSet(AADataLabels.new
-                                           .enabledSet(true)
-                                           .formatSet(@"{y} 港币")
-                                           )
-                            .ySet(@21.5),
-                         ]),
+                 .dataSet(dataArr),
                  ]
                );
     
