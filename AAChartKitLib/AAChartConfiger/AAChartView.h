@@ -70,7 +70,8 @@
 
 @property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
 
-/* Configure the behavior of adjustedContentInset.
+/**
+ Configure the behavior of adjustedContentInset.
  Default is UIScrollViewContentInsetAdjustmentAutomatic.
  */
 @property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior API_AVAILABLE(ios(11.0),tvos(11.0));
@@ -100,6 +101,9 @@
  */
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
+/**
+ Set the chart view blur effect
+ */
 @property (nonatomic, assign) BOOL blurEffectEnabled;
 
 
@@ -150,10 +154,28 @@
  @param options The instance object of chart options
  */
 - (void)aa_refreshChartWithOptions:(AAOptions *)options;
-    
 
 //=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
+
+/**
+ An universal chart update function (you can update any chart element) to open, close,
+ delete, add, resize, reformat, etc without redrawing chart.
+ 
+ @param options A configuration object for the new chart options as defined in the
+ options section of the API
+ */
+- (void)aa_updateChartWithOptions:(NSObject *)options;
+
+/**
+ An universal chart update function (you can update any chart element) to open, close,
+ delete, add, resize, reformat, etc.
+ 
+ @param options A configuration object for the new chart options as defined in the
+ options section of the API
+ @param redraw Whether to redraw after updating the chart.
+ */
+- (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw;
 
 
 /**
@@ -174,6 +196,14 @@
 
 
 @interface AAJsonConverter : NSObject
+
+/**
+ Convert Object to be Dictionary
+ 
+ @param objc  object instance
+ @return NSDictionay
+ */
++ (NSDictionary*)getObjectData:(id)objc;
 
 /**
  Get pure options string

@@ -38,6 +38,8 @@
     self = [super init];
     if (self) {
         _animation = true;
+        _shared = true;
+        _crosshairs = true;
     }
     return self;
 }

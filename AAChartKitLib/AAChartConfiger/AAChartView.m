@@ -120,6 +120,37 @@ WKScriptMessageHandler
 //
 #pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
+- (void)aa_updateChartWithOptions:(NSObject *)options {
+    [self aa_updateChartWithOptions:options redraw:false];
+}
+
+- (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw {
+    NSString *classNameStr = NSStringFromClass([options class]);
+    classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA" withString:@""];
+    
+    //convert fisrt character to be lowercase string
+    NSString *firstChar = [classNameStr substringToIndex:1];
+    NSString *lowercaseFirstChar = [firstChar lowercaseString];
+    classNameStr = [classNameStr substringFromIndex:1];
+    NSString *finalClassNameStr = [NSString stringWithFormat:@"%@%@",lowercaseFirstChar,classNameStr];
+    
+    NSDictionary *optionsDic = [AAJsonConverter getObjectData:options];
+    NSDictionary *finalOptionsDic = @{finalClassNameStr:optionsDic};
+    
+    NSString *optionsStr = [AAJsonConverter getPureOptionsString:finalOptionsDic];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"updateChart('%@','%d')",optionsStr,redraw];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
@@ -148,9 +179,9 @@ WKScriptMessageHandler
     CGFloat contentHeight = self.frame.size.height;
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
     NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
-                                                         _optionJson,
-                                                         @(chartViewContentWidth),
-                                                         @(chartViewContentHeight - 1)];
+                               _optionJson,
+                               @(chartViewContentWidth),
+                               @(chartViewContentHeight - 1)];
     return javaScriptStr;
 }
 
@@ -163,14 +194,14 @@ WKScriptMessageHandler
     [alertController addAction:([UIAlertAction actionWithTitle:@"Okay"
                                                          style:UIAlertActionStyleDefault
                                                        handler:^(UIAlertAction * _Nonnull action) {
-        completionHandler();
-    }])];
+                                                           completionHandler();
+                                                       }])];
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
     [rootVC presentViewController:alertController
                          animated:YES
                        completion:nil];
 }
-    
+
 - (void)drawChart {
     NSString *javaScriptStr = [self configTheJavaScriptString];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
@@ -211,64 +242,51 @@ WKScriptMessageHandler
     return eventMessageModel;
 }
 
-- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
-}
-
-- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
-}
 
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)functionNameStr {
-    [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
-        if (error) {
-            NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
-            [errorDic setValue:error.domain forKey:@"domain"];
-            [errorDic setValue:@(error.code) forKey:@"code"];
-            [errorDic setValue:error.userInfo forKey:@"userInfo"];
-            AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
-        }
-    }];
+    if (_optionJson) {
+        [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
+            if (error) {
+                NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
+                [errorDic setValue:error.domain forKey:@"domain"];
+                [errorDic setValue:@(error.code) forKey:@"code"];
+                [errorDic setValue:error.userInfo forKey:@"userInfo"];
+                AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
+            }
+        }];
+    } else {
+        AADetailLog("AAChartView did not finish loading!!!")
+    }
 }
 
 #pragma mark -- setter method
 
 - (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
-        self.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
+    self.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
 }
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
-        self.scrollView.scrollEnabled = _scrollEnabled;
+    self.scrollView.scrollEnabled = _scrollEnabled;
 }
 
 - (void)setContentWidth:(CGFloat)contentWidth {
     _contentWidth = contentWidth;
     NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth('%f')",_contentWidth];
-    [self evaluateJavaScriptWithSetterMethodNameString:javaScriptStr];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
 - (void)setContentHeight:(CGFloat)contentHeight {
     _contentHeight = contentHeight;
     NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight('%f')",_contentHeight];
-    [self evaluateJavaScriptWithSetterMethodNameString:javaScriptStr];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
     NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden('%d')",_chartSeriesHidden];
-    [self evaluateJavaScriptWithSetterMethodNameString:jsStr];
-}
-
-- (void)evaluateJavaScriptWithSetterMethodNameString:(NSString *)JSFunctionStr {
-    if (_optionJson) {
-          [self evaluateJavaScriptWithFunctionNameString:JSFunctionStr];
-    } else {
-        AADetailLog("AAChartView did not finish loading!!!")
-    }
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
@@ -326,7 +344,7 @@ WKScriptMessageHandler
               ];
 }
 
--(void)dealloc{
+- (void)dealloc{
     [_userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
 }
 
@@ -437,8 +455,8 @@ WKScriptMessageHandler
         NSError *error;
         NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                 options:NSJSONReadingMutableContainers
-                                                                   error:&error];
+                                                                options:NSJSONReadingMutableContainers
+                                                                  error:&error];
         if (error) {
             AADetailLog(@"serialize json failed：%@", error);
             return nil;
@@ -449,4 +467,5 @@ WKScriptMessageHandler
 }
 
 @end
+
 

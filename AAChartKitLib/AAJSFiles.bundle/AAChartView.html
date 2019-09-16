@@ -141,6 +141,12 @@
             }
         }
         
+        function updateChart(optionsStr,redraw) {
+<!--            alert(optionsStr);-->
+            var options = JSON.parse(optionsStr);
+            aaGlobalChart.update(options,redraw);
+        }
+        
         //pragma mark -- setter method
         function setTheChartViewContentWidth(receivedWidth) {
             var container = document.getElementById('container'); //获得元素
