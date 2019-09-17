@@ -142,12 +142,12 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options {
     [self aa_addPointToChartSeriesWithSeriesElementIndex:elementIndex options:options shift:false];
 }
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                  shift:(BOOL)shift {
     [self aa_addPointToChartSeriesWithSeriesElementIndex:elementIndex
@@ -157,7 +157,7 @@ WKScriptMessageHandler
                                                animation:true];
 }
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                 redraw:(BOOL)redraw
                                                  shift:(BOOL)shift
@@ -172,8 +172,8 @@ WKScriptMessageHandler
         optionsStr = [AAJsonConverter getPureOptionsString:objc];
     }
 
-    NSString *javaScriptStr = [NSString stringWithFormat:@"addPointToChartSeries('%u','%@','%d','%d','%d')",
-                               elementIndex, optionsStr, redraw, shift, animation];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"addPointToChartSeries('%lu','%@','%d','%d','%d')",
+                               (unsigned long)elementIndex, optionsStr, redraw, shift, animation];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
