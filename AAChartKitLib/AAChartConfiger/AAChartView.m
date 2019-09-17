@@ -142,6 +142,42 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+                                               options:(NSObject *)options {
+    [self aa_addPointToChartSeriesWithSeriesElementIndex:elementIndex options:options shift:false];
+}
+
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+                                               options:(NSObject *)options
+                                                 shift:(BOOL)shift {
+    [self aa_addPointToChartSeriesWithSeriesElementIndex:elementIndex
+                                                 options:options
+                                                  redraw:true
+                                                   shift:shift
+                                               animation:true];
+}
+
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+                                               options:(NSObject *)options
+                                                redraw:(BOOL)redraw
+                                                 shift:(BOOL)shift
+                                             animation:(BOOL)animation {
+    NSString *optionsStr;
+    if ([options isKindOfClass:[NSString class]]) {
+        optionsStr = [NSString stringWithFormat:@"%@",options];
+    } else if ([options isKindOfClass:[NSArray class]]) {
+        optionsStr = [AAJsonConverter getPureOptionsString:options];
+    } else {
+        id objc = [AAJsonConverter getObjectData:options];
+        optionsStr = [AAJsonConverter getPureOptionsString:objc];
+    }
+
+    NSString *javaScriptStr = [NSString stringWithFormat:@"addPointToChartSeries('%u','%@','%d','%d','%d')",
+                               elementIndex, optionsStr, redraw, shift, animation];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
     NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
@@ -184,6 +220,7 @@ WKScriptMessageHandler
                                @(chartViewContentHeight - 1)];
     return javaScriptStr;
 }
+
 
 
 #pragma mark - WKUIDelegate
@@ -396,8 +433,12 @@ WKScriptMessageHandler
 }
 
 + (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series {
+    return [self getPureStringWithJSONObject:series];
+}
+
++ (NSString *)getPureStringWithJSONObject:(id)objc {
     NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:series
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:objc
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:&parseError];
     NSString *seriesStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -421,5 +462,6 @@ WKScriptMessageHandler
 }
 
 @end
+
 
 

@@ -141,10 +141,18 @@
             }
         }
         
-        function updateChart(optionsStr,redraw) {
+        function updateChart(optionsStr, redraw) {
 <!--            alert(optionsStr);-->
             var options = JSON.parse(optionsStr);
             aaGlobalChart.update(options,redraw);
+        }
+        
+        function addPointToChartSeries(elementIndex, optionsStr, redraw, shift, animation) {
+            var options = JSON.parse(optionsStr);
+            var redrawBool = (redraw == "1") ? true:false;
+            var shiftBool = (shift == "1") ? true:false;
+            var animationBool = (animation == "1") ? true:false;
+            aaGlobalChart.series[elementIndex].addPoint(options, redrawBool, shiftBool, animation);
         }
         
         //pragma mark -- setter method

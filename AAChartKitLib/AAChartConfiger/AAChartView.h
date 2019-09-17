@@ -172,6 +172,18 @@
  */
 - (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw;
 
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+                                               options:(NSObject *)options;
+
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+                                               options:(NSObject *)options
+                                                 shift:(BOOL)shift;
+
+- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(unsigned int)elementIndex
+                                               options:(NSObject *)options
+                                                redraw:(BOOL)redraw
+                                                 shift:(BOOL)shift
+                                             animation:(BOOL)animation;
 
 /**
  Show the series element content with index
