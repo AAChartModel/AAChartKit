@@ -220,6 +220,7 @@
  */
 + (NSString *)getPureOptionsString:(id)optionsObject;
 
++ (NSString *)getPureStringWithJSONObject:(id)objc;
 
 /**
  Get pure series string
@@ -227,15 +228,15 @@
  @param series Series array of AAOptions
  @return Pure series string without "\r" && "\n"
  */
-+ (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series;
++ (NSString *)getPureSeriesStringWithSeriesArray:(NSArray<NSDictionary*> *)series;
 
 /**
- Get dictionary from json string
+ Get jsonObject from json string
 
  @param string json string
- @return dictionary
+ @return json object
  */
-+ (NSDictionary *)dictionaryWithJsonString:(NSString *)string;
++ (id)jsonObjectWithJsonString:(NSString *)string;
 
 @end
 

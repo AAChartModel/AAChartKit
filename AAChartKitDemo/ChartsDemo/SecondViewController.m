@@ -302,7 +302,7 @@
 
 - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
     NSLog(@"🚀selected point series element name: %@",message.name);
-    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message: %@",[AAJsonConverter dictionaryWithJsonString:[AAJsonConverter getPureOptionsString:message]] );
+    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message: %@",[AAJsonConverter jsonObjectWithJsonString:[AAJsonConverter getPureOptionsString:message]] );
 }
 
 

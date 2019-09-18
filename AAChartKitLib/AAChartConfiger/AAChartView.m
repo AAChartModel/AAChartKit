@@ -62,10 +62,10 @@ WKScriptMessageHandler
 
 - (instancetype)initWithFrame:(CGRect)frame {
     _userContentController = [[WKUserContentController alloc] init];
-    [_userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     configuration.userContentController = _userContentController;
     self = [super initWithFrame:frame configuration:configuration];
+    [configuration.userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
     if (self) {
         self.UIDelegate = self;
         self.navigationDelegate = self;
@@ -113,7 +113,7 @@ WKScriptMessageHandler
 }
 
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
-    NSString *seriesJsonStr = [AAJsonConverter getPureSeriesString:series];
+    NSString *seriesJsonStr = [AAJsonConverter getPureStringWithJSONObject:series];
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
@@ -166,10 +166,10 @@ WKScriptMessageHandler
     if ([options isKindOfClass:[NSString class]]) {
         optionsStr = [NSString stringWithFormat:@"%@",options];
     } else if ([options isKindOfClass:[NSArray class]]) {
-        optionsStr = [AAJsonConverter getPureOptionsString:options];
+        optionsStr = [AAJsonConverter getPureStringWithJSONObject:options];
     } else {
         id objc = [AAJsonConverter getObjectData:options];
-        optionsStr = [AAJsonConverter getPureOptionsString:objc];
+        optionsStr = [AAJsonConverter getPureStringWithJSONObject:objc];
     }
 
     NSString *javaScriptStr = [NSString stringWithFormat:@"addPointToChartSeries('%lu','%@','%d','%d','%d')",
@@ -214,10 +214,10 @@ WKScriptMessageHandler
     CGFloat chartViewContentWidth = self.contentWidth;
     CGFloat contentHeight = self.frame.size.height;
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%@','%@')",
+    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
                                _optionJson,
-                               @(chartViewContentWidth),
-                               @(chartViewContentHeight - 1)];
+                               chartViewContentWidth,
+                               chartViewContentHeight - 1];
     return javaScriptStr;
 }
 
@@ -373,12 +373,6 @@ WKScriptMessageHandler
     return dic;
 }
 
-+ (NSData*)getJSON:(id)objc options:(NSJSONWritingOptions)options error:(NSError**)error {
-    return [NSJSONSerialization dataWithJSONObject:[self getObjectData:objc]
-                                           options:options
-                                             error:error];
-}
-
 + (id)getObjectInternal:(id)objc {
     if (   [objc isKindOfClass:[NSString class]]
         || [objc isKindOfClass:[NSNumber class]]
@@ -406,15 +400,6 @@ WKScriptMessageHandler
     return [self getObjectData:objc];
 }
 
-+ (NSString*)convertDictionaryIntoJson:(NSDictionary *)dictionary {
-    NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&parseError];
-    NSString *string =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    return string;
-}
-
 + (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
     originalString = [originalString stringByReplacingOccurrencesOfString:@"\0" withString:@""];
     originalString = [originalString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -428,35 +413,43 @@ WKScriptMessageHandler
     } else {
         dic = [self getObjectData:optionsObject];
     }
-    NSString *str = [self convertDictionaryIntoJson:dic];
-    return [self wipeOffTheLineBreakAndBlankCharacter:str];
+    return [self getPureStringWithJSONObject:dic];
 }
 
-+ (NSString *)getPureSeriesString:(NSArray<NSDictionary*> *)series {
++ (NSString *)getPureSeriesStringWithSeriesArray:(NSArray<NSDictionary*> *)series {
     return [self getPureStringWithJSONObject:series];
 }
 
 + (NSString *)getPureStringWithJSONObject:(id)objc {
-    NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:objc
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&parseError];
-    NSString *seriesStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *seriesStr = [self jsonStringWithJsonObject:objc];
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
 
-+ (NSDictionary *)dictionaryWithJsonString:(NSString *)string {
++ (NSString*)jsonStringWithJsonObject:(id)jsonObject {
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *string =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    if (error) {
+        AADetailLog(@"data with JSONObject serialization failed：%@", error);
+        return nil;
+    }
+    return string;
+}
+
++ (id)jsonObjectWithJsonString:(NSString *)string {
     if (string && 0 != string.length) {
         NSError *error;
         NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData
+        id jsonObjet = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                 options:NSJSONReadingMutableContainers
                                                                   error:&error];
         if (error) {
-            AADetailLog(@"serialize json failed：%@", error);
+            AADetailLog(@"JSONObject with data serialization failed：%@", error);
             return nil;
         }
-        return jsonDic;
+        return jsonObjet;
     }
     return nil;
 }
