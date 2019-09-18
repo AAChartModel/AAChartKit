@@ -130,10 +130,10 @@
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries) {
-            var receivedSeriesElementArr = JSON.parse(receivedSeries);
-            
-            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
-                var receivedSeriesData = receivedSeriesElementArr[i].data;
+            var receivedSeriesArr = JSON.parse(receivedSeries);
+            var seriesArrLength = receivedSeriesArr.length;
+            for (var i = 0; i < seriesArrLength; i++) {
+                var receivedSeriesData = receivedSeriesArr[i].data;
                 // 获取series
                 var chartSeries = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
@@ -142,7 +142,6 @@
         }
         
         function updateChart(optionsStr, redraw) {
-<!--            alert(optionsStr);-->
             var options = JSON.parse(optionsStr);
             aaGlobalChart.update(options,redraw);
         }
@@ -152,7 +151,8 @@
             var redrawBool = (redraw == "1") ? true:false;
             var shiftBool = (shift == "1") ? true:false;
             var animationBool = (animation == "1") ? true:false;
-            aaGlobalChart.series[elementIndex].addPoint(options, redrawBool, shiftBool, animation);
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            seriesElement.addPoint(options, redrawBool, shiftBool, animation);
         }
         
         //pragma mark -- setter method
@@ -170,23 +170,23 @@
         
         function setChartSeriesHidden(hidden) {
             for (var i = 0; i < aaGlobalChart.series.length; i++) {
-                var series = aaGlobalChart.series[i];
+                var seriesElement = aaGlobalChart.series[i];
                 if (hidden == true) {
-                    series.hide();
+                    seriesElement.hide();
                 } else {
-                    series.show();
+                    seriesElement.show();
                 }
             }
         }
         
         function showTheSeriesElementContentWithIndex(elementIndex) {
-            var series = aaGlobalChart.series[elementIndex];
-            series.show();
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            seriesElement.show();
         }
         
         function hideTheSeriesElementContentWithIndex(elementIndex) {
-            var series = aaGlobalChart.series[elementIndex];
-            series.hide();
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            seriesElement.hide();
         }
         
         </script>
