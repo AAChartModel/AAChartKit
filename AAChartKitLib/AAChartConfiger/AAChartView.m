@@ -142,28 +142,28 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
+- (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options {
-    [self aa_addPointToChartSeriesWithSeriesElementIndex:elementIndex options:options shift:false];
+    [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex options:options shift:true];
 }
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
+- (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                  shift:(BOOL)shift {
-    [self aa_addPointToChartSeriesWithSeriesElementIndex:elementIndex
+    [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex
                                                  options:options
                                                   redraw:true
                                                    shift:shift
                                                animation:true];
 }
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
+- (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                 redraw:(BOOL)redraw
                                                  shift:(BOOL)shift
                                              animation:(BOOL)animation {
     NSString *optionsStr;
-    if ([options isKindOfClass:[NSString class]]) {
+    if ([options isKindOfClass:[NSNumber class]]) {
         optionsStr = [NSString stringWithFormat:@"%@",options];
     } else if ([options isKindOfClass:[NSArray class]]) {
         optionsStr = [AAJsonConverter getPureStringWithJSONObject:options];

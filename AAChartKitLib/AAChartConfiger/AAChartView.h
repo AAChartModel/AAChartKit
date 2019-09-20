@@ -172,14 +172,14 @@
  */
 - (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw;
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
+- (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options;
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
+- (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                  shift:(BOOL)shift;
 
-- (void)aa_addPointToChartSeriesWithSeriesElementIndex:(NSUInteger)elementIndex
+- (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                 redraw:(BOOL)redraw
                                                  shift:(BOOL)shift
