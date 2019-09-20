@@ -26,7 +26,7 @@
  
  ***
 
-* 🎂        **环境友好,兼容性强**. 适配 `iOS 9 +`, 支持`iOS`、 `iPad OS`、`TV OS`、`macOS`, 支持`ARC`, 支持 `Objective-C`语言, 同时更有 `Swift` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` 语言版本 [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) 可供使用, 配置导入工程简单易操作. 支持的所有语言版本及连接,参见此[列表](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#源代码).
+* 🎂        **环境友好,兼容性强**. 适配 `iOS 9 +`, 支持`iOS`、 `iPad OS`、`TV OS`、`macOS`,  支持 `Objective-C`语言, 同时更有 `Swift` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` 语言版本 [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) 可供使用, 配置导入工程简单易操作. 支持的所有语言版本及连接,参见此[列表](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#源代码).
 
 * 🚀        **功能强大,类型多样** -. 支持`柱状图` 、`条形图` 、`折线图` 、`曲线图` 、`折线填充图` 、`曲线填充图`、`雷达图`、`极地图`、`扇形图`、`气泡图`、`散点图`、`区域范围图`、`柱形范围图`、`面积范围图`、`面积范围均线图`、`直方折线图`、`直方折线填充图`、`箱线图`、`瀑布图`、`热力图`、`桑基图`、`金字塔图`、`漏斗图`、等二十几种类型的图形,不可谓之不多.
 
@@ -107,7 +107,7 @@ _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 3. 配置视图模型`AAChartModel`
 ```objective-c
 AAChartModel *aaChartModel= AAObject(AAChartModel)
-.chartTypeSet(AAChartTypeLine)//设置图表的类型(这里以设置的为折线图为例)
+.chartTypeSet(AAChartTypeArea)//设置图表的类型(这里以设置的为折线面积图为例)
 .titleSet(@"编程语言热度")//设置图表标题
 .subtitleSet(@"虚拟数据")//设置图表副标题
 .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])//图表横轴的内容
@@ -500,8 +500,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
 ------------ | ------------- |------------- | ------------- |
 Swift | AAInfographics |  iOS |https://github.com/AAChartModel/AAChartKit-Swift |
 Objective C | AAChartKit | iOS | https://github.com/AAChartModel/AAChartKit |
-Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartKit-Kotlin |
-Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartKit |
+Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartCore-Kotlin |
+Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartCore |
 
  
 
@@ -560,7 +560,7 @@ Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartKit |
  - [x] 支持图形加载完成后用户添加代理事件
  - [x] 支持图形动态刷新全局内容
  - [x] 支持图形动态刷新纯数据`(series)`内容
- - [ ] 支持图形实时刷新纯数据并动态滚动
+ - [x] 支持图形实时刷新纯数据并动态滚动
  - [x] 支持色彩图层渐变效果
  - [x] 支持3D图形效果,仅对`柱状图`、`条形图`、`扇形图`、`散点图`、`气泡图`等部分图形有效
  - [x] 支持使用`CocoaPods` 导入

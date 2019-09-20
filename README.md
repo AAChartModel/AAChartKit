@@ -20,16 +20,15 @@
 
 ## Preface
 
-AAChartKit is an elegant, friendly and easy to use chart library for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and area range chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle-free and quick to integrate into your own project.
+AAChartKit is an elegant and friendly(user-friendly && enviroment-friendly) chart framework for iOS, based on the open source `Highcharts` JS libraries. AAChartKit is extremely powerful, easy to configure and a pleasure to use. Currently AAChartKit includes support for the following chart types: column chart, bar chart, area chart, area spline chart, line chart, spline chart, radar chart, polar chart, pie chart, bubble chart, pyramid chart, funnel chart, column range and area range chart. More chart types are planned to be supported. AAChartKit gives you easy and fast access to a wide range of chart types, hassle-free and quick to integrate into your own project.
  
 ***
 ## Features
-
-* 🎂  Support up from `iOS 6`, `ARC` support.
-* 🚀  Powerful and easy to use. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
-* 🦋  The charts are interactive and animated. The `animation` effect is exquisite, delicate, smooth and beautiful.
-* ⛓. Supports `chain programming syntax` like *Masonry* 
-* 💑  `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
+* 🎂  **Environment friendly**. Support `iOS `、 `iPad OS`、`TV OS` and `macOS`. Totally support `Objective-C` language, and there are more types version such as  `Swift` language version [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` language version [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` language version [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) . To get more details you can see this [source code links list](https://github.com/AAChartModel/AAChartKit#source-code)
+* 🚀  **Powerful and easy to use**. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
+* 🎮   **Interactive and animated**. The charts `animation` effect is exquisite, delicate, smooth and beautiful.
+* ⛓. **Chain programming**.  Supports `chain programming syntax` like *Masonry* 
+* 🦋  **Minimalist**. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift)
 ***
 
 ## Beauty Appreciation
@@ -479,10 +478,11 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomRes
 
 Language Version | Project Name | Target Platform | Source Code Link |
 ------------ | ------------- |------------- | ------------- |
-Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartKit-Kotlin |
-Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartKit |
 Swift | AAInfographics |  iOS |https://github.com/AAChartModel/AAChartKit-Swift |
 Objective C | AAChartKit | iOS | https://github.com/AAChartModel/AAChartKit |
+Kotlin | AAInfographics | Android | https://github.com/AAChartModel/AAChartCore-Kotlin |
+Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartCore |
+
 
 ## LICENSE
 
@@ -542,11 +542,8 @@ to be
  - [x] Support 3D graphics effects, valid only for partial graphics such as `column chart、bar chart、pie charts、scatterplot chart、bubble chart`, etc.
  - [x] Support `CocoaPods`
  - [ ] Support `Carthage`
- - [ ] Support  code coverage test
- - [ ] Support horizontal screen (full screen) effect
- - [ ] Support setting graphics rendering animation freely
+ - [x] Support setting graphics rendering animation freely
  - [ ] Support rendered graphics to generate image files
- - [ ] Support generating image files saved to the system album
  - [x] Support user to configure `AAOptions` model object properties freely
  - [x] Support stacking the graphics 
  - [x] Support reversing the graphics axis 
@@ -559,6 +556,8 @@ to be
  - [x] Support rendering the Nightingale rose 🌹chart
  - [x] Support rendering the circular progress bar chart 
  - [x] Support adding clicked event callbacks for graphics
+ - [ ] Support  code coverage test
+
 
 [1]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/1.gif
 [2]:  https://raw.githubusercontent.com/adad184/MMTweenAnimation/master/Images/2.gif
