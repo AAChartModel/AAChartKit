@@ -255,7 +255,7 @@
 			children = (
 				1E66D1F0210AF4EC007EAB8C /* AAChartConfiger */,
 				1E66D1BD210AF4EC007EAB8C /* AAOptionsModel */,
-				441AF0B8233463A200F0D39D /* AATools */,
+				441AF0B8233463A200F0D39D /* AATool */,
 				1E66D1BC210AF4EC007EAB8C /* AAJSFiles.bundle */,
 			);
 			path = AAChartKitLib;
@@ -386,7 +386,7 @@
 			name = AdditionalContent;
 			sourceTree = "<group>";
 		};
-		441AF0B8233463A200F0D39D /* AATools */ = {
+		441AF0B8233463A200F0D39D /* AATool */ = {
 			isa = PBXGroup;
 			children = (
 				272BBE7921A28D0C00DBE69D /* AAColor.h */,
@@ -396,7 +396,7 @@
 				4454E46522DEC86F00E01944 /* AAJSStringPurer.h */,
 				4454E46622DEC86F00E01944 /* AAJSStringPurer.m */,
 			);
-			path = AATools;
+			path = AATool;
 			sourceTree = "<group>";
 		};
 		713F54341E7B71C000D506C7 /* ChartsDemo */ = {
