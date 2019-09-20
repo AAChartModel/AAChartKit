@@ -133,11 +133,11 @@
             var receivedSeriesArr = JSON.parse(receivedSeries);
             var seriesArrLength = receivedSeriesArr.length;
             for (var i = 0; i < seriesArrLength; i++) {
-                var receivedSeriesData = receivedSeriesArr[i].data;
+                var receivedSeriesElementData = receivedSeriesArr[i].data;
                 // 获取series
-                var chartSeries = aaGlobalChart.series[i];
+                var seriesElement = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
-                chartSeries.setData(receivedSeriesData);
+                seriesElement.setData(receivedSeriesElementData);
             }
         }
         
@@ -151,8 +151,9 @@
             var redrawBool = (redraw == "1") ? true:false;
             var shiftBool = (shift == "1") ? true:false;
             var animationBool = (animation == "1") ? true:false;
+            
             var seriesElement = aaGlobalChart.series[elementIndex];
-            seriesElement.addPoint(options, redrawBool, shiftBool, animation);
+            seriesElement.addPoint(options, redrawBool, shiftBool, animationBool);
         }
         
         //pragma mark -- setter method
