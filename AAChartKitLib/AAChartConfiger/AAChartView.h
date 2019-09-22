@@ -199,6 +199,8 @@
  */
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex;
 
+- (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString;
+
 @end
 
 

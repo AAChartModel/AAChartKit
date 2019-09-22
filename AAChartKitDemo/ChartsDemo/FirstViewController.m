@@ -43,6 +43,7 @@
 #import "CustomStyleChartVC.h"
 #import "MonitorViewController.h"
 #import "SupportJSFunctionVC.h"
+#import "EvaluateJSStringFunctionVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -96,7 +97,6 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc]init];
-//    view.backgroundColor = AAGrayColor;
     
     UILabel *label = [[UILabel alloc]init];
     label.textAlignment = NSTextAlignmentCenter;
@@ -139,7 +139,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-            
+        
         case 1: {
             /*特殊类型图表*/
             SpecialChartVC *vc = SpecialChartVC.new;
@@ -212,6 +212,14 @@
         case 9: {
             SupportJSFunctionVC *vc = SupportJSFunctionVC.new;
             vc.selectedIndex = indexPath.row;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 10: {
+            /*基础类型图表*/
+            EvaluateJSStringFunctionVC *vc = EvaluateJSStringFunctionVC.new;
+            vc.sampleChartTypeIndex = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -400,7 +408,13 @@
                                 @"每根棱柱都有空心白色边缘线的柱形图",
                                 @"温度计🌡风格的彩色棱柱图",
                                 @"外部显示六边形边框的三角形雷达图",
-                                ]
+                                ],
+                               /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
+                               @[
+                                @"Custom Chart DataLabel Sample One",
+                                @"Custom Chart DataLabel Sample Two",
+                                @"Custom Chart StackLabel Sample "
+                               ],
                               ];
     }
     return _chartTypeNameArr;
@@ -417,7 +431,8 @@
                             @"AAOptions---Use AAOptions",
                             @"同时显示多个 AAChartView",
                             @"Hide Or Show Chart Series---隐藏或显示内容",
-                            @"Support JS Funtion"];
+                            @"Support JS Funtion",
+                            @"Evaluate JS String Function---执行js函数"];
     }
     return _sectionTypeArr;
 }

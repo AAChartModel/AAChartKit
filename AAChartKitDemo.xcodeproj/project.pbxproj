@@ -41,6 +41,7 @@
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
 		44143D3921A1950300D44657 /* AAGradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44143D3821A1950300D44657 /* AAGradientColor.m */; };
+		441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */; };
 		44209B0921B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */; };
 		4454E46722DEC86F00E01944 /* AAJSStringPurer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4454E46622DEC86F00E01944 /* AAJSStringPurer.m */; };
 		44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartVC.m */; };
@@ -167,6 +168,8 @@
 		27F5AD9A20A740910086CD33 /* MixedChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartVC.h; sourceTree = "<group>"; };
 		44143D3721A1950300D44657 /* AAGradientColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAGradientColor.h; sourceTree = "<group>"; };
 		44143D3821A1950300D44657 /* AAGradientColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAGradientColor.m; sourceTree = "<group>"; };
+		441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateJSStringFunctionVC.h; sourceTree = "<group>"; };
+		441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateJSStringFunctionVC.m; sourceTree = "<group>"; };
 		44209B0721B0D2DD004EC321 /* ChartSeriesHideOrShowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSeriesHideOrShowVC.h; sourceTree = "<group>"; };
 		44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSeriesHideOrShowVC.m; sourceTree = "<group>"; };
 		4454E46522DEC86F00E01944 /* AAJSStringPurer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAJSStringPurer.h; sourceTree = "<group>"; };
@@ -376,10 +379,12 @@
 				278989BA204F8DBA003940CC /* ChartListVC.m */,
 				44209B0721B0D2DD004EC321 /* ChartSeriesHideOrShowVC.h */,
 				44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */,
-				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
-				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 				44C8C48F226F4D4100AB9E50 /* SupportJSFunctionVC.h */,
 				44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */,
+				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
+				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
+				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
+				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
 				44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */,
 			);
@@ -666,6 +671,7 @@
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
 				44C8C491226F4D4100AB9E50 /* SupportJSFunctionVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
+				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,

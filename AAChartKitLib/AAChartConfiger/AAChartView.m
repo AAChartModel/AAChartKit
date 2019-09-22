@@ -31,6 +31,7 @@
  */
 
 #import "AAChartView.h"
+#import "AAJSStringPurer.h"
 
 @implementation AAMoveOverEventMessageModel
 
@@ -186,6 +187,17 @@ WKScriptMessageHandler
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
     NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString {
+    NSString *pureJSFunctionStr = [AAJSStringPurer pureJavaScriptFunctionStringWithString:JavaScriptString];
+    
+    //remove the useless punctuation: the first "((" and the end "))"
+    NSRange range = NSMakeRange(2, pureJSFunctionStr.length - 4);
+    pureJSFunctionStr = [pureJSFunctionStr substringWithRange:range];
+    
+    NSString *jsFunctionNameStr = [NSString stringWithFormat:@"evaluateTheJavaScriptStringFunction('%@')",pureJSFunctionStr];
+    [self evaluateJavaScriptWithFunctionNameString:jsFunctionNameStr];
 }
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
