@@ -63,10 +63,11 @@ WKScriptMessageHandler
 
 - (instancetype)initWithFrame:(CGRect)frame {
     _userContentController = [[WKUserContentController alloc] init];
-    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    configuration.userContentController = _userContentController;
-    self = [super initWithFrame:frame configuration:configuration];
-    [configuration.userContentController addScriptMessageHandler:self name:kUserContentMessageNameMouseOver];
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.userContentController = _userContentController;
+    self = [super initWithFrame:frame configuration:config];
+    [config.userContentController addScriptMessageHandler:self
+                                                     name:kUserContentMessageNameMouseOver];
     if (self) {
         self.UIDelegate = self;
         self.navigationDelegate = self;
@@ -115,8 +116,9 @@ WKScriptMessageHandler
 
 - (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
     NSString *seriesJsonStr = [AAJsonConverter getPureStringWithJSONObject:series];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",
+                       seriesJsonStr];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 //
 #pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
@@ -127,42 +129,47 @@ WKScriptMessageHandler
 
 - (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw {
     NSString *classNameStr = NSStringFromClass([options class]);
-    classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA" withString:@""];
+    classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA"
+                                                           withString:@""];
     
     //convert fisrt character to be lowercase string
     NSString *firstChar = [classNameStr substringToIndex:1];
-    NSString *lowercaseFirstChar = [firstChar lowercaseString];
+    NSString *lowerFirstChar = [firstChar lowercaseString];
     classNameStr = [classNameStr substringFromIndex:1];
-    NSString *finalClassNameStr = [NSString stringWithFormat:@"%@%@",lowercaseFirstChar,classNameStr];
+    NSString *finalClassNameStr = [NSString stringWithFormat:@"%@%@",
+                                   lowerFirstChar,
+                                   classNameStr];
     
     NSDictionary *optionsDic = [AAJsonConverter getObjectData:options];
     NSDictionary *finalOptionsDic = @{finalClassNameStr:optionsDic};
     
     NSString *optionsStr = [AAJsonConverter getPureOptionsString:finalOptionsDic];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"updateChart('%@','%d')",optionsStr,redraw];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"updateChart('%@','%d')",
+                       optionsStr,
+                       redraw];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                               options:(NSObject *)options {
+                                                options:(NSObject *)options {
     [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex options:options shift:true];
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                               options:(NSObject *)options
-                                                 shift:(BOOL)shift {
+                                                options:(NSObject *)options
+                                                  shift:(BOOL)shift {
     [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex
-                                                 options:options
-                                                  redraw:true
-                                                   shift:shift
-                                               animation:true];
+                                                  options:options
+                                                   redraw:true
+                                                    shift:shift
+                                                animation:true];
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                               options:(NSObject *)options
-                                                redraw:(BOOL)redraw
-                                                 shift:(BOOL)shift
-                                             animation:(BOOL)animation {
+                                                options:(NSObject *)options
+                                                 redraw:(BOOL)redraw
+                                                  shift:(BOOL)shift
+                                              animation:(BOOL)animation {
     NSString *optionsStr;
     if ([options isKindOfClass:[NSNumber class]]) {
         optionsStr = [NSString stringWithFormat:@"%@",options];
@@ -172,43 +179,52 @@ WKScriptMessageHandler
         NSDictionary *dic = [AAJsonConverter getObjectData:options];
         optionsStr = [AAJsonConverter getPureStringWithJSONObject:dic];
     }
-
-    NSString *javaScriptStr = [NSString stringWithFormat:@"addPointToChartSeries('%lu','%@','%d','%d','%d')",
-                               (unsigned long)elementIndex, optionsStr, redraw, shift, animation];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    
+    NSString *jsStr = [NSString stringWithFormat:@"addPointToChartSeries('%lu','%@','%d','%d','%d')",
+                       (unsigned long)elementIndex,
+                       optionsStr,
+                       redraw,
+                       shift,
+                       animation];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element {
     NSDictionary * elementDic = [AAJsonConverter getObjectData:element];
     NSString *elementStr = [AAJsonConverter getPureStringWithJSONObject:elementDic];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"addElementToChartSeriesWithElement('%@')",elementStr];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"addElementToChartSeriesWithElement('%@')",
+                       elementStr];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"removeElementFromChartSeriesWithElementIndex('%lu')",(unsigned long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"removeElementFromChartSeriesWithElementIndex('%lu')",
+                       (unsigned long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(unsigned long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",
+                       (unsigned long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(unsigned long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",
+                       (unsigned long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString {
-    NSString *pureJSFunctionStr = [AAJSStringPurer pureJavaScriptFunctionStringWithString:JavaScriptString];
+    NSString *pureJSFuncStr = [AAJSStringPurer pureJavaScriptFunctionStringWithString:JavaScriptString];
     
     //remove the useless punctuation: the first "((" and the end "))"
-    NSRange range = NSMakeRange(2, pureJSFunctionStr.length - 4);
-    pureJSFunctionStr = [pureJSFunctionStr substringWithRange:range];
+    NSRange range = NSMakeRange(2, pureJSFuncStr.length - 4);
+    pureJSFuncStr = [pureJSFuncStr substringWithRange:range];
     
-    NSString *jsFunctionNameStr = [NSString stringWithFormat:@"evaluateTheJavaScriptStringFunction('%@')",pureJSFunctionStr];
+    NSString *jsFunctionNameStr = [NSString stringWithFormat:@"evaluateTheJavaScriptStringFunction('%@')",
+                                   pureJSFuncStr];
     [self evaluateJavaScriptWithFunctionNameString:jsFunctionNameStr];
 }
 
@@ -238,11 +254,11 @@ WKScriptMessageHandler
     CGFloat chartViewContentWidth = self.contentWidth;
     CGFloat contentHeight = self.frame.size.height;
     CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
-                               _optionJson,
-                               chartViewContentWidth,
-                               chartViewContentHeight - 1];
-    return javaScriptStr;
+    NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
+                       _optionJson,
+                       chartViewContentWidth,
+                       chartViewContentHeight - 1];
+    return jsStr;
 }
 
 
@@ -264,12 +280,11 @@ WKScriptMessageHandler
 }
 
 - (void)drawChart {
-    NSString *javaScriptStr = [self configTheJavaScriptString];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [self configTheJavaScriptString];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 #pragma mark - WKNavigationDelegate
-//WKWebView did finish load
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
     if (self.delegate) {
@@ -334,19 +349,22 @@ WKScriptMessageHandler
 
 - (void)setContentWidth:(CGFloat)contentWidth {
     _contentWidth = contentWidth;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentWidth('%f')",_contentWidth];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"setTheChartViewContentWidth('%f')",
+                       _contentWidth];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)setContentHeight:(CGFloat)contentHeight {
     _contentHeight = contentHeight;
-    NSString *javaScriptStr = [NSString stringWithFormat:@"setTheChartViewContentHeight('%f')",_contentHeight];
-    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+    NSString *jsStr = [NSString stringWithFormat:@"setTheChartViewContentHeight('%f')",
+                       _contentHeight];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
-    NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden('%d')",_chartSeriesHidden];
+    NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden('%d')",
+                       _chartSeriesHidden];
     [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
@@ -406,15 +424,6 @@ WKScriptMessageHandler
         return objc;
     }
     
-    if ([objc isKindOfClass:[NSArray class]]) {
-        NSArray *objcArr = objc;
-        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
-        for (NSUInteger i = 0; i < objcArr.count; i++) {
-            arr[i] = [self getObjectInternal:objcArr[i]];
-        }
-        return arr;
-    }
-    
     if ([objc isKindOfClass:[NSDictionary class]]) {
         NSDictionary *objcDic = objc;
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[objcDic count]];
@@ -423,6 +432,16 @@ WKScriptMessageHandler
         }
         return dic;
     }
+    
+    if ([objc isKindOfClass:[NSArray class]]) {
+        NSArray *objcArr = objc;
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
+        for (NSUInteger i = 0; i < objcArr.count; i++) {
+            arr[i] = [self getObjectInternal:objcArr[i]];
+        }
+        return arr;
+    }
+
     return [self getObjectData:objc];
 }
 
@@ -469,8 +488,8 @@ WKScriptMessageHandler
         NSError *error;
         NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
         id jsonObjet = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                options:NSJSONReadingMutableContainers
-                                                                  error:&error];
+                                                       options:NSJSONReadingMutableContainers
+                                                         error:&error];
         if (error) {
             AADetailLog(@"JSONObject with data serialization failed：%@", error);
             return nil;
@@ -481,6 +500,7 @@ WKScriptMessageHandler
 }
 
 @end
+
 
 
 
