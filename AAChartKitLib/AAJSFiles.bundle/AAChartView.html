@@ -190,6 +190,18 @@
             seriesElement.hide();
         }
         
+        function addElementToChartSeriesWithElement(elementStr) {
+            var seriesElement = JSON.parse(elementStr);
+            aaGlobalChart.addSeries(seriesElement);
+        }
+        
+        function removeElementFromChartSeriesWithElementIndex(elementIndex) {
+            var seriesElement = aaGlobalChart.series[elementIndex];
+            if (seriesElement) {
+                seriesElement.remove(true);
+            }
+        }
+        
         function evaluateTheJavaScriptStringFunction(jsStringFunction) {
             eval(jsStringFunction);
         }

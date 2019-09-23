@@ -169,8 +169,8 @@ WKScriptMessageHandler
     } else if ([options isKindOfClass:[NSArray class]]) {
         optionsStr = [AAJsonConverter getPureStringWithJSONObject:options];
     } else {
-        id objc = [AAJsonConverter getObjectData:options];
-        optionsStr = [AAJsonConverter getPureStringWithJSONObject:objc];
+        NSDictionary *dic = [AAJsonConverter getObjectData:options];
+        optionsStr = [AAJsonConverter getPureStringWithJSONObject:dic];
     }
 
     NSString *javaScriptStr = [NSString stringWithFormat:@"addPointToChartSeries('%lu','%@','%d','%d','%d')",
@@ -178,14 +178,26 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-
-- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
+- (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element {
+    NSDictionary * elementDic = [AAJsonConverter getObjectData:element];
+    NSString *elementStr = [AAJsonConverter getPureStringWithJSONObject:elementDic];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"addElementToChartSeriesWithElement('%@')",elementStr];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
-    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(long)elementIndex];
+- (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"removeElementFromChartSeriesWithElementIndex('%lu')",(unsigned long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+
+- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",(unsigned long)elementIndex];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
+
+- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
+    NSString *javaScriptStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",(unsigned long)elementIndex];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
@@ -341,9 +353,11 @@ WKScriptMessageHandler
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
     _isClearBackgroundColor = isClearBackgroundColor;
     if (_isClearBackgroundColor) {
-        self.backgroundColor = [UIColor clearColor];
         [self setBackgroundColor:[UIColor clearColor]];
         [self setOpaque:NO];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+        [self setOpaque:YES];
     }
 }
 

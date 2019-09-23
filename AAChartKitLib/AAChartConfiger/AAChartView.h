@@ -185,19 +185,23 @@
                                                  shift:(BOOL)shift
                                              animation:(BOOL)animation;
 
+- (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element;
+
+- (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex;
+
 /**
  Show the series element content with index
  
  @param elementIndex element index
  */
-- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex;
+- (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex;
 
 /**
  Hide the series element content with index
  
  @param elementIndex element index
  */
-- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex;
+- (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex;
 
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString;
 
