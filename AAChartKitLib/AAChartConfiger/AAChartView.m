@@ -289,6 +289,10 @@ WKScriptMessageHandler
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
+    if (self.didFinishLoadBlock) {
+        self.didFinishLoadBlock(self);
+        return;
+    }
     if (self.delegate) {
         if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
             [self.delegate aaChartViewDidFinishLoad:self];
@@ -300,9 +304,13 @@ WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameMouseOver]) {
+        AAMoveOverEventMessageModel *eventMessageModel = [self eventMessageModelWithMessageBody:message.body];
+        if (self.moveOverEventBlock) {
+            self.moveOverEventBlock(self, eventMessageModel);
+            return;
+        }
         if (self.delegate) {
             if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
-                AAMoveOverEventMessageModel *eventMessageModel = [self eventMessageModelWithMessageBody:message.body];
                 [self.delegate aaChartView:self moveOverEventWithMessage:eventMessageModel];
             }
         }

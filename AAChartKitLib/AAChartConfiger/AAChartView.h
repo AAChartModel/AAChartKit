@@ -33,6 +33,8 @@
 #import <WebKit/WebKit.h>
 #import "AAOptions.h"
 
+
+
 @interface AAMoveOverEventMessageModel : NSObject
 
 @property (nonatomic, copy)   NSString *name;
@@ -66,6 +68,9 @@
 
 @end
 
+typedef void(^AADidFinishLoadBlock)(AAChartView *aaChartView);
+typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMessageModel *message);
+
 @interface AAChartView:WKWebView
 
 @property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
@@ -75,6 +80,17 @@
  Default is UIScrollViewContentInsetAdjustmentAutomatic.
  */
 @property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior API_AVAILABLE(ios(11.0),tvos(11.0));
+
+/**
+ The block method of chart view finish loading
+ */
+@property (nonatomic, copy) AADidFinishLoadBlock didFinishLoadBlock;
+
+/**
+ The block method of user finger move over event
+ */
+@property (nonatomic, copy) AAMoveOverEventBlock moveOverEventBlock;
+
 
 /**
  Set the chart view can scroll or not
