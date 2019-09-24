@@ -152,7 +152,9 @@ WKScriptMessageHandler
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                 options:(NSObject *)options {
-    [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex options:options shift:true];
+    [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex
+                                                  options:options
+                                                    shift:true];
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex

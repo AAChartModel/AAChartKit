@@ -468,7 +468,7 @@
     .ySet(@1.25)
     .dataLabelsSet(AADataLabels.new
                    .enabledSet(true)
-                   .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
+                   .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
                    .formatSet(@"{y} 美元🇺🇸💲")
                    .xSet(@3)
                    .styleSet(AAStyle.new

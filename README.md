@@ -24,7 +24,7 @@ AAChartKit is an elegant and friendly (user-friendly && enviroment-friendly) cha
  
 ***
 ## Features
-* 🎂  **Environment friendly**. Support `iOS `、 `iPad OS`、`TV OS` and `macOS`. Totally support `Objective-C` language, and there are more types version such as  `Swift` language version [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` language version [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` language version [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) . To get more details you can see this [source code links list](https://github.com/AAChartModel/AAChartKit#source-code).
+* 🎂  **Environment friendly**. Support `iOS `、 `iPadOS`、`tvOS` and `macOS`. Totally support `Objective-C` language, and there are more types version such as  `Swift` language version [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` language version [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` language version [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) . To get more details you can see the [source code links list](https://github.com/AAChartModel/AAChartKit#source-code).
 
 * 🚀  **Powerful and easy to use**. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
 
@@ -83,7 +83,7 @@ pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
 #import "AAGlobalMacro.h"
 ```
 
-### Usage
+## Usage
 1. Add the following to your view controller file:
 ```objective-c
 #import "AAChartKit.h"

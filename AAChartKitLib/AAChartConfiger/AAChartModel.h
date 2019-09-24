@@ -75,13 +75,15 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 };
 
 typedef NSString *AAChartType;
-typedef NSString *AAAlignType;
+typedef NSString *AAChartLayoutType;
+typedef NSString *AAChartAlignType;
+typedef NSString *AAChartVerticalAlignType;
 typedef NSString *AAChartZoomType;
 typedef NSString *AAChartStackingType;
 typedef NSString *AAChartSymbolType;
 typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
-typedef NSString *AALineDashStyleType;
+typedef NSString *AAChartLineDashStyleType;
 
 AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;
@@ -101,9 +103,16 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;
 AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;
 
-AACHARTKIT_EXTERN AAAlignType const AAAlignTypeLeft;
-AACHARTKIT_EXTERN AAAlignType const AAAlignTypeCenter;
-AACHARTKIT_EXTERN AAAlignType const AAAlignTypeRight;
+AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeHorizontal;
+AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeVertical;
+
+AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeLeft;
+AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeCenter;
+AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeRight;
+
+AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeTop;
+AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeMiddle;
+AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeBottom;
 
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
@@ -128,17 +137,17 @@ AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
 AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
 AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeSolid;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDash;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDot;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDashDot;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeShortDashDotDot;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeDot;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeDash;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeLongDash;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeDashDot;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeLongDashDot;
-AACHARTKIT_EXTERN AALineDashStyleType const AALineDashStyleTypeLongDashDotDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeSolid;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeShortDash;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeShortDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeShortDashDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeShortDashDotDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeDash;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeLongDash;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeDashDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeLongDashDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AALineDashStyleTypeLongDashDotDot;
 
 @interface AAChartModel : NSObject
 
@@ -157,7 +166,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSStri
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories) //x轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series) //图表的数据列内容
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType) //图表类型
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking) //堆积样式
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -189,7 +198,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTi
 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth) //设置 x 轴准星线的宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor) //设置 x 轴准星线的颜色
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashStyleType,   xAxisCrosshairDashStyleType) //设置 x 轴准星线的线条样式类型
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartLineDashStyleType,   xAxisCrosshairDashStyleType) //设置 x 轴准星线的线条样式类型
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
@@ -211,7 +220,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTi
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth) //设置 y 轴准星线的宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor) //设置 y 轴准星线的颜色
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashStyleType,   yAxisCrosshairDashStyleType) //设置 y 轴准星线的线条样式类型
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartLineDashStyleType,   yAxisCrosshairDashStyleType) //设置 y 轴准星线的线条样式类型
 
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)

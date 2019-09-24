@@ -32,28 +32,14 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "AAChartModel.h"
 @class AAItemStyle;
-
-typedef NSString *AALegendLayoutType;
-typedef NSString *AALegendAlignType;
-typedef NSString *AALegendVerticalAlignType;
-
-extern AALegendLayoutType const AALegendLayoutTypeHorizontal;
-extern AALegendLayoutType const AALegendLayoutTypeVertical;
-
-extern AALegendAlignType const AALegendAlignTypeLeft;
-extern AALegendAlignType const AALegendAlignTypeCenter;
-extern AALegendAlignType const AALegendAlignTypeRight;
-
-extern AALegendVerticalAlignType const AALegendVerticalAlignTypeTop;
-extern AALegendVerticalAlignType const AALegendVerticalAlignTypeMiddle;
-extern AALegendVerticalAlignType const AALegendVerticalAlignTypeBottom;
 
 @interface AALegend : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AALegendLayoutType,        layout) //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
-AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AALegendAlignType,         align) //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
-AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AALegendVerticalAlignType, verticalAlign) //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
+AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AAChartLayoutType,  layout) //图例数据项的布局。布局类型： "horizontal" 或 "vertical" 即水平布局和垂直布局 默认是：horizontal.
+AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AAChartAlignType,   align) //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
+AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AAChartVerticalAlignType, verticalAlign) //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          enabled) 
 AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, borderColor) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, borderWidth) 

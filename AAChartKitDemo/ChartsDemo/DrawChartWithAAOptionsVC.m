@@ -147,9 +147,9 @@
     
     aaOptions.legend 
     .enabledSet(true)
-    .alignSet(AALegendAlignTypeRight)
-    .layoutSet(AALegendLayoutTypeVertical)
-    .verticalAlignSet(AALegendVerticalAlignTypeTop);
+    .alignSet(AAChartAlignTypeRight)
+    .layoutSet(AAChartLayoutTypeVertical)
+    .verticalAlignSet(AAChartVerticalAlignTypeTop);
     
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
     return aaOptions;
@@ -197,9 +197,9 @@
     .legendSet(AALegend.new
                .enabledSet(true)
                
-               .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
-               .layoutSet(AALegendLayoutTypeVertical)
-               .alignSet(AALegendAlignTypeRight)
+               .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
+               .layoutSet(AAChartLayoutTypeVertical)
+               .alignSet(AAChartAlignTypeRight)
                )
     .seriesSet(@[
                  AASeriesElement.new
@@ -732,8 +732,8 @@
     
     AALegend *aaLegend = AALegend.new
     .enabledSet(true)
-    .alignSet(AALegendAlignTypeRight)
-    .verticalAlignSet(AALegendVerticalAlignTypeTop)
+    .alignSet(AAChartAlignTypeRight)
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)
     .borderColorSet(@"#ccc")
     .borderWidthSet(@1)
     .xSet(@(-30))
@@ -813,9 +813,9 @@
               )
     .legendSet(AALegend.new
                .enabledSet(true)
-               .alignSet(AALegendAlignTypeRight)
+               .alignSet(AAChartAlignTypeRight)
                .xSet(@(-30))
-               .verticalAlignSet(AALegendVerticalAlignTypeTop)
+               .verticalAlignSet(AAChartVerticalAlignTypeTop)
                .ySet(@25)
                .borderColorSet(@"#ccc")
                .borderWidthSet(@1)
@@ -1009,9 +1009,9 @@
     .symbolRadiusSet(@10)//图标圆角
     .symbolHeightSet(@20)//标志高度
     .symbolWidthSet(@20)//图标宽度
-    .alignSet(AALegendAlignTypeRight)
-    .layoutSet(AALegendLayoutTypeVertical)
-    .verticalAlignSet(AALegendVerticalAlignTypeTop)
+    .alignSet(AAChartAlignTypeRight)
+    .layoutSet(AAChartLayoutTypeVertical)
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)
     .itemStyleSet(aaItemStyle)
     ;
     
@@ -1422,7 +1422,7 @@
     AADataLabels *aaDatalabels = aaOptions.plotOptions.areaspline.dataLabels;
     aaDatalabels
     .xSet(@3)
-    .verticalAlignSet(AALegendVerticalAlignTypeMiddle)
+    .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
     .ySet(@-20)
     .styleSet(AAStyle.new
               .fontSizeSet(@"10px")
