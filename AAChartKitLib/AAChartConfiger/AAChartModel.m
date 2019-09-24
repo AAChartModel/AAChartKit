@@ -85,17 +85,17 @@ AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";
 AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular";
 AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
 
-AAChartLineDashStyleType const AALineDashStyleTypeSolid           = @"Solid";
-AAChartLineDashStyleType const AALineDashStyleTypeShortDash       = @"ShortDash";
-AAChartLineDashStyleType const AALineDashStyleTypeShortDot        = @"ShortDot";
-AAChartLineDashStyleType const AALineDashStyleTypeShortDashDot    = @"ShortDashDot";
-AAChartLineDashStyleType const AALineDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
-AAChartLineDashStyleType const AALineDashStyleTypeDot             = @"Dot";
-AAChartLineDashStyleType const AALineDashStyleTypeDash            = @"Dash";
-AAChartLineDashStyleType const AALineDashStyleTypeLongDash        = @"LongDash";
-AAChartLineDashStyleType const AALineDashStyleTypeDashDot         = @"DashDot";
-AAChartLineDashStyleType const AALineDashStyleTypeLongDashDot     = @"LongDashDot";
-AAChartLineDashStyleType const AALineDashStyleTypeLongDashDotDot  = @"LongDashDotDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid           = @"Solid";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash       = @"ShortDash";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot        = @"ShortDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot    = @"ShortDashDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeDot             = @"Dot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeDash            = @"Dash";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash        = @"LongDash";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot         = @"DashDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot     = @"LongDashDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongDashDotDot";
 
 @implementation AAChartModel
 

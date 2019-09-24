@@ -112,10 +112,10 @@
     .markerRadiusSet(@6)
     .xAxisCrosshairWidthSet(@1.5)
     .xAxisCrosshairColorSet(@"#ff0000")
-    .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeDashDot)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
     .yAxisCrosshairWidthSet(@1.5)
     .yAxisCrosshairColorSet(@"#ff0000")
-    .yAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeLongDashDot)
+    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2018")

@@ -177,7 +177,7 @@
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
     .markerRadiusSet(@8.0)
-    .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeDashDot)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
     .xAxisCrosshairWidthSet(@1.0)
     .xAxisCrosshairColorSet(AAColor.darkGrayColor)
     .seriesSet(@[
