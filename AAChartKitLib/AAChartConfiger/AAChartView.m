@@ -394,29 +394,25 @@ WKScriptMessageHandler
 @implementation AAJsonConverter
 
 + (NSDictionary*)getObjectData:(id)objc {
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     unsigned int propsCount;
-    Class class = [objc class];
-    do {
-        objc_property_t *props = class_copyPropertyList(class, &propsCount);
-        for (NSUInteger i = 0; i < propsCount; i++) {
-            objc_property_t prop = props[i];
-            
-            NSString *propName = [NSString stringWithUTF8String:property_getName(prop)];
-            id value = [objc valueForKey:propName];
-            if (value == nil) {
-                value = [NSNull null];
-                continue;
-            } else {
-                value = [self getObjectInternal:value];
-            }
-            dic[propName] = value;
+    objc_property_t *props = class_copyPropertyList([objc class], &propsCount);
+    NSMutableDictionary *propsDic = [NSMutableDictionary dictionaryWithCapacity:propsCount];
+
+    for (NSUInteger i = 0; i < propsCount; i++) {
+        objc_property_t prop = props[i];
+        NSString *propName = [NSString stringWithUTF8String:property_getName(prop)];
+        id value = [objc valueForKey:propName];
+        if (value == nil) {
+            value = [NSNull null];
+            continue;
+        } else {
+            value = [self getObjectInternal:value];
         }
-        free(props);
-        class = [class superclass];
-    } while (class != [NSObject class]);
+        propsDic[propName] = value;
+    }
+    free(props);
     
-    return dic;
+    return propsDic;
 }
 
 + (id)getObjectInternal:(id)objc {
