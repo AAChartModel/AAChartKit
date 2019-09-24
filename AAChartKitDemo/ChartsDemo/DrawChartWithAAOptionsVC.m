@@ -960,7 +960,7 @@
                );
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
-    aaOptions.yAxis.gridLineDashStyle = AALineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashStyleTypeLongDash
+    aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     return aaOptions;
 }
 
@@ -1193,10 +1193,10 @@
     .legendEnabledSet(false)
     .xAxisCrosshairWidthSet(@1.5)
     .xAxisCrosshairColorSet(AAColor.grayColor)
-    .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeLongDashDotDot)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
     .yAxisCrosshairWidthSet(@1.5)
     .yAxisCrosshairColorSet(AAColor.grayColor)
-    .yAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeLongDashDotDot)
+    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2017")
@@ -1273,7 +1273,7 @@
     @[
       AAPlotLinesElement.new
       .colorSet(@"#1e90ff")//颜色值(16进制)
-      .dashStyleSet(AALineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+      .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
       .widthSet(@(1)) //标示线粗细
       .valueSet(@(12)) //所在位置
       .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -1284,7 +1284,7 @@
                           .fontWeightSet(AAChartFontWeightTypeBold)))
       ,AAPlotLinesElement.new
       .colorSet(@"#ef476f")
-      .dashStyleSet(AALineDashStyleTypeLongDashDot)
+      .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
       .widthSet(@(1))
       .valueSet(@(24))
       .labelSet(AALabel.new
@@ -1294,7 +1294,7 @@
                           .fontWeightSet(AAChartFontWeightTypeBold)))
       ,AAPlotLinesElement.new
       .colorSet(@"#04d69f")
-      .dashStyleSet(AALineDashStyleTypeLongDashDot)
+      .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
       .widthSet(@(1))
       .valueSet(@(36))
       .labelSet(AALabel.new
@@ -1321,7 +1321,7 @@
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .xAxisCrosshairWidthSet(@1)
-    .xAxisCrosshairDashStyleTypeSet(AALineDashStyleTypeLongDashDot)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot)
     .xAxisCrosshairColorSet(AAColor.grayColor)
     .tooltipEnabledSet(false)
     .categoriesSet(@[
@@ -1337,7 +1337,7 @@
                );
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.yAxis.gridLineDashStyle = AALineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashStyleTypeLongDash
+    aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     AADataLabels *aaDatalabels = aaOptions.plotOptions.spline.dataLabels;
     aaDatalabels
     .ySet(@-10)
@@ -1418,7 +1418,7 @@
     aaOptions.plotOptions.pie.dataLabels.allowOverlap = true;
     
     
-    aaOptions.yAxis.gridLineDashStyle = AALineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AALineDashStyleTypeLongDash
+    aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     AADataLabels *aaDatalabels = aaOptions.plotOptions.areaspline.dataLabels;
     aaDatalabels
     .xSet(@3)

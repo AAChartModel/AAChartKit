@@ -263,7 +263,7 @@
                  .colorSet((id)AAGradientColor.freshPapayaColor)
                  .lineWidthSet(@5)
                  .zonesSet(@[@{@"value": @8},
-                             @{@"dashStyle": AALineDashStyleTypeDot}
+                             @{@"dashStyle": AAChartLineDashStyleTypeDot}
                              ]),
                  AASeriesElement.new
                  .nameSet(@"所有专业")
@@ -312,7 +312,7 @@
     NSArray *aaPlotLinesArr =
     @[AAPlotLinesElement.new
       .colorSet(@"#FF0000")//颜色值(16进制)
-      .dashStyleSet(AALineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+      .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
       .widthSet(@(1)) //标示线粗细
       .valueSet(@(10)) //所在位置
       .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
@@ -323,7 +323,7 @@
       ,
       AAPlotLinesElement.new
       .colorSet(@"#FF0000")
-      .dashStyleSet(AALineDashStyleTypeLongDashDotDot)
+      .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
       .widthSet(@(1))
       .valueSet(@(20))
       .labelSet(AALabel.new
