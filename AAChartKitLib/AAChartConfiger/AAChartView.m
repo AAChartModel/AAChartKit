@@ -253,7 +253,6 @@ WKScriptMessageHandler
     // Create "/tmp/www" directory
     NSError *error = nil;
     NSFileManager *fileManager= [NSFileManager defaultManager];
-//    NSString *tmpDirPath = [NSTemporaryDirectory() stringByAppendingString:@"www"];
     NSURL *tmpDirURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"www"];
     [fileManager createDirectoryAtURL:tmpDirURL
           withIntermediateDirectories:YES
@@ -261,8 +260,8 @@ WKScriptMessageHandler
                                 error:&error];
     
     NSString *lastPathComponent = [[fileURL.absoluteString componentsSeparatedByString:@"/"] lastObject];
-    NSString *basicBundleFilePath = [fileURL.absoluteString stringByReplacingOccurrencesOfString:lastPathComponent
-                                                                                    withString:@""];
+    NSString *bundleFilesDir = [fileURL.absoluteString stringByReplacingOccurrencesOfString:lastPathComponent
+                                                                                 withString:@""];
     
     NSArray *array = @[lastPathComponent,
                        @"AAEasing.js",
@@ -271,22 +270,17 @@ WKScriptMessageHandler
                        @"AAHighchartsMore.js",
                        ];
     
-    NSString *basicTmpFilePath = [tmpDirURL.absoluteString stringByAppendingString:@"/"];
+    NSString *tmpFilesDir = [tmpDirURL.absoluteString stringByAppendingString:@"/"];
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *bundleFilePath = [basicBundleFilePath stringByAppendingString:obj];
-        NSString *tmpFilePath = [basicTmpFilePath stringByAppendingString:obj];
+        NSString *bundleFilePath = [bundleFilesDir stringByAppendingString:obj];
+        NSString *tmpFilePath = [tmpFilesDir stringByAppendingString:obj];
         // Now copy bundle files to the temp directory
         NSError *copyError = nil;
-        BOOL fileExist = [fileManager fileExistsAtPath:tmpFilePath];
-        if (!fileExist) {
-            [fileManager copyItemAtURL:[NSURL URLWithString:bundleFilePath]
-                                 toURL:[NSURL URLWithString:tmpFilePath]
-                                 error:&copyError];
-//            NSLog(@"生成文件📃 %@",tempFileURL.absoluteString);
-        }
+        [fileManager copyItemAtURL:[NSURL URLWithString:bundleFilePath]
+                             toURL:[NSURL URLWithString:tmpFilePath]
+                             error:&copyError];
     }];
-    
-    NSURL *destURL = [NSURL URLWithString:[basicTmpFilePath stringByAppendingString:lastPathComponent]];
+    NSURL *destURL = [NSURL URLWithString:[tmpFilesDir stringByAppendingString:lastPathComponent]];
     return destURL;
 }
 
