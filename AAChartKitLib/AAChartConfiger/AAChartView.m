@@ -253,18 +253,18 @@ WKScriptMessageHandler
     // Create "/tmp/www" directory
     NSError *creatDirError = nil;
     NSFileManager *fileManager= [NSFileManager defaultManager];
-    NSURL *tmpDirURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"www"];
+    NSURL *tmpWwwDirURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"www"];
     NSString *htmlFileName = @"AAChartView.html";
-    NSString *tmpFilesDir = [tmpDirURL.absoluteString stringByAppendingString:@"/"];
-    NSURL *destURL = [NSURL URLWithString:[tmpFilesDir stringByAppendingString:htmlFileName]];
+    NSString *tmpJsFilesDir = [tmpWwwDirURL.absoluteString stringByAppendingString:@"/"];
+    NSURL *destURL = [NSURL URLWithString:[tmpJsFilesDir stringByAppendingString:htmlFileName]];
 
     BOOL isDir = NO;
-    BOOL isDirExist = [fileManager fileExistsAtPath:tmpDirURL.path isDirectory:&isDir];
-    if (isDirExist) {
+    BOOL isTmpWwwDirExist = [fileManager fileExistsAtPath:tmpWwwDirURL.path isDirectory:&isDir];
+    if (isTmpWwwDirExist) {
         return destURL;
     }
     
-    [fileManager createDirectoryAtURL:tmpDirURL
+    [fileManager createDirectoryAtURL:tmpWwwDirURL
           withIntermediateDirectories:YES
                            attributes:nil
                                 error:&creatDirError];
@@ -284,7 +284,7 @@ WKScriptMessageHandler
     
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *bundleFilePath = [bundleFilesDir stringByAppendingString:obj];
-        NSString *tmpFilePath = [tmpFilesDir stringByAppendingString:obj];
+        NSString *tmpFilePath = [tmpJsFilesDir stringByAppendingString:obj];
         // Now copy bundle files to the temp directory
         NSError *copyItemError = nil;
         [fileManager copyItemAtURL:[NSURL URLWithString:bundleFilePath]
