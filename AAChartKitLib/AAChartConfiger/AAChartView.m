@@ -251,36 +251,49 @@ WKScriptMessageHandler
 
 - (NSURL *)localFileURLForBuggyiOS8WKWebViewWithFileURL:(NSURL *)fileURL {
     // Create "/tmp/www" directory
-    NSError *error = nil;
+    NSError *creatDirError = nil;
     NSFileManager *fileManager= [NSFileManager defaultManager];
     NSURL *tmpDirURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"www"];
+    NSString *htmlFileName = @"AAChartView.html";
+    NSString *tmpFilesDir = [tmpDirURL.absoluteString stringByAppendingString:@"/"];
+    NSURL *destURL = [NSURL URLWithString:[tmpFilesDir stringByAppendingString:htmlFileName]];
+
+    BOOL isDir = NO;
+    BOOL isDirExist = [fileManager fileExistsAtPath:tmpDirURL.path isDirectory:&isDir];
+    if (isDirExist) {
+        return destURL;
+    }
+    
     [fileManager createDirectoryAtURL:tmpDirURL
           withIntermediateDirectories:YES
                            attributes:nil
-                                error:&error];
+                                error:&creatDirError];
+    if (creatDirError) {
+        AADetailLog("creat directory error%@",creatDirError);
+    }
     
-    NSString *lastPathComponent = [[fileURL.absoluteString componentsSeparatedByString:@"/"] lastObject];
-    NSString *bundleFilesDir = [fileURL.absoluteString stringByReplacingOccurrencesOfString:lastPathComponent
+    NSString *bundleFilesDir = [fileURL.absoluteString stringByReplacingOccurrencesOfString:htmlFileName
                                                                                  withString:@""];
     
-    NSArray *array = @[lastPathComponent,
+    NSArray *array = @[htmlFileName,
                        @"AAEasing.js",
                        @"AAFunnel.js",
                        @"AAHighchartsLib.js",
                        @"AAHighchartsMore.js",
                        ];
     
-    NSString *tmpFilesDir = [tmpDirURL.absoluteString stringByAppendingString:@"/"];
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *bundleFilePath = [bundleFilesDir stringByAppendingString:obj];
         NSString *tmpFilePath = [tmpFilesDir stringByAppendingString:obj];
         // Now copy bundle files to the temp directory
-        NSError *copyError = nil;
+        NSError *copyItemError = nil;
         [fileManager copyItemAtURL:[NSURL URLWithString:bundleFilePath]
                              toURL:[NSURL URLWithString:tmpFilePath]
-                             error:&copyError];
+                             error:&copyItemError];
+        if (copyItemError) {
+            AADetailLog("copy file Error%@",copyItemError);
+        }
     }];
-    NSURL *destURL = [NSURL URLWithString:[tmpFilesDir stringByAppendingString:lastPathComponent]];
     return destURL;
 }
 
