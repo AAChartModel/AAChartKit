@@ -34,7 +34,8 @@
 
 @implementation AADataLabels
 
-AAPropSetFuncImplementation(AADataLabels, BOOL      , enabled) 
+AAPropSetFuncImplementation(AADataLabels, BOOL      , enabled)
+AAPropSetFuncImplementation(AADataLabels, NSString *, align)
 AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style) 
 AAPropSetFuncImplementation(AADataLabels, NSString *, format) 
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, rotation) 
@@ -51,6 +52,7 @@ AAPropSetFuncImplementation(AADataLabels, NSNumber *, borderRadius)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, borderWidth)
 AAPropSetFuncImplementation(AADataLabels, NSString *, shape)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , crop)
+AAPropSetFuncImplementation(AADataLabels, BOOL      , inside)
 AAPropSetFuncImplementation(AADataLabels, NSString *, overflow)
 
 @end

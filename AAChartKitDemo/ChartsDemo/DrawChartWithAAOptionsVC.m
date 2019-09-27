@@ -69,7 +69,7 @@
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 27) {
+    if (self.selectedIndex == 29) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -110,6 +110,7 @@
         case 26: return [self configure_DataLabels_XAXis_YAxis_Legend_Style];//配置DataLabels、XAXis、YAxis、Legend等图表元素样式
         case 27: return [self configureXAxisPlotBand];//X轴带有颜色标志带的混合图表
         case 28: return [self configureStackingColumnChartDataLabelsOverflow];//允许DataLabels文字溢出绘图区
+        case 29: return [self configureReversedBarChartDataLabelsStyle];//调整Y轴倒转的条形图的DataLabels风格样式
     }
     return nil;
 }
@@ -1680,5 +1681,40 @@
     
     return aaOptions;
 }
+
+- (AAOptions *)configureReversedBarChartDataLabelsStyle {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeBar)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@0)
+    .yAxisReversedSet(true)
+    .colorsThemeSet(@[AAGradientColor.sanguineColor])
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Tokyo Hot")
+                 .dataSet(@[@140,@120,@100,@80,@60,@40,@20])
+                 ]
+               );
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+ aaOptions.plotOptions.bar
+  .dataLabelsSet(
+  AADataLabels.new
+  .enabledSet(true)
+  .alignSet(AAChartAlignTypeRight)//DataLabels水平对齐位置
+  .insideSet(true)//DataLabels是否在条形图的长条内部
+  .styleSet(AAStyle.new
+            .colorSet(AAColor.whiteColor)
+            .fontWeightSet(AAChartFontWeightTypeBold)
+            .fontSizeSet(@"28px")
+            .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
+            ));
+    
+    return aaOptions;
+}
+
 
 @end

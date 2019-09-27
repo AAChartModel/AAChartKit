@@ -382,7 +382,8 @@
                                 @"通过HTML字符串自定义X轴文字颜色和字体大小",
                                 @"配置DataLabels、XAXis、YAxis、Legend等图表元素样式",
                                 @"X轴带有颜色标志带的混合图表",
-                                @"允许DataLabels文字溢出绘图区"
+                                @"允许DataLabels文字溢出绘图区",
+                                @"调整Y轴倒转的条形图的DataLabels风格样式"
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
