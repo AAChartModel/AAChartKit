@@ -482,6 +482,15 @@ WKScriptMessageHandler
         return objc;
     }
     
+    if ([objc isKindOfClass:[NSArray class]]) {
+        NSArray *objcArr = objc;
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
+        for (NSUInteger i = 0; i < objcArr.count; i++) {
+            arr[i] = [self getObjectInternal:objcArr[i]];
+        }
+        return arr;
+    }
+    
     if ([objc isKindOfClass:[NSDictionary class]]) {
         NSDictionary *objcDic = objc;
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[objcDic count]];
@@ -491,15 +500,6 @@ WKScriptMessageHandler
         return dic;
     }
     
-    if ([objc isKindOfClass:[NSArray class]]) {
-        NSArray *objcArr = objc;
-        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
-        for (NSUInteger i = 0; i < objcArr.count; i++) {
-            arr[i] = [self getObjectInternal:objcArr[i]];
-        }
-        return arr;
-    }
-
     return [self getObjectData:objc];
 }
 

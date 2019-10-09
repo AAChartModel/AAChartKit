@@ -26,7 +26,7 @@
  
  ***
 
-* 🎂        **环境友好,兼容性强**. 适配 `iOS 9 +`, 支持`iOS`、 `iPad OS`、`TV OS`、`macOS`,  支持 `Objective-C`语言, 同时更有 `Swift` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` 语言版本 [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) 可供使用, 配置导入工程简单易操作. 支持的所有语言版本及连接,参见此[列表](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#源代码).
+* 🎂        **环境友好,兼容性强**. 适配 `iOS 9 +`, 支持`iOS`、 `iPad OS`、`TV OS`、`macOS`,  支持 `Objective-C`语言, 同时更有 `Swift` 语言版本 [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` 语言版本 [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` 语言版本 [AAChartCore-Kotlin](https://github.com/AAChartModel/AAChartCore-Kotlin) 可供使用, 配置导入工程简单易操作. 支持的所有语言版本及连接,参见此[列表](https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md#源代码).
 
 * 🚀        **功能强大,类型多样** -. 支持`柱状图` 、`条形图` 、`折线图` 、`曲线图` 、`折线填充图` 、`曲线填充图`、`雷达图`、`极地图`、`扇形图`、`气泡图`、`散点图`、`区域范围图`、`柱形范围图`、`面积范围图`、`面积范围均线图`、`直方折线图`、`直方折线填充图`、`箱线图`、`瀑布图`、`热力图`、`桑基图`、`金字塔图`、`漏斗图`、等二十几种类型的图形,不可谓之不多.
 

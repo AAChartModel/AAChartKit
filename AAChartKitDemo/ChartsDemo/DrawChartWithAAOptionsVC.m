@@ -462,10 +462,12 @@
     //    * 关于 `pointPadding`
     //https://api.highcharts.com.cn/highcharts#plotOptions.column.pointPadding
     
-    aaOptions.plotOptions.column.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
-    aaOptions.plotOptions.column.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
+    AAColumn *aaColumn = aaOptions.plotOptions.column;
     
-    aaOptions.plotOptions.column.dataLabels
+    aaColumn.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
+    aaColumn.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
+    
+    aaColumn.dataLabels
     .ySet(@-10)
     .formatSet(@" {y} 美元 ")
     .backgroundColorSet(@"rgba(0, 0, 0, 0.75)")
