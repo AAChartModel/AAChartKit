@@ -587,79 +587,93 @@
 
 - (AAOptions *)configureDoubleYAxisChartOptions {
     
-    AATitle *aaTitle = AATitle.new.textSet(@"双Y轴混合图");
-    
-    AALabels *labels = AALabels.new
-    .enabledSet(true)//设置 y 轴是否显示数字
-    .formatSet(@"{value:.,0f}°C")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
-    .styleSet(AAStyle.new
-              .colorSet(@"#ff0000")//yAxis Label font color
-              .fontSizeSet(@"15px")//yAxis Label font size
-              .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
-              );
-    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"");
+        
     AAXAxis *aaXAxis = AAXAxis.new
     .visibleSet(true)
     .minSet(@0)
-    .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);
+    .categoriesSet(@[
+    @"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C",
+    @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);
+    
+    AAStyle *aaYAxisTitleStyle = AAStyle.new
+      .colorSet(@"#1e90ff")//Title font color
+      .fontSizeSet(@"14px")//Title font size
+      .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+      .textOutlineSet(@"0px 0px contrast");
+    
+    AALabels *aaYAxisLabels = AALabels.new
+       .enabledSet(true)//设置 y 轴是否显示数字
+       .formatSet(@"{value:.,0f}mm")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
+       .styleSet(AAStyle.new
+                 .colorSet(@"#ff0000")//yAxis Label font color
+                 .fontSizeSet(@"15px")//yAxis Label font size
+                 .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
+                 );
     
     AAYAxis *yAxisOne = AAYAxis.new
     .visibleSet(true)
-    .labelsSet(labels)
+    .labelsSet(aaYAxisLabels)
     .titleSet(AAAxisTitle.new
-              .textSet(@"温度")
-              .styleSet(AAStyle.new
-                        .colorSet(@"#1e90ff")//Title font color
-                        .fontSizeSet(@"14px")//Title font size
-                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
-                        .textOutlineSet(@"0px 0px contrast")
-                        ))
+              .textSet(@"冬季降雨量")
+              .styleSet(aaYAxisTitleStyle))
     .oppositeSet(true);
     
 
     AAYAxis *yAxisTwo = AAYAxis.new
     .visibleSet(true)
-    .labelsSet(labels.formatSet(@"{value}mm"))
+    .labelsSet(aaYAxisLabels)
     .titleSet(AAAxisTitle.new
-              .textSet(@"降雨量")
-              .styleSet(AAStyle.new
-                        .colorSet(@"#1e90ff")//Title font color
-                        .fontSizeSet(@"14px")//Title font size
-                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
-                        ));
+              .textSet(@"夏季降雨量")
+              .styleSet(aaYAxisTitleStyle));
     
-    NSArray *aaYAxisArr = @[yAxisOne,// Primary yAxis
-                            yAxisTwo // Secondary yAxis
-                            ];
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
     
-    AATooltip *aaTooltip = AATooltip.new.enabledSet(true).sharedSet(true);
+    NSDictionary *gradientColorDic1 =
+     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                startColorString:@"#f54ea2"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                  endColorString:@"#ff7676"];
     
-    NSArray *aaSeries =
-    @[
+    NSDictionary *gradientColorDic2 =
+     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                startColorString:@"#17ead9"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                  endColorString:@"#6078ea"];
+    
+    AAMarker *aaMarker = AAMarker.new
+    .radiusSet(@7)//曲线连接点半径，默认是4
+    .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+    .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+    .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+    
+    NSArray *aaSeries = @[
       AASeriesElement.new
       .nameSet(@"2017")
-      .typeSet(AAChartTypeColumn)
+      .typeSet(AAChartTypeAreaspline)
       .borderRadiusSet(@4)
-      .colorSet((id)AAGradientColor.mysticMauveColor)
+      .colorSet((id)gradientColorDic1)
+      .markerSet(aaMarker)
       .yAxisSet(@1)
-      .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-      .dataLabelsSet(AADataLabels.new.enabledSet(true))
+      .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
       ,
       AASeriesElement.new
       .nameSet(@"2018")
-      .typeSet(AAChartTypeLine)
-      .colorSet(AAColor.redColor)
+      .typeSet(AAChartTypeColumn)
+      .colorSet((id)gradientColorDic2)
       .yAxisSet(@0)
-      .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5])
-      .dataLabelsSet(AADataLabels.new.enabledSet(true))
+      .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
       ];
     
-    AAOptions *aaOptions = AAOptions.new;
-    aaOptions.title = aaTitle;
-    aaOptions.xAxis = aaXAxis;
-    aaOptions.yAxis = (id)aaYAxisArr;
-    aaOptions.tooltip = aaTooltip;
-    aaOptions.series = aaSeries;
+    AAOptions *aaOptions = AAOptions.new
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxisOne,yAxisTwo])
+    .tooltipSet(aaTooltip)
+    .seriesSet(aaSeries)
+    ;
     return aaOptions;
 }
 
@@ -1026,12 +1040,12 @@
 
 - (AAOptions *)configureTheMirrorColumnChart {
     NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTopLeft
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"#00b0ff"];
     
     NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottomRight
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                startColorString:@"#EF71FF"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"#4740C8"];
     AAOptions *aaOptions = AAOptions.new
