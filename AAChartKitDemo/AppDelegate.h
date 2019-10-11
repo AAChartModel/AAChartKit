@@ -30,6 +30,16 @@
  
  */
 
+/*
+若介意本地js代码体积(250KB左右,工程打包压缩后实际体积远小于此)过大，可换用加载网络js代码
+<script src="https://img.hcharts.cn/highcharts/highcharts.js">
+</script>
+<script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
+</script>
+<script src="https://img.hcharts.cn/highcharts/modules/funnel.js">
+</script>
+ */
+
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

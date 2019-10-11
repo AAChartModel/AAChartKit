@@ -514,34 +514,6 @@ Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartCore |
 * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
 -------------------------------------------------------------------------------
 
-## 附言
-
-在 ***AAChartKit*** 封裝庫的初始設計中,為提升`.js`文件的加載速度,故將所依賴的`.js`文件放置在本地.然而由於本項目功能較多,故放置於本地的附加`JavaScript`文件庫體積較大,整個`AAJSFiles`文件夾下所有的`.js`文件體積合計共有`250KB左右`(當然,在項目打包為壓縮後的`.ipa`工程安裝包文件時,是遠小於這個體積的),若對工程文件體積大小較為敏感的使用者,可使用以下建議的替代方案
-1.  刪除在本 ***AAChartKit*** 項目文件中,`AAJSFiles`文件夾下的`4`項`.js`文件.需要被刪除的文件名稱如下
-* AAHighchartsLib.js
-* AAHighchartsMore.js
-* AAFunnel.js
-2.  將`AAChartView.html`文件中的以下內容
-``` html
-<script src="AAHighchartsLib.js">
-</script>
-<script src="AAHighchartsMore.js">
-</script>
-<script src="AAFunnel.js">
-</script>
-```
-替換為
-``` html
-<script src="https://img.hcharts.cn/highcharts/highcharts.js">
-</script>
-<script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
-</script>
-<script src="https://img.hcharts.cn/highcharts/modules/funnel.js">
-</script>
-```
-即可.
-
-此方案是將原本加載放置在本地的`.js`依賴文件改為了加載放置在網絡上的`.js`文件,減小了本地文件大小,但有可能會有壹定的網絡延遲(`0.5s以內`),所以建議 ***AAChartKit*** 用戶可根據自己的實際項目的開發需要,酌情選擇最終是否使用本替代方案.
 
 ## 待辦清單
 

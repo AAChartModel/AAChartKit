@@ -514,34 +514,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
 * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
 -------------------------------------------------------------------------------
 
-## Postscript
 
-If you want to shrink the size of the `AAChartKit` lib, you should do something like this:
-1. Delete the `.js` file of `AAJSFiles` folder in `AAChartKit`. The names of the files that need to be deleted are the following:
-
-* AAHighchartsLib.js
-* AAHighchartsMore.js
-* AAFunnel.js
-
-2. Change the content of `AAChartView.html` file 
-``` html
-<script src="AAHighchartsLib.js">
-</script>
-<script src="AAHighchartsMore.js">
-</script>
-<script src="AAFunnel.js">
-</script>
-```
-to be 
-
-``` html
-<script src="https://img.hcharts.cn/highcharts/highcharts.js">
-</script>
-<script src="https://img.hcharts.cn/highcharts/highcharts-more.js">
-</script>
-<script src="https://img.hcharts.cn/highcharts/modules/funnel.js">
-</script>
-```
 ## To-Do list
 
  - [x] Support user to add delegate events after the graphics content loading was completed
