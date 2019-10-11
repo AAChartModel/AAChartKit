@@ -41,7 +41,8 @@
  *  The console output log
  */
 #ifdef DEBUG // Debug status, open the LOG function
-#define AADetailLog(fmt, ...) NSLog((@"-------> %@ [Line %d] \n"fmt "\n\n"), [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, ##__VA_ARGS__);
+#define AADetailLog(fmt, ...) NSLog((@"-------> %@ [Line %d] \n"fmt "\n\n"), \
+[[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, ##__VA_ARGS__);
 #else // Release status, turn off the LOG function
 #define AADetailLog(...)
 #endif
@@ -77,8 +78,8 @@ WKScriptMessageHandler
 }
 
 
-#pragma mark -***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
-//
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL
+
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
     [self aa_drawChartWithOptions:options];
@@ -92,13 +93,10 @@ WKScriptMessageHandler
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
     [self aa_onlyRefreshTheChartDataWithOptionsSeries:series];
 }
-//
-#pragma mark -***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
 
 
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS
 
-#pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
-//
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     if (!_optionJson) {
         [self configureTheOptionsJsonStringWithAAOptions:options];
@@ -120,8 +118,7 @@ WKScriptMessageHandler
                        seriesJsonStr];
     [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
-//
-#pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+
 
 - (void)aa_updateChartWithOptions:(NSObject *)options {
     [self aa_updateChartWithOptions:options redraw:false];

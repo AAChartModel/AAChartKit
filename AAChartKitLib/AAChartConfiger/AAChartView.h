@@ -118,7 +118,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
 
-//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL
 /**
  Function of drawing chart view
  
@@ -141,10 +141,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;
 
 
-//***********************CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL`***********************//
-
-
-//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS
 /**
  Function of drawing chart view
 
@@ -166,16 +163,18 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  */
 - (void)aa_refreshChartWithOptions:(AAOptions *)options;
 
-//=======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
-
-/**
- An universal chart update function (you can update any chart element) to open, close,
- delete, add, resize, reformat, etc without redrawing chart.
- 
- @param options A configuration object for the new chart options as defined in the
- options section of the API
- */
+/// A common chart update function
+/// (you can update any chart element) to open, close, delete, add, resize, reformat, etc. elements in the chart.
+/// Refer to https://api.highcharts.com.cn/highcharts#Chart.update
+///
+/// It should be noted that when updating the array configuration,
+/// for example, when updating configuration attributes including arrays such as xAxis, yAxis, series, etc., the updated data will find existing objects based on id and update them. If no id is configured or passed If the id does not find the corresponding object, the first element of the array is updated. Please refer to this example for details.
+///
+/// In a responsive configuration, the response of the different rules responsive.rules is actually calling chart.update, and the updated content is configured in chartOptions.
+///
+/// @Parameter options: A configuration object for the new chart options as defined in the options section of the API.
+/// @Parameter redraw: Whether to redraw after updating the chart, the default is true
 - (void)aa_updateChartWithOptions:(NSObject *)options;
 
 /**
@@ -188,21 +187,42 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  */
 - (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw;
 
+///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
+///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options;
 
+///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
+///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                  shift:(BOOL)shift;
 
+/// Add a new point to the data column after the chart has been rendered.
+/// The new point can be the last point, or it can be placed in the corresponding position given the X value (first, middle position, depending on the x value)
+/// Refer to https://api.highcharts.com.cn/highcharts#Series.addPoint
+///
+/// @Parameter elementIndex: The specific series element
+/// @Parameter options: The configuration of the data point can be a single value, indicating the y value of the data point; it can also be an array containing x and y values; it can also be an object containing detailed data point configuration. For detailed configuration, see series.data.
+/// @Parameter redraw: The default is true, whether to redraw the icon after the operation is completed. When you need to add more than one point, it is highly recommended to set redraw to false and manually call chart.redraw() to redraw the chart after all operations have ended.
+/// @Parameter shift: The default is false. When this property is true, adding a new point will delete the first point in the data column (that is, keep the total number of data points in the data column unchanged). This property is very useful in the inspection chart
+/// @Parameter animation: The default is true, which means that when adding a point, it contains the default animation effect. This parameter can also be passed to the object form containing duration and easing. For details, refer to the animation related configuration.
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                options:(NSObject *)options
                                                 redraw:(BOOL)redraw
                                                  shift:(BOOL)shift
                                              animation:(BOOL)animation;
 
+/// Add a new series element to the chart after the chart has been rendered.
+/// Refer to https://api.highcharts.com.cn/highcharts#Chart.addSeries
+///
+/// @Parameter element: chart series element
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element;
 
+/// Remove a specific series element from the chart after the chart has been rendered.
+/// Refer to https://api.highcharts.com.cn/highcharts#Series.remove
+///
+/// @Parameter elementIndex: chart series element index
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex;
 
 /**
@@ -219,6 +239,9 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  */
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex;
 
+
+/// Evaluate the JavaScript string by converting JavaScript string into JavaScript function
+/// @param JavaScriptString valid JavaScript function code
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString;
 
 @end
