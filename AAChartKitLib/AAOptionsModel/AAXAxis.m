@@ -59,6 +59,7 @@ AAPropSetFuncImplementation(AAXAxis, AALabels *, labels)
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      visible)
 AAPropSetFuncImplementation(AAXAxis, BOOL,       opposite) //是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，坐标轴显示在对立面后，x 轴是在上方显示，y 轴是在右方显示（即坐标轴会显示在对立面）。该配置一般是用于多坐标轴区分展示，另外在 Highstock 中，y 轴默认是在对立面显示的。 默认是：false.
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      startOnTick) //Whether to force the axis to start on a tick. Use this option with the minPadding option to control the axis start. 默认是：false.
+AAPropSetFuncImplementation(AAXAxis, BOOL ,      endOnTick) //是否强制将坐标轴结束于刻度线，可以通过本属性及 maxPadding 来控制坐标轴的结束位置。 默认是：false.
 AAPropSetFuncImplementation(AAXAxis, AACrosshair*, crosshair)  //准星线样式设置
 AAPropSetFuncImplementation(AAXAxis, NSString *, tickColor) //x轴轴线下方刻度线颜色
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, tickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)

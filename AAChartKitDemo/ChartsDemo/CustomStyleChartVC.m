@@ -109,6 +109,7 @@
         case 22: return [self configureQuadrangleRadarChart];
         case 23: return [self configurePentagonRadarChart];
         case 24: return [self configureHexagonRadarChart];
+        case 25: return [self adjustYAxisMaxAndMinValues];
 
         default:
             return nil;
@@ -855,6 +856,52 @@
                  .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
                  ]);
 }
+
+- (AAChartModel *)adjustYAxisMaxAndMinValues {
+   NSArray *categoriesArr = @[
+       AAChartTypeColumn,
+       AAChartTypeBar,
+       AAChartTypeArea,
+       AAChartTypeAreaspline,
+       AAChartTypeLine,
+       AAChartTypeSpline,
+       AAChartTypeScatter,
+       AAChartTypePie,
+       AAChartTypeBubble,
+       AAChartTypePyramid,
+       AAChartTypeFunnel,
+       AAChartTypeColumnrange,
+       AAChartTypeArearange,
+       AAChartTypeAreasplinerange,
+       AAChartTypeBoxplot,
+       AAChartTypeWaterfall,
+       AAChartTypePolygon,
+   ];
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .legendEnabledSet(false)
+    .yAxisVisibleSet(true)
+    .easyGradientColorsSet(true)
+    .zoomTypeSet(AAChartZoomTypeXY)
+    .tooltipValueSuffixSet(@"kg")
+    .categoriesSet(categoriesArr)
+    .yAxisTitleSet(@"")
+    .yAxisMinSet(@2.0)
+    .yAxisMaxSet(@45.4)
+    .xAxisTickIntervalSet(@2)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"体重")
+        .colorSet(@"#2494F3")
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+    ])
+    ;
+}
+
+
 
 
 @end
