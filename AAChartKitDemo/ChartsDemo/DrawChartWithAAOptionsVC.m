@@ -1797,6 +1797,7 @@
     .sharedSet(true);
     
     AALegend *aaLegend = AALegend.new
+    .enabledSet(true)
     .layoutSet(AAChartLayoutTypeVertical)
     .alignSet(AAChartAlignTypeLeft)
     .xSet(@80)
