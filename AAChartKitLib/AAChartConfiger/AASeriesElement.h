@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AADataLabels;
+@class AAMarker,AADataLabels,AATooltip;
 
 @interface AASeriesElement : NSObject
 
@@ -66,6 +66,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, zone
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zoneAxis)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stack)
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AATooltip*, tooltip)
 
 
 

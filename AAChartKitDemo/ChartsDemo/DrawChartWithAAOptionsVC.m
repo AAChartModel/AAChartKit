@@ -111,6 +111,7 @@
         case 27: return [self configureXAxisPlotBand];//X轴带有颜色标志带的混合图表
         case 28: return [self configureStackingColumnChartDataLabelsOverflow];//允许DataLabels文字溢出绘图区
         case 29: return [self configureReversedBarChartDataLabelsStyle];//调整Y轴倒转的条形图的DataLabels风格样式
+        case 30: return [self configureTripleYAxesMixedChart];//三条Y轴的混合图
     }
     return nil;
 }
@@ -1729,6 +1730,114 @@
             .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
             ));
     
+    return aaOptions;
+}
+
+- (AAOptions *)configureTripleYAxesMixedChart {
+    NSArray *colorsThemeArr = @[@"red",@"mediumspringgreen",@"deepskyblue",];
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"东京月平均天气数据");
+    
+    AASubtitle *aaSubtitle = AASubtitle.new
+    .textSet(@"数据来源: WorldClimate.com");
+        
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .minSet(@0)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]);
+    
+    AAYAxis *yAxis1 = AAYAxis.new
+    .visibleSet(true)
+    .gridLineWidthSet(@0)
+    .labelsSet(AALabels.new
+               .enabledSet(true)//设置 y 轴是否显示数字
+               .formatSet(@"{value}°C")
+               .styleSet(AAStyle.new
+                         .colorSet(colorsThemeArr[0])//yAxis Label font color
+              ))
+    .titleSet(AAAxisTitle.new
+              .textSet(@"温度")
+              .styleSet(AAStyle.new
+                        .colorSet(colorsThemeArr[0])))
+    .oppositeSet(true);
+    
+
+    AAYAxis *yAxis2 = AAYAxis.new
+    .visibleSet(true)
+    .gridLineWidthSet(@0)
+    .labelsSet(AALabels.new
+               .enabledSet(true)//设置 y 轴是否显示数字
+               .formatSet(@"{value}°mm")
+               .styleSet(AAStyle.new
+                         .colorSet(colorsThemeArr[1])//yAxis Label font color
+    ))
+    .titleSet(AAAxisTitle.new
+              .textSet(@"降雨量")
+              .styleSet(AAStyle.new
+              .colorSet(colorsThemeArr[1])));
+    
+    AAYAxis *yAxis3 = AAYAxis.new
+    .visibleSet(true)
+    .gridLineWidthSet(@0)
+    .labelsSet(AALabels.new
+                .enabledSet(true)//设置 y 轴是否显示数字
+                .formatSet(@"{value}°mb")
+                .styleSet(AAStyle.new
+                          .colorSet(colorsThemeArr[2])//yAxis Label font color
+     ))
+     .titleSet(AAAxisTitle.new
+               .textSet(@"海平面气压")
+               .styleSet(AAStyle.new
+               .colorSet(colorsThemeArr[2])));
+    
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
+    AALegend *aaLegend = AALegend.new
+    .layoutSet(AAChartLayoutTypeVertical)
+    .alignSet(AAChartAlignTypeLeft)
+    .xSet(@80)
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)
+    .ySet(@55);
+    
+    AASeriesElement *element1 = AASeriesElement.new
+    .nameSet(@"降雨量")
+    .typeSet(AAChartTypeColumn)
+    .yAxisSet(@1)
+    .dataSet(@[@49.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" mm"));
+    
+    AASeriesElement *element2 = AASeriesElement.new
+    .nameSet(@"海平面气压")
+    .typeSet(AAChartTypeSpline)
+    .yAxisSet(@2)
+    .dataSet(@[@1016, @1016, @1015.9, @1015.5, @1012.3, @1009.5, @1009.6, @1010.2, @1013.1, @1016.9, @1018.2, @1016.7])
+    .dashStyleSet(AAChartLineDashStyleTypeShortDot)
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" mb"));
+    
+    AASeriesElement *element3 = AASeriesElement.new
+    .nameSet(@"温度")
+    .typeSet(AAChartTypeSpline)
+    .yAxisSet(@0)
+    .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" ℃"));
+    
+    AAOptions *aaOptions = AAOptions.new
+    .titleSet(aaTitle)
+    .subtitleSet(aaSubtitle)
+    .colorsSet(colorsThemeArr)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxis1,yAxis2,yAxis3])
+    .tooltipSet(aaTooltip)
+    .legendSet(aaLegend)
+    .seriesSet(@[element1,element2,element3])
+    ;
     return aaOptions;
 }
 

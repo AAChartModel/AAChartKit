@@ -190,13 +190,13 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 ///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
 ///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                               options:(NSObject *)options;
+                                                options:(NSObject *)options;
 
 ///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
 ///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                               options:(NSObject *)options
-                                                 shift:(BOOL)shift;
+                                                options:(NSObject *)options
+                                                  shift:(BOOL)shift;
 
 /// Add a new point to the data column after the chart has been rendered.
 /// The new point can be the last point, or it can be placed in the corresponding position given the X value (first, middle position, depending on the x value)
@@ -208,10 +208,10 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// @Parameter shift: The default is false. When this property is true, adding a new point will delete the first point in the data column (that is, keep the total number of data points in the data column unchanged). This property is very useful in the inspection chart
 /// @Parameter animation: The default is true, which means that when adding a point, it contains the default animation effect. This parameter can also be passed to the object form containing duration and easing. For details, refer to the animation related configuration.
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                               options:(NSObject *)options
-                                                redraw:(BOOL)redraw
-                                                 shift:(BOOL)shift
-                                             animation:(BOOL)animation;
+                                                options:(NSObject *)options
+                                                 redraw:(BOOL)redraw
+                                                  shift:(BOOL)shift
+                                              animation:(BOOL)animation;
 
 /// Add a new series element to the chart after the chart has been rendered.
 /// Refer to https://api.highcharts.com.cn/highcharts#Chart.addSeries
