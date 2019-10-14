@@ -52,6 +52,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolRa
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolWidth)//图标宽度
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, x) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, y)
+AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          floating)
+
 
 @end
 

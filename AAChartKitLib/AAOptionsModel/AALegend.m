@@ -49,7 +49,8 @@ AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolPadding)//标志后�
 AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolRadius)//图标圆角
 AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolWidth)//图标宽度
 AAPropSetFuncImplementation(AALegend, NSNumber    *, x) 
-AAPropSetFuncImplementation(AALegend, NSNumber    *, y) 
+AAPropSetFuncImplementation(AALegend, NSNumber    *, y)
+AAPropSetFuncImplementation(AALegend, BOOL,          floating)
 
 @end
 

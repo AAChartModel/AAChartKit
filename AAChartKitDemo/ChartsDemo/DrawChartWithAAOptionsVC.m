@@ -69,7 +69,7 @@
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 29) {
+    if (self.selectedIndex == 30) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -1755,12 +1755,12 @@
                .enabledSet(true)//设置 y 轴是否显示数字
                .formatSet(@"{value}°C")
                .styleSet(AAStyle.new
-                         .colorSet(colorsThemeArr[0])//yAxis Label font color
+                         .colorSet(colorsThemeArr[2])//yAxis Label font color
               ))
     .titleSet(AAAxisTitle.new
               .textSet(@"温度")
               .styleSet(AAStyle.new
-                        .colorSet(colorsThemeArr[0])))
+                        .colorSet(colorsThemeArr[2])))
     .oppositeSet(true);
     
 
@@ -1771,12 +1771,12 @@
                .enabledSet(true)//设置 y 轴是否显示数字
                .formatSet(@"{value}°mm")
                .styleSet(AAStyle.new
-                         .colorSet(colorsThemeArr[1])//yAxis Label font color
+                         .colorSet(colorsThemeArr[0])//yAxis Label font color
     ))
     .titleSet(AAAxisTitle.new
               .textSet(@"降雨量")
               .styleSet(AAStyle.new
-              .colorSet(colorsThemeArr[1])));
+              .colorSet(colorsThemeArr[0])));
     
     AAYAxis *yAxis3 = AAYAxis.new
     .visibleSet(true)
@@ -1785,19 +1785,21 @@
                 .enabledSet(true)//设置 y 轴是否显示数字
                 .formatSet(@"{value}°mb")
                 .styleSet(AAStyle.new
-                          .colorSet(colorsThemeArr[2])//yAxis Label font color
+                          .colorSet(colorsThemeArr[1])//yAxis Label font color
      ))
-     .titleSet(AAAxisTitle.new
+    .titleSet(AAAxisTitle.new
                .textSet(@"海平面气压")
                .styleSet(AAStyle.new
-               .colorSet(colorsThemeArr[2])));
-    
+               .colorSet(colorsThemeArr[1])))
+    .oppositeSet(true);
+
     AATooltip *aaTooltip = AATooltip.new
     .enabledSet(true)
     .sharedSet(true);
     
     AALegend *aaLegend = AALegend.new
     .enabledSet(true)
+    .floatingSet(true)
     .layoutSet(AAChartLayoutTypeVertical)
     .alignSet(AAChartAlignTypeLeft)
     .xSet(@80)
