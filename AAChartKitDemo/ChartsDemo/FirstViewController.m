@@ -318,7 +318,8 @@
                                 @"Quadrangle Radar Chart---四角形雷达图",
                                 @"Pentagon Radar Chart---五角形雷达图",
                                 @"Hexagon Radar Chart----六角形雷达图",
-                                @"adjustYAxisMaxAndMinValues----调整 X 轴和 Y 轴最大值"
+                                @"adjustYAxisMaxAndMinValues----调整 X 轴和 Y 轴最大值",
+                                @"custom Special Style DataLabel Of Single Data Element Chart",
                                 ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",

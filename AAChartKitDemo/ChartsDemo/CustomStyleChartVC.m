@@ -110,6 +110,7 @@
         case 23: return [self configurePentagonRadarChart];
         case 24: return [self configureHexagonRadarChart];
         case 25: return [self adjustYAxisMaxAndMinValues];
+        case 26: return [self customSpecialStyleDataLabelOfSingleDataElementChart];
 
         default:
             return nil;
@@ -901,6 +902,55 @@
     ;
 }
 
+
+
+- (AAChartModel *)customSpecialStyleDataLabelOfSingleDataElementChart {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                               startColorString:@"rgba(255,215,0,0.1)" // gold color, alpha: 0.1
+                                 endColorString:@"rgba(255,215,0, 0.6)"]; // gold color, alpha: 0.6
+    
+    NSString *formatStr = [NSString stringWithFormat:@"%@%@",
+                           @"<span style=""color:#FFFFFF;font-weight:thin;font-size:25px"">▲{y}</span>",
+                           @"<span style=""color:#FFFFFF;font-weight:thin;font-size:17px""> m</span>"
+                           ];
+    
+    AADataElement *singleSpecialData = AADataElement.new
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .useHTMLSet(true)
+                   .formatSet(formatStr)
+                   .styleSet(AAStyle.new
+                             .fontWeightSet(AAChartFontWeightTypeBold)
+                             .colorSet(AAColor.whiteColor)
+                             .fontSizeSet(@"16px"))
+                   .ySet(@(-35))
+                   .alignSet(AAChartAlignTypeCenter)
+                   .verticalAlignSet(AAChartVerticalAlignTypeTop)
+                   .overflowSet(@"none")
+                   .cropSet(false)
+                   )
+    .ySet(@26.5);
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .backgroundColorSet(@"#4b2b7f")
+    .yAxisTitleSet(@"")//设置Y轴标题
+    .dataLabelsEnabledSet(false)//是否显示值
+    .tooltipEnabledSet(true)
+    .markerRadiusSet(@0)
+    .xAxisVisibleSet(false)
+    .yAxisVisibleSet(false)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .nameSet(@"Virtual Data")
+                 .lineWidthSet(@6)
+                 .colorSet(@"rgba(255,215,0,1)")
+                 .fillColorSet((id)gradientColorDic1)// gold color, alpha: 1.0
+                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+                 ]);
+}
 
 
 
