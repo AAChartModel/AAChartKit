@@ -859,24 +859,20 @@
 }
 
 - (AAChartModel *)adjustYAxisMaxAndMinValues {
-   NSArray *categoriesArr = @[
-       AAChartTypeColumn,
-       AAChartTypeBar,
-       AAChartTypeArea,
-       AAChartTypeAreaspline,
-       AAChartTypeLine,
-       AAChartTypeSpline,
-       AAChartTypeScatter,
-       AAChartTypePie,
-       AAChartTypeBubble,
-       AAChartTypePyramid,
-       AAChartTypeFunnel,
-       AAChartTypeColumnrange,
-       AAChartTypeArearange,
-       AAChartTypeAreasplinerange,
-       AAChartTypeBoxplot,
-       AAChartTypeWaterfall,
-       AAChartTypePolygon,
+   NSArray *categoriesArr =
+  @[
+   @"孤岛危机",
+   @"使命召唤",
+   @"荣誉勋章",
+   @"狙击精英",
+   @"神秘海域",
+   @"最后生还者",
+   @"巫师3狂猎",
+   @"对马之魂",
+   @"蝙蝠侠阿甘骑士",
+   @"地狱边境",
+   @"闪客",
+   @"忍者之印"
    ];
     
     return AAChartModel.new
@@ -885,6 +881,8 @@
     .subtitleSet(@"")
     .legendEnabledSet(false)
     .yAxisVisibleSet(true)
+    .markerRadiusSet(@6)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .easyGradientColorsSet(true)
     .zoomTypeSet(AAChartZoomTypeXY)
     .tooltipValueSuffixSet(@"kg")
