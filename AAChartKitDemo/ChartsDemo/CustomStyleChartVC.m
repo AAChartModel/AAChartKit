@@ -907,9 +907,10 @@
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                startColorString:@"rgba(255,215,0,0.1)" // gold color, alpha: 0.1
                                  endColorString:@"rgba(255,215,0, 0.6)"]; // gold color, alpha: 0.6
-    
-    NSString *formatStr = [NSString stringWithFormat:@"%@%@",
-                           @"<span style=""color:#FFFFFF;font-weight:thin;font-size:25px"">▲{y}</span>",
+        
+    NSString *formatStr = [NSString stringWithFormat:@"%@%@%@",
+                           @"<img src=""https://www.highcharts.com/samples/graphics/sun.png"">",
+                           @"<span style=""color:#FFFFFF;font-weight:thin;font-size:25px"">{y}</span>",
                            @"<span style=""color:#FFFFFF;font-weight:thin;font-size:17px""> m</span>"
                            ];
     
