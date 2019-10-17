@@ -50,6 +50,7 @@
         case 9: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
         case 10: return [self configureSpecialStyleTrianglePolarChart];//外部显示六边形边框的三角形雷达图
         case 11: return [self customDoubleXAxesChart];//双 X 轴镜像条形图
+        case 12: return [self customAreaChartXAxisLabelsTextUnitSuffix];//自定义X轴文字单位后缀
         default:
             return nil;
     }
@@ -818,5 +819,53 @@
     
     return aaOptions;
 }
+
+- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"#00b0ff"];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .titleSet(@"Custom X Axis Labels Text")//图表主标题
+    .subtitleSet(@"By Using JavaScript Formatter Function")//图表副标题
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .seriesSet(@[
+                 AASeriesElement.new
+                 .lineWidthSet(@1.5)
+                 .colorSet(@"#00b0ff")
+                 .fillColorSet((id)gradientColorDic1)
+                 .nameSet(@"2018")
+                 .dataSet(
+                          @[@1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
+                            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
+                            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
+                            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
+                            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
+                            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
+                            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
+                 ]
+               );
+    
+    
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis.labels
+    .formatterSet(@AAJSFunc(function () {
+        let xValue = this.value;
+        if (xValue%3 == 0) {
+            return xValue + " sec"
+        } else {
+            return "";
+        }
+    }))
+    ;
+    
+    return aaOptions;
+}
+
 
 @end
