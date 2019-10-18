@@ -77,18 +77,18 @@
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
-    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .backgroundColorSet(@"#4b2b7f")
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
-    .touchEventEnabledSet(true)//支持用户点击事件
+    .yAxisMaxSet(@95)
+    .markerRadiusSet(@8)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .seriesSet(@[
                  AASeriesElement.new
                  .nameSet(@"2017")
-                 .dataSet(@[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
+                 .lineWidthSet(@5)
+                 .dataSet(@[@60, @51, @52, @53, @64, @84, @65, @68, @63, @47, @72, @60, @65, @74, @66, @65, @71, @59, @65, @77, @52, @53, @58, @53]),
                  ]
                );
     
