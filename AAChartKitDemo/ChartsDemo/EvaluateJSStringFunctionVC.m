@@ -182,38 +182,57 @@
     //refer to highcharts sample  https://jshare.com.cn/hcharts.cn/hhhhov
     NSString *jsFunctionStr =
     @AAJSFunc((
-               function render(aaGlobalChart, point, text) {
-        return aaGlobalChart.renderer.label(text + ': ' + point.y, point.plotX + aaGlobalChart.plotLeft - 20, point.plotY + aaGlobalChart.plotTop - 45, 'callout', point.plotX + aaGlobalChart.plotLeft, point.plotY + aaGlobalChart.plotTop).css({
+function render(aaGlobalChart, point, text) {
+    return aaGlobalChart.renderer
+    .label(text
+           + ': '
+           + point.y, point.plotX
+           + aaGlobalChart.plotLeft
+           - 20,
+           
+           point.plotY
+           + aaGlobalChart.plotTop - 45,
+           
+           'callout', point.plotX
+           + aaGlobalChart.plotLeft,
+           
+           point.plotY
+           + aaGlobalChart.plotTop)
+    .css({
         color: '#FFFFFF',
         align: 'center',
-        }).attr({
+    })
+    .attr({
         fill: 'rgba(0, 0, 0, 0.75)',
         padding: 8,
         r: 5,
         zIndex: 6
-        }).add();
-    }
-               function renderMinMaxLabel(aaGlobalChart) {
-                   var min = 1000,
-                   max = 0,
-                   pointsToShow = [0, 0],
-                   points = aaGlobalChart.series[0].points;
-                   Highcharts.each(points,
-                                   function(p) {
-                                       if (p.y > max) {
-                                           pointsToShow[0] = p.index;
-                                           max = p.y;
-                                       }
-                                       if (p.y < min) {
-                                           pointsToShow[1] = p.index;
-                                           min = p.y;
-                                       }
-                                   });
-                   render(aaGlobalChart, points[pointsToShow[0]], 'Max');
-                   render(aaGlobalChart, points[pointsToShow[1]], 'Min');
-               }
+    }).add();
+}
                
-               renderMinMaxLabel(aaGlobalChart);));
+function renderMinMaxLabel(aaGlobalChart) {
+    var min = 1000,
+    max = 0,
+    pointsToShow = [0, 0],
+    points = aaGlobalChart.series[0].points;
+    Highcharts.each(points,
+    function(p) {
+        if (p.y > max) {
+            pointsToShow[0] = p.index;
+            max = p.y;
+        }
+        if (p.y < min) {
+            pointsToShow[1] = p.index;
+            min = p.y;
+        }
+    });
+    var maxValuePoint = points[pointsToShow[0]];
+    var minValuePoint = points[pointsToShow[1]];
+    render(aaGlobalChart, maxValuePoint, 'Max Value');
+    render(aaGlobalChart, minValuePoint, 'Min Value');
+}
+
+    renderMinMaxLabel(aaGlobalChart);));
     
     return jsFunctionStr;
 }
