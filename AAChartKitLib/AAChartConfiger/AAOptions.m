@@ -125,12 +125,17 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
 + (void)configureTheStyleOfConnectNodeWithChartModel:(AAChartModel *)aaChartModel
                                          plotOptions:(AAPlotOptions *)aaPlotOptions {
+    AAChartType aaChartType = aaChartModel.chartType;
     //数据点标记相关配置，只有折线图、曲线图、折线区域填充图、曲线区域填充图、散点图才有数据点标记
-    if (   aaChartModel.chartType == AAChartTypeArea
-        || aaChartModel.chartType == AAChartTypeAreaspline
-        || aaChartModel.chartType == AAChartTypeLine
-        || aaChartModel.chartType == AAChartTypeSpline
-        || aaChartModel.chartType == AAChartTypeScatter) {
+    if (   aaChartType == AAChartTypeArea
+        || aaChartType == AAChartTypeAreaspline
+        || aaChartType == AAChartTypeLine
+        || aaChartType == AAChartTypeSpline
+        || aaChartType == AAChartTypeScatter
+        || aaChartType == AAChartTypeArearange
+        || aaChartType == AAChartTypeAreasplinerange
+        || aaChartType == AAChartTypePolygon
+        ) {
         AAMarker *aaMarker = AAMarker.new
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(aaChartModel.markerSymbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -216,10 +221,21 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
 + (void)configureAxisContentAndStyleWithAAOptions:(AAOptions *)aaOptions
                                      AAChartModel:(AAChartModel *)aaChartModel {
-    
-    if (   aaChartModel.chartType != AAChartTypePie
-        && aaChartModel.chartType != AAChartTypePyramid
-        && aaChartModel.chartType != AAChartTypeFunnel) {
+    AAChartType aaChartType = aaChartModel.chartType;
+    if (   aaChartType == AAChartTypeColumn
+        || aaChartType == AAChartTypeBar
+        || aaChartType == AAChartTypeArea
+        || aaChartType == AAChartTypeAreaspline
+        || aaChartType == AAChartTypeLine
+        || aaChartType == AAChartTypeSpline
+        || aaChartType == AAChartTypeScatter
+        || aaChartType == AAChartTypeBubble
+        || aaChartType == AAChartTypeColumnrange
+        || aaChartType == AAChartTypeArearange
+        || aaChartType == AAChartTypeAreasplinerange
+        || aaChartType == AAChartTypeBoxplot
+        || aaChartType == AAChartTypeWaterfall
+        || aaChartType == AAChartTypePolygon) {
         AAXAxis *aaXAxis = AAXAxis.new
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
