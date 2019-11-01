@@ -118,6 +118,15 @@
     return arr.count;
 }
 
+- (NSArray *) sectionIndexTitlesForTableView: (UITableView *)tableView {
+    NSMutableArray *listTitles = [[NSMutableArray alloc] init];
+    for (NSString *item in self.sectionTypeArr) {
+          NSString *title = [item substringToIndex: 1];
+          [listTitles addObject: title];
+    }
+    return listTitles;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
