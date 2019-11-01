@@ -69,7 +69,7 @@
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 30) {
+    if (self.selectedIndex == 31) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -112,6 +112,8 @@
         case 28: return [self configureStackingColumnChartDataLabelsOverflow];//允许DataLabels文字溢出绘图区
         case 29: return [self configureReversedBarChartDataLabelsStyle];//调整Y轴倒转的条形图的DataLabels风格样式
         case 30: return [self configureTripleYAxesMixedChart];//三条Y轴的混合图
+        case 31: return [self configureDoubleYAxesAndColumnLineMixedChart];//双Y轴柱形曲线混合图
+        
     }
     return nil;
 }
@@ -1843,6 +1845,169 @@
     ;
     return aaOptions;
 }
+
+- (AAOptions *)configureDoubleYAxesAndColumnLineMixedChart {
+    AAChart *aaChart = AAChart.new
+    .backgroundColorSet(@"#191E40");
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"");
+    
+    AALabels *aaLabels = AALabels.new
+    .enabledSet(true)
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.lightGrayColor));
+        
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .labelsSet(aaLabels)
+    .minSet(@0)
+    .categoriesSet(@[
+        @"市区",@"万州",@"江北",@"南岸",@"北碚",@"綦南",@"长寿",@"永川",@"璧山",@"江津",
+        @"城口",@"大足",@"垫江",@"丰都",@"奉节",@"合川",@"江津区",@"开州",@"南川",@"彭水",
+        @"黔江",@"石柱",@"铜梁",@"潼南",@"巫山",@"巫溪",@"武隆",@"秀山",@"酉阳",@"云阳",
+        @"忠县",@"川东",@"检修"]);
+    
+    AAStyle *aaYAxisTitleStyle = AAStyle.new
+      .colorSet(@"#1e90ff")//Title font color
+      .fontSizeSet(@"14px")//Title font size
+      .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+      .textOutlineSet(@"0px 0px contrast");
+
+    AAYAxis *yAxis1 = AAYAxis.new
+    .visibleSet(true)
+    .labelsSet(aaLabels)
+    .gridLineWidthSet(@0)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"已贯通 / 计划贯通")
+              .styleSet(aaYAxisTitleStyle));
+    
+     AAYAxis *yAxis2 = AAYAxis.new
+        .visibleSet(true)
+        .labelsSet(aaLabels)
+        .gridLineWidthSet(@0)
+        .titleSet(AAAxisTitle.new
+                  .textSet(@"贯通率")
+                  .styleSet(aaYAxisTitleStyle))
+        .oppositeSet(true);
+    
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new
+               .animationSet(AAAnimation.new
+                             .easingSet(AAChartAnimationBounce)
+                             .durationSet(@1000)
+                             )
+               )
+    .columnSet(AAColumn.new
+        .groupingSet(false)
+        .pointPaddingSet(@0)
+        .pointPlacementSet(@(0))
+               );
+    
+    AALegend *aaLegend = AALegend.new
+     .enabledSet(true)
+     .itemStyleSet(AAItemStyle.new
+                   .colorSet(AAColor.lightGrayColor))
+     .floatingSet(true)
+     .layoutSet(AAChartLayoutTypeHorizontal)
+     .alignSet(AAChartAlignTypeLeft)
+     .xSet(@30)
+     .verticalAlignSet(AAChartVerticalAlignTypeTop)
+     .ySet(@10);
+    
+    NSArray *stopsArr = @[@[@0.0, @"rgba(156,107,211,0.5)"],//颜色字符串设置支持十六进制类型和 rgba 类型
+                          @[@0.2, @"rgba(156,107,211,0.3)"],
+                          @[@1.0, @"rgba(156,107,211,0)"]];
+    NSDictionary *gradientColorDic1 =
+     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                      stopsArray:stopsArr];
+    
+    NSDictionary *gradientColorDic2 =
+     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                startColorString:@"#956FD4"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                  endColorString:@"#3EACE5"];
+    
+    NSArray *goalValuesArr = @[
+        @18092,@20728,@24045,@28348,@32808,
+        @36097,@39867,@44715,@48444,@50415,
+        @56061,@62677,@59521,@67560,@18092,
+        @20728,@24045,@28348,@32808,@36097,
+        @39867,@44715,@48444,@50415,@36097,
+        @39867,@44715,@48444,@50415,@50061,
+        @32677,@49521,@32808];
+    
+    NSArray *realValuesArr = @[
+        @4600,@5000,@5500,@6500,@7500,
+        @8500,@9900,@12500,@14000,@21500,
+        @23200,@24450,@25250,@33300,@4600,
+        @5000,@5500,@6500,@7500,@8500,
+        @9900,@22500,@14000,@21500,@8500,
+        @9900,@12500,@14000,@21500,@23200,
+        @24450,@25250,@7500];
+    
+    NSMutableArray *rateValuesArr = [NSMutableArray arrayWithCapacity:33];
+    
+    for (int i = 0; i < 33; i++) {
+        NSNumber *goalValueNum = goalValuesArr[i];
+        NSNumber *realValueNum = realValuesArr[i];
+        CGFloat goalValue = [goalValueNum doubleValue];
+        CGFloat realValue = [realValueNum doubleValue];
+        CGFloat rateValue = realValue / goalValue;
+        NSNumber *rateValueNum = @(rateValue);
+        [rateValuesArr addObject:rateValueNum];
+    }
+    
+    AASeriesElement *goalValuesElement = AASeriesElement.new
+    .nameSet(@"计划贯通")
+    .typeSet(AAChartTypeColumn)
+    .borderWidthSet(@0)
+    .borderRadiusSet(@4)
+    .colorSet((id)gradientColorDic1)
+    .yAxisSet(@0)
+    .dataSet(goalValuesArr);
+    
+    AASeriesElement *realValuesElement = AASeriesElement.new
+    .nameSet(@"已贯通")
+    .typeSet(AAChartTypeColumn)
+    .borderWidthSet(@0)
+    .borderRadiusSet(@4)
+    .colorSet((id)gradientColorDic2)
+    .yAxisSet(@0)
+    .dataSet(realValuesArr);
+    
+    AASeriesElement *rateValuesElement = AASeriesElement.new
+      .nameSet(@"贯通率")
+      .typeSet(AAChartTypeSpline)
+      .markerSet(AAMarker.new
+                 .radiusSet(@7)//曲线连接点半径，默认是4
+                 .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                 .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+                 .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                 .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                 )
+      .colorSet(@"#F02FC2")
+      .yAxisSet(@1)
+      .dataSet(rateValuesArr);
+    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxis1,yAxis2])
+    .tooltipSet(aaTooltip)
+    .plotOptionsSet(aaPlotOptions)
+    .legendSet(aaLegend)
+    .seriesSet(@[goalValuesElement,
+                 realValuesElement,
+                 rateValuesElement])
+    ;
+    return aaOptions;
+}
+
 
 
 @end

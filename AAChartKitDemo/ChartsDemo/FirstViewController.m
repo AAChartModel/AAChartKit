@@ -395,7 +395,8 @@
                                 @"X轴带有颜色标志带的混合图表",
                                 @"允许DataLabels文字溢出绘图区",
                                 @"调整Y轴倒转的条形图的DataLabels风格样式",
-                                @"Triple Y Axes Mixed Chart---三条 Y 轴的混合图"
+                                @"Triple Y Axes Mixed Chart---三条 Y 轴的混合图",
+                                @"Double Y Axes And Column Line Mixed Chart双Y轴柱形曲线混合图",
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
