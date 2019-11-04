@@ -104,7 +104,7 @@ _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 3. Configure the chart model properties: `AAChartModel`                                          
 ```objective-c
 AAChartModel *aaChartModel= AAObject(AAChartModel)
-.chartTypeSet(AAChartTypeColumn)
+.chartTypeSet(AAChartTypeArea)
 .titleSet(@"THE HEAT OF PROGRAMMING LANGUAGE")
 .subtitleSet(@"Virtual Data")
 .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])
@@ -131,7 +131,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
 
-🌹🌹🌹Congratulations! Everything was done!!! You will get what you want!!!🌈🌈🌈
+🎉🎉🎉 Congratulations! Everything was done!!! You will get what you want!!! 🌈🌈🌈
 
 ### Update chart content 
 if you want to refresh chart content,you should do something as follow.According to your actual needs, select the function that fits you.
