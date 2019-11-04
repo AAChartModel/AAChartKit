@@ -30,7 +30,7 @@
 
 * 🚀        **功能强大,类型多样** -. 支持`柱状图` 、`条形图` 、`折线图` 、`曲线图` 、`折线填充图` 、`曲线填充图`、`雷达图`、`极地图`、`扇形图`、`气泡图`、`散点图`、`区域范围图`、`柱形范围图`、`面积范围图`、`面积范围均线图`、`直方折线图`、`直方折线填充图`、`箱线图`、`瀑布图`、`热力图`、`桑基图`、`金字塔图`、`漏斗图`、等二十几种类型的图形,不可谓之不多.
 
-*  📝      **现代化声明式语法**. 与过往的命令式编程技巧不同, 在 AAChartKit 中绘制任意一款自定义图表, 你完全无需关心挠人的内在实现细节. 描述你所要得到的, 你便得到你所描述的.
+* 📝       **现代化声明式语法**. 与过往的命令式编程技巧不同, 在 AAChartKit 中绘制任意一款自定义图表, 你完全无需关心挠人的内在实现细节. 描述你所要得到的, 你便得到你所描述的.
 
 * 🔬       **细致入微的用户自定义功能**. 基础的`主标题`、`副标题`、`X 轴`、`Y 轴`自不必谈, 从纵横的`交互准星线`、跟手的`浮动提示框`, 到切割数值的`值域分割线`、`值域分割颜色带`, 再到细小的`线条`类型,`标记点`样式,  各种细微的图形子组件, 应有尽有. 以至于不论是`极简`、抽象的小清新风格, 还是纷繁`复杂`的严肃商业派头, 均可完美驾驭.
 
@@ -133,7 +133,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 /*图表视图对象调用图表模型对象,绘制最终图形*/
 [_aaChartView aa_drawChartWithChartModel:aaChartModel];
 ```
-🌹🌹🌹 好了,至此,有关于绘制图形的任务,一切皆已经搞定!!! 你将得到你想要的任意图形!!!🌈🌈🌈
+🎉🎉🎉 好了,至此,有关于绘制图形的任务,一切皆已经搞定!!! 你将得到你想要的任意图形!!! 🌈🌈🌈
 
 ### 更新图形内容
 如果你需要更新图表内容,你应该阅读以下内容,根据你的实际需要,选择调用适合你的函数
@@ -250,8 +250,10 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 
 ### 支持通过`JavaScript` 函数来自定义 `AATooltip`视图显示效果
 有时系统默认的 `tooltip` 浮动提示框的显示效果无法满足使用者的特殊自定义要求,此时可以通过添加 `AATooltip` 的 `headerFormat` 和 `pointFormat`字符串属性来自定义浮动提示框的显示内容,如仍旧不能满足需求,更可以通过 `AATooltip` 的 `formatter` 函数来实现视图的特殊定制化
-例如,如下配置 `AATooltip` 实例对象属性
-```objective-c
+例如
+
+* 如下配置 `AATooltip` 实例对象属性
+```js
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
@@ -276,15 +278,45 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 即可完成图表的浮动提示框的特殊定制化.得到的浮动提示框的视觉效果图如下👇
 ![Custom Tooltip Style](https://user-images.githubusercontent.com/16357599/56589690-543c5880-6618-11e9-9d18-6bc0fe2fa53f.png)
 
+* 如下配置 `AATooltip` 实例对象属性
+```js
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let colorsArr = [];
+        colorsArr.push("mediumspringgreen");
+        colorsArr.push("deepskyblue");
+        colorsArr.push("red");
+        colorsArr.push("sandybrown");
+        let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        for (let i = 0;i < 4;i++) {
+            let thisPoint = this.points[i];
+            let yValue = thisPoint.y;
+            if (yValue != 0) {
+                let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+                let spanStyleEndStr = '</span> <br/>';
+                wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+            }
+        }
+        return wholeContentString;
+    }))
+    .backgroundColorSet(@"#050505")
+    .borderColorSet(@"#050505")
+    ;
+```
+即可完成图表的浮动提示框的特殊定制化.得到的浮动提示框的视觉效果图如下👇
+![colorfulTooltipChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/colorfulTooltipChart.png)
+
 ### 支持添加值域分割功能
 
-* 添加颜色带🎀值域分割
+* 添加值域分割颜色带 `plotBands 🎀`
 ![plotBandsChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotBandsChart.png)
 
-
-* 添加颜色线🧶值域分割
+* 添加值域分割颜色线 `plotLines 🧶`
 ![plotLinesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotLinesChart.png)
 
+* 添加值域分割数据列分区 `zones 🧱`
+![seriesZonesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/seriesZonesChart.png)
 
   
 ### 当前已支持的图表类型有十种以上,说明如下
