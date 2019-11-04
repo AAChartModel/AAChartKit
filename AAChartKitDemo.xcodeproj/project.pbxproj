@@ -50,7 +50,7 @@
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
 		44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */; };
-		44C8C491226F4D4100AB9E50 /* SupportJSFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */; };
+		44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */; };
 		44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F5F9A021D80BDB002A8D25 /* AALabel.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
 		64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245ACB1EC36307005B8021 /* IMG_1875.JPG */; };
@@ -184,8 +184,8 @@
 		44AA41DE22CB0B3B00458C0E /* AAChartKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAChartKitDemo.entitlements; sourceTree = "<group>"; };
 		44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgorithmVC.h; sourceTree = "<group>"; };
 		44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlgorithmVC.m; sourceTree = "<group>"; };
-		44C8C48F226F4D4100AB9E50 /* SupportJSFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportJSFunctionVC.h; sourceTree = "<group>"; };
-		44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportJSFunctionVC.m; sourceTree = "<group>"; };
+		44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFormatterFunctionVC.h; sourceTree = "<group>"; };
+		44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFormatterFunctionVC.m; sourceTree = "<group>"; };
 		44F5F99F21D80BDB002A8D25 /* AALabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALabel.h; sourceTree = "<group>"; };
 		44F5F9A021D80BDB002A8D25 /* AALabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AALabel.m; sourceTree = "<group>"; };
 		64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1874.JPG; sourceTree = "<group>"; };
@@ -379,8 +379,8 @@
 				278989BA204F8DBA003940CC /* ChartListVC.m */,
 				44209B0721B0D2DD004EC321 /* ChartSeriesHideOrShowVC.h */,
 				44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */,
-				44C8C48F226F4D4100AB9E50 /* SupportJSFunctionVC.h */,
-				44C8C490226F4D4100AB9E50 /* SupportJSFunctionVC.m */,
+				44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */,
+				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
 				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
 				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
@@ -669,7 +669,7 @@
 				1E66D20E210AF4ED007EAB8C /* AAAnimation.m in Sources */,
 				27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
-				44C8C491226F4D4100AB9E50 /* SupportJSFunctionVC.m in Sources */,
+				44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,

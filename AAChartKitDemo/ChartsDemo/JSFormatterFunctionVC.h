@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SupportJSFunctionVC : UIViewController
+@interface JSFormatterFunctionVC : UIViewController
 @property (nonatomic, assign) NSInteger selectedIndex;
 
 @end

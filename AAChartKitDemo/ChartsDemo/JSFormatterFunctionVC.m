@@ -6,17 +6,17 @@
 //  Copyright © 2019 Danny boy. All rights reserved.
 //
 
-#import "SupportJSFunctionVC.h"
+#import "JSFormatterFunctionVC.h"
 #import "AAChartKit.h"
 
-@interface SupportJSFunctionVC ()
+@interface JSFormatterFunctionVC ()
     
 @property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
     
 @end
 
-@implementation SupportJSFunctionVC
+@implementation JSFormatterFunctionVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
