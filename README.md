@@ -36,7 +36,7 @@ AAChartKit is an elegant and friendly (user-friendly && enviroment-friendly) cha
 
 * 🦋  **Minimalist**. `AAChartView + AAChartModel = Chart`. The AAChartKit follows a minimalist formula: Chart view + Chart model = The chart you want, just like the powerful and beautiful charts lib [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift).
 
-* 🖱 **Interaction event callback**. Support for monitoring [user click events and single finger move over events](https://github.com/AAChartModel/AAChartKit#support-user-click-events-and-move-over-events), which can be used to achieve double charts linked-working and even multiple charts linkage, as well as other more complex custom user interaction effects.
+* 🖱 **Interaction event callback**. Support for monitoring [user click events and single finger move over events](#support-user-click-events-and-move-over-events), which can be used to achieve double charts linked-working and even multiple charts linkage, as well as other more complex custom user interaction effects.
 
 
 ***
@@ -253,12 +253,14 @@ The received touch events message contain following content
 
 ### Support for custom the style of chart `AATooltip` through `JavaScript` function
 
-As we all know, AAInfographics support using `HTML` String.  Most of time, the `headerFormat` 、`pointFormat`、`footerFormat` HTML string is enough for customizing chart tooltip string content, However, sometimes the needs of APP is so weird to satified, in this time, you can even customize the chart tooltip style through `JavaScript` function. 
+As we all know, AAChartKit support using `HTML` String.  Most of time, the `headerFormat` 、`pointFormat`、`footerFormat` HTML string is enough for customizing chart tooltip string content, However, sometimes the needs of APP is so weird to satified, in this time, you can even customize the chart tooltip style through `JavaScript` function. 
 
-For example, configuring AATooltip instance object properties as follow:
+For example
+
+* configuring AATooltip instance object properties as follow:
 
 
-```objc
+```js
  /*Custom Tooltip Style ---*/
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
@@ -284,6 +286,36 @@ For example, configuring AATooltip instance object properties as follow:
 you can get the customized tooltip style chart like this👇
 ![](https://user-images.githubusercontent.com/16357599/56589690-543c5880-6618-11e9-9d18-6bc0fe2fa53f.png)
 
+* configuring AATooltip instance object properties as follow:
+
+```js
+ aaOptions.tooltip
+ .useHTMLSet(true)
+ .formatterSet(@AAJSFunc(function () {
+     let colorsArr = [];
+     colorsArr.push("mediumspringgreen");
+     colorsArr.push("deepskyblue");
+     colorsArr.push("red");
+     colorsArr.push("sandybrown");
+     let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+     for (let i = 0;i < 4;i++) {
+         let thisPoint = this.points[i];
+         let yValue = thisPoint.y;
+         if (yValue != 0) {
+             let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+             let spanStyleEndStr = '</span> <br/>';
+             wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+         }
+     }
+     return wholeContentString;
+ }))
+ .backgroundColorSet(@"#050505")
+ .borderColorSet(@"#050505")
+ ;
+```
+
+you can get the customized tooltip style chart like this👇  
+![colorfulTooltipChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/colorfulTooltipChart.png)
 
 ### Support value range segmentation 
 
@@ -291,9 +323,11 @@ you can get the customized tooltip style chart like this👇
 * chart with value range segmentation `bands 🎀`
 ![plotBandsChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotBandsChart.png)
 
-
 * chart with value range segmentation `lines 🧶`
 ![plotLinesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/plotLinesChart.png)
+
+* chart with value range segmentation `zones 🧱`
+![seriesZonesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/seriesZonesChart.png)
 
 ### Supported chart types for now
 ```objective-c
