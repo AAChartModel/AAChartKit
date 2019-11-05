@@ -35,5 +35,6 @@
 @interface MixedChartVC : UIViewController
 
 @property (nonatomic, assign) NSInteger chartTypeIndex;
+@property (nonatomic, strong) NSArray *navigationItemTitleArr;
 
 @end

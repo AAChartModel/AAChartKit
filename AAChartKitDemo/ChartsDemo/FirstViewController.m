@@ -172,6 +172,7 @@
             /*图表数据动态刷新*/
             MixedChartVC *vc = MixedChartVC.new;
             vc.chartTypeIndex = indexPath.row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
