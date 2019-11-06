@@ -47,7 +47,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.navigationItemTitleArr[self.chartType];
-
+    
     self.aaChartView = [self setUpAAChartView];
     self.aaChartModel = [self setUpAAChartModelWithIndex:self.chartType];
     [self.aaChartView aa_drawChartWithChartModel:self.aaChartModel];
@@ -111,43 +111,43 @@
         case 24: return [self configureHexagonRadarChart];
         case 25: return [self adjustYAxisMaxAndMinValues];
         case 26: return [self customSpecialStyleDataLabelOfSingleDataElementChart];
-
+            
         default:
             return nil;
     }
 }
 
 - (AAChartModel *)setUpColorfulBarChart {
-    NSArray *colorsNameArr =
-    @[@"red",
-      @"orange",
-      @"yellow",
-      @"green",
-      @"cyan",
-      @"blue",
-      @"purple",
-      @"gray",
-      @"darkGray",
-      @"lightGray",
-      @"magenta",
-      @"brown",
-      @"black"];
+    NSArray *colorsNameArr = @[
+        @"red",
+        @"orange",
+        @"yellow",
+        @"green",
+        @"cyan",
+        @"blue",
+        @"purple",
+        @"gray",
+        @"darkGray",
+        @"lightGray",
+        @"magenta",
+        @"brown",
+        @"black"];
     
-    NSArray *colorsArr =
-    @[[AAColor redColor],
-      [AAColor orangeColor],
-      [AAColor yellowColor],
-      [AAColor greenColor],
-      [AAColor cyanColor],
-      [AAColor blueColor],
-      [AAColor purpleColor],
-      [AAColor grayColor],
-      [AAColor darkGrayColor],
-      [AAColor lightGrayColor],
-      [AAColor magentaColor],
-      [AAColor brownColor],
-      [AAColor blackColor]
-      ];
+    NSArray *colorsArr = @[
+        [AAColor redColor],
+        [AAColor orangeColor],
+        [AAColor yellowColor],
+        [AAColor greenColor],
+        [AAColor cyanColor],
+        [AAColor blueColor],
+        [AAColor purpleColor],
+        [AAColor grayColor],
+        [AAColor darkGrayColor],
+        [AAColor lightGrayColor],
+        [AAColor magentaColor],
+        [AAColor brownColor],
+        [AAColor blackColor]
+    ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
@@ -159,63 +159,63 @@
     .colorsThemeSet(colorsArr)
     .stackingSet(AAChartStackingTypePercent)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo")
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                 .colorByPointSet(@true)
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"Tokyo")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+        .colorByPointSet(@true)
+    ]);
 }
 
 - (AAChartModel *)setUpColorfulGradientColorChart {
-    NSArray *gradientColorNamesArr =
-    @[@"oceanBlue",
-      @"sanguine",
-      @"lusciousLime",
-      @"purpleLake",
-      @"freshPapaya",
-      @"ultramarine",
-      @"pinkSugar",
-      @"lemonDrizzle",
-      @"victoriaPurple",
-      @"springGreens",
-      @"mysticMauve",
-      @"reflexSilver",
-      @"newLeaf",
-      @"cottonCandy",
-      @"pixieDust",
-      @"fizzyPeach",
-      @"sweetDream",
-      @"firebrick",
-      @"wroughtIron",
-      @"deepSea",
-      @"coastalBreeze",
-      @"eveningDelight",
-      ];
+    NSArray *gradientColorNamesArr = @[
+        @"oceanBlue",
+        @"sanguine",
+        @"lusciousLime",
+        @"purpleLake",
+        @"freshPapaya",
+        @"ultramarine",
+        @"pinkSugar",
+        @"lemonDrizzle",
+        @"victoriaPurple",
+        @"springGreens",
+        @"mysticMauve",
+        @"reflexSilver",
+        @"newLeaf",
+        @"cottonCandy",
+        @"pixieDust",
+        @"fizzyPeach",
+        @"sweetDream",
+        @"firebrick",
+        @"wroughtIron",
+        @"deepSea",
+        @"coastalBreeze",
+        @"eveningDelight",
+    ];
     
-    NSArray *gradientColorArr =
-    @[[AAGradientColor oceanBlueColor],
-      [AAGradientColor sanguineColor],
-      [AAGradientColor lusciousLimeColor],
-      [AAGradientColor purpleLakeColor],
-      [AAGradientColor freshPapayaColor],
-      [AAGradientColor ultramarineColor],
-      [AAGradientColor pinkSugarColor],
-      [AAGradientColor lemonDrizzleColor],
-      [AAGradientColor victoriaPurpleColor],
-      [AAGradientColor springGreensColor],
-      [AAGradientColor mysticMauveColor],
-      [AAGradientColor reflexSilverColor],
-      [AAGradientColor newLeafColor],
-      [AAGradientColor cottonCandyColor],
-      [AAGradientColor pixieDustColor],
-      [AAGradientColor fizzyPeachColor],
-      [AAGradientColor sweetDreamColor],
-      [AAGradientColor firebrickColor],
-      [AAGradientColor wroughtIronColor],
-      [AAGradientColor deepSeaColor],
-      [AAGradientColor coastalBreezeColor],
-      [AAGradientColor eveningDelightColor],
-      ];
+    NSArray *gradientColorArr = @[
+        [AAGradientColor oceanBlueColor],
+        [AAGradientColor sanguineColor],
+        [AAGradientColor lusciousLimeColor],
+        [AAGradientColor purpleLakeColor],
+        [AAGradientColor freshPapayaColor],
+        [AAGradientColor ultramarineColor],
+        [AAGradientColor pinkSugarColor],
+        [AAGradientColor lemonDrizzleColor],
+        [AAGradientColor victoriaPurpleColor],
+        [AAGradientColor springGreensColor],
+        [AAGradientColor mysticMauveColor],
+        [AAGradientColor reflexSilverColor],
+        [AAGradientColor newLeafColor],
+        [AAGradientColor cottonCandyColor],
+        [AAGradientColor pixieDustColor],
+        [AAGradientColor fizzyPeachColor],
+        [AAGradientColor sweetDreamColor],
+        [AAGradientColor firebrickColor],
+        [AAGradientColor wroughtIronColor],
+        [AAGradientColor deepSeaColor],
+        [AAGradientColor coastalBreezeColor],
+        [AAGradientColor eveningDelightColor],
+    ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
@@ -226,12 +226,12 @@
     .yAxisTitleSet(@"gradient color")
     .stackingSet(AAChartStackingTypePercent)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"ElementOne")
-                 .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,
-                            @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3,])
-                 .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"ElementOne")
+        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,
+                   @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3,])
+        .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+    ]);
 }
 
 - (AAChartModel *)setUpDiscontinuousDataChart {
@@ -241,16 +241,16 @@
     .dataLabelsEnabledSet(true)//是否显示值
     .tooltipEnabledSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"所有专业")
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2,[NSNull null],[NSNull null],[NSNull null],[NSNull null], @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
-                 .colorSet((id)[AAGradientColor deepSeaColor])
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"所有专业")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2,[NSNull null],[NSNull null],[NSNull null],[NSNull null], @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
+        .colorSet((id)[AAGradientColor deepSeaColor])
+    ]);
 }
 
 - (AAChartModel *)configureMixedLineChart {
     return AAChartModel.new
-//    .connectNullsSet(true)//设置折线是否断点重连
+//        .connectNullsSet(true)//设置折线是否断点重连
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"虚拟数据")
@@ -258,21 +258,21 @@
     .yAxisTitleSet(@"摄氏度")
     .dataLabelsEnabledSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"本专业")
-                 .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
-                 .zoneAxisSet(@"x")
-                 .colorSet((id)AAGradientColor.freshPapayaColor)
-                 .lineWidthSet(@5)
-                 .zonesSet(@[@{@"value": @8},
-                             @{@"dashStyle": AAChartLineDashStyleTypeDot}
-                             ]),
-                 AASeriesElement.new
-                 .nameSet(@"所有专业")
-                 .colorSet((id)AAGradientColor.pixieDustColor)
-                 .lineWidthSet(@5)
-                 .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"本专业")
+        .dataSet(@[@45,@88,@49,@43,@65,@56,@47,@28,@49,@44,@89,@55])
+        .zoneAxisSet(@"x")
+        .colorSet((id)AAGradientColor.freshPapayaColor)
+        .lineWidthSet(@5)
+        .zonesSet(@[@{@"value": @8},
+                    @{@"dashStyle": AAChartLineDashStyleTypeDot}
+        ]),
+        AASeriesElement.new
+        .nameSet(@"所有专业")
+        .colorSet((id)AAGradientColor.pixieDustColor)
+        .lineWidthSet(@5)
+        .dataSet(@[[NSNull null],[NSNull null],@100,@109,@89,[NSNull null],[NSNull null],@120,[NSNull null],[NSNull null],[NSNull null],[NSNull null]])
+    ]);
 }
 
 - (AAChartModel *)configureColorfulColumnChart {
@@ -283,11 +283,11 @@
     .colorsThemeSet([AAEasyTool configureTheRandomColorArrayWithColorNumber:14])
     .easyGradientColorsSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"ElementOne")
-                 .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
-                 .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"ElementOne")
+        .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+        .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
+    ]);
 }
 
 - (AAChartModel *)configureGradientColorBarChart {
@@ -298,41 +298,40 @@
     .borderRadiusSet(@5)
     .xAxisReversedSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"2020")
-                 .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
-                 .colorSet((id)[AAGradientColor oceanBlueColor]),
-                 AASeriesElement.new
-                 .nameSet(@"2021")
-                 .dataSet(@[@111,@83,@187,@163,@151,@191,@173,@157,@143,@131,@121,@113,@97,@93])
-                 .colorSet((id)[AAGradientColor sanguineColor]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+        .colorSet((id)[AAGradientColor oceanBlueColor]),
+        AASeriesElement.new
+        .nameSet(@"2021")
+        .dataSet(@[@111,@83,@187,@163,@151,@191,@173,@157,@143,@131,@121,@113,@97,@93])
+        .colorSet((id)[AAGradientColor sanguineColor]),
+    ]);
 }
 
 - (AAChartModel *)configureHavePlotLinesChart {
-    NSArray *aaPlotLinesArr =
-    @[AAPlotLinesElement.new
-      .colorSet(@"#FF0000")//颜色值(16进制)
-      .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
-      .widthSet(@(1)) //标示线粗细
-      .valueSet(@(10)) //所在位置
-      .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
-      .labelSet(AALabel.new
-                .textSet(@"标示线1")
-                .styleSet(AAStyle.new
-                          .colorSet(@"#ff0000")))
-      ,
-      AAPlotLinesElement.new
-      .colorSet(@"#FF0000")
-      .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
-      .widthSet(@(1))
-      .valueSet(@(20))
-      .labelSet(AALabel.new
-                .textSet(@"标示线2")
-                .styleSet(AAStyle.new
-                          .colorSet(@"#00ff00")))
-      ];
+    NSArray *aaPlotLinesArr = @[
+        AAPlotLinesElement.new
+        .colorSet(@"#FF0000")//颜色值(16进制)
+        .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
+        .widthSet(@(1)) //标示线粗细
+        .valueSet(@(10)) //所在位置
+        .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+        .labelSet(AALabel.new
+                  .textSet(@"标示线1")
+                  .styleSet(AAStyle.new
+                            .colorSet(@"#ff0000")))
+        ,
+        AAPlotLinesElement.new
+        .colorSet(@"#FF0000")
+        .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+        .widthSet(@(1))
+        .valueSet(@(20))
+        .labelSet(AALabel.new
+                  .textSet(@"标示线2")
+                  .styleSet(AAStyle.new
+                            .colorSet(@"#00ff00")))
+    ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
@@ -346,14 +345,16 @@
     .dataLabelsEnabledSet(true)
     .yAxisPlotLinesSet(aaPlotLinesArr)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"2017")
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
-                 .lineWidthSet(@5)
-                 .zonesSet(@[@{@"value": @10,@"color": @"#EA007B"},
-                             @{@"value": @20,@"color": @"#FDC20A"},
-                             @{@"color": @"#F78320"}]),
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
+        .lineWidthSet(@5)
+        .zonesSet(@[
+            @{@"value": @10,@"color": @"#EA007B"},
+            @{@"value": @20,@"color": @"#FDC20A"},
+            @{@"color": @"#F78320"}
+        ]),
+    ]);
 }
 
 - (AAChartModel *)configrueWithMinusNumberChart {
@@ -369,23 +370,22 @@
     .yAxisTitleSet(@"")
     .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B"])
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"2017")
-                 .dataSet(@[@0, @(-7.5), @(-1.0), @3.7, @0, @(-3), @8, @0,@(-3.6), @4, @(-2), @0]),
-                 AASeriesElement.new
-                 .nameSet(@"2018")
-                 .dataSet(@[@0, @(-2.2), @2, @(-2.2), @0, @(-1.5), @0, @2.4, @(-1), @3, @(-1), @0]),
-                 AASeriesElement.new
-                 .nameSet(@"2019")
-                 .dataSet(@[@0, @2.3, @0, @1.2, @(-1), @3, @0, @(-3.3), @0, @2, @(-0.3), @0]),
-                 AASeriesElement.new
-                 .nameSet(@"2020")
-                 .dataSet(@[@0, @10, @0.13,@2,@0, @2, @0, @3.7, @0, @1, @(-3), @0]),
-                 AASeriesElement.new
-                 .nameSet(@"2020")
-                 .dataSet(@[@0, @(-4.5), @(-0.9), @5.5, @(-1.9), @1.3, @(-2.8), @0, @(-1.7), @0, @3, @0, ]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@0, @(-7.5), @(-1.0), @3.7, @0, @(-3), @8, @0,@(-3.6), @4, @(-2), @0]),
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .dataSet(@[@0, @(-2.2), @2, @(-2.2), @0, @(-1.5), @0, @2.4, @(-1), @3, @(-1), @0]),
+        AASeriesElement.new
+        .nameSet(@"2019")
+        .dataSet(@[@0, @2.3, @0, @1.2, @(-1), @3, @0, @(-3.3), @0, @2, @(-0.3), @0]),
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .dataSet(@[@0, @10, @0.13,@2,@0, @2, @0, @3.7, @0, @1, @(-3), @0]),
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .dataSet(@[@0, @(-4.5), @(-0.9), @5.5, @(-1.9), @1.3, @(-2.8), @0, @(-1.7), @0, @3, @0, ]),
+    ]);
 }
 
 - (AAChartModel *)configureStepLineChart {
@@ -398,20 +398,19 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
     .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Berlin")
-                 .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
-                 .stepSet(@"right"), //折线连接点靠右👉
-                 AASeriesElement.new
-                 .nameSet(@"New York")
-                 .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
-                 .stepSet(@"center"),//折线连接点居中
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo")
-                 .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
-                 .stepSet(@"left"),//折线连接点靠左边👈
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Berlin")
+        .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
+        .stepSet(@"right"), //折线连接点靠右👉
+        AASeriesElement.new
+        .nameSet(@"New York")
+        .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
+        .stepSet(@"center"),//折线连接点居中
+        AASeriesElement.new
+        .nameSet(@"Tokyo")
+        .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
+        .stepSet(@"left"),//折线连接点靠左边👈
+    ]);
 }
 
 - (AAChartModel *)configureStepAreaChart {
@@ -425,23 +424,22 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
     .markerRadiusSet(@0)//折线连接点半径长度,为0时相当于没有折线连接点
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Berlin")
-                 .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
-                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
-                 ,
-                 AASeriesElement.new
-                 .nameSet(@"New York")
-                 .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
-                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
-                 ,
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo")
-                 .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
-                 .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
-                 ,
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Berlin")
+        .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
+        .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+        ,
+        AASeriesElement.new
+        .nameSet(@"New York")
+        .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
+        .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+        ,
+        AASeriesElement.new
+        .nameSet(@"Tokyo")
+        .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
+        .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
+        ,
+    ]);
 }
 
 - (AAChartModel *)configureNightingaleRoseChart {
@@ -457,12 +455,10 @@
     .dataLabelsEnabledSet(true)
     .polarSet(true)//极地化图形
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"东京")
-                 .dataSet(@[@7.0, @6.9, @9.5, @9.6, @13.9, @14.5, @18.3, @18.2, @21.5, @25.2, @26.5, @23.3]),
-                 ]
-               )
-    ;
+        AASeriesElement.new
+        .nameSet(@"东京")
+        .dataSet(@[@7.0, @6.9, @9.5, @9.6, @13.9, @14.5, @18.3, @18.2, @21.5, @25.2, @26.5, @23.3]),
+    ]);
 }
 
 - (AAChartModel*)configureCustomSingleDataLabelChart {
@@ -486,11 +482,10 @@
     .subtitleSet(@"")
     .colorsThemeSet(@[AAGradientColor.mysticMauveColor])
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"货币")
-                 .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, aaDataElement, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"货币")
+        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, aaDataElement, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+    ]);
 }
 
 - (AAChartModel *)configureChartWithShadowStyle {
@@ -504,19 +499,18 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .markerRadiusSet(@8.0)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokoyo")
-                 .lineWidthSet(@8.0)
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-                 .shadowSet(AAShadow.new
-                            .offsetXSet(@15.0)
-                            .offsetYSet(@15.0)
-                            .opacitySet(@0.2)
-                            .widthSet(@8.0)
-                            .colorSet(AAColor.redColor)
-                            ),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokoyo")
+        .lineWidthSet(@8.0)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+        .shadowSet(AAShadow.new
+                   .offsetXSet(@15.0)
+                   .offsetYSet(@15.0)
+                   .opacitySet(@0.2)
+                   .widthSet(@8.0)
+                   .colorSet(AAColor.redColor)
+                   ),
+    ]);
 }
 
 - (AAChartModel *)configureColorfulGradientAreaChart {
@@ -541,22 +535,21 @@
     .legendEnabledSet(false)
     .easyGradientColorsSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .colorSet((id)gradientColorDic1)
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .colorSet((id)gradientColorDic1)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+    ]);
 }
 
 - (AAChartModel *)configureColorfulGradientSplineChart {
-    NSArray *stopsArr =
-    @[@[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-      @[@0.25, @"#FF14d4"],
-      @[@0.50, @"#0bf8f5"],
-      @[@0.75, @"#F33c52"],
-      @[@1.00, @"#1904dd"],
-      ];
+    NSArray *stopsArr = @[
+        @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.25, @"#FF14d4"],
+        @[@0.50, @"#0bf8f5"],
+        @[@0.75, @"#F33c52"],
+        @[@1.00, @"#1904dd"],
+    ];
     
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
@@ -575,13 +568,12 @@
     .legendEnabledSet(false)
     .easyGradientColorsSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .lineWidthSet(@13)
-                 .colorSet((id)gradientColorDic1)
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@13)
+        .colorSet((id)gradientColorDic1)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+    ]);
 }
 
 
@@ -606,24 +598,23 @@
     .legendEnabledSet(false)
     .easyGradientColorsSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .lineWidthSet(@5.0)
-                 .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
-                 .fillColorSet((id)gradientColorDic1)
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+        .fillColorSet((id)gradientColorDic1)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+    ]);
 }
 
 - (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
-    NSArray *stopsArr =
-    @[@[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-      @[@0.25, @"#FF14d4"],
-      @[@0.50, @"#0bf8f5"],
-      @[@0.75, @"#F33c52"],
-      @[@1.00, @"#1904dd"],
-      ];
+    NSArray *stopsArr = @[
+        @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.25, @"#FF14d4"],
+        @[@0.50, @"#0bf8f5"],
+        @[@0.75, @"#F33c52"],
+        @[@1.00, @"#1904dd"],
+    ];
     
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
@@ -651,12 +642,12 @@
     .xAxisVisibleSet(false)
     .yAxisVisibleSet(false)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Virtual Data")
-                 .lineWidthSet(@6)
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-                 .colorSet((id)gradientColorDic1)
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"Virtual Data")
+        .lineWidthSet(@6)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+        .colorSet((id)gradientColorDic1)
+    ]);
 }
 
 - (AAChartModel *)configureSpecialStyleColumnOfSingleDataElementChart {
@@ -674,12 +665,12 @@
     .xAxisVisibleSet(false)
     .yAxisVisibleSet(false)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Virtual Data")
-                 .lineWidthSet(@6)
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @26.5, @13.9, @9.6])
-                 .colorSet((id)AAGradientColor.oceanBlueColor)
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"Virtual Data")
+        .lineWidthSet(@6)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @26.5, @13.9, @9.6])
+        .colorSet((id)AAGradientColor.oceanBlueColor)
+    ]);
 }
 
 - (AAChartModel *)configureAreaChartThreshold {
@@ -699,13 +690,13 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .legendEnabledSet(false)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .thresholdSet(@(-200))
-                 .dataSet(@[@106.4, @129.2, @269.9, @-100.5, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
-                 .lineWidthSet(@6)
-                 .colorSet(@"rgba(30, 144, 255,1)")
-                 .fillColorSet((id)gradientColorDic1)
-                 ]);
+        AASeriesElement.new
+        .thresholdSet(@(-200))
+        .dataSet(@[@106.4, @129.2, @269.9, @-100.5, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
+        .lineWidthSet(@6)
+        .colorSet(@"rgba(30, 144, 255,1)")
+        .fillColorSet((id)gradientColorDic1)
+    ]);
 }
 
 //refer to online sample https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
@@ -742,7 +733,7 @@
     .markerSet(AAMarker.new
                .symbolSet(predefinedSymbol2))
     ;
-
+    
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
     .titleSet(@"")
@@ -775,15 +766,15 @@
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
     .seriesSet(@[
-                 AASeriesElement.new
-                 .dataSet(@[@15.0,@15.0,@15.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@9.0,@9.0,@9.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@6.0,@6.0,@6.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@3.0,@3.0,@3.0,]),
-                 ]);
+        AASeriesElement.new
+        .dataSet(@[@15.0,@15.0,@15.0,]),
+        AASeriesElement.new
+        .dataSet(@[@9.0,@9.0,@9.0,]),
+        AASeriesElement.new
+        .dataSet(@[@6.0,@6.0,@6.0,]),
+        AASeriesElement.new
+        .dataSet(@[@3.0,@3.0,@3.0,]),
+    ]);
 }
 
 //四边形雷达图
@@ -799,15 +790,15 @@
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
     .seriesSet(@[
-                 AASeriesElement.new
-                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,]),
-                 ]);
+        AASeriesElement.new
+        .dataSet(@[@15.0,@15.0,@15.0,@15.0,]),
+        AASeriesElement.new
+        .dataSet(@[@9.0,@9.0,@9.0,@9.0,]),
+        AASeriesElement.new
+        .dataSet(@[@6.0,@6.0,@6.0,@6.0,]),
+        AASeriesElement.new
+        .dataSet(@[@3.0,@3.0,@3.0,@3.0,]),
+    ]);
 }
 
 //五边形雷达图
@@ -823,15 +814,15 @@
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
     .seriesSet(@[
-                 AASeriesElement.new
-                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,]),
-                 ]);
+        AASeriesElement.new
+        .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,]),
+        AASeriesElement.new
+        .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,]),
+        AASeriesElement.new
+        .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,]),
+        AASeriesElement.new
+        .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,]),
+    ]);
 }
 
 //六边形雷达图
@@ -847,33 +838,32 @@
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
     .seriesSet(@[
-                 AASeriesElement.new
-                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,@15.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,@9.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
-                 ]);
+        AASeriesElement.new
+        .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,@15.0,]),
+        AASeriesElement.new
+        .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,@9.0,]),
+        AASeriesElement.new
+        .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
+        AASeriesElement.new
+        .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
+    ]);
 }
 
 - (AAChartModel *)adjustYAxisMaxAndMinValues {
-   NSArray *categoriesArr =
-  @[
-   @"孤岛危机",
-   @"使命召唤",
-   @"荣誉勋章",
-   @"狙击精英",
-   @"神秘海域",
-   @"最后生还者",
-   @"巫师3狂猎",
-   @"对马之魂",
-   @"蝙蝠侠阿甘骑士",
-   @"地狱边境",
-   @"闪客",
-   @"忍者之印"
-   ];
+    NSArray *categoriesArr = @[
+        @"孤岛危机",
+        @"使命召唤",
+        @"荣誉勋章",
+        @"狙击精英",
+        @"神秘海域",
+        @"最后生还者",
+        @"巫师3狂猎",
+        @"对马之魂",
+        @"蝙蝠侠阿甘骑士",
+        @"地狱边境",
+        @"闪客",
+        @"忍者之印"
+    ];
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
@@ -907,7 +897,7 @@
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                startColorString:@"rgba(255,215,0,0.1)" // gold color, alpha: 0.1
                                  endColorString:@"rgba(255,215,0, 0.6)"]; // gold color, alpha: 0.6
-        
+    
     NSString *formatStr = [NSString stringWithFormat:@"%@%@%@",
                            @"<img src=""https://www.highcharts.com/samples/graphics/sun.png"">",
                            @"<span style=""color:#FFFFFF;font-weight:thin;font-size:25px"">{y}</span>",
@@ -942,13 +932,13 @@
     .xAxisVisibleSet(false)
     .yAxisVisibleSet(false)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Virtual Data")
-                 .lineWidthSet(@6)
-                 .colorSet(@"rgba(255,215,0,1)")
-                 .fillColorSet((id)gradientColorDic1)// gold color, alpha: 1.0
-                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-                 ]);
+        AASeriesElement.new
+        .nameSet(@"Virtual Data")
+        .lineWidthSet(@6)
+        .colorSet(@"rgba(255,215,0,1)")
+        .fillColorSet((id)gradientColorDic1)// gold color, alpha: 1.0
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+    ]);
 }
 
 
