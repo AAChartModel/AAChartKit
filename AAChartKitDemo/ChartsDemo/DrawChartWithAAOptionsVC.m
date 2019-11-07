@@ -69,7 +69,7 @@
 
 
 - (void)monitorTap {
-    if (self.selectedIndex == 33) {
+    if (self.selectedIndex == self.navigationItemTitleArr.count - 1) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -115,6 +115,7 @@
         case 31: return [self configureReversedBarChartDataLabelsStyle];//调整Y轴倒转的条形图的DataLabels风格样式
         case 32: return [self configureTripleYAxesMixedChart];//三条Y轴的混合图
         case 33: return [self configureDoubleYAxesAndColumnLineMixedChart];//双Y轴柱形曲线混合图
+        case 34: return [self configureDoubleYAxesMarketDepthChart];//双Y轴市场深度图
             
     }
     return nil;
@@ -490,7 +491,8 @@
         @"11-25",@"11-26",@"11-27",@"11-28",@"11-29",@"11-30",@"12-01",@"12-02",@"12-03",@"12-04",@"12-05",
         @"12-06",@"12-07",@"12-08",@"12-09",@"12-10",@"12-11",@"12-12",@"12-13",@"12-14",@"12-15",@"12-16",
         @"12-17",@"12-18",@"12-19",@"12-20",@"12-21",@"12-22",@"12-23",@"12-024",@"12-25",@"12-26",@"12-27",
-        @"12-28",@"12-29",@"12-30"])
+        @"12-28",@"12-29",@"12-30"
+    ])
     .seriesSet(@[
         AASeriesElement.new
         .lineWidthSet(@1.5)
@@ -503,7 +505,8 @@
             @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
             @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
             @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
-            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
+            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48
+        ])
     ]);
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
@@ -1203,10 +1206,12 @@
         .nameSet(@"2017")
         .colorSet(AAColor.whiteColor)
         .lineWidthSet(@10)
-        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+        .dataSet(@[@4.0, @6.0, @8.5, @10.5, @12.2, @14.5, @16.2, ]),
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+
     NSArray *aaPlotBandsArr = @[
         AAPlotBandsElement.new
         .fromSet(@0)
@@ -2108,6 +2113,133 @@
     return aaOptions;
 }
 
+- (AAOptions *)configureDoubleYAxesMarketDepthChart {
+    AAChart *aaChart = AAChart.new
+    .typeSet(AAChartTypeArea);
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"ETH-BTC 市场深度图");
+    
+    AASubtitle *aaSubtitle = AASubtitle.new
+    .textSet(@"数据来源: https://github.com/AAChartModel");
+    
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .plotLinesSet(@[
+        AAPlotLinesElement.new
+        .colorSet(@"#888")
+        .valueSet(@0.1523)
+        .widthSet(@1)
+        .labelSet(AALabel.new
+                  .textSet(@"实际价格")
+                  .rotationSet(@90))
+    ])
+    ;
+    
+    AAYAxis *yAxis1 = AAYAxis.new
+    .visibleSet(true)
+    .lineWidthSet(@1)
+    .titleSet((id)NSNull.null)
+    .tickWidthSet(@1)
+    .tickLengthSet(@5)
+    .tickPositionSet(@"inside")
+    .gridLineWidthSet(@1)
+    .labelsSet(AALabels.new
+               .enabledSet(true)//设置 y 轴是否显示数字
+               .alignSet(AAChartAlignTypeLeft)
+               .xSet(@8)
+               );
+    
+    AAYAxis *yAxis2 = AAYAxis.new
+    .oppositeSet(true)
+    .visibleSet(true)
+    .lineWidthSet(@1)
+    .titleSet((id)NSNull.null)
+    .tickWidthSet(@1)
+    .tickLengthSet(@5)
+    .tickPositionSet(@"inside")
+    .gridLineWidthSet(@0)
+    .labelsSet(AALabels.new
+               .enabledSet(true)//设置 y 轴是否显示数字
+               .alignSet(AAChartAlignTypeRight)
+               .xSet(@-8)
+               );
+    
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .headerFormatSet(@"<span style=""font-size=10px;"">Price: {point.key}</span><br/>""")
+    .valueDecimalsSet(@2)
+    ;
+    
+    AALegend *aaLegend = AALegend.new
+    .enabledSet(false);
+    
+    AASeriesElement *element1 = AASeriesElement.new
+    .nameSet(@"Bids")
+    .colorSet(@"#03a7a8")
+    .stepSet(@true)
+    .dataSet(@[
+        @[@0.1524, @0.948665],
+        @[@0.1539, @35.510715],
+        @[@0.154,  @39.883437],
+        @[@0.1541, @40.499661],
+        @[@0.1545, @43.262994000000006],
+        @[@0.1547, @60.14799400000001],
+        @[@0.1553, @60.30799400000001],
+        @[@0.1558, @60.55018100000001],
+        @[@0.1564, @68.381696],
+        @[@0.1567, @69.46518400000001],
+        @[@0.1569, @69.621464],
+        @[@0.157,  @70.398015],
+        @[@0.1574, @70.400197],
+        @[@0.1575, @73.199217],
+        @[@0.158,  @77.700017],
+        @[@0.1583, @79.449017],
+        @[@0.1588, @79.584064],
+        @[@0.159,  @80.584064],
+        @[@0.16,   @81.58156],
+        @[@0.1608, @83.38156]
+    ]);
+    
+    AASeriesElement *element2 = AASeriesElement.new
+    .nameSet(@"Asks")
+    .colorSet(@"#fc5857")
+    .stepSet(@true)
+    .dataSet(@[
+        @[@0.1435, @242.521842],
+        @[@0.1436, @206.49862099999999],
+        @[@0.1437, @205.823735],
+        @[@0.1438, @197.33275],
+        @[@0.1439, @153.677454],
+        @[@0.144,  @146.007722],
+        @[@0.1442, @82.55212900000001],
+        @[@0.1443, @59.152814000000006],
+        @[@0.1444, @57.942260000000005],
+        @[@0.1445, @57.483850000000004],
+        @[@0.1446, @52.39210800000001],
+        @[@0.1447, @51.867208000000005],
+        @[@0.1448, @44.104697],
+        @[@0.1449, @40.131217],
+        @[@0.145,  @31.878217],
+        @[@0.1451, @22.794916999999998],
+        @[@0.1453, @12.345828999999998],
+        @[@0.1454, @10.035642],
+        @[@0.148,  @9.326642],
+        @[@0.1522, @3.76317]
+    ]);
+    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .subtitleSet(aaSubtitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxis1,yAxis2])
+    .tooltipSet(aaTooltip)
+    .legendSet(aaLegend)
+    .seriesSet(@[element1,element2])
+    ;
+    return aaOptions;
+}
 
 
 @end
