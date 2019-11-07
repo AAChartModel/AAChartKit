@@ -55,4 +55,15 @@
     return colorStringArr;
 }
 
+
+- (NSArray *)generateRandomValues {
+    unsigned int length = 350;
+    NSMutableArray *dataArr = [NSMutableArray arrayWithCapacity:length];
+    for (int i = 0; i < length; i++) {
+        unsigned int value = (arc4random() % 500) ;
+        [dataArr addObject:@(value)];
+    }
+    return dataArr;
+}
+
 @end
