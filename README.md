@@ -260,7 +260,7 @@ For example
 * configuring AATooltip instance object properties as follow:
 
 
-```js
+```swift
  /*Custom Tooltip Style ---*/
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
@@ -288,7 +288,7 @@ you can get the customized tooltip style chart like this👇
 
 * configuring AATooltip instance object properties as follow:
 
-```js
+```swift
  aaOptions.tooltip
  .useHTMLSet(true)
  .formatterSet(@AAJSFunc(function () {
