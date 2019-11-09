@@ -48,6 +48,7 @@
 		44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartVC.m */; };
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
+		449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */; };
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
 		44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */; };
 		44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */; };
@@ -179,6 +180,8 @@
 		44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
 		447B4B3121C9E04E00FDA965 /* AAEasyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAEasyTool.h; sourceTree = "<group>"; };
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
+		449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollingUpdateDataVC.h; sourceTree = "<group>"; };
+		449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollingUpdateDataVC.m; sourceTree = "<group>"; };
 		449D447821CFDF5D00E43D9C /* AAPlotBandsElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPlotBandsElement.h; sourceTree = "<group>"; };
 		449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPlotBandsElement.m; sourceTree = "<group>"; };
 		44AA41DE22CB0B3B00458C0E /* AAChartKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAChartKitDemo.entitlements; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
 				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
 				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
+				449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */,
+				449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
 				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
@@ -676,6 +681,7 @@
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,
 				1E66D215210AF4ED007EAB8C /* AAChartView.m in Sources */,
+				449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */,
 				1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */,
 				1E66D201210AF4ED007EAB8C /* AADataLabels.m in Sources */,
 				1E66D211210AF4ED007EAB8C /* AASpline.m in Sources */,
