@@ -50,6 +50,7 @@ AAChartType const AAChartTypeAreasplinerange = @"areasplinerange";
 AAChartType const AAChartTypeBoxplot         = @"boxplot";
 AAChartType const AAChartTypeWaterfall       = @"waterfall";
 AAChartType const AAChartTypePolygon         = @"polygon";
+AAChartType const AAChartTypeErrorbar        = @"errorbar";
 
 AAChartLayoutType const AAChartLayoutTypeHorizontal = @"horizontal";
 AAChartLayoutType const AAChartLayoutTypeVertical   = @"vertical";

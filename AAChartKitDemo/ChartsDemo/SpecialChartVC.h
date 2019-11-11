@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
     SpecialChartVCChartTypeWaterfall,
     SpecialChartVCChartTypePyramid,
     SpecialChartVCChartTypeFunnel,
+    SpecialChartVCChartTypeErrorbar,
 };
 
 @interface SpecialChartVC : UIViewController

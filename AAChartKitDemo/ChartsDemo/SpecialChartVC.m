@@ -66,6 +66,7 @@
         case SpecialChartVCChartTypeWaterfall: return AAChartTypeWaterfall;
         case SpecialChartVCChartTypePyramid: return AAChartTypePyramid;
         case SpecialChartVCChartTypeFunnel: return AAChartTypeFunnel;
+        case SpecialChartVCChartTypeErrorbar: return AAChartTypeErrorbar;
     }
 }
 
@@ -102,6 +103,8 @@
         return [self configurePyramidChart];
     } else if (chartType == AAChartTypeFunnel) {
         return [self configureFunnelChart];
+    } else if (chartType == AAChartTypeErrorbar) {
+        return [self configureErrorBarChart];
     }
     return nil;
 }
@@ -924,6 +927,32 @@
             @[@"GO",            @976],
             @[@"Python",        @846]
         ]),
+    ]);
+}
+
+- (AAChartModel *)configureErrorBarChart {
+    return AAChartModel.new
+    .yAxisTitleSet(@"")
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+    ])
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"降水")
+        .typeSet(AAChartTypeColumn)
+        .dataSet(@[@49.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
+        .tooltipSet(AATooltip.new
+                    .pointFormatSet(@"<span style=""font-weight: bold; color: {series.color}"">{series.name}</span>: <b>{point.y:.1f} mm</b> ")),
+        
+        AASeriesElement.new
+        .nameSet(@"降雨误差")
+        .typeSet(AAChartTypeErrorbar)
+        .lineWidthSet(@2.5)
+        .colorSet(AAColor.redColor)
+        .dataSet(@[@[@48, @51], @[@68, @73], @[@92, @110], @[@128, @136], @[@140, @150], @[@171, @179], @[@135, @143], @[@142, @149], @[@204, @220], @[@189, @199], @[@95, @110], @[@52, @56]])
+        .tooltipSet(AATooltip.new
+                    .pointFormatSet(@"(误差范围: {point.low}-{point.high} mm)<br/>"))
     ]);
 }
 

@@ -301,6 +301,7 @@
                                 @"Water Fall---瀑布图",
                                 @"Pyramid Chart---金字塔图",
                                 @"Funnel Chart---漏斗图",
+                                @"Error Bar Chart---误差图",
                                 ],
                               /*一些自定义风格样式图表*/
                               @[@"Colorful Column Chart---多彩条形图",
