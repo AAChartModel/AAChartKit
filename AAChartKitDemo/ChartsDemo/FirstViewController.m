@@ -154,7 +154,8 @@
         case 1: {
             /*特殊类型图表*/
             SpecialChartVC *vc = SpecialChartVC.new;
-            vc.chartType = indexPath.row;
+            vc.selectedIndex = indexPath.row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

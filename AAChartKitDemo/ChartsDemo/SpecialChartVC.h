@@ -32,23 +32,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger,SpecialChartVCChartType) {
-    SpecialChartVCChartTypePie = 0,
-    SpecialChartVCChartTypeBubble,
-    SpecialChartVCChartTypeScatter,
-    SpecialChartVCChartTypeArearange,
-    SpecialChartVCChartTypeAreasplinerange,
-    SpecialChartVCChartTypeColumnrange,
-    SpecialChartVCChartTypeBoxplot,
-    SpecialChartVCChartTypeWaterfall,
-    SpecialChartVCChartTypePyramid,
-    SpecialChartVCChartTypeFunnel,
-    SpecialChartVCChartTypeErrorbar,
-};
-
 @interface SpecialChartVC : UIViewController
 
-@property (nonatomic, copy  ) NSString  *receivedChartType;
-@property (nonatomic, assign) SpecialChartVCChartType chartType;
+@property (nonatomic, strong) NSArray *navigationItemTitleArr;
+@property (nonatomic, assign) NSUInteger selectedIndex;
 
 @end

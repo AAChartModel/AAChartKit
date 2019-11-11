@@ -47,27 +47,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
+    NSString *chartType = self.navigationItemTitleArr[self.selectedIndex];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     
     [self setUpTheChartView:chartType];
     [self setUpTheNextTypeChartButton];
-}
-
-- (NSString *)configureTheChartTypeWithIntenger:(NSInteger)intenger {
-    switch (self.chartType) {
-        case SpecialChartVCChartTypePie: return AAChartTypePie;
-        case SpecialChartVCChartTypeBubble: return AAChartTypeBubble;
-        case SpecialChartVCChartTypeScatter: return AAChartTypeScatter;
-        case SpecialChartVCChartTypeArearange: return AAChartTypeArearange;
-        case SpecialChartVCChartTypeAreasplinerange: return AAChartTypeAreasplinerange;
-        case SpecialChartVCChartTypeColumnrange: return AAChartTypeColumnrange;
-        case SpecialChartVCChartTypeBoxplot: return AAChartTypeBoxplot;
-        case SpecialChartVCChartTypeWaterfall: return AAChartTypeWaterfall;
-        case SpecialChartVCChartTypePyramid: return AAChartTypePyramid;
-        case SpecialChartVCChartTypeFunnel: return AAChartTypeFunnel;
-        case SpecialChartVCChartTypeErrorbar: return AAChartTypeErrorbar;
-    }
 }
 
 - (void)setUpTheChartView:(AAChartType)chartType {
@@ -77,36 +61,55 @@
     self.aaChartView.scrollEnabled = NO;
     [self.view addSubview:self.aaChartView];
     
-    self.aaChartModel = [self configureTheChartModel:chartType];
+    self.aaChartModel = [self configureTheChartModel:self.selectedIndex];
     
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
 }
 
-- (AAChartModel *)configureTheChartModel:(NSString *)chartType {
-    if (chartType == AAChartTypePie) {
+- (AAChartModel *)configureTheChartModel:(NSUInteger)selectedIndex {
+    if (selectedIndex == 0) {
         return [self configurePieChart];
-    } else if (chartType == AAChartTypeBubble) {
+    } else if (selectedIndex == 1) {
         return [self configureBubbleChart];
-    } else if (chartType == AAChartTypeScatter) {
+    } else if (selectedIndex == 2) {
         return [self configureScatterChart];
-    }  else if (chartType == AAChartTypeArearange) {
+    }  else if (selectedIndex == 3) {
         return [self configureArearangeChart];
-    } else if (chartType == AAChartTypeAreasplinerange) {
+    } else if (selectedIndex == 4) {
         return [self configureArealinerangeChart];
-    } else if (chartType == AAChartTypeColumnrange) {
+    } else if (selectedIndex == 5) {
         return [self configureColumnrangeChart];
-    } else if (chartType == AAChartTypeBoxplot) {
+    } else if (selectedIndex == 6) {
         return [self configureBoxplotChart];
-    } else if (chartType == AAChartTypeWaterfall) {
+    } else if (selectedIndex == 7) {
         [self confiureWaterfallChart];
-    } else if (chartType == AAChartTypePyramid) {
+    } else if (selectedIndex == 8) {
         return [self configurePyramidChart];
-    } else if (chartType == AAChartTypeFunnel) {
+    } else if (selectedIndex == 9) {
         return [self configureFunnelChart];
-    } else if (chartType == AAChartTypeErrorbar) {
+    } else if (selectedIndex == 10) {
         return [self configureErrorBarChart];
     }
     return nil;
+}
+
+- (void)setUpTheNextTypeChartButton {
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = barItem;
+}
+
+- (void)monitorTap {
+    if (self.selectedIndex == 10) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.selectedIndex = self.selectedIndex + 1;
+        self.title = self.navigationItemTitleArr[self.selectedIndex];
+        AAChartModel *aaChartModel = [self configureTheChartModel:self.selectedIndex];
+        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
+    }
 }
 
 - (AAChartModel *)configurePieChart {
@@ -956,24 +959,5 @@
     ]);
 }
 
-- (void)setUpTheNextTypeChartButton {
-    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(monitorTap)];
-    self.navigationItem.rightBarButtonItem = btnItem;
-}
-
-- (void)monitorTap {
-    if (self.chartType == SpecialChartVCChartTypeFunnel) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.chartType = self.chartType + 1;
-        NSString *chartType = [self configureTheChartTypeWithIntenger:self.chartType];
-        self.title = [NSString stringWithFormat:@"%@ chart",chartType];
-        _aaChartModel = [self configureTheChartModel:chartType];
-        [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
-    }
-}
 
 @end
