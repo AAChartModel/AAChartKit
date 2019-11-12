@@ -158,10 +158,10 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     
     AAChartType chartType = aaChartModel.chartType;
     
-    AADataLabels *aaDataLabels;
+    AADataLabels *aaDataLabels = AADataLabels.new
+    .enabledSet(aaChartModel.dataLabelsEnabled);
     if (aaChartModel.dataLabelsEnabled == true) {
-        aaDataLabels = AADataLabels.new
-        .enabledSet(aaChartModel.dataLabelsEnabled)
+        aaDataLabels
         .styleSet(AAStyle.new
                   .colorSet(aaChartModel.dataLabelsFontColor)
                   .fontSizeSet(AAFontSizeFormat(aaChartModel.dataLabelsFontSize))
