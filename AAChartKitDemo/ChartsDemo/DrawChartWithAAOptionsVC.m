@@ -165,7 +165,6 @@
     //计算X轴偏移量
     CGFloat xOffSet = (self.aaChartView.frame.size.width - 40) * 0.1;
     
-    //第一种写法
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypePie)
@@ -222,62 +221,8 @@
         ]),
     ])
     .colorsSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]);//设置颜色主题
+    
     return aaOptions;
-    
-    
-    //下面是另一种更清晰的写法
-    AAChart *aaChart = AAChart.new.typeSet(AAChartTypePie);
-    
-    //标题
-    AATitle *aaTitle = AATitle.new
-    .textSet(@"渠道销售额<br>占比")//标题文本内容
-    .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
-    .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
-    .styleSet(AAStyle.new
-              .colorSet(@"#000000")//Title font color
-              .fontSizeSet(@"14 px")//Title font size
-              .fontWeightSet(@"bold")//Title font weight
-              );
-    
-    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-    .seriesSet(AASeries.new
-               .animationSet(AAAnimation.new
-                             .easingSet(AAChartAnimationBounce)
-                             .durationSet(@1000)
-                             )
-               )
-    .pieSet(AAPie.new
-            .showInLegendSet(true)
-            .dataLabelsSet(AADataLabels.new
-                           .enabledSet(true)
-                           .formatSet(@"{point.percentage:.1f}%"))
-            )
-    ;
-    
-    //数据源
-    NSArray *aaSeries = @[
-        AASeriesElement.new
-        .nameSet(@"语言热度值")
-        .innerSizeSet(@"80%")//内部圆环半径大小占比
-        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
-        .dataSet(@[
-            @[@"Firefox",   @3336.2],
-            @[@"IE",        @26.8],
-            @[@"Safari",    @88.5],
-            @[@"Opera",     @46.0],
-            @[@"Others",    @223]
-        ]),
-    ];
-    
-    NSArray *aaColors = @[@"#b5282a",@"#e7a701",@"#50c18d",@"#fd4800",@"#f1c6c5"];
-    
-    AAOptions *chartOptions = AAOptions.new;
-    chartOptions.chart = aaChart;
-    chartOptions.title = aaTitle;
-    chartOptions.plotOptions = aaPlotOptions;
-    chartOptions.series = aaSeries;
-    chartOptions.colors = aaColors;
-    return chartOptions;
 }
 
 - (AAOptions *)adjustPieChartTitleAndDataLabelFontStyle {
@@ -626,9 +571,9 @@
     .sharedSet(true);
     
     NSDictionary *gradientColorDic1 =
-     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                                startColorString:@"#f54ea2"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                  endColorString:@"#ff7676"];
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                               startColorString:@"#f54ea2"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"#ff7676"];
     
     NSDictionary *gradientColorDic2 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
@@ -716,7 +661,6 @@
 }
 
 - (AAOptions *)customStyleStackedColumnChart {
-    //Method 1
     AAChart *aaChart = AAChart.new
     .typeSet(AAChartTypeColumn);
     
@@ -777,6 +721,8 @@
                )
     .columnSet(aaColumn);
     
+    NSArray *aaColors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
+    
     NSArray *aaSeriesArr = @[
         AASeriesElement.new
         .nameSet(@"John")
@@ -789,74 +735,19 @@
         .dataSet(@[@5, @3, @4, @7, @2]),
     ];
     
-    AAOptions *aaOptions = AAOptions.new;
-    aaOptions.chart = aaChart;
-    aaOptions.title = aaTitle;
-    aaOptions.xAxis = aaXAxis;
-    aaOptions.yAxis = aaYAxis;
-    aaOptions.tooltip = aaTooltip;
-    aaOptions.plotOptions = aaPlotOptions;
-    aaOptions.legend = aaLegend;
-    aaOptions.series = aaSeriesArr;
-    aaOptions.colors = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet(aaYAxis)
+    .tooltipSet(aaTooltip)
+    .plotOptionsSet(aaPlotOptions)
+    .legendSet(aaLegend)
+    .colorsSet(aaColors)
+    .seriesSet(aaSeriesArr)
+    ;
     
-    //    return aaOptions;
-    
-    // Method 2
-    AAOptions *options2 = AAOptions.new
-    .chartSet(AAChart.new.typeSet(AAChartTypeColumn))
-    .titleSet(AATitle.new.textSet(@"Stacked column chart"))
-    .xAxisSet(AAXAxis.new
-              .visibleSet(true)
-              .categoriesSet(@[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"])
-              )
-    .yAxisSet(AAYAxis.new
-              .visibleSet(true)
-              .minSet(@0)
-              .titleSet(AAAxisTitle.new.textSet(@"Total fruit consumption"))
-              .stackLabelsSet(AALabels.new
-                              .enabledSet(true)
-                              .styleSet(AAStyle.new.fontWeightSet(AAChartFontWeightTypeBold))
-                              )
-              )
-    .legendSet(AALegend.new
-               .enabledSet(true)
-               .alignSet(AAChartAlignTypeRight)
-               .xSet(@(-30))
-               .verticalAlignSet(AAChartVerticalAlignTypeTop)
-               .ySet(@25)
-               .borderColorSet(@"#ccc")
-               .borderWidthSet(@1)
-               )
-    .tooltipSet(AATooltip.new
-                .headerFormatSet(@"<b>{point.x}</b><br/>")
-                .pointFormatSet(@"{series.name}: {point.y}<br/>Total: {point.stackTotal}")
-                )
-    .plotOptionsSet(AAPlotOptions.new
-                    .seriesSet(AASeries.new
-                               .animationSet(AAAnimation.new
-                                             .easingSet(AAChartAnimationBounce)
-                                             .durationSet(@1000)
-                                             )
-                               )
-                    .columnSet(AAColumn.new
-                               .stackingSet(AAChartStackingTypeNormal)
-                               .dataLabelsSet(AADataLabels.new.enabledSet(true))
-                               )
-                    )
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"John")
-        .dataSet(@[@5, @3, @4, @7, @2]),
-        AASeriesElement.new
-        .nameSet(@"Jane")
-        .dataSet(@[@5, @3, @4, @7, @2]),
-        AASeriesElement.new
-        .nameSet(@"Joe")
-        .dataSet(@[@5, @3, @4, @7, @2]),
-    ]);
-    
-    return options2;
+    return aaOptions;
 }
 
 - (AAOptions *)specialStyleStepLineChart {
@@ -1046,7 +937,9 @@
     .titleSet(AATitle.new.textSet(@""))
     .xAxisSet(AAXAxis.new
               .visibleSet(true)
-              .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
+              .categoriesSet(@[
+                  @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                  @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
     .yAxisSet((id)@[AAYAxis.new
                     .visibleSet(true)
                     .gridLineWidthSet(@0)
@@ -1076,11 +969,13 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"收入")
-        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9,@7.0, @6.9, @9.5, @14.5,])
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5,
+                   @23.3, @18.3, @13.9,@7.0, @6.9, @9.5, @14.5,])
         .colorSet((id)gradientColorDic1),
         AASeriesElement.new
         .nameSet(@"支出")
-        .dataSet(@[@-20.1, @-14.1, @-8.6, @-2.5, @-0.8, @-5.7, @-11.3, @-17.0, @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5])
+        .dataSet(@[@-20.1, @-14.1, @-8.6, @-2.5, @-0.8, @-5.7, @-11.3, @-17.0,
+                   @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5])
         .colorSet((id)gradientColorDic2),
     ]);
     return aaOptions;
@@ -1211,7 +1106,7 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
-
+    
     NSArray *aaPlotBandsArr = @[
         AAPlotBandsElement.new
         .fromSet(@0)
