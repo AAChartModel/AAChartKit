@@ -10,10 +10,10 @@
 #import "AAChartKit.h"
 
 @interface JSFormatterFunctionVC ()
-    
+
 @property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
-    
+
 @end
 
 @implementation JSFormatterFunctionVC
@@ -32,10 +32,10 @@
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:frame];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:aaChartView];
-
+    
     return aaChartView;
 }
-    
+
 - (AAOptions *)configureChartOptions {
     switch (self.selectedIndex) {
         case 0: return [self customAreaChartTooltipStyleWithFormatterFunction1];//简单字符串拼接
@@ -67,30 +67,29 @@
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[
-                     @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
-                     @"10-12",@"10-13",@"10-14",@"10-15",@"10-16",@"10-17",@"10-18",@"10-19",@"10-20",@"10-21",@"10-22",
-                     @"10-23",@"10-024",@"10-25",@"10-26",@"10-27",@"10-28",@"10-29",@"10-30",@"10-31",@"11-01",@"11-02",
-                     @"11-03",@"11-04",@"11-05",@"11-06",@"11-07",@"11-08",@"11-09",@"11-10",@"11-11",@"11-12",@"11-13",
-                     @"11-14",@"11-15",@"11-16",@"11-17",@"11-18",@"11-19",@"11-20",@"11-21",@"11-22",@"11-23",@"11-024",
-                     @"11-25",@"11-26",@"11-27",@"11-28",@"11-29",@"11-30",@"12-01",@"12-02",@"12-03",@"12-04",@"12-05",
-                     @"12-06",@"12-07",@"12-08",@"12-09",@"12-10",@"12-11",@"12-12",@"12-13",@"12-14",@"12-15",@"12-16",
-                     @"12-17",@"12-18",@"12-19",@"12-20",@"12-21",@"12-22",@"12-23",@"12-024",@"12-25",@"12-26",@"12-27",
-                     @"12-28",@"12-29",@"12-30"])
+        @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
+        @"10-12",@"10-13",@"10-14",@"10-15",@"10-16",@"10-17",@"10-18",@"10-19",@"10-20",@"10-21",@"10-22",
+        @"10-23",@"10-024",@"10-25",@"10-26",@"10-27",@"10-28",@"10-29",@"10-30",@"10-31",@"11-01",@"11-02",
+        @"11-03",@"11-04",@"11-05",@"11-06",@"11-07",@"11-08",@"11-09",@"11-10",@"11-11",@"11-12",@"11-13",
+        @"11-14",@"11-15",@"11-16",@"11-17",@"11-18",@"11-19",@"11-20",@"11-21",@"11-22",@"11-23",@"11-024",
+        @"11-25",@"11-26",@"11-27",@"11-28",@"11-29",@"11-30",@"12-01",@"12-02",@"12-03",@"12-04",@"12-05",
+        @"12-06",@"12-07",@"12-08",@"12-09",@"12-10",@"12-11",@"12-12",@"12-13",@"12-14",@"12-15",@"12-16",
+        @"12-17",@"12-18",@"12-19",@"12-20",@"12-21",@"12-22",@"12-23",@"12-024",@"12-25",@"12-26",@"12-27",
+        @"12-28",@"12-29",@"12-30"])
     .seriesSet(@[
-                 AASeriesElement.new
-                 .lineWidthSet(@1.5)
-                 .fillOpacitySet(@0.4)
-                 .nameSet(@"2018")
-                 .dataSet(
-                          @[@1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
-                            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
-                            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
-                            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
-                            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
-                            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
-                            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
-                 ]
-               );
+        AASeriesElement.new
+        .lineWidthSet(@1.5)
+        .fillOpacitySet(@0.4)
+        .nameSet(@"2018")
+        .dataSet(@[
+            @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
+            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
+            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
+            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
+            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
+            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
+            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
+    ]);
     
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
@@ -117,7 +116,7 @@
     ;
     return aaOptions;
 }
-    
+
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
@@ -139,18 +138,17 @@
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .lineWidthSet(@1.5)
-                 .colorSet((id)gradientColorDic1)
-                 .nameSet(@"🐶狗子")
-                 .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
-                 AASeriesElement.new
-                 .lineWidthSet(@1.5)
-                 .colorSet((id)gradientColorDic2)
-                 .nameSet(@"🌲树木")
-                 .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
-                 ]
-               );
+        AASeriesElement.new
+        .lineWidthSet(@1.5)
+        .colorSet((id)gradientColorDic1)
+        .nameSet(@"🐶狗子")
+        .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
+        AASeriesElement.new
+        .lineWidthSet(@1.5)
+        .colorSet((id)gradientColorDic2)
+        .nameSet(@"🌲树木")
+        .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
@@ -167,7 +165,7 @@
     ;
     return aaOptions;
 }
-    
+
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
@@ -183,20 +181,19 @@
     .xAxisCrosshairWidthSet(@1.0)
     .xAxisCrosshairColorSet(AAColor.darkGrayColor)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"上市")
-                 .dataSet(@[@0,@0,@7]),
-                 AASeriesElement.new
-                 .nameSet(@"终止")
-                 .dataSet(@[@4,@5,@1]),
-                 AASeriesElement.new
-                 .nameSet(@"无进展")
-                 .dataSet(@[@2,@0,@1]),
-                 AASeriesElement.new
-                 .nameSet(@"进行中")
-                 .dataSet(@[@3,@5,@2]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"上市")
+        .dataSet(@[@0,@0,@7]),
+        AASeriesElement.new
+        .nameSet(@"终止")
+        .dataSet(@[@4,@5,@1]),
+        AASeriesElement.new
+        .nameSet(@"无进展")
+        .dataSet(@[@2,@0,@1]),
+        AASeriesElement.new
+        .nameSet(@"进行中")
+        .dataSet(@[@3,@5,@2]),
+    ]);
     
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
@@ -226,7 +223,7 @@
     ;
     return aaOptions;
 }
-    
+
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction4 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
@@ -238,28 +235,27 @@
     .yAxisVisibleSet(false)
     .markerRadiusSet(@0)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .lineWidthSet(@5.0)
-                 .fillOpacitySet(@0.4)
-                 .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
-                 AASeriesElement.new
-                 .nameSet(@"Berlin Hot")
-                 .lineWidthSet(@5.0)
-                 .fillOpacitySet(@0.4)
-                 .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
-                 AASeriesElement.new
-                 .nameSet(@"London Hot")
-                 .lineWidthSet(@5.0)
-                 .fillOpacitySet(@0.4)
-                 .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
-                 AASeriesElement.new
-                 .nameSet(@"NewYork Hot")
-                 .lineWidthSet(@5.0)
-                 .fillOpacitySet(@0.4)
-                 .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+        AASeriesElement.new
+        .nameSet(@"London Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+        AASeriesElement.new
+        .nameSet(@"NewYork Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
@@ -295,26 +291,24 @@
     .subtitleSet(@"虚拟数据")
     .yAxisTitleSet(@"摄氏度")
     .yAxisVisibleSet(true)
-    .seriesSet(
-               @[
-                 AASeriesElement.new
-                 .nameSet(@"观测值")
-                 .lineWidthSet(@1.8)
-                 .fillColorSet((id)AAGradientColor.deepSeaColor)
-                 .dataSet(@[
-                            @[@760, @801, @848, @895, @965],
-                            @[@733, @853, @939, @980, @1080],
-                            @[@714, @762, @817, @870, @918],
-                            @[@724, @802, @806, @871, @950],
-                            @[@834, @836, @864, @882, @910]
-                            ]),
-                 ]
-               );
-
-//    https://jshare.com.cn/demos/hhhhiQ
-//    https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/tooltip/footerformat/
-//pointFormat: '' + // eslint-disable-line no-dupe-keys
-
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"观测值")
+        .lineWidthSet(@1.8)
+        .fillColorSet((id)AAGradientColor.deepSeaColor)
+        .dataSet(@[
+            @[@760, @801, @848, @895, @965],
+            @[@733, @853, @939, @980, @1080],
+            @[@714, @762, @817, @870, @918],
+            @[@724, @802, @806, @871, @950],
+            @[@834, @836, @864, @882, @910]
+        ]),
+    ]);
+    
+    //    https://jshare.com.cn/demos/hhhhiQ
+    //    https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/tooltip/footerformat/
+    //pointFormat: '' + // eslint-disable-line no-dupe-keys
+    
     NSString *str1 = @"<span style=""color:{point.color}"">◉</span> <b> {series.name}</b><br/>";
     NSString *str2 = @"最大值: {point.high}<br/>";
     NSString *str3 = @"Q2: {point.q3}<br/>";
@@ -352,13 +346,12 @@
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .lineWidthSet(@5.0)
-                 .fillOpacitySet(@0.4)
-                 .dataSet( @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet( @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions
@@ -392,24 +385,23 @@
     .categoriesSet(@[@"Apples", @"Oranges", @"Pears",@"Grapes",@"Bananas",])
     .dataLabelsEnabledSet(true)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"John")
-                 .dataSet(@[@5,@3,@4,@7,@2,])
-                 .stackSet(@"male"),
-                 AASeriesElement.new
-                 .nameSet(@"Joe")
-                 .dataSet(@[@3,@4,@4,@2,@5,])
-                 .stackSet(@"male"),
-                 AASeriesElement.new
-                 .nameSet(@"Jane")
-                 .dataSet(@[@2,@5,@6,@2,@1,])
-                 .stackSet(@"female"),
-                 AASeriesElement.new
-                 .nameSet(@"Janet")
-                 .dataSet(@[@3,@0,@4, @4,@3,])
-                 .stackSet(@"female"),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"John")
+        .dataSet(@[@5,@3,@4,@7,@2,])
+        .stackSet(@"male"),
+        AASeriesElement.new
+        .nameSet(@"Joe")
+        .dataSet(@[@3,@4,@4,@2,@5,])
+        .stackSet(@"male"),
+        AASeriesElement.new
+        .nameSet(@"Jane")
+        .dataSet(@[@2,@5,@6,@2,@1,])
+        .stackSet(@"female"),
+        AASeriesElement.new
+        .nameSet(@"Janet")
+        .dataSet(@[@3,@0,@4, @4,@3,])
+        .stackSet(@"female"),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
@@ -452,16 +444,15 @@
     .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .colorSet(@"rgba(255,255,255,0.3)")
-                 .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
-                 AASeriesElement.new
-                 .nameSet(@"Berlin Hot")
-                 .colorSet((id)gradientColorDic1)
-                 .dataSet( @[@29.9, @71.5, @106.4, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .colorSet(@"rgba(255,255,255,0.3)")
+        .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .colorSet((id)gradientColorDic1)
+        .dataSet( @[@29.9, @71.5, @106.4, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,]),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis
@@ -525,18 +516,17 @@
     .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .colorSet(@"rgba(0,0,0,0)")
-                 .borderColorSet(AAColor.lightGrayColor)
-                 .borderWidthSet(@2.0)
-                 .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
-                 AASeriesElement.new
-                 .nameSet(@"Berlin Hot")
-                 .colorSet((id)gradientColorDic1)
-                 .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .colorSet(@"rgba(0,0,0,0)")
+        .borderColorSet(AAColor.lightGrayColor)
+        .borderWidthSet(@2.0)
+        .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .colorSet((id)gradientColorDic1)
+        .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis
@@ -594,25 +584,24 @@
     .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"Tokyo Hot")
-                 .colorSet(@"rgba(0,0,0,0)")
-                 .colorByPointSet(@false)
-                 .borderWidthSet(@2.0)
-                 .borderColorSet(@"rgba(255,255,255,0.3)")
-                 .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
-                 AASeriesElement.new
-                 .nameSet(@"Berlin Hot")
-                 .colorByPointSet(@true)
-                 .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
-                 AASeriesElement.new
-                 .typeSet(AAChartTypeScatter)
-                 .colorByPointSet(@true)
-                 .markerSet(AAMarker.new
-                            .radiusSet(@21))
-                 .dataSet(@[@0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f,]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .colorSet(@"rgba(0,0,0,0)")
+        .colorByPointSet(@false)
+        .borderWidthSet(@2.0)
+        .borderColorSet(@"rgba(255,255,255,0.3)")
+        .dataSet(@[@250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0, @250.0,]),
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .colorByPointSet(@true)
+        .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
+        AASeriesElement.new
+        .typeSet(AAChartTypeScatter)
+        .colorByPointSet(@true)
+        .markerSet(AAMarker.new
+                   .radiusSet(@21))
+        .dataSet(@[@0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f,]),
+    ]);
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis
@@ -666,22 +655,21 @@
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
     .seriesSet(@[
-                 AASeriesElement.new
-                 .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,@15.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,@9.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
-                 AASeriesElement.new
-                 .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
-                 ])
+        AASeriesElement.new
+        .dataSet(@[@15.0,@15.0,@15.0,@15.0,@15.0,@15.0,]),
+        AASeriesElement.new
+        .dataSet(@[@9.0,@9.0,@9.0,@9.0,@9.0,@9.0,]),
+        AASeriesElement.new
+        .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
+        AASeriesElement.new
+        .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
+    ])
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"2020")
-                 .colorSet((id)AAGradientColor.deepSeaColor)
-                 .dataSet(@[@9.9,NSNull.null, @9.9,NSNull.null,@9.9, NSNull.null, ]),
-                 ]
-               )
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .colorSet((id)AAGradientColor.deepSeaColor)
+        .dataSet(@[@9.9,NSNull.null, @9.9,NSNull.null,@9.9, NSNull.null, ]),
+    ])
     ;
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
@@ -746,75 +734,75 @@
                                  endColorString:@"#4740C8"];
     
     NSArray *categories = @[
-    @"0-4", @"5-9", @"10-14", @"15-19",
-    @"20-24", @"25-29", @"30-34", @"35-39", @"40-44",
-    @"45-49", @"50-54", @"55-59", @"60-64", @"65-69",
-    @"70-74", @"75-79", @"80-84", @"85-89", @"90-94",
-    @"95-99", @"100 + ",];
+        @"0-4", @"5-9", @"10-14", @"15-19",
+        @"20-24", @"25-29", @"30-34", @"35-39", @"40-44",
+        @"45-49", @"50-54", @"55-59", @"60-64", @"65-69",
+        @"70-74", @"75-79", @"80-84", @"85-89", @"90-94",
+        @"95-99", @"100 + ",];
     
-     AAOptions *aaOptions = AAOptions.new
-        .chartSet(AAChart.new
-                  .typeSet(AAChartTypeBar)
-                  )
-        .titleSet(AATitle.new
-                  .textSet(@"Population pyramid for Germany, 2015"))
-        .xAxisSet((id)@[
-            AAXAxis.new
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeBar)
+              )
+    .titleSet(AATitle.new
+              .textSet(@"Population pyramid for Germany, 2015"))
+    .xAxisSet((id)@[
+        AAXAxis.new
         .reversedSet(true)
         .categoriesSet(categories)
-                        .labelsSet(AALabels.new
-                                   .enabledSet(true)
-                                   .stepSet(@1)),
-                        AAXAxis.new
-                        .reversedSet(true)
-                        .oppositeSet(true)
-                        .categoriesSet(categories)
-                        .linkedToSet(@0)
-                        .labelsSet(AALabels.new
-                                   .enabledSet(true)
-                                   .stepSet(@1)),
-        ])
-        .yAxisSet(AAYAxis.new
-                 .visibleSet(true)
-                 .gridLineWidthSet(@0)
-                 .titleSet(AAAxisTitle.new
-                           .textSet(@"收入"))
-                  .labelsSet(AALabels.new
-                             .formatterSet(@AAJSFunc(function () {
-                                 return (Math.abs(this.value) / 1000000) + 'M';
-                             }
-                                                     ))))
-        .tooltipSet(AATooltip.new
-                    .enabledSet(true)
-                    .sharedSet(false)
-                    .formatterSet(@AAJSFunc(function () {
-                        return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
-                            '人口: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
-                    }
-                                            )))
-        .plotOptionsSet(AAPlotOptions.new
-                        .seriesSet(AASeries.new
-                                   .animationSet(AAAnimation.new
-                                                 .easingSet(AAChartAnimationBounce)
-                                                 .durationSet(@1000)
-                                                 )
-                                   .stackingSet(AAChartStackingTypeNormal)
-                                   )
-                        )
-        .seriesSet(@[
+        .labelsSet(AALabels.new
+                   .enabledSet(true)
+                   .stepSet(@1)),
+        AAXAxis.new
+        .reversedSet(true)
+        .oppositeSet(true)
+        .categoriesSet(categories)
+        .linkedToSet(@0)
+        .labelsSet(AALabels.new
+                   .enabledSet(true)
+                   .stepSet(@1)),
+    ])
+    .yAxisSet(AAYAxis.new
+              .visibleSet(true)
+              .gridLineWidthSet(@0)
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"收入"))
+              .labelsSet(AALabels.new
+                         .formatterSet(@AAJSFunc(function () {
+        return (Math.abs(this.value) / 1000000) + 'M';
+    }
+                                                 ))))
+    .tooltipSet(AATooltip.new
+                .enabledSet(true)
+                .sharedSet(false)
+                .formatterSet(@AAJSFunc(function () {
+        return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+        '人口: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+    }
+                                        )))
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .animationSet(AAAnimation.new
+                                             .easingSet(AAChartAnimationBounce)
+                                             .durationSet(@1000)
+                                             )
+                               .stackingSet(AAChartStackingTypeNormal)
+                               )
+                    )
+    .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Men")
         .colorSet((id)gradientColorDic1)
         .dataSet(@[@-1746181, @-1884428, @-2089758, @-2222362, @-2537431, @-2507081, @-2443179,
-        @-2664537, @-3556505, @-3680231, @-3143062, @-2721122, @-2229181, @-2227768,
-        @-2176300, @-1329968, @-836804, @-354784, @-90569, @-28367, @-3878]),
+                   @-2664537, @-3556505, @-3680231, @-3143062, @-2721122, @-2229181, @-2227768,
+                   @-2176300, @-1329968, @-836804, @-354784, @-90569, @-28367, @-3878]),
         AASeriesElement.new
         .nameSet(@"Women")
         .colorSet((id)gradientColorDic2)
         .dataSet(@[@1656154, @1787564, @1981671, @2108575, @2403438, @2366003, @2301402, @2519874,
-        @3360596, @3493473, @3050775, @2759560, @2304444, @2426504, @2568938, @1785638,
-        @1447162, @1005011, @330870, @130632, @21208]),
-        ])
+                   @3360596, @3493473, @3050775, @2759560, @2304444, @2426504, @2568938, @1785638,
+                   @1447162, @1005011, @330870, @130632, @21208]),
+    ])
     ;
     
     return aaOptions;
@@ -834,21 +822,20 @@
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .lineWidthSet(@1.5)
-                 .colorSet(@"#00b0ff")
-                 .fillColorSet((id)gradientColorDic1)
-                 .nameSet(@"2018")
-                 .dataSet(
-                          @[@1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
-                            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
-                            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
-                            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
-                            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
-                            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
-                            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
-                 ]
-               );
+        AASeriesElement.new
+        .lineWidthSet(@1.5)
+        .colorSet(@"#00b0ff")
+        .fillColorSet((id)gradientColorDic1)
+        .nameSet(@"2018")
+        .dataSet(@[
+            @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
+            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
+            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
+            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
+            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
+            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
+            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
+    ]);
     
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
