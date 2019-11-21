@@ -714,18 +714,19 @@
     ];
     
     return AAChartModel.new
+    .titleSet(@"polygon mixed scatter chart")
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"目标")
         .typeSet(AAChartTypePolygon)
         .dataSet(polygonDataArr)
-        .colorSet(@"rgba(112, 128, 144, 0.5)")//浅石板灰
+        .colorSet(AARgbaColor(0, 191, 255, 0.6))//DeepSkyBlue
         ,
         AASeriesElement.new
         .nameSet(@"实际值")
         .typeSet(AAChartTypeScatter)
         .dataSet(scatterChartArr)
-        .colorSet(@"#0088ff")
+        .colorSet(AARgbaColor(255, 69, 0, 1.0))//OrangeRed
         .markerSet(AAMarker.new
                    .radiusSet(@7)//曲线连接点半径，默认是4
                    .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
