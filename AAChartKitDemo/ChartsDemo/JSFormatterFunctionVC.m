@@ -51,6 +51,7 @@
         case 10: return [self configureSpecialStyleTrianglePolarChart];//外部显示六边形边框的三角形雷达图
         case 11: return [self customDoubleXAxesChart];//双 X 轴镜像条形图
         case 12: return [self customAreaChartXAxisLabelsTextUnitSuffix];//自定义X轴文字单位后缀
+        case 13: return [self customArearangeChartTooltip];//自定义面积范围图的 tooltip
         default:
             return nil;
     }
@@ -849,6 +850,81 @@
             return "";
         }
     }))
+    ;
+    
+    return aaOptions;
+}
+
+- (AAOptions *)customArearangeChartTooltip {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArearange)
+    .titleSet(@"面积范围均线图")
+    .subtitleSet(@"混合图的一种")
+    .yAxisGridLineWidthSet(@0)
+    .xAxisVisibleSet(false)
+    .yAxisTitleSet(@"摄氏度")
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Range")
+        .dataSet(@[@[@1246406400000, @14.3, @27.7],
+                   @[@1246492800000, @14.5, @27.8],
+                   @[@1246579200000, @15.5, @29.6],
+                   @[@1246665600000, @16.7, @30.7],
+                   @[@1246752000000, @16.5, @25.0],
+                   @[@1246838400000, @17.8, @25.7],
+                   @[@1246924800000, @13.5, @24.8],
+                   @[@1247011200000, @10.5, @21.4],
+                   @[@1247097600000, @9.2,  @23.8],
+                   @[@1247184000000, @11.6, @21.8],
+                   @[@1247270400000, @10.7, @23.7],
+                   @[@1247356800000, @11.0, @23.3],
+                   @[@1247443200000, @11.6, @23.7],
+                   @[@1247529600000, @11.8, @20.7],
+                   @[@1247616000000, @12.6, @22.4],
+                   @[@1247702400000, @13.6, @19.6],
+                   @[@1247788800000, @11.4, @22.6],
+                   @[@1247875200000, @13.2, @25.0],
+                   @[@1247961600000, @14.2, @21.6],
+                   @[@1248048000000, @13.1, @17.1],
+                   @[@1248134400000, @12.2, @15.5],
+                   @[@1248220800000, @12.0, @20.8],
+                   @[@1248307200000, @12.0, @17.1],
+                   @[@1248393600000, @12.7, @18.3],
+                   @[@1248480000000, @12.4, @19.4],
+                   @[@1248566400000, @12.6, @19.9],
+                   @[@1248652800000, @11.9, @20.2],
+                   @[@1248739200000, @11.0, @19.3],
+                   @[@1248825600000, @10.8, @17.8],
+                   @[@1248912000000, @11.8, @18.5],
+                   @[@1248998400000, @10.8, @16.1],
+        ])
+        .colorSet(@"#ff0066")
+        .fillOpacitySet(@0.6)
+        .lineWidthSet(@0),
+    ]);
+
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let myPointOptions = this.points[0].point.options;
+        let xValue = myPointOptions.x;
+        let lowValue = myPointOptions.low;
+        let highValue = myPointOptions.high;
+        let titleStr = '🌕 this is my custom tooltip description text content <br>';
+        let xValueStr = '🌖 this is x value  : ' + xValue + '<br>';
+        let lowValueStr = ' 🌗 this is low value  : ' + lowValue + '<br>';
+        let highValueStr = '🌘 this is high value : ' + highValue + '<br>';
+        let tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;
+        return tooltipDescStr;
+    }))
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet((id)AAStyle.new
+              .colorSet(@"#1e90ff")
+              .fontSizeSet(@"12px")
+              )
     ;
     
     return aaOptions;
