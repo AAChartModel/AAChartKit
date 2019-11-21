@@ -3,8 +3,34 @@
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2019/4/23.
-//  Copyright © 2019 Danny boy. All rights reserved.
-//
+//  Copyright © 2019 AnAn. All rights reserved.
+//*************** ............ SOURCE CODE ............ ***************
+//***.............................................................  ***
+//*** iOS     :https://github.com/AAChartModel/AAChartKit           ***
+//*** iOS     :https://github.com/AAChartModel/AAChartKit-Swift     ***
+//*** Android :https://github.com/AAChartModel/AAChartCore          ***
+//*** Android :https://github.com/AAChartModel/AAChartCore-Kotlin   ***
+//***...............................................................***
+//*************** ............ SOURCE CODE ............ ***************
+
+/*
+ 
+ * -------------------------------------------------------------------------------
+ *
+ * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
+ *
+ * Please contact me on GitHub,if there are any problems encountered in use.
+ * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
+ * -------------------------------------------------------------------------------
+ * And if you want to contribute for this project, please contact me as well
+ * GitHub        : https://github.com/AAChartModel
+ * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * JianShu       : https://www.jianshu.com/u/f1e6753d4254
+ * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
+ *
+ * -------------------------------------------------------------------------------
+ 
+ */
 
 #import "JSFormatterFunctionVC.h"
 #import "AAChartKit.h"
@@ -743,7 +769,7 @@
     
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
-              .typeSet(AAChartTypeBar)
+              .typeSet(AAChartTypeColumn)
               )
     .titleSet(AATitle.new
               .textSet(@"Population pyramid for Germany, 2015"))
@@ -767,7 +793,7 @@
               .visibleSet(true)
               .gridLineWidthSet(@0)
               .titleSet(AAAxisTitle.new
-                        .textSet(@"收入"))
+                        .textSet(@"人口数"))
               .labelsSet(AALabels.new
                          .formatterSet(@AAJSFunc(function () {
         return (Math.abs(this.value) / 1000000) + 'M';
@@ -838,8 +864,6 @@
             @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
     ]);
     
-    
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis.labels
     .formatterSet(@AAJSFunc(function () {
