@@ -924,8 +924,7 @@
 - (AAOptions *)customArearangeChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArearange)
-    .titleSet(@"面积范围均线图")
-    .subtitleSet(@"混合图的一种")
+    .titleSet(@"面积范围图")
     .yAxisGridLineWidthSet(@0)
     .xAxisVisibleSet(false)
     .yAxisTitleSet(@"摄氏度")
