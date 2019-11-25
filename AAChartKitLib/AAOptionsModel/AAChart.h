@@ -46,9 +46,12 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          panning)
 //AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, panKey) 
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          polar) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAAnimation *, animation) //设置启用动画的时间和类型
-AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          inverted) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRight) 
+AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          inverted)
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSArray     *, margin)//  图表外边缘和绘图区域之间的边距。 数组中的数字分别表示顶部，右侧，底部和左侧 ([👆,👉,👇,👈])。 也可以使用 marginTop，marginRight，marginBottom 和 marginLeft 来设置某一个方向的边距。
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginTop) //👆
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRight) //👉
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginBottom) //👇
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft) //👈
 
 @end
 
