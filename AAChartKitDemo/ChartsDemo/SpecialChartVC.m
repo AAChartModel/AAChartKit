@@ -118,7 +118,7 @@
     AASeriesElement *element = AASeriesElement.new
     .nameSet(@"语言热度值")
     .innerSizeSet(@"20%")//内部圆环半径大小占比
-    .sizeSet(@300)//尺寸大小
+//    .sizeSet(@300)//尺寸大小
     .borderWidthSet(@0)//描边的宽度
     .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
     .statesSet(@{@"hover": @{@"enabled": @(bool_false)}})//禁用点击区块之后出现的半透明遮罩层 (先定义bool变量的原因是，直接用true，false，处理完成之后容易变成0或者1。https://www.cnblogs.com/haojuncong/p/4652998.html )
@@ -136,7 +136,7 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypePie)
-    .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
+    .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#ffffa0",@"#EA007B"])
     .titleSet(@"")
     .subtitleSet(@"")
     .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
