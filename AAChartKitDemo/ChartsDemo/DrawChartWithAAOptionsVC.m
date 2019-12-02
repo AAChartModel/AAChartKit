@@ -129,10 +129,10 @@
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)
     .colorsThemeSet(@[
-        [AAGradientColor oceanBlueColor],
-        [AAGradientColor sanguineColor],
-        [AAGradientColor lusciousLimeColor],
-        [AAGradientColor mysticMauveColor],
+        AAGradientColor.oceanBlueColor,
+        AAGradientColor.sanguineColor,
+        AAGradientColor.lusciousLimeColor,
+        AAGradientColor.mysticMauveColor
     ])
     .seriesSet(@[
         AASeriesElement.new
