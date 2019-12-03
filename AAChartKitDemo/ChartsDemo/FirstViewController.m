@@ -338,6 +338,7 @@
                                 @"Columnrange Mixed Line---柱形范围图混合折线图",
                                 @"Stacking Column Mixed Line---堆积柱形图混合折线图",
                                 @"Dash Style Types Mixed---多种类型曲线混合图",
+                                @"All Line Dash Style Types Mixed Chart---所有类型曲线混合图",
                                 @"Negative Color Mixed---基准线以下异色混合图",
                                 @"scatterMixedLine---散点图混合折线图",
                                 @"Negative Color Mixed bubble---基准线以下异色气泡图",
@@ -457,7 +458,7 @@
                             @"AAOptions---Use AAOptions",
                             @"同时显示多个 AAChartView",
                             @"Hide Or Show Chart Series---隐藏或显示内容",
-                            @"Support JS Funtion",
+                            @"Support JS Formatter Function",
                             @"Evaluate JS String Function---执行js函数"];
     }
     return _sectionTypeArr;

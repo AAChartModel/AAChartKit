@@ -97,11 +97,12 @@
         case 1:  return [self configureColumnrangeMixedLineChart];
         case 2:  return [self configureStackingColumnMixedLineChart];
         case 3:  return [self configureDashStyleTypeMixedChart];
-        case 4:  return [self configureNegativeColorMixedChart];
-        case 5:  return [self configureScatterMixedLineChart];
-        case 6:  return [self configureNegativeColorMixedBubbleChart];
-        case 7:  return [self configurePolygonMixedScatterChart];
-        case 8:  return [self configurePolarMixedChart];
+        case 4:  return [self configureAllLineDashStyleTypesMixedChart];
+        case 5:  return [self configureNegativeColorMixedChart];
+        case 6:  return [self configureScatterMixedLineChart];
+        case 7:  return [self configureNegativeColorMixedBubbleChart];
+        case 8:  return [self configurePolygonMixedScatterChart];
+        case 9:  return [self configurePolarMixedChart];
     }
     return nil;
 }
@@ -352,6 +353,76 @@
         .lineWidthSet(@3)
         .dashStyleSet(AAChartLineDashStyleTypeShortDashDotDot)
         .dataSet(@[@50, @320, @230, @370, @230, @400,]),
+    ]);
+}
+
+- (AAChartModel *)configureAllLineDashStyleTypesMixedChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .yAxisVisibleSet(true)//设置 Y 轴是否可见
+    .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])//设置主体颜色数组
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@0)//隐藏连接点
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Solid")
+        .lineWidthSet(@3)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeShortDash)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeShortDash)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeShortDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeShortDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeShortDashDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeShortDashDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeShortDashDotDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeShortDashDotDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeDash)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeDash)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeLongDash)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeLongDash)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeDashDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeDashDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeLongDashDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
+        AASeriesElement.new
+        .nameSet(AAChartLineDashStyleTypeLongDashDotDot)
+        .lineWidthSet(@3)
+        .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+        .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
     ]);
 }
 
