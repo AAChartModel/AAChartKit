@@ -253,7 +253,7 @@ The received touch events message contain following content
 
 ### Support for custom the style of chart `AATooltip` through `JavaScript` function
 
-As we all know, AAChartKit support using `HTML` String.  Most of time, the `headerFormat` 、`pointFormat`、`footerFormat` HTML string is enough for customizing chart tooltip string content, However, sometimes the needs of APP is so weird to satified, in this time, you can even customize the chart tooltip style through `JavaScript` function. 
+As we all know, AAChartKit support using `HTML` String.  Most of time, the `headerFormat` 、`pointFormat`、`footerFormat` HTML string is enough for customizing chart tooltip string content, However, sometimes the needs of APP is so weird to satified, in this time, you can even customize the chart tooltip style via `formatter` *JavaScript function*. 
 
 For example
 
