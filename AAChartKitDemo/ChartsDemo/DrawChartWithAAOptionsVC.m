@@ -244,7 +244,7 @@
         .dataLabelsSet(AADataLabels.new
                        .enabledSet(true)
                        .useHTMLSet(true)
-                       .distanceSet(@10)
+                       .distanceSet(@30)//扇形图百分比线的长度
                        .formatSet(@"<span style=""color:#A9A9A9;font-weight:thin;font-size:10px"">{point.name}</span> <span style=""color:#1E90FF;font-weight:bold;font-size:15px"">{point.percentage:.1f}</span><span style=""color:#1E90FF;font-weight:thin;font-size:10px"">%</span>")
                        )
         .dataSet(@[
