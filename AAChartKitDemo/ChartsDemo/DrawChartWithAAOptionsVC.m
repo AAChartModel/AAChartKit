@@ -32,7 +32,7 @@
 
 #import "DrawChartWithAAOptionsVC.h"
 #import "AAChartKit.h"
-
+#import "AAJSStringPurer.h"
 #import "AADateUTCTool.h"
 @interface DrawChartWithAAOptionsVC ()
 
@@ -116,6 +116,8 @@
         case 32: return [self configureTripleYAxesMixedChart];//三条Y轴的混合图
         case 33: return [self configureDoubleYAxesAndColumnLineMixedChart];//双Y轴柱形曲线混合图
         case 34: return [self configureDoubleYAxesMarketDepthChart];//双Y轴市场深度图
+        case 35: return [self customAreaChartTooltipStyleLikeHTMLTable];//自定义 tooltip 提示框为 HTML 表格样式
+        case 36: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
             
     }
     return nil;
@@ -255,6 +257,53 @@
     ]);
     return aaOptions;
 }
+
+- (AAOptions *)adjustPieChartTitleAndDataLabelFontStyle2 {
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new.typeSet(AAChartTypePie))
+    .titleSet(AATitle.new
+              .useHTMLSet(true)
+              .textSet((@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>"))//标题文本内容
+              .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
+              )
+    .colorsSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#4b2b7f",])//设置颜色主题
+    .legendSet(AALegend.new
+               .enabledSet(true)
+               .floatingSet(true)
+               .alignSet(AAChartAlignTypeRight)
+               .verticalAlignSet(AAChartVerticalAlignTypeTop)
+               .layoutSet(AAChartLayoutTypeVertical)
+               )
+    .tooltipSet(AATooltip.new
+                .enabledSet(true)
+                .styleSet((id)AAStyle.new
+                          .colorSet(AAColor.whiteColor))
+                .backgroundColorSet(AAColor.blackColor))
+    .seriesSet(@[
+        AASeriesElement.new
+        .sizeSet(@300)//环形图的半径大小
+        .innerSizeSet(@"40%")//内部圆环半径大小占比
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .useHTMLSet(true)
+                       .colorSet(AAColor.whiteColor)
+                       .distanceSet(@-40)//扇形图百分比线的长度
+                       .formatSet(@"<b>{point.name}</b>: <br> {point.percentage:.1f} %")
+                       )
+        .dataSet(@[
+            @[@"Firefox",   @3336.2],
+            @[@"IE",          @26.8],
+            @[@"Chrome",     @666.8],
+            @[@"Safari",     @188.5],
+            @[@"Others",     @223.0],
+        ]),
+    ]);
+    return aaOptions;
+}
+
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
     AAChart *aaChart = AAChart.new
@@ -2062,7 +2111,7 @@
     
     AATooltip *aaTooltip = AATooltip.new
     .enabledSet(true)
-    .headerFormatSet(@"<span style=""font-size=10px;"">Price: {point.key}</span><br/>""")
+    .headerFormatSet(@"<span style=""font-size=10px;"">Price: {point.key}</span><br/>")
     .valueDecimalsSet(@2)
     ;
     
@@ -2132,6 +2181,100 @@
     .tooltipSet(aaTooltip)
     .legendSet(aaLegend)
     .seriesSet(@[element1,element2])
+    ;
+    return aaOptions;
+}
+
+// Chart Sample Online:   https://jshare.com.cn/highcharts/hhhhG1
+- (AAOptions *)customAreaChartTooltipStyleLikeHTMLTable {
+    NSString *pointFormat = [NSString stringWithFormat:@"%@%@",
+                             @" <tr><td style= \"color: {series.color} \">{series.name}: </td>",
+                             @"<td style= \"text-align: right \"><b>{point.y}EUR</b></td></tr>"];
+    
+    NSString *purePointFormat = [AAJSStringPurer pureJavaScriptFunctionStringWithString:pointFormat];
+    
+        AAOptions *aaOptions0 = AAOptions.new
+        .titleSet(AATitle.new
+                  .textSet(@"Tooltip footer format demo"))
+        .subtitleSet(AASubtitle.new
+                     .textSet(@"The tooltip should provide a HTML table where the table is closed in the footerFormat"))
+        .xAxisSet(AAXAxis.new
+                  .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",
+                                   @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]))
+        .tooltipSet(AATooltip.new
+                       .sharedSet(true)
+                       .useHTMLSet(true)
+                       .headerFormatSet(@"<small>{point.key}</small><table>")
+                       .pointFormatSet(purePointFormat)
+                       .footerFormatSet(@"</table>")
+                       .valueDecimalsSet(@2)
+                    )
+        .seriesSet(@[
+            AASeriesElement.new
+            .nameSet(@"TokyoHot")
+            .lineWidthSet(@5.0)
+            .fillOpacitySet(@0.4)
+            .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+            AASeriesElement.new
+            .nameSet(@"BerlinHot")
+            .lineWidthSet(@5.0)
+            .fillOpacitySet(@0.4)
+            .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+            AASeriesElement.new
+            .nameSet(@"LondonHot")
+            .lineWidthSet(@5.0)
+            .fillOpacitySet(@0.4)
+            .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+            AASeriesElement.new
+            .nameSet(@"NewYorkHot")
+            .lineWidthSet(@5.0)
+            .fillOpacitySet(@0.4)
+            .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+        ]);
+    
+//        return aaOptions0;
+
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"TokyoHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+        AASeriesElement.new
+        .nameSet(@"BerlinHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+        AASeriesElement.new
+        .nameSet(@"LondonHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+        AASeriesElement.new
+        .nameSet(@"NewYorkHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .sharedSet(true)
+    .useHTMLSet(true)
+    .headerFormatSet(@"<small>{point.key} 摄氏度</small><table>")
+    .pointFormatSet(purePointFormat)
+    .footerFormatSet(@"</table>")
+    .valueDecimalsSet(@2)
     ;
     return aaOptions;
 }

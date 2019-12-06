@@ -403,7 +403,9 @@
                                 @"调整Y轴倒转的条形图的DataLabels风格样式",
                                 @"Triple Y Axes Mixed Chart---三条 Y 轴的混合图",
                                 @"Double Y Axes And Column Line Mixed Chart---双Y轴柱形曲线混合图",
-                                @"Double Y Axes Market Depth Chart---双Y轴市场深度图"
+                                @"Double Y Axes Market Depth Chart---双Y轴市场深度图",
+                                @"custom Area Chart Tooltip Style Like HTML Table---自定义 tooltip 提示框为 HTML 表格样式",
+                                @"adjust Pie Chart Title And Data Label Font Style---自定义饼图的标题和 DataLabels",
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
