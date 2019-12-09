@@ -32,7 +32,6 @@
 
 #import "DrawChartWithAAOptionsVC.h"
 #import "AAChartKit.h"
-#import "AAJSStringPurer.h"
 #import "AADateUTCTool.h"
 @interface DrawChartWithAAOptionsVC ()
 
@@ -2188,52 +2187,50 @@
 // Chart Sample Online:   https://jshare.com.cn/highcharts/hhhhG1
 - (AAOptions *)customAreaChartTooltipStyleLikeHTMLTable {
     NSString *pointFormat = [NSString stringWithFormat:@"%@%@",
-                             @" <tr><td style= \"color: {series.color} \">{series.name}: </td>",
-                             @"<td style= \"text-align: right \"><b>{point.y}EUR</b></td></tr>"];
+                             @" <tr><td style= \\\"color: {series.color} \\\">{series.name}: </td>",
+                             @"<td style= \\\"text-align: right \\\"><b>{point.y}EUR</b></td></tr>"];
     
-    NSString *purePointFormat = [AAJSStringPurer pureJavaScriptFunctionStringWithString:pointFormat];
+    AAOptions *aaOptions0 = AAOptions.new
+    .titleSet(AATitle.new
+              .textSet(@"Tooltip footer format demo"))
+    .subtitleSet(AASubtitle.new
+                 .textSet(@"The tooltip should provide a HTML table where the table is closed in the footerFormat"))
+    .xAxisSet(AAXAxis.new
+              .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",
+                               @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]))
+    .tooltipSet(AATooltip.new
+                .sharedSet(true)
+                .useHTMLSet(true)
+                .headerFormatSet(@"<small>{point.key}</small><table>")
+                .pointFormatSet(pointFormat)
+                .footerFormatSet(@"</table>")
+                .valueDecimalsSet(@2)
+                )
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"TokyoHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+        AASeriesElement.new
+        .nameSet(@"BerlinHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+        AASeriesElement.new
+        .nameSet(@"LondonHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+        AASeriesElement.new
+        .nameSet(@"NewYorkHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+    ]);
     
-        AAOptions *aaOptions0 = AAOptions.new
-        .titleSet(AATitle.new
-                  .textSet(@"Tooltip footer format demo"))
-        .subtitleSet(AASubtitle.new
-                     .textSet(@"The tooltip should provide a HTML table where the table is closed in the footerFormat"))
-        .xAxisSet(AAXAxis.new
-                  .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",
-                                   @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]))
-        .tooltipSet(AATooltip.new
-                       .sharedSet(true)
-                       .useHTMLSet(true)
-                       .headerFormatSet(@"<small>{point.key}</small><table>")
-                       .pointFormatSet(purePointFormat)
-                       .footerFormatSet(@"</table>")
-                       .valueDecimalsSet(@2)
-                    )
-        .seriesSet(@[
-            AASeriesElement.new
-            .nameSet(@"TokyoHot")
-            .lineWidthSet(@5.0)
-            .fillOpacitySet(@0.4)
-            .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
-            AASeriesElement.new
-            .nameSet(@"BerlinHot")
-            .lineWidthSet(@5.0)
-            .fillOpacitySet(@0.4)
-            .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
-            AASeriesElement.new
-            .nameSet(@"LondonHot")
-            .lineWidthSet(@5.0)
-            .fillOpacitySet(@0.4)
-            .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
-            AASeriesElement.new
-            .nameSet(@"NewYorkHot")
-            .lineWidthSet(@5.0)
-            .fillOpacitySet(@0.4)
-            .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-        ]);
+    //        return aaOptions0;
     
-//        return aaOptions0;
-
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
@@ -2272,7 +2269,7 @@
     .sharedSet(true)
     .useHTMLSet(true)
     .headerFormatSet(@"<small>{point.key} 摄氏度</small><table>")
-    .pointFormatSet(purePointFormat)
+    .pointFormatSet(pointFormat)
     .footerFormatSet(@"</table>")
     .valueDecimalsSet(@2)
     ;

@@ -457,8 +457,8 @@
                             @"Mixed Type Chart---混合图表",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---渲染动画",
-                            @"AAOptions---Use AAOptions",
-                            @"同时显示多个 AAChartView",
+                            @"Draw Chart With AAOptions---通过Options绘图",
+                            @"Many ChartView simultaneously---同时显示多个AAChartView",
                             @"Hide Or Show Chart Series---隐藏或显示内容",
                             @"Support JS Formatter Function",
                             @"Evaluate JS String Function---执行js函数"];
