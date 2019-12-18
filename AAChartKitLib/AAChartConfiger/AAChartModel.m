@@ -129,7 +129,7 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
         
         _titleFontColor        = @"#000000";//标题字体颜色为黑色
         _titleFontWeight       = AAChartFontWeightTypeRegular;//常规字体
-        _titleFontSize         = @11;
+        _titleFontSize         = @14;
         _subtitleFontColor     = @"#000000";//副标题字体颜色为黑色
         _subtitleFontWeight    = AAChartFontWeightTypeRegular;//常规字体
         _subtitleFontSize      = @9;
