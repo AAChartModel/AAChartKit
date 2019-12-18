@@ -422,6 +422,7 @@
                                 @"Step Area Chart--直方折线填充图",
                                 @"Scatter Chart---散点图"
                                 ],
+                              /*JS Formatter Function*/
                               @[@"简单字符串拼接",
                                 @"自定义不同单位后缀",
                                 @"值为0时,在tooltip中不显示",
@@ -437,6 +438,7 @@
                                 @"自定义 X 轴文字单位后缀(通过 formatter 函数)",
                                 @"自定义X轴文字单位后缀(不通过 formatter 函数)",
                                 @"自定义面积范围图的 tooltip",
+                                @"调整折线图的 X 轴左边距"
                                 ],
                                /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
                                @[
