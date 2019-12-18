@@ -37,6 +37,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _enabled = true;
         _animation = true;
         _shared = true;
         _crosshairs = true;
