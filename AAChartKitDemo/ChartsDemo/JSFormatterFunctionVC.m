@@ -701,52 +701,43 @@
     ])
     ;
     
+    NSArray *categoryArr = @[@"Java", @"",@"C", @"", @"C++", @"",];
+    __block NSString *originalJsArrStr = @"";
+    [categoryArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",obj];
+    }];
+    
+    NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
+    
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return  'The value for <b>' + %@[this.x] +
+        '</b> is <b>' + this.y + '</b> ' + "℃";
+    })),finalJSArrStr];
+    
+    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return %@[this.value];
+    })),finalJSArrStr];
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.xAxis.lineWidth = @0.0;//避免多边形外环之外有额外套了一层无用的外环
-    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
-    aaOptions.yAxis.tickAmount = @8.0;
-    aaOptions
-    .xAxis.labels
-    .formatterSet(@AAJSFunc(function () {
-        let categoriesArr = [];
-        categoriesArr.push("Swift");
-        categoriesArr.push("");
-        categoriesArr.push("Ruby");
-        categoriesArr.push("");
-        categoriesArr.push("Go");
-        categoriesArr.push("");
-        let thisCategory = categoriesArr[this.value];
-        return thisCategory;
-    }));
     
     aaOptions.tooltip
     .useHTMLSet(true)
-    .formatterSet(@AAJSFunc(function () {
-        let categoriesArr = [];
-        categoriesArr.push("Swift");
-        categoriesArr.push("");
-        categoriesArr.push("Ruby");
-        categoriesArr.push("");
-        categoriesArr.push("Go");
-        categoriesArr.push("");
-        let thisCategory = categoriesArr[this.x];
-        
-        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
-        + ' 此处支持使用JavaScript函数来自定义tooltip <br/> '
-        + '2020 年编程语言热度  <b> '
-        +  thisCategory
-        + ' </b> Is <b> '
-        +  this.y
-        + ' </b> 摄氏度 ';
-    }))
+    .sharedSet(false)
+    .formatterSet(tooltipFormatter)
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
     .styleSet((id)AAStyle.new
               .colorSet(@"#1e90ff")
               .fontSizeSet(@"12px")
-              )
-    ;
+              );
+    
+    aaOptions.xAxis.lineWidth = @0.0;//避免多边形外环之外有额外套了一层无用的外环
+    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions.yAxis.tickAmount = @8.0;
+    aaOptions
+    .xAxis.labels
+    .formatterSet(xAxisLabelsFormatter);
     
     return aaOptions;
 }
