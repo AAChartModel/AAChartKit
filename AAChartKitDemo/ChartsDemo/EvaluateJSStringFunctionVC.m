@@ -238,9 +238,9 @@ function renderMinMaxLabel(aaGlobalChart) {
 }
 
 - (NSString *)configureFirstSecondThirdDataLabelJSFunctionString {
-    NSInteger firstMaxNumberIndex = 8;
-    NSInteger secondMaxNumberIndex = 9;
-    NSInteger thirdMaxNumberIndex = 5;
+    NSInteger firstMaxNumberIndex = 5;
+    NSInteger secondMaxNumberIndex = 19;
+    NSInteger thirdMaxNumberIndex = 13;
     
     NSString *jsStr =
     @AAJSFunc((
