@@ -154,36 +154,39 @@
         //第二个波纹的公式
         CGFloat y1 = cos((10) * (_x * M_PI / 180))+ _x * 3 * 0.01;
         
-        AADataElement *dataElement0 = AADataElement.new.ySet(@(y0));
-        
-        AADataElement *dataElement1 = AADataElement.new.ySet(@(y1));
+        // options 支持 NSNuber, NSArray 和 AADataElement 三种类型
+        id options0 = @(y0);
+        id options1 = @(y1);
         
         if (self.chartType != ScrollingUpdateDataVCChartTypeColumn && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
-            
-            dataElement0.markerSet(AAMarker.new
+            options0 = AADataElement.new
+            .ySet(@(y0))
+            .markerSet(AAMarker.new
             .radiusSet(@8)//曲线连接点半径
             .symbolSet(AAChartSymbolTypeDiamond)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
             .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
             .lineColorSet(@"deepskyblue")
-                                   );
+            );
             
-            dataElement1.markerSet(AAMarker.new
+            options1 = AADataElement.new
+            .ySet(@(y1))
+            .markerSet(AAMarker.new
             .radiusSet(@8)//曲线连接点半径
             .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
             .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
             .lineColorSet(@"red")
-                                   );
+            );
         }
         
         [self.chartView aa_addPointToChartSeriesElementWithElementIndex:0
-                                                                options:dataElement0
+                                                                options:options0
                                                                   shift:true];
         [self.chartView aa_addPointToChartSeriesElementWithElementIndex:1
-                                                                options:dataElement1
+                                                                options:options1
                                                                   shift:true];
     }];
     

@@ -120,11 +120,11 @@ WKScriptMessageHandler
 }
 
 
-- (void)aa_updateChartWithOptions:(NSObject *)options {
+- (void)aa_updateChartWithOptions:(id)options {
     [self aa_updateChartWithOptions:options redraw:false];
 }
 
-- (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw {
+- (void)aa_updateChartWithOptions:(id)options redraw:(BOOL)redraw {
     NSString *classNameStr = NSStringFromClass([options class]);
     classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA"
                                                            withString:@""];
@@ -148,14 +148,14 @@ WKScriptMessageHandler
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                                options:(NSObject *)options {
+                                                options:(id)options {
     [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex
                                                   options:options
                                                     shift:true];
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                                options:(NSObject *)options
+                                                options:(id)options
                                                   shift:(BOOL)shift {
     [self aa_addPointToChartSeriesElementWithElementIndex:elementIndex
                                                   options:options
@@ -165,7 +165,7 @@ WKScriptMessageHandler
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                                options:(NSObject *)options
+                                                options:(id)options
                                                  redraw:(BOOL)redraw
                                                   shift:(BOOL)shift
                                               animation:(BOOL)animation {

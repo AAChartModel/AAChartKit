@@ -175,7 +175,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 ///
 /// @Parameter options: A configuration object for the new chart options as defined in the options section of the API.
 /// @Parameter redraw: Whether to redraw after updating the chart, the default is true
-- (void)aa_updateChartWithOptions:(NSObject *)options;
+- (void)aa_updateChartWithOptions:(id)options;
 
 /**
  An universal chart update function (you can update any chart element) to open, close,
@@ -185,17 +185,17 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  options section of the API
  @param redraw Whether to redraw after updating the chart.
  */
-- (void)aa_updateChartWithOptions:(NSObject *)options redraw:(BOOL)redraw;
+- (void)aa_updateChartWithOptions:(id)options redraw:(BOOL)redraw;
 
 ///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
 ///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                                options:(NSObject *)options;
+                                                options:(id)options;
 
 ///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
 ///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                                options:(NSObject *)options
+                                                options:(id)options
                                                   shift:(BOOL)shift;
 
 /// Add a new point to the data column after the chart has been rendered.
@@ -208,7 +208,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// @Parameter shift: The default is false. When this property is true, adding a new point will delete the first point in the data column (that is, keep the total number of data points in the data column unchanged). This property is very useful in the inspection chart
 /// @Parameter animation: The default is true, which means that when adding a point, it contains the default animation effect. This parameter can also be passed to the object form containing duration and easing. For details, refer to the animation related configuration.
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
-                                                options:(NSObject *)options
+                                                options:(id)options
                                                  redraw:(BOOL)redraw
                                                   shift:(BOOL)shift
                                               animation:(BOOL)animation;
