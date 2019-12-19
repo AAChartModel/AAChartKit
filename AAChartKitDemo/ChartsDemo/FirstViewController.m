@@ -46,6 +46,7 @@
 #import "MonitorViewController.h"
 #import "JSFormatterFunctionVC.h"
 #import "EvaluateJSStringFunctionVC.h"
+#import "ScrollingUpdateDataVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -237,6 +238,13 @@
         }
             break;
             
+        case 11: {
+            /*基础类型图表*/
+            ScrollingUpdateDataVC *vc = ScrollingUpdateDataVC.new;
+            vc.chartType = indexPath.row;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
         
         default:
             break;
@@ -446,6 +454,17 @@
                                 @"Custom Chart DataLabel Sample Two",
                                 @"Custom Chart StackLabel Sample "
                                ],
+                              /*基础类型图表X轴水平滚动刷新*/
+                              @[@"Column Chart---柱形图",
+                              @"Bar Chart---条形图",
+                              @"Area Chart---折线填充图",
+                              @"Areaspline Chart---曲线填充图",
+                              @"Line Chart---折线图",
+                              @"Spline Chart---曲线图",
+                              @"Step Line Chart--直方折线图",
+                              @"Step Area Chart--直方折线填充图",
+                              @"Scatter Chart---散点图"
+                              ],
                               ];
     }
     return _chartTypeNameArr;
@@ -463,7 +482,9 @@
                             @"Many ChartView simultaneously---同时显示多个AAChartView",
                             @"Hide Or Show Chart Series---隐藏或显示内容",
                             @"Support JS Formatter Function",
-                            @"Evaluate JS String Function---执行js函数"];
+                            @"Evaluate JS String Function---执行js函数",
+                            @"X Axis Scrolling Updating Data---X轴水平滚动刷新",
+        ];
     }
     return _sectionTypeArr;
 }

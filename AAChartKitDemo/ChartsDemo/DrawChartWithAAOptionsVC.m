@@ -1758,8 +1758,7 @@
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
         .dataSet(@[@140,@120,@100,@80,@60,@40,@20])
-    ]
-               );
+    ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
