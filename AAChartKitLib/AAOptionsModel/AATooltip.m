@@ -41,6 +41,7 @@
         _animation = true;
         _shared = true;
         _crosshairs = true;
+        _followTouchMove = true;
     }
     return self;
 }
@@ -62,7 +63,7 @@ AAPropSetFuncImplementation(AATooltip, NSNumber *, valueDecimals) //设置取值
 AAPropSetFuncImplementation(AATooltip, BOOL,       shared) 
 AAPropSetFuncImplementation(AATooltip, BOOL,       crosshairs) 
 AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix) 
-//AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
+AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 
 - (void)setFormatter:(NSString *)formatter {
     _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
