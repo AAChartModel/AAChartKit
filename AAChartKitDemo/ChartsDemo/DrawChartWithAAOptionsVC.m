@@ -117,6 +117,7 @@
         case 34: return [self configureDoubleYAxesMarketDepthChart];//双Y轴市场深度图
         case 35: return [self customAreaChartTooltipStyleLikeHTMLTable];//自定义 tooltip 提示框为 HTML 表格样式
         case 36: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
+        case 37: return [self customChartStyleWhenNoData];//数据为空的情况下,配置图表的 x 轴 y 轴等样式
             
     }
     return nil;
@@ -2275,5 +2276,70 @@
     return aaOptions;
 }
 
+
+- (AAOptions *)customChartStyleWhenNoData {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"温度 (℃)")//图表副标题
+    .subtitleFontSizeSet(@14)
+    .subtitleFontColorSet(AAColor.grayColor)
+    .subtitleAlignSet(AAChartAlignTypeLeft)
+    .stackingSet(AAChartStackingTypeFalse)
+    .categoriesSet(@[@"12.03", @"12.04", @"12.05", @"12.06", @"12.07", @"12.08", @"12.09",])
+    .markerRadiusSet(@4)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisGridLineWidthSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"智能设备记录")
+        .dataSet(@[NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, ])
+        ,
+        AASeriesElement.new
+        .nameSet(@"手工记录")
+        .dataSet(@[NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, ])
+        ,
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    aaOptions.xAxis
+    .tickWidthSet(@0); //隐藏 X轴刻度线
+    
+    aaOptions.yAxis
+    .maxSet(@38)
+    .minSet(@35)
+    .tickPositionsSet(@[@35.00, @35.50, @36.00, @36.50, @37.00, @37.50, @38.00])//设置 Y 轴刻度值为一组指定值数组
+    .labelsSet(AALabels.new
+               .formatSet(@"{value:.2f}"))//设置Labels保留小数点后两位
+    .plotLinesSet(@[
+        AAPlotLinesElement.new //y 轴阈值标志线
+        .colorSet(AAColor.lightGrayColor)
+        .dashStyleSet(AAChartLineDashStyleTypeDash)
+        .valueSet(@36.75)
+        .labelSet(AALabel.new
+                  .textSet(@"高温")
+                  .alignSet(AAChartAlignTypeRight)
+                  .xSet(@-20)
+                  .styleSet(AAStyle.new
+                            .colorSet(AAColor.redColor)
+                            .fontSizeSet(@"14px")))
+    ]);
+    
+    aaOptions.legend
+    .floatingSet(true)
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)
+    .alignSet(AAChartAlignTypeRight)
+    .layoutSet(AAChartLayoutTypeVertical)
+    .itemStyleSet(AAItemStyle.new
+                  .fontSizeSet(@"14px")
+                  .fontWeightSet(AAChartFontWeightTypeThin)
+                  .colorSet(AAColor.grayColor))
+    ;
+        
+    return aaOptions;
+}
 
 @end

@@ -414,6 +414,7 @@
                                 @"Double Y Axes Market Depth Chart---双Y轴市场深度图",
                                 @"custom Area Chart Tooltip Style Like HTML Table---自定义 tooltip 提示框为 HTML 表格样式",
                                 @"adjust Pie Chart Title And Data Label Font Style---自定义饼图的标题和 DataLabels",
+                                @"custom Chart Style When No Data---数据为空的情况下,配置图表的 x 轴 y 轴等样式",
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
