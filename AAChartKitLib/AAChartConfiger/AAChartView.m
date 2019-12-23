@@ -227,6 +227,23 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:jsFunctionNameStr];
 }
 
+- (void)aa_updateXAxisCategories:(NSArray *)categories {
+    [self aa_updateXAxisCategories:categories redraw:true];
+}
+
+- (void)aa_updateXAxisCategories:(NSArray *)categories redraw:(BOOL)redraw {
+    __block NSString *originalJsArrStr = @"";
+       for (NSString *category in categories) {
+           originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",category];
+       }
+       
+       NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
+       
+       NSString *jsFuntionStr = [NSString stringWithFormat:@AAJSFunc(aaGlobalChart.xAxis[0].setCategories(%@,%d);),finalJSArrStr,redraw];
+       [self evaluateJavaScriptWithFunctionNameString:jsFuntionStr];
+}
+
+
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
     NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];

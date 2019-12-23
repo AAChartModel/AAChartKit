@@ -244,6 +244,18 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// @param JavaScriptString valid JavaScript function code
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString;
 
+
+/// Update the X axis categories of chart
+/// @param categories the X axis categories array
+- (void)aa_updateXAxisCategories:(NSArray *)categories;
+
+
+/// Update the X axis categories of chart
+/// @param categories the X axis categories array
+/// @param redraw redraw whole chart or not
+- (void)aa_updateXAxisCategories:(NSArray *)categories redraw:(BOOL)redraw;
+
+
 @end
 
 
