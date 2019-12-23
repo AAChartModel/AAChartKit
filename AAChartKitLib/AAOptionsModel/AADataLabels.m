@@ -34,6 +34,14 @@
 
 @implementation AADataLabels
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
 AAPropSetFuncImplementation(AADataLabels, BOOL      , enabled)
 AAPropSetFuncImplementation(AADataLabels, NSString *, align)
 AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style) 
