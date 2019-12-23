@@ -415,6 +415,7 @@
                                 @"custom Area Chart Tooltip Style Like HTML Table---自定义 tooltip 提示框为 HTML 表格样式",
                                 @"adjust Pie Chart Title And Data Label Font Style---自定义饼图的标题和 DataLabels",
                                 @"custom Chart Style When No Data---数据为空的情况下,配置图表的 x 轴 y 轴等样式",
+                                @"custom Chart Style When Every Data Value Is 0---所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式",
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",

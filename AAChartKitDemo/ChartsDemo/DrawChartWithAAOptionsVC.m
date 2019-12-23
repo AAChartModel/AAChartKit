@@ -118,6 +118,7 @@
         case 35: return [self customAreaChartTooltipStyleLikeHTMLTable];//自定义 tooltip 提示框为 HTML 表格样式
         case 36: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
         case 37: return [self customChartStyleWhenNoData];//数据为空的情况下,配置图表的 x 轴 y 轴等样式
+        case 38: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
             
     }
     return nil;
@@ -2339,6 +2340,29 @@
                   .colorSet(AAColor.grayColor))
     ;
         
+    return aaOptions;
+}
+
+- (AAOptions *)customChartStyleWhenEveryDataValueIsZero {
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"Custom Chart Style When Every Data Value Is 0")
+    .categoriesSet(@[
+        @"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C",
+        @"C#", @"C++", @"Perl", @"R", @"SQL"])
+    .yAxisTitleSet(@"摄氏度 (℃)")
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .dataSet(@[@0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, ]),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+
+    aaOptions.yAxis
+    .minSet(@0)
+    .minRangeSet(@1);
+    
     return aaOptions;
 }
 
