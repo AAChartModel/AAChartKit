@@ -92,6 +92,14 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 @property (nonatomic, copy) AAMoveOverEventBlock moveOverEventBlock;
 
 
+/// Chart view finish loading event handler
+/// @param handler event handler
+- (void)didFinishLoadHandler:(AADidFinishLoadBlock)handler;
+
+/// Chart view getting moved over event message model
+/// @param handler event handler
+- (void)moveOverEventHandler:(AAMoveOverEventBlock)handler;
+
 /**
  Set the chart view can scroll or not
  */

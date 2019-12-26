@@ -352,6 +352,15 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
+#pragma mark - AAChartView Event Handler
+- (void)didFinishLoadHandler:(AADidFinishLoadBlock)handler {
+    self.didFinishLoadBlock = handler;
+}
+
+- (void)moveOverEventHandler:(AAMoveOverEventBlock)handler {
+    self.moveOverEventBlock = handler;
+}
+
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
