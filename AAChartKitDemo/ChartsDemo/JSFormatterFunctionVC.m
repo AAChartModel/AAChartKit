@@ -138,7 +138,7 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px")
               )
@@ -355,7 +355,7 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#1e90ff")
               .fontSizeSet(@"12px")
               )
@@ -507,7 +507,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet((id)gradientColorDic1)
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#FFFFFF")
               .fontSizeSet(@"12px")
               )
@@ -581,7 +581,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet(AAColor.darkGrayColor)
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px")
               )
@@ -656,7 +656,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet(AAColor.darkGrayColor)
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px")
               )
@@ -727,7 +727,7 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#1e90ff")
               .fontSizeSet(@"12px")
               );
@@ -978,7 +978,7 @@
     }))
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#1e90ff")
               .fontSizeSet(@"12px")
               )

@@ -279,7 +279,7 @@
                )
     .tooltipSet(AATooltip.new
                 .enabledSet(true)
-                .styleSet((id)AAStyle.new
+                .styleSet(AAStyle.new
                           .colorSet(AAColor.whiteColor))
                 .backgroundColorSet(AAColor.blackColor))
     .seriesSet(@[
@@ -514,7 +514,7 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
+    .styleSet(AAStyle.new
               .colorSet(@"#FFD700")
               .fontSizeSet(@"12px"))
     ;
@@ -2189,7 +2189,7 @@
 - (AAOptions *)customAreaChartTooltipStyleLikeHTMLTable {
     NSString *pointFormat = [NSString stringWithFormat:@"%@%@",
                              @" <tr><td style= \\\"color: {series.color} \\\">{series.name}: </td>",
-                             @"<td style= \\\"text-align: right \\\"><b>{point.y}EUR</b></td></tr>"];
+                             @"<td style= \\\"text-align: right \\\"><b>{point.y * 10000000000} %EUR</b></td></tr>"];
     
     AAOptions *aaOptions0 = AAOptions.new
     .titleSet(AATitle.new

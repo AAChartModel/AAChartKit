@@ -31,7 +31,7 @@
  */
 
 #import <Foundation/Foundation.h>
-@class AAJSStringPurer;
+@class AAStyle, AAJSStringPurer;
 
 @interface AATooltip : NSObject
 
@@ -40,7 +40,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, background
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, borderColor) //边框颜色
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderRadius) //边框的圆角半径
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderWidth) //边框宽度
-AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSDictionary *, style) //为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":@"#333333",@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }
+AAPropStatementAndPropSetFuncStatement(strong, AATooltip, AAStyle *, style) //为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":@"#333333",@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }
 
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       enabled) 
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       useHTML) 
