@@ -58,6 +58,7 @@
 #import "AAMarker.h"
 #import "AAGradientColor.h"
 #import "AAColor.h"
+#import "AAStates.h"
 
 #define AARgbaColor(r,g,b,a) [NSString stringWithFormat:@"rgba(%d,%d,%d,%f)",r,g,b,a]
 #define AAJSFunc(x) #x

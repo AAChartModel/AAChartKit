@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AADataLabels,AATooltip;
+@class AAMarker,AADataLabels,AATooltip,AAStates;
 
 @interface AASeriesElement : NSObject
 
@@ -59,7 +59,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, keys
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, yAxis) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AADataLabels*, dataLabels) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , step) //是否转变为直方折线图
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSDictionary *, states) 
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAStates *, states)
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, zones)
@@ -68,8 +68,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id, shadow) //�
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stack)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AATooltip*, tooltip)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, zIndex) //层叠，series element 在图表中显示的层叠级别，值越大，显示越向前
-
-
 
 @end
 

@@ -68,7 +68,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, yAxis) 
 AAPropSetFuncImplementation(AASeriesElement, AADataLabels*, dataLabels) 
 AAPropSetFuncImplementation(AASeriesElement, id        , step) //是否转变为直方折线图
-AAPropSetFuncImplementation(AASeriesElement, NSDictionary *, states) 
+AAPropSetFuncImplementation(AASeriesElement, AAStates *, states)
 AAPropSetFuncImplementation(AASeriesElement, BOOL      , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
 AAPropSetFuncImplementation(AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, zones)
@@ -77,9 +77,6 @@ AAPropSetFuncImplementation(AASeriesElement, id, shadow) //数据列的阴影效
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stack)
 AAPropSetFuncImplementation(AASeriesElement, AATooltip*, tooltip)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, zIndex) //层叠，series element 在图表中显示的层叠级别，值越大，显示越向前
-
-
-
 
 @end
 
