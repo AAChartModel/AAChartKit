@@ -40,5 +40,28 @@ AAPropSetFuncImplementation(AAMarker, NSString *, symbol)//曲线点类型："ci
 AAPropSetFuncImplementation(AAMarker, NSString *, fillColor) //点的填充色(用来设置折线连接点的填充色)
 AAPropSetFuncImplementation(AAMarker, NSNumber *, lineWidth) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
 AAPropSetFuncImplementation(AAMarker, NSString *, lineColor) //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
+AAPropSetFuncImplementation(AAMarker, AAMarkerStates *, states)
 
 @end
+
+
+@implementation AAMarkerStates
+
+AAPropSetFuncImplementation(AAMarkerStates, AAMarkerHover *, hover)
+
+@end
+
+@implementation AAMarkerHover
+
+AAPropSetFuncImplementation(AAMarkerHover, NSString *, fillColor)
+AAPropSetFuncImplementation(AAMarkerHover, NSString *, lineColor)
+AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, lineWidth)
+AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, radius)
+
+@end
+
+
+
+
+
+

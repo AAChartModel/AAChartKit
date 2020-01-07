@@ -33,6 +33,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class AAMarkerStates, AAMarkerHover;
+
 @interface AAMarker : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *, radius) 
@@ -40,5 +42,29 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, symbol)
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, fillColor) //点的填充色(用来设置折线连接点的填充色)
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *, lineWidth) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, lineColor) //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarker, AAMarkerStates *,  states)
 
 @end
+
+
+@interface AAMarkerStates : NSObject
+
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerStates, AAMarkerHover *, hover)
+
+@end
+
+
+@interface AAMarkerHover : NSObject
+
+AAPropStatementAndPropSetFuncStatement(copy,   AAMarkerHover, NSString *, fillColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AAMarkerHover, NSString *, lineColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, radius)
+
+@end
+
+
+
+
+
+
