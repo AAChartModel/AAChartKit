@@ -111,6 +111,9 @@
         case 24: return [self configureHexagonRadarChart];
         case 25: return [self adjustYAxisMaxAndMinValues];
         case 26: return [self customSpecialStyleDataLabelOfSingleDataElementChart];
+        case 27: return [self customBarChartHoverColorAndSelectColor];
+        case 28: return [self customChartHoverAndSelectHaloStyle];
+        case 29: return [self customSplineChartMarkerStatesHoverStyle];
             
         default:
             return nil;
@@ -281,7 +284,6 @@
     .titleSet(@"Colorful Column Chart")
     .subtitleSet(@"single data array colorful column chart")
     .colorsThemeSet([AAEasyTool configureTheRandomColorArrayWithColorNumber:14])
-    .easyGradientColorsSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"ElementOne")
@@ -289,6 +291,7 @@
         .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
     ]);
 }
+
 
 - (AAChartModel *)configureGradientColorBarChart {
     return AAChartModel.new
@@ -941,6 +944,91 @@
     ]);
 }
 
+- (AAChartModel *)customBarChartHoverColorAndSelectColor {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeBar)
+    .titleSet(@"Custom Bar Chart select color")
+    .yAxisTitleSet(@"")
+    .yAxisReversedSet(true)
+    .xAxisReversedSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"ElementOne")
+        .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+        .allowPointSelectSet(YES)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .colorSet(@"rgba(220,20,60,1)"))//猩红色, alpha 透明度 1
+                   .selectSet(AASelect.new
+                              .colorSet(AAColor.redColor)))
+    ]);
+}
+
+- (AAChartModel *)customChartHoverAndSelectHaloStyle {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)
+    .titleSet(@"Custom Chart Hover And Select Halo Style")
+    .colorsThemeSet(@[AAColor.redColor])
+    .yAxisTitleSet(@"")
+    .yAxisReversedSet(true)
+    .xAxisReversedSet(true)
+    .markerRadiusSet(@20)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"ElementOne")
+        .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+        .allowPointSelectSet(YES)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .haloSet(AAHalo.new
+                                      .sizeSet(@130)
+                                      .opacitySet(@0.8)
+                                      .attributesSet(@{
+                                          @"stroke-width":@50,
+                                          @"fill":@"#00BFFF",
+                                          @"stroke":@"#00FA9A"
+                                      }))
+                             )
+                   .selectSet(AASelect.new
+                              .haloSet(AAHalo.new
+                                       .sizeSet(@130)
+                                       .opacitySet(@1.0)
+                                       .attributesSet(@{
+                                           @"stroke-width":@150,
+                                           @"fill":@"rgba(138,43,226,1)",
+                                           @"stroke":@"rgba(30,144,255,1)"
+                                       }))
+                              ))
+    ]);
+}
+
+- (AAChartModel *)customSplineChartMarkerStatesHoverStyle {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"Custom Spline Chart Marker States Hover Style")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisTitleSet(@"")
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+        .markerSet(AAMarker.new
+                   .statesSet(AAMarkerStates.new
+                              .hoverSet(AAMarkerHover.new
+                                        .fillColorSet(AAColor.whiteColor)
+                                        .radiusSet(@40)
+                                        .lineColorSet(AAColor.greenColor)
+                                        .lineWidthSet(@20))
+                              ))
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+    ]);
+}
 
 
 @end

@@ -312,7 +312,7 @@
                                 @"Funnel Chart---漏斗图",
                                 @"Error Bar Chart---误差图",
                                 ],
-                              /*一些自定义风格样式图表*/
+                              /*自定义风格样式图表*/
                               @[@"Colorful Column Chart---多彩条形图",
                                 @"Colorful Gradient Color Chart---多彩颜色渐变条形图",
                                 @"Discontinuous Data Chart---数值不连续的图表",
@@ -340,6 +340,9 @@
                                 @"Hexagon Radar Chart----六角形雷达图",
                                 @"adjustYAxisMaxAndMinValues----调整 X 轴和 Y 轴最大值",
                                 @"custom Special Style DataLabel Of Single Data Element Chart",
+                                @"custom Bar Chart Hover Color and Select Color---自定义条形图手指滑动颜色和单个长条被选中颜色",
+                                @"custom Line Chart Chart Hover And Select Halo Style",
+                                @"custom Spline Chart Marker States Hover Style",
                                 ],
                               /*混合类型图表*/
                               @[@"Arearange Mixed Line---面积范围均线图",
@@ -476,7 +479,7 @@
     if (!_sectionTypeArr) {
         _sectionTypeArr = @[@"Basic Type---基础类型",
                             @"Special Type---特别类型",
-                            @"Some Custom Style---一些自定义风格样式图表",
+                            @"Custom Style---自定义风格样式图表",
                             @"Mixed Type Chart---混合图表",
                             @"Real-time Refresh---即时刷新",
                             @"Animation Type---渲染动画",
