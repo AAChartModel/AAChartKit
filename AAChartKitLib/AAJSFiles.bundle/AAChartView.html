@@ -129,8 +129,9 @@
                 // 获取series
                 var seriesElement = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
-                seriesElement.setData(receivedSeriesElementData);
+                seriesElement.setData(receivedSeriesElementData, false, false);
             }
+            aaGlobalChart.redraw(true);
         }
         
         function updateChart(optionsStr, redraw) {
