@@ -243,6 +243,10 @@ WKScriptMessageHandler
        [self evaluateJavaScriptWithFunctionNameString:jsFuntionStr];
 }
 
+- (void)aa_redrawWithAniamtion:(BOOL)animation {
+    NSString *jsStr = [NSString stringWithFormat:@"redrawWithAnimation('%d')",animation];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+}
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];

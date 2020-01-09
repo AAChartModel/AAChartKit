@@ -264,6 +264,10 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 - (void)aa_updateXAxisCategories:(NSArray *)categories redraw:(BOOL)redraw;
 
 
+/// Redraw chart view
+/// @param animation have animation effect or not
+- (void)aa_redrawWithAniamtion:(BOOL)animation;
+
 @end
 
 

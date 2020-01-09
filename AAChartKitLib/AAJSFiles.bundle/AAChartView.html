@@ -148,6 +148,11 @@
             seriesElement.addPoint(options, redrawBool, shiftBool, animationBool);
         }
         
+        function redrawWithAnimation(animation) {
+            var animationBool = (animation == "1") ? true:false;
+            aaGlobalChart.redraw(animationBool);
+        }
+        
         //pragma mark -- setter method
         function setTheChartViewContentWidth(receivedWidth) {
             var container = document.getElementById('container'); //获得元素
