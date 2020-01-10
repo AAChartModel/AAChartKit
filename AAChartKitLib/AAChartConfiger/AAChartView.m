@@ -239,8 +239,15 @@ WKScriptMessageHandler
        
        NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
        
-       NSString *jsFuntionStr = [NSString stringWithFormat:@AAJSFunc(aaGlobalChart.xAxis[0].setCategories(%@,%d);),finalJSArrStr,redraw];
+       NSString *jsFuntionStr = [NSString stringWithFormat:@AAJSFunc(aaGlobalChart.xAxis[0].setCategories(%@,%d);),
+                                 finalJSArrStr, redraw];
        [self evaluateJavaScriptWithFunctionNameString:jsFuntionStr];
+}
+
+- (void)aa_updateXAxisExtremesWithMin:(NSUInteger)min max:(NSUInteger)max {
+    NSString *jsFuntionStr = [NSString stringWithFormat:@AAJSFunc(aaGlobalChart.xAxis[0].setExtremes(%lu,%lu);),
+                              min, max];
+    [self evaluateJavaScriptWithFunctionNameString:jsFuntionStr];
 }
 
 - (void)aa_redrawWithAniamtion:(BOOL)animation {
@@ -468,7 +475,7 @@ WKScriptMessageHandler
     }
 }
 
-- (void)dealloc{
+- (void)dealloc {
     [_userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
 }
 

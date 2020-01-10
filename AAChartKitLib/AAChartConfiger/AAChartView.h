@@ -264,6 +264,12 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 - (void)aa_updateXAxisCategories:(NSArray *)categories redraw:(BOOL)redraw;
 
 
+/// Update the X axis Extremes
+/// @param min X axis minimum
+/// @param max X axis maximum
+- (void)aa_updateXAxisExtremesWithMin:(NSUInteger)min max:(NSUInteger)max;
+
+
 /// Redraw chart view
 /// @param animation have animation effect or not
 - (void)aa_redrawWithAniamtion:(BOOL)animation;
