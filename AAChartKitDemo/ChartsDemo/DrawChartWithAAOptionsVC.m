@@ -153,12 +153,13 @@
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    
+
     aaOptions.legend
     .enabledSet(true)
-    .alignSet(AAChartAlignTypeRight)
-    .layoutSet(AAChartLayoutTypeVertical)
-    .verticalAlignSet(AAChartVerticalAlignTypeTop);
+    .alignSet(AAChartAlignTypeRight)//设置图例位于水平方向上的右侧
+    .layoutSet(AAChartLayoutTypeVertical)//设置图例排列方式为垂直排布
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
+    ;
     
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
     return aaOptions;
@@ -1412,9 +1413,9 @@
     aaDatalabels
     .ySet(@-10)
     .formatSet(@"{y}美元")
-    .colorSet(AAColor.redColor)// blue color
-    .backgroundColorSet(AAColor.whiteColor)// white color
-    .borderColorSet(AAColor.redColor)// blue color
+    .colorSet(AAColor.redColor)
+    .backgroundColorSet(AAColor.whiteColor)
+    .borderColorSet(AAColor.redColor)
     .borderRadiusSet(@1)
     .borderWidthSet(@1);
     return aaOptions;
