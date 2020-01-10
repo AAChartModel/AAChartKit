@@ -80,6 +80,7 @@
         case 13: return [self customAreaChartXAxisLabelsTextUnitSuffix2];//自定义X轴文字单位后缀(不通过 formatter 函数)
         case 14: return [self customArearangeChartTooltip];//自定义面积范围图的 tooltip
         case 15: return [self customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter];//通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距
+        case 16: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
         default:
             return nil;
     }
@@ -1083,6 +1084,125 @@
     ]);
     
     return aaOptions;
+}
+
+
+- (AAOptions *)customTooltipWhichDataSourceComeFromOutSideRatherThanSeries {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .titleSet(@"")
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisLineWidthSet(@1)//Y轴轴线线宽为0即是隐藏Y轴轴线
+    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为1(为0即是隐藏分割线)
+    .xAxisGridLineWidthSet(@1)//x轴横向分割线宽度为1(为0即是隐藏分割线)
+    .colorsThemeSet(@[@"#FFD700"/*纯金色*/])
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+    @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .yAxisMaxSet(@110)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@55, @55, @55, @55, @55, @55, @55, @55, @55, @55, @55, @55, ]),
+    ]);
+    
+    
+    NSArray *看近时长数组 = @[@70, @69, @95, @14, @18, @21, @25, @26, @23, @18, @13, @96];
+    NSArray *看中时长数组 = @[@20, @80, @57, @11, @17, @22, @24, @24, @20, @14, @86, @25];
+    NSArray *看远时长数组 = @[@90, @60, @35, @84, @13, @17, @18, @17, @14, @90, @39, @10];
+    NSMutableArray *总时长数组 = [NSMutableArray array];
+    for (int i = 0; i < 12; i++) {
+        NSNumber *单个总时长 = @([看近时长数组[i] floatValue] + [看中时长数组[i] floatValue] + [看远时长数组[i] floatValue]);
+        [总时长数组 addObject:单个总时长];
+    }
+    
+    NSArray *有效时长数组 = @[@39, @42, @57, @85, @19, @15, @17, @16, @14, @13, @66, @48];
+    
+    NSArray *切换次数数组 = @[
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+    ];
+    
+    NSArray *停止次数数组 = @[
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+    ];
+    
+    NSArray *干预次数数组 = @[
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+        @(arc4random()%10), @(arc4random()%10), @(arc4random()%10),
+    ];
+    
+    NSString *总时长JS数组 = [self javaScriptArrayStringWithObjcArray:总时长数组];
+    NSString *有效时长JS数组 = [self javaScriptArrayStringWithObjcArray:有效时长数组];
+    NSString *看近时长JS数组 = [self javaScriptArrayStringWithObjcArray:看近时长数组];
+    NSString *看中时长JS数组 = [self javaScriptArrayStringWithObjcArray:看中时长数组];
+    NSString *看远时长JS数组 = [self javaScriptArrayStringWithObjcArray:看远时长数组];
+    NSString *切换次数JS数组 = [self javaScriptArrayStringWithObjcArray:切换次数数组];
+    NSString *停止次数JS数组 = [self javaScriptArrayStringWithObjcArray:停止次数数组];
+    NSString *干预次数JS数组 = [self javaScriptArrayStringWithObjcArray:干预次数数组];
+
+
+    NSString *jsFormatterStr = [NSString stringWithFormat:@AAJSFunc(
+function () {
+    let 总时长数组 = %@;
+    let 有效时长数组 = %@;
+    let 看近时长数组 = %@;
+    let 看中时长数组 = %@;
+    let 看远时长数组 = %@;
+    let 切换次数数组 = %@;
+    let 停止次数数组 = %@;
+    let 干预次数数组 = %@;
+    let 时间单位后缀 = "min<br/>";
+    let 频率单位后缀 = "次<br/>";
+
+    let 单个总时长字符串 = "总时长: &nbsp &nbsp" + 总时长数组[this.point.index] + 时间单位后缀;
+    let 单个有效时长字符串 = "有效时长: &nbsp" + 有效时长数组[this.point.index] + 时间单位后缀;
+    let 单个看近时长字符串 = "看近时长: &nbsp" + 看近时长数组[this.point.index] + 时间单位后缀;
+    let 单个看中时长字符串 = "看中时长: &nbsp" + 看中时长数组[this.point.index] + 时间单位后缀;
+    let 单个看远时长字符串 = "看远时长: &nbsp" + 看远时长数组[this.point.index] + 时间单位后缀;
+    let 单个切换次数字符串 = "切换次数: &nbsp" + 切换次数数组[this.point.index] + 频率单位后缀;
+    let 单个停止次数字符串 = "停止次数: &nbsp" + 停止次数数组[this.point.index] + 频率单位后缀;
+    let 单个干预次数字符串 = "干预次数: &nbsp" + 干预次数数组[this.point.index] + 频率单位后缀;
+
+    let wholeContentString =  单个总时长字符串 + 单个有效时长字符串 + 单个看近时长字符串 + 单个看中时长字符串 + 单个看远时长字符串 + 单个切换次数字符串 + 单个停止次数字符串 + 单个干预次数字符串;
+
+    return wholeContentString;
+    }),总时长JS数组, 有效时长JS数组, 看近时长JS数组, 看中时长JS数组, 看远时长JS数组, 切换次数JS数组, 停止次数JS数组, 干预次数JS数组];
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+
+    aaOptions.tooltip
+    //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
+    //‼️共享时是 this.points (由多个 point 组成的 points 数组)
+    //‼️非共享时是 this.point 单个 point 对象
+    .sharedSet(false)
+    .useHTMLSet(true)
+    .formatterSet(jsFormatterStr)
+    .backgroundColorSet(@"#000000")//黑色背景色
+       .borderColorSet(@"#FFD700")//边缘颜色纯金色
+       .styleSet(AAStyle.new
+                 .colorSet(@"#FFD700")//文字颜色纯金色
+                 .fontSizeSet(@"12px")
+                 )
+    ;
+
+    return aaOptions;
+}
+
+- (NSString *)javaScriptArrayStringWithObjcArray:(NSArray *)objcArr {
+    __block NSString *originalJsArrStr = @"";
+    [objcArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",obj];
+    }];
+    
+    NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
+    return finalJSArrStr;
 }
 
 @end
