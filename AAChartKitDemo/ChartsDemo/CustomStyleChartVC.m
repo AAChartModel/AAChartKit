@@ -114,6 +114,7 @@
         case 27: return [self customBarChartHoverColorAndSelectColor];
         case 28: return [self customChartHoverAndSelectHaloStyle];
         case 29: return [self customSplineChartMarkerStatesHoverStyle];
+        case 30: return [self customNormalStackingChartDataLabelsContentAndStyle];
             
         default:
             return nil;
@@ -1028,6 +1029,68 @@
                               ))
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
     ]);
+}
+
+- (AAChartModel *)customNormalStackingChartDataLabelsContentAndStyle {
+    NSArray *categories = @[
+        @"孤岛危机",
+        @"使命召唤",
+        @"荣誉勋章",
+        @"狙击精英",
+        @"神秘海域",
+        @"最后生还者",
+        @"巫师3狂猎",
+        @"对马之魂",
+        @"死亡搁浅",
+        @"地狱边境",
+        @"闪客",
+        @"忍者之印"
+    ];
+    
+    NSArray *colorsTheme = @[
+        @"#fe117c",
+        @"#ffc069",
+        @"#06caf4",
+        @"#7dffc0"
+    ];
+
+    AASeriesElement *element1 = AASeriesElement.new
+    .nameSet(@"2017")
+    .dataLabelsSet(AADataLabels.new
+                   .ySet(@-10)
+                   .formatSet(@"{total} mm")
+                   .colorSet(AAColor.redColor)
+                   .shapeSet(@"callout")
+                   .backgroundColorSet(AAColor.whiteColor)
+                   .borderColorSet(AAColor.redColor)
+                   .borderRadiusSet(@1)
+                   .borderWidthSet(@1)
+                   )
+    .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]);
+    
+    
+    AASeriesElement *element2 = AASeriesElement.new
+        .nameSet(@"2018")
+    .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]);
+    AASeriesElement *element3 = AASeriesElement.new
+    .nameSet(@"2019")
+    .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]);
+    AASeriesElement *element4 = AASeriesElement.new
+           .nameSet(@"2020")
+    .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]);
+    
+    NSArray *series = @[element1, element2, element3, element4];
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"")
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisTitleSet(@"")
+    .yAxisGridLineWidthSet(@0)
+    .markerRadiusSet(@0)
+    .categoriesSet(categories)
+    .colorsThemeSet(colorsTheme)
+    .seriesSet(series);
 }
 
 
