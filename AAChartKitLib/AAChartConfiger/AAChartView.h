@@ -310,14 +310,6 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 + (NSString *)getPureStringWithJSONObject:(id)objc;
 
 /**
- Get pure series string
- 
- @param series Series array of AAOptions
- @return Pure series string without "\r" && "\n"
- */
-+ (NSString *)getPureSeriesStringWithSeriesArray:(NSArray<NSDictionary*> *)series;
-
-/**
  Get jsonObject from json string
 
  @param string json string

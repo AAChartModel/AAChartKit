@@ -566,10 +566,6 @@ WKScriptMessageHandler
     return [self getPureStringWithJSONObject:dic];
 }
 
-+ (NSString *)getPureSeriesStringWithSeriesArray:(NSArray<NSDictionary*> *)series {
-    return [self getPureStringWithJSONObject:series];
-}
-
 + (NSString *)getPureStringWithJSONObject:(id)objc {
     NSString *seriesStr = [self jsonStringWithJsonObject:objc];
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
