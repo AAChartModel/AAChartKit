@@ -83,10 +83,8 @@
     .tooltipEnabledSet(true)
     .yAxisGridLineWidthSet(@0)
     .borderRadiusSet(@8)
-//    .stackingSet(AAChartStackingTypeNormal)
+    .stackingSet(AAChartStackingTypeNormal)
     .dataLabelsEnabledSet(false)
-//    .yAxisMaxSet(@1.3)
-//    .yAxisMinSet(@-1.0)
     .zoomTypeSet(AAChartZoomTypeX)
     .seriesSet([self configureChartSeriesArray]);
     
@@ -100,19 +98,15 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:self.chartModel];
     if (aaChartModel.chartType == AAChartTypeColumn) {
-            aaOptions.plotOptions.column
-        .pointPaddingSet(@0)
+        aaOptions.plotOptions.column
         .groupPaddingSet(@0);
     } else if (aaChartModel.chartType == AAChartTypeBar) {
-          aaOptions.plotOptions.bar
-        .pointPaddingSet(@0)
+        aaOptions.plotOptions.bar
         .groupPaddingSet(@0);
     }
 
     
     [aaChartView aa_drawChartWithOptions:aaOptions];
-        
-//    [aaChartView aa_drawChartWithChartModel:aaChartModel];
 }
 
 - (NSArray *)configureChartSeriesArray {
@@ -121,7 +115,7 @@
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
     
-    _x = 12;
+    _x = 18;
 
     for (float x = 0.f; x <= _x ; x++) {
         //第一个波纹的公式
@@ -150,8 +144,6 @@
 }
 
 -(void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
-//    [self changeXAxisExtremes];
-    
     [self setupTimer];
 }
 
@@ -178,10 +170,11 @@
         CGFloat y1 = cos((10) * (_x * M_PI / 180)) + _x * 2 * 0.00005;
         
         // options 支持 NSNuber, NSArray 和 AADataElement 三种类型
-        id options0 = @(y0);
-        id options1 = @(y1);
+        id options0;
+        id options1;
         
-        if (self.chartType != ScrollingUpdateDataVCChartTypeColumn && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
+        if (self.chartType != ScrollingUpdateDataVCChartTypeColumn
+            && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
             options0 = AADataElement.new
             .ySet(@(y0))
             .dataLabelsSet(AADataLabels.new
@@ -209,18 +202,11 @@
                        //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                        .lineColorSet(@"red")
                        );
+        } else {
+            options0 = @(y0);
+            options1 = @(y1);
         }
-        
-//        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:0
-//                                                                options:options0
-//                                                                  shift:true];
-//        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:1
-//                                                                options:options1
-//                                                                  shift:true];
-        
-//        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:0 options:options0 redraw:false shift:true animation:false];
-//        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:1 options:options1 redraw:false shift:true animation:false];
-//        [self.chartView aa_redrawWithAniamtion:true];
+
         [self.chartView aa_addPointsToChartSeriesArrayWithoptionsArray:@[options0,options1]];
     }];
     
@@ -237,13 +223,6 @@
     }
     return seriesDataArr;
 }
-
-- (void)changeXAxisExtremes {
-    NSString *jsFunc = @AAJSFunc((aaGlobalChart.xAxis[0].setExtremes(0, 8);));
-    [self.chartView aa_evaluateJavaScriptStringFunction:jsFunc];
-}
-
-
 
 - (void)dealloc {
     if (_timer) {
