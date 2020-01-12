@@ -184,6 +184,8 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 - (void)aa_refreshChartWithOptions:(AAOptions *)options;
 
 
+- (void)aa_updateChartWithOptions:(id)options;
+
 /// A common chart update function
 /// (you can update any chart element) to open, close, delete, add, resize, reformat, etc. elements in the chart.
 /// Refer to https://api.highcharts.com.cn/highcharts#Chart.update
@@ -195,25 +197,12 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 ///
 /// @Parameter options: A configuration object for the new chart options as defined in the options section of the API.
 /// @Parameter redraw: Whether to redraw after updating the chart, the default is true
-- (void)aa_updateChartWithOptions:(id)options;
-
-/**
- An universal chart update function (you can update any chart element) to open, close,
- delete, add, resize, reformat, etc.
- 
- @param options A configuration object for the new chart options as defined in the
- options section of the API
- @param redraw Whether to redraw after updating the chart.
- */
 - (void)aa_updateChartWithOptions:(id)options redraw:(BOOL)redraw;
 
-///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
-///
+
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                 options:(id)options;
 
-///Same as the function `func aa_addPointToChartSeriesElement(elementIndex: Int, options: Any, redraw: Bool, shift: Bool, animation: Bool)`
-///
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
                                                 options:(id)options
                                                   shift:(BOOL)shift;
@@ -232,6 +221,15 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
                                                  redraw:(BOOL)redraw
                                                   shift:(BOOL)shift
                                               animation:(BOOL)animation;
+
+
+- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr;
+
+/// Add a new group of points to the data column after the chart has been rendered.
+///
+- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr
+                                                 shift:(BOOL)shift
+                                             animation:(BOOL)animation;
 
 /// Add a new series element to the chart after the chart has been rendered.
 /// Refer to https://api.highcharts.com.cn/highcharts#Chart.addSeries

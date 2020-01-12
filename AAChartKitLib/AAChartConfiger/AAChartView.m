@@ -201,6 +201,23 @@ WKScriptMessageHandler
     [self evaluateJavaScriptWithFunctionNameString:jsStr];
 }
 
+- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr {
+    [self aa_addPointsToChartSeriesArrayWithoptionsArray:optionsArr shift:true animation:true];
+}
+
+- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr
+                                                 shift:(BOOL)shift
+                                             animation:(BOOL)animation {
+    [optionsArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self aa_addPointToChartSeriesElementWithElementIndex:idx
+                                                      options:obj
+                                                       redraw:false
+                                                        shift:shift
+                                                    animation:false];
+    }];
+    [self aa_redrawWithAniamtion:animation];
+}
+
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element {
     NSDictionary * elementDic = [AAJsonConverter getObjectData:element];
     NSString *elementStr = [AAJsonConverter getPureStringWithJSONObject:elementDic];
