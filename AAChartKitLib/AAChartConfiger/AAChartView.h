@@ -224,43 +224,43 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// Add a new series element to the chart after the chart has been rendered.
 /// Refer to https://api.highcharts.com.cn/highcharts#Chart.addSeries
 ///
-/// @Parameter element: chart series element
+/// @Parameter element: Chart series element
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element;
 
 /// Remove a specific series element from the chart after the chart has been rendered.
 /// Refer to https://api.highcharts.com.cn/highcharts#Series.remove
 ///
-/// @Parameter elementIndex: chart series element index
+/// @Parameter elementIndex: Chart series element index
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex;
 
 /**
  Show the series element content with index
  
- @param elementIndex element index
+ @param elementIndex Element index
  */
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex;
 
 /**
  Hide the series element content with index
  
- @param elementIndex element index
+ @param elementIndex Element index
  */
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex;
 
 
 /// Evaluate the JavaScript string by converting JavaScript string into JavaScript function
-/// @param JavaScriptString valid JavaScript function code
+/// @param JavaScriptString Valid JavaScript function code
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString;
 
 
 /// Update the X axis categories of chart
-/// @param categories the X axis categories array
+/// @param categories The X axis categories array
 - (void)aa_updateXAxisCategories:(NSArray *)categories;
 
 
 /// Update the X axis categories of chart
-/// @param categories the X axis categories array
-/// @param redraw redraw whole chart or not
+/// @param categories The X axis categories array
+/// @param redraw Redraw whole chart or not
 - (void)aa_updateXAxisCategories:(NSArray *)categories redraw:(BOOL)redraw;
 
 
@@ -271,7 +271,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 
 
 /// Redraw chart view
-/// @param animation have animation effect or not
+/// @param animation Have animation effect or not
 - (void)aa_redrawWithAniamtion:(BOOL)animation;
 
 @end
