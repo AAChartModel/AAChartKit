@@ -202,7 +202,7 @@
 - (void)configureColumnChartAndBarChartStyle {
     _aaChartModel
     .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"])//设置 X 轴坐标文字内容
-    .animationTypeSet(AAChartAnimationBounce)//图形的渲染动画为弹性动画
+    .animationTypeSet(AAChartAnimationEaseOutCubic)//图形的渲染动画类型为 EaseOutCubic
     .animationDurationSet(@(1200))//图形渲染动画时长为1200毫秒
     .yAxisTitleSet(@"");
 }
