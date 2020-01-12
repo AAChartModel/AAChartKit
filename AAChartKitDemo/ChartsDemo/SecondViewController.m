@@ -301,8 +301,21 @@
 }
 
 - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
-    NSLog(@"🚀selected point series element name: %@",message.name);
-    NSLog(@"🦋🦋🦋🦋🦋 user finger moved over!!!,get the move over event message: %@",[AAJsonConverter jsonObjectWithJsonString:[AAJsonConverter getPureOptionsString:message]] );
+    
+    NSDictionary *messageDic = @{
+        @"category":message.category,
+        @"index":@(message.index),
+        @"name":message.name,
+        @"offset":message.offset,
+        @"x":message.x,
+        @"y":message.y
+    };
+    
+    NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌👌 selected point series element name: %@\n",
+                      message.name];
+    NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
+                      messageDic];
+    NSLog(@"%@%@",str1, str2);
 }
 
 
