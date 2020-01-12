@@ -86,7 +86,7 @@
 
 - (void)setUpTheAAChartViewWithChartType:(AAChartType)chartType {
     CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat chartViewHeight = self.view.frame.size.height-220;
+    CGFloat chartViewHeight = self.view.frame.size.height - 220;
     _aaChartView = [[AAChartView alloc]init];
     _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
     _aaChartView.delegate = self;
@@ -96,8 +96,31 @@
 //    设置aaChartVie 的内容宽度(content  width)
 //    _aaChartView.contentWidth = chartViewWidth*2;
     [self.view addSubview:_aaChartView];
-    _aaChartView.backgroundColor = [UIColor clearColor];
     
+    //获取图表加载完成事件
+    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+        NSLog(@"🚀 AAChartView content did finish load!!!");
+        
+        [_aaChartView aa_updateXAxisExtremesWithMin:0 max:5];
+    }];
+    
+    //获取图表上的手指点击及滑动事件
+    [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView, AAMoveOverEventMessageModel *message) {
+        NSDictionary *messageDic = @{
+            @"category":message.category,
+            @"index":@(message.index),
+            @"name":message.name,
+            @"offset":message.offset,
+            @"x":message.x,
+            @"y":message.y
+        };
+        
+        NSString *str1 = [NSString stringWithFormat:@"👌 selected point series element name: %@\n",
+                          message.name];
+        NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
+                          messageDic];
+        NSLog(@"%@%@",str1, str2);
+    }];
     
     //设置 AAChartView 的背景色是否为透明
     _aaChartView.isClearBackgroundColor = YES;
