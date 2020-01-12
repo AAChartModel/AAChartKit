@@ -532,8 +532,8 @@ WKScriptMessageHandler
     if ([objc isKindOfClass:[NSArray class]]) {
         NSArray *objcArr = objc;
         NSMutableArray *arr = [NSMutableArray arrayWithCapacity:objcArr.count];
-        for (NSUInteger i = 0; i < objcArr.count; i++) {
-            arr[i] = [self getObjectInternal:objcArr[i]];
+        for (id element in objcArr) {
+            [arr addObject:[self getObjectInternal:element]];
         }
         return arr;
     }
