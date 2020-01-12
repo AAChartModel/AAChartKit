@@ -90,8 +90,12 @@ WKScriptMessageHandler
     [self aa_refreshChartWithOptions:options];
 }
 
-- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<AASeriesElement *> *)series {
     [self aa_onlyRefreshTheChartDataWithOptionsSeries:series];
+}
+
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<AASeriesElement *> *)series animation:(BOOL)animation {
+    [self aa_onlyRefreshTheChartDataWithOptionsSeries:series animation:animation];
 }
 
 
@@ -112,13 +116,22 @@ WKScriptMessageHandler
     [self drawChart];
 }
 
-- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series {
-    NSString *seriesJsonStr = [AAJsonConverter getPureStringWithJSONObject:series];
-    NSString *jsStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",
-                       seriesJsonStr];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<AASeriesElement *> *)series {
+    [self aa_onlyRefreshTheChartDataWithOptionsSeries:series animation:true];
 }
 
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<AASeriesElement *> *)series animation:(BOOL)animation {
+    NSMutableArray *seriesDicArr = [NSMutableArray arrayWithCapacity:series.count];
+    for (AASeriesElement *aaSeriesElement in series) {
+        [seriesDicArr addObject:[AAJsonConverter getObjectData:aaSeriesElement]];
+    }
+    
+    NSString *seriesJsonStr = [AAJsonConverter getPureStringWithJSONObject:seriesDicArr];
+    NSString *jsStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@','%d')",
+                       seriesJsonStr,
+                       animation];
+    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+}
 
 - (void)aa_updateChartWithOptions:(id)options {
     [self aa_updateChartWithOptions:options redraw:false];

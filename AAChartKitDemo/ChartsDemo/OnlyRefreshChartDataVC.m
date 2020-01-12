@@ -241,15 +241,13 @@
     }
     
     NSArray *series = @[
-                        @{@"name":@"2017",
-                          @"type":@"bar",
-                          @"data":sinNumArr},
-                        @{@"name":@"2018",
-                          @"type":@"line",
-                          @"data":sinNumArr2},
-                        ];
+        AASeriesElement.new
+        .dataSet(sinNumArr),
+        AASeriesElement.new
+        .dataSet(sinNumArr2),
+    ];
     
-    [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series];
+    [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:series animation:true];
     NSLog(@"Updated the chart data content!!! ☺️☺️☺️");
 }
 

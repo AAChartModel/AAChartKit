@@ -139,7 +139,13 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  
  @param series  Series array of AAChartModel instance object
  */
-- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<AASeriesElement *> *)series;
+
+/// Function to refresh chart data only
+/// @param series Series array of AAOptions instance object
+/// @param animation Have animation effect or not
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<AASeriesElement *> *)series animation:(BOOL)animation;
+
 
 /**
  Function of refreshing whole chart view content
@@ -162,7 +168,13 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  
  @param series Series array of AAOptions instance object
  */
-- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<NSDictionary *> *)series;
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<AASeriesElement *> *)series;
+
+/// Function to refresh chart data only
+/// @param series Series array of AAOptions instance object
+/// @param animation Have animation effect or not
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<AASeriesElement *> *)series animation:(BOOL)animation;
+
     
 /**
  Function of refreshing whole chart view content
