@@ -66,8 +66,10 @@
     
     AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
-    [self setUpTheAAChartViewWithChartType:chartType];
     [self setUpTheNextTypeChartButton];
+    
+    [self drawChart];
+    
 }
 
 - (AAChartType)configureTheChartType {
@@ -84,7 +86,15 @@
     }
 }
 
-- (void)setUpTheAAChartViewWithChartType:(AAChartType)chartType {
+- (void)drawChart {
+    [self setupAAChartView];
+    AAChartType chartType = [self configureTheChartType];
+    [self setupAAChartViewWithChartType:chartType];
+    [_aaChartView aa_drawChartWithChartModel:_aaChartModel];
+    [self setupAAChartViewEventBlockHandler];
+}
+
+- (void)setupAAChartView {
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat chartViewHeight = self.view.frame.size.height - 220;
     _aaChartView = [[AAChartView alloc]init];
@@ -92,40 +102,16 @@
     _aaChartView.delegate = self;
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
 //    设置aaChartVie 的内容高度(content height)
-//    _aaChartView.contentHeight = chartViewHeight*2;
+//    _aaChartView.contentHeight = chartViewHeight * 2;
 //    设置aaChartVie 的内容宽度(content  width)
-//    _aaChartView.contentWidth = chartViewWidth*2;
+//    _aaChartView.contentWidth = chartViewWidth * 2;
     [self.view addSubview:_aaChartView];
-    
-    //获取图表加载完成事件
-    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
-        NSLog(@"🚀 AAChartView content did finish load!!!");
-        
-        [_aaChartView aa_updateXAxisExtremesWithMin:0 max:5];
-    }];
-    
-    //获取图表上的手指点击及滑动事件
-    [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView, AAMoveOverEventMessageModel *message) {
-        NSDictionary *messageDic = @{
-            @"category":message.category,
-            @"index":@(message.index),
-            @"name":message.name,
-            @"offset":message.offset,
-            @"x":message.x,
-            @"y":message.y
-        };
-        
-        NSString *str1 = [NSString stringWithFormat:@"👌 selected point series element name: %@\n",
-                          message.name];
-        NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
-                          messageDic];
-        NSLog(@"%@%@",str1, str2);
-    }];
-    
     //设置 AAChartView 的背景色是否为透明
     _aaChartView.isClearBackgroundColor = YES;
-    
-    _aaChartModel= AAChartModel.new
+}
+
+- (void)setupAAChartViewWithChartType:(AAChartType)chartType {
+    _aaChartModel = AAChartModel.new
     .chartTypeSet(chartType)//图表类型
     .titleSet(@"")//图表主标题
     .subtitleSet(@"")//图表副标题
@@ -155,8 +141,32 @@
     
     /*配置 Y 轴标注线,解开注释,即可查看添加标注线之后的图表效果(NOTE:必须设置 Y 轴可见)*/
     //    [self configureTheYAxisPlotLineForAAChartView];
+}
+
+- (void)setupAAChartViewEventBlockHandler {
+    //获取图表加载完成事件
+    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+        NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
+    }];
     
-    [_aaChartView aa_drawChartWithChartModel:_aaChartModel];
+    //获取图表上的手指点击及滑动事件
+    [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
+                                         AAMoveOverEventMessageModel *message) {
+        NSDictionary *messageDic = @{
+            @"category":message.category,
+            @"index":@(message.index),
+            @"name":message.name,
+            @"offset":message.offset,
+            @"x":message.x,
+            @"y":message.y
+        };
+        
+        NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌 selected point series element name: %@\n",
+                          message.name];
+        NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
+                          messageDic];
+        NSLog(@"%@%@",str1, str2);
+    }];
 }
 
 /**
@@ -319,11 +329,10 @@
 
 #pragma mark -- AAChartView delegate
 - (void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
-    NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
+    NSLog(@"🔥 AAChartView content did finish load!!!");
 }
 
 - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
-    
     NSDictionary *messageDic = @{
         @"category":message.category,
         @"index":@(message.index),
@@ -333,7 +342,7 @@
         @"y":message.y
     };
     
-    NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌👌 selected point series element name: %@\n",
+    NSString *str1 = [NSString stringWithFormat:@"👌 selected point series element name: %@\n",
                       message.name];
     NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
                       messageDic];
