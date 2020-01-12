@@ -218,9 +218,10 @@
 //                                                                options:options1
 //                                                                  shift:true];
         
-        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:0 options:options0 redraw:false shift:true animation:false];
-        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:1 options:options1 redraw:false shift:true animation:false];
-        [self.chartView aa_redrawWithAniamtion:true];
+//        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:0 options:options0 redraw:false shift:true animation:false];
+//        [self.chartView aa_addPointToChartSeriesElementWithElementIndex:1 options:options1 redraw:false shift:true animation:false];
+//        [self.chartView aa_redrawWithAniamtion:true];
+        [self.chartView aa_addPointsToChartSeriesArrayWithoptionsArray:@[options0,options1]];
     }];
     
     [_timer fire];
