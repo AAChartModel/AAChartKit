@@ -15,14 +15,14 @@
         <div id="container" style="width: min-450px; height: 200px; margin: -8px">
         </div>
         <script>
-        var aaGlobalChart;
+        let aaGlobalChart;
         function loadTheHighChartView(sender, receivedWidth, receivedHeight) {
-                var container = document.getElementById('container'); //获得元素
+                let container = document.getElementById('container'); //获得元素
                 if (receivedWidth != 0) {
                     container.style.width = receivedWidth; //设置宽度
                 }
                 container.style.height = receivedHeight; //设置高度
-                var aaOptions = JSON.parse(sender);
+                let aaOptions = JSON.parse(sender);
 
                 if (aaOptions.gradientColorEnabled == true) { //开启图表渐变色功能
                  configureEasyGradientColor(aaOptions);
@@ -47,7 +47,7 @@
             }
         
         function configureEasyGradientColor(aaOptions) {
-            var colors = aaOptions.colors;
+            let colors = aaOptions.colors;
             aaOptions.colors = Highcharts.map(colors,
             function(color) {
                 return {
@@ -68,10 +68,10 @@
         }
         
         function configurePlotOptions(aaOptions) {
-            var aaPlotOptions = aaOptions.plotOptions;
-            var animation = aaPlotOptions.series.animation;
+            let aaPlotOptions = aaOptions.plotOptions;
+            let animation = aaPlotOptions.series.animation;
             if (animation) {
-                var animationEasingType = animation.easing;
+                let animationEasingType = animation.easing;
                 animation.easing = configureTheChartAnimationEasingType(animationEasingType);
             }
             
@@ -82,8 +82,8 @@
         }
         
         function configureChartTouchEvent(aaPlotOptions) {
-            var mouseOverFunc = function() {
-                var message = {
+            let mouseOverFunc = function() {
+                let message = {
                     name: this.series.name,
                     y: this.y,
                     x: this.x,
@@ -94,7 +94,7 @@
             window.webkit.messageHandlers.mouseover.postMessage(message);
             };
             
-            var seriesPoint = {
+            let seriesPoint = {
                 events:{
                     mouseOver: mouseOverFunc,
                 }
@@ -122,56 +122,56 @@
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
-            var receivedSeriesArr = JSON.parse(receivedSeries);
-            var seriesArrLength = receivedSeriesArr.length;
-            for (var i = 0; i < seriesArrLength; i++) {
-                var receivedSeriesElementData = receivedSeriesArr[i].data;
+            let receivedSeriesArr = JSON.parse(receivedSeries);
+            let seriesArrLength = receivedSeriesArr.length;
+            for (let i = 0; i < seriesArrLength; i++) {
+                let receivedSeriesElementData = receivedSeriesArr[i].data;
                 // 获取series
-                var seriesElement = aaGlobalChart.series[i];
+                let seriesElement = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
                 seriesElement.setData(receivedSeriesElementData, false);
             }
             
-            var animationBool = (animation == "1") ? true:false;
+            let animationBool = (animation == "1") ? true:false;
             aaGlobalChart.redraw(animationBool);
         }
         
         function updateChart(optionsStr, redraw) {
-            var options = JSON.parse(optionsStr);
+            let options = JSON.parse(optionsStr);
             aaGlobalChart.update(options,redraw);
         }
         
         function addPointToChartSeries(elementIndex, optionsStr, redraw, shift, animation) {
-            var options = JSON.parse(optionsStr);
-            var redrawBool = (redraw == "1") ? true:false;
-            var shiftBool = (shift == "1") ? true:false;
-            var animationBool = (animation == "1") ? true:false;
+            let options = JSON.parse(optionsStr);
+            let redrawBool = (redraw == "1") ? true:false;
+            let shiftBool = (shift == "1") ? true:false;
+            let animationBool = (animation == "1") ? true:false;
             
-            var seriesElement = aaGlobalChart.series[elementIndex];
+            let seriesElement = aaGlobalChart.series[elementIndex];
             seriesElement.addPoint(options, redrawBool, shiftBool, animationBool);
         }
         
         function redrawWithAnimation(animation) {
-            var animationBool = (animation == "1") ? true:false;
+            let animationBool = (animation == "1") ? true:false;
             aaGlobalChart.redraw(animationBool);
         }
         
         //pragma mark -- setter method
         function setTheChartViewContentWidth(receivedWidth) {
-            var container = document.getElementById('container'); //获得元素
+            let container = document.getElementById('container'); //获得元素
             container.style.width = receivedWidth; //设置宽度
             aaGlobalChart.reflow();
         }
         
         function setTheChartViewContentHeight(receivedHeight) {
-            var container = document.getElementById('container'); //获得元素
+            let container = document.getElementById('container'); //获得元素
             container.style.height = receivedHeight; //设置高度
             aaGlobalChart.reflow();
         }
         
         function setChartSeriesHidden(hidden) {
-            for (var i = 0; i < aaGlobalChart.series.length; i++) {
-                var seriesElement = aaGlobalChart.series[i];
+            for (let i = 0; i < aaGlobalChart.series.length; i++) {
+                let seriesElement = aaGlobalChart.series[i];
                 if (hidden == true) {
                     seriesElement.hide();
                 } else {
@@ -181,22 +181,22 @@
         }
         
         function showTheSeriesElementContentWithIndex(elementIndex) {
-            var seriesElement = aaGlobalChart.series[elementIndex];
+            let seriesElement = aaGlobalChart.series[elementIndex];
             seriesElement.show();
         }
         
         function hideTheSeriesElementContentWithIndex(elementIndex) {
-            var seriesElement = aaGlobalChart.series[elementIndex];
+            let seriesElement = aaGlobalChart.series[elementIndex];
             seriesElement.hide();
         }
         
         function addElementToChartSeriesWithElement(elementStr) {
-            var seriesElement = JSON.parse(elementStr);
+            let seriesElement = JSON.parse(elementStr);
             aaGlobalChart.addSeries(seriesElement);
         }
         
         function removeElementFromChartSeriesWithElementIndex(elementIndex) {
-            var seriesElement = aaGlobalChart.series[elementIndex];
+            let seriesElement = aaGlobalChart.series[elementIndex];
             if (seriesElement) {
                 seriesElement.remove(true);
             }
