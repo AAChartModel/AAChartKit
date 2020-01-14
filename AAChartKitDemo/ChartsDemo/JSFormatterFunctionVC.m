@@ -703,21 +703,16 @@
     ;
     
     NSArray *categoryArr = @[@"Java", @"",@"C", @"", @"C++", @"",];
-    __block NSString *originalJsArrStr = @"";
-    [categoryArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",obj];
-    }];
-    
-    NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
+    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
     
     NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return  'The value for <b>' + %@[this.x] +
         '</b> is <b>' + this.y + '</b> ' + "℃";
-    })),finalJSArrStr];
+    })),categoryJSArrStr];
     
     NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return %@[this.value];
-    })),finalJSArrStr];
+    })),categoryJSArrStr];
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -913,7 +908,7 @@
     return aaOptions;
 }
 
-
+//https://github.com/AAChartModel/AAChartKit/issues/781
 - (AAOptions *)customArearangeChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArearange)
@@ -994,21 +989,17 @@
         @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
         @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
     ];
-    __block NSString *originalJsArrStr = @"";
-    [categoryArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",obj];
-    }];
     
-    NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
+    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
     
     NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return  'The value for <b>' + %@[this.x] +
         '</b> is <b>' + this.y + '</b> ' + "℃";
-    })),finalJSArrStr];
+    })),categoryJSArrStr];
     
     NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return %@[this.value];
-    })),finalJSArrStr];
+    })),categoryJSArrStr];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
