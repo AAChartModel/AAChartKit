@@ -1186,11 +1186,11 @@ function () {
     return aaOptions;
 }
 
-- (NSString *)javaScriptArrayStringWithObjcArray:(NSArray *)objcArr {
-    __block NSString *originalJsArrStr = @"";
-    [objcArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+- (NSString *)javaScriptArrayStringWithObjcArray:(NSArray<NSString *> *)objcArr {
+    NSString *originalJsArrStr = @"";
+    for (NSString *obj in objcArr) {
         originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",obj];
-    }];
+    }
     
     NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
     return finalJSArrStr;
