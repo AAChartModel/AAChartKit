@@ -337,12 +337,12 @@
 				1E66D1F3210AF4EC007EAB8C /* AAGlobalMacro.h */,
 				1E66D1F9210AF4EC007EAB8C /* AAChartView.h */,
 				1E66D1F2210AF4EC007EAB8C /* AAChartView.m */,
-				1E66D1F1210AF4EC007EAB8C /* AAOptions.h */,
-				1E66D1F7210AF4EC007EAB8C /* AAOptions.m */,
 				1E66D1FA210AF4EC007EAB8C /* AAChartModel.h */,
 				1E66D1F5210AF4EC007EAB8C /* AAChartModel.m */,
 				1E66D1F4210AF4EC007EAB8C /* AASeriesElement.h */,
 				1E66D1F8210AF4EC007EAB8C /* AASeriesElement.m */,
+				1E66D1F1210AF4EC007EAB8C /* AAOptions.h */,
+				1E66D1F7210AF4EC007EAB8C /* AAOptions.m */,
 			);
 			path = AAChartConfiger;
 			sourceTree = "<group>";
