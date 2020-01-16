@@ -130,7 +130,7 @@ WKScriptMessageHandler
     NSString *jsStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@','%d')",
                        seriesJsonStr,
                        animation];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_updateChartWithOptions:(id)options {
@@ -157,7 +157,7 @@ WKScriptMessageHandler
     NSString *jsStr = [NSString stringWithFormat:@"updateChart('%@','%d')",
                        optionsStr,
                        redraw];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_addPointToChartSeriesElementWithElementIndex:(NSUInteger)elementIndex
@@ -198,7 +198,7 @@ WKScriptMessageHandler
                        redraw,
                        shift,
                        animation];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr {
@@ -223,26 +223,26 @@ WKScriptMessageHandler
     NSString *elementStr = [AAJsonConverter getPureStringWithJSONObject:elementDic];
     NSString *jsStr = [NSString stringWithFormat:@"addElementToChartSeriesWithElement('%@')",
                        elementStr];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex {
     NSString *jsStr = [NSString stringWithFormat:@"removeElementFromChartSeriesWithElementIndex('%lu')",
                        (unsigned long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
     NSString *jsStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",
                        (unsigned long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
     NSString *jsStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",
                        (unsigned long)elementIndex];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString {
@@ -254,7 +254,7 @@ WKScriptMessageHandler
     
     NSString *jsFunctionNameStr = [NSString stringWithFormat:@"evaluateTheJavaScriptStringFunction('%@')",
                                    pureJSFuncStr];
-    [self evaluateJavaScriptWithFunctionNameString:jsFunctionNameStr];
+    [self safeEvaluateJavaScriptString:jsFunctionNameStr];
 }
 
 - (void)aa_updateXAxisCategories:(NSArray *)categories {
@@ -271,18 +271,18 @@ WKScriptMessageHandler
     NSString *jsFuntionStr = [NSString stringWithFormat:@"aaGlobalChart.xAxis[0].setCategories(%@,%d)",
                               finalJSArrStr,
                               redraw];
-    [self evaluateJavaScriptWithFunctionNameString:jsFuntionStr];
+    [self safeEvaluateJavaScriptString:jsFuntionStr];
 }
 
 - (void)aa_updateXAxisExtremesWithMin:(NSUInteger)min max:(NSUInteger)max {
     NSString *jsFuntionStr = [NSString stringWithFormat:@"aaGlobalChart.xAxis[0].setExtremes(%lu,%lu)",
                               min, max];
-    [self evaluateJavaScriptWithFunctionNameString:jsFuntionStr];
+    [self safeEvaluateJavaScriptString:jsFuntionStr];
 }
 
 - (void)aa_redrawWithAniamtion:(BOOL)animation {
     NSString *jsStr = [NSString stringWithFormat:@"redrawWithAnimation('%d')",animation];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
@@ -390,7 +390,7 @@ WKScriptMessageHandler
 
 - (void)drawChart {
     NSString *jsStr = [self configTheJavaScriptString];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 #pragma mark - AAChartView Event Handler
@@ -445,7 +445,7 @@ WKScriptMessageHandler
 }
 
 
-- (void)evaluateJavaScriptWithFunctionNameString:(NSString *)functionNameStr {
+- (void)safeEvaluateJavaScriptString:(NSString *)functionNameStr {
     if (_optionJson) {
         [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
             if (error) {
@@ -477,21 +477,21 @@ WKScriptMessageHandler
     _contentWidth = contentWidth;
     NSString *jsStr = [NSString stringWithFormat:@"setTheChartViewContentWidth('%f')",
                        _contentWidth];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)setContentHeight:(CGFloat)contentHeight {
     _contentHeight = contentHeight;
     NSString *jsStr = [NSString stringWithFormat:@"setTheChartViewContentHeight('%f')",
                        _contentHeight];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)setChartSeriesHidden:(BOOL)chartSeriesHidden {
     _chartSeriesHidden = chartSeriesHidden;
     NSString *jsStr = [NSString stringWithFormat:@"setChartSeriesHidden('%d')",
                        _chartSeriesHidden];
-    [self evaluateJavaScriptWithFunctionNameString:jsStr];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
