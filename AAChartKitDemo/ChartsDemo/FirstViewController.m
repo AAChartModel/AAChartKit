@@ -459,7 +459,8 @@
                                @[
                                 @"Custom Chart DataLabel Sample One",
                                 @"Custom Chart DataLabel Sample Two",
-                                @"Custom Chart StackLabel Sample "
+                                @"Custom Chart StackLabel Sample ",
+                                @"Support Dragging Chart On X Axis",
                                ],
                               /*基础类型图表X轴水平滚动刷新*/
                               @[@"Column Chart---柱形图",
