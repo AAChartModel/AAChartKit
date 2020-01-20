@@ -197,7 +197,7 @@
     } else if (self.sampleChartTypeIndex == 2) {
         jsStr = [self configureFirstSecondThirdStackLabelJSFunctionString];
     } else {
-        [self.aaChartView aa_updateXAxisExtremesWithMin:0 max:4];
+        [self.aaChartView aa_updateXAxisExtremesWithMin:0 max:6];
         return;
     }
     
