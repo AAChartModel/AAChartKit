@@ -170,7 +170,8 @@
         }
         
         function setChartSeriesHidden(hidden) {
-            for (let i = 0; i < aaGlobalChart.series.length; i++) {
+            let seriesLength = aaGlobalChart.series.length;
+            for (let i = 0; i < seriesLength; i++) {
                 let seriesElement = aaGlobalChart.series[i];
                 if (hidden == true) {
                     seriesElement.hide();
