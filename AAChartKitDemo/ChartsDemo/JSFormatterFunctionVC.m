@@ -122,7 +122,7 @@
     ]);
     
     
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
@@ -179,7 +179,7 @@
         .nameSet(@"🌲树木")
         .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
     .useHTMLSet(true)
@@ -226,7 +226,7 @@
     ]);
     
     
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
     .useHTMLSet(true)
@@ -286,7 +286,7 @@
         .fillOpacitySet(@0.4)
         .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
     .useHTMLSet(true)
@@ -347,7 +347,7 @@
     NSString *str6 = @"最小值: {point.low}<br/>";
     NSString *pointFormatStr = [NSString stringWithFormat:@"%@%@%@%@%@%@",str1,str2,str3,str4,str5,str6];
     
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
     .useHTMLSet(true)
@@ -382,7 +382,7 @@
         .fillOpacitySet(@0.4)
         .dataSet( @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions
     .yAxis.labels
@@ -432,7 +432,7 @@
         .dataSet(@[@3,@0,@4, @4,@3,])
         .stackSet(@"female"),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
     .sharedSet(false)
@@ -483,7 +483,7 @@
         .colorSet((id)gradientColorDic1)
         .dataSet( @[@29.9, @71.5, @106.4, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,]),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis
     .lineWidthSet(@1)
@@ -557,7 +557,7 @@
         .colorSet((id)gradientColorDic1)
         .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis
     .lineWidthSet(@1)
@@ -632,7 +632,7 @@
                    .radiusSet(@21))
         .dataSet(@[@0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f,]),
     ]);
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis
     .lineWidthSet(@1)
