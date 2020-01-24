@@ -41,7 +41,6 @@
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-//    finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\f" withString:@"\\f"];
