@@ -485,7 +485,7 @@
                             @"Special Type---特别类型",
                             @"Custom Style---自定义风格样式图表",
                             @"Mixed Type Chart---混合图表",
-                            @"Real-time Refresh---即时刷新",
+                            @"Only Refresh data---单纯刷新数据",
                             @"Animation Type---渲染动画",
                             @"Draw Chart With AAOptions---通过Options绘图",
                             @"Many ChartView simultaneously---同时显示多个AAChartView",
