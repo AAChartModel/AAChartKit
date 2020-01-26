@@ -52,7 +52,6 @@
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
 		44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */; };
 		44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */; };
-		44D08C2823CDA5C9004991DD /* HideOrShowChartSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D08C2723CDA5C9004991DD /* HideOrShowChartSeriesVC.m */; };
 		44E4137323C339160097D0ED /* AAStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E4137223C339160097D0ED /* AAStates.m */; };
 		44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F5F9A021D80BDB002A8D25 /* AALabel.m */; };
 		64245ACA1EC0DD6D005B8021 /* IMG_1874.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 64245AC91EC0DD6D005B8021 /* IMG_1874.JPG */; };
@@ -191,8 +190,6 @@
 		44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlgorithmVC.m; sourceTree = "<group>"; };
 		44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFormatterFunctionVC.h; sourceTree = "<group>"; };
 		44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFormatterFunctionVC.m; sourceTree = "<group>"; };
-		44D08C2623CDA5C9004991DD /* HideOrShowChartSeriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HideOrShowChartSeriesVC.h; sourceTree = "<group>"; };
-		44D08C2723CDA5C9004991DD /* HideOrShowChartSeriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HideOrShowChartSeriesVC.m; sourceTree = "<group>"; };
 		44E4137123C339150097D0ED /* AAStates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAStates.h; sourceTree = "<group>"; };
 		44E4137223C339160097D0ED /* AAStates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAStates.m; sourceTree = "<group>"; };
 		44F5F99F21D80BDB002A8D25 /* AALabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALabel.h; sourceTree = "<group>"; };
@@ -384,8 +381,6 @@
 				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
 				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
 				27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */,
-				44D08C2623CDA5C9004991DD /* HideOrShowChartSeriesVC.h */,
-				44D08C2723CDA5C9004991DD /* HideOrShowChartSeriesVC.m */,
 				27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */,
 				44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */,
 				278989B9204F8DBA003940CC /* ChartListVC.h */,
@@ -691,7 +686,6 @@
 				44E4137323C339160097D0ED /* AAStates.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,
-				44D08C2823CDA5C9004991DD /* HideOrShowChartSeriesVC.m in Sources */,
 				1E66D215210AF4ED007EAB8C /* AAChartView.m in Sources */,
 				449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */,
 				1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */,
