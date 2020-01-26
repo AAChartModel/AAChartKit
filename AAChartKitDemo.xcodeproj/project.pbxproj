@@ -42,7 +42,7 @@
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
 		44143D3921A1950300D44657 /* AAGradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44143D3821A1950300D44657 /* AAGradientColor.m */; };
 		441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */; };
-		44209B0921B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */; };
+		44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */; };
 		4454E46722DEC86F00E01944 /* AAJSStringPurer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4454E46622DEC86F00E01944 /* AAJSStringPurer.m */; };
 		44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartVC.m */; };
 		44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartVC.m */; };
@@ -172,8 +172,8 @@
 		44143D3821A1950300D44657 /* AAGradientColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAGradientColor.m; sourceTree = "<group>"; };
 		441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateJSStringFunctionVC.h; sourceTree = "<group>"; };
 		441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateJSStringFunctionVC.m; sourceTree = "<group>"; };
-		44209B0721B0D2DD004EC321 /* ChartSeriesHideOrShowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartSeriesHideOrShowVC.h; sourceTree = "<group>"; };
-		44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartSeriesHideOrShowVC.m; sourceTree = "<group>"; };
+		44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HideOrShowChartSeriesVC.h; sourceTree = "<group>"; };
+		44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HideOrShowChartSeriesVC.m; sourceTree = "<group>"; };
 		4454E46522DEC86F00E01944 /* AAJSStringPurer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAJSStringPurer.h; sourceTree = "<group>"; };
 		4454E46622DEC86F00E01944 /* AAJSStringPurer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAJSStringPurer.m; sourceTree = "<group>"; };
 		44711744217E2C87009D9FB0 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
@@ -385,8 +385,8 @@
 				44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */,
 				278989B9204F8DBA003940CC /* ChartListVC.h */,
 				278989BA204F8DBA003940CC /* ChartListVC.m */,
-				44209B0721B0D2DD004EC321 /* ChartSeriesHideOrShowVC.h */,
-				44209B0821B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m */,
+				44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */,
+				44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */,
 				44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */,
 				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
 				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
@@ -703,7 +703,7 @@
 				1E66D1FD210AF4ED007EAB8C /* AALabels.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
-				44209B0921B0D2DD004EC321 /* ChartSeriesHideOrShowVC.m in Sources */,
+				44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */,
 				44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */,
 				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
 				1E66D20D210AF4ED007EAB8C /* AAArea.m in Sources */,

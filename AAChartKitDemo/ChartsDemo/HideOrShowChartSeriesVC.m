@@ -32,16 +32,16 @@
  
  */
 
-#import "ChartSeriesHideOrShowVC.h"
+#import "HideOrShowChartSeriesVC.h"
 
-@interface ChartSeriesHideOrShowVC ()
+@interface HideOrShowChartSeriesVC ()
 
 @property (nonatomic, strong) AAChartModel *aaChartModel;
 @property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
-@implementation ChartSeriesHideOrShowVC
+@implementation HideOrShowChartSeriesVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

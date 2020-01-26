@@ -38,7 +38,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChartSeriesHideOrShowVC : UIViewController
+@interface HideOrShowChartSeriesVC : UIViewController
 @property (nonatomic, assign) NSInteger chartTypeIndex;
 @end
 
