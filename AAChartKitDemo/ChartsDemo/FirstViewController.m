@@ -41,7 +41,7 @@
 #import "ShowManyChartViewVC.h"
 #import "ChartListVC.h"
 #import "MixedChartVC.h"
-#import "ChartSeriesHideOrShowVC.h"
+#import "HideOrShowChartSeriesVC.h"
 #import "CustomStyleChartVC.h"
 #import "MonitorViewController.h"
 #import "JSFormatterFunctionVC.h"
@@ -217,7 +217,7 @@
             break;
             
         case 8: {
-            ChartSeriesHideOrShowVC *vc = ChartSeriesHideOrShowVC.new;
+            HideOrShowChartSeriesVC *vc = HideOrShowChartSeriesVC.new;
             vc.chartTypeIndex = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
         }
