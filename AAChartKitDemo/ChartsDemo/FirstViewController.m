@@ -355,7 +355,8 @@
                                 @"scatterMixedLine---散点图混合折线图",
                                 @"Negative Color Mixed bubble---基准线以下异色气泡图",
                                 @"Polygon Mixed Scatter---多边形混合散点图",
-                                @"Polar Chart Mixed---极地混合图"
+                                @"Polar Chart Mixed---极地混合图",
+                                @"configure Column Mixed Scatter Chart---柱形图混合散点图"
                                 ],
                               /*图表数据动态刷新*/
                               @[@"Column Chart---柱形图",
