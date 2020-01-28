@@ -184,6 +184,8 @@
         @"springGreens",
         @"mysticMauve",
         @"reflexSilver",
+        @"neonGlowColor",
+        @"berrySmoothieColor",
         @"newLeaf",
         @"cottonCandy",
         @"pixieDust",
@@ -209,6 +211,8 @@
         AAGradientColor.springGreensColor,
         AAGradientColor.mysticMauveColor,
         AAGradientColor.reflexSilverColor,
+        AAGradientColor.neonGlowColor,
+        AAGradientColor.berrySmoothieColor,
         AAGradientColor.newLeafColor,
         AAGradientColor.cottonCandyColor,
         AAGradientColor.pixieDustColor,
@@ -233,7 +237,7 @@
         AASeriesElement.new
         .nameSet(@"ElementOne")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,
-                   @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3,])
+                   @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,])
         .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
     ]);
 }
