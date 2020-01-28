@@ -81,6 +81,8 @@
         @"springGreens",
         @"mysticMauve",
         @"reflexSilver",
+        @"neonGlowColor",
+        @"berrySmoothieColor",
         @"newLeaf",
         @"cottonCandy",
         @"pixieDust",
@@ -99,6 +101,7 @@
     .yAxisReversedSet(true)
     .xAxisReversedSet(true)
     .invertedSet(true)
+    .legendEnabledSet(false)
     .colorsThemeSet(@[
         AAGradientColor.oceanBlueColor,
         AAGradientColor.sanguineColor,
@@ -161,9 +164,10 @@
 - (NSArray *)configureSeriesDataArray {
     NSMutableArray *seriesDataArr = [[NSMutableArray alloc]init];
     CGFloat y1 = 0.f;
-    int Q = arc4random() % 30;
-    for (float x = 0; x <= 50; x++) {
-        y1 = sin(Q * (x * M_PI / 180)) + x * 2 * 0.01 - 1 ;
+    int Q = arc4random() % 39;
+    int W = arc4random() % 10;
+    for (int x = 0; x <= 50; x++) {
+        y1 = sin(Q * (x * M_PI / 180)) + x * W * 0.01 - 1 ;
         
         AADataElement *aaDataElement = AADataElement.new
         .colorSet((id)_selectedColor)
@@ -193,6 +197,7 @@
     .xAxisCrosshairWidthSet(@1.5)
     .xAxisCrosshairColorSet(@"#ff0000")
     .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
+    .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2018")
