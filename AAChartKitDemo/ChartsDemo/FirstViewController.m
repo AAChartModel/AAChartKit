@@ -137,7 +137,6 @@
     cell.textLabel.text = self.chartTypeNameArr[indexPath.section][indexPath.row];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
-    cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }
