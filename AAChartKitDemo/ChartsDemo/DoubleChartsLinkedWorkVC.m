@@ -198,7 +198,12 @@
         .nameSet(@"2018")
         .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
     ]);
-    [aaChartView2 aa_drawChartWithChartModel:aaChartModel2];
+    
+    AAOptions *aaOptions2 = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel2];
+    aaOptions2.plotOptions.column.groupPadding = @0;
+    
+    [aaChartView2 aa_drawChartWithOptions:aaOptions2];
+    
 }
 
 
