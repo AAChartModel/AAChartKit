@@ -47,6 +47,7 @@
 #import "JSFormatterFunctionVC.h"
 #import "EvaluateJSStringFunctionVC.h"
 #import "ScrollingUpdateDataVC.h"
+#import "DoubleChartsLinkedWorkVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -209,9 +210,12 @@
             if (indexPath.row == 0) {
                 ShowManyChartViewVC *vc = ShowManyChartViewVC.new;
                 [self.navigationController pushViewController:vc animated:YES];
-            } else {
+            } else if (indexPath.row == 1) {
                 ChartListVC *listVC = ChartListVC.new;
                 [self.navigationController pushViewController:listVC animated:YES];
+            } else {
+                DoubleChartsLinkedWorkVC *vc = DoubleChartsLinkedWorkVC.new;
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
             break;
@@ -424,7 +428,8 @@
                                 ],
                               /*同时显示多个 AAChartView*/
                               @[@"同时显示多个 AAChartView",
-                                @"UITableView上显示多个 AAChartView"
+                                @"UITableView上显示多个 AAChartView",
+                                @"Double Charts Linked Working---双表联动",
                                 ],
                               /*隐藏或显示图表的Series*/
                               @[@"Column Chart---柱形图",
