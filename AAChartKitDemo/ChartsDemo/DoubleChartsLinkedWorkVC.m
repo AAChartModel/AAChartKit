@@ -166,7 +166,7 @@
     CGFloat y1 = 0.f;
     int Q = arc4random() % 39;
     int W = arc4random() % 10;
-    for (int x = 0; x <= 50; x++) {
+    for (int x = 0; x <= 68; x++) {
         y1 = sin(Q * (x * M_PI / 180)) + x * W * 0.01 - 1 ;
         
         AADataElement *aaDataElement = AADataElement.new
