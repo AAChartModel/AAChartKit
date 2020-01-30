@@ -1102,7 +1102,12 @@
     NSArray *看远时长数组 = @[@90, @60, @35, @84, @13, @17, @18, @17, @14, @90, @39, @10];
     NSMutableArray *总时长数组 = [NSMutableArray array];
     for (int i = 0; i < 12; i++) {
-        NSNumber *单个总时长 = @([看近时长数组[i] floatValue] + [看中时长数组[i] floatValue] + [看远时长数组[i] floatValue]);
+        NSNumber *单个总时长 = @(
+          [看近时长数组[i] floatValue]
+        + [看中时长数组[i] floatValue]
+        + [看远时长数组[i] floatValue]
+        );
+        
         [总时长数组 addObject:单个总时长];
     }
     
