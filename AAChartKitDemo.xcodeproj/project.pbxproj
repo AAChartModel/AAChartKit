@@ -49,6 +49,7 @@
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		4486C50D23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */; };
+		4486C51023E9BAB300B54849 /* DrawableChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4486C50F23E9BAB300B54849 /* DrawableChartVC.m */; };
 		449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */; };
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
 		44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */; };
@@ -184,6 +185,8 @@
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
 		4486C50B23DE02A900B54849 /* DoubleChartsLinkedWorkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoubleChartsLinkedWorkVC.h; sourceTree = "<group>"; };
 		4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoubleChartsLinkedWorkVC.m; sourceTree = "<group>"; };
+		4486C50E23E9BAB300B54849 /* DrawableChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawableChartVC.h; sourceTree = "<group>"; };
+		4486C50F23E9BAB300B54849 /* DrawableChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawableChartVC.m; sourceTree = "<group>"; };
 		449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollingUpdateDataVC.h; sourceTree = "<group>"; };
 		449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollingUpdateDataVC.m; sourceTree = "<group>"; };
 		449D447821CFDF5D00E43D9C /* AAPlotBandsElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPlotBandsElement.h; sourceTree = "<group>"; };
@@ -398,6 +401,8 @@
 				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
 				449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */,
 				449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */,
+				4486C50E23E9BAB300B54849 /* DrawableChartVC.h */,
+				4486C50F23E9BAB300B54849 /* DrawableChartVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
 				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
@@ -706,6 +711,7 @@
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
 				1E66D20B210AF4ED007EAB8C /* AABar.m in Sources */,
+				4486C51023E9BAB300B54849 /* DrawableChartVC.m in Sources */,
 				1E66D1FD210AF4ED007EAB8C /* AALabels.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
