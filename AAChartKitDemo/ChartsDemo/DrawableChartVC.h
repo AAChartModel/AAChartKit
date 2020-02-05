@@ -12,6 +12,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DrawableChartVC : UIViewController
 
+typedef NS_ENUM(NSInteger, DrawableChartVCChartType) {
+    DrawableChartVCChartTypeColumn = 0,
+    DrawableChartVCChartTypeBar,
+    DrawableChartVCChartTypeArea,
+    DrawableChartVCChartTypeAreaspline,
+    DrawableChartVCChartTypeLine,
+    DrawableChartVCChartTypeSpline,
+    DrawableChartVCChartTypeStepLine,
+    DrawableChartVCChartTypeStepArea,
+    DrawableChartVCChartTypeScatter,
+};
+
+typedef NS_ENUM(NSInteger, DrawableChartVCType) {
+    DrawableChartVCTypeUpdateXAxsiExtremes,
+    DrawableChartVCTypeChangeChartViewContentSize
+};
+
+@property (nonatomic, assign) DrawableChartVCChartType chartType;
+@property (nonatomic, assign) DrawableChartVCType type;
+
 @end
 
 NS_ASSUME_NONNULL_END

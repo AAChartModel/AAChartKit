@@ -7,8 +7,14 @@
 //
 
 #import "DrawableChartVC.h"
+#import "AAChartKit.h"
 
-@interface DrawableChartVC ()
+@interface DrawableChartVC () {
+    int myBasicValue;
+}
+
+@property (nonatomic, strong) AAChartModel *chartModel;
+@property (nonatomic, strong) AAChartView  *chartView;
 
 @end
 
@@ -16,17 +22,142 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    myBasicValue = 0;
+    
+    AAChartView *aaChartView = [self setupChartView];
+    AAOptions *aaOptions = [self setupChartOtions];
+    
+    [aaChartView aa_drawChartWithOptions:aaOptions];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (AAChartType)configureChartType {
+    switch (_chartType) {
+        case DrawableChartVCChartTypeColumn: return AAChartTypeColumn;
+        case DrawableChartVCChartTypeBar: return AAChartTypeBar;
+        case DrawableChartVCChartTypeArea: return AAChartTypeArea;
+        case DrawableChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
+        case DrawableChartVCChartTypeLine: return AAChartTypeLine;
+        case DrawableChartVCChartTypeSpline: return AAChartTypeSpline;
+        case DrawableChartVCChartTypeStepLine: return AAChartTypeLine;
+        case DrawableChartVCChartTypeStepArea: return AAChartTypeArea;
+        case DrawableChartVCChartTypeScatter: return AAChartTypeScatter;
+    }
 }
-*/
+
+- (AAChartView *)setupChartView {
+    CGRect chartViewFrame = CGRectMake(0,
+                                       88,
+                                       self.view.frame.size.width,
+                                       self.view.frame.size.height - 88);
+    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self configureChartViewTypeWithChartView:aaChartView];
+    [self.view addSubview:aaChartView];
+    
+    return aaChartView;
+}
+
+
+- (void)configureChartViewTypeWithChartView:(AAChartView *)chartView {
+    if (self.type == DrawableChartVCTypeUpdateXAxsiExtremes) {
+        chartView.scrollEnabled = NO;
+        [chartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+            NSLog(@"✈️✈️✈️✈️✈️ AAChartView content did finish load!!!");
+            [aaChartView aa_updateXAxisExtremesWithMin:0 max:5];
+        }];
+    } else if (self.type == DrawableChartVCTypeChangeChartViewContentSize) {
+        chartView.scrollEnabled = true;
+        if (self.chartType == DrawableChartVCChartTypeBar) {
+            chartView.contentHeight = self.view.frame.size.width * 5;
+        } else {
+            chartView.contentWidth = self.view.frame.size.width * 5;
+        }
+    }
+}
+
+- (AAOptions *) setupChartOtions {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                               startColorString:@"rgba(138,43,226,1)"
+                                 endColorString:@"rgba(30,144,255,1)"];
+    
+    NSDictionary *gradientColorDic2 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                               startColorString:@"#00BFFF"
+                                 endColorString:@"#00FA9A"];
+    
+    AAChartModel *aaChartModel =  AAChartModel.new
+    .chartTypeSet([self configureChartType])//图表类型随机
+    .xAxisVisibleSet(true)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"摄氏度")
+    .stackingSet(AAChartStackingTypeNormal)
+    .colorsThemeSet(@[
+        gradientColorDic1,
+        gradientColorDic2,
+        AAGradientColor.sanguineColor,
+        AAGradientColor.wroughtIronColor
+    ])
+    .seriesSet([self configureSeries])
+    ;
+    
+    if (self.type == DrawableChartVCTypeUpdateXAxsiExtremes) {
+        aaChartModel.zoomType = AAChartZoomTypeX;//‼️ 重要属性,需要支持 X 轴横向滚动
+        aaChartModel.yAxisVisible = true;
+    } else {
+        aaChartModel.yAxisVisible = false;
+    }
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip.followTouchMove = false;
+    aaOptions.xAxis.minRange = @2;
+    return aaOptions;
+}
+
+- (NSArray *)configureSeries {
+    NSMutableArray *sinNumArr = [[NSMutableArray alloc]init];
+    NSMutableArray *sinNumArr2 = [[NSMutableArray alloc]init];
+    CGFloat y1 = 0.f;
+    CGFloat y2 = 0.f;
+    int Q = arc4random()%30;
+    for (float x = myBasicValue; x <= myBasicValue + 18 ; x++) {
+          //第一个波纹的公式
+        y1 = sin((Q) * (x * M_PI / 180)) +x*2*0.01-1 ;
+        [sinNumArr addObject:@(y1)];
+          //第二个波纹的公式
+        y2 =cos((Q) * (x * M_PI / 180))+x*3*0.01-1;
+        [sinNumArr2 addObject:@(y2)];
+    }
+    myBasicValue = myBasicValue +1;
+    if (myBasicValue == 32) {
+        myBasicValue = 0;
+    }
+    
+    NSArray *seriesArr = @[
+        AASeriesElement.new
+        .dataSet(sinNumArr),
+        AASeriesElement.new
+        .dataSet(sinNumArr2),
+        AASeriesElement.new
+        .dataSet(sinNumArr),
+        AASeriesElement.new
+        .dataSet(sinNumArr2),
+    ];
+    
+    return [self setupStepChartSeriesElementWithSeriesArr:seriesArr];
+}
+
+- (NSArray *)setupStepChartSeriesElementWithSeriesArr:(NSArray *)seriesArr {
+    if (self.chartType == DrawableChartVCChartTypeStepLine
+        || self.chartType == DrawableChartVCChartTypeStepArea) {
+        [seriesArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            AASeriesElement *element = obj;
+            element.step = @true;
+        }];
+    }
+    return seriesArr;
+}
+
 
 @end
