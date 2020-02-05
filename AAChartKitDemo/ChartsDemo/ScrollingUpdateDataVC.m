@@ -137,10 +137,10 @@
     .dataSet(sinNumArr2)
     .colorSet((id)[AAGradientColor sanguineColor]);
     
-    NSArray *seriesDataArr = @[element1,element2];
+    NSArray *seriesArr = @[element1,element2];
     
-    seriesDataArr = [self setupStepChartSeriesElementWithSeriesDataArr:seriesDataArr];
-    return seriesDataArr;
+    seriesArr = [self setupStepChartSeriesElementWithSeriesArr:seriesArr];
+    return seriesArr;
 }
 
 -(void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
@@ -213,15 +213,15 @@
     [_timer fire];
 }
 
-- (NSArray *)setupStepChartSeriesElementWithSeriesDataArr:(NSArray *)seriesDataArr {
+- (NSArray *)setupStepChartSeriesElementWithSeriesArr:(NSArray *)seriesArr {
     if (self.chartType == ScrollingUpdateDataVCChartTypeStepLine
         || self.chartType == ScrollingUpdateDataVCChartTypeStepArea) {
-        [seriesDataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [seriesArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @true;
         }];
     }
-    return seriesDataArr;
+    return seriesArr;
 }
 
 - (void)dealloc {
