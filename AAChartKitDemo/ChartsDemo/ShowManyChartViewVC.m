@@ -45,33 +45,33 @@
     
     [self setUpTheAAChartViewOne];
     [self setUpTheAAChartViewTwo];
- 
+    
 }
 
 //配置第一个 AAChartView
 - (void)setUpTheAAChartViewOne {
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
-    
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:CGRectMake(0, 60, chartViewWidth, screenHeight/2)];
+    CGRect frame = CGRectMake(0, 60, chartViewWidth, screenHeight / 2);
+    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:frame];
     aaChartView.scrollEnabled = NO;
     [self.view addSubview:aaChartView];
-
-    NSArray *categories =
-    @[@"孤<br>岛<br>危<br>机",
-      @"使<br>命<br>召<br>唤",
-      @"荣<br>誉<br>勋<br>章",
-      @"狙<br>击<br>精<br>英",
-      @"神<br>秘<br>海<br>域",
-      @"最<br>后<br>生<br>还<br>者",
-      @"巫<br>师<br>3<br>狂<br>猎",
-      @"对<br>马<br>之<br>魂",
-      @"蝙<br>蝠<br>侠<br>阿<br>甘<br>骑<br>士<br> .",
-      @"地<br>狱<br>边<br>境",
-      @"闪<br>客",
-      @"忍<br>者<br>之<br>印"];
-
-    AAChartModel *aaChartModel= AAChartModel.new
+    
+    NSArray *categories = @[
+        @"孤<br>岛<br>危<br>机",
+        @"使<br>命<br>召<br>唤",
+        @"荣<br>誉<br>勋<br>章",
+        @"狙<br>击<br>精<br>英",
+        @"神<br>秘<br>海<br>域",
+        @"最<br>后<br>生<br>还<br>者",
+        @"巫<br>师<br>3<br>狂<br>猎",
+        @"对<br>马<br>之<br>魂",
+        @"蝙<br>蝠<br>侠<br>阿<br>甘<br>骑<br>士<br> .",
+        @"地<br>狱<br>边<br>境",
+        @"闪<br>客",
+        @"忍<br>者<br>之<br>印"];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"")
     .subtitleSet(@"")
@@ -80,15 +80,14 @@
     .tooltipEnabledSet(false)
     .borderRadiusSet(@3)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"2017")
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                 .colorSet((id)[AAGradientColor oceanBlueColor])
-                 .allowPointSelectSet(YES)
-                 ,
-                 ]
-               );
-        
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+        .colorSet((id)[AAGradientColor oceanBlueColor])
+        .allowPointSelectSet(YES)
+        ,
+    ]);
+    
     [aaChartView aa_drawChartWithChartModel:aaChartModel];
     
 }
@@ -117,11 +116,11 @@
     .yAxisCrosshairColorSet(@"#ff0000")
     .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot)
     .seriesSet(@[
-                 AASeriesElement.new
-                 .nameSet(@"2018")
-                 .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
-                 ]
-               );
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
+    ]);
+    
     [aaChartView2 aa_drawChartWithChartModel:aaChartModel2];
 }
 
