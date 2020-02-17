@@ -290,7 +290,7 @@ WKScriptMessageHandler
     NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     if (!bundle) { //installed manually
-        bundle = [NSBundle bundleForClass:[self class]];
+        bundle = [NSBundle mainBundle];
     }
     NSString *webPath = [bundle pathForResource:@"AAChartView"
                                          ofType:@"html"
