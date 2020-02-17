@@ -111,7 +111,6 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
         _zoomType              = AAChartZoomTypeNone ;//默认禁用图表的手势缩放功能
         _colorsTheme           = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];//默认颜色主题
         _tooltipEnabled        = YES;//默认启用浮动提示框
-        //        _tooltipCrosshairs     = YES;//默认启用准星线
         _tooltipShared         = YES;//默认多组数据共享一个浮动提示框
         _xAxisLabelsEnabled    = YES;//默认显示 X轴坐标点文字
         _xAxisGridLineWidth    = @0; //设置x轴分割线宽度为0个像素,即是隐藏 X轴分割线
