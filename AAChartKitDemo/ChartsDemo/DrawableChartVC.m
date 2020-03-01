@@ -127,7 +127,7 @@
     ;
     
     if (self.type == DrawableChartVCTypeUpdateXAxsiExtremes) {
-        aaChartModel.zoomType = AAChartZoomTypeX;//‼️ 重要属性,需要支持 X 轴横向滚动
+        aaChartModel.zoomType = AAChartZoomTypeX;//‼️‼️ Important property for supportting drawable chart 重要属性,需要支持 X 轴横向滚动
         aaChartModel.yAxisVisible = true;
     } else {
         aaChartModel.yAxisVisible = false;
