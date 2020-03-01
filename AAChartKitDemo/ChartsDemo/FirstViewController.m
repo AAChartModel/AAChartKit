@@ -388,7 +388,8 @@
               @"custom Bar Chart Hover Color and Select Color---自定义条形图手指滑动颜色和单个长条被选中颜色",
               @"custom Line Chart Chart Hover And Select Halo Style",
               @"custom Spline Chart Marker States Hover Style",
-              @"customNormalStackingChartDataLabelsContentAndStyle---自定义堆积柱状图 DataLabels 的内容及样式"
+              @"customNormalStackingChartDataLabelsContentAndStyle---自定义堆积柱状图 DataLabels 的内容及样式",
+              @"upsideDownPyramidChart---倒立的金字塔图",
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",

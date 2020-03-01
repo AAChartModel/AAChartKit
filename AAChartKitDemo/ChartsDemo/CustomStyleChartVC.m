@@ -56,7 +56,7 @@
 }
 
 - (AAChartView *)setUpAAChartView {
-    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
+    CGRect chartViewFrame = CGRectMake(0, 58, self.view.frame.size.width, self.view.frame.size.height - 88);
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
     aaChartView.scrollEnabled = NO;
     [self.view addSubview:aaChartView];
@@ -72,7 +72,7 @@
 }
 
 - (void)monitorTap {
-    if (self.selectedIndex == 24) {
+    if (self.selectedIndex == 31) {
         self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
     } else {
         self.selectedIndex = self.selectedIndex + 1;
@@ -115,7 +115,7 @@
         case 28: return [self customChartHoverAndSelectHaloStyle];
         case 29: return [self customSplineChartMarkerStatesHoverStyle];
         case 30: return [self customNormalStackingChartDataLabelsContentAndStyle];
-            
+        case 31: return [self upsideDownPyramidChart];
         default:
             return nil;
     }
@@ -1095,6 +1095,30 @@
     .categoriesSet(categories)
     .colorsThemeSet(colorsTheme)
     .seriesSet(series);
+}
+
+//Issue: https://github.com/AAChartModel/AAChartKit-Swift/issues/190
+//API Doc: https://api.highcharts.com.cn/highcharts#series%3Cpyramid%3E.reversed
+- (AAChartModel *)upsideDownPyramidChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypePyramid)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .yAxisTitleSet(@"摄氏度")
+    .invertedSet(true)
+    .legendEnabledSet(true)
+    .seriesSet(@[
+        @{@"name":@"2020",
+          @"data":@[
+              @[@"Swift",       @15654],
+              @[@"Objective-C",  @4064],
+              @[@"JavaScript",   @1987],
+              @[@"GO",            @976],
+              @[@"Python",        @846]
+          ],
+          @"reversed":@false
+        },
+    ]);
 }
 
 
