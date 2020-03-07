@@ -73,7 +73,7 @@ AAPropSetFuncImplementation(AASeriesElement, BOOL      , showInLegend) //Whether
 AAPropSetFuncImplementation(AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, zones)
 AAPropSetFuncImplementation(AASeriesElement, NSString *, zoneAxis)
-AAPropSetFuncImplementation(AASeriesElement, id, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
+AAPropSetFuncImplementation(AASeriesElement, AAShadow *, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
 AAPropSetFuncImplementation(AASeriesElement, NSString *, stack)
 AAPropSetFuncImplementation(AASeriesElement, AATooltip*, tooltip)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, zIndex) //层叠，series element 在图表中显示的层叠级别，值越大，显示越向前

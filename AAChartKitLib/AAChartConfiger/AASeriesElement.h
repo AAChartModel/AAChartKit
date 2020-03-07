@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AADataLabels,AATooltip,AAStates;
+@class AAMarker,AADataLabels,AATooltip,AAStates,AAShadow;
 
 @interface AASeriesElement : NSObject
 
@@ -64,7 +64,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , show
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, zones)
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zoneAxis)
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAShadow *, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stack)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AATooltip*, tooltip)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, zIndex) //层叠，series element 在图表中显示的层叠级别，值越大，显示越向前
