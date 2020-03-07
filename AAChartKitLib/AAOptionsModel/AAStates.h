@@ -22,6 +22,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAStates, AASelect *, select)
 
 @interface AAHover : NSObject
 
+AAPropStatementAndPropSetFuncStatement(assign, AAHover, BOOL , enabled)
 AAPropStatementAndPropSetFuncStatement(copy,   AAHover, NSString *, borderColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, brightness)
 AAPropStatementAndPropSetFuncStatement(copy,   AAHover, NSString *, color)

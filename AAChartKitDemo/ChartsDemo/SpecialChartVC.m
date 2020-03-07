@@ -113,15 +113,16 @@
 }
 
 - (AAChartModel *)configurePieChart {
-    bool bool_false = false;
-    
     AASeriesElement *element = AASeriesElement.new
     .nameSet(@"语言热度值")
     .innerSizeSet(@"20%")//内部圆环半径大小占比
-//    .sizeSet(@300)//尺寸大小
+    .sizeSet(@200)//尺寸大小
     .borderWidthSet(@0)//描边的宽度
     .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
-    .statesSet(@{@"hover": @{@"enabled": @(bool_false)}})//禁用点击区块之后出现的半透明遮罩层 (先定义bool变量的原因是，直接用true，false，处理完成之后容易变成0或者1。https://www.cnblogs.com/haojuncong/p/4652998.html )
+    .statesSet(AAStates.new
+               .hoverSet(AAHover.new
+                         .enabledSet(false)//禁用点击区块之后出现的半透明遮罩层
+                         ))
     .dataSet(@[
         @[@"Firefox",   @3336.2],
         @[@"IE",          @26.8],
@@ -143,7 +144,6 @@
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[element])
     ;
-    
 }
 
 - (AAChartModel *)configureBubbleChart {

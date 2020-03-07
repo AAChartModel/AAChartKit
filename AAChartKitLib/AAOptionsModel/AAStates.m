@@ -18,6 +18,7 @@ AAPropSetFuncImplementation(AAStates, AASelect *, select)
 
 @implementation AAHover
 
+AAPropSetFuncImplementation(AAHover, BOOL , enabled)
 AAPropSetFuncImplementation(AAHover, NSString *, borderColor)
 AAPropSetFuncImplementation(AAHover, NSNumber *, brightness)
 AAPropSetFuncImplementation(AAHover, NSString *, color)
