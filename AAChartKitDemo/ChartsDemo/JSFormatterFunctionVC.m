@@ -86,6 +86,7 @@
     }
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/569
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction1 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
@@ -147,6 +148,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/647
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
@@ -196,6 +198,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/651
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
@@ -254,6 +257,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/653
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction4 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
@@ -365,6 +369,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/675
 - (AAOptions *)customYAxisLabels {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
@@ -404,6 +409,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/560
 - (AAOptions *)customStackedAndGroupedColumnChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .titleSet(@"Total fruit consumtion, grouped by gender")
@@ -599,6 +605,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/685
 - (AAOptions *)colorfulSpecialStyleColumnChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
@@ -674,6 +681,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/704
 - (AAOptions *)configureSpecialStyleTrianglePolarChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
@@ -740,6 +748,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/780
 - (AAOptions *)customDoubleXAxesChart {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
@@ -988,7 +997,7 @@
     return aaOptions;
 }
 
-
+//https://github.com/AAChartModel/AAChartKit/issues/577
 - (AAOptions *)customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter {
     NSArray *categoryArr = @[
         @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
