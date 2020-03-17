@@ -81,6 +81,8 @@
         case 14: return [self customArearangeChartTooltip];//自定义面积范围图的 tooltip
         case 15: return [self customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter];//通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距
         case 16: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
+        case 17: return [self customSpiderChartStyle];//自定义蜘蛛🕷图样式
+            
         default:
             return nil;
     }
@@ -1214,6 +1216,90 @@ function () {
     
     NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
     return finalJSArrStr;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/852 自定义蜘蛛🕷图样式
+- (AAOptions *)customSpiderChartStyle {
+    NSArray *categoryArr = @[
+        @"周转天数(天)",
+        @"订单满足率",
+        @"订单履约时效",
+        @"动销率",
+        @"畅销商品缺货率",
+        @"高库存金额占比",
+        @"不动销金额占比",
+        @"停采金额占比",
+     ];
+    
+    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
+    
+    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return %@[this.value];
+    })),categoryJSArrStr];
+    
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"健康体检表")//图表主标题
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",])//设置主体颜色数组
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisTickPositionsSet(@[@0, @5, @10, @15, @20, @25, @30, @35])
+    .markerRadiusSet(@5)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .polarSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"本月得分")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5,]),
+        AASeriesElement.new
+        .nameSet(@"上月得分")
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, ]),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    aaOptions.chart
+    .marginLeftSet(@80)
+    .marginRightSet(@80);
+    
+    aaOptions.xAxis
+    .lineWidthSet(@0)//避免多边形外环之外有额外套了一层无用的外环
+    .labels
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.blackColor))
+    .formatterSet(xAxisLabelsFormatter);
+
+    aaOptions.yAxis
+    .gridLineInterpolationSet(AAYAxisGridLineInterpolationPolygon)
+    .labelsSet(AALabels.new
+               .styleSet(AAStyle.new
+                         .colorSet(AAColor.blackColor)));
+    
+    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
+    /*默认是：{
+     "color": "#333333",
+     "cursor": "pointer",
+     "fontSize": "12px",
+     "fontWeight": "bold"
+     }
+     */
+    AAItemStyle *aaItemStyle = AAItemStyle.new
+    .colorSet(AAColor.grayColor)//字体颜色
+    .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+    .fontSizeSet(@"14px")//字体大小
+    .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
+    ;
+    
+    aaOptions.legend
+    .enabledSet(true)
+    .alignSet(AAChartAlignTypeCenter)//设置图例位于水平方向上的右侧
+    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
+    .itemStyleSet(aaItemStyle)
+    ;
+    
+    return aaOptions;
 }
 
 @end
