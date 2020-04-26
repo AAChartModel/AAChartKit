@@ -81,7 +81,7 @@
         case 14: return [self customArearangeChartTooltip];//自定义面积范围图的 tooltip
         case 15: return [self customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter];//通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距
         case 16: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
-        case 17: return [self customSpiderChartStyle];//自定义蜘蛛🕷图样式
+        case 17: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
             
         default:
             return nil;
@@ -1208,6 +1208,7 @@ function () {
     return aaOptions;
 }
 
+//将 Objective-C 数组转换为 JavaScript 数组
 - (NSString *)javaScriptArrayStringWithObjcArray:(NSArray<NSString *> *)objcArr {
     NSString *originalJsArrStr = @"";
     for (NSString *obj in objcArr) {
@@ -1271,7 +1272,7 @@ function () {
     .formatterSet(xAxisLabelsFormatter);
 
     aaOptions.yAxis
-    .gridLineInterpolationSet(AAYAxisGridLineInterpolationPolygon)
+    .gridLineInterpolationSet(AAYAxisGridLineInterpolationPolygon)//设置蜘蛛网🕸图表的网线为多边形
     .labelsSet(AALabels.new
                .styleSet(AAStyle.new
                          .colorSet(AAColor.blackColor)));

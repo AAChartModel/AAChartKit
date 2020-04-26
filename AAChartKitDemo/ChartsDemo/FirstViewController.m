@@ -502,7 +502,7 @@
               @"自定义面积范围图的 tooltip",
               @"调整折线图的 X 轴左边距",
               @"通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)",
-              @"custom Spider Chart Style---自定义蜘蛛🕷图样式"
+              @"custom Spider Chart Style---自定义蜘蛛图🕷🕸样式"
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[
