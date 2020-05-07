@@ -522,9 +522,11 @@
 }
 
 - (AAChartModel *)configureColorfulGradientAreaChart {
-    NSArray *stopsArr = @[@[@0.0, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-                          @[@0.5, @"#FF14d4"],
-                          @[@1.0, @"#0bf8f5"]];
+    NSArray *stopsArr = @[
+        @[@0.0, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.5, @"#FF14d4"],
+        @[@1.0, @"#0bf8f5"]
+    ];
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
                                      stopsArray:stopsArr];
