@@ -227,5 +227,6 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius) //柱状图�
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
 AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText)  //String to display in 'zoom reset button"
 AAPropSetFuncImplementation(AAChartModel, BOOL      , touchEventEnabled)
+AAPropSetFuncImplementation(AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)
 
 @end

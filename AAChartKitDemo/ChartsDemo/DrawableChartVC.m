@@ -85,10 +85,10 @@
 - (void)configureChartViewTypeWithChartView:(AAChartView *)chartView {
     if (self.type == DrawableChartVCTypeUpdateXAxsiExtremes) {
         chartView.scrollEnabled = NO;
-        [chartView didFinishLoadHandler:^(AAChartView *aaChartView) {
-            NSLog(@"✈️✈️✈️✈️✈️ AAChartView content did finish load!!!");
-            [aaChartView aa_updateXAxisExtremesWithMin:0 max:5];
-        }];
+//        [chartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+//            NSLog(@"✈️✈️✈️✈️✈️ AAChartView content did finish load!!!");
+//            [aaChartView aa_updateXAxisExtremesWithMin:0 max:5];
+//        }];
     } else if (self.type == DrawableChartVCTypeChangeChartViewContentSize) {
         chartView.scrollEnabled = true;
         if (self.chartType == DrawableChartVCChartTypeBar) {
@@ -117,6 +117,10 @@
     .subtitleSet(@"")
     .yAxisTitleSet(@"摄氏度")
     .stackingSet(AAChartStackingTypeNormal)
+    .scrollablePlotAreaSet(
+        AAScrollablePlotArea.new
+        .minWidthSet(@3000)
+        .scrollPositionXSet(@0))
     .colorsThemeSet(@[
         gradientColorDic1,
         gradientColorDic2,

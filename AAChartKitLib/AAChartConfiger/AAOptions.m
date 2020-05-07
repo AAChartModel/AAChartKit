@@ -63,7 +63,8 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .backgroundColorSet(aaChartModel.backgroundColor)//设置图表的背景色(包含透明度的设置)
     .pinchTypeSet(aaChartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
-    .polarSet(aaChartModel.polar);
+    .polarSet(aaChartModel.polar)
+    .scrollablePlotAreaSet(aaChartModel.scrollablePlotArea);
     
     AATitle *aaTitle = AATitle.new
     .textSet(aaChartModel.title)//标题文本内容

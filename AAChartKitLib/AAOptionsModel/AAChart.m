@@ -48,5 +48,19 @@ AAPropSetFuncImplementation(AAChart, NSNumber    *, marginTop)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginRight)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginBottom)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginLeft) 
+AAPropSetFuncImplementation(AAChart, AAScrollablePlotArea *, scrollablePlotArea)
+
+
+@end
+
+
+
+@implementation AAScrollablePlotArea
+
+AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, minHeight)
+AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, minWidth)
+AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, opacity)
+AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, scrollPositionX)
+AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, scrollPositionY)
 
 @end
