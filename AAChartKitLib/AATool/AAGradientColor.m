@@ -285,8 +285,10 @@
 + (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
                             startColorString:(NSString *)startColorStr
                               endColorString:(NSString *)endColorStr {
-    NSArray *stopsArr = @[@[@(0),startColorStr],
-                          @[@(1),endColorStr]];
+    NSArray *stopsArr = @[
+        @[@(0),startColorStr],
+        @[@(1),endColorStr]
+    ];
     return [self gradientColorWithDirection:direction stopsArray:stopsArr];
 }
 
