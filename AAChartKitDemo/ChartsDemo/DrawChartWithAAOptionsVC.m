@@ -124,6 +124,7 @@
     return nil;
 }
 
+
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
@@ -1484,10 +1485,9 @@
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.plotOptions.pie.dataLabels.allowOverlap = true;
-    
     
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
+    
     AADataLabels *aaDatalabels = aaOptions.plotOptions.areaspline.dataLabels;
     aaDatalabels
     .xSet(@3)
