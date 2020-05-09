@@ -1061,32 +1061,52 @@
 }
 
 - (AAOptions *)simpleGaugeChart {
-    NSDictionary *aaOptions = @{
-        @"chart": @{
-                @"type": @"gauge"
-        },
-        @"pane": @{
-                @"startAngle": @-150,
-                @"endAngle": @150
-        },
-        @"yAxis": @{
-                @"min": @0,
-                @"max": @100,
-                @"plotBands": @[
-                        @{
-                            @"from": @0,
-                            @"to": @60,
-                            @"color": @"#FF0000",
-                            @"outerRadius": @"105%",
-                            @"thickness": @"5%"
-                        }]
-        },
-        @"series": @[@{
-                         @"data": @[@80]
-        }]
-    };
+//    NSDictionary *aaOptions = @{
+//        @"chart": @{
+//                @"type": @"gauge"
+//        },
+//        @"pane": @{
+//                @"startAngle": @-150,
+//                @"endAngle": @150
+//        },
+//        @"yAxis": @{
+//                @"min": @0,
+//                @"max": @100,
+//                @"plotBands": @[
+//                        @{
+//                            @"from": @0,
+//                            @"to": @60,
+//                            @"color": @"#FF0000",
+//                            @"outerRadius": @"105%",
+//                            @"thickness": @"5%"
+//                        }]
+//        },
+//        @"series": @[@{
+//                         @"data": @[@80]
+//        }]
+//    };
     
-    return (id)aaOptions;
+    AAOptions *aaOptions2 = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeGauge))
+    .paneSet(AAPane.new
+             .startAngleSet(@-150)
+             .endAngleSet(@150))
+    .yAxisSet(AAYAxis.new
+              .minSet(@0)
+              .maxSet(@100)
+              .plotBandsSet(@[
+                  AAPlotBandsElement.new
+                  .fromSet(@0)
+                  .toSet(@60)
+                  .colorSet(@"#FF0000")
+                            ])
+              )
+    .seriesSet(@[
+        AASeriesElement.new
+        .dataSet(@[@80])]);
+    
+    return aaOptions2;
 }
 
 - (AAOptions *)gaugeChartWithPlotBand {

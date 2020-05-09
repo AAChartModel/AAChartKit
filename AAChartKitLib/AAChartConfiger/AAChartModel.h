@@ -104,7 +104,7 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;
 AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;
-
+AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;
 
 AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeHorizontal;
 AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeVertical;

@@ -59,6 +59,7 @@
 #import "AAGradientColor.h"
 #import "AAColor.h"
 #import "AAStates.h"
+#import "AAPane.h"
 
 #define AARgbaColor(r,g,b,a) [NSString stringWithFormat:@"rgba(%d,%d,%d,%f)",r,g,b,a]
 #define AAJSFunc(x) #x
@@ -73,7 +74,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAYAxis       *, yAxis
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AATooltip     *, tooltip) 
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPlotOptions *, plotOptions) 
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, series) 
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legend) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legend)
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPane        *, pane)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors) 
 AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL,            gradientColorEnabled) 
 AAPropStatementAndPropSetFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"

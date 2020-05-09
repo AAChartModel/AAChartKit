@@ -51,6 +51,7 @@ AAChartType const AAChartTypeBoxplot         = @"boxplot";
 AAChartType const AAChartTypeWaterfall       = @"waterfall";
 AAChartType const AAChartTypePolygon         = @"polygon";
 AAChartType const AAChartTypeErrorbar        = @"errorbar";
+AAChartType const AAChartTypeGauge           = @"gauge";
 
 AAChartLayoutType const AAChartLayoutTypeHorizontal = @"horizontal";
 AAChartLayoutType const AAChartLayoutTypeVertical   = @"vertical";
