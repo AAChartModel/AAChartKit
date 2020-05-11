@@ -1110,46 +1110,80 @@
 }
 
 - (AAOptions *)gaugeChartWithPlotBand {
-    NSDictionary *aaOptions = @{
-        @"chart": @{
-                @"type": @"gauge",
-        },
-        @"title": @{
-                @"text": @"速度仪"
-        },
-        @"pane": @{
-                @"startAngle": @-150,
-                @"endAngle": @150,
-        },
-        // the value axis
-        @"yAxis": @{
-                @"min": @0,
-                @"max": @200,
-                
-                @"title": @{
-                        @"text": @"km/h"
-                },
-                @"plotBands": @[@{
-                                    @"from":@ 0,
-                                    @"to": @120,
-                                    @"color": @"#ffc069"
-                }, @{
-                                    @"from": @120,
-                                    @"to": @160,
-                                    @"color": @"#fe117c"
-                }, @{
-                                    @"from": @160,
-                                    @"to": @200,
-                                    @"color": @"#06caf4"
-                }]
-        },
-        @"series": @[@{
-                         @"name": @"Speed",
-                         @"data": @[@80],
-        }]
-    };
+//    NSDictionary *aaOptions = @{
+//        @"chart": @{
+//                @"type": @"gauge",
+//        },
+//        @"title": @{
+//                @"text": @"速度仪"
+//        },
+//        @"pane": @{
+//                @"startAngle": @-150,
+//                @"endAngle": @150,
+//        },
+//        // the value axis
+//        @"yAxis": @{
+//                @"min": @0,
+//                @"max": @200,
+//
+//                @"title": @{
+//                        @"text": @"km/h"
+//                },
+//                @"plotBands": @[@{
+//                                    @"from":@ 0,
+//                                    @"to": @120,
+//                                    @"color": @"#ffc069"
+//                }, @{
+//                                    @"from": @120,
+//                                    @"to": @160,
+//                                    @"color": @"#fe117c"
+//                }, @{
+//                                    @"from": @160,
+//                                    @"to": @200,
+//                                    @"color": @"#06caf4"
+//                }]
+//        },
+//        @"series": @[@{
+//                         @"name": @"Speed",
+//                         @"data": @[@80],
+//        }]
+//    };
     
-    return (id)aaOptions;
+    AAOptions *aaOptions2 = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeGauge))
+    .titleSet(AATitle.new
+              .textSet(@"速度仪"))
+    .paneSet(AAPane.new
+             .startAngleSet(@-150)
+             .endAngleSet(@150))
+    .yAxisSet(AAYAxis.new
+              .minSet(@0)
+              .maxSet(@200)
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"km/h"))
+              .plotBandsSet(@[
+                  AAPlotBandsElement.new
+                  .fromSet(@0)
+                  .toSet(@120)
+                  .colorSet(@"#ffc069"),
+                  AAPlotBandsElement.new
+                  .fromSet(@120)
+                  .toSet(@160)
+                  .colorSet(@"#fe117c"),
+                  AAPlotBandsElement.new
+                  .fromSet(@160)
+                  .toSet(@200)
+                  .colorSet(@"#06caf4"),
+                            ])
+              )
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Speed")
+        .dataSet(@[@80])
+               ]);
+    
+    return aaOptions2;
 }
 
 - (AAOptions *)configureAAPlotBandsForChart {
