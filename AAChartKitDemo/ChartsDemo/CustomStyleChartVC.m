@@ -1037,6 +1037,7 @@
     ]);
 }
 
+//Issue: https://github.com/AAChartModel/AAChartKit/issues/827
 - (AAChartModel *)customNormalStackingChartDataLabelsContentAndStyle {
     NSArray *categories = @[
         @"孤岛危机",

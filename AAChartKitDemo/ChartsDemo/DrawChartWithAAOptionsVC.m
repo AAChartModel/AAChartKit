@@ -1410,7 +1410,8 @@
                   .styleSet(AAStyle.new
                             .colorSet(@"#1e90ff")
                             .fontWeightSet(AAChartFontWeightTypeBold)))
-        ,AAPlotLinesElement.new
+        ,
+        AAPlotLinesElement.new
         .colorSet(@"#ef476f")
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .widthSet(@(1))
@@ -1420,7 +1421,8 @@
                   .styleSet(AAStyle.new
                             .colorSet(@"#ef476f")
                             .fontWeightSet(AAChartFontWeightTypeBold)))
-        ,AAPlotLinesElement.new
+        ,
+        AAPlotLinesElement.new
         .colorSet(@"#04d69f")
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .widthSet(@(1))
