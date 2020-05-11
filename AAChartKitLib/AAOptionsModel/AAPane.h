@@ -35,13 +35,6 @@
 @class AABackground;
 NS_ASSUME_NONNULL_BEGIN
 
-//background: 背景
-//center: 中心
-//endAngle: 结束角度
-//size: 大小
-//startAngle: 开始角度
-
-
 @interface AAPane : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAPane, AABackground *, background)
@@ -52,13 +45,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPane, NSNumber *, startAngle)
 
 @end
 
-//backgroundColor: 背景颜色
-//borderColor: 边框颜色
-//borderWidth: 边框宽度
-//className: 类名
-//innerRadius: 内半径
-//outerRadius: 外半径
-//shape: 形状
 
 @interface AABackground : NSObject
 
