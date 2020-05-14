@@ -271,7 +271,7 @@
 		1E66D1BB210AF4EC007EAB8C /* AAChartKitLib */ = {
 			isa = PBXGroup;
 			children = (
-				1E66D1F0210AF4EC007EAB8C /* AAChartConfiger */,
+				1E66D1F0210AF4EC007EAB8C /* AAChartCreator */,
 				1E66D1BD210AF4EC007EAB8C /* AAOptionsModel */,
 				441AF0B8233463A200F0D39D /* AATool */,
 				1E66D1BC210AF4EC007EAB8C /* AAJSFiles.bundle */,
@@ -338,7 +338,7 @@
 			path = AAOptionsModel;
 			sourceTree = "<group>";
 		};
-		1E66D1F0210AF4EC007EAB8C /* AAChartConfiger */ = {
+		1E66D1F0210AF4EC007EAB8C /* AAChartCreator */ = {
 			isa = PBXGroup;
 			children = (
 				1E66D1F6210AF4EC007EAB8C /* AAChartKit.h */,
@@ -352,7 +352,7 @@
 				1E66D1F1210AF4EC007EAB8C /* AAOptions.h */,
 				1E66D1F7210AF4EC007EAB8C /* AAOptions.m */,
 			);
-			path = AAChartConfiger;
+			path = AAChartCreator;
 			sourceTree = "<group>";
 		};
 		27F0CA7A21018C86004BD904 /* AATools */ = {
