@@ -78,7 +78,7 @@ WKScriptMessageHandler
 }
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
 
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
@@ -99,7 +99,7 @@ WKScriptMessageHandler
 }
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH AAOPTIONS
 
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     if (!_optionJson) {
@@ -201,11 +201,11 @@ WKScriptMessageHandler
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
-- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr {
-    [self aa_addPointsToChartSeriesArrayWithoptionsArray:optionsArr shift:true animation:true];
+- (void)aa_addPointsToChartSeriesArrayWithOptionsArray:(NSArray *)optionsArr {
+    [self aa_addPointsToChartSeriesArrayWithOptionsArray:optionsArr shift:true animation:true];
 }
 
-- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr
+- (void)aa_addPointsToChartSeriesArrayWithOptionsArray:(NSArray *)optionsArr
                                                  shift:(BOOL)shift
                                              animation:(BOOL)animation {
     [optionsArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -215,7 +215,7 @@ WKScriptMessageHandler
                                                         shift:shift
                                                     animation:false];
     }];
-    [self aa_redrawWithAniamtion:animation];
+    [self aa_redrawWithAnimation:animation];
 }
 
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element {
@@ -280,7 +280,7 @@ WKScriptMessageHandler
     [self safeEvaluateJavaScriptString:jsFuntionStr];
 }
 
-- (void)aa_redrawWithAniamtion:(BOOL)animation {
+- (void)aa_redrawWithAnimation:(BOOL)animation {
     NSString *jsStr = [NSString stringWithFormat:@"redrawWithAnimation('%d')",animation];
     [self safeEvaluateJavaScriptString:jsStr];
 }
@@ -453,7 +453,7 @@ WKScriptMessageHandler
                 [errorDic setValue:error.domain forKey:@"domain"];
                 [errorDic setValue:@(error.code) forKey:@"code"];
                 [errorDic setValue:error.userInfo forKey:@"userInfo"];
-                AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",errorDic);
+                AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFORMATION_______%@",errorDic);
             }
         }];
     } else {

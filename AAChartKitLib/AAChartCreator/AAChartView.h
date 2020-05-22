@@ -126,7 +126,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AACHARTMODEL
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
 /**
  Function of drawing chart view
  
@@ -155,7 +155,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS
+#pragma CONFIGURE THE CHART VIEW CONTENT WITH AAOPTIONS
 /**
  Function of drawing chart view
 
@@ -223,11 +223,11 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
                                               animation:(BOOL)animation;
 
 
-- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr;
+- (void)aa_addPointsToChartSeriesArrayWithOptionsArray:(NSArray *)optionsArr;
 
 /// Add a new group of points to the data column after the chart has been rendered.
 ///
-- (void)aa_addPointsToChartSeriesArrayWithoptionsArray:(NSArray *)optionsArr
+- (void)aa_addPointsToChartSeriesArrayWithOptionsArray:(NSArray *)optionsArr
                                                  shift:(BOOL)shift
                                              animation:(BOOL)animation;
 
@@ -282,7 +282,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 
 /// Redraw chart view
 /// @param animation Have animation effect or not
-- (void)aa_redrawWithAniamtion:(BOOL)animation;
+- (void)aa_redrawWithAnimation:(BOOL)animation;
 
 @end
 
@@ -293,7 +293,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  Convert Object to be Dictionary
  
  @param objc  object instance
- @return NSDictionay
+ @return NSDictionary
  */
 + (NSDictionary*)getObjectData:(id)objc;
 

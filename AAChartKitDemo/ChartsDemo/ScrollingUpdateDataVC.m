@@ -207,7 +207,7 @@
             options1 = @(y1);
         }
 
-        [self.chartView aa_addPointsToChartSeriesArrayWithoptionsArray:@[options0,options1]];
+        [self.chartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1]];
     }];
     
     [_timer fire];
