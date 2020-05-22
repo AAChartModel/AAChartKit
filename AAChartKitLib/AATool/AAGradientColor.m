@@ -294,11 +294,10 @@
 
 + (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
                                   stopsArray:(NSArray *)stopsArray {
-    NSDictionary *linearGradientDic = [self linearGradientDictionaryWithDirection:direction];
-    NSMutableDictionary *gradientColorDic = [NSMutableDictionary dictionary];
-    [gradientColorDic setValue:linearGradientDic forKey:@"linearGradient"];
-    [gradientColorDic setValue:stopsArray forKey:@"stops"];
-    return gradientColorDic;
+    return @{
+        @"linearGradient":[self linearGradientDictionaryWithDirection:direction],
+        @"stops":stopsArray
+    };
 }
 
 /**
