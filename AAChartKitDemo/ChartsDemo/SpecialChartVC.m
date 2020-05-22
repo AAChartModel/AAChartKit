@@ -925,8 +925,16 @@
             @[@"JavaScript",   @1987],
             @[@"GO",            @976],
             @[@"Python",        @846]
-        ]),
-    ]);
+                 ])
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .insideSet(true)
+                       .colorSet(AAColor.blackColor)
+                       .styleSet(AAStyle.new
+                                 .fontSizeSet(@"20px")
+                                 .textOutlineSet(@"0px 0px contrast"))
+                       )
+               ]);
 }
 
 - (AAChartModel *)configureErrorBarChart {
