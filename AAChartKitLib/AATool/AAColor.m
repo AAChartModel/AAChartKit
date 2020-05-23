@@ -94,4 +94,11 @@
     return @"#00000000";
 };
 
++ (NSString *)colorWithRed:(CGFloat)red
+                     green:(CGFloat)green
+                      blue:(CGFloat)blue
+                     alpha:(CGFloat)alpha {
+    return [NSString stringWithFormat:@"rgba(%f,%f,%f,%f)", red, green, blue, alpha];
+}
+
 @end
