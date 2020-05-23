@@ -116,6 +116,7 @@
         case 29: return [self customSplineChartMarkerStatesHoverStyle];
         case 30: return [self customNormalStackingChartDataLabelsContentAndStyle];
         case 31: return [self upsideDownPyramidChart];
+        case 32: return [self doubleLayerPieChart];
         default:
             return nil;
     }
@@ -1122,6 +1123,45 @@
           @"reversed":@false
         },
     ]);
+}
+
+//Issue: https://github.com/AAChartModel/AAChartKit/issues/888
+- (AAChartModel *)doubleLayerPieChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypePie)
+    .titleSet(@"浏览器市场占比历史对比")
+    .subtitleSet(@"无任何可靠依据的虚拟数据")
+    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
+    .yAxisTitleSet(@"摄氏度")
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Past")
+        .sizeSet((id)@"40%")//尺寸大小
+        .innerSizeSet(@"30%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataSet(@[
+            @[@"Firefox Past",   @3336.2],
+            @[@"Chrome Past",      @26.8],
+            @[@"Safari Past",      @88.5],
+            @[@"Opera Past",       @46.0],
+            @[@"Others Past",     @223.0],
+                 ]),
+        
+        AASeriesElement.new
+        .nameSet(@"Now")
+        .sizeSet((id)@"80%")//尺寸大小
+        .innerSizeSet(@"70%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataSet(@[
+            @[@"Firefox Now",    @336.2],
+            @[@"Chrome Now",    @6926.8],
+            @[@"Safari Now",     @388.5],
+            @[@"Opera Now",      @446.0],
+            @[@"Others Now",     @223.0],
+                 ])
+               ]);
 }
 
 

@@ -390,6 +390,7 @@
               @"custom Spline Chart Marker States Hover Style",
               @"customNormalStackingChartDataLabelsContentAndStyle---自定义堆积柱状图 DataLabels 的内容及样式",
               @"upsideDownPyramidChart---倒立的金字塔图",
+              @"doubleLayerPieChart---双层嵌套扇形图"
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",
