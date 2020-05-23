@@ -47,30 +47,31 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 
 @interface AAGradientColor : NSObject
 
-+ (NSDictionary *)oceanBlueColor;
-+ (NSDictionary *)sanguineColor;
-+ (NSDictionary *)lusciousLimeColor;
-+ (NSDictionary *)purpleLakeColor;
-+ (NSDictionary *)freshPapayaColor;
-+ (NSDictionary *)ultramarineColor;
-+ (NSDictionary *)pinkSugarColor;
-+ (NSDictionary *)lemonDrizzleColor;
-+ (NSDictionary *)victoriaPurpleColor;
-+ (NSDictionary *)springGreensColor;
-+ (NSDictionary *)mysticMauveColor;
-+ (NSDictionary *)reflexSilverColor;
-+ (NSDictionary *)neonGlowColor;
-+ (NSDictionary *)berrySmoothieColor;
-+ (NSDictionary *)newLeafColor;
-+ (NSDictionary *)cottonCandyColor;
-+ (NSDictionary *)pixieDustColor;
-+ (NSDictionary *)fizzyPeachColor;
-+ (NSDictionary *)sweetDreamColor;
-+ (NSDictionary *)firebrickColor;
-+ (NSDictionary *)wroughtIronColor;
-+ (NSDictionary *)deepSeaColor;
-+ (NSDictionary *)coastalBreezeColor;
-+ (NSDictionary *)eveningDelightColor;
+// Some convenience methods to create gradient colors.
+@property (class, nonatomic, readonly) NSDictionary *oceanBlueColor;
+@property (class, nonatomic, readonly) NSDictionary *sanguineColor;
+@property (class, nonatomic, readonly) NSDictionary *lusciousLimeColor;
+@property (class, nonatomic, readonly) NSDictionary *purpleLakeColor;
+@property (class, nonatomic, readonly) NSDictionary *freshPapayaColor;
+@property (class, nonatomic, readonly) NSDictionary *ultramarineColor;
+@property (class, nonatomic, readonly) NSDictionary *pinkSugarColor;
+@property (class, nonatomic, readonly) NSDictionary *lemonDrizzleColor;
+@property (class, nonatomic, readonly) NSDictionary *victoriaPurpleColor;
+@property (class, nonatomic, readonly) NSDictionary *springGreensColor;
+@property (class, nonatomic, readonly) NSDictionary *mysticMauveColor;
+@property (class, nonatomic, readonly) NSDictionary *reflexSilverColor;
+@property (class, nonatomic, readonly) NSDictionary *neonGlowColor;
+@property (class, nonatomic, readonly) NSDictionary *berrySmoothieColor;
+@property (class, nonatomic, readonly) NSDictionary *newLeafColor;
+@property (class, nonatomic, readonly) NSDictionary *cottonCandyColor;
+@property (class, nonatomic, readonly) NSDictionary *pixieDustColor;
+@property (class, nonatomic, readonly) NSDictionary *fizzyPeachColor;
+@property (class, nonatomic, readonly) NSDictionary *sweetDreamColor;
+@property (class, nonatomic, readonly) NSDictionary *firebrickColor;
+@property (class, nonatomic, readonly) NSDictionary *wroughtIronColor;
+@property (class, nonatomic, readonly) NSDictionary *deepSeaColor;
+@property (class, nonatomic, readonly) NSDictionary *coastalBreezeColor;
+@property (class, nonatomic, readonly) NSDictionary *eveningDelightColor;
 
 + (NSDictionary *)oceanBlueColorWithDirection:(AALinearGradientDirection)direction;
 + (NSDictionary *)sanguineColorWithDirection:(AALinearGradientDirection)direction;
