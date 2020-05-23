@@ -192,8 +192,8 @@ WKScriptMessageHandler
         optionsStr = [AAJsonConverter getPureStringWithJSONObject:dic];
     }
     
-    NSString *jsStr = [NSString stringWithFormat:@"addPointToChartSeries('%lu','%@','%d','%d','%d')",
-                       (unsigned long)elementIndex,
+    NSString *jsStr = [NSString stringWithFormat:@"addPointToChartSeries('%tu','%@','%d','%d','%d')",
+                       elementIndex,
                        optionsStr,
                        redraw,
                        shift,
@@ -227,21 +227,21 @@ WKScriptMessageHandler
 }
 
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex {
-    NSString *jsStr = [NSString stringWithFormat:@"removeElementFromChartSeriesWithElementIndex('%lu')",
-                       (unsigned long)elementIndex];
+    NSString *jsStr = [NSString stringWithFormat:@"removeElementFromChartSeriesWithElementIndex('%tu')",
+                       elementIndex];
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
 
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
-    NSString *jsStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%ld')",
-                       (unsigned long)elementIndex];
+    NSString *jsStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex('%tu')",
+                       elementIndex];
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
 - (void)aa_hideTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex {
-    NSString *jsStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%ld')",
-                       (unsigned long)elementIndex];
+    NSString *jsStr = [NSString stringWithFormat:@"hideTheSeriesElementContentWithIndex('%tu')",
+                       elementIndex];
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
@@ -268,10 +268,10 @@ WKScriptMessageHandler
     }
     NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
     
-    NSString *jsFuntionStr = [NSString stringWithFormat:@"aaGlobalChart.xAxis[0].setCategories(%@,%d)",
+    NSString *jsFunctionStr = [NSString stringWithFormat:@"aaGlobalChart.xAxis[0].setCategories(%@,%d)",
                               finalJSArrStr,
                               redraw];
-    [self safeEvaluateJavaScriptString:jsFuntionStr];
+    [self safeEvaluateJavaScriptString:jsFunctionStr];
 }
 
 - (void)aa_updateXAxisExtremesWithMin:(NSUInteger)min max:(NSUInteger)max {
