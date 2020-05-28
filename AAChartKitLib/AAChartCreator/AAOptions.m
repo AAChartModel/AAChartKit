@@ -256,7 +256,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         AACrosshair *aaCrosshair = AACrosshair.new
         .widthSet(aaChartModel.xAxisCrosshairWidth);
         
-        if (aaChartModel.xAxisCrosshairWidth > 0) {
+        if ([aaChartModel.xAxisCrosshairWidth doubleValue] > 0) {
             aaXAxis.crosshairSet(aaCrosshair
                                  .colorSet(aaChartModel.xAxisCrosshairColor)
                                  .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
@@ -285,7 +285,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .visibleSet(aaChartModel.yAxisVisible)
         .tickIntervalSet(aaChartModel.yAxisTickInterval);
         
-        if (aaChartModel.yAxisCrosshairWidth > 0) {
+        if ([aaChartModel.yAxisCrosshairWidth doubleValue] > 0) {
             aaYAxis.crosshairSet(AACrosshair.new
                                  .widthSet(aaChartModel.yAxisCrosshairWidth)
                                  .colorSet(aaChartModel.yAxisCrosshairColor)
