@@ -197,7 +197,7 @@
         let pointsNum = this.points.length;
         if (pointsNum === 1) {
             console.log(this);
-            var selectedPoint = this.points[0];
+            let selectedPoint = this.points[0];
             var selectedPointIndex = selectedPoint.series.index;
             if (selectedPointIndex === 0) {
                 s1 = colorDot1  + selectedPoint.series.name + ': ' + selectedPoint.y + '只' + '<br/>';
@@ -207,8 +207,10 @@
                 s2 =  colorDot2 + selectedPoint.series.name + ': ' + selectedPoint.y + '棵';
             }
         } else {
-            s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
-            s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+            let selectedPoint0 = this.points[0];
+            let selectedPoint1 = this.points[0];
+            s1 = colorDot1  + selectedPoint0.series.name + ': ' + selectedPoint0.y + '只' + '<br/>';
+            s2 =  colorDot2 + selectedPoint1.series.name + ': ' + selectedPoint1.y + '棵';
         }
         s += s1 + s2;
         return s;
