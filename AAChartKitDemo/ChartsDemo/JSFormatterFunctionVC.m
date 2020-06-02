@@ -151,6 +151,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/647
+//https://github.com/AAChartModel/AAChartKit/issues/891
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
@@ -191,8 +192,24 @@
         var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
         let colorDot1 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
         let colorDot2 = '<span style=\"' + 'color:blue; font-size:13px\"' + '>◉</span> ';
-        let s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
-        let s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        var s1;
+        var s2;
+        let pointsNum = this.points.length;
+        if (pointsNum === 1) {
+            console.log(this);
+            var selectedPoint = this.points[0];
+            var selectedPointIndex = selectedPoint.series.index;
+            if (selectedPointIndex === 0) {
+                s1 = colorDot1  + selectedPoint.series.name + ': ' + selectedPoint.y + '只' + '<br/>';
+                s2 = "";
+            } else if (selectedPointIndex === 1) {
+                s1 = "";
+                s2 =  colorDot2 + selectedPoint.series.name + ': ' + selectedPoint.y + '棵';
+            }
+        } else {
+            s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
+            s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        }
         s += s1 + s2;
         return s;
     }))
