@@ -119,7 +119,7 @@
         case 36: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
         case 37: return [self customChartStyleWhenNoData];//数据为空的情况下,配置图表的 x 轴 y 轴等样式
         case 38: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
-            
+        case 39: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
     }
     return nil;
 }
@@ -2389,6 +2389,32 @@
     .minSet(@0)
     .minRangeSet(@1);
     
+    return aaOptions;
+}
+
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/624
+- (AAOptions *)disableSpineChartHoverAnimationEffect {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)//图表类型
+    .titleSet(@"Disable Line Chart Hover Animation Effect")//图表主标题
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .yAxisVisibleSet(false)
+    .dataLabelsEnabledSet(true)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"TokyoHot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+
+    aaOptions.plotOptions.spline
+    .statesSet(AAStates.new
+               .hoverSet(AAHover.new
+                         .lineWidthPlusSet(@0)));
     return aaOptions;
 }
 

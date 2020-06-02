@@ -36,5 +36,6 @@
 
 AAPropSetFuncImplementation(AASpline, AADataLabels *, dataLabels) 
 //AAPropSetFuncImplementation(AASpline, BOOL , enableMouseTracking) 
+AAPropSetFuncImplementation(AASpline, AAStates *, states)
 
 @end

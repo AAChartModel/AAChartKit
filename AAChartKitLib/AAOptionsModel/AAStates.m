@@ -23,6 +23,9 @@ AAPropSetFuncImplementation(AAHover, NSString *, borderColor)
 AAPropSetFuncImplementation(AAHover, NSNumber *, brightness)
 AAPropSetFuncImplementation(AAHover, NSString *, color)
 AAPropSetFuncImplementation(AAHover, AAHalo *, halo)
+AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidth)
+AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidthPlus)
+
 
 
 @end

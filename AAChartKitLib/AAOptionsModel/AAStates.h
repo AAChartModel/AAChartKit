@@ -27,6 +27,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAHover, NSString *, borderColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, brightness)
 AAPropStatementAndPropSetFuncStatement(copy,   AAHover, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, AAHalo *, halo)
+AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, lineWidthPlus)
 
 @end
 

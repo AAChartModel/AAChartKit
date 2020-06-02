@@ -34,7 +34,7 @@
 
 @implementation AALine
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
     if (self ) {
 //        self.lineWidth = @5;
@@ -48,5 +48,6 @@ AAPropSetFuncImplementation(AALine, NSNumber     *, lineWidth)
 AAPropSetFuncImplementation(AALine, AADataLabels *, dataLabels) 
 //AAPropSetFuncImplementation(AALine, BOOL , enableMouseTracking) 
 //AAPropSetFuncImplementation(AALine, NSString *, dashStyle) 
+AAPropSetFuncImplementation(AALine, AAStates *, states)
 
 @end

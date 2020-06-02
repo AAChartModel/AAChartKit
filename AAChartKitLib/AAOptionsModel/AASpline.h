@@ -32,11 +32,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class AADataLabels;
+@class AADataLabels, AAStates;
 
 @interface AASpline : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AASpline, AADataLabels *, dataLabels) 
-//AAPropStatementAndPropSetFuncStatement(assign, AASpline, BOOL, enableMouseTracking) 
+//AAPropStatementAndPropSetFuncStatement(assign, AASpline, BOOL, enableMouseTracking)
+AAPropStatementAndPropSetFuncStatement(strong, AASpline, AAStates *, states)
 
 @end
