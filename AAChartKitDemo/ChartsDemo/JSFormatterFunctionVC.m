@@ -196,11 +196,10 @@
         var s2;
         let pointsNum = this.points.length;
         if (pointsNum === 1) {
-            console.log(this);
             let selectedPoint = this.points[0];
             var selectedPointIndex = selectedPoint.series.index;
             if (selectedPointIndex === 0) {
-                s1 = colorDot1  + selectedPoint.series.name + ': ' + selectedPoint.y + '只' + '<br/>';
+                s1 = colorDot1  + selectedPoint.series.name + ': ' + selectedPoint.y + '只';
                 s2 = "";
             } else if (selectedPointIndex === 1) {
                 s1 = "";
@@ -208,7 +207,7 @@
             }
         } else {
             let selectedPoint0 = this.points[0];
-            let selectedPoint1 = this.points[0];
+            let selectedPoint1 = this.points[1];
             s1 = colorDot1  + selectedPoint0.series.name + ': ' + selectedPoint0.y + '只' + '<br/>';
             s2 =  colorDot2 + selectedPoint1.series.name + ': ' + selectedPoint1.y + '棵';
         }
