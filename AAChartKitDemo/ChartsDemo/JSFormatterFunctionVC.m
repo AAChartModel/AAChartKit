@@ -199,17 +199,17 @@
             let selectedPoint = this.points[0];
             var selectedPointIndex = selectedPoint.series.index;
             if (selectedPointIndex === 0) {
-                s1 = colorDot1  + selectedPoint.series.name + ': ' + selectedPoint.y + '只';
+                s1 = colorDot1 + selectedPoint.series.name + ': ' + selectedPoint.y + '只';
                 s2 = "";
             } else if (selectedPointIndex === 1) {
                 s1 = "";
-                s2 =  colorDot2 + selectedPoint.series.name + ': ' + selectedPoint.y + '棵';
+                s2 = colorDot2 + selectedPoint.series.name + ': ' + selectedPoint.y + '棵';
             }
         } else {
-            let selectedPoint0 = this.points[0];
-            let selectedPoint1 = this.points[1];
-            s1 = colorDot1  + selectedPoint0.series.name + ': ' + selectedPoint0.y + '只' + '<br/>';
-            s2 =  colorDot2 + selectedPoint1.series.name + ': ' + selectedPoint1.y + '棵';
+            let selectedPoint1 = this.points[0];
+            let selectedPoint2 = this.points[1];
+            s1 = colorDot1 + selectedPoint1.series.name + ': ' + selectedPoint1.y + '只' + '<br/>';
+            s2 = colorDot2 + selectedPoint2.series.name + ': ' + selectedPoint2.y + '棵';
         }
         s += s1 + s2;
         return s;
@@ -217,6 +217,8 @@
     ;
     return aaOptions;
 }
+
+
 
 //https://github.com/AAChartModel/AAChartKit/issues/651
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
