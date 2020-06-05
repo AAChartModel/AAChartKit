@@ -120,6 +120,7 @@
         case 37: return [self customChartStyleWhenNoData];//数据为空的情况下,配置图表的 x 轴 y 轴等样式
         case 38: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
         case 39: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
+        case 40: return [self configurePieChartFormatProperty];//配置饼图的 dataLabels 的 format 属性
     }
     return nil;
 }
@@ -2415,6 +2416,63 @@
     .statesSet(AAStates.new
                .hoverSet(AAHover.new
                          .lineWidthPlusSet(@0)));
+    return aaOptions;
+}
+
+- (AAOptions *)configurePieChartFormatProperty {
+    AAChartModel *chartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypePie)
+    .colorsThemeSet(@[
+        @"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#ffffa0",
+        @"#EA007B",@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"
+                    ])
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
+    .yAxisTitleSet(@"摄氏度")
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"语言热度值")
+        .innerSizeSet(@"20%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .enabledSet(false)//禁用点击区块之后出现的半透明遮罩层
+                             ))
+        .dataSet(@[
+            @[@"Firefox",   @3336.2],
+            @[@"IE",          @26.8],
+            @{@"sliced": @true,
+              @"selected": @true,
+              @"name": @"Chrome",
+              @"y": @666.8,        },
+            @[@"Safari",      @88.5],
+            @[@"Opera",       @46.0],
+            @[@"Others",     @223.0],
+            @[@"Firefox",   @3336.2],
+            @[@"IE",          @26.8],
+            @{@"sliced": @true,
+              @"selected": @true,
+              @"name": @"Chrome",
+              @"y": @666.8,        },
+            @[@"Safari",      @88.5],
+            @[@"Opera",       @46.0],
+            @[@"Others",     @223.0],
+                 ])])
+    ;
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    aaOptions.chart
+    .marginLeftSet(@120)
+    .marginRightSet(@120)
+    ;
+    
+    aaOptions.plotOptions.series.dataLabels
+    .allowOverlapSet(true)//允许字符重叠
+    .formatSet(@"<b>{point.name}</b>: {point.percentage:.2f} %") //保留二位小数
+    ;
+
     return aaOptions;
 }
 
