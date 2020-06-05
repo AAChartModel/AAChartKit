@@ -995,16 +995,19 @@
               .categoriesSet(@[
                   @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                   @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
-    .yAxisSet((id)@[AAYAxis.new
-                    .visibleSet(true)
-                    .gridLineWidthSet(@0)
-                    .titleSet(AAAxisTitle.new.textSet(@"收入")),
-                    AAYAxis.new
-                    .visibleSet(true)
-                    .titleSet(AAAxisTitle.new.textSet(@"支出"))
-                    .lineWidthSet(@1)
-                    .oppositeSet(true)
-    ])
+    .yAxisSet((id)@[
+        AAYAxis.new
+        .visibleSet(true)
+        .gridLineWidthSet(@0)
+        .titleSet(AAAxisTitle.new
+                  .textSet(@"收入")),
+        AAYAxis.new
+        .visibleSet(true)
+        .titleSet(AAAxisTitle.new
+                  .textSet(@"支出"))
+        .lineWidthSet(@1)
+        .oppositeSet(true)
+                  ])
     .tooltipSet(AATooltip.new
                 .enabledSet(true)
                 .sharedSet(true))
