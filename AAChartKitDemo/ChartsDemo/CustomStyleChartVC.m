@@ -168,7 +168,7 @@
         .nameSet(@"Tokyo")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
         .colorByPointSet(@true)
-    ]);
+               ]);
 }
 
 - (AAChartModel *)setUpColorfulGradientColorChart {
@@ -240,7 +240,7 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,
                    @3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8,])
         .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-    ]);
+               ]);
 }
 
 - (AAChartModel *)setUpDiscontinuousDataChart {
@@ -254,12 +254,12 @@
         .nameSet(@"所有专业")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, [NSNull null], [NSNull null], [NSNull null], [NSNull null], @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
         .colorSet((id)[AAGradientColor deepSeaColor])
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureMixedLineChart {
     return AAChartModel.new
-//        .connectNullsSet(true)//设置折线是否断点重连
+    //        .connectNullsSet(true)//设置折线是否断点重连
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"")
     .subtitleSet(@"虚拟数据")
@@ -275,13 +275,13 @@
         .lineWidthSet(@5)
         .zonesSet(@[@{@"value": @8},
                     @{@"dashStyle": AAChartLineDashStyleTypeDot}
-        ]),
+                  ]),
         AASeriesElement.new
         .nameSet(@"所有专业")
         .colorSet((id)AAGradientColor.pixieDustColor)
         .lineWidthSet(@5)
         .dataSet(@[[NSNull null], [NSNull null], @100, @109, @89, [NSNull null], [NSNull null], @120, [NSNull null], [NSNull null], [NSNull null], [NSNull null]])
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureColorfulColumnChart {
@@ -295,7 +295,7 @@
         .nameSet(@"ElementOne")
         .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
         .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-    ]);
+               ]);
 }
 
 
@@ -315,7 +315,7 @@
         .nameSet(@"2021")
         .dataSet(@[@111,@83,@187,@163,@151,@191,@173,@157,@143,@131,@121,@113,@97,@93])
         .colorSet((id)[AAGradientColor sanguineColor]),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureHavePlotLinesChart {
@@ -362,8 +362,8 @@
             @{@"value": @10,@"color": @"#EA007B"},
             @{@"value": @20,@"color": @"#FDC20A"},
             @{@"color": @"#F78320"}
-        ]),
-    ]);
+                  ]),
+               ]);
 }
 
 - (AAChartModel *)configrueWithMinusNumberChart {
@@ -394,7 +394,7 @@
         AASeriesElement.new
         .nameSet(@"2020")
         .dataSet(@[@0, @(-4.5), @(-0.9), @5.5, @(-1.9), @1.3, @(-2.8), @0, @(-1.7), @0, @3, @0, ]),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureStepLineChart {
@@ -419,7 +419,7 @@
         .nameSet(@"Tokyo")
         .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
         .stepSet(@"left"),//折线连接点靠左边👈
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureStepAreaChart {
@@ -448,7 +448,7 @@
         .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
         .stepSet(@(true))//设置折线样式为直方折线,连接点位置默认靠左👈
         ,
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureNightingaleRoseChart {
@@ -467,7 +467,7 @@
         AASeriesElement.new
         .nameSet(@"东京")
         .dataSet(@[@7.0, @6.9, @9.5, @9.6, @13.9, @14.5, @18.3, @18.2, @21.5, @25.2, @26.5, @23.3]),
-    ]);
+               ]);
 }
 
 - (AAChartModel*)configureCustomSingleDataLabelChart {
@@ -494,7 +494,7 @@
         AASeriesElement.new
         .nameSet(@"货币")
         .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, aaDataElement, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureChartWithShadowStyle {
@@ -519,7 +519,7 @@
                    .widthSet(@8.0)
                    .colorSet(AAColor.redColor)
                    ),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureColorfulGradientAreaChart {
@@ -550,7 +550,7 @@
         .nameSet(@"Tokyo Hot")
         .colorSet((id)gradientColorDic1)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureColorfulGradientSplineChart {
@@ -584,7 +584,7 @@
         .lineWidthSet(@13)
         .colorSet((id)gradientColorDic1)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
 }
 
 
@@ -615,7 +615,7 @@
         .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
         .fillColorSet((id)gradientColorDic1)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
@@ -658,7 +658,7 @@
         .lineWidthSet(@6)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
         .colorSet((id)gradientColorDic1)
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureSpecialStyleColumnOfSingleDataElementChart {
@@ -681,7 +681,7 @@
         .lineWidthSet(@6)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @26.5, @13.9, @9.6])
         .colorSet((id)AAGradientColor.oceanBlueColor)
-    ]);
+               ]);
 }
 
 - (AAChartModel *)configureAreaChartThreshold {
@@ -707,7 +707,7 @@
         .lineWidthSet(@6)
         .colorSet(@"rgba(30, 144, 255,1)")
         .fillColorSet((id)gradientColorDic1)
-    ]);
+               ]);
 }
 
 //refer to online sample https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
@@ -785,7 +785,7 @@
         .dataSet(@[@6.0,@6.0,@6.0,]),
         AASeriesElement.new
         .dataSet(@[@3.0,@3.0,@3.0,]),
-    ]);
+               ]);
 }
 
 //四边形雷达图
@@ -809,7 +809,7 @@
         .dataSet(@[@6.0,@6.0,@6.0,@6.0,]),
         AASeriesElement.new
         .dataSet(@[@3.0,@3.0,@3.0,@3.0,]),
-    ]);
+               ]);
 }
 
 //五边形雷达图
@@ -833,7 +833,7 @@
         .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,]),
         AASeriesElement.new
         .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,]),
-    ]);
+               ]);
 }
 
 //六边形雷达图
@@ -857,7 +857,7 @@
         .dataSet(@[@6.0,@6.0,@6.0,@6.0,@6.0,@6.0,]),
         AASeriesElement.new
         .dataSet(@[@3.0,@3.0,@3.0,@3.0,@3.0,@3.0,]),
-    ]);
+               ]);
 }
 
 - (AAChartModel *)adjustYAxisMaxAndMinValues {
@@ -897,7 +897,7 @@
         .nameSet(@"体重")
         .colorSet(@"#2494F3")
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-    ])
+               ])
     ;
 }
 
@@ -949,7 +949,7 @@
         .colorSet(@"rgba(255,215,0,1)")
         .fillColorSet((id)gradientColorDic1)// gold color, alpha: 1.0
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-    ]);
+               ]);
 }
 
 - (AAChartModel *)customBarChartHoverColorAndSelectColor {
@@ -969,7 +969,7 @@
                              .colorSet(@"rgba(220,20,60,1)"))//猩红色, alpha 透明度 1
                    .selectSet(AASelect.new
                               .colorSet(AAColor.redColor)))
-    ]);
+               ]);
 }
 
 - (AAChartModel *)customChartHoverAndSelectHaloStyle {
@@ -995,7 +995,7 @@
                                           @"stroke-width":@50,
                                           @"fill":@"#00BFFF",
                                           @"stroke":@"#00FA9A"
-                                      }))
+                                                     }))
                              )
                    .selectSet(AASelect.new
                               .haloSet(AAHalo.new
@@ -1005,9 +1005,9 @@
                                            @"stroke-width":@150,
                                            @"fill":@"rgba(138,43,226,1)",
                                            @"stroke":@"rgba(30,144,255,1)"
-                                       }))
+                                                      }))
                               ))
-    ]);
+               ]);
 }
 
 - (AAChartModel *)customSplineChartMarkerStatesHoverStyle {
@@ -1035,7 +1035,7 @@
                                         .lineWidthSet(@20))
                               ))
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
 }
 
 //Issue: https://github.com/AAChartModel/AAChartKit/issues/827
@@ -1061,7 +1061,7 @@
         @"#06caf4",
         @"#7dffc0"
     ];
-
+    
     AASeriesElement *element1 = AASeriesElement.new
     .nameSet(@"2017")
     .dataLabelsSet(AADataLabels.new
@@ -1078,13 +1078,15 @@
     
     
     AASeriesElement *element2 = AASeriesElement.new
-        .nameSet(@"2018")
+    .nameSet(@"2018")
     .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]);
+    
     AASeriesElement *element3 = AASeriesElement.new
     .nameSet(@"2019")
     .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]);
+    
     AASeriesElement *element4 = AASeriesElement.new
-           .nameSet(@"2020")
+    .nameSet(@"2020")
     .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]);
     
     NSArray *series = @[element1, element2, element3, element4];
