@@ -82,6 +82,7 @@
         case 15: return [self customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter];//通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距
         case 16: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
         case 17: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
+        case 18: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
             
         default:
             return nil;
@@ -1322,5 +1323,55 @@ function () {
     
     return aaOptions;
 }
+
+- (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
+    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
+    NSArray *dataArr = @[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2];
+    
+    NSString *unitJSArrStr = [self javaScriptArrayStringWithObjcArray:unitArr];
+    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
+    })),unitJSArrStr];
+    
+    
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .dataLabelsEnabledSet(true)
+    .tooltipEnabledSet(false)
+    .colorsThemeSet(@[AAColor.lightGrayColor])
+    .markerRadiusSet(@0)
+    .legendEnabledSet(false)
+    .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
+    .seriesSet(@[
+        AASeriesElement.new
+        .colorSet((id)AAGradientColor.fizzyPeachColor)
+        .dataSet(dataArr),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
+    
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
+    aaDatalabels
+    .styleSet(AAStyle.new
+              .fontSizeSet(@"10px")
+              .fontWeightSet(AAChartFontWeightTypeBold)
+              .colorSet(AAColor.redColor)
+              .textOutlineSet(@"1px 1px contrast")
+              )
+    .formatterSet(dataLabelsFormatter)
+    .backgroundColorSet(AAColor.whiteColor)// white color
+    .borderColorSet(AAColor.redColor)// red color
+    .borderRadiusSet(@1.5)
+    .borderWidthSet(@1.3)
+    .xSet(@3)
+    .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
+    .ySet(@-20)
+    ;
+    return aaOptions;
+}
+
 
 @end
