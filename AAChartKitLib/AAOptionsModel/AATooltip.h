@@ -31,7 +31,7 @@
  */
 
 #import <Foundation/Foundation.h>
-@class AAStyle, AAJSStringPurer;
+@class AAStyle;
 
 @interface AATooltip : NSObject
 

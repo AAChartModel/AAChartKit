@@ -44,6 +44,6 @@ AAPropSetFuncImplementation(AASeries, NSArray      *, keys)
 AAPropSetFuncImplementation(AASeries, BOOL ,          connectNulls) 
 AAPropSetFuncImplementation(AASeries, NSDictionary *, events)
 AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
-
+AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 
 @end

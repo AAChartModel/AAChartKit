@@ -121,7 +121,15 @@
                 && aaOptions.yAxis.labels
                 && aaOptions.yAxis.labels.formatter) {
                 aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
-            } 
+            }
+                
+            if (aaOptions.plotOptions
+                && aaOptions.plotOptions.series
+                && aaOptions.plotOptions.series.dataLabels
+                && aaOptions.plotOptions.series.dataLabels.formatter) {
+                aaOptions.plotOptions.series.dataLabels.formatter = eval(aaOptions.plotOptions.series.dataLabels.formatter);
+                alert(aaOptions.plotOptions.series.dataLabels.formatter);
+            }
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {

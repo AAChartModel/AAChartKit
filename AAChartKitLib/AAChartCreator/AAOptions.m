@@ -92,7 +92,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-    .seriesSet(AASeries.new.stackingSet(aaChartModel.stacking));//设置是否百分比堆叠显示图形
+    .seriesSet(AASeries.new
+               .stackingSet(aaChartModel.stacking)
+               );//设置是否百分比堆叠显示图形
     
     if (aaChartModel.animationType != 0) {
         aaPlotOptions.series.animation = (AAAnimation.new
@@ -172,10 +174,10 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     }
     
     if (chartType == AAChartTypeColumn) {
-        AAColumn *aaColumn = AAColumn.new
+        AAColumn *aaColumn = (AAColumn.new
                               .borderWidthSet(@0)
                               .borderRadiusSet(aaChartModel.borderRadius)
-                              .dataLabelsSet(aaDataLabels);
+                              );
         if (aaChartModel.polar == true) {
             aaColumn.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
@@ -185,20 +187,12 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         AABar *aaBar = (AABar.new
                         .borderWidthSet(@0)
                         .borderRadiusSet(aaChartModel.borderRadius)
-                        .dataLabelsSet(aaDataLabels));
+                        );
         if (aaChartModel.polar == true) {
             aaBar.pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.barSet(aaBar);
-    } else if (chartType == AAChartTypeArea) {
-        aaPlotOptions.areaSet(AAArea.new.dataLabelsSet(aaDataLabels));
-    } else if (chartType == AAChartTypeAreaspline) {
-        aaPlotOptions.areasplineSet(AAAreaspline.new.dataLabelsSet(aaDataLabels));
-    } else if (chartType == AAChartTypeLine) {
-        aaPlotOptions.lineSet(AALine.new.dataLabelsSet(aaDataLabels));
-    } else if (chartType == AAChartTypeSpline) {
-        aaPlotOptions.splineSet(AASpline.new.dataLabelsSet(aaDataLabels));
     } else if (chartType == AAChartTypePie) {
         AAPie *aaPie = AAPie.new
         .allowPointSelectSet(true)
@@ -207,18 +201,15 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         if (aaChartModel.dataLabelsEnabled == true) {
             aaDataLabels.formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %");
         }
-        aaPlotOptions.pieSet(aaPie.dataLabelsSet(aaDataLabels));
+        aaPlotOptions.pieSet(aaPie);
     } else if (chartType == AAChartTypeColumnrange) {
         NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
-        [columnRangeDic setValue:@0 forKey:@"borderRadius"];//The color of the border surrounding each column or bar
+        [columnRangeDic setValue:aaChartModel.borderRadius forKey:@"borderRadius"];//The color of the border surrounding each column or bar
         [columnRangeDic setValue:@0 forKey:@"borderWidth"];//The corner radius of the border surrounding each column or bar. default：0.
-        [columnRangeDic setValue:aaDataLabels forKey:@"dataLabels"];
         aaPlotOptions.columnrangeSet(columnRangeDic);
-    } else if (chartType == AAChartTypeArearange) {
-        NSDictionary *areaRangeDic = [[NSMutableDictionary alloc]init];
-        [areaRangeDic setValue:aaDataLabels forKey:@"dataLabels"];
-        aaPlotOptions.arearangeSet(areaRangeDic);
     }
+    
+    aaPlotOptions.series.dataLabelsSet(aaDataLabels);
 }
 
 + (void)configureAxisContentAndStyleWithAAOptions:(AAOptions *)aaOptions

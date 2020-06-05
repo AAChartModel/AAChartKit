@@ -31,6 +31,7 @@
  */
 
 #import "AADataLabels.h"
+#import "AAJSStringPurer.h"
 
 @implementation AADataLabels
 
@@ -46,7 +47,8 @@
 AAPropSetFuncImplementation(AADataLabels, BOOL      , enabled)
 AAPropSetFuncImplementation(AADataLabels, NSString *, align)
 AAPropSetFuncImplementation(AADataLabels, AAStyle  *, style) 
-AAPropSetFuncImplementation(AADataLabels, NSString *, format) 
+AAPropSetFuncImplementation(AADataLabels, NSString *, format)
+//AAPropSetFuncImplementation(AADataLabels, NSString *, formatter)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, rotation) 
 AAPropSetFuncImplementation(AADataLabels, BOOL      , allowOverlap) 
 AAPropSetFuncImplementation(AADataLabels, BOOL      , useHTML) 
@@ -64,5 +66,15 @@ AAPropSetFuncImplementation(AADataLabels, BOOL      , crop)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , inside)
 AAPropSetFuncImplementation(AADataLabels, NSString *, overflow)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
+- (void)setFormatter:(NSString *)formatter {
+    _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+}
+
+- (AADataLabels * (^) (NSString * formatter))formatterSet {
+    return ^(NSString * formatter) {
+        _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        return self;
+    };
+}
 
 @end
