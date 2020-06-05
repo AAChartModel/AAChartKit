@@ -1324,6 +1324,7 @@ function () {
     return aaOptions;
 }
 
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
 - (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
     NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
     NSArray *dataArr = @[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2];
