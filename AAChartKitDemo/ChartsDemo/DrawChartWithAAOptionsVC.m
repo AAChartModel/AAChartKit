@@ -459,7 +459,7 @@
     aaColumn.groupPadding = @0.05;//Padding between each column or bar, in x axis units. default：0.1.
     aaColumn.pointPadding = @0;//Padding between each value groups, in x axis units. default：0.2.
     
-    aaColumn.dataLabels
+    aaOptions.plotOptions.series.dataLabels
     .ySet(@-10)
     .formatSet(@" {y} 美元 ")
     .backgroundColorSet(@"rgba(0, 0, 0, 0.75)")
@@ -1473,7 +1473,7 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
-    AADataLabels *aaDatalabels = aaOptions.plotOptions.spline.dataLabels;
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
     aaDatalabels
     .ySet(@-10)
     .formatSet(@"{y}美元")
@@ -1552,7 +1552,7 @@
     
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     
-    AADataLabels *aaDatalabels = aaOptions.plotOptions.areaspline.dataLabels;
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
     aaDatalabels
     .xSet(@3)
     .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
@@ -1677,7 +1677,7 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
-    aaOptions.plotOptions.areaspline
+    aaOptions.plotOptions.series
     .dataLabelsSet(AADataLabels.new
                    .enabledSet(true)
                    .styleSet(AAStyle.new
@@ -1797,7 +1797,7 @@
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    AADataLabels *aaDataLabels = aaOptions.plotOptions.column.dataLabels;
+    AADataLabels *aaDataLabels = aaOptions.plotOptions.series.dataLabels;
     
     //通过设置 crop 为 false 及 overflow 为"none" 可以让数据标签显示在绘图区的外面
     //参见:https://api.highcharts.com.cn/highcharts#plotOptions.column.dataLabels.overflow
@@ -1833,7 +1833,7 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
-    aaOptions.plotOptions.bar
+    aaOptions.plotOptions.series
     .dataLabelsSet(AADataLabels.new
                    .enabledSet(true)
                    .alignSet(AAChartAlignTypeRight)//DataLabels水平对齐位置
