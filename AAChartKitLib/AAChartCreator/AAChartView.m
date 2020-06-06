@@ -94,7 +94,8 @@ WKScriptMessageHandler
     [self aa_onlyRefreshTheChartDataWithOptionsSeries:series];
 }
 
-- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<AASeriesElement *> *)series animation:(BOOL)animation {
+- (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<AASeriesElement *> *)series
+                                             animation:(BOOL)animation {
     [self aa_onlyRefreshTheChartDataWithOptionsSeries:series animation:animation];
 }
 
@@ -120,7 +121,8 @@ WKScriptMessageHandler
     [self aa_onlyRefreshTheChartDataWithOptionsSeries:series animation:true];
 }
 
-- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<AASeriesElement *> *)series animation:(BOOL)animation {
+- (void)aa_onlyRefreshTheChartDataWithOptionsSeries:(NSArray<AASeriesElement *> *)series
+                                          animation:(BOOL)animation {
     NSMutableArray *seriesDicArr = [NSMutableArray arrayWithCapacity:series.count];
     for (AASeriesElement *aaSeriesElement in series) {
         [seriesDicArr addObject:[AAJsonConverter getObjectData:aaSeriesElement]];
@@ -138,20 +140,25 @@ WKScriptMessageHandler
 }
 
 - (void)aa_updateChartWithOptions:(id)options redraw:(BOOL)redraw {
-    NSString *classNameStr = NSStringFromClass([options class]);
-    classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA"
-                                                           withString:@""];
-    
-    //convert fisrt character to be lowercase string
-    NSString *firstChar = [classNameStr substringToIndex:1];
-    NSString *lowerFirstChar = [firstChar lowercaseString];
-    classNameStr = [classNameStr substringFromIndex:1];
-    NSString *finalClassNameStr = [NSString stringWithFormat:@"%@%@",
-                                   lowerFirstChar,
-                                   classNameStr];
-    
+    BOOL isOptionsClass = [options isKindOfClass:[AAOptions class]];
     NSDictionary *optionsDic = [AAJsonConverter getObjectData:options];
-    NSDictionary *finalOptionsDic = @{finalClassNameStr:optionsDic};
+    NSDictionary *finalOptionsDic;
+    if (isOptionsClass) {
+        finalOptionsDic = [AAJsonConverter getObjectData:options];
+    } else {
+        NSString *classNameStr = NSStringFromClass([options class]);
+        classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA"
+                                                               withString:@""];
+        
+        //convert fisrt character to be lowercase string
+        NSString *firstChar = [classNameStr substringToIndex:1];
+        NSString *lowerFirstChar = [firstChar lowercaseString];
+        classNameStr = [classNameStr substringFromIndex:1];
+        NSString *finalClassNameStr = [NSString stringWithFormat:@"%@%@",
+                                       lowerFirstChar,
+                                       classNameStr];
+        finalOptionsDic = @{finalClassNameStr:optionsDic};
+    }
     
     NSString *optionsStr = [AAJsonConverter getPureOptionsString:finalOptionsDic];
     NSString *jsStr = [NSString stringWithFormat:@"updateChart('%@','%d')",
