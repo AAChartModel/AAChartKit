@@ -55,7 +55,7 @@
 
     
     if (_sampleChartTypeIndex == 0 || _sampleChartTypeIndex == 1) {
-        AAChartModel *aaChartModel = [self configureCharModel];
+        AAChartModel *aaChartModel = [self configureChartModel];
         [_aaChartView aa_drawChartWithChartModel:aaChartModel];
         
     } else if (_sampleChartTypeIndex == 2 || _sampleChartTypeIndex == 3) {
@@ -91,15 +91,18 @@
         }
         
         [_aaChartView aa_drawChartWithOptions:aaOptions];
+    } else if (_sampleChartTypeIndex == 4) {
+        AAChartModel *aaChartModel = [self configureShowTooltipInSpecificPostionChartModel];
+        [_aaChartView aa_drawChartWithChartModel:aaChartModel];
     }
 }
 
 
 - (AAChartView *)configureChartView {
     CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat chartViewHeight = self.view.frame.size.height;
+    CGFloat chartViewHeight = self.view.frame.size.height - 88;
     AAChartView *aaChartView = [[AAChartView alloc]init];
-    aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+    aaChartView.frame = CGRectMake(0, 88, chartViewWidth, chartViewHeight);
     aaChartView.delegate = self;
     aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
     [self.view addSubview:aaChartView];
@@ -108,7 +111,7 @@
     return aaChartView;
 }
 
-- (AAChartModel *)configureCharModel {
+- (AAChartModel *)configureChartModel {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .titleSet(@"")//图表主标题
@@ -185,6 +188,35 @@
     
 }
 
+- (AAChartModel *)configureShowTooltipInSpecificPostionChartModel {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"")//图表主标题
+    .subtitleSet(@"")//图表副标题
+    .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
+    .yAxisTitleSet(@"")//设置 Y 轴标题
+    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .markerRadiusSet(@8)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2019")
+        .lineWidthSet(@5)
+        .dataSet(@[@198.66,@330.81,@151.95,@160.12,@222.56,@229.05,@128.53,@250.91,@224.47,@473.99,@126.85,@260.50]),
+        AASeriesElement.new
+        .typeSet(AAChartTypeLine)
+        .lineWidthSet(@6)
+        .nameSet(@"2020")
+        .dataSet(@[@281.55,@398.35,@214.02,@219.55,@289.57,@296.14,@164.18,@322.69,@306.08,@552.84,@205.97,@332.79])
+               ]);
+}
+
 #pragma mark -- AAChartView delegate
 - (void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
@@ -196,11 +228,13 @@
         jsStr = [self configureFirstSecondThirdDataLabelJSFunctionString];
     } else if (self.sampleChartTypeIndex == 2) {
         jsStr = [self configureFirstSecondThirdStackLabelJSFunctionString];
-    } else {
+    } else if (self.sampleChartTypeIndex == 3) {
         [self.aaChartView aa_updateXAxisExtremesWithMin:0 max:6];
         return;
+    } else if (self.sampleChartTypeIndex == 4) {
+        jsStr = [self configureShowTooltipInSpecificPostionJSFunctionString];
     }
-    
+
     [self.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
 }
 
@@ -350,5 +384,18 @@ function renderMinMaxLabel(aaGlobalChart) {
     return jsStr;
 }
 
+//参考动态刷新在线实例 https://jshare.com.cn/demos/hhhhDv
+//参考 chart.tooltip.refresh() 报错问题 https://blog.csdn.net/u013025674/article/details/96289674?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-13.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-13.nonecase
+- (NSString *)configureShowTooltipInSpecificPostionJSFunctionString {
+    return @AAJSFunc((
+       function activeLastPointToolip(chart) {
+           let point0 = chart.series[0].points[0];
+           let point1 = chart.series[1].points[0];
+           let twoSeriesPoints = [point0,point1];
+           chart.tooltip.refresh(twoSeriesPoints);
+       }
+       activeLastPointToolip(aaGlobalChart);
+                          ));;
+}
 
 @end
