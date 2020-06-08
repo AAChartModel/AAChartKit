@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAAxisTitle,AALabels,AACrosshair,AAStyle;
+@class AAAxisTitle,AALabels,AACrosshair,AAStyle,AAPlotBandsElement,AAPlotLinesElement;
 
 typedef NSString *AAYAxisGridLineInterpolation;
 static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationCircle  = @"circle";//圆形
@@ -41,8 +41,8 @@ static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationPolygon = 
 @interface AAYAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AAAxisTitle  *, title)
-AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, plotBands)
-AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, plotLines)
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotBandsElement *>*, plotBands)
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotLinesElement *>*, plotLines)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, categories)
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       reversed)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridLineWidth) // y 轴网格线宽度

@@ -34,19 +34,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class AALabels,AACrosshair;
+@class AALabels,AACrosshair,AAPlotBandsElement,AAPlotLinesElement;
 
 @interface AAXAxis : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, plotBands)
-AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, plotLines)
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotBandsElement *>*, plotBands)
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotLinesElement *>*, plotLines)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, categories) 
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL,       reversed) 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, lineWidth) //x轴轴线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, lineColor) //x轴轴线线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *,  linkedTo)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, max)  //x轴最大值
-AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴最小值（设置为0就不会有负数）
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴最小值
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineDashStyle) //x轴网格线样式
