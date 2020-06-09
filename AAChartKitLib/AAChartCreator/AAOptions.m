@@ -68,21 +68,27 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .scrollablePlotAreaSet(aaChartModel.scrollablePlotArea);
     
     AATitle *aaTitle = AATitle.new
-    .textSet(aaChartModel.title)//标题文本内容
-    .styleSet(AAStyle.new
-              .colorSet(aaChartModel.titleFontColor)//Title font color
-              .fontSizeSet(AAFontSizeFormat(aaChartModel.titleFontSize))//Title font size
-              .fontWeightSet(aaChartModel.titleFontWeight)//Title font weight
-              );
+    .textSet(aaChartModel.title);//标题文本内容
     
-    AASubtitle *aaSubtitle = AASubtitle.new
-    .textSet(aaChartModel.subtitle)//副标题内容
-    .alignSet(aaChartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
-    .styleSet(AAStyle.new
-              .colorSet(aaChartModel.subtitleFontColor)//Subtitle font color
-              .fontSizeSet(AAFontSizeFormat(aaChartModel.subtitleFontSize))//Subtitle font size
-              .fontWeightSet(aaChartModel.subtitleFontWeight)//Subtitle font weight
-              );
+    if (![aaChartModel.title isEqualToString:@""]) {
+        aaTitle.styleSet(AAStyle.new
+                         .colorSet(aaChartModel.titleFontColor)//Title font color
+                         .fontSizeSet(AAFontSizeFormat(aaChartModel.titleFontSize))//Title font size
+                         .fontWeightSet(aaChartModel.titleFontWeight)//Title font weight
+                         );
+    }
+    
+    AASubtitle *aaSubtitle;
+    if (![aaChartModel.subtitle isEqualToString:@""]) {
+        aaSubtitle = AASubtitle.new
+        .textSet(aaChartModel.subtitle)//副标题内容
+        .alignSet(aaChartModel.subtitleAlign)//图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
+        .styleSet(AAStyle.new
+                  .colorSet(aaChartModel.subtitleFontColor)//Subtitle font color
+                  .fontSizeSet(AAFontSizeFormat(aaChartModel.subtitleFontSize))//Subtitle font size
+                  .fontWeightSet(aaChartModel.subtitleFontWeight)//Subtitle font weight
+                  );
+    }
     
     AATooltip *aaTooltip = AATooltip.new
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
@@ -271,7 +277,8 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .plotLinesSet(aaChartModel.yAxisPlotLines) //标示线设置
         .reversedSet(aaChartModel.yAxisReversed)
         .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
-        .titleSet(AAAxisTitle.new.textSet(aaChartModel.yAxisTitle))//y 轴标题
+        .titleSet(AAAxisTitle.new
+                  .textSet(aaChartModel.yAxisTitle))//y 轴标题
         .lineWidthSet(aaChartModel.yAxisLineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
         .visibleSet(aaChartModel.yAxisVisible)
         .tickIntervalSet(aaChartModel.yAxisTickInterval);

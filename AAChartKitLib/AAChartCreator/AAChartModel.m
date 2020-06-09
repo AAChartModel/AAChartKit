@@ -104,6 +104,8 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _title                 = @"";
+        _subtitle              = @"";
         _chartType             = AAChartTypeColumn;//默认图表类型为柱状图
         _animationType         = AAChartAnimationLinear;//默认使用非easing.js中的'linear'线性渐变效果
         _animationDuration     = @800;//默认动画时长为800毫秒
