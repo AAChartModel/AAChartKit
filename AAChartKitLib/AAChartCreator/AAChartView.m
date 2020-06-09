@@ -592,6 +592,7 @@ WKScriptMessageHandler
 
 + (NSString *)getPureStringWithJSONObject:(id)objc {
     NSString *seriesStr = [self jsonStringWithJsonObject:objc];
+    AADetailLog(@"----------- console log AAOptions JSON information of AAChartView -----------:\n%@",seriesStr);
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
 
