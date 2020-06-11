@@ -118,6 +118,7 @@
         case 31: return [self upsideDownPyramidChart];
         case 32: return [self doubleLayerPieChart];
         case 33: return [self disableSomeOfLinesMouseTrackingEffect];
+        case 34: return [self configureColorfulShadowChart];
 
         default:
             return nil;
@@ -1170,7 +1171,7 @@
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/903
 - (AAChartModel *)disableSomeOfLinesMouseTrackingEffect {
-   return  AAChartModel.new
+   return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .tooltipValueSuffixSet(@"万元")//设置浮动提示框单位后缀
     .yAxisTitleSet(@"万元")//设置 Y 轴标题
@@ -1194,6 +1195,64 @@
         .nameSet(@"2020")
         .enableMouseTrackingSet(@false)
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+               ]);
+}
+
+// GitHub issue https://github.com/AAChartModel/AAChartKit/issues/904
+- (AAChartModel *)configureColorfulShadowChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .yAxisVisibleSet(false)
+    .stackingSet(AAChartStackingTypeNormal)
+    .colorsThemeSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f"])
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .markerRadiusSet(@8.0)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .lineWidthSet(@5)
+        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36])
+        .shadowSet(AAShadow.new
+                   .offsetXSet(@15.0)
+                   .offsetYSet(@15.0)
+                   .opacitySet(@0.2)
+                   .widthSet(@8.0)
+                   .colorSet(@"#1e90ff")
+                   ),
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .lineWidthSet(@5)
+        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67])
+        .shadowSet(AAShadow.new
+                   .offsetXSet(@15.0)
+                   .offsetYSet(@15.0)
+                   .opacitySet(@0.2)
+                   .widthSet(@8.0)
+                   .colorSet(@"#ef476f")
+                   ),
+        AASeriesElement.new
+        .nameSet(@"2019")
+        .lineWidthSet(@5)
+        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64])
+        .shadowSet(AAShadow.new
+                   .offsetXSet(@15.0)
+                   .offsetYSet(@15.0)
+                   .opacitySet(@0.2)
+                   .widthSet(@8.0)
+                   .colorSet(@"#ffd066")
+                   ),
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .lineWidthSet(@5)
+        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53])
+        .shadowSet(AAShadow.new
+                   .offsetXSet(@15.0)
+                   .offsetYSet(@15.0)
+                   .opacitySet(@0.2)
+                   .widthSet(@8.0)
+                   .colorSet(@"#04d69f")
+                   ),
                ]);
 }
 
