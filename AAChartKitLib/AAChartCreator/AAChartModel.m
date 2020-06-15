@@ -127,22 +127,6 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
         _borderRadius          = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
         _markerRadius          = @5; //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
         _yAxisAllowDecimals    = YES;//默认y轴允许显示小数
-        
-        _titleFontColor        = @"#000000";//标题字体颜色为黑色
-        _titleFontWeight       = AAChartFontWeightTypeRegular;//常规字体
-        _titleFontSize         = @14;
-        _subtitleFontColor     = @"#000000";//副标题字体颜色为黑色
-        _subtitleFontWeight    = AAChartFontWeightTypeRegular;//常规字体
-        _subtitleFontSize      = @9;
-        _dataLabelsFontColor   = @"#000000";//数据标签默认颜色为黑色
-        _dataLabelsFontWeight  = AAChartFontWeightTypeBold;//图表的数据字体为粗体
-        _dataLabelsFontSize    = @10;
-        _xAxisLabelsFontSize   = @11;//x轴字体大小
-        _xAxisLabelsFontColor  = @"#778899";//浅石板灰色字体
-        _xAxisLabelsFontWeight = AAChartFontWeightTypeThin;//细体字
-        _yAxisLabelsFontSize   = @11;
-        _yAxisLabelsFontColor  = @"#778899";//浅石板灰色字体
-        _yAxisLabelsFontWeight = AAChartFontWeightTypeThin;//细体字
     }
     return self;
 }

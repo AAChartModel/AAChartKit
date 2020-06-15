@@ -51,8 +51,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
 @end
 
-
-#define AAFontSizeFormat(fontSize) [NSString stringWithFormat:@"%@%@", fontSize, @"px"]
+#define AAFontSizeFormat(fontSize) [self configureFontSize:fontSize]
 
 @implementation AAOptionsConstructor
 
@@ -294,6 +293,13 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         aaOptions.xAxis = aaXAxis;
         aaOptions.yAxis = aaYAxis;
     }
+}
+
++ (NSString *)configureFontSize:(NSNumber *)fontSize {
+    if (fontSize != nil) {
+        return [NSString stringWithFormat:@"%@px", fontSize];
+    }
+    return nil;
 }
 
 
