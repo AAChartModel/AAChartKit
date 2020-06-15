@@ -2120,9 +2120,11 @@
     .tooltipSet(aaTooltip)
     .plotOptionsSet(aaPlotOptions)
     .legendSet(aaLegend)
-    .seriesSet(@[goalValuesElement,
-                 realValuesElement,
-                 rateValuesElement])
+    .seriesSet(@[
+        goalValuesElement,
+        realValuesElement,
+        rateValuesElement
+               ])
     ;
     return aaOptions;
 }
@@ -2415,10 +2417,12 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
 
-    aaOptions.plotOptions.spline
-    .statesSet(AAStates.new
+    aaOptions.plotOptions
+    .splineSet(AASpline.new
+               .statesSet(AAStates.new
                .hoverSet(AAHover.new
-                         .lineWidthPlusSet(@0)));
+                         .lineWidthPlusSet(@0))))
+    ;
     return aaOptions;
 }
 
