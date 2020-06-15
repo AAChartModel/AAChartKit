@@ -31,6 +31,7 @@
  */
 
 #import "AdvancedChartOptionsUpdatingFunctionVC.h"
+#import "AAChartKit.h"
 
 @interface AdvancedChartOptionsUpdatingFunctionVC ()
 
@@ -43,14 +44,44 @@
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void )configureChartThemeOptions {
+    AAOptions *aaChartThemeOptions = AAOptions.new
+    .colorsSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])
+    .chartSet(AAChart.new
+              .backgroundColorSet(AAColor.blackColor))
+    .titleSet(AATitle.new
+              .useHTMLSet(true)
+              .styleSet(AAStyle.new
+                        .colorSet(AAColor.whiteColor)
+                        .fontSizeSet(@"20px")))
+    .subtitleSet(AASubtitle.new
+                 .styleSet(AAStyle.new
+                           .colorSet(AAColor.whiteColor)
+                           .fontSizeSet(@"14px")))
+    .yAxisSet(AAYAxis.new
+              .titleSet(AAAxisTitle.new
+                        .styleSet(AAStyle.new
+                        .colorSet(AAColor.whiteColor)
+                        .fontSizeSet(@"20px")))
+              .labelsSet(AALabels.new
+                         .styleSet(AAStyle.new
+                         .colorSet(AAColor.whiteColor)))
+              )
+    .xAxisSet(AAXAxis.new
+                .labelsSet(AALabels.new
+                           .styleSet(AAStyle.new
+                           .colorSet(AAColor.whiteColor)
+                           .fontSizeSet(@"20px")))
+                )
+    .legendSet(AALegend.new
+               .enabledSet(true)
+               .itemStyleSet(AAItemStyle.new
+                             .colorSet(AAColor.whiteColor)
+                             .fontSizeSet(@"12px")))
+    ;
+    
+//    [self.aaChartView aa_updateChartWithOptions:aaChartThemeOptions redraw:true];
 }
-*/
 
 @end
