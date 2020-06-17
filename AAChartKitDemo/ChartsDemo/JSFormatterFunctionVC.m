@@ -1387,70 +1387,76 @@ function () {
         @"Great Britain",
         @"United States"
     ];
-
+    
     NSArray *colorArr = @[
-      @"rgb(201, 36, 39)",
-      @"rgb(201, 36, 39)",
-      @"rgb(0, 82, 180)",
-      @"rgb(0, 0, 0)",
-      @"rgb(240, 240, 240)",
-      @"rgb(255, 217, 68)",
-      @"rgb(0, 82, 180)",
-      @"rgb(215, 0, 38)"
+        @"rgb(201, 36, 39)",
+        @"rgb(201, 36, 39)",
+        @"rgb(0, 82, 180)",
+        @"rgb(0, 0, 0)",
+        @"rgb(240, 240, 240)",
+        @"rgb(255, 217, 68)",
+        @"rgb(0, 82, 180)",
+        @"rgb(215, 0, 38)"
     ];
     
     
-    NSArray *imageLinkStrArr = @[
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197582.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197604.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197507.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197571.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197408.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197375.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197374.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
-      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197484.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>"
+    NSArray *imageLinkFlagArr = @[
+        @"197582",
+        @"197604",
+        @"197507",
+        @"197571",
+        @"197408",
+        @"197375",
+        @"197374",
+        @"197484"
     ];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"Custom X Axis Labels Be Images")
     .subtitleSet(@"use HTML")
-    .categoriesSet(imageLinkStrArr)
+    .categoriesSet(nameArr)
     .colorsThemeSet(colorArr)
-    .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
-        .nameSet(@"")
+        .nameSet(@"AD 2020")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5])
         .colorByPointSet(@true)
                ]);
     
+    NSString *imageLinkFlagJSArrStr = [self javaScriptArrayStringWithObjcArray:imageLinkFlagArr];
+    NSString *xLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        let imageFlag = %@[this.pos];
+        let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+        return imageLink;
+    })),imageLinkFlagJSArrStr];
+    
+    //    https://api.highcharts.com.cn/highcharts#xAxis.labels.formatter
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.xAxis.labels.useHTML = true;
-    
-    NSString *nameJSArrStr = [self javaScriptArrayStringWithObjcArray:nameArr];
-    
-    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
-        + ' Support JavaScript Function Just Right Now !!! <br/> '
-        + ' The Gold Price For <b>2020 '
-        +  %@[this.point.x]
-        + ' </b> Is <b> '
-        +  this.point.y
-        + ' </b> Dollars ';
-    })),nameJSArrStr];
-    
-    aaOptions.tooltip
-    .sharedSet(false)
+    aaOptions.xAxis.labels
     .useHTMLSet(true)
-    .formatterSet(tooltipFormatter)
-    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
-    .styleSet(AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px")
-              );
+    .formatterSet(xLabelsFormatter)
+    ;
+    /*Custom tooltip style*/
+    //    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+    //        let imageFlag = %@[this.point.index];
+    //        let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+    //        return imageLink
+    //        + " 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> "
+    //        + " Support JavaScript Function Just Right Now !!! <br/> "
+    //        + " The Gold Price For <b>2020 "
+    //        +  this.x
+    //        + " </b> Is <b> "
+    //        +  this.y
+    //        + " </b> Dollars ";
+    //    }
+    //    )),imageLinkFlagJSArrStr];
+    //
+    //    aaOptions.tooltip
+    //    .sharedSet(false)
+    //    .useHTMLSet(true)
+    //    .formatterSet(tooltipFormatter)
+    //    ;
     
     return aaOptions;
 }
