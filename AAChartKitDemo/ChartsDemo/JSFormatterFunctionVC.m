@@ -34,6 +34,7 @@
 
 #import "JSFormatterFunctionVC.h"
 #import "AAChartKit.h"
+#import "AAJSStringPurer.h"
 
 @interface JSFormatterFunctionVC ()
 
@@ -83,7 +84,7 @@
         case 16: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
         case 17: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
         case 18: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
-            
+        case 19: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
         default:
             return nil;
     }
@@ -1374,5 +1375,106 @@ function () {
     return aaOptions;
 }
 
+
+- (AAOptions *)customXAxisLabelsBeImages {
+    NSArray *countries = @[
+        @{
+            @"name": @"South Korea",
+            @"flag": @197582,
+            @"color": @"rgb(201, 36, 39)"
+        }, @{
+            @"name": @"Japan",
+            @"flag": @197604,
+            @"color": @"rgb(201, 36, 39)"
+        }, @{
+            @"name": @"Australia",
+            @"flag": @197507,
+            @"color": @"rgb(0, 82, 180)"
+        }, @{
+            @"name": @"Germany",
+            @"flag": @197571,
+            @"color": @"rgb(0, 0, 0)"
+        }, @{
+            @"name": @"Russia",
+            @"flag": @197408,
+            @"color": @"rgb(240, 240, 240)"
+        }, @{
+            @"name": @"China",
+            @"flag": @197375,
+            @"color": @"rgb(255, 217, 68)"
+        }, @{
+            @"name": @"Great Britain",
+            @"flag": @197374,
+            @"color": @"rgb(0, 82, 180)"
+        }, @{
+            @"name": @"United States",
+            @"flag": @197484,
+            @"color": @"rgb(215, 0, 38)"
+        }];
+    
+    NSMutableArray * nameArr = [NSMutableArray array];
+    NSMutableArray *flagArr = [NSMutableArray array];
+    NSMutableArray * colorArr = [NSMutableArray array];
+    
+    for (NSDictionary *element in countries) {
+        [nameArr addObject:element[@"name"]];
+        [flagArr addObject:element[@"flag"]];
+        [colorArr addObject:element[@"color"]];
+    }
+    
+    
+    NSMutableArray *imageLinkStrArr = [NSMutableArray array];
+    
+    for (NSNumber *flag in flagArr) {
+        NSString *imageLinkStr = [NSString stringWithFormat:@"<span><img src=\"https://image.flaticon.com/icons/svg/197/%@.svg\" style=\"width: 30px; height: 30px;\"/><br></span>",flag];
+        NSString *pureLinkStr = [AAJSStringPurer pureJavaScriptFunctionStringWithString:imageLinkStr];
+        pureLinkStr = [pureLinkStr stringByReplacingOccurrencesOfString:@"(" withString:@""];
+        pureLinkStr = [pureLinkStr stringByReplacingOccurrencesOfString:@")" withString:@""];
+        [imageLinkStrArr addObject:pureLinkStr];
+    }
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"Custom X Axis Labels Be Images")
+    .subtitleSet(@"use HTML")
+    .categoriesSet(imageLinkStrArr)
+    .colorsThemeSet(colorArr)
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5])
+        .colorByPointSet(@true)
+               ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis.labels.useHTML = true;
+    
+    NSString *nameJSArrStr = [self javaScriptArrayStringWithObjcArray:nameArr];
+    
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
+        + ' Support JavaScript Function Just Right Now !!! <br/> '
+        + ' The Gold Price For <b>2020 '
+        +  %@[this.point.x]
+        + ' </b> Is <b> '
+        +  this.point.y
+        + ' </b> Dollars ';
+    })),nameJSArrStr];
+    
+    aaOptions.tooltip
+    .sharedSet(false)
+    .useHTMLSet(true)
+    .formatterSet(tooltipFormatter)
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(@"#000000")
+    .borderColorSet(@"#000000")
+    .styleSet(AAStyle.new
+              .colorSet(@"#FFD700")
+              .fontSizeSet(@"12px")
+              );
+    
+    return aaOptions;
+}
 
 @end
