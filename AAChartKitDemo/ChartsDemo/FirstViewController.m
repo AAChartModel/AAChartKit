@@ -473,6 +473,7 @@
               @"custom Chart Style When Every Data Value Is 0---所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式",
               @"disable Spline Chart Hover Animation Effect---禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果",
               @"configure Pie Chart Format Property---配置饼图的 dataLabels 的 format 属性",
+              @"self customXAxisLabelsBeImages---自定义曲线面积图 X 轴 labels 为一组图片🖼"
             ],
             /*同时显示多个 AAChartView*/
             @[@"同时显示多个 AAChartView",
@@ -510,7 +511,7 @@
               @"通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)",
               @"custom Spider Chart Style---自定义蜘蛛图🕷🕸样式",
               @"customize Every DataLabel Singlely By DataLabels Formatter---通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义",
-              @"self customXAxisLabelsBeImages---自定义 X轴 labels 为一组图片🖼"
+              @"self customXAxisLabelsBeImages---自定义柱形图 X 轴 labels 为一组图片🖼"
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[

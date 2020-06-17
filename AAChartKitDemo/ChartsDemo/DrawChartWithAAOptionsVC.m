@@ -121,6 +121,8 @@
         case 38: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
         case 39: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
         case 40: return [self configurePieChartFormatProperty];//配置饼图的 dataLabels 的 format 属性
+        case 41:  return [self customXAxisLabelsBeImages];
+
     }
     return nil;
 }
@@ -2483,4 +2485,35 @@
     return aaOptions;
 }
 
+- (AAOptions *)customXAxisLabelsBeImages {
+    NSArray *imageLinkStrArr = @[
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197582.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197604.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197507.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197571.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197408.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197375.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197374.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>",
+        @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197484.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>"
+    ];
+    
+    AAChartModel *aaChartModel= AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"")
+    .subtitleSet(@"")
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisVisibleSet(false)
+    .categoriesSet(imageLinkStrArr)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .colorSet((id)[AAGradientColor deepSeaColor])
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @13.2, @18.2, @29.5, @21.5, ]),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis.labels.useHTML = true;
+    return aaOptions;
+}
 @end
