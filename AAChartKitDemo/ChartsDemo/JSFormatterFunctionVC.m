@@ -1377,61 +1377,39 @@ function () {
 
 
 - (AAOptions *)customXAxisLabelsBeImages {
-    NSArray *countries = @[
-        @{
-            @"name": @"South Korea",
-            @"flag": @197582,
-            @"color": @"rgb(201, 36, 39)"
-        }, @{
-            @"name": @"Japan",
-            @"flag": @197604,
-            @"color": @"rgb(201, 36, 39)"
-        }, @{
-            @"name": @"Australia",
-            @"flag": @197507,
-            @"color": @"rgb(0, 82, 180)"
-        }, @{
-            @"name": @"Germany",
-            @"flag": @197571,
-            @"color": @"rgb(0, 0, 0)"
-        }, @{
-            @"name": @"Russia",
-            @"flag": @197408,
-            @"color": @"rgb(240, 240, 240)"
-        }, @{
-            @"name": @"China",
-            @"flag": @197375,
-            @"color": @"rgb(255, 217, 68)"
-        }, @{
-            @"name": @"Great Britain",
-            @"flag": @197374,
-            @"color": @"rgb(0, 82, 180)"
-        }, @{
-            @"name": @"United States",
-            @"flag": @197484,
-            @"color": @"rgb(215, 0, 38)"
-        }];
-    
-    NSMutableArray * nameArr = [NSMutableArray array];
-    NSMutableArray *flagArr = [NSMutableArray array];
-    NSMutableArray * colorArr = [NSMutableArray array];
-    
-    for (NSDictionary *element in countries) {
-        [nameArr addObject:element[@"name"]];
-        [flagArr addObject:element[@"flag"]];
-        [colorArr addObject:element[@"color"]];
-    }
+    NSArray *nameArr = @[
+        @"South Korea",
+        @"Japan",
+        @"Australia",
+        @"Germany",
+        @"Russia",
+        @"China",
+        @"Great Britain",
+        @"United States"
+    ];
+
+    NSArray *colorArr = @[
+      @"rgb(201, 36, 39)",
+      @"rgb(201, 36, 39)",
+      @"rgb(0, 82, 180)",
+      @"rgb(0, 0, 0)",
+      @"rgb(240, 240, 240)",
+      @"rgb(255, 217, 68)",
+      @"rgb(0, 82, 180)",
+      @"rgb(215, 0, 38)"
+    ];
     
     
-    NSMutableArray *imageLinkStrArr = [NSMutableArray array];
-    
-    for (NSNumber *flag in flagArr) {
-        NSString *imageLinkStr = [NSString stringWithFormat:@"<span><img src=\"https://image.flaticon.com/icons/svg/197/%@.svg\" style=\"width: 30px; height: 30px;\"/><br></span>",flag];
-        NSString *pureLinkStr = [AAJSStringPurer pureJavaScriptFunctionStringWithString:imageLinkStr];
-        pureLinkStr = [pureLinkStr stringByReplacingOccurrencesOfString:@"(" withString:@""];
-        pureLinkStr = [pureLinkStr stringByReplacingOccurrencesOfString:@")" withString:@""];
-        [imageLinkStrArr addObject:pureLinkStr];
-    }
+    NSArray *imageLinkStrArr = @[
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197582.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197604.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197507.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197571.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197408.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197375.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197374.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>",
+      @"<span><img src=\\\"https:\/\/image.flaticon.com\/icons\/svg\/197\/197484.svg\\\" style=\\\"width: 30px; height: 30px;\\\"\/><br><\/span>"
+    ];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
