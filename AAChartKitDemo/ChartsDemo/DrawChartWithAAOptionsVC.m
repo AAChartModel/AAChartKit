@@ -1618,12 +1618,12 @@
         @"<span style=\\\"color:#66FF99;font-weight:bold;font-size:13px\\\">神秘海域</span>",
         @"<span style=\\\"color:#00FF00;font-weight:bold;font-size:14px\\\">美国末日</span>",
         @"<span style=\\\"color:#00CC00;font-weight:bold;font-size:15px\\\">巫师狂猎</span>",
-        @"<span style=\\\"color:#666FF;font-weight:bold;font-size:15px\\\">孤岛危机</span>",
-        @"<span style=\\\"color:#000CC;font-weight:bold;font-size:14px\\\">地狱边境</span>",
+        @"<span style=\\\"color:#000CCC;font-weight:bold;font-size:14px\\\">孤岛危机</span>",
+        @"<span style=\\\"color:#666FFF;font-weight:bold;font-size:15px\\\">地狱边境</span>",
         @"<span style=\\\"color:#9933CC;font-weight:bold;font-size:13px\\\">忍者之印</span>",
         @"<span style=\\\"color:#FFCC99;font-weight:bold;font-size:12px\\\">合金装备</span>",
         @"<span style=\\\"color:#FFCC00;font-weight:bold;font-size:11px\\\">全战三国</span>",
-        @"<span style=\\\"color:#CC99090;font-weight:bold;font-size:10px\\\">死亡搁浅</span>",
+        @"<span style=\\\"color:#CC9909;font-weight:bold;font-size:10px\\\">死亡搁浅</span>",
     ];
     
     AAChartModel *aaChartModel= AAChartModel.new
