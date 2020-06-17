@@ -1575,18 +1575,18 @@
 
 - (AAOptions *)configureXAxisLabelsFontColorWithHTMLString {
     NSArray *categories = @[
-        @"<font color=\\\"#CC0066\\\">孤岛危机<\\/font>",
-        @"<font color=\\\"#CC0033\\\">使命召唤<\\/font>",
-        @"<font color=\\\"#FF0066\\\">荣誉勋章<\\/font>",
-        @"<font color=\\\"##66FF99\\\">狙击精英<\\/font>",
-        @"<font color=\\\"#00FF00\\\">神秘海域<\\/font>",
-        @"<font color=\\\"#00CC00\\\">美国末日<\\/font>",
-        @"<font color=\\\"#666FF\\\">巫师狂猎<\\/font>",
-        @"<font color=\\\"#000CC\\\">死亡搁浅<\\/font>",
-        @"<font color=\\\"#9933CC\\\">地狱边境<\\/font>",
-        @"<font color=\\\"##FFCC99\\\">忍者之印<\\/font>",
-        @"<font color=\\\"#FFCC00\\\">合金装备<\\/font>",
-        @"<font color=\\\"#CC99090\\\">全战三国<\\/font>",
+        @"<font color=\\\"#CC0066\\\">孤岛危机</font>",
+        @"<font color=\\\"#CC0033\\\">使命召唤</font>",
+        @"<font color=\\\"#FF0066\\\">荣誉勋章</font>",
+        @"<font color=\\\"##66FF99\\\">狙击精英</font>",
+        @"<font color=\\\"#00FF00\\\">神秘海域</font>",
+        @"<font color=\\\"#00CC00\\\">美国末日</font>",
+        @"<font color=\\\"#666FF\\\">巫师狂猎</font>",
+        @"<font color=\\\"#000CC\\\">死亡搁浅</font>",
+        @"<font color=\\\"#9933CC\\\">地狱边境</font>",
+        @"<font color=\\\"##FFCC99\\\">忍者之印</font>",
+        @"<font color=\\\"#FFCC00\\\">合金装备</font>",
+        @"<font color=\\\"#CC99090\\\">全战三国</font>",
     ];
     
     AAChartModel *aaChartModel = AAChartModel.new
