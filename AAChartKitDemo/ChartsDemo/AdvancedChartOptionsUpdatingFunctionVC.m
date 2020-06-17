@@ -45,8 +45,8 @@
 }
 
 
-- (void )configureChartThemeOptions {
-    AAOptions *aaChartThemeOptions = AAOptions.new
+- (AAOptions *)configureChartThemeOptions {
+    return AAOptions.new
     .colorsSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])
     .chartSet(AAChart.new
               .backgroundColorSet(AAColor.blackColor))
