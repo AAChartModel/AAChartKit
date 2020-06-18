@@ -1417,6 +1417,7 @@ function () {
     .subtitleSet(@"use HTML")
     .categoriesSet(nameArr)
     .colorsThemeSet(colorArr)
+    .borderRadiusSet(@5)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"AD 2020")
@@ -1437,6 +1438,9 @@ function () {
     .useHTMLSet(true)
     .formatterSet(xLabelsFormatter)
     ;
+    
+    aaOptions.plotOptions.column.groupPaddingSet(@0.005);
+
     /*Custom tooltip style*/
     //    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
     //        let imageFlag = %@[this.point.index];
