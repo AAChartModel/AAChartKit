@@ -515,10 +515,6 @@ WKScriptMessageHandler
 - (void)setIsAdaptiveScreenRotation:(BOOL)isAdaptiveScreenRotation {
     _isAdaptiveScreenRotation = isAdaptiveScreenRotation;
     if (_isAdaptiveScreenRotation) {
-        //开启和监听 设备旋转的通知（不开启的话，设备方向一直是UIInterfaceOrientationUnknown）
-        //        if (![UIDevice currentDevice].generatesDeviceOrientationNotifications) {
-        //            [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        //        }
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(handleDeviceOrientationChange:)
                                                      name:UIDeviceOrientationDidChangeNotification
@@ -526,51 +522,11 @@ WKScriptMessageHandler
     }
 }
 
-//设备方向改变的处理
 - (void)handleDeviceOrientationChange:(NSNotification *)notification {
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-//    [self layoutIfNeeded];//加不加这句代码似乎没啥区别
-//    NSString *jsFuntionStr = [NSString stringWithFormat:@"aaGlobalChart.setSize(%f,%f)",
-//                              self.frame.size.width,
-//                              self.frame.size.height]; //直接使用 setSize 有点问题,有时候 Highcharts 不能自动调整 container 的 size 导致显示不全
     NSString *jsFuntionStr = [NSString stringWithFormat:@"changeContainerSize(%f,%f)",
-                                 self.frame.size.width,
-                                 self.frame.size.height];
-    
-    NSLog(@"屏幕宽度为 %f",self.frame.size.width );
-    
-    NSLog(@"屏幕高度为 %f",self.frame.size.height );
-    
-    NSLog(@"js字符串内容--------%@",jsFuntionStr);
-
-//    NSString *jsFuntionStr = @"aaGlobalChart.reflow()";//reflow() 自适应方法没有动画效果,不如 setSize() 方法
+                              self.frame.size.width,
+                              self.frame.size.height];
     [self safeEvaluateJavaScriptString:jsFuntionStr];
-    switch (deviceOrientation) {
-        case UIDeviceOrientationFaceUp:
-            NSLog(@"屏幕朝上平躺");
-            break;
-        case UIDeviceOrientationFaceDown:
-            NSLog(@"屏幕朝下平躺");
-            break;
-        case UIDeviceOrientationUnknown:
-            NSLog(@"未知方向");
-            break;
-        case UIDeviceOrientationLandscapeLeft:
-            NSLog(@"屏幕向左横置");
-            break;
-        case UIDeviceOrientationLandscapeRight:
-            NSLog(@"屏幕向右橫置");
-            break;
-        case UIDeviceOrientationPortrait:
-            NSLog(@"屏幕直立");
-            break;
-        case UIDeviceOrientationPortraitUpsideDown:
-            NSLog(@"屏幕直立，上下顛倒");
-            break;
-        default:
-            NSLog(@"无法辨识");
-            break;
-    }
 }
 
 - (void)dealloc {
@@ -665,7 +621,7 @@ WKScriptMessageHandler
                                                          error:&error];
     NSString *string =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     if (error) {
-        AADetailLog(@"data with JSONObject serialization failed：%@", error);
+        AADetailLog(@"❌❌❌ data with JSONObject serialization failed：%@", error);
         return nil;
     }
     return string;
@@ -679,7 +635,7 @@ WKScriptMessageHandler
                                                        options:NSJSONReadingMutableContainers
                                                          error:&error];
         if (error) {
-            AADetailLog(@"JSONObject with data serialization failed：%@", error);
+            AADetailLog(@"❌❌❌ JSONObject with data serialization failed：%@", error);
             return nil;
         }
         return jsonObjet;

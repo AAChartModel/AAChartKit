@@ -218,25 +218,10 @@
         }
         
         function changeContainerSize(receivedWidth, receivedHeight) {
-            var container = document.getElementById('container'); //获得元素
+            var container = document.getElementById('container');
             container.style.width = receivedWidth;
             container.style.height = receivedHeight;
-            var animation  = {
-                easing: function (pos) {
-                    if ((pos) < (1 / 2.75)) {
-                        return (7.5625 * pos * pos);
-                    }
-                    if (pos < (2 / 2.75)) {
-                        return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-                    }
-                    if (pos < (2.5 / 2.75)) {
-                        return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-                    }
-                    return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-                },
-              "duration" : 1000
-            };
-            aaGlobalChart.setSize(receivedWidth,receivedHeight,animation);
+            aaGlobalChart.setSize(receivedWidth, receivedHeight);
         }
         
             </script>
