@@ -128,7 +128,7 @@ WKScriptMessageHandler
         [seriesDicArr addObject:[AAJsonConverter dictionaryWithObjectInstance:aaSeriesElement]];
     }
     
-    NSString *seriesJsonStr = [AAJsonConverter getPureStringWithJSONObject:seriesDicArr];
+    NSString *seriesJsonStr = [AAJsonConverter pureJsonStringWithJsonObject:seriesDicArr];
     NSString *jsStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@','%d')",
                        seriesJsonStr,
                        animation];
@@ -193,10 +193,10 @@ WKScriptMessageHandler
     if ([options isKindOfClass:[NSNumber class]]) {
         optionsStr = [NSString stringWithFormat:@"%@",options];
     } else if ([options isKindOfClass:[NSArray class]]) {
-        optionsStr = [AAJsonConverter getPureStringWithJSONObject:options];
+        optionsStr = [AAJsonConverter pureJsonStringWithJsonObject:options];
     } else {
         NSDictionary *dic = [AAJsonConverter dictionaryWithObjectInstance:options];
-        optionsStr = [AAJsonConverter getPureStringWithJSONObject:dic];
+        optionsStr = [AAJsonConverter pureJsonStringWithJsonObject:dic];
     }
     
     NSString *jsStr = [NSString stringWithFormat:@"addPointToChartSeries('%tu','%@','%d','%d','%d')",
@@ -227,7 +227,7 @@ WKScriptMessageHandler
 
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element {
     NSDictionary * elementDic = [AAJsonConverter dictionaryWithObjectInstance:element];
-    NSString *elementStr = [AAJsonConverter getPureStringWithJSONObject:elementDic];
+    NSString *elementStr = [AAJsonConverter pureJsonStringWithJsonObject:elementDic];
     NSString *jsStr = [NSString stringWithFormat:@"addElementToChartSeriesWithElement('%@')",
                        elementStr];
     [self safeEvaluateJavaScriptString:jsStr];
@@ -605,11 +605,11 @@ WKScriptMessageHandler
     } else {
         dic = [self dictionaryWithObjectInstance:optionsObject];
     }
-    return [self getPureStringWithJSONObject:dic];
+    return [self pureJsonStringWithJsonObject:dic];
 }
 
-+ (NSString *)getPureStringWithJSONObject:(id)objc {
-    NSString *seriesStr = [self jsonStringWithJsonObject:objc];
++ (NSString *)pureJsonStringWithJsonObject:(id)jsonObjc {
+    NSString *seriesStr = [self jsonStringWithJsonObject:jsonObjc];
     AADetailLog(@"----------- console log AAOptions JSON information of AAChartView -----------:\n%@",seriesStr);
     return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
 }
