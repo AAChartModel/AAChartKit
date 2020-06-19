@@ -125,7 +125,7 @@ WKScriptMessageHandler
                                           animation:(BOOL)animation {
     NSMutableArray *seriesDicArr = [NSMutableArray arrayWithCapacity:series.count];
     for (AASeriesElement *aaSeriesElement in series) {
-        [seriesDicArr addObject:[AAJsonConverter getObjectData:aaSeriesElement]];
+        [seriesDicArr addObject:[AAJsonConverter dictionaryWithObjectInstance:aaSeriesElement]];
     }
     
     NSString *seriesJsonStr = [AAJsonConverter getPureStringWithJSONObject:seriesDicArr];
@@ -141,10 +141,10 @@ WKScriptMessageHandler
 
 - (void)aa_updateChartWithOptions:(id)options redraw:(BOOL)redraw {
     BOOL isOptionsClass = [options isKindOfClass:[AAOptions class]];
-    NSDictionary *optionsDic = [AAJsonConverter getObjectData:options];
+    NSDictionary *optionsDic = [AAJsonConverter dictionaryWithObjectInstance:options];
     NSDictionary *finalOptionsDic;
     if (isOptionsClass) {
-        finalOptionsDic = [AAJsonConverter getObjectData:options];
+        finalOptionsDic = [AAJsonConverter dictionaryWithObjectInstance:options];
     } else {
         NSString *classNameStr = NSStringFromClass([options class]);
         classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA"
@@ -160,7 +160,7 @@ WKScriptMessageHandler
         finalOptionsDic = @{finalClassNameStr:optionsDic};
     }
     
-    NSString *optionsStr = [AAJsonConverter getPureOptionsString:finalOptionsDic];
+    NSString *optionsStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:finalOptionsDic];
     NSString *jsStr = [NSString stringWithFormat:@"updateChart('%@','%d')",
                        optionsStr,
                        redraw];
@@ -195,7 +195,7 @@ WKScriptMessageHandler
     } else if ([options isKindOfClass:[NSArray class]]) {
         optionsStr = [AAJsonConverter getPureStringWithJSONObject:options];
     } else {
-        NSDictionary *dic = [AAJsonConverter getObjectData:options];
+        NSDictionary *dic = [AAJsonConverter dictionaryWithObjectInstance:options];
         optionsStr = [AAJsonConverter getPureStringWithJSONObject:dic];
     }
     
@@ -226,7 +226,7 @@ WKScriptMessageHandler
 }
 
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element {
-    NSDictionary * elementDic = [AAJsonConverter getObjectData:element];
+    NSDictionary * elementDic = [AAJsonConverter dictionaryWithObjectInstance:element];
     NSString *elementStr = [AAJsonConverter getPureStringWithJSONObject:elementDic];
     NSString *jsStr = [NSString stringWithFormat:@"addElementToChartSeriesWithElement('%@')",
                        elementStr];
@@ -363,7 +363,7 @@ WKScriptMessageHandler
     if (self.isClearBackgroundColor) {
         aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
-    _optionJson = [AAJsonConverter getPureOptionsString:aaOptions];
+    _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
 }
 
 - (NSString *)configTheJavaScriptString {
@@ -542,7 +542,7 @@ WKScriptMessageHandler
 
 @implementation AAJsonConverter
 
-+ (NSDictionary*)getObjectData:(id)objc {
++ (NSDictionary*)dictionaryWithObjectInstance:(id)objc {
     unsigned int propsCount;
     objc_property_t *props = class_copyPropertyList([objc class], &propsCount);
     NSMutableDictionary *propsDic = [NSMutableDictionary dictionaryWithCapacity:propsCount];
@@ -589,7 +589,7 @@ WKScriptMessageHandler
         return dic;
     }
     
-    return [self getObjectData:objc];
+    return [self dictionaryWithObjectInstance:objc];
 }
 
 + (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
@@ -598,12 +598,12 @@ WKScriptMessageHandler
     return originalString;
 }
 
-+ (NSString *)getPureOptionsString:(id)optionsObject {
++ (NSString *)pureOptionsJsonStringWithOptionsInstance:(id)optionsObject {
     NSDictionary *dic;
     if ([optionsObject isKindOfClass:[NSDictionary class]] ) {
         dic = optionsObject;
     } else {
-        dic = [self getObjectData:optionsObject];
+        dic = [self dictionaryWithObjectInstance:optionsObject];
     }
     return [self getPureStringWithJSONObject:dic];
 }
