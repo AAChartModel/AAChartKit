@@ -115,7 +115,7 @@
     }  else if (selectedIndex == 3) {
         return [self configureArearangeChart];
     } else if (selectedIndex == 4) {
-        return [self configureArealinerangeChart];
+        return [self configureAreaslinerangeChart];
     } else if (selectedIndex == 5) {
         return [self configureColumnrangeChart];
     } else if (selectedIndex == 6) {
@@ -771,7 +771,7 @@
     ]);
 }
 
-- (AAChartModel *)configureArealinerangeChart {
+- (AAChartModel *)configureAreaslinerangeChart {
     NSArray *areasplinerangeData = @[
         /* 2014-03-01 */
         @[@1393635600000, @2.1,  @8.9],
@@ -827,6 +827,8 @@
     .yAxisTitleSet(@"摄氏度")
     .xAxisVisibleSet(false)
     .dataLabelsEnabledSet(false)
+    .markerRadiusSet(@5)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2020")
