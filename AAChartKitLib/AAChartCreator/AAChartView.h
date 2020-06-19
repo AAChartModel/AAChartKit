@@ -125,6 +125,9 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
  */
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
+/// Set the chart view content be adaptive to screen rotation
+@property (nonatomic, assign) BOOL isAdaptiveScreenRotation;
+
 
 #pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
 /**
