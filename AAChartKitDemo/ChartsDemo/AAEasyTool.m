@@ -66,4 +66,38 @@
     return dataArr;
 }
 
++ (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
+                                       toFatherView:(UIView *)fatherView {
+    return @[[NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeLeft
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeLeft
+                                         multiplier:1.0
+                                           constant:0],
+             [NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeRight
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeRight
+                                         multiplier:1.0
+                                           constant:0],
+             [NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeTop
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeTop
+                                         multiplier:1.0
+                                           constant:0],
+             [NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeBottom
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeBottom
+                                         multiplier:1.0
+                                           constant:0],
+    ];
+}
+
+
 @end

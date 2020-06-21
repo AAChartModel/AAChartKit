@@ -56,10 +56,17 @@
 }
 
 - (AAChartView *)setUpAAChartView {
-    CGRect chartViewFrame = CGRectMake(0, 58, self.view.frame.size.width, self.view.frame.size.height - 88);
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
+//    CGRect chartViewFrame = CGRectMake(0, 58, self.view.frame.size.width, self.view.frame.size.height - 88);
+    AAChartView *aaChartView = [[AAChartView alloc]init];
     aaChartView.scrollEnabled = NO;
+    aaChartView.isAdaptiveScreenRotation = YES;
     [self.view addSubview:aaChartView];
+    
+    aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:aaChartView
+                                                                 toFatherView:self.view];
+    [self.view addConstraints:constraintsArr];
+
     return aaChartView;
 }
 

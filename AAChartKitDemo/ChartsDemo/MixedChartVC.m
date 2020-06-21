@@ -32,7 +32,7 @@
 
 #import "MixedChartVC.h"
 #import "AAChartKit.h"
-
+#import "AAEasyTool.h"
 
 @interface MixedChartVC ()
 
@@ -82,7 +82,13 @@
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
     self.view.backgroundColor = [UIColor whiteColor];
     aaChartView.scrollEnabled = NO;
+    aaChartView.isAdaptiveScreenRotation = YES;
     [self.view addSubview:aaChartView];
+    
+    aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:aaChartView
+                                                                 toFatherView:self.view];
+    [self.view addConstraints:constraintsArr];
     
     return aaChartView;
 }

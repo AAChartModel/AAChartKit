@@ -64,45 +64,12 @@
     
     // !!!!!
     self.aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSArray *constraintsArr = [self configureTheConstraintArrayWithItem:self.aaChartView
-                                                                 toItem:self.view];
+    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:self.aaChartView
+                                                                 toFatherView:self.view];
     [self.view addConstraints:constraintsArr];
     
     self.aaChartModel = [self configureTheChartModel:self.selectedIndex];
     [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
-}
-
-- (NSArray *)configureTheConstraintArrayWithItem:(UIView *)view1
-                                          toItem:(UIView *)view2 {
-    return @[[NSLayoutConstraint constraintWithItem:view1
-                                          attribute:NSLayoutAttributeLeft
-                                          relatedBy:NSLayoutRelationEqual
-                                             toItem:view2
-                                          attribute:NSLayoutAttributeLeft
-                                         multiplier:1.0
-                                           constant:0],
-             [NSLayoutConstraint constraintWithItem:view1
-                                          attribute:NSLayoutAttributeRight
-                                          relatedBy:NSLayoutRelationEqual
-                                             toItem:view2
-                                          attribute:NSLayoutAttributeRight
-                                         multiplier:1.0
-                                           constant:0],
-             [NSLayoutConstraint constraintWithItem:view1
-                                          attribute:NSLayoutAttributeTop
-                                          relatedBy:NSLayoutRelationEqual
-                                             toItem:view2
-                                          attribute:NSLayoutAttributeTop
-                                         multiplier:1.0
-                                           constant:0],
-             [NSLayoutConstraint constraintWithItem:view1
-                                          attribute:NSLayoutAttributeBottom
-                                          relatedBy:NSLayoutRelationEqual
-                                             toItem:view2
-                                          attribute:NSLayoutAttributeBottom
-                                         multiplier:1.0
-                                           constant:0],
-    ];
 }
 
 - (AAChartModel *)configureTheChartModel:(NSUInteger)selectedIndex {

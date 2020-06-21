@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)colorWithHexString: (NSString *)color;
 + (NSArray *)configureTheRandomColorArray;
 + (NSArray *)configureTheRandomColorArrayWithColorNumber:(NSInteger)colorNumber;
-
++ (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
+                                       toFatherView:(UIView *)fatherView;
 @end
 
 NS_ASSUME_NONNULL_END
