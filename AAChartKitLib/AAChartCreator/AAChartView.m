@@ -680,8 +680,7 @@ WKScriptMessageHandler
     return [self dictionaryWithObjectInstance:objc];
 }
 
-+ (NSString*)wipeOffTheLineBreakAndBlankCharacter:(NSString *)originalString {
-    originalString = [originalString stringByReplacingOccurrencesOfString:@"\0" withString:@""];
++ (NSString*)wipeOffTheLineBreakCharacter:(NSString *)originalString {
     originalString = [originalString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return originalString;
 }
@@ -699,7 +698,7 @@ WKScriptMessageHandler
 + (NSString *)pureJsonStringWithJsonObject:(id)jsonObjc {
     NSString *seriesStr = [self jsonStringWithJsonObject:jsonObjc];
     AADetailLog(@"----------- console log AAOptions JSON information of AAChartView -----------:\n%@",seriesStr);
-    return [self wipeOffTheLineBreakAndBlankCharacter:seriesStr];
+    return [self wipeOffTheLineBreakCharacter:seriesStr];
 }
 
 + (NSString*)jsonStringWithJsonObject:(id)jsonObject {
