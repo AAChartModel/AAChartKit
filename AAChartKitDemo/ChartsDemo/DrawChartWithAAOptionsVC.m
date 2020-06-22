@@ -1364,12 +1364,24 @@
     NSArray *seriesArr = aaOptions.series;
     AASeriesElement *aaSeriesElement = seriesArr[0];
     aaSeriesElement.zones = @[
-        @{@"value": @50, @"color": @"#ffde33"},
-        @{@"value": @100, @"color": @"#ff9933"},
-        @{@"value": @150, @"color": @"#cc0033"},
-        @{@"value": @200, @"color": @"#660099"},
-        @{@"value": @300, @"color": @"#7e0023"},
-        @{@"color": @"#096000"}
+        AAZonesElement.new
+        .valueSet(@50)
+        .colorSet(@"#ffde33"),
+        AAZonesElement.new
+        .valueSet(@100)
+        .colorSet(@"#ff9933"),
+        AAZonesElement.new
+        .valueSet(@150)
+        .colorSet(@"#cc0033"),
+        AAZonesElement.new
+        .valueSet(@200)
+        .colorSet(@"#660099"),
+        AAZonesElement.new
+        .valueSet(@300)
+        .colorSet(@"#7e0023"),
+        
+        AAZonesElement.new
+        .colorSet(@"#096000"),
     ];
     
     return aaOptions;
@@ -1394,13 +1406,20 @@
         .lineWidthSet(@10)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
         .zonesSet(@[
-            @{@"value": @12, @"color": @"#1e90ff"},
-            @{@"value": @24, @"color": @"#ef476f"},
-            @{@"value": @36, @"color": @"#04d69f"},
-            @{@"color": @"#ffd066"}
-        ]),
-    ]
-               );
+            AAZonesElement.new
+            .valueSet(@12)
+            .colorSet(@"#1e90ff"),
+            AAZonesElement.new
+            .valueSet(@24)
+            .colorSet(@"#ef476f"),
+            AAZonesElement.new
+            .valueSet(@36)
+            .colorSet(@"#04d69f"),
+            
+            AAZonesElement.new
+            .colorSet(@"#ffd066"),
+                  ]),
+    ]);
     //    @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     

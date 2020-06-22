@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AADataLabels,AATooltip,AAStates,AAShadow;
+@class AAMarker,AADataLabels,AATooltip,AAStates,AAShadow,AAZonesElement;
 
 @interface AASeriesElement : NSObject
 
@@ -62,7 +62,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , step
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAStates *, states)
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, zones)
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray<AAZonesElement *>*, zones)
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zoneAxis)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAShadow *, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stack)
@@ -91,6 +91,14 @@ AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, offsetX)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, offsetY)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, opacity)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, width)
+
+@end
+
+
+@interface AAZonesElement : NSObject
+
+AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSNumber *, value)
+AAPropStatementAndPropSetFuncStatement(copy,   AAZonesElement, NSString *, color)
 
 @end
 
