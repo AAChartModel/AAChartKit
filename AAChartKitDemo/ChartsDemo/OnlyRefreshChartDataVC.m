@@ -131,8 +131,6 @@
     .chartTypeSet([self configureTheChartType])//图表类型随机
     .xAxisVisibleSet(true)
     .yAxisVisibleSet(false)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"摄氏度")
     .stackingSet(AAChartStackingTypeNormal)
     .colorsThemeSet(@[

@@ -115,8 +115,6 @@
 - (AAChartModel *)setupChartModelBasicContent {
     return AAChartModel.new
     .animationDurationSet(@1500)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",
                      @"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"")

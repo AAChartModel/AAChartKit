@@ -510,8 +510,6 @@
 
 - (AAChartModel *)configureChartWithShadowStyle {
     return AAChartModel.new
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisVisibleSet(false)
     .chartTypeSet(AAChartTypeSpline)
     .legendEnabledSet(false)//隐藏图例(底部可点按的小圆点)
@@ -545,8 +543,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisTitleSet(@"")
@@ -579,8 +575,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisTitleSet(@"")
@@ -607,8 +601,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisTitleSet(@"")
@@ -758,8 +750,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .yAxisMaxSet(@3.5)
     .yAxisGridLineWidthSet(@0)
@@ -779,8 +769,6 @@
 - (AAChartModel *)configureTriangleRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
@@ -803,8 +791,6 @@
 - (AAChartModel *)configureQuadrangleRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
@@ -827,8 +813,6 @@
 - (AAChartModel *)configurePentagonRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
@@ -851,8 +835,6 @@
 - (AAChartModel *)configureHexagonRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
@@ -889,8 +871,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .legendEnabledSet(false)
     .yAxisVisibleSet(true)
     .markerRadiusSet(@6)
@@ -1119,8 +1099,6 @@
 - (AAChartModel *)upsideDownPyramidChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypePyramid)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"摄氏度")
     .invertedSet(true)
     .legendEnabledSet(true)

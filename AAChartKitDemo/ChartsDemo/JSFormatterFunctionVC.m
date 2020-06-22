@@ -710,8 +710,6 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .connectNullsSet(true)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .yAxisMaxSet(@13.0)
     .yAxisGridLineWidthSet(@2)

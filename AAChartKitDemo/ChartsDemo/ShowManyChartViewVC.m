@@ -73,8 +73,6 @@
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(categories)
     .yAxisTitleSet(@"")
     .tooltipEnabledSet(false)
@@ -103,8 +101,6 @@
     
     AAChartModel *aaChartModel2 = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)

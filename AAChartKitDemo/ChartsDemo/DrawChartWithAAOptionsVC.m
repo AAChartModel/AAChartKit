@@ -131,8 +131,6 @@
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)
     .colorsThemeSet(@[
@@ -924,8 +922,6 @@
 - (AAOptions *)customChartLengendItemStyle {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .seriesSet(@[
         AASeriesElement.new
@@ -1195,8 +1191,6 @@
 - (AAOptions *)configureAAPlotBandsForChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
@@ -1267,8 +1261,6 @@
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .categoriesSet(categories)
     .backgroundColorSet(AAColor.whiteColor)
@@ -1390,8 +1382,6 @@
 - (AAOptions *)configureAASeriesElementZonesMixedAAPlotLines {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"")
     .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
@@ -1610,8 +1600,6 @@
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .categoriesSet(categories)
     .markerRadiusSet(@0)
@@ -1647,8 +1635,6 @@
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisVisibleSet(false)
     .categoriesSet(categories)
@@ -1680,8 +1666,6 @@
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .backgroundColorSet((id)backgroundColorGradientColor)
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisVisibleSet(true)
@@ -1745,8 +1729,6 @@
 - (AAOptions *)configureXAxisPlotBand {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisTitleSet(@"")
@@ -1841,8 +1823,6 @@
 - (AAOptions *)configureReversedBarChartDataLabelsStyle {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)
     .yAxisReversedSet(true)
@@ -2465,8 +2445,6 @@
         @"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#ffffa0",
         @"#EA007B",@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"
                     ])
-    .titleSet(@"")
-    .subtitleSet(@"")
     .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[
@@ -2529,8 +2507,6 @@
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisVisibleSet(false)
     .categoriesSet(imageLinkStrArr)

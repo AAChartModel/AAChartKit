@@ -148,8 +148,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypePie)
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#ffffa0",@"#EA007B"])
-    .titleSet(@"")
-    .subtitleSet(@"")
     .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[element])
@@ -812,8 +810,6 @@
 - (AAChartModel *)configureColumnrangeChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumnrange)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisGridLineWidthSet(@0)
     .yAxisTitleSet(@"℃")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])

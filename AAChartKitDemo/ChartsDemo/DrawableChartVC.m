@@ -113,8 +113,6 @@
     AAChartModel *aaChartModel =  AAChartModel.new
     .chartTypeSet([self configureChartType])//图表类型随机
     .xAxisVisibleSet(true)
-    .titleSet(@"")
-    .subtitleSet(@"")
     .yAxisTitleSet(@"摄氏度")
     .stackingSet(AAChartStackingTypeNormal)
     .scrollablePlotAreaSet(
