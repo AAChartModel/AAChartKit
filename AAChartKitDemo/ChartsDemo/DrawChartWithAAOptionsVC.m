@@ -2290,7 +2290,6 @@
 - (AAOptions *)customChartStyleWhenNoData {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
-    .titleSet(@"")//图表主标题
     .subtitleSet(@"温度 (℃)")//图表副标题
     .subtitleFontSizeSet(@14)
     .subtitleFontColorSet(AAColor.grayColor)
