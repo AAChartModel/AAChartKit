@@ -491,12 +491,13 @@ WKScriptMessageHandler
     [alertController addAction:([UIAlertAction actionWithTitle:@"Okay"
                                                          style:UIAlertActionStyleDefault
                                                        handler:^(UIAlertAction * _Nonnull action) {
-                                                           completionHandler();
-                                                       }])];
-    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [rootVC presentViewController:alertController
-                         animated:YES
-                       completion:nil];
+        completionHandler();
+    }])];
+    
+    UIViewController *alertHelperController = [[UIViewController alloc]init];//临时UIViewController，从它这里present UIAlertController
+    [self addSubview:alertHelperController.view];//这句话很重要，即把UIViewController的view添加到当前视图或者UIWindow
+    
+    [alertHelperController presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)drawChart {
