@@ -88,7 +88,7 @@
                                              toItem:fatherView
                                           attribute:NSLayoutAttributeTop
                                          multiplier:1.0
-                                           constant:0],
+                                           constant:88],
              [NSLayoutConstraint constraintWithItem:sonView
                                           attribute:NSLayoutAttributeBottom
                                           relatedBy:NSLayoutRelationEqual
