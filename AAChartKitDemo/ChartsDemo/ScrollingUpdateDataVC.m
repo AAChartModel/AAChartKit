@@ -37,7 +37,6 @@
     CGFloat _x;
 }
 
-@property (nonatomic, strong) AAChartModel *chartModel;
 @property (nonatomic, strong) AAChartView  *chartView;
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -93,10 +92,8 @@
         .markerRadiusSet(@9)
         .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
     }
-    
-    self.chartModel = aaChartModel;
-    
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:self.chartModel];
+        
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     if (aaChartModel.chartType == AAChartTypeColumn) {
         aaOptions.plotOptions.column
         .groupPaddingSet(@0);
@@ -148,69 +145,63 @@
 }
 
 - (void)setupTimer {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.8
-                                              target:self
-                                            selector:@selector(timerStartWork)
-                                            userInfo:nil
-                                             repeats:YES];
-     [_timer fire];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.8 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            [self timerRepeatWork];
+        }];
+         [_timer fire];
+    });
 }
 
-- (void)timerStartWork {
-    _timer = [NSTimer timerWithTimeInterval:1
-                                    repeats:YES
-                                      block:^(NSTimer * _Nonnull timer) {
-        NSLog(@"⚡️⚡️⚡️滚动刷新!!!");
-        
-        _x = _x + 1;
-        
-        //第一个波纹的公式
-        CGFloat y0 = sin((10) * (_x * M_PI / 180)) + _x * 1 * 0.00005 ;
-        //第二个波纹的公式
-        CGFloat y1 = cos((10) * (_x * M_PI / 180)) + _x * 2 * 0.00005;
-        
-        // options 支持 NSNuber, NSArray 和 AADataElement 三种类型
-        id options0;
-        id options1;
-        
-        if (self.chartType != ScrollingUpdateDataVCChartTypeColumn
-            && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
-            options0 = AADataElement.new
-            .ySet(@(y0))
-            .dataLabelsSet(AADataLabels.new
-                           .colorSet(@"deepskyblue")
-                           .formatSet(@"{y:.2f} 英镑"))
-            .markerSet(AAMarker.new
-                       .radiusSet(@8)//曲线连接点半径
-                       .symbolSet(AAChartSymbolTypeDiamond)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                       .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
-                       .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                       //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                       .lineColorSet(@"deepskyblue")
-                       );
-            
-            options1 = AADataElement.new
-            .ySet(@(y1))
-            .dataLabelsSet(AADataLabels.new
-                           .colorSet(@"red")
-                           .formatSet(@"{y:.2f} 美元"))
-            .markerSet(AAMarker.new
-                       .radiusSet(@8)//曲线连接点半径
-                       .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                       .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
-                       .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                       //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                       .lineColorSet(@"red")
-                       );
-        } else {
-            options0 = @(y0);
-            options1 = @(y1);
-        }
-
-        [self.chartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1]];
-    }];
+- (void)timerRepeatWork {
+    NSLog(@"⚡️⚡️⚡️滚动刷新!!!");
     
-    [_timer fire];
+    _x = _x + 1;
+    
+    //第一个波纹的公式
+    CGFloat y0 = sin((10) * (_x * M_PI / 180)) + _x * 1 * 0.00005 ;
+    //第二个波纹的公式
+    CGFloat y1 = cos((10) * (_x * M_PI / 180)) + _x * 2 * 0.00005;
+    
+    // options 支持 NSNuber, NSArray 和 AADataElement 三种类型
+    id options0;
+    id options1;
+    
+    if (self.chartType != ScrollingUpdateDataVCChartTypeColumn
+        && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
+        options0 = AADataElement.new
+        .ySet(@(y0))
+        .dataLabelsSet(AADataLabels.new
+                       .colorSet(@"deepskyblue")
+                       .formatSet(@"{y:.2f} 英镑"))
+        .markerSet(AAMarker.new
+                   .radiusSet(@8)//曲线连接点半径
+                   .symbolSet(AAChartSymbolTypeDiamond)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                   .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                   .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                   //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                   .lineColorSet(@"deepskyblue")
+                   );
+        
+        options1 = AADataElement.new
+        .ySet(@(y1))
+        .dataLabelsSet(AADataLabels.new
+                       .colorSet(@"red")
+                       .formatSet(@"{y:.2f} 美元"))
+        .markerSet(AAMarker.new
+                   .radiusSet(@8)//曲线连接点半径
+                   .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                   .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                   .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                   //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                   .lineColorSet(@"red")
+                   );
+    } else {
+        options0 = @(y0);
+        options1 = @(y1);
+    }
+
+    [self.chartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1]];
 }
 
 - (NSArray *)setupStepChartSeriesElementWithSeriesArr:(NSArray *)seriesArr {
@@ -224,13 +215,11 @@
     return seriesArr;
 }
 
-- (void)dealloc {
-    if (_timer) {
-        if ([_timer isValid]) {
-            [_timer invalidate];
-            _timer = nil;
-        }
-    }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_timer invalidate];
+    _timer = nil;
 }
+
 
 @end
