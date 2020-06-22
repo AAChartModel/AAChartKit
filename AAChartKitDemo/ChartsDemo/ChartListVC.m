@@ -294,7 +294,6 @@
    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)

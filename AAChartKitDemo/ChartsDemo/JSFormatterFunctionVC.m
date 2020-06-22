@@ -99,7 +99,6 @@
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
@@ -172,7 +171,6 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
     .stackingSet(AAChartStackingTypeNormal)
     //    .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
@@ -228,7 +226,6 @@
     .chartTypeSet(AAChartTypeLine)//图表类型
     .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
     .markerRadiusSet(@8.0)
@@ -285,7 +282,6 @@
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
     .stackingSet(AAChartStackingTypeNormal)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisVisibleSet(false)
     .markerRadiusSet(@0)
     .seriesSet(@[
@@ -397,7 +393,6 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为内部白色
     .markerRadiusSet(@8)
     .stackingSet(AAChartStackingTypeNormal)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
@@ -855,7 +850,6 @@
     .titleSet(@"Custom X Axis Labels Text")//图表主标题
     .subtitleSet(@"By Using JavaScript Formatter Function")//图表副标题
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
@@ -900,7 +894,6 @@
     .titleSet(@"Custom X Axis Labels Text")//图表主标题
     .subtitleSet(@"By Using x axis format and step")//图表副标题
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
@@ -1101,7 +1094,6 @@
 - (AAOptions *)customTooltipWhichDataSourceComeFromOutSideRatherThanSeries {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisLineWidthSet(@1)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为1(为0即是隐藏分割线)
     .xAxisGridLineWidthSet(@1)//x轴横向分割线宽度为1(为0即是隐藏分割线)
@@ -1245,7 +1237,6 @@ function () {
     .chartTypeSet(AAChartTypeLine)//图表类型
     .titleSet(@"健康体检表")//图表主标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .yAxisTickPositionsSet(@[@0, @5, @10, @15, @20, @25, @30, @35])

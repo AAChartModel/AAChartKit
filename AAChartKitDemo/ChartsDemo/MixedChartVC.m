@@ -323,7 +323,6 @@
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0",@"cyan",@"gray"])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
@@ -371,7 +370,6 @@
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)

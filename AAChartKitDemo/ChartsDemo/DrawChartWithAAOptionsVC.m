@@ -407,7 +407,6 @@
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
@@ -432,7 +431,6 @@
     .titleSet(@"中间缝隙很小的柱状图")//图表主标题
     .subtitleSet(@"调整一下groupPadding即可")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisGridLineWidthSet(@0.5)
@@ -476,7 +474,6 @@
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
@@ -526,7 +523,6 @@
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .polarSet(true)
     .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go", @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"])
     .seriesSet(@[
@@ -2253,7 +2249,6 @@
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
     .stackingSet(AAChartStackingTypeNormal)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisVisibleSet(false)
     .markerRadiusSet(@0)
     .seriesSet(@[
@@ -2305,7 +2300,6 @@
     .markerRadiusSet(@4)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisGridLineWidthSet(@0)
     .seriesSet(@[
         AASeriesElement.new
@@ -2386,7 +2380,6 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .titleSet(@"Disable Line Chart Hover Animation Effect")//图表主标题
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisVisibleSet(false)
     .dataLabelsEnabledSet(true)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)

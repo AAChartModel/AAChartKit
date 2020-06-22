@@ -115,7 +115,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .yAxisMaxSet(@95)
@@ -189,7 +188,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
-    .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .markerRadiusSet(@8)

@@ -495,7 +495,6 @@
     
     return AAChartModel.new
     .titleSet(@"单独自定义某个指定数据元素的DataLabel")
-    .subtitleSet(@"")
     .colorsThemeSet(@[AAGradientColor.mysticMauveColor])
     .seriesSet(@[
         AASeriesElement.new
