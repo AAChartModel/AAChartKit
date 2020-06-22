@@ -272,7 +272,6 @@
     return AAChartModel.new
     //        .connectNullsSet(true)//设置折线是否断点重连
     .chartTypeSet(AAChartTypeLine)
-    .titleSet(@"")
     .subtitleSet(@"虚拟数据")
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
@@ -647,7 +646,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
-    .titleSet(@"")
     .backgroundColorSet(@"#4b2b7f")
     .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(false)//是否显示值
@@ -671,7 +669,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
     .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(false)//是否显示值
     .tooltipEnabledSet(false)
@@ -694,7 +691,6 @@
                                  endColorString:@"rgba(30, 144, 255,0.1)"];//DodgerBlue, alpha 透明度 0.1
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .titleSet(@"")
     .yAxisTitleSet(@"")//设置Y轴标题
     .yAxisGridLineWidthSet(@0)
     .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",@"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"])
@@ -925,7 +921,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .titleSet(@"")
     .backgroundColorSet(@"#4b2b7f")
     .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(false)//是否显示值
@@ -1084,7 +1079,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisTitleSet(@"")
     .yAxisGridLineWidthSet(@0)

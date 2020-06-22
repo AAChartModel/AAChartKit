@@ -437,7 +437,6 @@
 
 - (AAChartModel *)configureNegativeColorMixedChart {
     return AAChartModel.new
-    .titleSet(@"")
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .chartTypeSet(AAChartTypeColumn)
@@ -710,7 +709,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBubble)
-    .titleSet(@"")
     .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .dataLabelsEnabledSet(true)

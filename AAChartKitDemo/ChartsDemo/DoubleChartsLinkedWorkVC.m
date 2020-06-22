@@ -67,7 +67,6 @@
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
     .categoriesSet(@[
         @"oceanBlue",
         @"sanguine",
@@ -190,7 +189,6 @@
     
     AAChartModel *aaChartModel2 = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
     .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .markerRadiusSet(@6)

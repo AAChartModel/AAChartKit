@@ -1773,7 +1773,6 @@
 - (AAOptions *)configureStackingColumnChartDataLabelsOverflow {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"")
     .subtitleSet(@"检测数量")
     .yAxisTitleSet(@"")
     .dataLabelsEnabledSet(true)

@@ -1105,7 +1105,6 @@
 - (AAOptions *)customTooltipWhichDataSourceComeFromOutSideRatherThanSeries {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .titleSet(@"")
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .yAxisLineWidthSet(@1)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为1(为0即是隐藏分割线)
