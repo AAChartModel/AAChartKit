@@ -113,8 +113,6 @@
 - (void)setupAAChartViewWithChartType:(AAChartType)chartType {
     _aaChartModel = AAChartModel.new
     .chartTypeSet(chartType)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
     .backgroundColorSet(@"#4b2b7f")
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀

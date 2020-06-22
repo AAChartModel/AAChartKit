@@ -322,8 +322,6 @@
 - (AAChartModel *)configureDashStyleTypeMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0",@"cyan",@"gray"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
@@ -372,8 +370,6 @@
 - (AAChartModel *)configureAllLineDashStyleTypesMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题

@@ -406,8 +406,6 @@
 - (AAOptions *)configureThePolygonPolarChart {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -527,8 +525,6 @@
 - (AAOptions *)adjustChartLeftAndRightMargin {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .polarSet(true)
@@ -1458,8 +1454,6 @@
 - (AAOptions *)adjustChartDataLabelsStyle {
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .markerRadiusSet(@7)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .dataLabelsEnabledSet(true)
@@ -1545,8 +1539,6 @@
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .dataLabelsEnabledSet(true)
     .tooltipEnabledSet(false)
     .colorsThemeSet(@[AAColor.lightGrayColor])
@@ -2268,8 +2260,6 @@
 
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisTitleSet(@"")//设置 Y 轴标题

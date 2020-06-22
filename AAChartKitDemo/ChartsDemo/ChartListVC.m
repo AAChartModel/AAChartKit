@@ -293,8 +293,6 @@
 - (AAChartModel *)configureAAChartModel {
    AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀

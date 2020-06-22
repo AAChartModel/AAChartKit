@@ -114,8 +114,6 @@
 - (AAChartModel *)configureChartModel {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -191,8 +189,6 @@
 - (AAChartModel *)configureShowTooltipInSpecificPostionChartModel {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .yAxisTitleSet(@"")//设置 Y 轴标题
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀

@@ -226,8 +226,6 @@
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .yAxisTitleSet(@"")//设置 Y 轴标题
@@ -285,8 +283,6 @@
 - (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction4 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisTitleSet(@"")//设置 Y 轴标题
@@ -397,8 +393,6 @@
 - (AAOptions *)customYAxisLabels {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为内部白色
     .markerRadiusSet(@8)
@@ -491,8 +485,6 @@
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .backgroundColorSet(@"#111c4e")
     .xAxisLabelsFontSizeSet(@9)
     .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
@@ -565,8 +557,6 @@
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .backgroundColorSet(@"#111c4e")
     .xAxisLabelsFontSizeSet(@9)
     .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
@@ -633,8 +623,6 @@
 - (AAOptions *)colorfulSpecialStyleColumnChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .backgroundColorSet(@"#111c4e")
     .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])
     .xAxisLabelsFontSizeSet(@9)
@@ -1336,8 +1324,6 @@ function () {
     
     AAChartModel *aaChartModel= AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
-    .titleSet(@"")//图表主标题
-    .subtitleSet(@"")//图表副标题
     .dataLabelsEnabledSet(true)
     .tooltipEnabledSet(false)
     .colorsThemeSet(@[AAColor.lightGrayColor])
