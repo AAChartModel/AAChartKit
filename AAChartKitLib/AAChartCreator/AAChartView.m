@@ -300,7 +300,7 @@ WKScriptMessageHandler
     __weak __typeof__(self) weakSelf = self;
     [[NSNotificationCenter defaultCenter] addObserverForName:UIDeviceOrientationDidChangeNotification
                                                       object:nil
-                                                       queue:[NSOperationQueue mainQueue]
+                                                       queue:nil
                                                   usingBlock:^(NSNotification * _Nonnull note) {
         [weakSelf handleDeviceOrientationChangeEventWithAnimation:animation];
     }];
