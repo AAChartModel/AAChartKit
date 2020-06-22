@@ -321,7 +321,7 @@
             @"Hide Or Show Chart Series---隐藏或显示内容",
             @"Support JS Formatter Function",
             @"Evaluate JS String Function---执行js函数",
-            @"X Axis Scrolling Updating Data---X轴水平滚动刷新",
+            @"Scrolling Updating Data---图表滚动刷新",
             @"Drawable Chart---可拖拽的图表1📈",
             @"Drawable Chart---可拖拽的图表2📊",
             
