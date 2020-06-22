@@ -19,7 +19,7 @@
     <img src="http://isitmaintained.com/badge/open/AAChartModel/AAChartKit.svg">
 </a>
 <a href="https://github.com/AAChartModel/AAChartKit">
-    <img src="https://img.shields.io/badge/Support-iOS | iPadOS | tvOS | macOS -blue.svg">
+    <img src="https://img.shields.io/badge/Support-iOS | iPadOS | macOS -blue.svg">
 </a>
 <a href="https://github.com/AAChartModel/AAChartCore">
     <img src="https://img.shields.io/badge/Support-Android all platform -green.svg">
@@ -63,7 +63,7 @@ AAChartKit is an elegant and friendly (user-friendly && enviroment-friendly) cha
  
 ***
 ## Features
-* 🎂  **Environment friendly**. Support `iOS `、 `iPadOS`、`tvOS` and `macOS`. Totally support `Objective-C` language, and there are more types version such as  `Swift` language version [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` language version [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` language version [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) . To get more details you can see the [source code links list](https://github.com/AAChartModel/AAChartKit#source-code).
+* 🎂  **Environment friendly**. Support `iOS `、`iPadOS`  and `macOS`. Totally support `Objective-C` language, and there are more types version such as  `Swift` language version [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) 、 `Java` language version [AAChartCore](https://github.com/AAChartModel/AAChartCore) 、`Kotlin` language version [AAInfographics](https://github.com/AAChartModel/AAChartCore-Kotlin) . To get more details you can see the [source code links list](https://github.com/AAChartModel/AAChartKit#source-code).
 
 * 🚀  **Powerful and easy to use**. It supports `column chart`, `bar chart`, `area chart`, `areaspline chart`, `line chart`, `spline chart`, `radar chart`, `polar chart`, `pie chart`, `bubble chart`, `pyramid chart`, `funnel chart`, `columnrange chart`, `arearange chart`, `mixed chart` and other graphics. Support for more chart types is planned.
 
