@@ -292,6 +292,30 @@ WKScriptMessageHandler
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
+- (void)aa_adaptiveScreenRotation {
+    [self aa_adaptiveScreenRotationWithAnimation:nil];
+}
+
+- (void)aa_adaptiveScreenRotationWithAnimation:(AAAnimation *)animation {
+    __weak __typeof__(self) weakSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIDeviceOrientationDidChangeNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+        [weakSelf handleDeviceOrientationChangeEventWithAnimation:animation];
+    }];
+}
+
+- (void)handleDeviceOrientationChangeEventWithAnimation:(AAAnimation *)animation {
+    NSString *animationJsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:animation];
+    NSString *jsFuntionStr = [NSString stringWithFormat:@"changeChartSize('%f','%f','%@')",
+                              self.frame.size.width,
+                              self.frame.size.height,
+                              animationJsonStr];
+    [self safeEvaluateJavaScriptString:jsFuntionStr];
+}
+
+
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
     NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
@@ -510,23 +534,6 @@ WKScriptMessageHandler
         self.backgroundColor = [UIColor whiteColor];
         [self setOpaque:YES];
     }
-}
-
-- (void)setIsAdaptiveScreenRotation:(BOOL)isAdaptiveScreenRotation {
-    _isAdaptiveScreenRotation = isAdaptiveScreenRotation;
-    if (_isAdaptiveScreenRotation) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(handleDeviceOrientationChange:)
-                                                     name:UIDeviceOrientationDidChangeNotification
-                                                   object:nil];
-    }
-}
-
-- (void)handleDeviceOrientationChange:(NSNotification *)notification {
-    NSString *jsFuntionStr = [NSString stringWithFormat:@"changeContainerSize(%f,%f)",
-                              self.frame.size.width,
-                              self.frame.size.height];
-    [self safeEvaluateJavaScriptString:jsFuntionStr];
 }
 
 - (void)dealloc {

@@ -217,11 +217,19 @@
             eval(jsStringFunction);
         }
         
-        function changeContainerSize(receivedWidth, receivedHeight) {
+        function changeChartSize(receivedWidth, receivedHeight, receivedAnimation) {
             var container = document.getElementById('container');
             container.style.width = receivedWidth;
             container.style.height = receivedHeight;
-            aaGlobalChart.setSize(receivedWidth, receivedHeight);
+            
+            var aaAnimation;
+            if (receivedAnimation) {
+               aaAnimation = JSON.parse(receivedAnimation);
+               var animationEasingType = aaAnimation.easing;
+               aaAnimation.easing = configureTheChartAnimationEasingType(animationEasingType);
+            }
+            
+            aaGlobalChart.setSize(receivedWidth, receivedHeight, aaAnimation);
         }
         
             </script>

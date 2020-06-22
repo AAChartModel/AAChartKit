@@ -98,9 +98,6 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// Set the chart view background color be clear
 @property (nonatomic, assign) BOOL isClearBackgroundColor;
 
-/// Set the chart view content be adaptive to screen rotation
-@property (nonatomic, assign) BOOL isAdaptiveScreenRotation;
-
 
 /// Chart view finish loading event handler
 /// @param handler event handler
@@ -209,6 +206,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// @param elementIndex Chart series element index
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex;
 
+
 /// Show the series element content with index
 /// @param elementIndex Chart series element index
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSUInteger)elementIndex;
@@ -243,6 +241,16 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// Redraw chart view
 /// @param animation Have animation effect or not
 - (void)aa_redrawWithAnimation:(BOOL)animation;
+
+
+/// Set the chart view content be adaptive to screen rotation
+- (void)aa_adaptiveScreenRotation;
+
+/// Set the chart view content be adaptive to screen rotation with custom animation effect
+/// Refer to https://api.highcharts.com.cn/highcharts#Chart.setSize
+///
+/// @param animation The instance object of AAAnimation
+- (void)aa_adaptiveScreenRotationWithAnimation:(AAAnimation *)animation;
 
 @end
 

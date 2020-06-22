@@ -82,8 +82,12 @@
     AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
     self.view.backgroundColor = [UIColor whiteColor];
     aaChartView.scrollEnabled = NO;
-    aaChartView.isAdaptiveScreenRotation = YES;
     [self.view addSubview:aaChartView];
+    
+    AAAnimation *aaAnimation = AAAnimation.new
+       .durationSet(@800)
+       .easingSet(AAChartAnimationEaseOutCubic);
+    [aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
     
     aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
     NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:aaChartView
