@@ -48,7 +48,6 @@
 - (AAChartModel *)setUpAAChartModel {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(true)//是否显示值
     .tooltipEnabledSet(true)
     ;

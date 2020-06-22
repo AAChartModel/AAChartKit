@@ -257,7 +257,6 @@
 - (AAChartModel *)setUpDiscontinuousDataChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(true)//是否显示值
     .tooltipEnabledSet(true)
     .seriesSet(@[
@@ -642,7 +641,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
     .backgroundColorSet(@"#4b2b7f")
-    .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(false)//是否显示值
     .tooltipEnabledSet(true)
     .markerRadiusSet(@0)
@@ -664,7 +662,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(false)//是否显示值
     .tooltipEnabledSet(false)
     .markerRadiusSet(@0)
@@ -686,7 +683,6 @@
                                  endColorString:@"rgba(30, 144, 255,0.1)"];//DodgerBlue, alpha 透明度 0.1
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .yAxisTitleSet(@"")//设置Y轴标题
     .yAxisGridLineWidthSet(@0)
     .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",@"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"])
     .dataLabelsEnabledSet(false)//是否显示值
@@ -911,7 +907,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .backgroundColorSet(@"#4b2b7f")
-    .yAxisTitleSet(@"")//设置Y轴标题
     .dataLabelsEnabledSet(false)//是否显示值
     .tooltipEnabledSet(true)
     .markerRadiusSet(@0)
