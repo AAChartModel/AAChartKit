@@ -494,8 +494,8 @@ WKScriptMessageHandler
         completionHandler();
     }])];
     
-    UIViewController *alertHelperController = [[UIViewController alloc]init];//临时UIViewController，从它这里present UIAlertController
-    [self addSubview:alertHelperController.view];//这句话很重要，即把UIViewController的view添加到当前视图或者UIWindow
+    UIViewController *alertHelperController = [[UIViewController alloc]init];
+    [self addSubview:alertHelperController.view];
     
     [alertHelperController presentViewController:alertController animated:YES completion:nil];
 }
