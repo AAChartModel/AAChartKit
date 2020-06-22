@@ -119,6 +119,7 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
         _xAxisGridLineWidth    = @0; //设置x轴分割线宽度为0个像素,即是隐藏 X轴分割线
         _xAxisTickInterval     = @1; //x轴坐标点间隔数(默认是1)
         _xAxisVisible          = YES;//x轴默认可见
+        _yAxisTitle            = @"";
         _yAxisVisible          = YES;//y轴默认可见
         _yAxisLabelsEnabled    = YES;
         _yAxisLineWidth        = @0.5; //y轴轴线的宽度
