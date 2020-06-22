@@ -1215,7 +1215,7 @@
         .nameSet(@"2017")
         .colorSet(AAColor.whiteColor)
         .lineWidthSet(@10)
-        .dataSet(@[@4.0, @6.0, @8.5, @10.5, @12.2, @14.5, @16.2, ]),
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
