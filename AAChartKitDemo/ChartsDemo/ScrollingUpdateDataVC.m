@@ -77,7 +77,6 @@
 
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet([self configureChartType])
-    .yAxisTitleSet(@"")
     .tooltipEnabledSet(true)
     .yAxisGridLineWidthSet(@0)
     .borderRadiusSet(@8)

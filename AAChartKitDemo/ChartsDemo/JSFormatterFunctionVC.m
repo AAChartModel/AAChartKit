@@ -493,7 +493,6 @@
         @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
     ])
     .yAxisMaxSet(@250.0)
-    .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
@@ -563,7 +562,6 @@
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisMaxSet(@250.0)
-    .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
@@ -630,7 +628,6 @@
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisMaxSet(@250.0)
-    .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .yAxisLineWidthSet(@1)
     .stackingSet(AAChartStackingTypeNormal)
@@ -698,7 +695,6 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .connectNullsSet(true)
-    .yAxisTitleSet(@"")
     .yAxisMaxSet(@13.0)
     .yAxisGridLineWidthSet(@2)
     //    .categoriesSet(@[@"Java", @"Swift",@"C", @"C#", @"C++", @"Perl",])

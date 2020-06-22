@@ -359,7 +359,6 @@
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
     .subtitleSet(@"横屏查看效果更佳")
     .yAxisGridLineWidthSet(@0.5)
-    .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .dataLabelsEnabledSet(true)
     .yAxisPlotLinesSet(aaPlotLinesArr)
@@ -386,7 +385,6 @@
     .subtitleSet(@"横屏查看效果更佳")
     .yAxisGridLineWidthSet(@0)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"HTML",@"CSS",@"Perl",@"R",@"MATLAB",@"SQL"])
-    .yAxisTitleSet(@"")
     .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B"])
     .seriesSet(@[
         AASeriesElement.new
@@ -544,7 +542,6 @@
     .chartTypeSet(AAChartTypeAreaspline)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .yAxisTitleSet(@"")
     .backgroundColorSet(@"#FFFFFF")
     .markerRadiusSet(@0)
     .yAxisLineWidthSet(@0)
@@ -576,7 +573,6 @@
     .chartTypeSet(AAChartTypeSpline)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .yAxisTitleSet(@"")
     .markerRadiusSet(@0)
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
@@ -602,7 +598,6 @@
     .chartTypeSet(AAChartTypeAreaspline)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .yAxisTitleSet(@"")
     .markerRadiusSet(@8.0)//marker点半径为8个像素
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
     .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
@@ -746,7 +741,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
-    .yAxisTitleSet(@"")
     .yAxisMaxSet(@3.5)
     .yAxisGridLineWidthSet(@0)
     .stackingSet(AAChartStackingTypeNormal)
@@ -765,7 +759,6 @@
 - (AAChartModel *)configureTriangleRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
     .xAxisVisibleSet(false)
@@ -787,7 +780,6 @@
 - (AAChartModel *)configureQuadrangleRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
     .xAxisVisibleSet(false)
@@ -809,7 +801,6 @@
 - (AAChartModel *)configurePentagonRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
     .xAxisVisibleSet(false)
@@ -831,7 +822,6 @@
 - (AAChartModel *)configureHexagonRadarChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .yAxisTitleSet(@"")
     .yAxisMaxSet(@15.0)
     .yAxisGridLineWidthSet(@0)
     .xAxisVisibleSet(false)
@@ -875,7 +865,6 @@
     .zoomTypeSet(AAChartZoomTypeXY)
     .tooltipValueSuffixSet(@"kg")
     .categoriesSet(categoriesArr)
-    .yAxisTitleSet(@"")
     .yAxisMinSet(@2.0)
     .yAxisMaxSet(@45.4)
     .xAxisTickIntervalSet(@2)
@@ -942,7 +931,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
     .titleSet(@"Custom Bar Chart select color")
-    .yAxisTitleSet(@"")
     .yAxisReversedSet(true)
     .xAxisReversedSet(true)
     .seriesSet(@[
@@ -963,7 +951,6 @@
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"Custom Chart Hover And Select Halo Style")
     .colorsThemeSet(@[AAColor.redColor])
-    .yAxisTitleSet(@"")
     .yAxisReversedSet(true)
     .xAxisReversedSet(true)
     .markerRadiusSet(@20)
@@ -1002,7 +989,6 @@
     .titleSet(@"Custom Spline Chart Marker States Hover Style")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .yAxisTitleSet(@"")
     .markerRadiusSet(@8.0)//marker点半径为8个像素
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
@@ -1080,7 +1066,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .stackingSet(AAChartStackingTypeNormal)
-    .yAxisTitleSet(@"")
     .yAxisGridLineWidthSet(@0)
     .markerRadiusSet(@0)
     .categoriesSet(categories)

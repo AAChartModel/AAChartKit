@@ -151,7 +151,6 @@
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"16年1月-16年11月充值客单分析")
     .subtitleSet(@"BY MICVS")
-    .yAxisTitleSet(@"")
     .categoriesSet(categories)
     .stackingSet(AAChartStackingTypeNormal)
     .tooltipEnabledSet(false)

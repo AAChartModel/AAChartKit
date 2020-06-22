@@ -74,7 +74,6 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .categoriesSet(categories)
-    .yAxisTitleSet(@"")
     .tooltipEnabledSet(false)
     .borderRadiusSet(@3)
     .seriesSet(@[
@@ -102,7 +101,6 @@
     AAChartModel *aaChartModel2 = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
-    .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .markerRadiusSet(@6)
     .xAxisCrosshairWidthSet(@1.5)

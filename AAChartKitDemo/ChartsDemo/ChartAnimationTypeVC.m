@@ -117,7 +117,6 @@
     .animationDurationSet(@1500)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",
                      @"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
-    .yAxisTitleSet(@"")
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")

@@ -93,7 +93,6 @@
         @"coastalBreeze",
         @"eveningDelight",
     ])
-    .yAxisTitleSet(@"")
     .tooltipEnabledSet(false)
     .borderRadiusSet(@3)
     .touchEventEnabledSet(true)
@@ -189,7 +188,6 @@
     
     AAChartModel *aaChartModel2 = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
-    .yAxisTitleSet(@"")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .markerRadiusSet(@6)
     .xAxisCrosshairWidthSet(@1.5)

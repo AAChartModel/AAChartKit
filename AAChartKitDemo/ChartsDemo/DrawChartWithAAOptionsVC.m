@@ -668,7 +668,6 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .titleSet(@"Adjust data accuracy")
-    .yAxisTitleSet(@"")
     .dataLabelsEnabledSet(true)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
@@ -1187,7 +1186,6 @@
 - (AAOptions *)configureAAPlotBandsForChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
-    .yAxisTitleSet(@"")
     .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
@@ -1257,7 +1255,6 @@
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
-    .yAxisTitleSet(@"")
     .categoriesSet(categories)
     .backgroundColorSet(AAColor.whiteColor)
     .markerRadiusSet(@0)
@@ -1378,7 +1375,6 @@
 - (AAOptions *)configureAASeriesElementZonesMixedAAPlotLines {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .yAxisTitleSet(@"")
     .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
@@ -1458,7 +1454,6 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .dataLabelsEnabledSet(true)
     .yAxisLineWidthSet(0)
-    .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .xAxisCrosshairWidthSet(@1)
     .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot)
@@ -1661,7 +1656,6 @@
     .backgroundColorSet((id)backgroundColorGradientColor)
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisVisibleSet(true)
-    .yAxisTitleSet(@"")
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .seriesSet(@[
@@ -1723,7 +1717,6 @@
     .chartTypeSet(AAChartTypeAreaspline)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
-    .yAxisTitleSet(@"")
     .markerRadiusSet(@8.0)//marker点半径为8个像素
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
     .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
@@ -1774,7 +1767,6 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .subtitleSet(@"检测数量")
-    .yAxisTitleSet(@"")
     .dataLabelsEnabledSet(true)
     .categoriesSet(@[@"呋喃西林代谢物",@"孔雀石绿🦚",@"氯霉素",@"呋喃唑酮代谢物"])
     .stackingSet(AAChartStackingTypeNormal)

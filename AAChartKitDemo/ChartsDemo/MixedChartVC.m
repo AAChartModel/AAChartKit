@@ -266,7 +266,6 @@
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"16年1月-16年11月充值客单分析")
     .subtitleSet(@"BY MICVS")
-    .yAxisTitleSet(@"")
     .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
         AASeriesElement.new
@@ -437,7 +436,6 @@
 
 - (AAChartModel *)configureNegativeColorMixedChart {
     return AAChartModel.new
-    .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .chartTypeSet(AAChartTypeColumn)
     .dataLabelsEnabledSet(true)
@@ -709,7 +707,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBubble)
-    .yAxisTitleSet(@"")
     .legendEnabledSet(false)
     .dataLabelsEnabledSet(true)
     .markerRadiusSet(@3)
