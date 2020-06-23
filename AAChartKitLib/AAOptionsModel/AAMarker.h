@@ -56,10 +56,13 @@ AAPropStatementAndPropSetFuncStatement(strong, AAMarkerStates, AAMarkerHover *, 
 
 @interface AAMarkerHover : NSObject
 
+AAPropStatementAndPropSetFuncStatement(assign, AAMarkerHover, BOOL,       enabled)
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarkerHover, NSString *, fillColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarkerHover, NSString *, lineColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, lineWidthPlus)
 AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, radius)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, radiusPlus)
 
 @end
 

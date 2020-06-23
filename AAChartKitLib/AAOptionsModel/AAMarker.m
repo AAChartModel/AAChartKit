@@ -53,10 +53,21 @@ AAPropSetFuncImplementation(AAMarkerStates, AAMarkerHover *, hover)
 
 @implementation AAMarkerHover
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AAMarkerHover, BOOL,         enabled)
 AAPropSetFuncImplementation(AAMarkerHover, NSString *, fillColor)
 AAPropSetFuncImplementation(AAMarkerHover, NSString *, lineColor)
 AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, lineWidth)
+AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, lineWidthPlus)
 AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, radius)
+AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, radiusPlus)
 
 @end
 

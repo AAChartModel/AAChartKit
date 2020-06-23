@@ -127,6 +127,7 @@
         case 33: return [self disableSomeOfLinesMouseTrackingEffect];
         case 34: return [self configureColorfulShadowSplineChart];
         case 35: return [self configureColorfulDataLabelsStepLineChart];
+        case 36: return [self disableSplineChartMarkerHoverEffect];
 
         default:
             return nil;
@@ -1266,6 +1267,36 @@
                                  .fontSizeSet(@"11px")
                                  ))
         .dataSet(@[@5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
+               ]);
+}
+
+
+// Refer to https://api.highcharts.com.cn/highcharts#plotOptions.spline.marker.states.hover.enabled
+- (AAChartModel *)disableSplineChartMarkerHoverEffect {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .titleSet(@"Disable Spline Chart Marker Hover Effect")
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
+    .markerRadiusSet(@0)//marker点半径为0个像素
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+        .markerSet(AAMarker.new
+                   .statesSet(AAMarkerStates.new
+                              .hoverSet(AAMarkerHover.new
+                                        .enabledSet(false)
+                                        )
+                              )
+                   )
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
 }
 
