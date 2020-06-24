@@ -560,13 +560,27 @@ WKScriptMessageHandler
 - (void)safeEvaluateJavaScriptString:(NSString *)functionNameStr {
     if (_optionJson) {
         [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
-            if (error) {
-                NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
-                [errorDic setValue:error.domain forKey:@"domain"];
-                [errorDic setValue:@(error.code) forKey:@"code"];
-                [errorDic setValue:error.userInfo forKey:@"userInfo"];
-                AADetailLog(@"☠️☠️💀☠️☠️!!!!!WARNING!!!!! THERE ARE SOME ERROR INFORMATION_______%@",errorDic);
-            }
+            
+#if DEBUG
+            if (!error) return;
+            NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
+            [errorDic setValue:error.domain forKey:@"domain"];
+            [errorDic setValue:@(error.code) forKey:@"code"];
+            [errorDic setValue:error.userInfo forKey:@"userInfo"];
+            
+            NSString *basicErrorInfo = @"                                                 \n  \
+            ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!!!! FBI WARNING !!!!!!!!!!!!!!!!!!!! WARNING☠️☠️💀☠️☠️   \
+            ==========================================================================================    \
+            ------------------------------------------------------------------------------------------\n  \
+            %@                                                                                            \
+            ------------------------------------------------------------------------------------------    \
+            ==========================================================================================\n  \
+            ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!!!! FBI WARNING !!!!!!!!!!!!!!!!!!!! WARNING☠️☠️💀☠️☠️";
+            
+            NSString *errorInfoStr = [NSString stringWithFormat:basicErrorInfo,errorDic];
+            NSLog(@"%@",errorInfoStr);
+#endif
+            
         }];
     } else {
         AADetailLog("AAChartView did not finish loading!!!")
