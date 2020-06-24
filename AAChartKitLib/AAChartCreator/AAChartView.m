@@ -485,7 +485,7 @@ WKScriptMessageHandler
 
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FBI WARNING"
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING"
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:([UIAlertAction actionWithTitle:@"Okay"
@@ -568,14 +568,14 @@ WKScriptMessageHandler
             [errorDic setValue:@(error.code) forKey:@"code"];
             [errorDic setValue:error.userInfo forKey:@"userInfo"];
             
-            NSString *basicErrorInfo = @"                                                 \n  \
-            ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!!!! FBI WARNING !!!!!!!!!!!!!!!!!!!! WARNING☠️☠️💀☠️☠️   \
+            NSString *basicErrorInfo = @"                                                             \n  \
+            ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️   \
             ==========================================================================================    \
             ------------------------------------------------------------------------------------------\n  \
             %@                                                                                            \
             ------------------------------------------------------------------------------------------    \
             ==========================================================================================\n  \
-            ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!!!! FBI WARNING !!!!!!!!!!!!!!!!!!!! WARNING☠️☠️💀☠️☠️";
+            ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️";
             
             NSString *errorInfoStr = [NSString stringWithFormat:basicErrorInfo,errorDic];
             NSLog(@"%@",errorInfoStr);
