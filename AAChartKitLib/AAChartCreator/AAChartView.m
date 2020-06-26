@@ -133,7 +133,6 @@ WKUIDelegate,
 WKNavigationDelegate,
 WKScriptMessageHandler
 > {
-    WKUserContentController *_userContentController;
     NSString  *_optionJson;
     BOOL _touchEventEnabled;
 }
@@ -146,8 +145,6 @@ WKScriptMessageHandler
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     config.userContentController = [[WKUserContentController alloc] init];
     self = [super initWithFrame:frame configuration:config];
-    
-    _userContentController = config.userContentController;
     
     if (self) {
         self.UIDelegate = self;
@@ -471,8 +468,8 @@ WKScriptMessageHandler
         && _touchEventEnabled == false) {
         _touchEventEnabled = true;
         AAWeakProxy *proxy = [AAWeakProxy proxyWithTarget:self];
-        [_userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
-                                                   name:kUserContentMessageNameMouseOver];
+        [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
+                                                                     name:kUserContentMessageNameMouseOver];
     }
     _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
 }
@@ -639,7 +636,7 @@ WKScriptMessageHandler
 }
 
 - (void)dealloc {
-    [_userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
+    [self.configuration.userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
