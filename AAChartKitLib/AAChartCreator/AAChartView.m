@@ -135,6 +135,7 @@ WKScriptMessageHandler
 > {
     WKUserContentController *_userContentController;
     NSString  *_optionJson;
+    BOOL _touchEventEnabled;
 }
 
 @end
@@ -142,13 +143,12 @@ WKScriptMessageHandler
 @implementation AAChartView
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    _userContentController = [[WKUserContentController alloc] init];
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    config.userContentController = _userContentController;
+    config.userContentController = [[WKUserContentController alloc] init];
     self = [super initWithFrame:frame configuration:config];
-    AAWeakProxy *proxy = [AAWeakProxy proxyWithTarget:self];
-    [config.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
-                                                     name:kUserContentMessageNameMouseOver];
+    
+    _userContentController = config.userContentController;
+    
     if (self) {
         self.UIDelegate = self;
         self.navigationDelegate = self;
@@ -466,6 +466,13 @@ WKScriptMessageHandler
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
     if (self.isClearBackgroundColor) {
         aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
+    }
+    if (   aaOptions.touchEventEnabled == true
+        && _touchEventEnabled == false) {
+        _touchEventEnabled = true;
+        AAWeakProxy *proxy = [AAWeakProxy proxyWithTarget:self];
+        [_userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
+                                                   name:kUserContentMessageNameMouseOver];
     }
     _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
 }
