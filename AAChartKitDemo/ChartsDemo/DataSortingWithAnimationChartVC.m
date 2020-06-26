@@ -6,16 +6,149 @@
 //  Copyright © 2020 Danny boy. All rights reserved.
 //
 
-#import "ChartRaceWithBarChartVC.h"
+#import "DataSortingWithAnimationChartVC.h"
 #import "AAChartKit.h"
-@interface ChartRaceWithBarChartVC ()
+@interface DataSortingWithAnimationChartVC ()
+
+@property (nonatomic, strong) AAChartModel *chartModel;
+@property (nonatomic, strong) AAChartView  *chartView;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) int globalInt;
 
 @end
 
-@implementation ChartRaceWithBarChartVC
+@implementation DataSortingWithAnimationChartVC
+
+//https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/column-comparison/
+- (AAChartType)configureChartType {
+    switch (_chartType) {
+        case DataSortingWithAnimationChartVCChartTypeColumn: return AAChartTypeColumn;
+        case DataSortingWithAnimationChartVCChartTypeBar: return AAChartTypeBar;
+        case DataSortingWithAnimationChartVCChartTypeArea: return AAChartTypeArea;
+        case DataSortingWithAnimationChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
+        case DataSortingWithAnimationChartVCChartTypeLine: return AAChartTypeLine;
+        case DataSortingWithAnimationChartVCChartTypeSpline: return AAChartTypeSpline;
+        case DataSortingWithAnimationChartVCChartTypeStepLine: return AAChartTypeLine;
+        case DataSortingWithAnimationChartVCChartTypeStepArea: return AAChartTypeArea;
+        case DataSortingWithAnimationChartVCChartTypeScatter: return AAChartTypeScatter;
+    }
+}
+
+- (void)drawChart {
+    AAOptions *aaOptions = [self customXAxisLabelsBeImages];
+    AAChartView *aaChartView = [self setupChartView];
+    self.chartView = aaChartView;
+    [aaChartView aa_drawChartWithOptions:aaOptions];
+}
+
+
+
+- (AAOptions *)customXAxisLabelsBeImages {
+    NSArray *colorArr = @[
+        AAGradientColor.oceanBlueColor,
+        AAGradientColor.sanguineColor,
+        AAGradientColor.lusciousLimeColor,
+        AAGradientColor.purpleLakeColor,
+        AAGradientColor.freshPapayaColor,
+        AAGradientColor.ultramarineColor,
+        AAGradientColor.pinkSugarColor,
+    ];
+
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet([self configureChartType])
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisVisibleSet(false)
+    .colorsThemeSet(colorArr)
+    .markerRadiusSet(@20)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .colorSet((id)[AAGradientColor deepSeaColor])
+        .colorByPointSet(@true)
+        .dataSortingSet(AADataSorting.new
+                        .enabledSet(true)
+                        .matchByNameSet(true))
+        .dataSet([self randomDataArray])
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.xAxis.type = @"category";
+    return aaOptions;
+}
+
+
+- (AAChartView *)setupChartView {
+    CGRect chartViewFrame = CGRectMake(0,
+                                       88,
+                                       self.view.frame.size.width,
+                                       self.view.frame.size.height - 88);
+    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:aaChartView];
+    
+    return aaChartView;
+}
+
+- (void)setupTimer {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            [self timerRepeatWork];
+        }];
+         [_timer fire];
+    });
+}
+
+- (void)timerRepeatWork {
+    self.globalInt += 1;
+    NSString *year = [NSString stringWithFormat:@"%d", 2020 + self.globalInt];
+    
+    AAOptions *aaOptions = AAOptions.new
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(year)
+        .dataSet([self randomDataArray])
+               ]);
+    
+    [self.chartView aa_updateChartWithOptions:aaOptions redraw:true];
+}
+
+- (NSArray *)randomDataArray {
+      NSArray *gradientColorNamesArr = @[
+        @"oceanBlue",
+        @"sanguine",
+        @"lusciousLime",
+        @"purpleLake",
+        @"freshPapaya",
+        @"ultramarine",
+        @"pinkSugar",
+    ];
+    
+    
+    NSMutableArray *dataArr = [NSMutableArray array];
+    [gradientColorNamesArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMutableDictionary *dataElementDic = [NSMutableDictionary dictionary];
+        dataElementDic[@"name"] = obj;
+        dataElementDic[@"y"] = @(arc4random() % 100);
+        [dataArr addObject:dataElementDic];
+    }];
+    
+    NSLog(@"生成的一组假数据为: %@",[AAJsonConverter pureJsonStringWithJsonObject:dataArr]);
+
+    return dataArr;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_timer invalidate];
+    _timer = nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self drawChart];
+    [self setupTimer];
     
     NSDictionary *dataPrev = @{
         @"2016": @[
@@ -253,131 +386,6 @@
     ;
     
 }
-
-
-
-//function getData(data) {
-//    return data.map(function (country, i) {
-//        return {
-//            name: country[0],
-//            y: country[1],
-//            color: countries[i].color
-//        };
-//    });
-//}
-//
-//var chart = Highcharts.chart('container', {
-//    chart: {
-//        type: 'column'
-//    },
-//    title: {
-//        text: 'Summer Olympics 2016 - Top 5 countries by Gold medals'
-//    },
-//    subtitle: {
-//        text: 'Comparing to results from Summer Olympics 2012 - Source: <ahref="https://en.wikipedia.org/wiki/2016_Summer_Olympics_medal_table">Wikipedia</a>'
-//    },
-// /*    plotOptions: {
-//        series: {
-//            grouping: false,
-//            borderWidth: 0
-//        }
-//    }, */
-// /*    legend: {
-//        enabled: false
-//    }, */
-//   /*  tooltip: {
-//        shared: true,
-//        headerFormat: '<span style="font-size: 15px">{point.point.name}</span><br/>',
-//        pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y} medals</b><br/>'
-//    }, */
-//    xAxis: {
-//        type: 'category',
-//        max: 4,
-//        labels: {
-//            useHTML: true,
-//            animate: true,
-//            formatter: function () {
-//                var value = this.value,
-//                    output;
-//
-//                countries.forEach(function (country) {
-//                    if (country.name === value) {
-//                        output = country.flag;
-//                    }
-//                });
-//
-//                return '<span><img src="https://image.flaticon.com/icons/svg/197/' + output + '.svg" style="width: 30px; height: 30px;"/><br></span>';
-//            }
-//        }
-//    },
-//    yAxis: [{
-//        title: {
-//            text: 'Gold medals'
-//        },
-//        /* showFirstLabel: false */
-//    }],
-//    series: [
-///*     {
-//        color: 'rgb(158, 159, 163)',
-//        pointPlacement: -0.2,
-//        linkedTo: 'main',
-//        data: dataPrev[2016].slice(),
-//        name: '2012'
-//    }, */
-//    {
-//        name: '2016',
-//        id: 'main',
-//        dataSorting: {
-//            enabled: true,
-//            matchByName: true
-//        },
-//      /*   dataLabels: [{
-//            enabled: true,
-//            inside: true,
-//            style: {
-//                fontSize: '16px'
-//            }
-//        }], */
-//        data: getData(data[2016]).slice()
-//    }],
-//    exporting: {
-//        allowHTML: true
-//    }
-//});
-//
-//var years = [2016, 2012, 2008, 2004, 2000];
-//
-//years.forEach(function (year) {
-//    var btn = document.getElementById(year);
-//
-//    btn.addEventListener('click', function () {
-//
-//        document.querySelectorAll('.buttons button.active').forEach(function (active) {
-//            active.className = '';
-//        });
-//        btn.className = 'active';
-//
-//        chart.update({
-//            title: {
-//                text: 'Summer Olympics ' + year + ' - Top 5 countries by Gold medals'
-//            },
-//            subtitle: {
-//                text: 'Comparing to results from Summer Olympics ' + (year - 4) + ' - Source: <ahref="https://en.wikipedia.org/wiki/' + (year) + '_Summer_Olympics_medal_table">Wikipedia</a>'
-//            },
-//            series: [
-//         /*    {
-//                name: year - 4,
-//                data: dataPrev[year].slice()
-//            }, */
-//            {
-//                name: year,
-//                data: getData(data[year]).slice()
-//            }]
-//        }, true, false, {
-//            duration: 800
-//        });
-//    });
-//});
 
 
 @end

@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AADataLabels,AATooltip,AAStates,AAShadow,AAZonesElement;
+@class AAMarker,AADataLabels,AATooltip,AAStates,AAShadow,AAZonesElement,AADataSorting;
 
 @interface AASeriesElement : NSObject
 
@@ -70,6 +70,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AATooltip*, tool
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, zIndex) //层叠，series element 在图表中显示的层叠级别，值越大，显示越向前
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, pointPlacement)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enableMouseTracking)
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , dataSorting)
 
 @end
 
@@ -99,6 +100,14 @@ AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, width)
 
 AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSNumber *, value)
 AAPropStatementAndPropSetFuncStatement(copy,   AAZonesElement, NSString *, color)
+
+@end
+
+
+@interface AADataSorting : NSObject
+
+AAPropStatementAndPropSetFuncStatement(assign, AADataSorting, BOOL, enabled)
+AAPropStatementAndPropSetFuncStatement(assign, AADataSorting, BOOL, matchByName)
 
 @end
 

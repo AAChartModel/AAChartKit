@@ -49,6 +49,7 @@
 #import "ScrollingUpdateDataVC.h"
 #import "DoubleChartsLinkedWorkVC.h"
 #import "DrawableChartVC.h"
+#import "DataSortingWithAnimationChartVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -267,6 +268,14 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
+        case 14: {
+            /*基础类型图表*/
+            DataSortingWithAnimationChartVC *vc = DataSortingWithAnimationChartVC.new;
+            vc.chartType = indexPath.row;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+                      break;
         
         default:
             break;
@@ -324,7 +333,7 @@
             @"Scrolling Updating Data---图表滚动刷新",
             @"Drawable Chart---可拖拽的图表1📈",
             @"Drawable Chart---可拖拽的图表2📊",
-            
+            @"Sort Chart With Animation---图表动态排序",
         ];
     }
     return _sectionTypeArr;
@@ -534,6 +543,17 @@
               @"Scatter Chart---散点图"
             ],
             /*基础类型图表X轴水平拖动类型 1*/
+            @[@"Column Chart---柱形图",
+              @"Bar Chart---条形图",
+              @"Area Chart---折线填充图",
+              @"Areaspline Chart---曲线填充图",
+              @"Line Chart---折线图",
+              @"Spline Chart---曲线图",
+              @"Step Line Chart--直方折线图",
+              @"Step Area Chart--直方折线填充图",
+              @"Scatter Chart---散点图"
+            ],
+            /*基础类型图表X轴水平拖动类型 2*/
             @[@"Column Chart---柱形图",
               @"Bar Chart---条形图",
               @"Area Chart---折线填充图",

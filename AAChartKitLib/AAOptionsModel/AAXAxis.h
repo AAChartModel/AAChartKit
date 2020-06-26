@@ -38,6 +38,7 @@
 
 @interface AAXAxis : NSObject
 
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, type) 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotLinesElement *>*, plotLines)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, categories) 

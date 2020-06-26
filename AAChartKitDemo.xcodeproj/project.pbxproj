@@ -40,7 +40,7 @@
 		27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		27EB89D8248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */; };
-		27EB8A8D24986DCE007E6A6B /* ChartRaceWithBarChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB8A8C24986DCE007E6A6B /* ChartRaceWithBarChartVC.m */; };
+		27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */; };
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
 		44143D3921A1950300D44657 /* AAGradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44143D3821A1950300D44657 /* AAGradientColor.m */; };
 		441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */; };
@@ -172,8 +172,8 @@
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
 		27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedChartOptionsUpdatingFunctionVC.h; sourceTree = "<group>"; };
 		27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvancedChartOptionsUpdatingFunctionVC.m; sourceTree = "<group>"; };
-		27EB8A8B24986DCE007E6A6B /* ChartRaceWithBarChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartRaceWithBarChartVC.h; sourceTree = "<group>"; };
-		27EB8A8C24986DCE007E6A6B /* ChartRaceWithBarChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartRaceWithBarChartVC.m; sourceTree = "<group>"; };
+		27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSortingWithAnimationChartVC.h; sourceTree = "<group>"; };
+		27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSortingWithAnimationChartVC.m; sourceTree = "<group>"; };
 		27F0CA7721018998004BD904 /* AADateUTCTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateUTCTool.h; sourceTree = "<group>"; };
 		27F0CA7821018998004BD904 /* AADateUTCTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADateUTCTool.m; sourceTree = "<group>"; };
 		27F5AD9A20A740910086CD33 /* MixedChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartVC.h; sourceTree = "<group>"; };
@@ -414,8 +414,8 @@
 				449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */,
 				4486C50E23E9BAB300B54849 /* DrawableChartVC.h */,
 				4486C50F23E9BAB300B54849 /* DrawableChartVC.m */,
-				27EB8A8B24986DCE007E6A6B /* ChartRaceWithBarChartVC.h */,
-				27EB8A8C24986DCE007E6A6B /* ChartRaceWithBarChartVC.m */,
+				27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */,
+				27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */,
 				27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */,
 				27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
@@ -706,7 +706,7 @@
 				27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
 				44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */,
-				27EB8A8D24986DCE007E6A6B /* ChartRaceWithBarChartVC.m in Sources */,
+				27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,

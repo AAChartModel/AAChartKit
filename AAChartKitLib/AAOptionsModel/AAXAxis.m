@@ -42,6 +42,7 @@
     return self;
 }
 
+AAPropSetFuncImplementation(AAXAxis, NSString *, type)
 AAPropSetFuncImplementation(AAXAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropSetFuncImplementation(AAXAxis, NSArray<AAPlotLinesElement *>*, plotLines)
 AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories) 

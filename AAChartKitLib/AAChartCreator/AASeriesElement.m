@@ -79,6 +79,7 @@ AAPropSetFuncImplementation(AASeriesElement, AATooltip*, tooltip)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, zIndex) //层叠，series element 在图表中显示的层叠级别，值越大，显示越向前
 AAPropSetFuncImplementation(AASeriesElement, NSString *, pointPlacement)
 AAPropSetFuncImplementation(AASeriesElement, id        , enableMouseTracking)
+AAPropSetFuncImplementation(AASeriesElement, id        , dataSorting)
 
 @end
 
@@ -103,9 +104,18 @@ AAPropSetFuncImplementation(AAShadow, NSNumber *, width)
 
 @end
 
+
 @implementation AAZonesElement : NSObject
 
 AAPropSetFuncImplementation(AAZonesElement, NSNumber *, value)
 AAPropSetFuncImplementation(AAZonesElement, NSString *, color)
+
+@end
+
+
+@implementation AADataSorting : NSObject
+
+AAPropSetFuncImplementation(AADataSorting, BOOL, enabled)
+AAPropSetFuncImplementation(AADataSorting, BOOL, matchByName)
 
 @end
