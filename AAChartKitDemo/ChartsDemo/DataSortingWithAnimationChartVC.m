@@ -24,18 +24,18 @@
     switch (_chartType) {
         case DataSortingWithAnimationChartVCChartTypeColumn: return AAChartTypeColumn;
         case DataSortingWithAnimationChartVCChartTypeBar: return AAChartTypeBar;
-        case DataSortingWithAnimationChartVCChartTypeArea: return AAChartTypeArea;
-        case DataSortingWithAnimationChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
-        case DataSortingWithAnimationChartVCChartTypeLine: return AAChartTypeLine;
-        case DataSortingWithAnimationChartVCChartTypeSpline: return AAChartTypeSpline;
-        case DataSortingWithAnimationChartVCChartTypeStepLine: return AAChartTypeLine;
-        case DataSortingWithAnimationChartVCChartTypeStepArea: return AAChartTypeArea;
+//        case DataSortingWithAnimationChartVCChartTypeArea: return AAChartTypeArea;
+//        case DataSortingWithAnimationChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
+//        case DataSortingWithAnimationChartVCChartTypeLine: return AAChartTypeLine;
+//        case DataSortingWithAnimationChartVCChartTypeSpline: return AAChartTypeSpline;
+//        case DataSortingWithAnimationChartVCChartTypeStepLine: return AAChartTypeLine;
+//        case DataSortingWithAnimationChartVCChartTypeStepArea: return AAChartTypeArea;
         case DataSortingWithAnimationChartVCChartTypeScatter: return AAChartTypeScatter;
     }
 }
 
 - (void)drawChart {
-    AAOptions *aaOptions = [self customXAxisLabelsBeImages];
+    AAOptions *aaOptions = [self configuraDataSortingChartOptions];
     AAChartView *aaChartView = [self setupChartView];
     self.chartView = aaChartView;
     [aaChartView aa_drawChartWithOptions:aaOptions];
@@ -43,7 +43,7 @@
 
 
 
-- (AAOptions *)customXAxisLabelsBeImages {
+- (AAOptions *)configuraDataSortingChartOptions {
     NSArray *colorArr = @[
         AAGradientColor.oceanBlueColor,
         AAGradientColor.sanguineColor,
@@ -52,6 +52,23 @@
         AAGradientColor.freshPapayaColor,
         AAGradientColor.ultramarineColor,
         AAGradientColor.pinkSugarColor,
+        AAGradientColor.lemonDrizzleColor,
+        AAGradientColor.victoriaPurpleColor,
+        AAGradientColor.springGreensColor,
+        AAGradientColor.mysticMauveColor,
+        AAGradientColor.reflexSilverColor,
+        AAGradientColor.neonGlowColor,
+        AAGradientColor.berrySmoothieColor,
+        AAGradientColor.newLeafColor,
+        AAGradientColor.cottonCandyColor,
+        AAGradientColor.pixieDustColor,
+        AAGradientColor.fizzyPeachColor,
+        AAGradientColor.sweetDreamColor,
+        AAGradientColor.firebrickColor,
+        AAGradientColor.wroughtIronColor,
+        AAGradientColor.deepSeaColor,
+        AAGradientColor.coastalBreezeColor,
+        AAGradientColor.eveningDelightColor,
     ];
     
     AAOptions *aaOptions = AAOptions.new
@@ -74,21 +91,55 @@
                .alignSet(AAChartAlignTypeCenter)
                .layoutSet(AAChartLayoutTypeVertical)
                .verticalAlignSet(AAChartVerticalAlignTypeTop)
-               .ySet(@25)
+               .ySet(@10)
                )
     .tooltipSet(AATooltip.new
                 .enabledSet(true)
                 )
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .dataLabelsSet(AADataLabels.new
+                                              .enabledSet(true)
+                                              .styleSet(AAStyle.new
+                                                        .fontSizeSet(@"12px")))
+                               ))
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2020 Year")
-        .colorSet((id)[AAGradientColor deepSeaColor])
         .colorByPointSet(@true)
         .dataSortingSet(AADataSorting.new
                         .enabledSet(true)
                         .matchByNameSet(true))
         .dataSet([self randomDataArray])
                ]);
+    
+    if (aaOptions.chart.type == AAChartTypeColumn) {
+        aaOptions.plotOptions
+        .columnSet(AAColumn.new
+                   .pointPaddingSet(@0)
+                   .groupPaddingSet(@0.005));
+    } else if (aaOptions.chart.type == AAChartTypeBar) {
+        aaOptions.plotOptions
+        .barSet(AABar.new
+                .pointPaddingSet(@0)
+                .groupPaddingSet(@0.005))
+        .series
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .alignSet(AAChartAlignTypeLeft)//DataLabels水平对齐位置
+                       .insideSet(true)//DataLabels是否在条形图的长条内部
+                       .styleSet(AAStyle.new
+                                 .colorSet(AAColor.whiteColor)
+                                 .fontWeightSet(AAChartFontWeightTypeBold)
+                                 .fontSizeSet(@"11px")
+                                 .textOutlineSet(@"none")//文字轮廓描边
+                                 ));
+    } else if (aaOptions.chart.type == AAChartTypeScatter) {
+        aaOptions.plotOptions.series
+        .markerSet(AAMarker.new
+                   .radiusSet(@15));
+    }
+    
     return aaOptions;
 }
 
@@ -129,7 +180,7 @@
 }
 
 - (NSArray *)randomDataArray {
-      NSArray *gradientColorNamesArr = @[
+    NSArray *gradientColorNamesArr = @[
         @"oceanBlue",
         @"sanguine",
         @"lusciousLime",
@@ -137,19 +188,35 @@
         @"freshPapaya",
         @"ultramarine",
         @"pinkSugar",
+        @"lemonDrizzle",
+        @"victoriaPurple",
+        @"springGreens",
+        @"mysticMauve",
+        @"reflexSilver",
+        @"neonGlowColor",
+        @"berrySmoothieColor",
+        @"newLeaf",
+        @"cottonCandy",
+        @"pixieDust",
+        @"fizzyPeach",
+        @"sweetDream",
+        @"firebrick",
+        @"wroughtIron",
+        @"deepSea",
+        @"coastalBreeze",
+        @"eveningDelight",
     ];
-    
     
     NSMutableArray *dataArr = [NSMutableArray array];
     [gradientColorNamesArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableDictionary *dataElementDic = [NSMutableDictionary dictionary];
         dataElementDic[@"name"] = obj;
-        dataElementDic[@"y"] = @(arc4random() % 100);
+        dataElementDic[@"y"] = @(arc4random() % 250 + 20);
         [dataArr addObject:dataElementDic];
     }];
     
     NSLog(@"生成的一组假数据为: %@",[AAJsonConverter pureJsonStringWithJsonObject:dataArr]);
-
+    
     return dataArr;
 }
 

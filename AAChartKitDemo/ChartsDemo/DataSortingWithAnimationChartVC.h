@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger,DataSortingWithAnimationChartVCChartType) {
     DataSortingWithAnimationChartVCChartTypeColumn = 0,
     DataSortingWithAnimationChartVCChartTypeBar,
-    DataSortingWithAnimationChartVCChartTypeArea,
-    DataSortingWithAnimationChartVCChartTypeAreaspline,
-    DataSortingWithAnimationChartVCChartTypeLine,
-    DataSortingWithAnimationChartVCChartTypeSpline,
-    DataSortingWithAnimationChartVCChartTypeStepLine,
-    DataSortingWithAnimationChartVCChartTypeStepArea,
+//    DataSortingWithAnimationChartVCChartTypeArea,
+//    DataSortingWithAnimationChartVCChartTypeAreaspline,
+//    DataSortingWithAnimationChartVCChartTypeLine,
+//    DataSortingWithAnimationChartVCChartTypeSpline,
+//    DataSortingWithAnimationChartVCChartTypeStepLine,
+//    DataSortingWithAnimationChartVCChartTypeStepArea,
     DataSortingWithAnimationChartVCChartTypeScatter,
 };
 
