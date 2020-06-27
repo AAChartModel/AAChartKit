@@ -53,27 +53,42 @@
         AAGradientColor.ultramarineColor,
         AAGradientColor.pinkSugarColor,
     ];
-
     
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet([self configureChartType])
-    .stackingSet(AAChartStackingTypeNormal)
-    .yAxisVisibleSet(false)
-    .colorsThemeSet(colorArr)
-    .markerRadiusSet(@20)
+    AAOptions *aaOptions = AAOptions.new
+    .colorsSet(colorArr)
+    .chartSet(AAChart.new
+              .typeSet([self configureChartType]))
+    .titleSet(AATitle.new
+              .textSet(@"Popular Gradient Colors In Different Years"))
+    .xAxisSet(AAXAxis.new
+              .visibleSet(true)
+              .reversedSet(true)
+              .typeSet(@"category")
+              )
+    .yAxisSet(AAYAxis.new
+              .visibleSet(true)
+              .titleSet((id)AATitle.new
+                        .textSet(@"Gradient Colors Hot")))
+    .legendSet(AALegend.new
+               .enabledSet(true)
+               .alignSet(AAChartAlignTypeCenter)
+               .layoutSet(AAChartLayoutTypeVertical)
+               .verticalAlignSet(AAChartVerticalAlignTypeTop)
+               .ySet(@25)
+               )
+    .tooltipSet(AATooltip.new
+                .enabledSet(true)
+                )
     .seriesSet(@[
         AASeriesElement.new
-        .nameSet(@"2020")
+        .nameSet(@"2020 Year")
         .colorSet((id)[AAGradientColor deepSeaColor])
         .colorByPointSet(@true)
         .dataSortingSet(AADataSorting.new
                         .enabledSet(true)
                         .matchByNameSet(true))
         .dataSet([self randomDataArray])
-    ]);
-    
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.xAxis.type = @"category";
+               ]);
     return aaOptions;
 }
 
@@ -101,7 +116,7 @@
 
 - (void)timerRepeatWork {
     self.globalInt += 1;
-    NSString *year = [NSString stringWithFormat:@"%d", 2020 + self.globalInt];
+    NSString *year = [NSString stringWithFormat:@"%d Year", 2020 + self.globalInt];
     
     AAOptions *aaOptions = AAOptions.new
     .seriesSet(@[
