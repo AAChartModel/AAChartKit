@@ -186,7 +186,8 @@
                   .textSet(@"PlotLines Element One")
                   .styleSet(AAStyle.new
                             .colorSet(@"#F05353")))
-        ,AAPlotLinesElement.new
+        ,
+        AAPlotLinesElement.new
         .colorSet(@"#33BDFD")
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .widthSet(@(1))
@@ -196,7 +197,8 @@
                   .textSet(@"PlotLines Element Two")
                   .styleSet(AAStyle.new
                             .colorSet(@"#33BDFD")))
-        ,AAPlotLinesElement.new
+        ,
+        AAPlotLinesElement.new
         .colorSet(@"#ADFF2F")
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .widthSet(@(1))
@@ -351,28 +353,32 @@
     if (_chartType == SecondeViewControllerChartTypeColumn
         ||_chartType == SecondeViewControllerChartTypeBar) {
         segmentedNamesArr = @[
-                              @[@"No stacking",
-                                @"Normal stacking",
-                                @"Percent stacking"],
-                              @[@"Square corners",
-                                @"Rounded corners",
-                                @"Wedge"],
-                              ];
-        typeLabelNameArr = @[@"Stacking type selection",
-                             @"Corners Style type selection"];
+            @[@"No stacking",
+              @"Normal stacking",
+              @"Percent stacking"],
+            @[@"Square corners",
+              @"Rounded corners",
+              @"Wedge"],
+        ];
+        typeLabelNameArr = @[
+            @"Stacking type selection",
+            @"Corners Style type selection"
+        ];
     } else {
         segmentedNamesArr = @[
-                              @[@"No stacking",
-                                @"Normal stacking",
-                                @"Percent stacking"],
-                              @[@"Circle",
-                                @"Square",
-                                @"Diamond",
-                                @"Triangle",
-                                @"Triangle-down"]
-                              ];
-        typeLabelNameArr = @[@"Stacking type selection",
-                             @"Chart symbol type selection"];
+            @[@"No stacking",
+              @"Normal stacking",
+              @"Percent stacking"],
+            @[@"Circle",
+              @"Square",
+              @"Diamond",
+              @"Triangle",
+              @"Triangle-down"]
+        ];
+        typeLabelNameArr = @[
+            @"Stacking type selection",
+            @"Chart symbol type selection"
+        ];
     }
     
     for (int i=0; i<segmentedNamesArr.count; i++) {
@@ -469,21 +475,21 @@
     NSArray *nameArr;
     if (_chartType == SecondeViewControllerChartTypeColumn || _chartType == SecondeViewControllerChartTypeBar) {
         nameArr = @[
-                    @"xAxisReversed",
-                    @"yAxisReversed",
-                    @"xAxisInverted",
-                    @"Polarization",
-                    @"DataLabelShow",
-                    ];
+            @"xAxisReversed",
+            @"yAxisReversed",
+            @"xAxisInverted",
+            @"Polarization",
+            @"DataLabelShow",
+        ];
     } else {
         nameArr = @[
-                    @"xReversed",
-                    @"yReversed",
-                    @"xAxisInverted",
-                    @"Polarization",
-                    @"DataShow",
-                    @"HideMarker"
-                    ];
+            @"xReversed",
+            @"yReversed",
+            @"xAxisInverted",
+            @"Polarization",
+            @"DataShow",
+            @"HideMarker"
+        ];
     }
     
     CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
