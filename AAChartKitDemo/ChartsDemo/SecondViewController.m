@@ -586,11 +586,17 @@
         }
             break;
         case 5: {
+            AAMarker *aaMarker = switchView.on ?
+            (AAMarker.new
+             .enabledSet(false))
+            :
+            (AAMarker.new
+             .enabledSet(true)
+            .radiusSet( @5));
+            
             AAPlotOptions *aaPlotOptions = AAPlotOptions.new
             .seriesSet(AASeries.new
-                       .markerSet(AAMarker.new
-                                  .radiusSet(switchView.on ? @0 : @5))
-                       );
+                       .markerSet(aaMarker));
             options = aaPlotOptions;
         }
             break;

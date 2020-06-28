@@ -35,6 +35,15 @@
 
 @implementation AAMarker
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AAMarker, BOOL,         enabled)
 AAPropSetFuncImplementation(AAMarker, NSNumber *, radius) 
 AAPropSetFuncImplementation(AAMarker, NSString *, symbol)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
 AAPropSetFuncImplementation(AAMarker, NSString *, fillColor) //点的填充色(用来设置折线连接点的填充色)

@@ -37,6 +37,7 @@
 
 @interface AAMarker : NSObject
 
+AAPropStatementAndPropSetFuncStatement(assign, AAMarker, BOOL,       enabled)
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *, radius) 
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, symbol) 
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, fillColor) //点的填充色(用来设置折线连接点的填充色)
