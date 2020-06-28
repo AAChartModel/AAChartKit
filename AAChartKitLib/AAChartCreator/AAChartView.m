@@ -221,7 +221,7 @@ WKScriptMessageHandler
     NSDictionary *optionsDic = [AAJsonConverter dictionaryWithObjectInstance:options];
     NSDictionary *finalOptionsDic;
     if (isOptionsClass) {
-        finalOptionsDic = [AAJsonConverter dictionaryWithObjectInstance:options];
+        finalOptionsDic = optionsDic;
     } else {
         NSString *classNameStr = NSStringFromClass([options class]);
         classNameStr = [classNameStr stringByReplacingOccurrencesOfString:@"AA"

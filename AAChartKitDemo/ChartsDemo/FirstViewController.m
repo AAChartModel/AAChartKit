@@ -333,7 +333,7 @@
             @"Scrolling Updating Data---图表滚动刷新",
             @"Drawable Chart---可拖拽的图表1📈",
             @"Drawable Chart---可拖拽的图表2📊",
-            @"Sort Chart With Animation---图表动态排序",
+            @"Data Sorting Chart With Animation---图表动态排序",
         ];
     }
     return _sectionTypeArr;
