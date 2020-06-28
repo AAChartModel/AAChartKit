@@ -407,19 +407,26 @@
     id options;
     switch (segmentedControl.tag) {
         case 0: {
-            NSArray *stackingArr = @[AAChartStackingTypeFalse,
-                                     AAChartStackingTypeNormal,
-                                     AAChartStackingTypePercent];
+            NSArray *stackingArr = @[
+                AAChartStackingTypeFalse,
+                AAChartStackingTypeNormal,
+                AAChartStackingTypePercent
+            ];
+            AAChartStackingType stackingType = stackingArr[segmentedControl.selectedSegmentIndex];
             AAPlotOptions *aaPlotOptions = AAPlotOptions.new
             .seriesSet(AASeries.new
-                       .stackingSet(stackingArr[segmentedControl.selectedSegmentIndex]));
+                       .stackingSet(stackingType));
             options = aaPlotOptions;
         }
             break;
             
         case 1: {
             if (_chartType == 0 || _chartType == 1 ) {
-                NSArray *borderRadiusArr = @[ @1, @10, @100 ];
+                NSArray *borderRadiusArr = @[
+                    @1,
+                    @10,
+                    @100
+                ];
                 NSNumber *borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
                 AAPlotOptions *aaPlotOptions;
                 if (_chartType == 0) {
@@ -434,11 +441,13 @@
                 options = aaPlotOptions;
                 
             } else {
-                NSArray *symbolArr = @[AAChartSymbolTypeCircle,
-                                       AAChartSymbolTypeSquare,
-                                       AAChartSymbolTypeDiamond,
-                                       AAChartSymbolTypeTriangle,
-                                       AAChartSymbolTypeTriangle_down];
+                NSArray *symbolArr = @[
+                    AAChartSymbolTypeCircle,
+                    AAChartSymbolTypeSquare,
+                    AAChartSymbolTypeDiamond,
+                    AAChartSymbolTypeTriangle,
+                    AAChartSymbolTypeTriangle_down
+                ];
                 AAChartSymbolType markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
                 AAPlotOptions *aaPlotOptions = AAPlotOptions.new
                 .seriesSet(AASeries.new
