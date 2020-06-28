@@ -181,9 +181,9 @@
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
         .widthSet(@(1)) //标示线粗细
         .valueSet(@(20)) //所在位置
-        .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+        .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
-                  .textSet(@"标示线1")
+                  .textSet(@"PlotLines Element One")
                   .styleSet(AAStyle.new
                             .colorSet(@"#F05353")))
         ,AAPlotLinesElement.new
@@ -191,8 +191,9 @@
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .widthSet(@(1))
         .valueSet(@(40))
+        .zIndexSet(@5)
         .labelSet(AALabel.new
-                  .textSet(@"标示线2")
+                  .textSet(@"PlotLines Element Two")
                   .styleSet(AAStyle.new
                             .colorSet(@"#33BDFD")))
         ,AAPlotLinesElement.new
@@ -200,8 +201,9 @@
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .widthSet(@(1))
         .valueSet(@(60))
+        .zIndexSet(@5)
         .labelSet(AALabel.new
-                  .textSet(@"标示线3")
+                  .textSet(@"PlotLines Element Three")
                   .styleSet(AAStyle.new
                             .colorSet(@"#ADFF2F")))
                        ]);
