@@ -587,12 +587,12 @@
             break;
         case 5: {
             AAMarker *aaMarker = switchView.on ?
-            (AAMarker.new
-             .enabledSet(false))
+            AAMarker.new
+            .enabledSet(false)
             :
-            (AAMarker.new
-             .enabledSet(true)
-            .radiusSet( @5));
+            AAMarker.new
+            .enabledSet(true)
+            .radiusSet( @5);
             
             AAPlotOptions *aaPlotOptions = AAPlotOptions.new
             .seriesSet(AASeries.new
@@ -620,20 +620,31 @@
     NSString *chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     _aaChartModel.chartType = chartType;
+    AAOptions *options;
+    
+    AAChart *aaChart = AAChart.new
+    .typeSet(chartType);
+    
+    options = AAOptions.new
+    .chartSet(aaChart);
+    
     if (_chartType == SecondeViewControllerChartTypeStepArea
         || _chartType == SecondeViewControllerChartTypeStepLine) {
         [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @YES;
         }];
+        options.seriesSet(_aaChartModel.series);
     } else if (_chartType == SecondeViewControllerChartTypeScatter) {
         [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @NO;
         }];
+        options.seriesSet(_aaChartModel.series);
     }
     
-    [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+//    [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    [_aaChartView aa_updateChartWithOptions:options];
     
     if (_chartType == SecondeViewControllerChartTypeScatter) {
         _chartType = -1;//重新开始
