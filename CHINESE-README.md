@@ -318,6 +318,23 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
 * 添加值域分割数据列分区 `zones 🧱`
 ![seriesZonesChart](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/seriesZonesChart.png)
 
+
+### 支持图表数据的动态滚动刷新
+
+<div  align="center">
+   <img src='https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/scrollingUpdateColumnChart.gif' >
+   <img src='https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/scrollingUpdateLineChart.gif' >
+   <img src='https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/scrollingUpdateStepAreaChart.gif' >
+</div>
+
+### 支持图表数据的动态排序
+
+<div  align="center">
+   <img src='https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/DataSortingColumnChart.gif' >
+   <img src='https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/DataSortingScatterChart.gif' >
+   <img src='https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/DataSortingBarChart.gif' >
+</div>
+
   
 ### 当前已支持的图表类型有十种以上,说明如下
 ```objective-c
