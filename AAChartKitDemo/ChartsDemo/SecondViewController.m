@@ -221,7 +221,7 @@
         [self configureLineChartAndSplineChartStyle];
     } else if (_chartType == SecondeViewControllerChartTypeStepLine
                || _chartType == SecondeViewControllerChartTypeStepArea) {
-        [self configureStepLineChartAndSteAreaChartStyle];
+        [self configureStepLineChartAndStepAreaChartStyle];
     }
 }
 
@@ -297,7 +297,7 @@
     }
 }
 
-- (void)configureStepLineChartAndSteAreaChartStyle {
+- (void)configureStepLineChartAndStepAreaChartStyle {
     _aaChartModel.yAxisVisibleSet(false);
     if (_chartType == SecondeViewControllerChartTypeStepLine) {
         _aaChartModel.markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
