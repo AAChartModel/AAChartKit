@@ -874,7 +874,7 @@
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
 - (AAChartModel *)configureNegativeColorMixedAreasplineChart {
-    NSArray *stopsArr = @[
+    NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
@@ -882,7 +882,7 @@
     
     NSDictionary *gradientBlueColorDic =
    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                                    stopsArray:stopsArr];
+                                    stopsArray:blueStopsArr];
     
     NSArray *redStopsArr = @[
         @[@0.0, AARgbaColor(255, 0, 0, 0.6)],//颜色字符串设置支持十六进制类型和 rgba 类型
