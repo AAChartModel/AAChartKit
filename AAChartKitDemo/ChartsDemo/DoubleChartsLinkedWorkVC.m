@@ -126,20 +126,29 @@
         AAGradientColor.coastalBreezeColor,
         AAGradientColor.eveningDelightColor,
     ])
+
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"ElementOne")
+        .zIndexSet(@0)
         .dataSet(@[
             @211, @183, @157, @133, @111, @91, @73, @57, @43, @31, @21, @13,
             @211, @183, @157, @133, @111, @91, @73, @57, @43, @31, @21, @13,
-        ])
+                 ])
         .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-    ]);
+               ]);
     
     _gradientColorsArr = aaChartModel.colorsTheme;
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.column.groupPadding = @0;
+    aaOptions.yAxis.gridLineWidth = @0;
+    aaOptions.xAxis
+    .crosshairSet(AACrosshair.new
+                  .colorSet(AAColor.redColor)
+                  .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                  .zIndexSet(@5)
+                  );
     
     [aaChartView aa_drawChartWithOptions:aaOptions];
 }
@@ -202,6 +211,7 @@
     
     AAOptions *aaOptions2 = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel2];
     aaOptions2.plotOptions.column.groupPadding = @0;
+    aaOptions2.yAxis.gridLineWidth = @0;
     
     [aaChartView2 aa_drawChartWithOptions:aaOptions2];
     

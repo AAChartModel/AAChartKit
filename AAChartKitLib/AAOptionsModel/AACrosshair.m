@@ -37,5 +37,6 @@
 AAPropSetFuncImplementation(AACrosshair, NSString *, dashStyle)  //准星线样式
 AAPropSetFuncImplementation(AACrosshair, NSString *, color)  //准星线颜色
 AAPropSetFuncImplementation(AACrosshair, NSNumber *, width)  //准星线宽度
+AAPropSetFuncImplementation(AACrosshair, NSNumber *, zIndex)  //准星线的层叠值, 增大层叠值可以让准星线显示在数据里或网格线的上方。 默认是：2.
 
 @end

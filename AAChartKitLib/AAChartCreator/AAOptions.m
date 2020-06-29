@@ -249,11 +249,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
         .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
         
-        AACrosshair *aaCrosshair = AACrosshair.new
-        .widthSet(aaChartModel.xAxisCrosshairWidth);
-        
         if ([aaChartModel.xAxisCrosshairWidth doubleValue] > 0) {
-            aaXAxis.crosshairSet(aaCrosshair
+            aaXAxis.crosshairSet(AACrosshair.new
+                                 .widthSet(aaChartModel.xAxisCrosshairWidth)
                                  .colorSet(aaChartModel.xAxisCrosshairColor)
                                  .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
                                  );
