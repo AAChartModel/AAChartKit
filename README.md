@@ -6,12 +6,6 @@
 
 <p align="center">
 
-<a href="http://isitmaintained.com/project/AAChartModel/AAChartKit "Average time to resolve an issue"">
-    <img src="http://isitmaintained.com/badge/resolution/AAChartModel/AAChartKit.svg">
-</a>
-<a href="http://isitmaintained.com/project/AAChartModel/AAChartKit "Percentage of issues still open"">
-    <img src="http://isitmaintained.com/badge/open/AAChartModel/AAChartKit.svg">
-</a>
 <a href="https://github.com/AAChartModel/AAChartKit">
     <img src="https://img.shields.io/badge/Support-iOS | iPadOS | macOS -blue.svg">
 </a>
@@ -42,7 +36,12 @@
 <a href="https://github.com/AAChartModel/AAChartKit/blob/master/CHINESE-README.md">
     <img src="https://jaywcjlove.github.io/sb/lang/chinese.svg">
 </a>
-
+<a href="http://isitmaintained.com/project/AAChartModel/AAChartKit "Average time to resolve an issue"">
+    <img src="http://isitmaintained.com/badge/resolution/AAChartModel/AAChartKit.svg">
+</a>
+<a href="http://isitmaintained.com/project/AAChartModel/AAChartKit "Percentage of issues still open"">
+    <img src="http://isitmaintained.com/badge/open/AAChartModel/AAChartKit.svg">
+</a>
 
 </p>
 
