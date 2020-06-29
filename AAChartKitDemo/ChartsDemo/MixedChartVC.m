@@ -114,7 +114,7 @@
         case 8:  return [self configurePolygonMixedScatterChart];
         case 9:  return [self configurePolarMixedChart];
         case 10: return [self configureColumnMixedScatterChart];//柱形图混合散点图
-            case 11: return [self configureNegativeColorMixedAreasplineChart];
+        case 11: return [self configureNegativeColorMixedAreasplineChart];
     }
     return nil;
 }
@@ -897,7 +897,6 @@
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
-    .backgroundColorSet(AAColor.blackColor)
     .legendEnabledSet(false)
     .dataLabelsEnabledSet(false)
     .markerRadiusSet(@5)
@@ -908,8 +907,6 @@
         .nameSet(@"Column")
         .dataSet(@[
             @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6,
-//            @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6,
-//            @-7.0, @-6.9, @-2.5, @-14.5, @-18.2, @-21.5, @-5.2, @-26.5, @-23.3, @-45.3, @-13.9, @-9.6,
             @-7.0, @-6.9, @-2.5, @-14.5, @-18.2, @-21.5, @-5.2, @-26.5, @-23.3, @-45.3, @-13.9, @-9.6,
                  ])
         .lineWidthSet(@5)
