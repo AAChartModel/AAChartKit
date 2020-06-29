@@ -6,7 +6,6 @@
 
 <p align="center">
 
-
 <a href="http://isitmaintained.com/project/AAChartModel/AAChartKit "Average time to resolve an issue"">
     <img src="http://isitmaintained.com/badge/resolution/AAChartModel/AAChartKit.svg">
 </a>
