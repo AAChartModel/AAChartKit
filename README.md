@@ -6,12 +6,7 @@
 
 <p align="center">
 
-<a href="https://github.com/AAChartModel/AAChartKit">
-    <img src="https://githubbadges.com/star.svg?user=AAChartModel&repo=AAChartKit&style=flat">
-</a>
-<a href="https://github.com/AAChartModel/AAChartKit/fork">
-    <img src="https://githubbadges.com/fork.svg?user=AAChartModel&repo=AAChartKit&style=flat">
-</a>
+
 <a href="http://isitmaintained.com/project/AAChartModel/AAChartKit "Average time to resolve an issue"">
     <img src="http://isitmaintained.com/badge/resolution/AAChartModel/AAChartKit.svg">
 </a>
