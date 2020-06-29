@@ -108,12 +108,13 @@
         case 2:  return [self configureStackingColumnMixedLineChart];
         case 3:  return [self configureDashStyleTypeMixedChart];
         case 4:  return [self configureAllLineDashStyleTypesMixedChart];
-        case 5:  return [self configureNegativeColorMixedChart];
+        case 5:  return [self configureNegativeColorMixedColumnChart];
         case 6:  return [self configureScatterMixedLineChart];
         case 7:  return [self configureNegativeColorMixedBubbleChart];
         case 8:  return [self configurePolygonMixedScatterChart];
         case 9:  return [self configurePolarMixedChart];
         case 10: return [self configureColumnMixedScatterChart];//柱形图混合散点图
+            case 11: return [self configureNegativeColorMixedAreasplineChart];
     }
     return nil;
 }
@@ -432,7 +433,7 @@
     ]);
 }
 
-- (AAChartModel *)configureNegativeColorMixedChart {
+- (AAChartModel *)configureNegativeColorMixedColumnChart {
     return AAChartModel.new
     .legendEnabledSet(false)
     .chartTypeSet(AAChartTypeColumn)
@@ -869,6 +870,56 @@
                    )
         
     ]);
+}
+
+//GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
+- (AAChartModel *)configureNegativeColorMixedAreasplineChart {
+    NSArray *stopsArr = @[
+        @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
+        @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
+    ];
+    
+    NSDictionary *gradientBlueColorDic =
+   [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                    stopsArray:stopsArr];
+    
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 0.6)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
+        @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+    ];
+    
+    NSDictionary *gradientRedColorDic =
+      [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                       stopsArray:redStopsArr];
+  
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .backgroundColorSet(AAColor.blackColor)
+    .legendEnabledSet(false)
+    .dataLabelsEnabledSet(false)
+    .markerRadiusSet(@5)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .yAxisGridLineWidthSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Column")
+        .dataSet(@[
+            @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6,
+//            @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6,
+//            @-7.0, @-6.9, @-2.5, @-14.5, @-18.2, @-21.5, @-5.2, @-26.5, @-23.3, @-45.3, @-13.9, @-9.6,
+            @-7.0, @-6.9, @-2.5, @-14.5, @-18.2, @-21.5, @-5.2, @-26.5, @-23.3, @-45.3, @-13.9, @-9.6,
+                 ])
+        .lineWidthSet(@5)
+        .colorSet(AARgbaColor(30, 144, 255, 1.0))
+        .negativeColorSet(AARgbaColor(255, 0, 0, 1.0))
+        .fillColorSet((id)gradientBlueColorDic)
+        .negativeFillColorSet((id)gradientRedColorDic)
+        .thresholdSet(@0)//default:0
+        ,
+               ]);
 }
 
 @end
