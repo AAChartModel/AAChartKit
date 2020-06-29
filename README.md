@@ -196,7 +196,7 @@ if you want to refresh chart content,you should do something as follow.According
 
 - ### special area chart one
 
-![IMG_1869.JPG](https://raw.githubusercontent.com/AAChartModel/loadHtmlCssJsDemo-master/master/IMG_1482.JPG)
+![IMG_1869.JPG](https://user-images.githubusercontent.com/16357599/85994916-4f4f1200-ba30-11ea-8256-d3d6161cd3a2.png)
 
 - ### special area chart two
 
