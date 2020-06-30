@@ -411,13 +411,13 @@
               @"Stacking Column Mixed Line---堆积柱形图混合折线图",
               @"Dash Style Types Mixed---多种类型曲线混合图",
               @"All Line Dash Style Types Mixed Chart---所有类型曲线混合图",
-              @"Negative Color Mixed---基准线以下异色混合柱状图📊",
+              @"Negative Color Mixed Column Chart---基准线以下异色混合柱状图📊",
               @"scatterMixedLine---散点图混合折线图",
-              @"Negative Color Mixed bubble---基准线以下异色混合气泡图",
+              @"Negative Color Mixed Bubble Chart---基准线以下异色混合气泡图",
               @"Polygon Mixed Scatter---多边形混合散点图",
               @"Polar Chart Mixed---极地混合图",
               @"configure Column Mixed Scatter Chart---柱形图混合散点图",
-              @"Negative Color Mixed---基准线以下异色混合曲线填充图",
+              @"Negative Color Mixed Areaspline chart---基准线以下异色混合曲线填充图",
 
             ],
             /*图表数据动态刷新*/
