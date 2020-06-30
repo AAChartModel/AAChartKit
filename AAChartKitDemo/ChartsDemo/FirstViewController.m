@@ -569,12 +569,6 @@
             /*基础类型图表X轴水平拖动类型 2*/
             @[@"Column Chart---柱形图",
               @"Bar Chart---条形图",
-//              @"Area Chart---折线填充图",
-//              @"Areaspline Chart---曲线填充图",
-//              @"Line Chart---折线图",
-//              @"Spline Chart---曲线图",
-//              @"Step Line Chart--直方折线图",
-//              @"Step Area Chart--直方折线填充图",
               @"Scatter Chart---散点图"
             ],
         ];

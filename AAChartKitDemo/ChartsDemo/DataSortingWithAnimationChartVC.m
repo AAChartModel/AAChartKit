@@ -19,17 +19,24 @@
 
 @implementation DataSortingWithAnimationChartVC
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_timer invalidate];
+    _timer = nil;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self drawChart];
+    [self setupTimer];
+}
+
 //https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/column-comparison/
 - (AAChartType)configureChartType {
     switch (_chartType) {
         case DataSortingWithAnimationChartVCChartTypeColumn: return AAChartTypeColumn;
         case DataSortingWithAnimationChartVCChartTypeBar: return AAChartTypeBar;
-//        case DataSortingWithAnimationChartVCChartTypeArea: return AAChartTypeArea;
-//        case DataSortingWithAnimationChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
-//        case DataSortingWithAnimationChartVCChartTypeLine: return AAChartTypeLine;
-//        case DataSortingWithAnimationChartVCChartTypeSpline: return AAChartTypeSpline;
-//        case DataSortingWithAnimationChartVCChartTypeStepLine: return AAChartTypeLine;
-//        case DataSortingWithAnimationChartVCChartTypeStepArea: return AAChartTypeArea;
         case DataSortingWithAnimationChartVCChartTypeScatter: return AAChartTypeScatter;
     }
 }
@@ -223,255 +230,6 @@
     NSLog(@"生成的一组假数据为: %@",[AAJsonConverter pureJsonStringWithJsonObject:dataArr]);
     
     return dataArr;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [_timer invalidate];
-    _timer = nil;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self drawChart];
-    [self setupTimer];
-    
-    NSDictionary *dataPrev = @{
-        @"2016": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @0],
-                @[@"Australia", @0],
-                @[@"Germany", @11],
-                @[@"Russia", @24],
-                @[@"China", @38],
-                @[@"Great Britain", @29],
-                @[@"United States", @46]
-        ],
-        @"2012": @[
-                @[@"South Korea", @13],
-                @[@"Japan", @0],
-                @[@"Australia", @0],
-                @[@"Germany", @0],
-                @[@"Russia", @22],
-                @[@"China", @51],
-                @[@"Great Britain", @19],
-                @[@"United States", @36]
-        ],
-        @"2008": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @0],
-                @[@"Australia", @0],
-                @[@"Germany", @13],
-                @[@"Russia", @27],
-                @[@"China", @32],
-                @[@"Great Britain", @9],
-                @[@"United States", @37]
-        ],
-        @"2004": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @5],
-                @[@"Australia", @16],
-                @[@"Germany", @0],
-                @[@"Russia", @32],
-                @[@"China", @28],
-                @[@"Great Britain", @0],
-                @[@"United States", @36]
-        ],
-        @"2000": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @0],
-                @[@"Australia", @9],
-                @[@"Germany", @20],
-                @[@"Russia", @26],
-                @[@"China", @16],
-                @[@"Great Britain", @0],
-                @[@"United States", @44]
-        ]
-    };
-    
-    NSDictionary *data = @{
-        @"2016": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @0],
-                @[@"Australia", @0],
-                @[@"Germany", @17],
-                @[@"Russia", @19],
-                @[@"China", @26],
-                @[@"Great Britain", @27],
-                @[@"United States", @46]
-        ],
-        @"2012": @[
-                @[@"South Korea", @13],
-                @[@"Japan", @0],
-                @[@"Australia", @0],
-                @[@"Germany", @0],
-                @[@"Russia", @24],
-                @[@"China", @38],
-                @[@"Great Britain", @29],
-                @[@"United States", @46]
-        ],
-        @"2008": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @0],
-                @[@"Australia", @0],
-                @[@"Germany", @16],
-                @[@"Russia", @22],
-                @[@"China", @51],
-                @[@"Great Britain", @19],
-                @[@"United States", @36]
-        ],
-        @"2004": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @16],
-                @[@"Australia", @17],
-                @[@"Germany", @0],
-                @[@"Russia", @27],
-                @[@"China", @32],
-                @[@"Great Britain", @0],
-                @[@"United States", @37]
-        ],
-        @"2000": @[
-                @[@"South Korea", @0],
-                @[@"Japan", @0],
-                @[@"Australia", @16],
-                @[@"Germany", @13],
-                @[@"Russia", @32],
-                @[@"China", @28],
-                @[@"Great Britain", @0],
-                @[@"United States", @36]
-        ]
-    };
-    
-    NSDictionary *countries = @[
-        @{
-            @"name": @"South Korea",
-            @"flag": @197582,
-            @"color": @"rgb(201, @36, @39)"
-        }, @{
-            @"name": @"Japan",
-            @"flag": @197604,
-            @"color": @"rgb(201, @36, @39)"
-        }, @{
-            @"name": @"Australia",
-            @"flag": @197507,
-            @"color": @"rgb(0, @82, @180)"
-        }, @{
-            @"name": @"Germany",
-            @"flag": @197571,
-            @"color": @"rgb(0, @0, @0)"
-        }, @{
-            @"name": @"Russia",
-            @"flag": @197408,
-            @"color": @"rgb(240, @240, @240)"
-        }, @{
-            @"name": @"China",
-            @"flag": @197375,
-            @"color": @"rgb(255, @217, @68)"
-        }, @{
-            @"name": @"Great Britain",
-            @"flag": @197374,
-            @"color": @"rgb(0, @82, @180)"
-        }, @{
-            @"name": @"United States",
-            @"flag": @197484,
-            @"color": @"rgb(215, @0, @38)"
-        }];
-    
-    NSMutableArray *flagArr = [NSMutableArray array];
-    for (NSDictionary *element in countries) {
-        [flagArr addObject:element[@"flag"]];
-    }
-    
-    NSString *imageLinkStr = @"<span><img src=\"https://image.flaticon.com/icons/svg/197/ + output + .svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
-    
-    NSString *formatter = (@AAJSFunc((
-    function () {
-        var value = this.value,
-        var countries = [{
-        name: 'South Korea',
-        flag: 197582,
-        color: 'rgb(201, 36, 39)'
-        }, {
-        name: 'Japan',
-        flag: 197604,
-        color: 'rgb(201, 36, 39)'
-        }, {
-        name: 'Australia',
-        flag: 197507,
-        color: 'rgb(0, 82, 180)'
-        }, {
-        name: 'Germany',
-        flag: 197571,
-        color: 'rgb(0, 0, 0)'
-        }, {
-        name: 'Russia',
-        flag: 197408,
-        color: 'rgb(240, 240, 240)'
-        }, {
-        name: 'China',
-        flag: 197375,
-        color: 'rgb(255, 217, 68)'
-        }, {
-        name: 'Great Britain',
-        flag: 197374,
-        color: 'rgb(0, 82, 180)'
-        }, {
-        name: 'United States',
-        flag: 197484,
-        color: 'rgb(215, 0, 38)'
-        }];
-        var output;
-        
-        countries.forEach(function (country) {
-            if (country.name === value) {
-                output = country.flag;
-            }
-        });
-        
-        return '<span><img src="https://image.flaticon.com/icons/svg/197/' + output + '.svg" style="width: 30px; height: 30px;"/><br></span>';
-    })
-                                     ));
-    formatter = [formatter stringByReplacingOccurrencesOfString:@"((" withString:@"("];
-    formatter = [formatter stringByReplacingOccurrencesOfString:@"))" withString:@")"];
-    
-    
-    AAOptions *aaOptions = AAOptions.new
-    .chartSet(AAChart.new
-              .typeSet(AAChartTypeColumn))
-    .titleSet(AATitle.new
-              .textSet(@"Summer Olympics 2016 - Top 5 countries by Gold medals"))
-    .xAxisSet(AAXAxis.new
-              .visibleSet(true)
-              .maxSet(@4)
-              .labelsSet(AALabels.new
-                         .useHTMLSet(true)
-                         .formatterSet(formatter)))
-    .yAxisSet(AAYAxis.new
-              .visibleSet(true)
-              .titleSet((id)AATitle.new
-                        .textSet(@"Gold medals")))
-    .legendSet(AALegend.new
-               .enabledSet(true)
-               .alignSet(AAChartTitleAlignTypeRight)
-               .layoutSet(@"vertical")
-               .verticalAlignSet(@"top")
-               .ySet(@25)
-               )
-    .tooltipSet(AATooltip.new
-                .enabledSet(true)
-                )
-    .seriesSet(@[@{
-                     @"name": @"2016",
-                     @"id": @"main",
-                     @"dataSorting": @{
-                             @"enabled": @true,
-                             @"matchByName": @true
-                     },
-                     @"data": @[]
-    }])
-    ;
-    
 }
 
 
