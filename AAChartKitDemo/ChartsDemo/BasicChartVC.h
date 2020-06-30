@@ -32,21 +32,21 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger,SecondeViewControllerChartType) {
-    SecondeViewControllerChartTypeColumn = 0,
-    SecondeViewControllerChartTypeBar,
-    SecondeViewControllerChartTypeArea,
-    SecondeViewControllerChartTypeAreaspline,
-    SecondeViewControllerChartTypeLine,
-    SecondeViewControllerChartTypeSpline,
-    SecondeViewControllerChartTypeStepLine,
-    SecondeViewControllerChartTypeStepArea,
-    SecondeViewControllerChartTypeScatter,
+typedef NS_ENUM(NSInteger,BasicChartVCChartType) {
+    BasicChartVCChartTypeColumn = 0,
+    BasicChartVCChartTypeBar,
+    BasicChartVCChartTypeArea,
+    BasicChartVCChartTypeAreaspline,
+    BasicChartVCChartTypeLine,
+    BasicChartVCChartTypeSpline,
+    BasicChartVCChartTypeStepLine,
+    BasicChartVCChartTypeStepArea,
+    BasicChartVCChartTypeScatter,
 };
 
 @interface BasicChartVC : UIViewController
 
-@property (nonatomic, assign) SecondeViewControllerChartType chartType;
+@property (nonatomic, assign) BasicChartVCChartType chartType;
 @property (nonatomic, copy  ) NSString  *receivedChartType;
 
 @end

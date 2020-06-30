@@ -74,15 +74,15 @@
 
 - (AAChartType)configureTheChartType {
     switch (_chartType) {
-        case SecondeViewControllerChartTypeColumn: return AAChartTypeColumn;
-        case SecondeViewControllerChartTypeBar: return AAChartTypeBar;
-        case SecondeViewControllerChartTypeArea: return AAChartTypeArea;
-        case SecondeViewControllerChartTypeAreaspline: return AAChartTypeAreaspline;
-        case SecondeViewControllerChartTypeLine: return AAChartTypeLine;
-        case SecondeViewControllerChartTypeSpline: return AAChartTypeSpline;
-        case SecondeViewControllerChartTypeStepLine: return AAChartTypeLine;
-        case SecondeViewControllerChartTypeStepArea: return AAChartTypeArea;
-        case SecondeViewControllerChartTypeScatter: return AAChartTypeScatter;
+        case BasicChartVCChartTypeColumn: return AAChartTypeColumn;
+        case BasicChartVCChartTypeBar: return AAChartTypeBar;
+        case BasicChartVCChartTypeArea: return AAChartTypeArea;
+        case BasicChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
+        case BasicChartVCChartTypeLine: return AAChartTypeLine;
+        case BasicChartVCChartTypeSpline: return AAChartTypeSpline;
+        case BasicChartVCChartTypeStepLine: return AAChartTypeLine;
+        case BasicChartVCChartTypeStepArea: return AAChartTypeArea;
+        case BasicChartVCChartTypeScatter: return AAChartTypeScatter;
     }
 }
 
@@ -212,17 +212,17 @@
 }
 
 - (void)configureTheStyleForDifferentTypeChart {
-    if (_chartType == SecondeViewControllerChartTypeColumn
-        || _chartType == SecondeViewControllerChartTypeBar) {
+    if (_chartType == BasicChartVCChartTypeColumn
+        || _chartType == BasicChartVCChartTypeBar) {
         [self configureColumnChartAndBarChartStyle];
-    } else if (_chartType == SecondeViewControllerChartTypeArea
-               || _chartType == SecondeViewControllerChartTypeAreaspline) {
+    } else if (_chartType == BasicChartVCChartTypeArea
+               || _chartType == BasicChartVCChartTypeAreaspline) {
         [self configureAreaChartAndAreasplineChartStyle];
-    } else if (_chartType == SecondeViewControllerChartTypeLine
-               || _chartType == SecondeViewControllerChartTypeSpline) {
+    } else if (_chartType == BasicChartVCChartTypeLine
+               || _chartType == BasicChartVCChartTypeSpline) {
         [self configureLineChartAndSplineChartStyle];
-    } else if (_chartType == SecondeViewControllerChartTypeStepLine
-               || _chartType == SecondeViewControllerChartTypeStepArea) {
+    } else if (_chartType == BasicChartVCChartTypeStepLine
+               || _chartType == BasicChartVCChartTypeStepArea) {
         [self configureStepLineChartAndStepAreaChartStyle];
     }
 }
@@ -243,10 +243,10 @@
     .xAxisCrosshairWidthSet(@0.9)//Zero width to disable crosshair by default
     .xAxisCrosshairColorSet(@"#FFE4C4")//(浓汤)乳脂,番茄色准星线
     .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot);
-    if (_chartType == SecondeViewControllerChartTypeArea) {
+    if (_chartType == BasicChartVCChartTypeArea) {
         _aaChartModel
         .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);//设置 X 轴坐标文字内容
-    } else if (_chartType == SecondeViewControllerChartTypeAreaspline) {
+    } else if (_chartType == BasicChartVCChartTypeAreaspline) {
         AASeriesElement *element1 = AASeriesElement.new
         .nameSet(@"Predefined symbol")
         .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]);
@@ -273,9 +273,9 @@
     .xAxisCrosshairColorSet(@"#778899")//浅石板灰准星线
     .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot);
     
-    if (_chartType == SecondeViewControllerChartTypeLine) {
+    if (_chartType == BasicChartVCChartTypeLine) {
         _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
-    } else if (_chartType == SecondeViewControllerChartTypeSpline) {
+    } else if (_chartType == BasicChartVCChartTypeSpline) {
         AASeriesElement *element1 = AASeriesElement.new
         .nameSet(@"2017")
         .lineWidthSet(@5.0)
@@ -301,7 +301,7 @@
 
 - (void)configureStepLineChartAndStepAreaChartStyle {
     _aaChartModel.yAxisVisibleSet(false);
-    if (_chartType == SecondeViewControllerChartTypeStepLine) {
+    if (_chartType == BasicChartVCChartTypeStepLine) {
         _aaChartModel.markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
     } else {
         _aaChartModel.easyGradientColorsSet(true);
@@ -350,8 +350,8 @@
     NSArray *segmentedNamesArr;
     NSArray *typeLabelNameArr;
     
-    if (_chartType == SecondeViewControllerChartTypeColumn
-        ||_chartType == SecondeViewControllerChartTypeBar) {
+    if (_chartType == BasicChartVCChartTypeColumn
+        ||_chartType == BasicChartVCChartTypeBar) {
         segmentedNamesArr = @[
             @[@"No stacking",
               @"Normal stacking",
@@ -473,7 +473,7 @@
 
 - (void)setUpTheSwitchs {
     NSArray *nameArr;
-    if (_chartType == SecondeViewControllerChartTypeColumn || _chartType == SecondeViewControllerChartTypeBar) {
+    if (_chartType == BasicChartVCChartTypeColumn || _chartType == BasicChartVCChartTypeBar) {
         nameArr = @[
             @"xAxisReversed",
             @"yAxisReversed",
@@ -643,14 +643,14 @@
     options = AAOptions.new
     .chartSet(aaChart);
     
-    if (_chartType == SecondeViewControllerChartTypeStepArea
-        || _chartType == SecondeViewControllerChartTypeStepLine) {
+    if (_chartType == BasicChartVCChartTypeStepArea
+        || _chartType == BasicChartVCChartTypeStepLine) {
         [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @YES;
         }];
         options.seriesSet(_aaChartModel.series);
-    } else if (_chartType == SecondeViewControllerChartTypeScatter) {
+    } else if (_chartType == BasicChartVCChartTypeScatter) {
         [_aaChartModel.series enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @NO;
@@ -661,7 +661,7 @@
 //    [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
     [_aaChartView aa_updateChartWithOptions:options];
     
-    if (_chartType == SecondeViewControllerChartTypeScatter) {
+    if (_chartType == BasicChartVCChartTypeScatter) {
         _chartType = -1;//重新开始
     }
 }
