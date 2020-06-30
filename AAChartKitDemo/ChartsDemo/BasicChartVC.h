@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger,SecondeViewControllerChartType) {
     SecondeViewControllerChartTypeScatter,
 };
 
-@interface SecondViewController : UIViewController
+@interface BasicChartVC : UIViewController
 
 @property (nonatomic, assign) SecondeViewControllerChartType chartType;
 @property (nonatomic, copy  ) NSString  *receivedChartType;

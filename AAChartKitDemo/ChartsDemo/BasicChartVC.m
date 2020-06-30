@@ -30,18 +30,18 @@
  
  */
 
-#import "SecondViewController.h"
+#import "BasicChartVC.h"
 #import "AAChartKit.h"
 #import "AAEasyTool.h"
 
-@interface SecondViewController ()<AAChartViewEventDelegate>
+@interface BasicChartVC ()<AAChartViewEventDelegate>
 
 @property (nonatomic, strong) AAChartModel *aaChartModel;
 @property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
-@implementation SecondViewController
+@implementation BasicChartVC
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];

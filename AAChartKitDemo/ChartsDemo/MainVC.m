@@ -32,8 +32,8 @@
  
  */
 
-#import "FirstViewController.h"
-#import "SecondViewController.h"
+#import "MainVC.h"
+#import "BasicChartVC.h"
 #import "SpecialChartVC.h"
 #import "OnlyRefreshChartDataVC.h"
 #import "ChartAnimationTypeVC.h"
@@ -55,14 +55,14 @@
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 #define AABlueColor            ColorWithRGB(63, 153,231,1)
 
-@interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MainVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *chartTypeNameArr;
 @property (nonatomic, strong) NSArray *sectionTypeArr;
 
 @end
 
-@implementation FirstViewController
+@implementation MainVC
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -148,7 +148,7 @@
     switch (indexPath.section) {
         case 0: {
             /*基础类型图表*/
-            SecondViewController *vc = SecondViewController.new;
+            BasicChartVC *vc = BasicChartVC.new;
             vc.chartType = indexPath.row;
             [self.navigationController pushViewController:vc animated:YES];
         }

@@ -74,8 +74,8 @@
 		7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911B1E80B33700382A09 /* IMG_1863.JPG */; };
 		7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911D1E80B6AE00382A09 /* IMG_1873.JPG */; };
 		713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 713F54361E7B71C000D506C7 /* AAChartKitShow.gif */; };
-		713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* FirstViewController.m */; };
-		713F543E1E7B71C000D506C7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F543A1E7B71C000D506C7 /* SecondViewController.m */; };
+		713F543D1E7B71C000D506C7 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* MainVC.m */; };
+		713F543E1E7B71C000D506C7 /* BasicChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F543A1E7B71C000D506C7 /* BasicChartVC.m */; };
 		7172A3D81E763EA6000D5B99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3D71E763EA6000D5B99 /* main.m */; };
 		7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3DA1E763EA6000D5B99 /* AppDelegate.m */; };
 		7172A3E11E763EA6000D5B99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172A3DF1E763EA6000D5B99 /* Main.storyboard */; };
@@ -226,10 +226,10 @@
 		7131911B1E80B33700382A09 /* IMG_1863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1863.JPG; sourceTree = "<group>"; };
 		7131911D1E80B6AE00382A09 /* IMG_1873.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1873.JPG; sourceTree = "<group>"; };
 		713F54361E7B71C000D506C7 /* AAChartKitShow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AAChartKitShow.gif; sourceTree = "<group>"; };
-		713F54371E7B71C000D506C7 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		713F54381E7B71C000D506C7 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		713F54391E7B71C000D506C7 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		713F543A1E7B71C000D506C7 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		713F54371E7B71C000D506C7 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		713F54381E7B71C000D506C7 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		713F54391E7B71C000D506C7 /* BasicChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicChartVC.h; sourceTree = "<group>"; };
+		713F543A1E7B71C000D506C7 /* BasicChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicChartVC.m; sourceTree = "<group>"; };
 		7172A3D31E763EA6000D5B99 /* AAChartKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAChartKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7172A3D71E763EA6000D5B99 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7172A3D91E763EA6000D5B99 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -375,10 +375,10 @@
 		27F0CA7B21018CC7004BD904 /* MainContent */ = {
 			isa = PBXGroup;
 			children = (
-				713F54371E7B71C000D506C7 /* FirstViewController.h */,
-				713F54381E7B71C000D506C7 /* FirstViewController.m */,
-				713F54391E7B71C000D506C7 /* SecondViewController.h */,
-				713F543A1E7B71C000D506C7 /* SecondViewController.m */,
+				713F54371E7B71C000D506C7 /* MainVC.h */,
+				713F54381E7B71C000D506C7 /* MainVC.m */,
+				713F54391E7B71C000D506C7 /* BasicChartVC.h */,
+				713F543A1E7B71C000D506C7 /* BasicChartVC.m */,
 				645E59531E8403710039A0A1 /* SpecialChartVC.h */,
 				44711744217E2C87009D9FB0 /* SpecialChartVC.m */,
 				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
@@ -697,7 +697,7 @@
 				1E66D218210AF4ED007EAB8C /* AASeriesElement.m in Sources */,
 				1E66D205210AF4ED007EAB8C /* AAYAxis.m in Sources */,
 				4454E46722DEC86F00E01944 /* AAJSStringPurer.m in Sources */,
-				713F543E1E7B71C000D506C7 /* SecondViewController.m in Sources */,
+				713F543E1E7B71C000D506C7 /* BasicChartVC.m in Sources */,
 				44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */,
 				278989BB204F8DBA003940CC /* ChartListVC.m in Sources */,
 				4486C50D23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m in Sources */,
@@ -735,7 +735,7 @@
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
 				44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */,
 				44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */,
-				713F543D1E7B71C000D506C7 /* FirstViewController.m in Sources */,
+				713F543D1E7B71C000D506C7 /* MainVC.m in Sources */,
 				1E66D20D210AF4ED007EAB8C /* AAArea.m in Sources */,
 				1E66D210210AF4ED007EAB8C /* AAMarker.m in Sources */,
 				1E66D214210AF4ED007EAB8C /* AAChart.m in Sources */,
