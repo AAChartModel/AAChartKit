@@ -481,7 +481,7 @@ WKScriptMessageHandler
     NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
                        _optionJson,
                        chartViewContentWidth,
-                       chartViewContentHeight - 1];
+                       chartViewContentHeight];
     return jsStr;
 }
 
