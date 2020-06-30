@@ -100,8 +100,13 @@
                     .seriesSet(AASeries.new
                                .dataLabelsSet(AADataLabels.new
                                               .enabledSet(true)
+                                              .insideSet(true)//DataLabels是否在内部
                                               .styleSet(AAStyle.new
-                                                        .fontSizeSet(@"12px")))
+                                                        .colorSet(AAColor.whiteColor)
+                                                        .fontWeightSet(AAChartFontWeightTypeBold)
+                                                        .fontSizeSet(@"11px")
+                                                        .textOutlineSet(@"none")//文字轮廓描边
+                                                        ))
                                ))
     .seriesSet(@[
         AASeriesElement.new
@@ -117,27 +122,27 @@
         aaOptions.plotOptions
         .columnSet(AAColumn.new
                    .pointPaddingSet(@0)
-                   .groupPaddingSet(@0.005));
+                   .groupPaddingSet(@0.005))
+        .series
+        .dataLabels
+        .verticalAlignSet(AAChartVerticalAlignTypeBottom)
+        ;
     } else if (aaOptions.chart.type == AAChartTypeBar) {
         aaOptions.plotOptions
         .barSet(AABar.new
                 .pointPaddingSet(@0)
                 .groupPaddingSet(@0.005))
         .series
-        .dataLabelsSet(AADataLabels.new
-                       .enabledSet(true)
-                       .alignSet(AAChartAlignTypeLeft)//DataLabels水平对齐位置
-                       .insideSet(true)//DataLabels是否在条形图的长条内部
-                       .styleSet(AAStyle.new
-                                 .colorSet(AAColor.whiteColor)
-                                 .fontWeightSet(AAChartFontWeightTypeBold)
-                                 .fontSizeSet(@"11px")
-                                 .textOutlineSet(@"none")//文字轮廓描边
-                                 ));
+        .dataLabels
+        .alignSet(AAChartAlignTypeLeft)
+        ;
     } else if (aaOptions.chart.type == AAChartTypeScatter) {
         aaOptions.plotOptions.series
         .markerSet(AAMarker.new
-                   .radiusSet(@15));
+                   .radiusSet(@15))
+        .dataLabels
+        .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
+        ;
     }
     
     return aaOptions;
