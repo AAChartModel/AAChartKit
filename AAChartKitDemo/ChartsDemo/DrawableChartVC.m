@@ -117,7 +117,7 @@
     .stackingSet(AAChartStackingTypeNormal)
     .scrollablePlotAreaSet(
         AAScrollablePlotArea.new
-        .minWidthSet(@3000)
+        .minWidthSet(@6000)
         .scrollPositionXSet(@0))
     .colorsThemeSet(@[
         gradientColorDic1,
@@ -127,6 +127,15 @@
     ])
     .seriesSet([self configureSeries])
     ;
+    
+    if (aaChartModel.chartType == AAChartTypeBar) {
+        aaChartModel
+        .scrollablePlotAreaSet(
+             AAScrollablePlotArea.new
+             .minHeightSet(@6000)
+             .scrollPositionYSet(@1)
+                               );
+    }
     
     if (self.type == DrawableChartVCTypeUpdateXAxsiExtremes) {
         aaChartModel.zoomType = AAChartZoomTypeX;//‼️‼️ Important property for supportting drawable chart 重要属性,需要支持 X 轴横向滚动
@@ -147,7 +156,7 @@
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
     int Q = arc4random()%30;
-    for (float x = myBasicValue; x <= myBasicValue + 18 ; x++) {
+    for (float x = myBasicValue; x <= myBasicValue + 280 ; x++) {
           //第一个波纹的公式
         y1 = sin((Q) * (x * M_PI / 180)) +x*2*0.01-1 ;
         [sinNumArr addObject:@(y1)];

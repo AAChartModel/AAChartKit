@@ -78,6 +78,10 @@
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
+    .scrollablePlotAreaSet(
+          AAScrollablePlotArea.new
+          .minWidthSet(@3000)
+          .scrollPositionXSet(@0))
     ;
     
     NSArray *seriesArr;
