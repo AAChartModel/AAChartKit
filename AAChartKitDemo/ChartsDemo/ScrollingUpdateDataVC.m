@@ -122,17 +122,27 @@
     }
     
     
-    AASeriesElement *element1 = AASeriesElement.new
+    AASeriesElement *element0 = AASeriesElement.new
     .nameSet(@"2017")
     .dataSet(sinNumArr)
     .colorSet((id)[AAGradientColor deepSeaColor]);
     
-    AASeriesElement *element2 = AASeriesElement.new
+    AASeriesElement *element1 = AASeriesElement.new
     .nameSet(@"2018")
     .dataSet(sinNumArr2)
     .colorSet((id)[AAGradientColor sanguineColor]);
     
-    NSArray *seriesArr = @[element1,element2];
+    AASeriesElement *element2 = AASeriesElement.new
+    .nameSet(@"2019")
+    .dataSet(sinNumArr)
+    .colorSet((id)[AAGradientColor wroughtIronColor]);
+    
+    AASeriesElement *element3 = AASeriesElement.new
+    .nameSet(@"2020")
+    .dataSet(sinNumArr2)
+    .colorSet((id)[AAGradientColor pixieDustColor]);
+    
+    NSArray *seriesArr = @[element0,element1,element2,element3,];
     
     seriesArr = [self setupStepChartSeriesElementWithSeriesArr:seriesArr];
     return seriesArr;
@@ -164,6 +174,8 @@
     // options 支持 NSNuber, NSArray 和 AADataElement 三种类型
     id options0;
     id options1;
+    id options2;
+    id options3;
     
     if (self.chartType != ScrollingUpdateDataVCChartTypeColumn
         && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
@@ -194,12 +206,45 @@
                    //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                    .lineColorSet(@"red")
                    );
+        
+        options2 = AADataElement.new
+             .ySet(@(y0))
+             .dataLabelsSet(AADataLabels.new
+                            .colorSet(@"grey")
+                            .formatSet(@"{y:.2f} 欧元"))
+             .markerSet(AAMarker.new
+                        .radiusSet(@8)//曲线连接点半径
+                        .symbolSet(AAChartSymbolTypeSquare)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                        .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                        .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                        //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                        .lineColorSet(@"grey")
+                        );
+             
+             options3 = AADataElement.new
+             .ySet(@(y1))
+             .dataLabelsSet(AADataLabels.new
+                            .colorSet(@"SpringGreen")
+                            .formatSet(@"{y:.2f} 日元"))
+             .markerSet(AAMarker.new
+                        .radiusSet(@8)//曲线连接点半径
+                        .symbolSet(AAChartSymbolTypeTriangle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                        .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                        .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                        //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                        .lineColorSet(@"SpringGreen")
+                        );
     } else {
         options0 = @(y0);
         options1 = @(y1);
+        options2 = @(y0);
+        options3 = @(y1);
     }
+    
+//    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
 
-    [self.chartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1]];
+
+    [self.chartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1,options2, options3]];
 }
 
 - (NSArray *)setupStepChartSeriesElementWithSeriesArr:(NSArray *)seriesArr {
