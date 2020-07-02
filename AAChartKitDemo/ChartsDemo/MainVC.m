@@ -403,7 +403,9 @@
               @"disableSomeOfLinesMouseTrackingEffect---针对部分数据列关闭鼠标或手指跟踪行为",
               @"configureColorfulShadowChart---彩色阴影效果的曲线图",
               @"configureColorfulDataLabelsStepLineChart---彩色 DataLabels 的直方折线图",
-              @"disableSplineChartMarkerHoverEffect---禁用曲线图的手指滑动 marker 点的光圈变化放大的效果"
+              @"configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart---彩色渐变效果且彩色 DataLabels 的直方折线填充图",
+              @"disableSplineChartMarkerHoverEffect---禁用曲线图的手指滑动 marker 点的光圈变化放大的效果",
+              
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",
