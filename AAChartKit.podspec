@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
                    DESC
     s.homepage     = 'https://github.com/AAChartModel/AAChartKit'
     s.license      = { :type => "MIT", :file => 'LICENSE' }
-    s.authors      = {'An An' => '18256973864@163.com'}
+    s.authors      = {'An An' => '2236368544@qq.com'}
     s.platform     = :ios, '8.0'
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.social_media_url = 'https://github.com/AAChartModel'
