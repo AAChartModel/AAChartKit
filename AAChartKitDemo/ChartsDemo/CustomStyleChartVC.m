@@ -1078,16 +1078,16 @@
     .invertedSet(true)
     .legendEnabledSet(true)
     .seriesSet(@[
-        @{@"name":@"2020",
-          @"data":@[
-              @[@"Swift",       @15654],
-              @[@"Objective-C",  @4064],
-              @[@"JavaScript",   @1987],
-              @[@"GO",            @976],
-              @[@"Python",        @846]
-          ],
-          @"reversed":@false
-        },
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .reversedSet(@true)
+        .dataSet(@[
+            @[@"Swift",       @15654],
+            @[@"Objective-C",  @4064],
+            @[@"JavaScript",   @1987],
+            @[@"GO",            @976],
+            @[@"Python",        @846]
+        ])
     ]);
 }
 
