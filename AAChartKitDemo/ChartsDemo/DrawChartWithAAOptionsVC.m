@@ -1057,31 +1057,6 @@
 }
 
 - (AAOptions *)simpleGaugeChart {
-//    NSDictionary *aaOptions = @{
-//        @"chart": @{
-//                @"type": @"gauge"
-//        },
-//        @"pane": @{
-//                @"startAngle": @-150,
-//                @"endAngle": @150
-//        },
-//        @"yAxis": @{
-//                @"min": @0,
-//                @"max": @100,
-//                @"plotBands": @[
-//                        @{
-//                            @"from": @0,
-//                            @"to": @60,
-//                            @"color": @"#FF0000",
-//                            @"outerRadius": @"105%",
-//                            @"thickness": @"5%"
-//                        }]
-//        },
-//        @"series": @[@{
-//                         @"data": @[@80]
-//        }]
-//    };
-    
     AAOptions *aaOptions2 = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge))
@@ -1106,45 +1081,6 @@
 }
 
 - (AAOptions *)gaugeChartWithPlotBand {
-//    NSDictionary *aaOptions = @{
-//        @"chart": @{
-//                @"type": @"gauge",
-//        },
-//        @"title": @{
-//                @"text": @"速度仪"
-//        },
-//        @"pane": @{
-//                @"startAngle": @-150,
-//                @"endAngle": @150,
-//        },
-//        // the value axis
-//        @"yAxis": @{
-//                @"min": @0,
-//                @"max": @200,
-//
-//                @"title": @{
-//                        @"text": @"km/h"
-//                },
-//                @"plotBands": @[@{
-//                                    @"from":@ 0,
-//                                    @"to": @120,
-//                                    @"color": @"#ffc069"
-//                }, @{
-//                                    @"from": @120,
-//                                    @"to": @160,
-//                                    @"color": @"#fe117c"
-//                }, @{
-//                                    @"from": @160,
-//                                    @"to": @200,
-//                                    @"color": @"#06caf4"
-//                }]
-//        },
-//        @"series": @[@{
-//                         @"name": @"Speed",
-//                         @"data": @[@80],
-//        }]
-//    };
-    
     AAOptions *aaOptions2 = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge))
