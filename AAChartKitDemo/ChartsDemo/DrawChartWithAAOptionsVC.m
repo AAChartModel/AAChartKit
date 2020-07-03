@@ -99,9 +99,9 @@
         case 16: return [self configureTheMirrorColumnChart];//正负对称的镜像柱状图
         case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 18: return [self simpleGaugeChart];//简易仪表图
-        case 19: return [self gaugeChartWithPlotBand];//带有颜色带的仪表图
-        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图表
-        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的曲线图表
+        case 19: return [self gaugeChartWithPlotBand];//带有颜色标志带的仪表图
+        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图
+        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的折线图表
         case 22: return [self configureAASeriesElementZones];//数据分区 Zones
         case 23: return [self configureAASeriesElementZonesMixedAAPlotLines];//数据分区 Zones 和颜色标志线混合
         case 24: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
@@ -121,8 +121,11 @@
         case 38: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
         case 39: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
         case 40: return [self configurePieChartFormatProperty];//配置饼图的 dataLabels 的 format 属性
-        case 41:  return [self customXAxisLabelsBeImages];
-
+        case 41: return [self customXAxisLabelsBeImages];//自定义曲线面积图 X 轴 labels 为一组图片🖼
+        case 42: return [self configureTriangleRadarChart];//带有颜色标志带的三角形雷达图
+        case 43: return [self configureQuadrangleRadarChart];//带有颜色标志带的四角形雷达图
+        case 44: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
+        case 45: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
     }
     return nil;
 }
@@ -2495,4 +2498,187 @@
     aaOptions.xAxis.labels.useHTML = true;
     return aaOptions;
 }
+
+//三角形雷达图
+- (AAOptions *)configureTriangleRadarChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .backgroundColorSet(AAColor.whiteColor)
+    .markerRadiusSet(@0)
+    .yAxisMaxSet(@25)
+    .yAxisGridLineWidthSet(@1)
+    .polarSet(true)
+    .legendEnabledSet(false)
+    .tooltipEnabledSet(false)
+    .xAxisGridLineWidthSet(@1)
+    .yAxisGridLineWidthSet(@1)
+    .xAxisCrosshairWidthSet(@1.5)
+    .xAxisCrosshairColorSet(AAColor.whiteColor)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
+    .yAxisCrosshairWidthSet(@1.5)
+    .yAxisCrosshairColorSet(AAColor.whiteColor)
+    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
+    .yAxisTickPositionsSet(@[@5,@10,@15,@20,@25,])
+    .seriesSet(@[
+        AASeriesElement.new
+        .colorSet(AAColor.whiteColor)
+        .fillOpacitySet(@0.01)
+        .dataLabelsSet(AADataLabels.new
+                       .colorSet(AARgbaColor(30, 144, 255, 1.0)))
+        .dataSet(@[@17.0, @16.9, @12.5,]),
+    ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+
+    aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
+    aaOptions.xAxis.gridLineColor = AARgbaColor(30, 144, 255, 0.6);
+    aaOptions.yAxis.gridLineColor = AARgbaColor(30, 144, 255, 1.0);
+
+    NSArray *aaPlotBandsArr = @[
+        AAPlotBandsElement.new
+        .fromSet(@0)
+        .toSet(@5)
+        .colorSet(AARgbaColor(30, 144, 255, 1.0)),
+        AAPlotBandsElement.new
+        .fromSet(@5)
+        .toSet(@10)
+        .colorSet(AARgbaColor(30, 144, 255, 0.8)),
+        AAPlotBandsElement.new
+        .fromSet(@10)
+        .toSet(@15)
+        .colorSet(AARgbaColor(30, 144, 255, 0.6)),
+        AAPlotBandsElement.new
+        .fromSet(@15)
+        .toSet(@20)
+        .colorSet(AARgbaColor(30, 144, 255, 0.4)),
+        AAPlotBandsElement.new
+        .fromSet(@20)
+        .toSet(@25)
+        .colorSet(AARgbaColor(30, 144, 255, 0.2)),
+    ];
+    
+    AAYAxis *aaYAxis = aaOptions.yAxis;
+    aaYAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
+}
+
+//四边形雷达图
+- (AAOptions *)configureQuadrangleRadarChart {
+    AAOptions *aaOptions = [self configureTriangleRadarChart];
+    aaOptions.yAxis.plotBands = @[
+            AAPlotBandsElement.new
+            .fromSet(@0)
+            .toSet(@5)
+            .colorSet(AARgbaColor(255, 0, 0, 1.0)),
+            AAPlotBandsElement.new
+            .fromSet(@5)
+            .toSet(@10)
+            .colorSet(AARgbaColor(255, 0, 0, 0.8)),
+            AAPlotBandsElement.new
+            .fromSet(@10)
+            .toSet(@15)
+            .colorSet(AARgbaColor(255, 0, 0, 0.6)),
+            AAPlotBandsElement.new
+            .fromSet(@15)
+            .toSet(@20)
+            .colorSet(AARgbaColor(255, 0, 0, 0.4)),
+            AAPlotBandsElement.new
+            .fromSet(@20)
+            .toSet(@25)
+            .colorSet(AARgbaColor(255, 0, 0, 0.2)),
+
+    ];
+    
+    aaOptions.xAxis.gridLineColor = AARgbaColor(255, 0, 0, 0.6);
+    aaOptions.yAxis.gridLineColor = AARgbaColor(255, 0, 0, 1.0);
+    
+    AASeriesElement *element = aaOptions.series[0];
+    element.dataSet(@[@17.0, @16.9, @12.5, @14.5,])
+    .dataLabelsSet(AADataLabels.new
+                   .colorSet(AARgbaColor(255, 0, 0, 1.0)))
+;
+    
+    return aaOptions;
+}
+
+//五边形雷达图
+- (AAOptions *)configurePentagonRadarChart {
+    AAOptions *aaOptions = [self configureTriangleRadarChart];
+    aaOptions.yAxis.plotBands = @[
+            AAPlotBandsElement.new
+            .fromSet(@0)
+            .toSet(@5)
+            .colorSet(AARgbaColor(255, 215, 0, 1.0)),
+            AAPlotBandsElement.new
+            .fromSet(@5)
+            .toSet(@10)
+            .colorSet(AARgbaColor(255, 215, 0, 0.8)),
+            AAPlotBandsElement.new
+            .fromSet(@10)
+            .toSet(@15)
+            .colorSet(AARgbaColor(255, 215, 0, 0.6)),
+            AAPlotBandsElement.new
+            .fromSet(@15)
+            .toSet(@20)
+            .colorSet(AARgbaColor(255, 215, 0, 0.4)),
+            AAPlotBandsElement.new
+            .fromSet(@20)
+            .toSet(@25)
+            .colorSet(AARgbaColor(255, 215, 0, 0.2)),
+
+    ];
+    
+    aaOptions.xAxis.gridLineColor = AARgbaColor(255, 215, 0, 0.6);
+    aaOptions.yAxis.gridLineColor = AARgbaColor(255, 215, 0, 1.0);
+    
+    AASeriesElement *element = aaOptions.series[0];
+    element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2,])
+    .dataLabelsSet(AADataLabels.new
+                   .colorSet(AARgbaColor(255, 215, 0, 1.0)))
+;
+    
+    return aaOptions;
+}
+
+//六边形雷达图
+- (AAOptions *)configureHexagonRadarChart {
+    AAOptions *aaOptions = [self configureTriangleRadarChart];
+    aaOptions.yAxis.plotBands = @[
+            AAPlotBandsElement.new
+            .fromSet(@0)
+            .toSet(@5)
+            .colorSet(AARgbaColor(50, 205, 50, 1.0)),
+            AAPlotBandsElement.new
+            .fromSet(@5)
+            .toSet(@10)
+            .colorSet(AARgbaColor(50, 205, 50, 0.8)),
+            AAPlotBandsElement.new
+            .fromSet(@10)
+            .toSet(@15)
+            .colorSet(AARgbaColor(50, 205, 50, 0.6)),
+            AAPlotBandsElement.new
+            .fromSet(@15)
+            .toSet(@20)
+            .colorSet(AARgbaColor(50, 205, 50, 0.4)),
+            AAPlotBandsElement.new
+            .fromSet(@20)
+            .toSet(@25)
+            .colorSet(AARgbaColor(50, 205, 50, 0.2)),
+
+    ];
+    
+    aaOptions.xAxis.gridLineColor = AARgbaColor(50, 205, 50, 0.6);
+    aaOptions.yAxis.gridLineColor = AARgbaColor(50, 205, 50, 1.0);
+    
+    AASeriesElement *element = aaOptions.series[0];
+    element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2, @21.5,])
+    .dataLabelsSet(AADataLabels.new
+                   .colorSet(AARgbaColor(50, 205, 50, 1.0)))
+;
+    
+    return aaOptions;
+}
+
+
 @end
