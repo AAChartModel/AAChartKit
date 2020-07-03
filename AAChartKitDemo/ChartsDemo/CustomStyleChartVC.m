@@ -1297,45 +1297,43 @@
                ]);
 }
 
-// GitHub issue https://github.com/AAChartModel/AAChartKit/issues/905
+// GitHub issue https://github.com/AAChartModel/AAChartKit-Swift/issues/223
 - (AAChartModel *)configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart {
     NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
     ];
-    
     NSDictionary *gradientBlueColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:blueStopsArr];
+    
     
     NSArray *redStopsArr = @[
         @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
     ];
-    
     NSDictionary *gradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:redStopsArr];
+    
     
     NSArray *goldStopsArr = @[
         @[@0.0, AARgbaColor(255, 215, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.6, AARgbaColor(255, 215, 0, 0.2)],
         @[@1.0, AARgbaColor(255, 215, 0, 0.0)]
     ];
-    
     NSDictionary *gradientGoldColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:goldStopsArr];
+    
     
     NSArray *greenStopsArr = @[
         @[@0.0, AARgbaColor(50, 205, 50, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.6, AARgbaColor(50, 205, 50, 0.2)],
         @[@1.0, AARgbaColor(50, 205, 50, 0.0)]
     ];
-    
-    
     NSDictionary *gradientGreenColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:greenStopsArr];
@@ -1365,7 +1363,6 @@
         .nameSet(@"2018")
         .fillColorSet((id)gradientRedColorDic)
         .lineWidthSet(@6)
-        
         .stepSet(@(true))
         .dataLabelsSet(AADataLabels.new
                        .styleSet(AAStyle.new
@@ -1377,7 +1374,6 @@
         .nameSet(@"2019")
         .fillColorSet((id)gradientGoldColorDic)
         .lineWidthSet(@6)
-        
         .stepSet(@(true))
         .dataLabelsSet(AADataLabels.new
                        .styleSet(AAStyle.new
@@ -1389,7 +1385,6 @@
         .nameSet(@"2020")
         .fillColorSet((id)gradientGreenColorDic)
         .lineWidthSet(@6)
-        
         .stepSet(@(true))
         .dataLabelsSet(AADataLabels.new
                        .styleSet(AAStyle.new
