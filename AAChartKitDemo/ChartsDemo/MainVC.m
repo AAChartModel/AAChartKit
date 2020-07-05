@@ -81,6 +81,8 @@
     UITableView *tableView = [[UITableView alloc]init];
     tableView.delegate =self;
     tableView.dataSource =self;
+    tableView.rowHeight = 40;
+    tableView.sectionHeaderHeight = 50;
     tableView.frame = CGRectMake(0, 0, 100, self.view.frame.size.height);
     [self.view addSubview:tableView];
     
@@ -93,13 +95,6 @@
     return self.chartTypeNameArr.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 50;
-}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc]init];
