@@ -41,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+
 }
 
 
@@ -61,6 +62,29 @@
     NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:self.aaChartView
                                                                  toFatherView:self.view];
     [self.view addConstraints:constraintsArr];
+}
+
+- (void)setupNextTypeChartButton {
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = barItem;
+}
+
+- (void)monitorTap {
+    if (self.selectedIndex == self.navigationItemTitleArr.count - 1) {
+        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
+    } else {
+        self.selectedIndex = self.selectedIndex + 1;
+        self.title = self.navigationItemTitleArr[self.selectedIndex];
+        AAChartModel *aaChartModel = [self configureTheChartModel:self.selectedIndex];
+        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
+    }
+}
+
+- (AAChartModel *)configureTheChartModel:(NSUInteger)selectedIndex {
+   return nil;
 }
 
 @end
