@@ -42,11 +42,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setupTitle];
+    [self setupNextTypeChartButton];
 
+    [self setupChartView];
+}
+
+- (void)setupTitle {
+    NSString *chartType = self.navigationItemTitleArr[self.selectedIndex];
+    self.title = [NSString stringWithFormat:@"%@ chart",chartType];
 }
 
 
-- (void)setupChartView:(AAChartType)chartType {
+- (void)setupChartView {
     self.aaChartView = [[AAChartView alloc]init];
     self.view.backgroundColor = [UIColor whiteColor];
     self.aaChartView.scrollEnabled = NO;
@@ -57,11 +65,14 @@
     .easingSet(AAChartAnimationEaseOutQuart);
     [self.aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
     
-    // !!!!!
+    // ⚠️
     self.aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
     NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:self.aaChartView
                                                                  toFatherView:self.view];
     [self.view addConstraints:constraintsArr];
+    
+    AAChartModel *aaChartModel = [self configureTheChartModel:self.selectedIndex];
+    [self.aaChartView aa_drawChartWithChartModel:aaChartModel];
 }
 
 - (void)setupNextTypeChartButton {

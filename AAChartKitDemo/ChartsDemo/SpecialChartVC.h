@@ -31,8 +31,9 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "AABaseViewController.h"
 
-@interface SpecialChartVC : UIViewController
+@interface SpecialChartVC : AABaseViewController
 
 @property (nonatomic, strong) NSArray *navigationItemTitleArr;
 @property (nonatomic, assign) NSUInteger selectedIndex;

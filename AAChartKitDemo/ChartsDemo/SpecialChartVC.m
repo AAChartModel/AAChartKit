@@ -36,9 +36,6 @@
 
 @interface SpecialChartVC ()
 
-@property (nonatomic, strong) AAChartModel *aaChartModel;
-@property (nonatomic, strong) AAChartView  *aaChartView;
-
 @end
 
 @implementation SpecialChartVC
@@ -46,34 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSString *chartType = self.navigationItemTitleArr[self.selectedIndex];
-    self.title = [NSString stringWithFormat:@"%@ chart",chartType];
-    
-    [self setUpTheChartView:chartType];
-    [self setUpTheNextTypeChartButton];
-}
-
-- (void)setUpTheChartView:(AAChartType)chartType {
-//    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
-    self.aaChartView = [[AAChartView alloc]init];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.aaChartView.scrollEnabled = NO;
-    [self.view addSubview:self.aaChartView];
-    
-    AAAnimation *aaAnimation = AAAnimation.new
-    .durationSet(@1000)
-    .easingSet(AAChartAnimationEaseOutQuart);
-    [self.aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
-    
-    // !!!!!
-    self.aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:self.aaChartView
-                                                                 toFatherView:self.view];
-    [self.view addConstraints:constraintsArr];
-    
-    self.aaChartModel = [self configureTheChartModel:self.selectedIndex];
-    [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
+   
 }
 
 - (AAChartModel *)configureTheChartModel:(NSUInteger)selectedIndex {
@@ -103,24 +73,6 @@
     return nil;
 }
 
-- (void)setUpTheNextTypeChartButton {
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(monitorTap)];
-    self.navigationItem.rightBarButtonItem = barItem;
-}
-
-- (void)monitorTap {
-    if (self.selectedIndex == 10) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.selectedIndex = self.selectedIndex + 1;
-        self.title = self.navigationItemTitleArr[self.selectedIndex];
-        AAChartModel *aaChartModel = [self configureTheChartModel:self.selectedIndex];
-        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
-    }
-}
 
 - (AAChartModel *)configurePieChart {
     AASeriesElement *element = AASeriesElement.new
