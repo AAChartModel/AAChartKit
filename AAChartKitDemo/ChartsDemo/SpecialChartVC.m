@@ -46,7 +46,7 @@
    
 }
 
-- (AAChartModel *)configureTheChartModel:(NSUInteger)selectedIndex {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     if (selectedIndex == 0) {
         return [self configurePieChart];
     } else if (selectedIndex == 1) {

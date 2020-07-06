@@ -68,11 +68,10 @@
     // ⚠️
     self.aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
     NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:self.aaChartView
-                                                                 toFatherView:self.view];
+                                                                    toFatherView:self.view];
     [self.view addConstraints:constraintsArr];
     
-    AAChartModel *aaChartModel = [self configureTheChartModel:self.selectedIndex];
-    [self.aaChartView aa_drawChartWithChartModel:aaChartModel];
+    [self drawChartWithChartConfiguration];
 }
 
 - (void)setupNextTypeChartButton {
@@ -89,13 +88,30 @@
     } else {
         self.selectedIndex = self.selectedIndex + 1;
         self.title = self.navigationItemTitleArr[self.selectedIndex];
-        AAChartModel *aaChartModel = [self configureTheChartModel:self.selectedIndex];
-        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
+        [self refreshChartWithChartConfiguration];
     }
 }
 
-- (AAChartModel *)configureTheChartModel:(NSUInteger)selectedIndex {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
    return nil;
+}
+
+- (void)drawChartWithChartConfiguration {
+    id chartOption = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
+    if ([chartOption isKindOfClass:AAChartModel.class]) {
+        [self.aaChartView aa_drawChartWithChartModel:chartOption];
+    } else if ([chartOption isKindOfClass:AAOptions.class]) {
+        [self.aaChartView aa_drawChartWithOptions:chartOption];
+    }
+}
+
+- (void)refreshChartWithChartConfiguration {
+    id chartOption = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
+    if ([chartOption isKindOfClass:AAChartModel.class]) {
+        [self.aaChartView aa_refreshChartWithChartModel:chartOption];
+    } else if ([chartOption isKindOfClass:AAOptions.class]) {
+        [self.aaChartView aa_refreshChartWithOptions:chartOption];
+    }
 }
 
 @end

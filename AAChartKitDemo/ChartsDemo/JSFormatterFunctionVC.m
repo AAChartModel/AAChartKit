@@ -49,21 +49,10 @@
     [super viewDidLoad];
     // highcharts default colors ["#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1"]
     // rainbow colors 🌈 [@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC'];
-    AAChartView *aaChartView = [self configureChartView];
-    AAOptions *aaOptions = [self configureChartOptions];
-    [aaChartView aa_drawChartWithOptions:aaOptions];
 }
 
-- (AAChartView *)configureChartView {
-    CGRect frame = CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80);
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:frame];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:aaChartView];
-    
-    return aaChartView;
-}
 
-- (AAOptions *)configureChartOptions {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
         case 0: return [self customAreaChartTooltipStyleWithFormatterFunction1];//简单字符串拼接
         case 1: return [self customAreaChartTooltipStyleWithFormatterFunction2];//自定义不同单位后缀

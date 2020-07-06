@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AABaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JSFormatterFunctionVC : UIViewController
-@property (nonatomic, assign) NSInteger selectedIndex;
+@interface JSFormatterFunctionVC : AABaseViewController
 
 @end
 

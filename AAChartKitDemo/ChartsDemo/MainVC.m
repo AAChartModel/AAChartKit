@@ -226,6 +226,7 @@
         case 9: {
             JSFormatterFunctionVC *vc = JSFormatterFunctionVC.new;
             vc.selectedIndex = indexPath.row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
