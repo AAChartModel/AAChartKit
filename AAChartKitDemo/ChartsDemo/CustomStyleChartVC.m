@@ -31,13 +31,9 @@
  */
 
 #import "CustomStyleChartVC.h"
-#import "AAChartKit.h"
 #import "AAEasyTool.h"
 
 @interface CustomStyleChartVC ()
-
-@property (nonatomic, strong) AAChartModel *aaChartModel;
-@property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
@@ -45,52 +41,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.title = self.navigationItemTitleArr[self.chartType];
-    
-    self.aaChartView = [self setUpAAChartView];
-    self.aaChartModel = [self setUpAAChartModelWithIndex:self.chartType];
-    [self.aaChartView aa_drawChartWithChartModel:self.aaChartModel];
-    
-    [self setUpBarButtonItem];
+
 }
 
-- (AAChartView *)setUpAAChartView {
-//    CGRect chartViewFrame = CGRectMake(0, 58, self.view.frame.size.width, self.view.frame.size.height - 88);
-    AAChartView *aaChartView = [[AAChartView alloc]init];
-    aaChartView.scrollEnabled = NO;
-    [aaChartView aa_adaptiveScreenRotation];
-    [self.view addSubview:aaChartView];
-    
-    aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:aaChartView
-                                                                 toFatherView:self.view];
-    [self.view addConstraints:constraintsArr];
-
-    return aaChartView;
-}
-
-- (void)setUpBarButtonItem {
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(monitorTap)];
-    self.navigationItem.rightBarButtonItem = barItem;
-}
-
-- (void)monitorTap {
-    if (self.selectedIndex == 31) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.selectedIndex = self.selectedIndex + 1;
-        self.title = self.navigationItemTitleArr[self.selectedIndex];
-        AAChartModel *aaChartModel = [self setUpAAChartModelWithIndex:self.selectedIndex];
-        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
-    }
-}
-
-- (AAChartModel *)setUpAAChartModelWithIndex:(NSUInteger)index {
-    switch (index) {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    switch (selectedIndex) {
         case 0:  return [self setUpColorfulBarChart];
         case 1:  return [self setUpColorfulGradientColorChart];
         case 2:  return [self setUpDiscontinuousDataChart];

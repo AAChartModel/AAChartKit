@@ -31,14 +31,10 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "AABaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CustomStyleChartVC : UIViewController
-
-@property (nonatomic, assign) NSUInteger chartType;
-@property (nonatomic, assign) NSUInteger selectedIndex;
-@property (nonatomic, strong) NSArray *navigationItemTitleArr;
+@interface CustomStyleChartVC : AABaseViewController
 
 @end
 

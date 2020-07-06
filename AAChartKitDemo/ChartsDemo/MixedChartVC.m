@@ -31,12 +31,9 @@
  */
 
 #import "MixedChartVC.h"
-#import "AAChartKit.h"
 #import "AAEasyTool.h"
 
 @interface MixedChartVC ()
-
-@property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
@@ -45,64 +42,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupTitle];
-    
-    self.aaChartView = [self setupChartView];
-    AAChartModel *aaChartModel = [self setupChartModel];
-    [self.aaChartView aa_drawChartWithChartModel:aaChartModel];
 }
 
-- (void)setupTitle {
-    NSString *chartTitle = self.navigationItemTitleArr[self.chartTypeIndex];
-    self.title = chartTitle;
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(nextChartButtonClicked)];
-}
-
-- (void)nextChartButtonClicked {
-    if (self.chartTypeIndex == self.navigationItemTitleArr.count - 1) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.chartTypeIndex = self.chartTypeIndex + 1;
-        NSString *chartType = self.navigationItemTitleArr[self.chartTypeIndex];
-        self.title = [NSString stringWithFormat:@"%@ chart",chartType];
-        AAChartModel *aaChartModel = [self configureTheChartModel:self.chartTypeIndex];
-        [self.aaChartView aa_refreshChartWithChartModel:aaChartModel];
-    }
-}
-
-- (AAChartView *)setupChartView {
-    CGRect chartViewFrame = CGRectMake(0,
-                                       88,
-                                       self.view.frame.size.width,
-                                       self.view.frame.size.height - 88);
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
-    self.view.backgroundColor = [UIColor whiteColor];
-    aaChartView.scrollEnabled = NO;
-    [self.view addSubview:aaChartView];
-    
-    AAAnimation *aaAnimation = AAAnimation.new
-       .durationSet(@800)
-       .easingSet(AAChartAnimationEaseOutCubic);
-    [aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
-    
-    aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:aaChartView
-                                                                 toFatherView:self.view];
-    [self.view addConstraints:constraintsArr];
-    
-    return aaChartView;
-}
-
-- (AAChartModel *)setupChartModel {
-    return [self configureTheChartModel:self.chartTypeIndex];
-}
-
-- (AAChartModel *)configureTheChartModel:(NSInteger)chartTypeIndex {
-    switch (chartTypeIndex) {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    switch (selectedIndex) {
         case 0:  return [self configureArearangeMixedLineChart];
         case 1:  return [self configureColumnrangeMixedLineChart];
         case 2:  return [self configureStackingColumnMixedLineChart];

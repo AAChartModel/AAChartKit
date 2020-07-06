@@ -33,8 +33,6 @@
  */
 
 #import "JSFormatterFunctionVC.h"
-#import "AAChartKit.h"
-#import "AAJSStringPurer.h"
 
 @interface JSFormatterFunctionVC ()
 

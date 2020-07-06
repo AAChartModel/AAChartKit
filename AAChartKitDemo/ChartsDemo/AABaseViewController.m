@@ -41,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setupTitle];
     [self setupNextTypeChartButton];
 
@@ -56,7 +57,6 @@
 
 - (void)setupChartView {
     self.aaChartView = [[AAChartView alloc]init];
-    self.view.backgroundColor = [UIColor whiteColor];
     self.aaChartView.scrollEnabled = NO;
     [self.view addSubview:self.aaChartView];
     

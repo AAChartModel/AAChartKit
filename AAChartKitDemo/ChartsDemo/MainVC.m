@@ -161,7 +161,7 @@
         case 2: {
             /*一些自定义样式图表*/
             CustomStyleChartVC *vc = CustomStyleChartVC.new;
-            vc.chartType = indexPath.row;
+            vc.selectedIndex = indexPath.row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
@@ -170,7 +170,7 @@
         case 3: {
             /*图表数据动态刷新*/
             MixedChartVC *vc = MixedChartVC.new;
-            vc.chartTypeIndex = indexPath.row;
+            vc.selectedIndex = indexPath.row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController  pushViewController:vc animated:YES];
         }

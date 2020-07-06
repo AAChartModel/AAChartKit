@@ -31,10 +31,7 @@
  */
 
 #import <UIKit/UIKit.h>
-
-@interface MixedChartVC : UIViewController
-
-@property (nonatomic, assign) NSInteger chartTypeIndex;
-@property (nonatomic, strong) NSArray *navigationItemTitleArr;
+#import "AABaseViewController.h"
+@interface MixedChartVC : AABaseViewController
 
 @end
