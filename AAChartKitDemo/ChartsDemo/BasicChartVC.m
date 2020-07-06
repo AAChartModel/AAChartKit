@@ -31,7 +31,6 @@
  */
 
 #import "BasicChartVC.h"
-#import "AAChartKit.h"
 #import "AAEasyTool.h"
 
 @interface BasicChartVC ()<AAChartViewEventDelegate>

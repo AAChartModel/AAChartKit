@@ -2383,7 +2383,7 @@
         @"<span><img src=\\\"https:/image.flaticon.com/icons/svg/197/197484.svg\\\" style=\\\"width: 30px; height: 30px;\\\"/><br></span>"
     ];
     
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisVisibleSet(false)

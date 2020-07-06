@@ -31,7 +31,6 @@
  */
 
 #import "SpecialChartVC.h"
-#import "AAChartKit.h"
 #import "AAEasyTool.h"
 
 @interface SpecialChartVC ()
