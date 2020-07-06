@@ -31,10 +31,7 @@
  */
 
 #import <UIKit/UIKit.h>
-
-@interface DrawChartWithAAOptionsVC : UIViewController
-
-@property (nonatomic, assign) NSInteger selectedIndex;
-@property (nonatomic, strong) NSArray *navigationItemTitleArr;
+#import "AABaseViewController.h"
+@interface DrawChartWithAAOptionsVC : AABaseViewController
 
 @end

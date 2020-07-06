@@ -31,11 +31,8 @@
  */
 
 #import "DrawChartWithAAOptionsVC.h"
-#import "AAChartKit.h"
 #import "AADateUTCTool.h"
 @interface DrawChartWithAAOptionsVC ()
-
-@property (nonatomic, strong) AAChartView *aaChartView;
 
 @end
 
@@ -43,42 +40,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.title = self.navigationItemTitleArr[self.selectedIndex];
     
-    [self setUpChartView];
 }
 
-- (void)setUpChartView {
-    CGRect chartViewFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
-    AAChartView *aaChartView =[[AAChartView alloc]initWithFrame:chartViewFrame];
-    [self.view addSubview:aaChartView];
-    aaChartView.scrollEnabled = NO;
-    self.aaChartView = aaChartView;
-    
-    AAOptions *aaOptions = [self configureChartOptions];
-    [aaChartView aa_drawChartWithOptions:aaOptions];
-    
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(monitorTap)];
-    self.navigationItem.rightBarButtonItem = barItem;
-}
-
-
-- (void)monitorTap {
-    if (self.selectedIndex == self.navigationItemTitleArr.count - 1) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.selectedIndex = self.selectedIndex + 1;
-        self.title = self.navigationItemTitleArr[self.selectedIndex];
-        AAOptions *aaOptions = [self configureChartOptions];
-        [self.aaChartView aa_refreshChartWithOptions:aaOptions];
-    }
-}
-
-- (AAOptions *)configureChartOptions {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
         case 0:  return [self configureTheAAOptionsOfAreaChart];
         case 1:  return [self configureTheAAOptionsOfPieChart];
