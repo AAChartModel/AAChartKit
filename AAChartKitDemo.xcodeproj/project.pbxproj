@@ -364,6 +364,31 @@
 			path = AAChartCreator;
 			sourceTree = "<group>";
 		};
+		27E475F624B2F74800690657 /* AdditionalContent2 */ = {
+			isa = PBXGroup;
+			children = (
+				272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */,
+				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
+				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
+				27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */,
+				278989B9204F8DBA003940CC /* ChartListVC.h */,
+				278989BA204F8DBA003940CC /* ChartListVC.m */,
+				44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */,
+				44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */,
+				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
+				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
+				27E475F324B2111400690657 /* AABaseViewController.h */,
+				27E475F424B2111400690657 /* AABaseViewController.m */,
+				27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */,
+				27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */,
+				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
+				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
+				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
+				44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */,
+			);
+			name = AdditionalContent2;
+			sourceTree = "<group>";
+		};
 		27F0CA7A21018C86004BD904 /* AATools */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,43 +417,25 @@
 			name = MainContent;
 			sourceTree = "<group>";
 		};
-		27F5AD9D20A8159E0086CD33 /* AdditionalContent */ = {
+		27F5AD9D20A8159E0086CD33 /* AdditionalContent1 */ = {
 			isa = PBXGroup;
 			children = (
-				4486C50B23DE02A900B54849 /* DoubleChartsLinkedWorkVC.h */,
-				4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */,
-				64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */,
-				64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */,
-				272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */,
-				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
-				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
-				27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */,
 				27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */,
 				44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */,
-				278989B9204F8DBA003940CC /* ChartListVC.h */,
-				278989BA204F8DBA003940CC /* ChartListVC.m */,
-				44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */,
-				44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */,
+				64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */,
+				64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */,
 				44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */,
 				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
-				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
-				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
 				449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */,
 				449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */,
 				4486C50E23E9BAB300B54849 /* DrawableChartVC.h */,
 				4486C50F23E9BAB300B54849 /* DrawableChartVC.m */,
+				4486C50B23DE02A900B54849 /* DoubleChartsLinkedWorkVC.h */,
+				4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */,
 				27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */,
 				27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */,
-				27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */,
-				27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */,
-				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
-				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
-				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
-				44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */,
-				27E475F324B2111400690657 /* AABaseViewController.h */,
-				27E475F424B2111400690657 /* AABaseViewController.m */,
 			);
-			name = AdditionalContent;
+			name = AdditionalContent1;
 			sourceTree = "<group>";
 		};
 		441AF0B8233463A200F0D39D /* AATool */ = {
@@ -448,7 +455,8 @@
 			isa = PBXGroup;
 			children = (
 				27F0CA7B21018CC7004BD904 /* MainContent */,
-				27F5AD9D20A8159E0086CD33 /* AdditionalContent */,
+				27F5AD9D20A8159E0086CD33 /* AdditionalContent1 */,
+				27E475F624B2F74800690657 /* AdditionalContent2 */,
 				27F0CA7A21018C86004BD904 /* AATools */,
 				719C3E1A1EC94C9A00FAF38E /* ChartSamples */,
 			);
