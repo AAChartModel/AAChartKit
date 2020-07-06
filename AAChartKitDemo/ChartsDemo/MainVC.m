@@ -243,7 +243,8 @@
         case 11: {
             /*基础类型图表*/
             ScrollingUpdateDataVC *vc = ScrollingUpdateDataVC.new;
-            vc.chartType = indexPath.row;
+            vc.selectedIndex = indexPath.row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

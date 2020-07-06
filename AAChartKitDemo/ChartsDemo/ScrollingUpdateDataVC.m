@@ -37,7 +37,6 @@
     CGFloat _x;
 }
 
-@property (nonatomic, strong) AAChartView  *chartView;
 @property (nonatomic, strong) NSTimer *timer;
 
 @end
@@ -46,35 +45,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self setupChartView];
+    
+    __weak __typeof__(self) weakSelf = self;
+    [self.aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+        [weakSelf setupTimer];
+    }];
 }
 
 - (AAChartType)configureChartType {
-    switch (_chartType) {
-        case ScrollingUpdateDataVCChartTypeColumn: return AAChartTypeColumn;
-        case ScrollingUpdateDataVCChartTypeBar: return AAChartTypeBar;
-        case ScrollingUpdateDataVCChartTypeArea: return AAChartTypeArea;
-        case ScrollingUpdateDataVCChartTypeAreaspline: return AAChartTypeAreaspline;
-        case ScrollingUpdateDataVCChartTypeLine: return AAChartTypeLine;
-        case ScrollingUpdateDataVCChartTypeSpline: return AAChartTypeSpline;
-        case ScrollingUpdateDataVCChartTypeStepLine: return AAChartTypeLine;
-        case ScrollingUpdateDataVCChartTypeStepArea: return AAChartTypeArea;
-        case ScrollingUpdateDataVCChartTypeScatter: return AAChartTypeScatter;
+    switch (self.selectedIndex) {
+        case 0: return AAChartTypeColumn;
+        case 1: return AAChartTypeBar;
+        case 2: return AAChartTypeArea;
+        case 3: return AAChartTypeAreaspline;
+        case 4: return AAChartTypeLine;
+        case 5: return AAChartTypeSpline;
+        case 6: return AAChartTypeLine;
+        case 7: return AAChartTypeArea;
+        case 8: return AAChartTypeScatter;
     }
+    return nil;
 }
 
 
-- (void)setupChartView {
-    CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat screenHeight = self.view.frame.size.height;
-    CGRect frame = CGRectMake(0, 60, chartViewWidth, screenHeight - 60);
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:frame];
-    aaChartView.scrollEnabled = NO;
-    aaChartView.delegate = self;
-    [self.view addSubview:aaChartView];
-    self.chartView = aaChartView;
-
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet([self configureChartType])
     .tooltipEnabledSet(true)
@@ -85,12 +79,12 @@
     .zoomTypeSet(AAChartZoomTypeX)
     .seriesSet([self configureChartSeriesArray]);
     
-    if (self.chartType != ScrollingUpdateDataVCChartTypeColumn && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
+    if (aaChartModel.chartType != AAChartTypeColumn && aaChartModel.chartType != AAChartTypeBar) {
         aaChartModel
         .markerRadiusSet(@9)
         .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
     }
-        
+    
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     if (aaChartModel.chartType == AAChartTypeColumn) {
         aaOptions.plotOptions.column
@@ -99,9 +93,8 @@
         aaOptions.plotOptions.bar
         .groupPaddingSet(@0);
     }
-
     
-    [aaChartView aa_drawChartWithOptions:aaOptions];
+    return aaOptions;
 }
 
 - (NSArray *)configureChartSeriesArray {
@@ -148,9 +141,6 @@
     return seriesArr;
 }
 
--(void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
-    [self setupTimer];
-}
 
 - (void)setupTimer {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -177,8 +167,9 @@
     id options2;
     id options3;
     
-    if (self.chartType != ScrollingUpdateDataVCChartTypeColumn
-        && self.chartType != ScrollingUpdateDataVCChartTypeBar) {
+    if (self.selectedIndex != 0 //柱状图
+        && self.selectedIndex != 1 //条形图
+        ) {
         options0 = AADataElement.new
         .ySet(@(y0))
         .dataLabelsSet(AADataLabels.new
@@ -244,12 +235,13 @@
 //    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
 
 
-    [self.chartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1,options2, options3]];
+    [self.aaChartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1,options2, options3]];
 }
 
 - (NSArray *)setupStepChartSeriesElementWithSeriesArr:(NSArray *)seriesArr {
-    if (self.chartType == ScrollingUpdateDataVCChartTypeStepLine
-        || self.chartType == ScrollingUpdateDataVCChartTypeStepArea) {
+    if (self.selectedIndex == 6 //直方折线图
+        || self.selectedIndex == 7 //直方折线填充图
+        ) {
         [seriesArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @true;
