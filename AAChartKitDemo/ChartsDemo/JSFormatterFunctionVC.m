@@ -1299,13 +1299,12 @@ function () {
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .dataLabelsEnabledSet(true)
     .tooltipEnabledSet(false)
-    .colorsThemeSet(@[AAColor.lightGrayColor])
+    .colorsThemeSet(@[AAGradientColor.fizzyPeachColor])
     .markerRadiusSet(@0)
     .legendEnabledSet(false)
     .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
     .seriesSet(@[
         AASeriesElement.new
-        .colorSet((id)AAGradientColor.fizzyPeachColor)
         .dataSet(dataArr),
     ]);
     
