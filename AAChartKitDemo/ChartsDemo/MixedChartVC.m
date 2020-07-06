@@ -824,8 +824,8 @@
     ];
     
     NSDictionary *gradientBlueColorDic =
-   [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                                    stopsArray:blueStopsArr];
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                     stopsArray:blueStopsArr];
     
     NSArray *redStopsArr = @[
         @[@0.0, AARgbaColor(255, 0, 0, 0.6)],//颜色字符串设置支持十六进制类型和 rgba 类型
@@ -834,9 +834,9 @@
     ];
     
     NSDictionary *gradientRedColorDic =
-      [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                                       stopsArray:redStopsArr];
-  
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                     stopsArray:redStopsArr];
+    
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
