@@ -10,8 +10,6 @@
 #import "AAChartKit.h"
 @interface DataSortingWithAnimationChartVC ()
 
-@property (nonatomic, strong) AAChartModel *chartModel;
-@property (nonatomic, strong) AAChartView  *chartView;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) int globalInt;
 
@@ -28,29 +26,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self drawChart];
     [self setupTimer];
 }
 
 //https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/column-comparison/
 - (AAChartType)configureChartType {
-    switch (_chartType) {
-        case DataSortingWithAnimationChartVCChartTypeColumn: return AAChartTypeColumn;
-        case DataSortingWithAnimationChartVCChartTypeBar: return AAChartTypeBar;
-        case DataSortingWithAnimationChartVCChartTypeScatter: return AAChartTypeScatter;
+    switch (self.selectedIndex) {
+        case 0: return AAChartTypeColumn;
+        case 1: return AAChartTypeBar;
+        case 2: return AAChartTypeScatter;
     }
+    return nil;
 }
 
-- (void)drawChart {
-    AAOptions *aaOptions = [self configuraDataSortingChartOptions];
-    AAChartView *aaChartView = [self setupChartView];
-    self.chartView = aaChartView;
-    [aaChartView aa_drawChartWithOptions:aaOptions];
-}
-
-
-
-- (AAOptions *)configuraDataSortingChartOptions {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     NSArray *colorArr = @[
         AAGradientColor.oceanBlueColor,
         AAGradientColor.sanguineColor,
@@ -156,18 +145,6 @@
 }
 
 
-- (AAChartView *)setupChartView {
-    CGRect chartViewFrame = CGRectMake(0,
-                                       88,
-                                       self.view.frame.size.width,
-                                       self.view.frame.size.height - 88);
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:aaChartView];
-    
-    return aaChartView;
-}
-
 - (void)setupTimer {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -188,7 +165,7 @@
         .dataSet([self randomDataArray])
                ]);
     
-    [self.chartView aa_updateChartWithOptions:aaOptions redraw:true];
+    [self.aaChartView aa_updateChartWithOptions:aaOptions redraw:true];
 }
 
 - (NSArray *)randomDataArray {

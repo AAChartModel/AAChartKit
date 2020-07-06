@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AABaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
-typedef NS_ENUM(NSInteger,DataSortingWithAnimationChartVCChartType) {
-    DataSortingWithAnimationChartVCChartTypeColumn = 0,
-    DataSortingWithAnimationChartVCChartTypeBar,
-    DataSortingWithAnimationChartVCChartTypeScatter,
-};
 
-@interface DataSortingWithAnimationChartVC : UIViewController
-@property (nonatomic, assign) DataSortingWithAnimationChartVCChartType chartType;
+
+@interface DataSortingWithAnimationChartVC : AABaseViewController
 
 @end
 
