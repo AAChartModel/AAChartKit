@@ -179,7 +179,8 @@
         case 4: {
             /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = OnlyRefreshChartDataVC.new;
-            vc.chartType = indexPath.row;
+            vc.selectedIndex = indexPath.row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;

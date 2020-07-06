@@ -31,21 +31,9 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "AABaseViewController.h"
 
-typedef NS_ENUM(NSInteger,OnlyRefreshChartDataVCChartType) {
-    OnlyRefreshChartDataVCChartTypeColumn = 0,
-    OnlyRefreshChartDataVCChartTypeBar,
-    OnlyRefreshChartDataVCChartTypeArea,
-    OnlyRefreshChartDataVCChartTypeAreaspline,
-    OnlyRefreshChartDataVCChartTypeLine,
-    OnlyRefreshChartDataVCChartTypeSpline,
-    OnlyRefreshChartDataVCChartTypeStepLine,
-    OnlyRefreshChartDataVCChartTypeStepArea,
-    OnlyRefreshChartDataVCChartTypeScatter,
-};
+@interface OnlyRefreshChartDataVC : AABaseViewController
 
-@interface OnlyRefreshChartDataVC : UIViewController
-
-@property (nonatomic, assign) OnlyRefreshChartDataVCChartType chartType;
 
 @end

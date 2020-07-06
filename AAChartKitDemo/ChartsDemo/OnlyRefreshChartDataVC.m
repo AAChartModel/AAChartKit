@@ -31,20 +31,11 @@
  */
 
 #import "OnlyRefreshChartDataVC.h"
-#import "AAChartKit.h"
-
-#define AAColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-#define AAGrayColor             [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
-#define AABlueColor             AAColorWithRGB(63, 153,231,1)
 
 @interface OnlyRefreshChartDataVC ()<AAChartViewEventDelegate> {
     NSTimer *_timer;
-    int myBasicValue;
-    int _selectedElementIndex;
+    int globalIntenger;
 }
-
-@property (nonatomic, strong) AAChartModel *chartModel;
-@property (nonatomic, strong) AAChartView  *chartView;
 
 @end
 
@@ -59,15 +50,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"即时刷新数据";
-    myBasicValue = 0;
-    _selectedElementIndex = arc4random()%2;
+    globalIntenger = 0;
     
-    [self setUpBasicViews];
+    [self setupChartViewDidFinishLoadHandler];
+    
 }
 
 - (AAChartType)configureTheChartType {
-    switch (self.chartType) {
+    switch (self.selectedIndex) {
         case 0: return AAChartTypeColumn;
         case 1: return AAChartTypeBar;
         case 2: return AAChartTypeArea;
@@ -78,45 +68,19 @@
         case 7: return AAChartTypeArea;
         case 8: return AAChartTypeScatter;
     }
+    return nil;
 }
 
-- (void)setUpBasicViews {
-    [self setUpChartView];
-    [self setUpChartModel];
-    
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:self.chartModel];
-    if (self.chartModel.chartType == AAChartTypeColumn) {
-        aaOptions.plotOptions.column.groupPadding = @0;
-    } else if (self.chartModel.chartType == AAChartTypeBar) {
-        aaOptions.plotOptions.bar.groupPadding = @0;
-    }
-    
-    [self.chartView aa_drawChartWithOptions:aaOptions];
-    
-    [self virtualUpdateTheChartViewDataInRealTime];
+- (void)setupChartViewDidFinishLoadHandler {
+    __weak __typeof__(self) weakSelf = self;
+    [self.aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+        NSLog(@"AAChartView 内容已加载完成");
+        [weakSelf virtualUpdateTheChartViewDataInRealTime];
+    }];
 }
 
 
-- (void)setUpChartView {
-    CGRect frame = CGRectMake(0,
-                              60,
-                              self.view.frame.size.width,
-                              self.view.frame.size.height - 60);
-    self.chartView = [[AAChartView alloc]initWithFrame:frame];
-    self.chartView.delegate = self;
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.chartView];
-}
-
-
-- (void)setUpChartModel {
-    AAChartModel *aaChartModel = [self configureChartModelBasicContent];
-    NSArray *seriesArr = [self configureChartSeriesArray];
-    aaChartModel.series = seriesArr;
-    self.chartModel = aaChartModel;
-}
-
-- (AAChartModel *) configureChartModelBasicContent {
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                startColorString:@"rgba(138,43,226,1)"
@@ -127,7 +91,7 @@
                                startColorString:@"#00BFFF"
                                  endColorString:@"#00FA9A"];
     
-     return  AAChartModel.new
+     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet([self configureTheChartType])//图表类型随机
     .xAxisVisibleSet(true)
     .yAxisVisibleSet(false)
@@ -139,7 +103,16 @@
         AAGradientColor.sanguineColor,
         AAGradientColor.wroughtIronColor
     ])
+    .seriesSet([self configureSeries])
     ;
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+      if (aaChartModel.chartType == AAChartTypeColumn) {
+          aaOptions.plotOptions.column.groupPadding = @0;
+      } else if (aaChartModel.chartType == AAChartTypeBar) {
+          aaOptions.plotOptions.bar.groupPadding = @0;
+      }
+    return aaOptions;
 }
 
 - (NSArray *)configureChartSeriesArray {
@@ -149,8 +122,8 @@
 }
 
 - (NSArray *)setupStepChartSeriesElementWithSeriesDataArr:(NSArray *)seriesDataArr {
-    if (self.chartType == OnlyRefreshChartDataVCChartTypeStepArea
-        || self.chartType == OnlyRefreshChartDataVCChartTypeStepLine) {
+    if (self.selectedIndex == 6
+        || self.selectedIndex == 7) {
         [seriesDataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             AASeriesElement *element = obj;
             element.step = @true;
@@ -160,7 +133,7 @@
 }
 
 - (void)virtualUpdateTheChartViewDataInRealTime {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2
                                               target:self
                                             selector:@selector(timerStartWork)
                                             userInfo:nil
@@ -178,7 +151,7 @@
     CGFloat y1 = 0.f;
     CGFloat y2 = 0.f;
     int Q = arc4random()%30;
-    for (float x = myBasicValue; x <= myBasicValue + 50 ; x++) {
+    for (float x = globalIntenger; x <= globalIntenger + 50 ; x++) {
           //第一个波纹的公式
         y1 = sin((Q) * (x * M_PI / 180)) +x*2*0.01-1 ;
         [sinNumArr addObject:@(y1)];
@@ -186,9 +159,9 @@
         y2 =cos((Q) * (x * M_PI / 180))+x*3*0.01-1;
         [sinNumArr2 addObject:@(y2)];
     }
-    myBasicValue = myBasicValue +1;
-    if (myBasicValue == 32) {
-        myBasicValue = 0;
+    globalIntenger = globalIntenger +1;
+    if (globalIntenger == 32) {
+        globalIntenger = 0;
     }
     
     NSArray *series = @[
@@ -205,14 +178,10 @@
 }
 
 - (void)onlyRefreshTheChartData {
-    [self.chartView aa_onlyRefreshTheChartDataWithChartModelSeries:[self configureSeries]
+    [self.aaChartView aa_onlyRefreshTheChartDataWithChartModelSeries:[self configureSeries]
                                                          animation:true];
     NSLog(@"Updated the chart data content!!! ☺️☺️☺️");
 }
 
-# pragma mark AAChartViewDidFinishLoadDelegate
-- (void)AAChartViewDidFinishLoad {
-    NSLog(@"AAChartView 内容已加载完成");
-}
 
 @end

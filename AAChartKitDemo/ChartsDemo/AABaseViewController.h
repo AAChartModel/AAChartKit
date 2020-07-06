@@ -39,7 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *navigationItemTitleArr;
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
-@property (nonatomic, strong) AAChartModel *aaChartModel;
 @property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
