@@ -162,20 +162,22 @@
 
 - (void)setUpSegmentedControls {
     NSArray *segmentedNamesArr = @[
-                                   @[@"hide One",
-                                     @"hide Two",
-                                     @"hide Three",
-                                     @"hide Four",
-                                     ],
-                                   @[@"show One",
-                                     @"show Two",
-                                     @"show Three",
-                                     @"show Four",
-                                     ]
-                                   ];
+        @[@"hide One",
+          @"hide Two",
+          @"hide Three",
+          @"hide Four",
+        ],
+        @[@"show One",
+          @"show Two",
+          @"show Three",
+          @"show Four",
+        ]
+    ];
     
-    NSArray *typeLabelNameArr = @[@"HIDE CHART SERIES",
-                                  @"SHOW CHART SERIES"];
+    NSArray *typeLabelNameArr = @[
+        @"HIDE CHART SERIES",
+        @"SHOW CHART SERIES"
+    ];
     
     for (int i = 0; i < segmentedNamesArr.count; i++) {
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedNamesArr[i]];
