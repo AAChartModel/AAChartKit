@@ -91,6 +91,7 @@
         case 43: return [self configureQuadrangleRadarChart];//带有颜色标志带的四角形雷达图
         case 44: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
         case 45: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
+        case 46: return [self configureSpiderWebRadarChart];//带有颜色标志带的🕸蜘蛛网状雷达图
     }
     return nil;
 }
@@ -106,7 +107,7 @@
         AAGradientColor.sanguineColor,
         AAGradientColor.lusciousLimeColor,
         AAGradientColor.mysticMauveColor
-    ])
+                    ])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
@@ -120,10 +121,10 @@
         AASeriesElement.new
         .nameSet(@"NewYork Hot")
         .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-
+    
     aaOptions.legend
     .enabledSet(true)
     .alignSet(AAChartAlignTypeRight)//设置图例位于水平方向上的右侧
@@ -192,8 +193,8 @@
             @[@"Safari",    @88.5],
             @[@"Opera",     @46.0],
             @[@"Others",    @223]
-        ]),
-    ])
+                 ]),
+               ])
     .colorsSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]);//设置颜色主题
     
     return aaOptions;
@@ -225,8 +226,8 @@
             @[@"Firefox",   @150],
             @[@"Opera",      @15],
             @[@"Others",     @35]
-        ]),
-    ]);
+                 ]),
+               ]);
     return aaOptions;
 }
 
@@ -271,8 +272,8 @@
             @[@"Chrome",     @666.8],
             @[@"Safari",     @188.5],
             @[@"Others",     @223.0],
-        ]),
-    ]);
+                 ]),
+               ]);
     return aaOptions;
 }
 
@@ -385,7 +386,7 @@
         .nameSet(@"2017")
         .colorSet((id)AAGradientColor.deepSeaColor)
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis.visible = false;//避免多边形外环之外有额外套了一层无用的外环
@@ -408,7 +409,7 @@
         AASeriesElement.new
         .nameSet(@"2020")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -453,7 +454,7 @@
         @"12-06",@"12-07",@"12-08",@"12-09",@"12-10",@"12-11",@"12-12",@"12-13",@"12-14",@"12-15",@"12-16",
         @"12-17",@"12-18",@"12-19",@"12-20",@"12-21",@"12-22",@"12-23",@"12-024",@"12-25",@"12-26",@"12-27",
         @"12-28",@"12-29",@"12-30"
-    ])
+                   ])
     .seriesSet(@[
         AASeriesElement.new
         .lineWidthSet(@1.5)
@@ -467,8 +468,8 @@
             @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
             @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
             @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48
-        ])
-    ]);
+                 ])
+               ]);
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
@@ -497,7 +498,7 @@
         AASeriesElement.new
         .nameSet(@"2017")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.chart.marginLeft = @70;
@@ -526,8 +527,8 @@
             @[@"C"     , @24],
             @[@"C#"    , @888],
             @[@"C++"   , @66],
-        ]),
-    ]);
+                 ]),
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.chart.plotBackgroundImage = @"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2859216016,2109779587&fm=27&gp=0.jpg";
@@ -642,7 +643,7 @@
         .nameSet(@"2017")
         .dataSet(@[@(0.0000001),@(0.0000002),@(0.0000003),@(0.0000004),@(0.0000005)])
         .lineWidthSet(@5)
-    ]);
+               ]);
     //数值格式化字符串是采用了 C 语言浮点型格式化的子集，格式化字符是在大括号内，变量之后，用冒号（:）分隔的内容。
     //默认情况下点号（.）表示小数点，空格（ ）代表千分符，当然这两个符号可以在 语言文字 选项集里中来设定。
     //具体参见 https://www.hcharts.cn/docs/basic-labels-string-formatting#h2-1
@@ -663,7 +664,7 @@
         AASeriesElement.new
         .nameSet(@"2017")
         .dataSet(@[@211,@183,@157,@133,@111]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AAColumn *aaColumn = aaOptions.plotOptions.column;
@@ -808,7 +809,7 @@
             @[AADateUTC(2018, 6 - 1, 18),  @389.00],
             @[AADateUTC(2018, 7 - 1, 12),  @194.50],
             //                                      @[Date.now(), @194.50]
-        ]),
+                 ]),
         AASeriesElement.new
         .nameSet(@"PS+")
         .colorSet(@"#FFC535")
@@ -844,8 +845,8 @@
             @[AADateUTC(2018, 6 - 1, 18),  @389.00],
             @[AADateUTC(2018, 7 - 1, 12),  @155.60],
             //                                      @[Date.now(), @155.60]
-        ]),
-    ]
+                 ]),
+               ]
                )
     ;
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
@@ -869,7 +870,7 @@
         AASeriesElement.new
         .nameSet(@"2018")
         .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
@@ -895,7 +896,7 @@
         AASeriesElement.new
         .nameSet(@"2020")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -992,7 +993,7 @@
         .dataSet(@[@-20.1, @-14.1, @-8.6, @-2.5, @-0.8, @-5.7, @-11.3, @-17.0,
                    @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5])
         .colorSet((id)gradientColorDic2),
-    ]);
+               ]);
     return aaOptions;
 }
 
@@ -1008,7 +1009,7 @@
         .nameSet(@"2020")
         .colorSet((id)AAGradientColor.sanguineColor)
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AAColumn *aaColumn = aaOptions.plotOptions.column;
@@ -1104,7 +1105,7 @@
         .colorSet(AAColor.whiteColor)
         .lineWidthSet(@10)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
@@ -1167,7 +1168,7 @@
         .lineWidthSet(@3)
         .dataSet(data)
         .zIndexSet(@0)
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis.labels.enabled = false;
@@ -1301,7 +1302,7 @@
             AAZonesElement.new
             .colorSet(@"#ffd066"),
                   ]),
-    ]);
+               ]);
     //    @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -1369,7 +1370,7 @@
         .dataSet(@[
             @1.51, @6.7, @0.94, @1.44, @3.87, @3.24, @4.90, @4.61, @4.10,
             @4.17, @3.85, @4.17, @3.46, @3.46, @3.55,]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
@@ -1444,7 +1445,7 @@
         AASeriesElement.new
         .colorSet((id)AAGradientColor.fizzyPeachColor)
         .dataSet(dataArr),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -1495,7 +1496,7 @@
         .nameSet(@"Berlin Hot")
         .colorSet((id)[AAGradientColor mysticMauveColor])
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
@@ -1531,7 +1532,7 @@
         .nameSet(@"Berlin Hot")
         .colorSet((id)[AAGradientColor deepSeaColor])
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
@@ -1635,7 +1636,7 @@
         .nameSet(@"Berlin Hot")
         .colorSet(@"#25547c")
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-    ]);
+               ]);
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
     //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
@@ -1681,7 +1682,7 @@
         .colorSet(@"#5274BC")
         .dataSet(@[@4,@0,@1,@1])
         ,
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AADataLabels *aaDataLabels = aaOptions.plotOptions.series.dataLabels;
@@ -1714,7 +1715,7 @@
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
         .dataSet(@[@140,@120,@100,@80,@60,@40,@20])
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -2035,7 +2036,7 @@
         .labelSet(AALabel.new
                   .textSet(@"实际价格")
                   .rotationSet(@90))
-    ])
+                  ])
     ;
     
     AAYAxis *yAxis1 = AAYAxis.new
@@ -2101,7 +2102,7 @@
         @[@0.159,  @80.584064],
         @[@0.16,   @81.58156],
         @[@0.1608, @83.38156]
-    ]);
+             ]);
     
     AASeriesElement *element2 = AASeriesElement.new
     .nameSet(@"Asks")
@@ -2128,7 +2129,7 @@
         @[@0.1454, @10.035642],
         @[@0.148,  @9.326642],
         @[@0.1522, @3.76317]
-    ]);
+             ]);
     
     AAOptions *aaOptions = AAOptions.new
     .chartSet(aaChart)
@@ -2148,7 +2149,7 @@
     NSString *pointFormat = [NSString stringWithFormat:@"%@%@",
                              @" <tr><td style= \\\"color: {series.color} \\\">{series.name}: </td>",
                              @"<td style= \\\"text-align: right \\\"><b>{point.y * 10000000000} %EUR</b></td></tr>"];
-
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
@@ -2176,7 +2177,7 @@
         .lineWidthSet(@5.0)
         .fillOpacitySet(@0.4)
         .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.tooltip
@@ -2213,7 +2214,7 @@
         .nameSet(@"手工记录")
         .dataSet(@[NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, NSNull.null, ])
         ,
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
@@ -2238,7 +2239,7 @@
                   .styleSet(AAStyle.new
                             .colorSet(AAColor.redColor)
                             .fontSizeSet(@"14px")))
-    ]);
+                  ]);
     
     aaOptions.legend
     .floatingSet(true)
@@ -2250,7 +2251,7 @@
                   .fontWeightSet(AAChartFontWeightTypeThin)
                   .colorSet(AAColor.grayColor))
     ;
-        
+    
     return aaOptions;
 }
 
@@ -2267,10 +2268,10 @@
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
         .dataSet(@[@0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, ]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-
+    
     aaOptions.yAxis
     .minSet(@0)
     .minRangeSet(@1);
@@ -2305,12 +2306,12 @@
                ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-
+    
     aaOptions.plotOptions
     .splineSet(AASpline.new
                .statesSet(AAStates.new
-               .hoverSet(AAHover.new
-                         .lineWidthPlusSet(@0))))
+                          .hoverSet(AAHover.new
+                                    .lineWidthPlusSet(@0))))
     ;
     return aaOptions;
 }
@@ -2366,7 +2367,7 @@
     .allowOverlapSet(true)//允许字符重叠
     .formatSet(@"<b>{point.name}</b>: {point.percentage:.2f} %") //保留二位小数
     ;
-
+    
     return aaOptions;
 }
 
@@ -2393,7 +2394,7 @@
         .nameSet(@"Berlin Hot")
         .colorSet((id)[AAGradientColor deepSeaColor])
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @13.2, @18.2, @29.5, @21.5, ]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.xAxis.labels.useHTML = true;
@@ -2427,15 +2428,15 @@
         .dataLabelsSet(AADataLabels.new
                        .colorSet(AARgbaColor(30, 144, 255, 1.0)))
         .dataSet(@[@17.0, @16.9, @12.5,]),
-    ]);
+               ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
-
+    
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.xAxis.gridLineColor = AARgbaColor(30, 144, 255, 0.6);
     aaOptions.yAxis.gridLineColor = AARgbaColor(30, 144, 255, 1.0);
-
+    
     NSArray *aaPlotBandsArr = @[
         AAPlotBandsElement.new
         .fromSet(@0)
@@ -2468,27 +2469,27 @@
 - (AAOptions *)configureQuadrangleRadarChart {
     AAOptions *aaOptions = [self configureTriangleRadarChart];
     aaOptions.yAxis.plotBands = @[
-            AAPlotBandsElement.new
-            .fromSet(@0)
-            .toSet(@5)
-            .colorSet(AARgbaColor(255, 0, 0, 1.0)),
-            AAPlotBandsElement.new
-            .fromSet(@5)
-            .toSet(@10)
-            .colorSet(AARgbaColor(255, 0, 0, 0.8)),
-            AAPlotBandsElement.new
-            .fromSet(@10)
-            .toSet(@15)
-            .colorSet(AARgbaColor(255, 0, 0, 0.6)),
-            AAPlotBandsElement.new
-            .fromSet(@15)
-            .toSet(@20)
-            .colorSet(AARgbaColor(255, 0, 0, 0.4)),
-            AAPlotBandsElement.new
-            .fromSet(@20)
-            .toSet(@25)
-            .colorSet(AARgbaColor(255, 0, 0, 0.2)),
-
+        AAPlotBandsElement.new
+        .fromSet(@0)
+        .toSet(@5)
+        .colorSet(AARgbaColor(255, 0, 0, 1.0)),
+        AAPlotBandsElement.new
+        .fromSet(@5)
+        .toSet(@10)
+        .colorSet(AARgbaColor(255, 0, 0, 0.8)),
+        AAPlotBandsElement.new
+        .fromSet(@10)
+        .toSet(@15)
+        .colorSet(AARgbaColor(255, 0, 0, 0.6)),
+        AAPlotBandsElement.new
+        .fromSet(@15)
+        .toSet(@20)
+        .colorSet(AARgbaColor(255, 0, 0, 0.4)),
+        AAPlotBandsElement.new
+        .fromSet(@20)
+        .toSet(@25)
+        .colorSet(AARgbaColor(255, 0, 0, 0.2)),
+        
     ];
     
     aaOptions.xAxis.gridLineColor = AARgbaColor(255, 0, 0, 0.6);
@@ -2498,7 +2499,7 @@
     element.dataSet(@[@17.0, @16.9, @12.5, @14.5,])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(255, 0, 0, 1.0)))
-;
+    ;
     
     return aaOptions;
 }
@@ -2507,27 +2508,27 @@
 - (AAOptions *)configurePentagonRadarChart {
     AAOptions *aaOptions = [self configureTriangleRadarChart];
     aaOptions.yAxis.plotBands = @[
-            AAPlotBandsElement.new
-            .fromSet(@0)
-            .toSet(@5)
-            .colorSet(AARgbaColor(255, 215, 0, 1.0)),
-            AAPlotBandsElement.new
-            .fromSet(@5)
-            .toSet(@10)
-            .colorSet(AARgbaColor(255, 215, 0, 0.8)),
-            AAPlotBandsElement.new
-            .fromSet(@10)
-            .toSet(@15)
-            .colorSet(AARgbaColor(255, 215, 0, 0.6)),
-            AAPlotBandsElement.new
-            .fromSet(@15)
-            .toSet(@20)
-            .colorSet(AARgbaColor(255, 215, 0, 0.4)),
-            AAPlotBandsElement.new
-            .fromSet(@20)
-            .toSet(@25)
-            .colorSet(AARgbaColor(255, 215, 0, 0.2)),
-
+        AAPlotBandsElement.new
+        .fromSet(@0)
+        .toSet(@5)
+        .colorSet(AARgbaColor(255, 215, 0, 1.0)),
+        AAPlotBandsElement.new
+        .fromSet(@5)
+        .toSet(@10)
+        .colorSet(AARgbaColor(255, 215, 0, 0.8)),
+        AAPlotBandsElement.new
+        .fromSet(@10)
+        .toSet(@15)
+        .colorSet(AARgbaColor(255, 215, 0, 0.6)),
+        AAPlotBandsElement.new
+        .fromSet(@15)
+        .toSet(@20)
+        .colorSet(AARgbaColor(255, 215, 0, 0.4)),
+        AAPlotBandsElement.new
+        .fromSet(@20)
+        .toSet(@25)
+        .colorSet(AARgbaColor(255, 215, 0, 0.2)),
+        
     ];
     
     aaOptions.xAxis.gridLineColor = AARgbaColor(255, 215, 0, 0.6);
@@ -2537,7 +2538,7 @@
     element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2,])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(255, 215, 0, 1.0)))
-;
+    ;
     
     return aaOptions;
 }
@@ -2546,27 +2547,27 @@
 - (AAOptions *)configureHexagonRadarChart {
     AAOptions *aaOptions = [self configureTriangleRadarChart];
     aaOptions.yAxis.plotBands = @[
-            AAPlotBandsElement.new
-            .fromSet(@0)
-            .toSet(@5)
-            .colorSet(AARgbaColor(50, 205, 50, 1.0)),
-            AAPlotBandsElement.new
-            .fromSet(@5)
-            .toSet(@10)
-            .colorSet(AARgbaColor(50, 205, 50, 0.8)),
-            AAPlotBandsElement.new
-            .fromSet(@10)
-            .toSet(@15)
-            .colorSet(AARgbaColor(50, 205, 50, 0.6)),
-            AAPlotBandsElement.new
-            .fromSet(@15)
-            .toSet(@20)
-            .colorSet(AARgbaColor(50, 205, 50, 0.4)),
-            AAPlotBandsElement.new
-            .fromSet(@20)
-            .toSet(@25)
-            .colorSet(AARgbaColor(50, 205, 50, 0.2)),
-
+        AAPlotBandsElement.new
+        .fromSet(@0)
+        .toSet(@5)
+        .colorSet(AARgbaColor(50, 205, 50, 1.0)),
+        AAPlotBandsElement.new
+        .fromSet(@5)
+        .toSet(@10)
+        .colorSet(AARgbaColor(50, 205, 50, 0.8)),
+        AAPlotBandsElement.new
+        .fromSet(@10)
+        .toSet(@15)
+        .colorSet(AARgbaColor(50, 205, 50, 0.6)),
+        AAPlotBandsElement.new
+        .fromSet(@15)
+        .toSet(@20)
+        .colorSet(AARgbaColor(50, 205, 50, 0.4)),
+        AAPlotBandsElement.new
+        .fromSet(@20)
+        .toSet(@25)
+        .colorSet(AARgbaColor(50, 205, 50, 0.2)),
+        
     ];
     
     aaOptions.xAxis.gridLineColor = AARgbaColor(50, 205, 50, 0.6);
@@ -2576,7 +2577,45 @@
     element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2, @21.5,])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(50, 205, 50, 1.0)))
-;
+    ;
+    
+    return aaOptions;
+}
+
+//🕸蜘蛛网状雷达图
+- (AAOptions *)configureSpiderWebRadarChart {
+    AAOptions *aaOptions = [self configureTriangleRadarChart];
+    aaOptions.yAxis.plotBands = @[
+        AAPlotBandsElement.new
+        .fromSet(@0)
+        .toSet(@5)
+        .colorSet(AARgbaColor(138, 43, 226, 1.0)),
+        AAPlotBandsElement.new
+        .fromSet(@5)
+        .toSet(@10)
+        .colorSet(AARgbaColor(138, 43, 226, 0.8)),
+        AAPlotBandsElement.new
+        .fromSet(@10)
+        .toSet(@15)
+        .colorSet(AARgbaColor(138, 43, 226, 0.6)),
+        AAPlotBandsElement.new
+        .fromSet(@15)
+        .toSet(@20)
+        .colorSet(AARgbaColor(138, 43, 226, 0.4)),
+        AAPlotBandsElement.new
+        .fromSet(@20)
+        .toSet(@25)
+        .colorSet(AARgbaColor(138, 43, 226, 0.2)),
+    ];
+    
+    aaOptions.xAxis.gridLineColor = AARgbaColor(138, 43, 226, 0.6);
+    aaOptions.yAxis.gridLineColor = AARgbaColor(138, 43, 226, 1.0);
+    
+    AASeriesElement *element = aaOptions.series[0];
+    element.dataSet(@[@2, @4, @6, @8, @10, @12, @14, @16, @18, @20, @22, @24])
+    .dataLabelsSet(AADataLabels.new
+                   .colorSet(AARgbaColor(138, 43, 226, 1.0)))
+    ;
     
     return aaOptions;
 }
