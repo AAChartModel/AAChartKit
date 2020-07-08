@@ -199,32 +199,32 @@
                    );
         
         options2 = AADataElement.new
-             .ySet(@(y0))
-             .dataLabelsSet(AADataLabels.new
-                            .colorSet(@"grey")
-                            .formatSet(@"{y:.2f} 欧元"))
-             .markerSet(AAMarker.new
-                        .radiusSet(@8)//曲线连接点半径
-                        .symbolSet(AAChartSymbolTypeSquare)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                        .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
-                        .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                        //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                        .lineColorSet(@"grey")
-                        );
-             
-             options3 = AADataElement.new
-             .ySet(@(y1))
-             .dataLabelsSet(AADataLabels.new
-                            .colorSet(@"SpringGreen")
-                            .formatSet(@"{y:.2f} 日元"))
-             .markerSet(AAMarker.new
-                        .radiusSet(@8)//曲线连接点半径
-                        .symbolSet(AAChartSymbolTypeTriangle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                        .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
-                        .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                        //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                        .lineColorSet(@"SpringGreen")
-                        );
+        .ySet(@(y0))
+        .dataLabelsSet(AADataLabels.new
+                       .colorSet(@"grey")
+                       .formatSet(@"{y:.2f} 欧元"))
+        .markerSet(AAMarker.new
+                   .radiusSet(@8)//曲线连接点半径
+                   .symbolSet(AAChartSymbolTypeSquare)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                   .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                   .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                   //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                   .lineColorSet(@"grey")
+                   );
+        
+        options3 = AADataElement.new
+        .ySet(@(y1))
+        .dataLabelsSet(AADataLabels.new
+                       .colorSet(@"SpringGreen")
+                       .formatSet(@"{y:.2f} 日元"))
+        .markerSet(AAMarker.new
+                   .radiusSet(@8)//曲线连接点半径
+                   .symbolSet(AAChartSymbolTypeTriangle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                   .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                   .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                   //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                   .lineColorSet(@"SpringGreen")
+                   );
     } else {
         options0 = @(y0);
         options1 = @(y1);
@@ -232,9 +232,9 @@
         options3 = @(y1);
     }
     
-//    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
-
-
+    //    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
+    
+    
     [self.aaChartView aa_addPointsToChartSeriesArrayWithOptionsArray:@[options0, options1,options2, options3]];
 }
 
