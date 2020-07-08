@@ -638,6 +638,7 @@ WKScriptMessageHandler
 - (void)dealloc {
     [self.configuration.userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    AADetailLog("👻👻👻 AAChartView was destroyed!!!");
 }
 
 @end
