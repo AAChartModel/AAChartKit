@@ -47,6 +47,23 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 
 @interface AAGradientColor : NSObject
 
+//AAPropStatementAndPropSetFuncStatement(assign, AAGradientColor, AALinearGradientDirection, direction)
+//AAPropStatementAndPropSetFuncStatement(copy,   AAGradientColor, NSString *, startColor)
+//AAPropStatementAndPropSetFuncStatement(copy,   AAGradientColor, NSString *, endColor)
+//AAPropStatementAndPropSetFuncStatement(strong, AAGradientColor, NSArray *, stopsArray)
+
+//- (void)setDirection:(AALinearGradientDirection)direction ;
+- (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet ;
+
+//- (void)setStartColor:(NSString *)startColor ;
+- (AAGradientColor * (^) (NSString *startColor))startColorSet ;
+
+//- (void)setEndColor:(NSString *)endColor ;
+- (AAGradientColor * (^) (NSString *endColor))endColorSet ;
+
+//- (void)setStopsArray:(NSArray *)stopsArray ;
+- (AAGradientColor * (^) (NSArray *stopsArray))stopsArraySet ;
+
 // Some convenience methods to create gradient colors.
 @property (class, nonatomic, readonly) NSDictionary *oceanBlueColor;
 @property (class, nonatomic, readonly) NSDictionary *sanguineColor;
