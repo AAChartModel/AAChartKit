@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AAAnimation,AAShadow,AADataLabels;
+@class AAMarker,AAAnimation,AAShadow,AADataLabels,AAEvents;
 
 @interface AASeries : NSObject
 
@@ -47,9 +47,16 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSArray      *, keys)
 //plotOptions.series.connectNulls
 //https://www.zhihu.com/question/24173311
 AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL ,          connectNulls) //设置折线是否断点重连
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSDictionary *, events)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAEvents *, events)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
 
+
+@end
+
+
+@interface AAEvents : NSObject
+
+AAPropStatementAndPropSetFuncStatement(copy,   AAEvents, NSString     *, legendItemClick)
 
 @end

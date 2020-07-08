@@ -133,6 +133,13 @@
     ;
     
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
+    
+    //禁用图例点击事件
+    aaOptions.plotOptions.series.events = AAEvents.new
+    .legendItemClickSet(@AAJSFunc(function() {
+        return false;
+    }));
+
     return aaOptions;
 }
 

@@ -32,7 +32,7 @@
  */
 
 #import "AASeries.h"
-
+#import "AAJSStringPurer.h"
 @implementation AASeries
 
 AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius) 
@@ -42,8 +42,26 @@ AAPropSetFuncImplementation(AASeries, AAAnimation  *, animation)
 AAPropSetFuncImplementation(AASeries, NSArray      *, keys) 
 //AAPropSetFuncImplementation(AASeries, BOOL , colorByPoint) //设置为 true 则是给每个点分配颜色。
 AAPropSetFuncImplementation(AASeries, BOOL ,          connectNulls) 
-AAPropSetFuncImplementation(AASeries, NSDictionary *, events)
+AAPropSetFuncImplementation(AASeries, AAEvents *, events)
 AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
 AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
+
+@end
+
+
+@implementation AAEvents
+
+//AAPropSetFuncImplementation(AAEvents, NSString     *, legendItemClick)
+
+- (void)setLegendItemClick:(NSString *)legendItemClick {
+    _legendItemClick = [AAJSStringPurer pureJavaScriptFunctionStringWithString:legendItemClick];
+}
+
+- (AAEvents * (^) (NSString * legendItemClick))legendItemClickSet {
+    return ^(NSString * legendItemClick) {
+        _legendItemClick = [AAJSStringPurer pureJavaScriptFunctionStringWithString:legendItemClick];
+        return self;
+    };
+}
 
 @end
