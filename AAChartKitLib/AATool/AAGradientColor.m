@@ -41,15 +41,6 @@
 
 
 @implementation AAGradientColor
-//AAPropSetFuncImplementation(AAGradientColor, AALinearGradientDirection, direction)
-//AAPropSetFuncImplementation(AAGradientColor, NSString *, startColor)
-//AAPropSetFuncImplementation(AAGradientColor, NSString *, endColor)
-//AAPropSetFuncImplementation(AAGradientColor, NSArray  *, stopsArray)
-
-
-//- (void)setDirection:(AALinearGradientDirection)direction {
-//    _linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
-//}
 
 - (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet {
     return ^(AALinearGradientDirection direction) {
@@ -57,12 +48,6 @@
         return self;
     };
 }
-
-
-//- (void)setStartColor:(NSString *)startColor {
-//    _stops = [NSMutableArray arrayWithCapacity:2];
-//    [_stops addObject:startColor];
-//}
 
 - (AAGradientColor * (^) (NSString *startColor))startColorSet {
     return ^(NSString *startColor) {
@@ -72,21 +57,12 @@
     };
 }
 
-//- (void)setEndColor:(NSString *)endColor {
-//    [_stops addObject:endColor];
-//}
-
 - (AAGradientColor * (^) (NSString *endColor))endColorSet {
     return ^(NSString *endColor) {
         [_stops addObject:@[@(1),endColor]];
         return self;
     };
 }
-
-
-//- (void)setStopsArray:(NSArray *)stopsArray {
-//    _stops = (NSMutableArray *)stopsArray;
-//}
 
 - (AAGradientColor * (^) (NSArray *stopsArray))stopsArraySet {
     return ^(NSArray *stopsArray) {
