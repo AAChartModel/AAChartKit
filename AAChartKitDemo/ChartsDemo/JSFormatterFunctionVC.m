@@ -1398,25 +1398,24 @@ function () {
     aaOptions.plotOptions.column.groupPaddingSet(@0.005);
 
     /*Custom tooltip style*/
-    //    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-    //        let imageFlag = %@[this.point.index];
-    //        let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
-    //        return imageLink
-    //        + " 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> "
-    //        + " Support JavaScript Function Just Right Now !!! <br/> "
-    //        + " The Gold Price For <b>2020 "
-    //        +  this.x
-    //        + " </b> Is <b> "
-    //        +  this.y
-    //        + " </b> Dollars ";
-    //    }
-    //    )),imageLinkFlagJSArrStr];
-    //
-    //    aaOptions.tooltip
-    //    .sharedSet(false)
-    //    .useHTMLSet(true)
-    //    .formatterSet(tooltipFormatter)
-    //    ;
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        let imageFlag = %@[this.point.index];
+        let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+        return imageLink
+        + " 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> "
+        + " Support JavaScript Function Just Right Now !!! <br/> "
+        + " The Gold Price For <b>2020 "
+        +  this.x
+        + " </b> Is <b> "
+        +  this.y
+        + " </b> Dollars ";
+    })),imageLinkFlagJSArrStr];
+    
+    aaOptions.tooltip
+    .sharedSet(false)
+    .useHTMLSet(true)
+    .formatterSet(tooltipFormatter)
+    ;
     
     return aaOptions;
 }
