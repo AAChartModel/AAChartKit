@@ -269,8 +269,13 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// @param jsonObjc Instance object of Json object
 + (NSString *)pureJsonStringWithJsonObject:(id)jsonObjc;
 
-/// Get jsonObject from Json string
-/// @param string Json String
+
+/// Get Json string from Json object
+/// @param jsonObject Json object
++ (NSString*)jsonStringWithJsonObject:(id)jsonObject;
+
+/// Get Json object from Json string
+/// @param string Json string
 + (id)jsonObjectWithJsonString:(NSString *)string;
 
 @end

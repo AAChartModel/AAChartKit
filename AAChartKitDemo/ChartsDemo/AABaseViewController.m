@@ -72,7 +72,29 @@
     [self.view addConstraints:constraintsArr];
     
     [self drawChartWithChartConfiguration];
+    
+    [self setupAAChartViewEventBlockHandler];
 }
+
+- (void)setupAAChartViewEventBlockHandler {
+    //获取图表加载完成事件
+    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+        NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
+    }];
+    
+    //获取图表上的手指点击及滑动事件
+    [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
+                                         AAMoveOverEventMessageModel *message) {
+        NSDictionary *messageDic = [AAJsonConverter dictionaryWithObjectInstance:message];
+        NSString *prettyPrintedMessageStr = [AAJsonConverter jsonStringWithJsonObject:messageDic];
+        NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
+        NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
+                                  logPrefix,
+                                  prettyPrintedMessageStr];
+        NSLog(@"%@",eventMessage);
+    }];
+}
+
 
 - (void)setupNextTypeChartButton {
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
@@ -97,20 +119,28 @@
 }
 
 - (void)drawChartWithChartConfiguration {
-    id chartOption = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
-    if ([chartOption isKindOfClass:AAChartModel.class]) {
-        [self.aaChartView aa_drawChartWithChartModel:chartOption];
-    } else if ([chartOption isKindOfClass:AAOptions.class]) {
-        [self.aaChartView aa_drawChartWithOptions:chartOption];
+    id chartConfiguration = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
+    if ([chartConfiguration isKindOfClass:AAChartModel.class]) {
+        AAChartModel *aaChartModel = chartConfiguration;
+        aaChartModel.touchEventEnabled = true;
+        [self.aaChartView aa_drawChartWithChartModel:chartConfiguration];
+    } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
+        AAOptions *aaOptions = chartConfiguration;
+        aaOptions.touchEventEnabled = true;
+        [self.aaChartView aa_drawChartWithOptions:chartConfiguration];
     }
 }
 
 - (void)refreshChartWithChartConfiguration {
-    id chartOption = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
-    if ([chartOption isKindOfClass:AAChartModel.class]) {
-        [self.aaChartView aa_refreshChartWithChartModel:chartOption];
-    } else if ([chartOption isKindOfClass:AAOptions.class]) {
-        [self.aaChartView aa_refreshChartWithOptions:chartOption];
+    id chartConfiguration = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
+    if ([chartConfiguration isKindOfClass:AAChartModel.class]) {
+        AAChartModel *aaChartModel = chartConfiguration;
+        aaChartModel.touchEventEnabled = true;
+        [self.aaChartView aa_refreshChartWithChartModel:chartConfiguration];
+    } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
+        AAOptions *aaOptions = chartConfiguration;
+        aaOptions.touchEventEnabled = true;
+        [self.aaChartView aa_refreshChartWithOptions:chartConfiguration];
     }
 }
 
