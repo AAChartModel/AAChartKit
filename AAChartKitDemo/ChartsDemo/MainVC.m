@@ -529,7 +529,8 @@
               @"通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)",
               @"custom Spider Chart Style---自定义蜘蛛图🕷🕸样式",
               @"customize Every DataLabel Singlely By DataLabels Formatter---通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义",
-              @"self customXAxisLabelsBeImages---自定义柱形图 X 轴 labels 为一组图片🖼"
+              @"custom XAxis Labels Be Images---自定义柱形图 X 轴 labels 为一组图片🖼",
+              @"custom Legend Item Click Event---自定义图例点击事件🖱"
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[
