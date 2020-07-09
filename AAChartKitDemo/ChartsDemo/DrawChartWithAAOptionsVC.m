@@ -98,7 +98,7 @@
 
 
 - (AAOptions *)configureTheAAOptionsOfAreaChart {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)
@@ -380,7 +380,7 @@
 }
 
 - (AAOptions *)configureThePolygonPolarChart {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
@@ -402,7 +402,7 @@
 }
 
 - (AAOptions *)configureTheNoGapColunmChart {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .titleSet(@"中间缝隙很小的柱状图")//图表主标题
     .subtitleSet(@"调整一下groupPadding即可")//图表副标题
@@ -496,7 +496,7 @@
 }
 
 - (AAOptions *)adjustChartLeftAndRightMargin {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .polarSet(true)
@@ -514,7 +514,7 @@
 }
 
 - (AAOptions *)configureChartWithBackgroundImage {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypePie)
     .titleSet(@"编程语言热度")
     .subtitleSet(@"虚拟数据")
@@ -877,7 +877,7 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/380
 - (AAOptions *)disableChartAnimation {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .yAxisLineWidthSet(@0)
     .seriesSet(@[
@@ -894,7 +894,7 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/387
 - (AAOptions *)customChartLengendItemStyle {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .seriesSet(@[
@@ -1012,7 +1012,7 @@
 }
 
 - (AAOptions *)yAxisOnTheRightSideChart {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .titleSet(@"Y轴在右侧的柱状图📊")//图表主标题
     .subtitleSet(@"设置 aaOptions.yAxis.opposite = YES 即可")//图表副标题
@@ -1363,7 +1363,7 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/521
 - (AAOptions *)adjustChartDataLabelsStyle {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .markerRadiusSet(@7)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
@@ -1447,7 +1447,7 @@
         .ySet(@21.5),
     ];
     
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .dataLabelsEnabledSet(true)
     .tooltipEnabledSet(false)
@@ -1535,7 +1535,7 @@
         @"<span style=\\\"color:#CC9909;font-weight:bold;font-size:10px\\\">死亡搁浅</span>",
     ];
     
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .stackingSet(AAChartStackingTypeNormal)
     .yAxisVisibleSet(false)
@@ -1566,7 +1566,7 @@
                                startColorString:@"#4F00BC"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"#29ABE2"];
     
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .backgroundColorSet((id)backgroundColorGradientColor)
     .stackingSet(AAChartStackingTypeNormal)
@@ -1719,7 +1719,7 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/735
 - (AAOptions *)configureReversedBarChartDataLabelsStyle {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)
@@ -2271,7 +2271,7 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/773
 - (AAOptions *)customChartStyleWhenEveryDataValueIsZero {
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .titleSet(@"Custom Chart Style When Every Data Value Is 0")
     .categoriesSet(@[
