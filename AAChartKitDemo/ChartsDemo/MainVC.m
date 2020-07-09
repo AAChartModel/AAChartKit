@@ -538,7 +538,8 @@
                 @"Custom Chart DataLabel Sample Two",
                 @"Custom Chart StackLabel Sample ",
                 @"Support Dragging Chart On X Axis",
-                @"Show Tooltip In Specific Postion after chart was loaded"
+                @"Show Tooltip In Specific Postion after chart was loaded",
+                @"Add Event For XAxis Labels Group Element "
             ],
             /*基础类型图表X轴水平滚动刷新*/
             @[@"Column Chart---柱形图",

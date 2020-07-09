@@ -94,6 +94,9 @@
     } else if (_sampleChartTypeIndex == 4) {
         AAChartModel *aaChartModel = [self configureShowTooltipInSpecificPostionChartModel];
         [_aaChartView aa_drawChartWithChartModel:aaChartModel];
+    } else if (_sampleChartTypeIndex == 5) {
+        AAOptions *aaOptions = [self configurePentagonRadarChart];
+        [_aaChartView aa_drawChartWithOptions:aaOptions];
     }
 }
 
@@ -181,7 +184,6 @@
                    )
         ,
     ]);
-    
 }
 
 - (AAChartModel *)configureShowTooltipInSpecificPostionChartModel {
@@ -210,6 +212,80 @@
                ]);
 }
 
+//五边形雷达图
+- (AAOptions *)configurePentagonRadarChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .backgroundColorSet(AAColor.whiteColor)
+    .categoriesSet(@[@"孤岛危机",@"美国末日",@"使命召唤",@"荣誉勋章",@"死亡搁浅"])
+    .markerRadiusSet(@0)
+    .yAxisMaxSet(@25)
+    .yAxisGridLineWidthSet(@1)
+    .polarSet(true)
+    .legendEnabledSet(false)
+    .tooltipEnabledSet(false)
+    .xAxisGridLineWidthSet(@1)
+    .yAxisGridLineWidthSet(@1)
+    .xAxisCrosshairWidthSet(@1.5)
+    .xAxisCrosshairColorSet(AAColor.whiteColor)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
+    .yAxisCrosshairWidthSet(@1.5)
+    .yAxisCrosshairColorSet(AAColor.whiteColor)
+    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
+    .yAxisTickPositionsSet(@[@5,@10,@15,@20,@25,])
+    .touchEventEnabledSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .colorSet(AAColor.whiteColor)
+        .fillOpacitySet(@0.01)
+        .dataLabelsSet(AADataLabels.new
+                       .colorSet(AARgbaColor(30, 144, 255, 1.0)))
+        .dataSet(@[@17.0, @16.9, @12.5,]),
+               ]);
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.chart.marginLeft = @40;
+    aaOptions.chart.marginRight = @40;
+    
+    aaOptions.customEventEnabled = true;//设置支持自定义事件
+    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    
+    aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
+    aaOptions.yAxis.plotBands = @[
+        AAPlotBandsElement.new
+        .fromSet(@0)
+        .toSet(@5)
+        .colorSet(AARgbaColor(255, 215, 0, 1.0)),
+        AAPlotBandsElement.new
+        .fromSet(@5)
+        .toSet(@10)
+        .colorSet(AARgbaColor(255, 215, 0, 0.8)),
+        AAPlotBandsElement.new
+        .fromSet(@10)
+        .toSet(@15)
+        .colorSet(AARgbaColor(255, 215, 0, 0.6)),
+        AAPlotBandsElement.new
+        .fromSet(@15)
+        .toSet(@20)
+        .colorSet(AARgbaColor(255, 215, 0, 0.4)),
+        AAPlotBandsElement.new
+        .fromSet(@20)
+        .toSet(@25)
+        .colorSet(AARgbaColor(255, 215, 0, 0.2)),
+        
+    ];
+    
+    aaOptions.xAxis.gridLineColor = AARgbaColor(255, 215, 0, 0.6);
+    aaOptions.yAxis.gridLineColor = AARgbaColor(255, 215, 0, 1.0);
+    
+    AASeriesElement *element = aaOptions.series[0];
+    element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2,])
+    .dataLabelsSet(AADataLabels.new
+                   .colorSet(AARgbaColor(255, 215, 0, 1.0)))
+    ;
+    return aaOptions;
+}
+
 #pragma mark -- AAChartView delegate
 - (void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView {
     NSLog(@"🔥🔥🔥🔥🔥 AAChartView content did finish load!!!");
@@ -226,9 +302,15 @@
         return;
     } else if (self.sampleChartTypeIndex == 4) {
         jsStr = [self configureShowTooltipInSpecificPostionJSFunctionString];
+    } else if (self.sampleChartTypeIndex == 5) {
+        jsStr = [self configureAddEventForXAxisLabelsGroupElementJSFunctionString];
     }
 
     [self.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
+}
+
+- (void)aaChartView:(AAChartView *)aaChartView didReceiveScriptMessage:(WKScriptMessage *)message {
+        NSLog(@"📀📀📀📀📀 您选中的游戏名称是: 【%@】",message.body);
 }
 
 #pragma mark -- Configure JavaScript function string
@@ -389,6 +471,15 @@ function renderMinMaxLabel(aaGlobalChart) {
        }
        activeLastPointToolip(aaGlobalChart);
                           ));;
+}
+
+//【案例分享】Highcharts 坐标轴标签点击高亮: https://blog.jianshukeji.com/highcharts/highlight-label-by-click.html
+// 实现方法是找到轴标签 DOM，然后手动添加点击事件并处理。其中 x 轴标签的 DOM 是 axis.labelGroup.element, 添加事件我们用 Highcharts.addEvent，
+- (NSString *)configureAddEventForXAxisLabelsGroupElementJSFunctionString {
+    return @AAJSFunc((Highcharts.addEvent(aaGlobalChart.xAxis[0].labelGroup.element, 'click', e => {
+        let category = e.target.innerHTML;
+        window.webkit.messageHandlers.customevent.postMessage(category);
+    });));
 }
 
 @end

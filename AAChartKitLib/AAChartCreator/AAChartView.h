@@ -62,10 +62,18 @@
 /// @param message User finger move over event message model
 - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message;
 
+/// The delegate method that did receive JavaScript event Message
+/// @param aaChartView The instance object of chart view
+/// @param message JavaScript event Message
+- (void)aaChartView:(AAChartView *)aaChartView didReceiveScriptMessage:(WKScriptMessage *)message;
+
+
 @end
 
 typedef void(^AADidFinishLoadBlock)(AAChartView *aaChartView);
 typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMessageModel *message);
+typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScriptMessage *message);
+
 
 @interface AAChartView:WKWebView
 
@@ -82,6 +90,9 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 
 /// The block method of user finger move over event
 @property (nonatomic, copy) AAMoveOverEventBlock moveOverEventBlock;
+
+/// The block method that did receive JavaScript event Message
+@property (nonatomic, copy) AADidReceiveScriptMessageBlock didReceiveScriptMessageBlock;
 
 /// Set the chart view can scroll or not
 @property (nonatomic, assign) BOOL scrollEnabled;
@@ -106,6 +117,11 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 /// Chart view getting moved over event message model
 /// @param handler event handler
 - (void)moveOverEventHandler:(AAMoveOverEventBlock)handler;
+
+/// Chart view did receive JavaScript event Message
+/// @param handler JavaScript event Message
+- (void)didReceiveScriptMessageHandler:(AADidReceiveScriptMessageBlock)handler;
+
 
 #pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
 

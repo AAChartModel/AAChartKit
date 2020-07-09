@@ -127,6 +127,7 @@
 #endif
 
 static NSString * const kUserContentMessageNameMouseOver = @"mouseover";
+static NSString * const kUserContentMessageNameCustomEvent = @"customevent";
 
 @interface AAChartView() <
 WKUIDelegate,
@@ -464,13 +465,22 @@ WKScriptMessageHandler
     if (self.isClearBackgroundColor) {
         aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
-    if (   aaOptions.touchEventEnabled == true
-        && _touchEventEnabled == false) {
-        _touchEventEnabled = true;
+
+    if ( _touchEventEnabled == false) {
         AAWeakProxy *proxy = [AAWeakProxy proxyWithTarget:self];
-        [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
-                                                                     name:kUserContentMessageNameMouseOver];
+        if (aaOptions.touchEventEnabled == true) {
+            [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
+                                                                         name:kUserContentMessageNameMouseOver];
+        }
+        
+        if (aaOptions.customEventEnabled == true) {
+            [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
+                                                                         name:kUserContentMessageNameCustomEvent];
+        }
+        
+        _touchEventEnabled = true;
     }
+    
     _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
 }
 
@@ -518,6 +528,10 @@ WKScriptMessageHandler
     self.moveOverEventBlock = handler;
 }
 
+- (void)didReceiveScriptMessageHandler:(AADidReceiveScriptMessageBlock)handler {
+    self.didReceiveScriptMessageBlock = handler;
+}
+
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self drawChart];
@@ -544,6 +558,16 @@ WKScriptMessageHandler
         if (self.delegate) {
             if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
                 [self.delegate aaChartView:self moveOverEventWithMessage:eventMessageModel];
+            }
+        }
+    } else if ([message.name isEqualToString:kUserContentMessageNameCustomEvent]) {
+        if (self.didReceiveScriptMessageBlock) {
+            self.didReceiveScriptMessageBlock(self, message);
+            return;
+        }
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector((aaChartView:didReceiveScriptMessage:))]) {
+                [self.delegate aaChartView:self didReceiveScriptMessage:message];
             }
         }
     }
@@ -636,7 +660,7 @@ WKScriptMessageHandler
 }
 
 - (void)dealloc {
-    [self.configuration.userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
+    [self.configuration.userContentController removeAllUserScripts];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     AADetailLog("👻👻👻 AAChartView was destroyed!!!");
 }
