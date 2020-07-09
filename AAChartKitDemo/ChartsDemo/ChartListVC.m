@@ -291,7 +291,7 @@
 }
 
 - (AAChartModel *)configureAAChartModel {
-   AAChartModel *aaChartModel= AAChartModel.new
+   AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀

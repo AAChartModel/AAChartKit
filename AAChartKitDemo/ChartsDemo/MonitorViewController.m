@@ -69,7 +69,7 @@
     myTap.delegate = self;
     myTap.cancelsTouchesInView = NO;
     
-    self.aaChartModel= AAObject(AAChartModel)
+    self.aaChartModel = AAObject(AAChartModel)
     .chartTypeSet(chartType)
     .categoriesSet(@[@"10/25",@"10/26",@"10/27",@"10/28",@"10/29",@"10/30",@"10/31",@"11/01",@"11/02",@"11/03",@"11/04",@"11/05",@"11/06",@"11/07"])
     .seriesSet(@[

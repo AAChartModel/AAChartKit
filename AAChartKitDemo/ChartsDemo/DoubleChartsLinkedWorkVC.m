@@ -65,7 +65,7 @@
     _aaChartView1 = aaChartView;
     [self setupChartViewHandler];
     
-    AAChartModel *aaChartModel= AAChartModel.new
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .categoriesSet(@[
         @"oceanBlue",

@@ -69,7 +69,7 @@
 - (void)setUpTheChartModel {
     AAChartType chartType = [self configureChartType];
     
-    self.aaChartModel= AAChartModel.new
+    self.aaChartModel = AAChartModel.new
     .chartTypeSet(chartType)//图表类型
     .animationTypeSet(AAChartAnimationBounce)
     .titleSet(@"CHART SERIES HIDE OR SHOW")//图表主标题
