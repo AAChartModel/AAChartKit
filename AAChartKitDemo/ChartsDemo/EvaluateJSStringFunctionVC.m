@@ -247,7 +247,7 @@
     aaOptions.chart.marginLeft = @40;
     aaOptions.chart.marginRight = @40;
     
-    aaOptions.customEventEnabled = true;//设置支持自定义事件
+    aaOptions.customEventEnabled = true;//设置支持自定义事件 ⭐️⭐️⭐️⭐️(关键属性)
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
@@ -303,12 +303,14 @@
     } else if (self.sampleChartTypeIndex == 4) {
         jsStr = [self configureShowTooltipInSpecificPostionJSFunctionString];
     } else if (self.sampleChartTypeIndex == 5) {
+        //在 aaChartViewDidFinishLoad 代理方法中注入自定义事件的 JavaScript 函数
         jsStr = [self configureAddEventForXAxisLabelsGroupElementJSFunctionString];
     }
 
     [self.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
 }
 
+//在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调
 - (void)aaChartView:(AAChartView *)aaChartView didReceiveScriptMessage:(WKScriptMessage *)message {
         NSLog(@"📀📀📀📀📀 您选中的游戏名称是: 【%@】",message.body);
 }
@@ -475,6 +477,8 @@ function renderMinMaxLabel(aaGlobalChart) {
 
 //【案例分享】Highcharts 坐标轴标签点击高亮: https://blog.jianshukeji.com/highcharts/highlight-label-by-click.html
 // 实现方法是找到轴标签 DOM，然后手动添加点击事件并处理。其中 x 轴标签的 DOM 是 axis.labelGroup.element, 添加事件我们用 Highcharts.addEvent，
+
+//配置将要注入的自定义事件的 JavaScript 函数
 - (NSString *)configureAddEventForXAxisLabelsGroupElementJSFunctionString {
     return @AAJSFunc((Highcharts.addEvent(aaGlobalChart.xAxis[0].labelGroup.element, 'click', e => {
         let category = e.target.innerHTML;
