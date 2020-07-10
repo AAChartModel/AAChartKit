@@ -36,8 +36,6 @@
 @interface AABaseViewController ()
 
 @property (nonatomic, strong) NSLayoutConstraint *topConstraint;
-@property (nonatomic, strong) NSLayoutConstraint *bottomConstraint;
-
 
 @end
 
@@ -89,10 +87,10 @@
     }
     [self.view addSubview:self.aaChartView];
     
-//    AAAnimation *aaAnimation = AAAnimation.new
-//    .durationSet(@1000)
-//    .easingSet(AAChartAnimationEaseOutQuart);
-//    [self.aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
+    AAAnimation *aaAnimation = AAAnimation.new
+    .durationSet(@800)
+    .easingSet(AAChartAnimationEaseOutQuart);
+    [self.aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
     
     // ⚠️
     self.aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -108,12 +106,24 @@
 - (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
                                        toFatherView:(UIView *)fatherView {
     CGFloat topConstraintConstant;
+    // 如果statusBarFrame为CGRectZero,说明状态栏是隐藏的
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    BOOL istatusHiden = (statusBarFrame.size.height == 0);
     
     if ([self isHairPhone]) {
         topConstraintConstant = 88;
+        if (istatusHiden == true) {
+            topConstraintConstant -= 44;
+        }
     } else {
         topConstraintConstant = 64;
+        if (istatusHiden == true) {
+            topConstraintConstant -= 20;
+        }
     }
+
+    
+
     
     self.topConstraint =
     [NSLayoutConstraint constraintWithItem:sonView
@@ -123,15 +133,6 @@
                                  attribute:NSLayoutAttributeTop
                                 multiplier:1.0
                                   constant:topConstraintConstant];
-    
-    self.bottomConstraint =
-    [NSLayoutConstraint constraintWithItem:sonView
-                                 attribute:NSLayoutAttributeBottom
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:fatherView
-                                 attribute:NSLayoutAttributeBottom
-                                multiplier:1.0
-                                  constant:0];
     
     return @[[NSLayoutConstraint constraintWithItem:sonView
                                           attribute:NSLayoutAttributeLeft
@@ -148,7 +149,13 @@
                                          multiplier:1.0
                                            constant:0],
              self.topConstraint,
-             self.bottomConstraint,
+             [NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeBottom
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeBottom
+                                         multiplier:1.0
+                                           constant:0]
     ];
 }
 
@@ -209,10 +216,10 @@
                                                        queue:nil
                                                   usingBlock:^(NSNotification * _Nonnull note) {
         [weakSelf handleDeviceOrientationChangeEvent];
-        
     }];
 }
 
+//屏幕旋转后动态调整 autolayout 布局参数
 - (void)handleDeviceOrientationChangeEvent {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -225,17 +232,9 @@
             self.topConstraint.constant = 44;
         }
     
+    //very important https://www.jianshu.com/p/945502f7062e
     [self.view layoutSubviews];
-    [self.view layoutIfNeeded];
-    
-    AAAnimation *aaAnimation = AAAnimation.new
-    .durationSet(@800)
-    .easingSet(AAChartAnimationEaseOutQuart);
-    
-    [self.aaChartView aa_changeChartSizeWithWidth:self.aaChartView.frame.size.width
-                                           height:self.aaChartView.frame.size.height
-                                        animation:aaAnimation];
-    
+    [self.view layoutIfNeeded];//立即调用更改后的布局约束,否则 AAChartView 的自适应屏幕旋转的 contentView 高度会有点问题(我找了半天才找到问题😅)
 }
 
 - (BOOL)isHairPhone {
