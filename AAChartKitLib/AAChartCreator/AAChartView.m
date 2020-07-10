@@ -385,10 +385,18 @@ WKScriptMessageHandler
 }
 
 - (void)handleDeviceOrientationChangeEventWithAnimation:(AAAnimation *)animation {
+    [self aa_changeChartSizeWithWidth:self.frame.size.width
+                               height:self.frame.size.height
+                            animation:animation];
+}
+
+- (void)aa_changeChartSizeWithWidth:(CGFloat)width
+                             height:(CGFloat)height
+                          animation:(AAAnimation *)animation {
     NSString *animationJsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:animation];
     NSString *jsFuntionStr = [NSString stringWithFormat:@"changeChartSize('%f','%f','%@')",
-                              self.frame.size.width,
-                              self.frame.size.height,
+                              width,
+                              height,
                               animationJsonStr];
     [self safeEvaluateJavaScriptString:jsFuntionStr];
 }

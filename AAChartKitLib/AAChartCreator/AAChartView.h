@@ -268,6 +268,15 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// @param animation The instance object of AAAnimation
 - (void)aa_adaptiveScreenRotationWithAnimation:(AAAnimation *)animation;
 
+
+/// Change chart view content size
+/// @param width content size width
+/// @param height content size height
+/// @param animation The instance object of AAAnimation
+- (void)aa_changeChartSizeWithWidth:(CGFloat)width
+                             height:(CGFloat)height
+                          animation:(AAAnimation *)animation;
+
 @end
 
 
