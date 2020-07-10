@@ -81,7 +81,6 @@
 
 - (void)setupChartView {
     self.aaChartView = [[AAChartView alloc]init];
-//    self.aaChartView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.aaChartView.scrollEnabled = NO;
     if (@available(iOS 11.0, *)) {
         self.aaChartView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -216,28 +215,26 @@
 
 - (void)handleDeviceOrientationChangeEvent {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if (orientation == UIInterfaceOrientationPortrait) {
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
         if ([self isHairPhone]) {
             self.topConstraint.constant = 88;
         } else {
             self.topConstraint.constant = 64;
         }
-        self.bottomConstraint.constant = 0;
-    } else {
-        self.topConstraint.constant = 44;
-        self.bottomConstraint.constant = 0;
-    }
+        } else {
+            self.topConstraint.constant = 44;
+        }
     
     [self.view layoutSubviews];
     [self.view layoutIfNeeded];
-
+    
     AAAnimation *aaAnimation = AAAnimation.new
-       .durationSet(@1000)
-       .easingSet(AAChartAnimationEaseOutQuart);
+    .durationSet(@800)
+    .easingSet(AAChartAnimationEaseOutQuart);
     
     [self.aaChartView aa_changeChartSizeWithWidth:self.aaChartView.frame.size.width
-                                  height:self.aaChartView.frame.size.height
-                               animation:aaAnimation];
+                                           height:self.aaChartView.frame.size.height
+                                        animation:aaAnimation];
     
 }
 
