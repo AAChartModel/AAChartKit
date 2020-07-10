@@ -35,6 +35,7 @@
 @implementation AAJSStringPurer
 
 + (NSString *)pureJavaScriptFunctionStringWithString:(NSString *)jsString {
+    //https://stackoverflow.com/questions/34334232/why-does-function-not-work-but-function-does-chrome-devtools-node
     NSString *finalJSFunc = [NSString stringWithFormat:@"(%@)",jsString];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"'" withString:@"\""];
     finalJSFunc = [finalJSFunc stringByReplacingOccurrencesOfString:@"\0" withString:@""];
