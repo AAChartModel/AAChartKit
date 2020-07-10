@@ -591,16 +591,6 @@
     .enabledSet(true)
     .sharedSet(true);
     
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#f54ea2"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#ff7676"];
-    
-    NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#17ead9"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#6078ea"];
-    
     AAMarker *aaMarker = AAMarker.new
     .radiusSet(@7)//曲线连接点半径，默认是4
     .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -947,15 +937,6 @@
 }
 
 - (AAOptions *)configureTheMirrorColumnChart {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#00b0ff"];
-    
-    NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#EF71FF"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#4740C8"];
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeColumn)
@@ -1001,12 +982,18 @@
         .nameSet(@"收入")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5,
                    @23.3, @18.3, @13.9,@7.0, @6.9, @9.5, @14.5,])
-        .colorSet((id)gradientColorDic1),
+        .colorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToTop)
+                  .startColorSet(@"#7052f4")
+                  .endColorSet(@"#00b0ff")),
         AASeriesElement.new
         .nameSet(@"支出")
         .dataSet(@[@-20.1, @-14.1, @-8.6, @-2.5, @-0.8, @-5.7, @-11.3, @-17.0,
                    @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5])
-        .colorSet((id)gradientColorDic2),
+        .colorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToTop)
+                  .startColorSet(@"#EF71FF")
+                  .endColorSet(@"#4740C8")),
                ]);
     return aaOptions;
 }
@@ -2093,7 +2080,15 @@
     
     AASeriesElement *element1 = AASeriesElement.new
     .nameSet(@"Bids")
-    .colorSet(@"#03a7a8")
+    .colorSet(AAColor.redColor)
+    .fillColorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToBottom)
+                  .stopsArraySet(@[
+                      @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                      @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
+                      @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+                                 ])
+                  )
     .stepSet(@true)
     .dataSet(@[
         @[@0.1524, @0.948665],
@@ -2120,7 +2115,15 @@
     
     AASeriesElement *element2 = AASeriesElement.new
     .nameSet(@"Asks")
-    .colorSet(@"#fc5857")
+    .colorSet(@"#1E90FF")
+    .fillColorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToBottom)
+                  .stopsArraySet(@[
+                      @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                      @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
+                      @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
+                                 ])
+                  )
     .stepSet(@true)
     .dataSet(@[
         @[@0.1435, @242.521842],
