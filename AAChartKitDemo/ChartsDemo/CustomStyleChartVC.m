@@ -486,7 +486,7 @@
 - (AAChartModel *)configureColorfulGradientAreaChart {
     NSArray *stopsArr = @[
         @[@0.0, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-        @[@0.5, @"#FF14d4"],
+        @[@0.4, @"#FF14d4"],
         @[@1.0, @"#0bf8f5"]
     ];
     NSDictionary *gradientColorDic1 =
@@ -506,7 +506,9 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
-        .colorSet((id)gradientColorDic1)
+        .lineWidthSet(@5)
+        .colorSet(AAColor.redColor)
+        .fillColorSet((id)gradientColorDic1)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
 }
