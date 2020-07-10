@@ -419,6 +419,7 @@
               @"Polar Chart Mixed---极地混合图",
               @"configure Column Mixed Scatter Chart---柱形图混合散点图",
               @"Negative Color Mixed Areaspline chart---基准线以下异色混合曲线填充图",
+              @"Area Chart Mixed Step Area Chart---折线填充和直方折线填充混合图"
 
             ],
             /*图表数据动态刷新*/
