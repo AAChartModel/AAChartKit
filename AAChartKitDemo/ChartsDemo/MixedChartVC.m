@@ -58,6 +58,7 @@
         case 9:  return [self configurePolarMixedChart];
         case 10: return [self configureColumnMixedScatterChart];//柱形图混合散点图
         case 11: return [self configureNegativeColorMixedAreasplineChart];
+        case 12: return [self configureAreaChartMixedStepAreaChart];
     }
     return nil;
 }
@@ -861,6 +862,53 @@
         ,
                ]);
 }
+
+
+- (AAChartModel *)configureAreaChartMixedStepAreaChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .colorSet(AAColor.redColor)
+        .fillColorSet((id)AAGradientColor.new
+                      .directionSet(AALinearGradientDirectionToBottom)
+                      .stopsArraySet(@[
+                          @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                          @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
+                          @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+                                     ])
+                      )
+        .dataLabelsSet(AADataLabels.new
+                       .styleSet(AAStyle.new
+                                 .colorSet(AARgbaColor(255, 0, 0, 1.0))
+                                 .fontSizeSet(@"11px")
+                                 ))
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+        
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .stepSet(@(true))
+        .colorSet(@"#1E90FF")
+        .fillColorSet((id)AAGradientColor.new
+                      .directionSet(AALinearGradientDirectionToBottom)
+                      .stopsArraySet(@[
+                          @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                          @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
+                          @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
+                                     ])
+                      )
+        .dataLabelsSet(AADataLabels.new
+                       .styleSet(AAStyle.new
+                                 .colorSet(AARgbaColor(30, 144, 255, 1.0))
+                                 .fontSizeSet(@"11px")
+                                 ))
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+               ]
+               );
+}
+
 
 @end
 

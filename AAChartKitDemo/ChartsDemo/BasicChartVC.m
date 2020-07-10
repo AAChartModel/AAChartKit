@@ -279,19 +279,19 @@
         AASeriesElement *element1 = AASeriesElement.new
         .nameSet(@"2017")
         .lineWidthSet(@5.0)
-        .dataSet(@[@50.1, @320.2, @230.3, @370.4, @230.5, @400.6,]);
+        .dataSet(@[@5.1, @32.2, @23.3, @37.4, @23.5, @40.6,]);
         AASeriesElement *element2 = AASeriesElement.new
         .nameSet(@"2018")
         .lineWidthSet(@5.0)
-        .dataSet(@[@80.1, @390.2, @210.3, @340.4, @240.5, @350.6,]);
+        .dataSet(@[@8.1, @39.2, @21.3, @34.4, @24.5, @35.6,]);
         AASeriesElement *element3 = AASeriesElement.new
         .nameSet(@"2019")
         .lineWidthSet(@5.0)
-        .dataSet(@[@100.1, @370.2, @180.3, @280.4, @260.5, @300.6,]);
+        .dataSet(@[@10.1, @37.2, @18.3, @28.4, @26.5, @30.6,]);
         AASeriesElement *element4 = AASeriesElement.new
         .nameSet(@"2020")
         .lineWidthSet(@5.0)
-        .dataSet(@[@130.1, @350.2, @160.3, @310.4, @250.5, @268.6,]);
+        .dataSet(@[@13.1, @35.2, @16.3, @31.4, @25.5, @26.6,]);
         
         _aaChartModel
         .markerRadiusSet(@0)
