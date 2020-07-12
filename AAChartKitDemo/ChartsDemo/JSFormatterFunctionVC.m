@@ -1262,15 +1262,6 @@ function () {
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
 - (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
-    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
-    NSArray *dataArr = @[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2];
-    
-    NSString *unitJSArrStr = [self javaScriptArrayStringWithObjcArray:unitArr];
-    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
-    })),unitJSArrStr];
-    
-    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .dataLabelsEnabledSet(true)
@@ -1281,11 +1272,17 @@ function () {
     .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
     .seriesSet(@[
         AASeriesElement.new
-        .dataSet(dataArr),
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2]),
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
+    
+    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
+    NSString *unitJSArrStr = [self javaScriptArrayStringWithObjcArray:unitArr];
+    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
+    })),unitJSArrStr];
     
     AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
     aaDatalabels
