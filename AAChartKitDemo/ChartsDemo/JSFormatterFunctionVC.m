@@ -49,13 +49,16 @@
     // rainbow colors 🌈 [@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC'];
 }
 
-
+//case 0: return customAreaChartTooltipStyleWithSimpleFormatString()
+//       case 1: return customAreaChartTooltipStyleWithDifferentUnitSuffix()
+//       case 2: return customAreaChartTooltipStyleWithColorfulHtmlLabels()
+//       case 3: return customLineChartTooltipStyleWhenValueBeZeroDoNotShow()
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self customAreaChartTooltipStyleWithFormatterFunction1];//简单字符串拼接
-        case 1: return [self customAreaChartTooltipStyleWithFormatterFunction2];//自定义不同单位后缀
-        case 2: return [self customAreaChartTooltipStyleWithFormatterFunction3];//值为0时,在tooltip中不显示
-        case 3: return [self customAreaChartTooltipStyleWithFormatterFunction4];//自定义多彩颜色文字
+        case 0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
+        case 1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
+        case 2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
+        case 3: return [self customLineChartTooltipStyleWhenValueBeZeroDoNotShow];//值为0时,在tooltip中不显示
         case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
         case 5: return [self customYAxisLabels];//自定义Y轴文字
         case 6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
@@ -79,7 +82,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/569
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction1 {
+- (AAOptions *)customAreaChartTooltipStyleWithSimpleFormatString {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
@@ -141,7 +144,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/647
 //https://github.com/AAChartModel/AAChartKit/issues/891
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
+- (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                startColorString:@"rgba(256,0,0,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
@@ -206,66 +209,8 @@
     return aaOptions;
 }
 
-
-
-//https://github.com/AAChartModel/AAChartKit/issues/651
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图表类型
-    .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
-    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
-    .markerRadiusSet(@8.0)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
-    .xAxisCrosshairWidthSet(@1.0)
-    .xAxisCrosshairColorSet(AAColor.darkGrayColor)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"上市")
-        .dataSet(@[@0,@0,@7]),
-        AASeriesElement.new
-        .nameSet(@"终止")
-        .dataSet(@[@4,@5,@1]),
-        AASeriesElement.new
-        .nameSet(@"无进展")
-        .dataSet(@[@2,@0,@1]),
-        AASeriesElement.new
-        .nameSet(@"进行中")
-        .dataSet(@[@3,@5,@2]),
-    ]);
-    
-    
-    
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.tooltip
-    .useHTMLSet(true)
-    .formatterSet(@AAJSFunc(function () {
-        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
-        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
-        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
-        let colorDotArr = [];
-        colorDotArr.push(colorDot0);
-        colorDotArr.push(colorDot1);
-        colorDotArr.push(colorDot2);
-        colorDotArr.push(colorDot3);
-        let wholeContentString = this.points[0].x + '<br/>';
-        for (let i = 0;i < 4;i++) {
-            let yValue = this.points[i].y;
-            if (yValue != 0) {
-                let prefixStr = colorDotArr[i];
-                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
-            }
-        }
-        return wholeContentString;
-    }))
-    ;
-    return aaOptions;
-}
-
 //https://github.com/AAChartModel/AAChartKit/issues/653
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction4 {
+- (AAOptions *)customAreaChartTooltipStyleWithColorfulHtmlLabels {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
@@ -321,6 +266,62 @@
     ;
     return aaOptions;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/651
+- (AAOptions *)customLineChartTooltipStyleWhenValueBeZeroDoNotShow {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
+    .markerRadiusSet(@8.0)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
+    .xAxisCrosshairWidthSet(@1.0)
+    .xAxisCrosshairColorSet(AAColor.darkGrayColor)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"上市")
+        .dataSet(@[@0,@0,@7]),
+        AASeriesElement.new
+        .nameSet(@"终止")
+        .dataSet(@[@4,@5,@1]),
+        AASeriesElement.new
+        .nameSet(@"无进展")
+        .dataSet(@[@2,@0,@1]),
+        AASeriesElement.new
+        .nameSet(@"进行中")
+        .dataSet(@[@3,@5,@2]),
+    ]);
+    
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
+        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
+        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
+        let colorDotArr = [];
+        colorDotArr.push(colorDot0);
+        colorDotArr.push(colorDot1);
+        colorDotArr.push(colorDot2);
+        colorDotArr.push(colorDot3);
+        let wholeContentString = this.points[0].x + '<br/>';
+        for (let i = 0;i < 4;i++) {
+            let yValue = this.points[i].y;
+            if (yValue != 0) {
+                let prefixStr = colorDotArr[i];
+                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
+            }
+        }
+        return wholeContentString;
+    }))
+    ;
+    return aaOptions;
+}
+
 
 - (AAOptions *)customBoxplotTooltipContent {
     AAChartModel *aaChartModel = AAChartModel.new
