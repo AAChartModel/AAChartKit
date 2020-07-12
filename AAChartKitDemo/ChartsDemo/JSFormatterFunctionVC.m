@@ -49,10 +49,6 @@
     // rainbow colors 🌈 [@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC'];
 }
 
-//case 0: return customAreaChartTooltipStyleWithSimpleFormatString()
-//       case 1: return customAreaChartTooltipStyleWithDifferentUnitSuffix()
-//       case 2: return customAreaChartTooltipStyleWithColorfulHtmlLabels()
-//       case 3: return customLineChartTooltipStyleWhenValueBeZeroDoNotShow()
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
         case 0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
@@ -961,22 +957,6 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/577
 - (AAOptions *)customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter {
-    NSArray *categoryArr = @[
-        @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
-        @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
-    ];
-    
-    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
-    
-    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return  'The value for <b>' + %@[this.x] +
-        '</b> is <b>' + this.y + '</b> ' + "℃";
-    })),categoryJSArrStr];
-    
-    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return %@[this.value];
-    })),categoryJSArrStr];
-    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .titleSet((@"Custom Line Chart Original Point Position"))//图表主标题
@@ -1003,52 +983,30 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
 
+    NSArray *categoryArr = @[
+        @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
+        @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
+    ];
+    
+    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
+    
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return  'The value for <b>' + %@[this.x] +
+        '</b> is <b>' + this.y + '</b> ' + "℃";
+    })),categoryJSArrStr];
+    
+    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return %@[this.value];
+    })),categoryJSArrStr];
+    
+    //tooltip 的共享(.sharedSet(true))与非共享(.sharedSet(false))时,部分值的取值方式不同,
+    //参见https://github.com/AAChartModel/AAChartKit/issues/781#issuecomment-555852813
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(tooltipFormatter);
     
     aaOptions.xAxis.labels
     .formatterSet(xAxisLabelsFormatter);
-
-    
-    
-    //Method 2---------------------------------
-    AAOptions *aaOptions2 = AAOptions.new
-    .titleSet(AATitle.new
-              .textSet(@"Custom Line Chart Original Point Position"))
-    .colorsSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])
-    .tooltipSet(AATooltip.new
-                .sharedSet(true)//共享与非共享时,部分值的取值方式不同,
-                //参见https://github.com/AAChartModel/AAChartKit/issues/781#issuecomment-555852813
-                .formatterSet(tooltipFormatter)
-                )
-    .xAxisSet(AAXAxis.new
-              .tickIntervalSet(@1)
-              .labelsSet(AALabels.new
-                         .enabledSet(true)
-                         .rotationSet(@-45)
-                         .formatterSet(xAxisLabelsFormatter))
-              )
-    .yAxisSet(AAYAxis.new
-              .lineWidthSet(@1)
-              .gridLineWidthSet(@0)
-              .titleSet(AAAxisTitle.new
-                        .textSet(@"℃"))
-              )
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"2017")
-        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-        AASeriesElement.new
-        .nameSet(@"2018")
-        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-        AASeriesElement.new
-        .nameSet(@"2019")
-        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-        AASeriesElement.new
-        .nameSet(@"2020")
-        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-    ]);
     
     return aaOptions;
 }
