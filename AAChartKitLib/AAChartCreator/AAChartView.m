@@ -732,11 +732,6 @@ WKScriptMessageHandler
     return [self dictionaryWithObjectInstance:objc];
 }
 
-+ (NSString*)wipeOffTheLineBreakCharacter:(NSString *)originalString {
-    originalString = [originalString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    return originalString;
-}
-
 + (NSString *)pureOptionsJsonStringWithOptionsInstance:(id)optionsObject {
     NSDictionary *dic;
     if ([optionsObject isKindOfClass:[NSDictionary class]] ) {
@@ -744,26 +739,23 @@ WKScriptMessageHandler
     } else {
         dic = [self dictionaryWithObjectInstance:optionsObject];
     }
+#if DEBUG
+    [AAJsonConverter printPrettyPrintedJsonStringWithJsonObject:dic];
+#endif
     return [self pureJsonStringWithJsonObject:dic];
 }
 
-+ (NSString *)pureJsonStringWithJsonObject:(id)jsonObjc {
-    NSString *seriesStr = [self jsonStringWithJsonObject:jsonObjc];
-    AADetailLog(@"----------- console log AAOptions JSON information of AAChartView -----------:\n%@",seriesStr);
-    return [self wipeOffTheLineBreakCharacter:seriesStr];
-}
-
-+ (NSString*)jsonStringWithJsonObject:(id)jsonObject {
++ (NSString*)pureJsonStringWithJsonObject:(id)jsonObject {
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
-                                                       options:NSJSONWritingPrettyPrinted
+                                                       options:kNilOptions
                                                          error:&error];
-    NSString *string =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *pureJsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     if (error) {
-        AADetailLog(@"❌❌❌ data with JSONObject serialization failed：%@", error);
+        AADetailLog(@"❌❌❌ pure JSONString with JSONObject serialization failed：%@", error);
         return nil;
     }
-    return string;
+    return pureJsonStr;
 }
 
 + (id)jsonObjectWithJsonString:(NSString *)string {
@@ -774,13 +766,31 @@ WKScriptMessageHandler
                                                        options:NSJSONReadingMutableContainers
                                                          error:&error];
         if (error) {
-            AADetailLog(@"❌❌❌ JSONObject with data serialization failed：%@", error);
+            AADetailLog(@"❌❌❌ JSONObject with JSONString serialization failed：%@", error);
             return nil;
         }
         return jsonObjet;
     }
     return nil;
 }
+
+#if DEBUG
++ (NSString*)printPrettyPrintedJsonStringWithJsonObject:(id)jsonObject {
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"----------- console log AAOptions JSON information of AAChartView -----------:\n%@",jsonStr);
+    
+    if (error) {
+        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
+        return nil;
+    }
+    return jsonStr;
+}
+#endif
+
 
 @end
 
