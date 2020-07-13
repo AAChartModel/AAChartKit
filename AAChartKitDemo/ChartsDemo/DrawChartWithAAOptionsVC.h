@@ -31,7 +31,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "AABaseViewController.h"
-@interface DrawChartWithAAOptionsVC : AABaseViewController
+#import "AABaseChartVC.h"
+@interface DrawChartWithAAOptionsVC : AABaseChartVC
 
 @end

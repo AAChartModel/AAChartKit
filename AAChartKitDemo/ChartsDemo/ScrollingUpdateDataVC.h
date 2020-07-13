@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AABaseViewController.h"
+#import "AABaseChartVC.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ScrollingUpdateDataVC : AABaseViewController
+@interface ScrollingUpdateDataVC : AABaseChartVC
 
 @end
 

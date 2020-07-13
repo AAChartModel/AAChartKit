@@ -34,7 +34,7 @@
 #import "AAChartKit.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AABaseViewController : UIViewController
+@interface AABaseChartVC : UIViewController
 
 @property (nonatomic, strong) NSArray *navigationItemTitleArr;
 @property (nonatomic, assign) NSUInteger selectedIndex;

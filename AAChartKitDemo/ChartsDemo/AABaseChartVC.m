@@ -30,16 +30,16 @@
  
  */
 
-#import "AABaseViewController.h"
+#import "AABaseChartVC.h"
 #import "AAEasyTool.h"
 
-@interface AABaseViewController ()
+@interface AABaseChartVC ()
 
 @property (nonatomic, strong) NSLayoutConstraint *topConstraint;
 
 @end
 
-@implementation AABaseViewController
+@implementation AABaseChartVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

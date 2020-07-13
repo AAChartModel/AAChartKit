@@ -39,7 +39,7 @@
 		278989BB204F8DBA003940CC /* ChartListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 278989BA204F8DBA003940CC /* ChartListVC.m */; };
 		27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
-		27E475F524B2111400690657 /* AABaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E475F424B2111400690657 /* AABaseViewController.m */; };
+		27E475F524B2111400690657 /* AABaseChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E475F424B2111400690657 /* AABaseChartVC.m */; };
 		27EB89D8248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */; };
 		27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */; };
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
@@ -171,8 +171,8 @@
 		27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleChartVC.m; sourceTree = "<group>"; };
 		27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartAnimationTypeVC.h; sourceTree = "<group>"; };
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
-		27E475F324B2111400690657 /* AABaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABaseViewController.h; sourceTree = "<group>"; };
-		27E475F424B2111400690657 /* AABaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AABaseViewController.m; sourceTree = "<group>"; };
+		27E475F324B2111400690657 /* AABaseChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABaseChartVC.h; sourceTree = "<group>"; };
+		27E475F424B2111400690657 /* AABaseChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AABaseChartVC.m; sourceTree = "<group>"; };
 		27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedChartOptionsUpdatingFunctionVC.h; sourceTree = "<group>"; };
 		27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvancedChartOptionsUpdatingFunctionVC.m; sourceTree = "<group>"; };
 		27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSortingWithAnimationChartVC.h; sourceTree = "<group>"; };
@@ -377,8 +377,8 @@
 				44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */,
 				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
 				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
-				27E475F324B2111400690657 /* AABaseViewController.h */,
-				27E475F424B2111400690657 /* AABaseViewController.m */,
+				27E475F324B2111400690657 /* AABaseChartVC.h */,
+				27E475F424B2111400690657 /* AABaseChartVC.m */,
 				27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */,
 				27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
@@ -734,7 +734,7 @@
 				1E66D1FF210AF4ED007EAB8C /* AAXAxis.m in Sources */,
 				4486D0A62466AFE5000D7FDA /* AAPane.m in Sources */,
 				1E66D216210AF4ED007EAB8C /* AAChartModel.m in Sources */,
-				27E475F524B2111400690657 /* AABaseViewController.m in Sources */,
+				27E475F524B2111400690657 /* AABaseChartVC.m in Sources */,
 				1E66D207210AF4ED007EAB8C /* AAColumn.m in Sources */,
 				1E66D208210AF4ED007EAB8C /* AAPlotLinesElement.m in Sources */,
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,

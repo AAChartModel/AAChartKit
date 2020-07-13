@@ -31,9 +31,9 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "AABaseViewController.h"
+#import "AABaseChartVC.h"
 
-@interface OnlyRefreshChartDataVC : AABaseViewController
+@interface OnlyRefreshChartDataVC : AABaseChartVC
 
 
 @end
