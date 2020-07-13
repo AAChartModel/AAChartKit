@@ -1089,7 +1089,8 @@ function () {
     let 时间单位后缀 = "min<br/>";
     let 频率单位后缀 = "次<br/>";
 
-    let pointIndex = this.point.index;
+    let selectedSeries = this.points[0];
+    let pointIndex = selectedSeries.point.index;
     let 单个总时长字符串 = "总时长: &nbsp &nbsp" + 总时长数组[pointIndex] + 时间单位后缀;
     let 单个有效时长字符串 = "有效时长: &nbsp" + 有效时长数组[pointIndex] + 时间单位后缀;
     let 单个看近时长字符串 = "看近时长: &nbsp" + 看近时长数组[pointIndex] + 时间单位后缀;
@@ -1110,7 +1111,7 @@ function () {
     //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
     //‼️共享时是 this.points (由多个 point 组成的 points 数组)
     //‼️非共享时是 this.point 单个 point 对象
-    .sharedSet(false)
+    .sharedSet(true)
     .useHTMLSet(true)
     .formatterSet(jsFormatterStr)
     .backgroundColorSet(@"#000000")//黑色背景色
