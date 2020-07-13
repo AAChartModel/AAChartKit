@@ -295,13 +295,5 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 + (NSString *)pureJsonStringWithJsonObject:(id)jsonObjc;
 
 
-///// Get Json string from Json object
-///// @param jsonObject Json object
-//+ (NSString*)jsonStringWithJsonObject:(id)jsonObject;
-//
-///// Get Json object from Json string
-///// @param string Json string
-//+ (id)jsonObjectWithJsonString:(NSString *)string;
-
 @end
 
