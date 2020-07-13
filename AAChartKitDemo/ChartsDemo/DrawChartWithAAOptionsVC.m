@@ -155,8 +155,8 @@
               )
     .titleSet(AATitle.new
               .textSet(@"渠道销售额<br/>占比")//标题文本内容
-              .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
-              .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .alignSet(AAChartAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartVerticalAlignTypeMiddle)//标题垂直居中
               .xSet(@(-xOffSet))
               .ySet(@(-5))
               .styleSet(AAStyle.new
@@ -213,8 +213,8 @@
     .titleSet(AATitle.new
               .useHTMLSet(true)
               .textSet(@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>")//标题文本内容
-              .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
-              .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .alignSet(AAChartAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartVerticalAlignTypeMiddle)//标题垂直居中
               .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
               )
     .colorsSet(@[@"#1E90FF",@"#87CEFA",@"#A9A9A9",@"#fd4800",@"#F4A460"])//设置颜色主题
@@ -244,8 +244,8 @@
     .titleSet(AATitle.new
               .useHTMLSet(true)
               .textSet((@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>"))//标题文本内容
-              .alignSet(AAChartTitleAlignTypeCenter)//标题水平居中
-              .verticalAlignSet(AAChartTitleVerticalAlignTypeMiddle)//标题垂直居中
+              .alignSet(AAChartAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartVerticalAlignTypeMiddle)//标题垂直居中
               .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
               )
     .colorsSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#4b2b7f",])//设置颜色主题
