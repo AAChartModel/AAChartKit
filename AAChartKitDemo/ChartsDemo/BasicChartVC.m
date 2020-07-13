@@ -114,7 +114,6 @@
     _aaChartModel = AAChartModel.new
     .chartTypeSet(chartType)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
-    .backgroundColorSet(@"#4b2b7f")
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
