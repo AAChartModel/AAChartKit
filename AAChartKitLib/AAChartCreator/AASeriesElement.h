@@ -51,8 +51,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, bord
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor) //柱形图、条形图、扇形图顿号等图形的描边颜色
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, fillColor) //折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, fillOpacity) //折线填充图、曲线填充图、直方折线填充图等填充图类型的填充颜色透明度
-AAPropStatementAndPropSetFuncStatement(strong,   AASeriesElement, NSString *, negativeColor)  // The color for the parts of the graph or points that are below the threshold
-AAPropStatementAndPropSetFuncStatement(strong,   AASeriesElement, NSString *, negativeFillColor)//A separate color for the negative part of the area.
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, negativeColor)  // The color for the parts of the graph or points that are below the threshold
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, negativeFillColor)//A separate color for the negative part of the area.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, innerSize) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, size) 
