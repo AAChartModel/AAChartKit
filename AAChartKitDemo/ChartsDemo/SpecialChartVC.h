@@ -35,7 +35,4 @@
 
 @interface SpecialChartVC : AABaseViewController
 
-@property (nonatomic, strong) NSArray *navigationItemTitleArr;
-@property (nonatomic, assign) NSUInteger selectedIndex;
-
 @end
