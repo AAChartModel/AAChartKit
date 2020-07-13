@@ -111,6 +111,7 @@ AAPropSetFuncImplementation(AAShadow, NSNumber *, width)
 
 AAPropSetFuncImplementation(AAZonesElement, NSNumber *, value)
 AAPropSetFuncImplementation(AAZonesElement, NSString *, color)
+AAPropSetFuncImplementation(AAZonesElement, NSString *, dashStyle)
 
 @end
 

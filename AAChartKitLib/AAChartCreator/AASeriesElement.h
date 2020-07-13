@@ -102,6 +102,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, width)
 
 AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSNumber *, value)
 AAPropStatementAndPropSetFuncStatement(copy,   AAZonesElement, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(copy,   AAZonesElement, NSString *, dashStyle)
 
 @end
 

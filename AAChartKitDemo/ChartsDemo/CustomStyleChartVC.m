@@ -232,6 +232,7 @@
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .dataLabelsEnabledSet(true)
+    .yAxisGridLineWidthSet(@0)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"本专业")
@@ -239,8 +240,10 @@
         .zoneAxisSet(@"x")
         .colorSet((id)AAGradientColor.freshPapayaColor)
         .lineWidthSet(@5)
-        .zonesSet(@[@{@"value": @8},
-                    @{@"dashStyle": AAChartLineDashStyleTypeDot}
+        .zonesSet(@[
+            AAZonesElement.new
+            .valueSet(@8)
+            .dashStyleSet(AAChartLineDashStyleTypeDot)
                   ]),
         AASeriesElement.new
         .nameSet(@"所有专业")
@@ -324,9 +327,14 @@
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6,])
         .lineWidthSet(@5)
         .zonesSet(@[
-            @{@"value": @10,@"color": @"#EA007B"},
-            @{@"value": @20,@"color": @"#FDC20A"},
-            @{@"color": @"#F78320"}
+            AAZonesElement.new
+            .valueSet(@10)
+            .colorSet(@"#EA007B"),
+            AAZonesElement.new
+            .valueSet(@20)
+            .colorSet(@"#FDC20A"),
+            AAZonesElement.new
+            .colorSet(@"color"),
                   ]),
                ]);
 }
