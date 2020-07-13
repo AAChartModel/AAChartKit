@@ -169,7 +169,7 @@
     [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
                                          AAMoveOverEventMessageModel *message) {
         NSDictionary *messageDic = [AAJsonConverter dictionaryWithObjectInstance:message];
-        NSString *prettyPrintedMessageStr = [AAJsonConverter jsonStringWithJsonObject:messageDic];
+        NSString *prettyPrintedMessageStr = [self printPrettyPrintedJsonStringWithJsonObject:messageDic];
         NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
         NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
                                   logPrefix,
@@ -247,6 +247,25 @@
         return false;
     }
 
+}
+
+- (NSString*)printPrettyPrintedJsonStringWithJsonObject:(id)jsonObject {
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
+    NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
+                              logPrefix,
+                              jsonStr];
+    NSLog(@"%@",eventMessage);
+    
+    if (error) {
+        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
+        return nil;
+    }
+    return jsonStr;
 }
 
 @end
