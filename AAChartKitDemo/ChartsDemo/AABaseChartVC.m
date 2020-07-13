@@ -170,12 +170,7 @@
     [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
                                          AAMoveOverEventMessageModel *message) {
         NSDictionary *messageDic = [AAJsonConverter dictionaryWithObjectInstance:message];
-        NSString *prettyPrintedMessageStr = [weakSelf printPrettyPrintedJsonStringWithJsonObject:messageDic];
-        NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
-        NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
-                                  logPrefix,
-                                  prettyPrintedMessageStr];
-        NSLog(@"%@",eventMessage);
+        [weakSelf printPrettyPrintedJsonStringWithJsonObject:messageDic];
     }];
 }
 
