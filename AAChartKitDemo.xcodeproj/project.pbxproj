@@ -632,10 +632,9 @@
 			};
 			buildConfigurationList = 7172A3CE1E763EA6000D5B99 /* Build configuration list for PBXProject "AAChartKitDemo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
