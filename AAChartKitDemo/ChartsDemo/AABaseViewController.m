@@ -35,6 +35,8 @@
 
 @interface AABaseViewController ()
 
+@property (nonatomic, strong) NSLayoutConstraint *topConstraint;
+
 @end
 
 @implementation AABaseViewController
@@ -43,6 +45,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    [self adaptiveScreenRotation];
+
     [self setupTitle];
     [self setupNextTypeChartButton];
 
@@ -54,26 +58,105 @@
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
 }
 
+- (void)setupNextTypeChartButton {
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(monitorTap)];
+    self.navigationItem.rightBarButtonItem = barItem;
+}
+
+- (void)monitorTap {
+    if (self.selectedIndex == self.navigationItemTitleArr.count - 1) {
+        self.title = @"❗️This is the last chart❗️";
+    } else {
+        self.selectedIndex = self.selectedIndex + 1;
+        self.title = self.navigationItemTitleArr[self.selectedIndex];
+        [self refreshChartWithChartConfiguration];
+    }
+}
+
 
 - (void)setupChartView {
     self.aaChartView = [[AAChartView alloc]init];
     self.aaChartView.scrollEnabled = NO;
+    if (@available(iOS 11.0, *)) {
+        self.aaChartView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
     [self.view addSubview:self.aaChartView];
     
     AAAnimation *aaAnimation = AAAnimation.new
-    .durationSet(@1000)
+    .durationSet(@800)
     .easingSet(AAChartAnimationEaseOutQuart);
     [self.aaChartView aa_adaptiveScreenRotationWithAnimation:aaAnimation];
     
     // ⚠️
     self.aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSArray *constraintsArr = [AAEasyTool configureTheConstraintArrayWithSonView:self.aaChartView
+    NSArray *constraintsArr = [self configureTheConstraintArrayWithSonView:self.aaChartView
                                                                     toFatherView:self.view];
     [self.view addConstraints:constraintsArr];
     
     [self drawChartWithChartConfiguration];
     
     [self setupAAChartViewEventBlockHandler];
+}
+
+- (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
+                                       toFatherView:(UIView *)fatherView {
+    CGFloat topConstraintConstant;
+    // 如果statusBarFrame为CGRectZero,说明状态栏是隐藏的
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    BOOL istatusHiden = (statusBarFrame.size.height == 0);
+    
+    if ([self isHairPhone]) {
+        topConstraintConstant = 88;
+        if (istatusHiden == true) {
+            topConstraintConstant -= 44;
+        }
+    } else {
+        topConstraintConstant = 64;
+        if (istatusHiden == true) {
+            topConstraintConstant -= 20;
+        }
+    }
+
+    
+
+    
+    self.topConstraint =
+    [NSLayoutConstraint constraintWithItem:sonView
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:fatherView
+                                 attribute:NSLayoutAttributeTop
+                                multiplier:1.0
+                                  constant:topConstraintConstant];
+    
+    return @[[NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeLeft
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeLeft
+                                         multiplier:1.0
+                                           constant:0],
+             [NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeRight
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeRight
+                                         multiplier:1.0
+                                           constant:0],
+             self.topConstraint,
+             [NSLayoutConstraint constraintWithItem:sonView
+                                          attribute:NSLayoutAttributeBottom
+                                          relatedBy:NSLayoutRelationEqual
+                                             toItem:fatherView
+                                          attribute:NSLayoutAttributeBottom
+                                         multiplier:1.0
+                                           constant:0]
+    ];
 }
 
 - (void)setupAAChartViewEventBlockHandler {
@@ -93,29 +176,6 @@
                                   prettyPrintedMessageStr];
         NSLog(@"%@",eventMessage);
     }];
-}
-
-
-- (void)setupNextTypeChartButton {
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(monitorTap)];
-    self.navigationItem.rightBarButtonItem = barItem;
-}
-
-- (void)monitorTap {
-    if (self.selectedIndex == self.navigationItemTitleArr.count - 1) {
-        self.title = [NSString stringWithFormat:@"❗️This is the last chart❗️"];
-    } else {
-        self.selectedIndex = self.selectedIndex + 1;
-        self.title = self.navigationItemTitleArr[self.selectedIndex];
-        [self refreshChartWithChartConfiguration];
-    }
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-   return nil;
 }
 
 - (void)drawChartWithChartConfiguration {
@@ -142,6 +202,51 @@
         aaOptions.touchEventEnabled = true;
         [self.aaChartView aa_refreshChartWithOptions:chartConfiguration];
     }
+}
+
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+   return nil;
+}
+
+
+- (void)adaptiveScreenRotation {
+    __weak __typeof__(self) weakSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIDeviceOrientationDidChangeNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+        [weakSelf handleDeviceOrientationChangeEvent];
+    }];
+}
+
+//屏幕旋转后动态调整 autolayout 布局参数
+- (void)handleDeviceOrientationChangeEvent {
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        if ([self isHairPhone]) {
+            self.topConstraint.constant = 88;
+        } else {
+            self.topConstraint.constant = 64;
+        }
+        } else {
+            self.topConstraint.constant = 44;
+        }
+    
+    //very important https://www.jianshu.com/p/945502f7062e
+    [self.view layoutSubviews];
+    [self.view layoutIfNeeded];//立即调用更改后的布局约束,否则 AAChartView 的自适应屏幕旋转的 contentView 高度会有点问题(我找了半天才找到问题😅)
+}
+
+- (BOOL)isHairPhone {
+    if (@available(iOS 11.0, *)) {
+        if ([[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0) {
+          return true;
+        }
+        return false;
+    } else {
+        return false;
+    }
+
 }
 
 @end

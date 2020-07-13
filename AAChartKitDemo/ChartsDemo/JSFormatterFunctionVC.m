@@ -49,13 +49,12 @@
     // rainbow colors 🌈 [@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC'];
 }
 
-
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self customAreaChartTooltipStyleWithFormatterFunction1];//简单字符串拼接
-        case 1: return [self customAreaChartTooltipStyleWithFormatterFunction2];//自定义不同单位后缀
-        case 2: return [self customAreaChartTooltipStyleWithFormatterFunction3];//值为0时,在tooltip中不显示
-        case 3: return [self customAreaChartTooltipStyleWithFormatterFunction4];//自定义多彩颜色文字
+        case 0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
+        case 1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
+        case 2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
+        case 3: return [self customLineChartTooltipStyleWhenValueBeZeroDoNotShow];//值为0时,在tooltip中不显示
         case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
         case 5: return [self customYAxisLabels];//自定义Y轴文字
         case 6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
@@ -79,7 +78,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/569
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction1 {
+- (AAOptions *)customAreaChartTooltipStyleWithSimpleFormatString {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
@@ -141,7 +140,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/647
 //https://github.com/AAChartModel/AAChartKit/issues/891
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction2 {
+- (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                startColorString:@"rgba(256,0,0,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
@@ -206,66 +205,8 @@
     return aaOptions;
 }
 
-
-
-//https://github.com/AAChartModel/AAChartKit/issues/651
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction3 {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图表类型
-    .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
-    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
-    .markerRadiusSet(@8.0)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
-    .xAxisCrosshairWidthSet(@1.0)
-    .xAxisCrosshairColorSet(AAColor.darkGrayColor)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"上市")
-        .dataSet(@[@0,@0,@7]),
-        AASeriesElement.new
-        .nameSet(@"终止")
-        .dataSet(@[@4,@5,@1]),
-        AASeriesElement.new
-        .nameSet(@"无进展")
-        .dataSet(@[@2,@0,@1]),
-        AASeriesElement.new
-        .nameSet(@"进行中")
-        .dataSet(@[@3,@5,@2]),
-    ]);
-    
-    
-    
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
-    aaOptions.tooltip
-    .useHTMLSet(true)
-    .formatterSet(@AAJSFunc(function () {
-        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
-        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
-        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
-        let colorDotArr = [];
-        colorDotArr.push(colorDot0);
-        colorDotArr.push(colorDot1);
-        colorDotArr.push(colorDot2);
-        colorDotArr.push(colorDot3);
-        let wholeContentString = this.points[0].x + '<br/>';
-        for (let i = 0;i < 4;i++) {
-            let yValue = this.points[i].y;
-            if (yValue != 0) {
-                let prefixStr = colorDotArr[i];
-                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
-            }
-        }
-        return wholeContentString;
-    }))
-    ;
-    return aaOptions;
-}
-
 //https://github.com/AAChartModel/AAChartKit/issues/653
-- (AAOptions *)customAreaChartTooltipStyleWithFormatterFunction4 {
+- (AAOptions *)customAreaChartTooltipStyleWithColorfulHtmlLabels {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
@@ -321,6 +262,62 @@
     ;
     return aaOptions;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/651
+- (AAOptions *)customLineChartTooltipStyleWhenValueBeZeroDoNotShow {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
+    .markerRadiusSet(@8.0)
+    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
+    .xAxisCrosshairWidthSet(@1.0)
+    .xAxisCrosshairColorSet(AAColor.darkGrayColor)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"上市")
+        .dataSet(@[@0,@0,@7]),
+        AASeriesElement.new
+        .nameSet(@"终止")
+        .dataSet(@[@4,@5,@1]),
+        AASeriesElement.new
+        .nameSet(@"无进展")
+        .dataSet(@[@2,@0,@1]),
+        AASeriesElement.new
+        .nameSet(@"进行中")
+        .dataSet(@[@3,@5,@2]),
+    ]);
+    
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
+        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
+        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
+        let colorDotArr = [];
+        colorDotArr.push(colorDot0);
+        colorDotArr.push(colorDot1);
+        colorDotArr.push(colorDot2);
+        colorDotArr.push(colorDot3);
+        let wholeContentString = this.points[0].x + '<br/>';
+        for (let i = 0;i < 4;i++) {
+            let yValue = this.points[i].y;
+            if (yValue != 0) {
+                let prefixStr = colorDotArr[i];
+                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
+            }
+        }
+        return wholeContentString;
+    }))
+    ;
+    return aaOptions;
+}
+
 
 - (AAOptions *)customBoxplotTooltipContent {
     AAChartModel *aaChartModel = AAChartModel.new
@@ -960,22 +957,6 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/577
 - (AAOptions *)customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter {
-    NSArray *categoryArr = @[
-        @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
-        @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
-    ];
-    
-    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
-    
-    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return  'The value for <b>' + %@[this.x] +
-        '</b> is <b>' + this.y + '</b> ' + "℃";
-    })),categoryJSArrStr];
-    
-    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return %@[this.value];
-    })),categoryJSArrStr];
-    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .titleSet((@"Custom Line Chart Original Point Position"))//图表主标题
@@ -1002,52 +983,30 @@
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
 
+    NSArray *categoryArr = @[
+        @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
+        @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
+    ];
+    
+    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
+    
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return  'The value for <b>' + %@[this.x] +
+        '</b> is <b>' + this.y + '</b> ' + "℃";
+    })),categoryJSArrStr];
+    
+    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return %@[this.value];
+    })),categoryJSArrStr];
+    
+    //tooltip 的共享(.sharedSet(true))与非共享(.sharedSet(false))时,部分值的取值方式不同,
+    //参见https://github.com/AAChartModel/AAChartKit/issues/781#issuecomment-555852813
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(tooltipFormatter);
     
     aaOptions.xAxis.labels
     .formatterSet(xAxisLabelsFormatter);
-
-    
-    
-    //Method 2---------------------------------
-    AAOptions *aaOptions2 = AAOptions.new
-    .titleSet(AATitle.new
-              .textSet(@"Custom Line Chart Original Point Position"))
-    .colorsSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])
-    .tooltipSet(AATooltip.new
-                .sharedSet(true)//共享与非共享时,部分值的取值方式不同,
-                //参见https://github.com/AAChartModel/AAChartKit/issues/781#issuecomment-555852813
-                .formatterSet(tooltipFormatter)
-                )
-    .xAxisSet(AAXAxis.new
-              .tickIntervalSet(@1)
-              .labelsSet(AALabels.new
-                         .enabledSet(true)
-                         .rotationSet(@-45)
-                         .formatterSet(xAxisLabelsFormatter))
-              )
-    .yAxisSet(AAYAxis.new
-              .lineWidthSet(@1)
-              .gridLineWidthSet(@0)
-              .titleSet(AAAxisTitle.new
-                        .textSet(@"℃"))
-              )
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"2017")
-        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-        AASeriesElement.new
-        .nameSet(@"2018")
-        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-        AASeriesElement.new
-        .nameSet(@"2019")
-        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-        AASeriesElement.new
-        .nameSet(@"2020")
-        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-    ]);
     
     return aaOptions;
 }
@@ -1261,15 +1220,6 @@ function () {
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
 - (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
-    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
-    NSArray *dataArr = @[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2];
-    
-    NSString *unitJSArrStr = [self javaScriptArrayStringWithObjcArray:unitArr];
-    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
-    })),unitJSArrStr];
-    
-    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .dataLabelsEnabledSet(true)
@@ -1280,11 +1230,17 @@ function () {
     .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
     .seriesSet(@[
         AASeriesElement.new
-        .dataSet(dataArr),
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2]),
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
+    
+    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
+    NSString *unitJSArrStr = [self javaScriptArrayStringWithObjcArray:unitArr];
+    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
+    })),unitJSArrStr];
     
     AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
     aaDatalabels
