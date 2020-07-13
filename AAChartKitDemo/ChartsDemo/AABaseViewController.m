@@ -268,4 +268,20 @@
     return jsonStr;
 }
 
+- (id)jsonObjectWithJsonString:(NSString *)string {
+    if (string && 0 != string.length) {
+        NSError *error;
+        NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+        id jsonObjet = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                       options:NSJSONReadingMutableContainers
+                                                         error:&error];
+        if (error) {
+            NSLog(@"❌❌❌ JSONObject with JSONString serialization failed：%@", error);
+            return nil;
+        }
+        return jsonObjet;
+    }
+    return nil;
+}
+
 @end
