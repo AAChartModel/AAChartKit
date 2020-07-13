@@ -237,7 +237,6 @@
 - (void)configureAreaChartAndAreasplineChartStyle {
     _aaChartModel
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//设置折线连接点样式为:内部白色
-    .easyGradientColorsSet(true)//启用渐变色
     .animationTypeSet(AAChartAnimationEaseOutQuart)//图形的渲染动画为 EaseOutQuart 动画
     .xAxisCrosshairWidthSet(@0.9)//Zero width to disable crosshair by default
     .xAxisCrosshairColorSet(@"#FFE4C4")//(浓汤)乳脂,番茄色准星线
@@ -302,8 +301,6 @@
     _aaChartModel.yAxisVisibleSet(false);
     if (_chartType == BasicChartVCChartTypeStepLine) {
         _aaChartModel.markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
-    } else {
-        _aaChartModel.easyGradientColorsSet(true);
     }
     AASeriesElement *element1 = AASeriesElement.new
     .nameSet(@"Berlin")

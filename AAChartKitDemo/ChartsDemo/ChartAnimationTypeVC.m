@@ -129,7 +129,6 @@
 
 - (void)configureStepAreaAndStepLine {
     self.chartModel
-    .easyGradientColorsSet(true)
     .markerRadiusSet(@0)
     .seriesSet(@[
         AASeriesElement.new
@@ -143,7 +142,6 @@
 - (void)configureAreaAndAreaspline {
     self.chartModel
     .markerRadiusSet(@0)
-    .easyGradientColorsSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")

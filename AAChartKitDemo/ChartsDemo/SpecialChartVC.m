@@ -156,7 +156,6 @@
     .titleSet(@"Bubble")
     .subtitleSet(@"Virtual data")
     .yAxisTitleSet(@"℃")
-    .easyGradientColorsSet(true)
     .yAxisGridLineWidthSet(@0)
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
     .seriesSet(seriesArr)

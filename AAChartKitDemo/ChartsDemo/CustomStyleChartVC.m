@@ -342,8 +342,6 @@
 - (AAChartModel *)configrueWithMinusNumberChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .easyGradientColorsSet(true)
-    //.dataLabelsEnabledSet(true)
     .titleSet(@"带有负数的区域填充图")
     .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
     .subtitleSet(@"横屏查看效果更佳")
@@ -398,7 +396,6 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
-    .easyGradientColorsSet(true)//开启主题渐变色
     .titleSet(@"STEP AREA CHART")//图形标题
     .subtitleSet(@"2020/08/08")//图形副标题
     .dataLabelsEnabledSet(NO)//是否显示数字
@@ -510,7 +507,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .easyGradientColorsSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
@@ -542,7 +538,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .easyGradientColorsSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
@@ -569,7 +564,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .easyGradientColorsSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
@@ -823,7 +817,6 @@
     .yAxisVisibleSet(true)
     .markerRadiusSet(@6)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .easyGradientColorsSet(true)
     .zoomTypeSet(AAChartZoomTypeXY)
     .tooltipValueSuffixSet(@"kg")
     .categoriesSet(categoriesArr)

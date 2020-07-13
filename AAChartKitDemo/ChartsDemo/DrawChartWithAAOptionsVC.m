@@ -1625,7 +1625,6 @@
     .yAxisLineWidthSet(@0)
     .yAxisGridLineWidthSet(@0)
     .legendEnabledSet(false)
-    .easyGradientColorsSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"New York Hot")

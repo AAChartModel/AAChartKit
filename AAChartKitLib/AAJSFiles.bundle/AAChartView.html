@@ -20,19 +20,15 @@
         <script>
         var aaGlobalChart;
         function loadTheHighChartView(sender, receivedWidth, receivedHeight) {
-                var container = document.getElementById('container'); //获得元素
+                var container = document.getElementById('container');
                 if (receivedWidth != 0) {
                     container.style.width = receivedWidth;
                 }
-                if(receivedHeight != 0) {
+                if (receivedHeight != 0) {
                     container.style.height = receivedHeight;
                 }
                 
                 var aaOptions = JSON.parse(sender);
-
-                if (aaOptions.gradientColorEnabled == true) { //开启图表渐变色功能
-                 configureEasyGradientColor(aaOptions);
-                }
 
                 Highcharts.setOptions({
                     lang: {
@@ -51,27 +47,6 @@
                 
                 aaGlobalChart = Highcharts.chart('container', aaOptions);
             }
-        
-        function configureEasyGradientColor(aaOptions) {
-            var colors = aaOptions.colors;
-            aaOptions.colors = Highcharts.map(colors,
-            function(color) {
-                return {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [[0, color],
-                            [1, Highcharts
-                             .Color(color)
-                             .setOpacity(0.6)
-                             .get('rgba')]
-                            ]
-                        };
-                    });  
-        }
         
         function configurePlotOptions(aaOptions) {
             var aaPlotOptions = aaOptions.plotOptions;
@@ -178,14 +153,14 @@
         
         //pragma mark -- setter method
         function setTheChartViewContentWidth(receivedWidth) {
-            var container = document.getElementById('container'); //获得元素
-            container.style.width = receivedWidth; //设置宽度
+            var container = document.getElementById('container');
+            container.style.width = receivedWidth;
             aaGlobalChart.reflow();
         }
         
         function setTheChartViewContentHeight(receivedHeight) {
-            var container = document.getElementById('container'); //获得元素
-            container.style.height = receivedHeight; //设置高度
+            var container = document.getElementById('container');
+            container.style.height = receivedHeight;
             aaGlobalChart.reflow();
         }
         
