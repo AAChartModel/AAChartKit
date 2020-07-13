@@ -451,19 +451,6 @@ WKScriptMessageHandler
     _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
 }
 
-- (NSString *)configTheJavaScriptString {
-    CGFloat chartViewContentWidth = self.contentWidth;
-    CGFloat contentHeight = self.frame.size.height;
-    CGFloat chartViewContentHeight = self.contentHeight == 0 ? contentHeight : self.contentHeight;
-    NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
-                       _optionJson,
-                       chartViewContentWidth,
-                       chartViewContentHeight];
-    return jsStr;
-}
-
-
-
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING"
@@ -479,11 +466,6 @@ WKScriptMessageHandler
     [self addSubview:alertHelperController.view];
     
     [alertHelperController presentViewController:alertController animated:YES completion:nil];
-}
-
-- (void)drawChart {
-    NSString *jsStr = [self configTheJavaScriptString];
-    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 #pragma mark - AAChartView Event Handler
@@ -511,6 +493,14 @@ WKScriptMessageHandler
             [self.delegate aaChartViewDidFinishLoad:self];
         }
     }
+}
+
+- (void)drawChart {
+    NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
+                       _optionJson,
+                       self.contentWidth,
+                       self.contentHeight ];
+    [self safeEvaluateJavaScriptString:jsStr];
 }
 
 #pragma mark - WKScriptMessageHandler
@@ -578,7 +568,7 @@ WKScriptMessageHandler
             
         }];
     } else {
-        AADetailLog("AAChartView did not finish loading!!!")
+        AADetailLog("💀💀💀AAChartView did not finish loading!!!")
     }
 }
 
