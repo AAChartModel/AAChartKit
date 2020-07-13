@@ -543,33 +543,32 @@ WKScriptMessageHandler
 
 
 - (void)safeEvaluateJavaScriptString:(NSString *)functionNameStr {
-    if (_optionJson) {
-        [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
-            
-#if DEBUG
-            if (!error) return;
-            NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
-            [errorDic setValue:error.domain forKey:@"domain"];
-            [errorDic setValue:@(error.code) forKey:@"code"];
-            [errorDic setValue:error.userInfo forKey:@"userInfo"];
-            
-            NSString *basicErrorInfo = @"                                                 \n  \
-☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️   \
-⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩    \
-------------------------------------------------------------------------------------------\n  \
-%@                                                                                            \
-------------------------------------------------------------------------------------------    \
-⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧\n  \
-☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️";
-            
-            NSString *errorInfoStr = [NSString stringWithFormat:basicErrorInfo,errorDic];
-            NSLog(@"%@",errorInfoStr);
-#endif
-            
-        }];
-    } else {
+    if (!_optionJson) {
         AADetailLog("💀💀💀AAChartView did not finish loading!!!")
+        return;
     }
+    
+    [self evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
+#if DEBUG
+        if (!error) return;
+        NSMutableDictionary *errorDic = [NSMutableDictionary dictionary];
+        [errorDic setValue:error.domain forKey:@"domain"];
+        [errorDic setValue:@(error.code) forKey:@"code"];
+        [errorDic setValue:error.userInfo forKey:@"userInfo"];
+        
+        NSString *basicErrorInfo = @"                                                     \n\
+☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️ \
+⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩  \
+------------------------------------------------------------------------------------------\n\
+%@                                                                                          \
+------------------------------------------------------------------------------------------  \
+⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧\n\
+☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️";
+        
+        NSString *errorInfoStr = [NSString stringWithFormat:basicErrorInfo,errorDic];
+        NSLog(@"%@",errorInfoStr);
+#endif
+    }];
 }
 
 #pragma mark -- setter method
