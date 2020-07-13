@@ -59,7 +59,7 @@ AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 
 - (AAEvents * (^) (NSString * legendItemClick))legendItemClickSet {
     return ^(NSString * legendItemClick) {
-        _legendItemClick = [AAJSStringPurer pureJavaScriptFunctionStringWithString:legendItemClick];
+        self->_legendItemClick = [AAJSStringPurer pureJavaScriptFunctionStringWithString:legendItemClick];
         return self;
     };
 }

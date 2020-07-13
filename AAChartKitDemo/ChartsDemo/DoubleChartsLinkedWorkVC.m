@@ -157,14 +157,14 @@
 - (void)setupChartViewHandler {
     [_aaChartView1 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        _selectedColor = _gradientColorsArr[message.index];
+        self->_selectedColor = self->_gradientColorsArr[message.index];
         
         NSArray *seriesArr = @[
             AASeriesElement.new
             .dataSet([self configureSeriesDataArray])
         ];
         
-        [_aaChartView2 aa_onlyRefreshTheChartDataWithOptionsSeries:seriesArr];
+        [self->_aaChartView2 aa_onlyRefreshTheChartDataWithOptionsSeries:seriesArr];
     }];
 }
 

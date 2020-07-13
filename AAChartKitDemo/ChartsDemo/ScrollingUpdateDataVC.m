@@ -144,10 +144,10 @@
 
 - (void)setupTimer {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.8 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        self->_timer = [NSTimer scheduledTimerWithTimeInterval:0.8 repeats:YES block:^(NSTimer * _Nonnull timer) {
             [self timerRepeatWork];
         }];
-         [_timer fire];
+        [self->_timer fire];
     });
 }
 

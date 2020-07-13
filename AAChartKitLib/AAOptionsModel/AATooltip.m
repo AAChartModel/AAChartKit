@@ -71,7 +71,7 @@ AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 
 - (AATooltip * (^) (NSString * formatter))formatterSet {
     return ^(NSString * formatter) {
-        _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        self->_formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
         return self;
     };
 }

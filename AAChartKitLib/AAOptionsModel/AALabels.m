@@ -64,7 +64,7 @@ AAPropSetFuncImplementation(AALabels, BOOL      , useHTML)//HTML渲染
 
 - (AALabels * (^) (NSString * formatter))formatterSet {
     return ^(NSString * formatter) {
-        _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        self->_formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
         return self;
     };
 }

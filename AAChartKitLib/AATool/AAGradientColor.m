@@ -44,29 +44,29 @@
 
 - (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet {
     return ^(AALinearGradientDirection direction) {
-        _linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
+        self->_linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
         return self;
     };
 }
 
 - (AAGradientColor * (^) (NSString *startColor))startColorSet {
     return ^(NSString *startColor) {
-        _stops = [NSMutableArray arrayWithCapacity:2];
-        [_stops addObject:@[@(0),startColor]];
+        self->_stops = [NSMutableArray arrayWithCapacity:2];
+        [self->_stops addObject:@[@(0),startColor]];
         return self;
     };
 }
 
 - (AAGradientColor * (^) (NSString *endColor))endColorSet {
     return ^(NSString *endColor) {
-        [_stops addObject:@[@(1),endColor]];
+        [self->_stops addObject:@[@(1),endColor]];
         return self;
     };
 }
 
 - (AAGradientColor * (^) (NSArray *stopsArray))stopsArraySet {
     return ^(NSArray *stopsArray) {
-        _stops = (NSMutableArray *)stopsArray;
+        self->_stops = (NSMutableArray *)stopsArray;
         return self;
     };
 }
