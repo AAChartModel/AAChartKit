@@ -165,11 +165,12 @@
         NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
     }];
     
+    __weak __typeof__(self) weakSelf = self;
     //获取图表上的手指点击及滑动事件
     [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
                                          AAMoveOverEventMessageModel *message) {
         NSDictionary *messageDic = [AAJsonConverter dictionaryWithObjectInstance:message];
-        NSString *prettyPrintedMessageStr = [self printPrettyPrintedJsonStringWithJsonObject:messageDic];
+        NSString *prettyPrintedMessageStr = [weakSelf printPrettyPrintedJsonStringWithJsonObject:messageDic];
         NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
         NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
                                   logPrefix,
