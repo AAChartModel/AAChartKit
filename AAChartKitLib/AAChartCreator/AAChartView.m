@@ -714,7 +714,8 @@ WKScriptMessageHandler
     if ([objc isKindOfClass:[NSDictionary class]]) {
         NSDictionary *objcDic = objc;
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[objcDic count]];
-        for (NSString *key in objcDic.allKeys) {
+        NSArray *allKeys = objcDic.allKeys;
+        for (NSString *key in allKeys) {
             dic[key] = [self getObjectInternal:objcDic[key]];
         }
         return dic;
