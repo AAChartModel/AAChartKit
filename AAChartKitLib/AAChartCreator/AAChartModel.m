@@ -143,7 +143,7 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontColor) //Subti
 AAPropSetFuncImplementation(AAChartModel, NSString *, subtitleFontWeight) //Subtitle label font weight
 
 AAPropSetFuncImplementation(AAChartModel, NSString *, backgroundColor) //图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
-AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, colorsTheme) //图表主题颜色数组
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, colorsTheme) //图表主题颜色数组
 AAPropSetFuncImplementation(AAChartModel, NSArray     <NSString *>*, categories) //x轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, series) //图表的数据列内容
 
