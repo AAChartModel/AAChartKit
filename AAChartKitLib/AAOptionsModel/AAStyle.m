@@ -31,24 +31,13 @@
  */
 
 #import "AAStyle.h"
-//Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
 
 @implementation AAStyle
 
-//-(instancetype)init{
-//    self = [super init];
-//    if (self) {
-//        self.color = @"#000000";//设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
-//        self.fontSize = @"11px";//数据文字大小
-//        self.fontWeight = @"bold";//可选的值有 bold 和 thin 两种,分别对应的是加粗字体和纤细字体
-//        self.textOutline = @"1px 1px contrast";//文字轮廓描边
-//    }
-//    return self;
-//}
-
-AAPropSetFuncImplementation(AAStyle, NSString *, color) 
-AAPropSetFuncImplementation(AAStyle, NSString *, fontSize) 
-AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight) 
-AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) 
+//Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
+AAPropSetFuncImplementation(AAStyle, NSString *, color) //设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
+AAPropSetFuncImplementation(AAStyle, NSString *, fontSize) //文字大小
+AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight) //可选的值有 bold, regular和 thin 三种,分别对应的是加粗字体,常规字体和纤细字体
+AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) //文字轮廓描边
 
 @end

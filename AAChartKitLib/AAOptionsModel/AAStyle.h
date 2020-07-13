@@ -35,9 +35,11 @@
 
 @interface AAStyle : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, color) 
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontSize) 
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontWeight) 
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline) 
+//Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, color) //设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontSize) //文字大小
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontWeight) //可选的值有 bold, regular和 thin 三种,分别对应的是加粗字体,常规字体和纤细字体
+AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline) //文字轮廓描边
 
 @end
+
