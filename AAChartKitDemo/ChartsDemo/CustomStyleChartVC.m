@@ -334,7 +334,7 @@
             .valueSet(@20)
             .colorSet(@"#FDC20A"),
             AAZonesElement.new
-            .colorSet(@"color"),
+            .colorSet(AAColor.redColor),
                   ]),
                ]);
 }
