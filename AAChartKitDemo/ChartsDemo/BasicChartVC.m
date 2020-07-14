@@ -95,10 +95,14 @@
 }
 
 - (void)setupAAChartView {
+    CGFloat aaChartViewOriginY = 64;
+    if ([self isHairPhone]) {
+        aaChartViewOriginY = 88;
+    }
     CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat chartViewHeight = self.view.frame.size.height - 220;
+    CGFloat chartViewHeight = self.view.frame.size.height - 160 - aaChartViewOriginY;
     _aaChartView = [[AAChartView alloc]init];
-    _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
+    _aaChartView.frame = CGRectMake(0, aaChartViewOriginY, chartViewWidth, chartViewHeight);
     _aaChartView.delegate = self;
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
 //    设置aaChartVie 的内容高度(content height)
@@ -660,6 +664,18 @@
     if (_chartType == BasicChartVCChartTypeScatter) {
         _chartType = -1;//重新开始
     }
+}
+
+- (BOOL)isHairPhone {
+    if (@available(iOS 11.0, *)) {
+        if ([[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0) {
+          return true;
+        }
+        return false;
+    } else {
+        return false;
+    }
+
 }
 
 @end
