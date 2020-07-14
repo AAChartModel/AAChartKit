@@ -101,7 +101,7 @@
         AASeriesElement.new
         .lineWidthSet(@1.5)
         .fillOpacitySet(@0.4)
-        .nameSet(@"2018")
+        .nameSet(@"2021")
         .dataSet(@[
             @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
             @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
@@ -117,11 +117,14 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
+    .sharedSet(false)
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
         return ' 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> '
         + ' Support JavaScript Function Just Right Now !!! <br/> '
-        + ' The Gold Price For <b>2020 '
+        + ' The Gold Price For <b> '
+        +  this.point.series.name
+        + '-'
         +  this.x
         + ' </b> Is <b> '
         +  this.y
@@ -141,33 +144,43 @@
 //https://github.com/AAChartModel/AAChartKit/issues/647
 //https://github.com/AAChartModel/AAChartKit/issues/891
 - (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"rgba(256,0,0,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"rgba(256,0,0,1.0)"];
+    NSArray *blueStopsArr = @[
+        @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
+        @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
+    ];
+    NSDictionary *gradientBlueColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:blueStopsArr];
     
-    NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"rgba(0,0,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"rgba(0,0,256,1.0)"];
+    
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
+        @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+    ];
+    NSDictionary *gradientRedColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:redStopsArr];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"2014 ~ 2020 汪星人生存指数")//图表主标题
     .subtitleSet(@"数据来源：www.无任何可靠依据.com")//图表副标题
+    .colorsThemeSet(@[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f"])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
     .stackingSet(AAChartStackingTypeNormal)
     //    .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
-        .lineWidthSet(@1.5)
-        .colorSet((id)gradientColorDic1)
+        .lineWidthSet(@6)
+        .fillColorSet((id)gradientBlueColorDic)
         .nameSet(@"🐶狗子")
         .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
         AASeriesElement.new
-        .lineWidthSet(@1.5)
-        .colorSet((id)gradientColorDic2)
+        .lineWidthSet(@6)
+        .fillColorSet((id)gradientRedColorDic)
         .nameSet(@"🌲树木")
         .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
     ]);
@@ -177,8 +190,8 @@
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
         var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
-        let colorDot1 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:blue; font-size:13px\"' + '>◉</span> ';
+        let colorDot1 = '<span style=\"' + 'color:rgba(30,144,255,1.0); font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:rgba(255,0,0,1.0); font-size:13px\"' + '>◉</span> ';
         var s1;
         var s2;
         let pointsNum = this.points.length;
@@ -260,6 +273,13 @@
     .backgroundColorSet(@"#050505")
     .borderColorSet(@"#050505")
     ;
+    
+    //禁用图例点击事件
+     aaOptions.plotOptions.series.events = AAEvents.new
+     .legendItemClickSet(@AAJSFunc(function() {
+         return false;
+     }));
+    
     return aaOptions;
 }
 
@@ -270,7 +290,7 @@
     .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
-    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期"])
+    .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期",@"临床四期",])
     .markerRadiusSet(@8.0)
     .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
     .xAxisCrosshairWidthSet(@1.0)
@@ -278,16 +298,16 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"上市")
-        .dataSet(@[@0,@0,@7]),
+        .dataSet(@[@0,@0,@0,@7]),
         AASeriesElement.new
         .nameSet(@"终止")
-        .dataSet(@[@4,@5,@1]),
+        .dataSet(@[@0,@2.5,@5,@5]),
         AASeriesElement.new
         .nameSet(@"无进展")
-        .dataSet(@[@2,@0,@1]),
+        .dataSet(@[@0,@2,@0,@1]),
         AASeriesElement.new
         .nameSet(@"进行中")
-        .dataSet(@[@3,@5,@2]),
+        .dataSet(@[@3,@3,@2,@2]),
     ]);
     
     
@@ -315,6 +335,13 @@
         return wholeContentString;
     }))
     ;
+    
+    //禁用图例点击事件
+     aaOptions.plotOptions.series.events = AAEvents.new
+     .legendItemClickSet(@AAJSFunc(function() {
+         return false;
+     }));
+    
     return aaOptions;
 }
 

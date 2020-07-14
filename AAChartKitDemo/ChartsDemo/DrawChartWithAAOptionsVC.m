@@ -466,7 +466,7 @@
         AASeriesElement.new
         .lineWidthSet(@1.5)
         .fillOpacitySet(@0.4)
-        .nameSet(@"2018")
+        .nameSet(@"2021")
         .dataSet(@[
             @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
             @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
@@ -483,8 +483,9 @@
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .useHTMLSet(true)
-    .headerFormatSet(@"{series.name}-<b>{point.key}</b> &nbsp12:00<br>")
-    .pointFormatSet(@"<b>{point.y}</b>&nbsp元/克")
+    .headerFormatSet(@"🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br>")
+    .pointFormatSet(@" Support format properties Just Right Now !!!<br>")
+    .footerFormatSet(@"The Gold Price In <b>{series.name}-{point.key}</b> Is &nbsp<b>{point.y}</b>&nbspDollars Per Gram")
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
@@ -2512,7 +2513,8 @@
     aaOptions.yAxis.gridLineColor = AARgbaColor(255, 0, 0, 1.0);
     
     AASeriesElement *element = aaOptions.series[0];
-    element.dataSet(@[@17.0, @16.9, @12.5, @14.5,])
+    element
+    .dataSet(@[@17.0, @16.9, @12.5, @14.5,])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(255, 0, 0, 1.0)))
     ;
@@ -2551,7 +2553,8 @@
     aaOptions.yAxis.gridLineColor = AARgbaColor(255, 215, 0, 1.0);
     
     AASeriesElement *element = aaOptions.series[0];
-    element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2,])
+    element
+    .dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2,])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(255, 215, 0, 1.0)))
     ;
@@ -2590,7 +2593,8 @@
     aaOptions.yAxis.gridLineColor = AARgbaColor(50, 205, 50, 1.0);
     
     AASeriesElement *element = aaOptions.series[0];
-    element.dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2, @21.5,])
+    element
+    .dataSet(@[@17.0, @16.9, @12.5, @14.5, @18.2, @21.5,])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(50, 205, 50, 1.0)))
     ;
@@ -2628,7 +2632,8 @@
     aaOptions.yAxis.gridLineColor = AARgbaColor(138, 43, 226, 1.0);
     
     AASeriesElement *element = aaOptions.series[0];
-    element.dataSet(@[@2, @4, @6, @8, @10, @12, @14, @16, @18, @20, @22, @24])
+    element
+    .dataSet(@[@2, @4, @6, @8, @10, @12, @14, @16, @18, @20, @22, @24])
     .dataLabelsSet(AADataLabels.new
                    .colorSet(AARgbaColor(138, 43, 226, 1.0)))
     ;
