@@ -77,7 +77,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, serie
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legend)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPane        *, pane)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors) 
-AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL,            easyGradientColors) 
 AAPropStatementAndPropSetFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
 AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL           , touchEventEnabled)
 AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL           , customEventEnabled)

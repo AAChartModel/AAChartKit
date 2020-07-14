@@ -45,7 +45,6 @@ AAPropSetFuncImplementation(AAOptions, NSArray       *, series)
 AAPropSetFuncImplementation(AAOptions, AALegend      *, legend)
 AAPropSetFuncImplementation(AAOptions, AAPane        *, pane)
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors)
-AAPropSetFuncImplementation(AAOptions, BOOL,            easyGradientColors)
 AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
 AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 AAPropSetFuncImplementation(AAOptions, BOOL           , customEventEnabled)
