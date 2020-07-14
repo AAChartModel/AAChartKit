@@ -64,7 +64,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAStates *, stat
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , showInLegend) //Whether to display this particular series or series type in the legend. The default value is true for standalone series, false for linked series. 默认是：true.
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , visible) //数据列是否显示的状态,可以通过 series.show()、series.hide()、series.setVisible 来改变这个属性
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray<AAZonesElement *>*, zones)
-AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zoneAxis)
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, zoneAxis) //Defines the Axis on which the zones are applied. 默认是：y.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAShadow *, shadow) //数据列的阴影效果。从 2.3 开始阴影可以配置成包含 color、offsetX、offsetY、opacity 和 width 属性的对象形式。 默认是：false
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stack)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AATooltip*, tooltip)
