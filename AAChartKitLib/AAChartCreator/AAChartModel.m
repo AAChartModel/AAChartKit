@@ -192,7 +192,7 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle) //y 轴标题
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLineWidth) //y y-axis line width
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth) //y轴网格线的宽度
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisAllowDecimals) //是否允许 y 轴显示小数
-AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines) //y 轴基线的配置
+AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines) //y 轴标示线🧶的配置
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax) //y 轴最大值
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin) //y 轴最小值（设置为0就不会有负数）
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisTickInterval) 
