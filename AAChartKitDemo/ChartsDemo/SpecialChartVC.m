@@ -674,6 +674,15 @@
         @[@1419987600000, @1.6,  @4.2]
     ];
     
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
+        @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+    ];
+    NSDictionary *gradientRedColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:redStopsArr];
+    
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArearange)
     .titleSet(@"黄昏别馆日气温起伏图")
@@ -681,11 +690,13 @@
     .yAxisTitleSet(@"摄氏度")
     .xAxisVisibleSet(false)
     .dataLabelsEnabledSet(false)
+    .markerRadiusSet(@0)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2020")
         .typeSet(AAChartTypeArearange)
-        .colorSet((id)AAGradientColor.sanguineColor)
+        .colorSet(AAColor.redColor)
+        .fillColorSet((id)gradientRedColorDic)
         .dataSet(areaRangeData),
     ]);
 }
