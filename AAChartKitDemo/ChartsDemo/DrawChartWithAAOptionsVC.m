@@ -1583,18 +1583,23 @@
                              ))
     ;
     
-    aaOptions.yAxis
-    .lineWidthSet(@1.5)//Y轴轴线颜色
-    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
-    .gridLineWidthSet(@0)//Y轴网格线宽度
-    .labels.style.colorSet(AAColor.whiteColor)//Y轴文字颜色
-    ;
-    
     aaOptions.xAxis
     .tickWidthSet(@0)//X轴刻度线宽度
     .lineWidthSet(@1.5)//X轴轴线宽度
     .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
+    .gridLineColorSet(AAColor.whiteColor)
+    .gridLineWidthSet(@0.5)//X轴网格线宽度
+    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
     .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
+    ;
+    
+    aaOptions.yAxis
+    .lineWidthSet(@1.5)//Y轴轴线颜色
+    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
+    .gridLineColorSet(AAColor.whiteColor)
+    .gridLineWidthSet(@0.5)//Y轴网格线宽度
+    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
+    .labels.style.colorSet(AAColor.whiteColor)//Y轴文字颜色
     ;
     
     //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
