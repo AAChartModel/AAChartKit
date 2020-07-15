@@ -1573,14 +1573,14 @@
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     
     aaOptions.plotOptions.series
-    .dataLabelsSet(AADataLabels.new
-                   .enabledSet(true)
-                   .styleSet(AAStyle.new
-                             .colorSet(AAColor.whiteColor)
-                             .fontSizeSet(@"14px")
-                             .fontWeightSet(AAChartFontWeightTypeThin)
-                             .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
-                             ))
+    .dataLabels
+    .enabledSet(true)
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.whiteColor)
+              .fontSizeSet(@"14px")
+              .fontWeightSet(AAChartFontWeightTypeThin)
+              .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
+              )
     ;
     
     aaOptions.xAxis
