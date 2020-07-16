@@ -40,7 +40,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, type
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , allowPointSelect) //是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, name) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, data) 
-AAPropStatementAndPropSetFuncStatement(strong,   AASeriesElement, NSString *, color) 
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, id        , colorByPoint) //When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAMarker *, marker) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stacking) 
