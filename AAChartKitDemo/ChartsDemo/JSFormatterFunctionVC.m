@@ -1291,7 +1291,7 @@ function () {
     return aaOptions;
 }
 
-
+//https://github.com/AAChartModel/AAChartKit/issues/938
 - (AAOptions *)customXAxisLabelsBeImages {
     NSArray *nameArr = @[
         @"South Korea",

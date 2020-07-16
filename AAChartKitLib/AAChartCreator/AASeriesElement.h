@@ -87,17 +87,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
 @end
 
 
-@interface AAShadow : NSObject
-
-AAPropStatementAndPropSetFuncStatement(copy,   AAShadow, NSString *, color)
-AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, offsetX)
-AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, offsetY)
-AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, opacity)
-AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, width)
-
-@end
-
-
 @interface AAZonesElement : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSNumber *, value)

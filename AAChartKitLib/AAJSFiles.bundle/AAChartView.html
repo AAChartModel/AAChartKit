@@ -50,8 +50,8 @@
         
         function configurePlotOptions(aaOptions) {
             var aaPlotOptions = aaOptions.plotOptions;
-            var animation = aaPlotOptions.series.animation;
-            if (animation) {
+            if (aaPlotOptions.series && aaPlotOptions.series.animation) {
+                var animation = aaPlotOptions.series.animation;
                 var animationEasingType = animation.easing;
                 animation.easing = configureTheChartAnimationEasingType(animationEasingType);
             }

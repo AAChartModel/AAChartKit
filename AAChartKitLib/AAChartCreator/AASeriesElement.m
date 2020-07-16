@@ -96,17 +96,6 @@ AAPropSetFuncImplementation(AADataElement, NSNumber *, y)
 @end
 
 
-@implementation AAShadow : NSObject
-
-AAPropSetFuncImplementation(AAShadow, NSString *, color)
-AAPropSetFuncImplementation(AAShadow, NSNumber *, offsetX)
-AAPropSetFuncImplementation(AAShadow, NSNumber *, offsetY)
-AAPropSetFuncImplementation(AAShadow, NSNumber *, opacity)
-AAPropSetFuncImplementation(AAShadow, NSNumber *, width)
-
-@end
-
-
 @implementation AAZonesElement : NSObject
 
 AAPropSetFuncImplementation(AAZonesElement, NSNumber *, value)
