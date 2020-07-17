@@ -62,6 +62,7 @@
 #import "AAStates.h"
 #import "AAPane.h"
 #import "AACredits.h"
+#import "AALang.h"
 
 @interface AAOptions : NSObject
 
@@ -77,7 +78,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legen
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPane        *, pane)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AACredits     *, credits)
-AAPropStatementAndPropSetFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALang        *, defaultOptions)
 AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL           , touchEventEnabled)
 
 @end

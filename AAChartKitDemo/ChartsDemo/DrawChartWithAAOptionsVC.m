@@ -102,6 +102,7 @@
     .chartTypeSet(AAChartTypeAreaspline)
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)
+    .zoomTypeSet(AAChartZoomTypeX)
     .colorsThemeSet(@[
         AAGradientColor.oceanBlueColor,
         AAGradientColor.sanguineColor,
@@ -111,16 +112,16 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
-        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+        .dataSet(@[@45000, @43000, @50000, @55000, @58000, @62000, @83000, @39000, @56000, @67000, @50000, @34000, @50000, @67000, @58000, @29000, @46000, @23000, @47000, @46000, @38000, @56000, @48000, @36000]),
         AASeriesElement.new
         .nameSet(@"Berlin Hot")
-        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+        .dataSet(@[@38000, @31000, @32000, @32000, @64000, @66000, @86000, @47000, @52000, @75000, @52000, @56000, @54000, @60000, @46000, @63000, @54000, @51000, @58000, @64000, @60000, @45000, @36000, @67000]),
         AASeriesElement.new
         .nameSet(@"London Hot")
-        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+        .dataSet(@[@46000, @32000, @53000, @58000, @86000, @68000, @85000, @73000, @69000, @71000, @91000, @74000, @60000, @50000, @39000, @67000, @55000, @49000, @65000, @45000, @64000, @47000, @63000, @64000]),
         AASeriesElement.new
         .nameSet(@"NewYork Hot")
-        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+        .dataSet(@[@60000, @51000, @52000, @53000, @64000, @84000, @65000, @68000, @63000, @47000, @72000, @60000, @65000, @74000, @66000, @65000, @71000, @59000, @65000, @77000, @52000, @53000, @58000, @53000]),
                ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
@@ -132,13 +133,17 @@
     .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
     ;
     
-    aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
+    aaOptions.yAxis.labels.format = @"{value} €";//给y轴添加单位
     
     //禁用图例点击事件
     aaOptions.plotOptions.series.events = AAEvents.new
     .legendItemClickSet(@AAJSFunc(function() {
         return false;
     }));
+
+    aaOptions.defaultOptions = AALang.new
+    .resetZoomSet(@"重置缩放比例")
+    .thousandsSepSet(@",");
 
     return aaOptions;
 }

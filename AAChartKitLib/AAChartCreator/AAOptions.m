@@ -56,7 +56,7 @@ AAPropSetFuncImplementation(AAOptions, AALegend      *, legend)
 AAPropSetFuncImplementation(AAOptions, AAPane        *, pane)
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors)
 AAPropSetFuncImplementation(AAOptions, AACredits     *, credits)
-AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
+AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
 AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
 @end
@@ -103,7 +103,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .enabledSet(aaChartModel.tooltipEnabled)//启用浮动提示框
     .sharedSet(aaChartModel.tooltipShared)//多组数据共享一个浮动提示框
     .crosshairsSet(true)//启用准星线
-    //.pointFormatSet(aaChartModel.tooltipValueString)//Tooltip value point format string
     .valueSuffixSet(aaChartModel.tooltipValueSuffix);//浮动提示框的单位名称后缀
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
@@ -132,9 +131,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .plotOptionsSet(aaPlotOptions)
     .legendSet(aaLegend)
     .seriesSet(aaChartModel.series)
-    .colorsSet(aaChartModel.colorsTheme)//设置颜色主题
-    .zoomResetButtonTextSet(aaChartModel.zoomResetButtonText);//重置缩放按钮的默认标题
-    
+    .colorsSet(aaChartModel.colorsTheme);//设置颜色主题
     
     [self configureAxisContentAndStyleWithAAOptions:aaOptions AAChartModel:aaChartModel];
     
