@@ -53,7 +53,6 @@
                 animation.easing = configureTheChartAnimationEasingType(animationEasingType);
             }
             
-            // 添加鼠标事件
             if (aaOptions.touchEventEnabled == true && aaPlotOptions.series) {
                 configureChartTouchEvent(aaPlotOptions);
             }
@@ -118,9 +117,7 @@
             var seriesArrLength = receivedSeriesArr.length;
             for (var i = 0; i < seriesArrLength; i++) {
                 var receivedSeriesElementData = receivedSeriesArr[i].data;
-                // 获取series
                 var seriesElement = aaGlobalChart.series[i];
-                // 执行只刷新数据的函数
                 seriesElement.setData(receivedSeriesElementData, false);
             }
             
@@ -148,7 +145,6 @@
             aaGlobalChart.redraw(animationBool);
         }
         
-        //pragma mark -- setter method
         function setTheChartViewContentWidth(receivedWidth) {
             var container = document.getElementById('container');
             container.style.width = receivedWidth;
