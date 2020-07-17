@@ -105,8 +105,8 @@
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
     _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明
     //    _aaChartView.delegate = self;
-    [self setupChartViewEventHandlers];
     [self.view addSubview:_aaChartView];
+    [self setupChartViewEventHandlers];
 }
 
 - (void)setupChartViewEventHandlers {

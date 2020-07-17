@@ -601,7 +601,7 @@ WKScriptMessageHandler
 }
 
 - (void)setDelegate:(id<AAChartViewEventDelegate>)delegate {
-    NSAssert(_optionJson == nil, @"You should set delegate before adding AAChartView to super view");
+    NSAssert(_optionJson == nil, @"You should set delegate before drawing chart");
     _delegate = delegate;
     
     if (self.delegate && ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)])) {
@@ -616,7 +616,7 @@ WKScriptMessageHandler
 }
 
 -(void)setMoveOverEventBlock:(AAMoveOverEventBlock)moveOverEventBlock {
-    NSAssert(_optionJson == nil, @"You should set moveOverEventBlock before adding AAChartView to super view");
+    NSAssert(_optionJson == nil, @"You should set moveOverEventBlock before drawing chart");
     _moveOverEventBlock = moveOverEventBlock;
     if (self.moveOverEventBlock) {
         _mouseOverEventEnabled = true;
@@ -625,7 +625,7 @@ WKScriptMessageHandler
 }
 
 - (void)setDidReceiveScriptMessageBlock:(AADidReceiveScriptMessageBlock)didReceiveScriptMessageBlock {
-    NSAssert(_optionJson == nil, @"You should set didReceiveScriptMessageBlock before adding AAChartView to super view");
+    NSAssert(_optionJson == nil, @"You should set didReceiveScriptMessageBlock before drawing chart");
     _didReceiveScriptMessageBlock = didReceiveScriptMessageBlock;
     if (self.didReceiveScriptMessageBlock) {
         _customEventEnabled = true;
