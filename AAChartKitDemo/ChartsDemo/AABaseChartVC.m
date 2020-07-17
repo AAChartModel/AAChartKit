@@ -73,6 +73,8 @@
         self.selectedIndex = self.selectedIndex + 1;
         self.title = self.navigationItemTitleArr[self.selectedIndex];
         [self refreshChartWithChartConfiguration];
+        NSString *jsStr = [self configureAddEventForXAxisLabelsGroupElementJSFunctionString];
+        [self.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
     }
 }
 
@@ -160,18 +162,37 @@
 }
 
 - (void)setupAAChartViewEventBlockHandler {
+    __weak __typeof__(self) weakSelf = self;
+
     //获取图表加载完成事件
     [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
         NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
+        NSString *jsStr = [ weakSelf configureAddEventForXAxisLabelsGroupElementJSFunctionString];
+        [weakSelf.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
     }];
     
-    __weak __typeof__(self) weakSelf = self;
     //获取图表上的手指点击及滑动事件
     [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
                                          AAMoveOverEventMessageModel *message) {
         NSDictionary *messageDic = [AAJsonConverter dictionaryWithObjectInstance:message];
         [weakSelf printPrettyPrintedJsonStringWithJsonObject:messageDic];
     }];
+    
+    //在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调
+    [_aaChartView didReceiveScriptMessageHandler:^(AAChartView *aaChartView, WKScriptMessage *message) {
+        NSLog(@"Clicked X axis label,  name is %@", message.body);
+    }];
+}
+
+//【案例分享】Highcharts 坐标轴标签点击高亮: https://blog.jianshukeji.com/highcharts/highlight-label-by-click.html
+// 实现方法是找到轴标签 DOM，然后手动添加点击事件并处理。其中 x 轴标签的 DOM 是 axis.labelGroup.element, 添加事件我们用 Highcharts.addEvent，
+
+//配置将要注入的自定义事件的 JavaScript 函数
+- (NSString *)configureAddEventForXAxisLabelsGroupElementJSFunctionString {
+    return @AAJSFunc((Highcharts.addEvent(aaGlobalChart.xAxis[0].labelGroup.element, 'click', e => {
+        let category = e.target.innerHTML;
+        window.webkit.messageHandlers.customevent.postMessage(category);
+    });));
 }
 
 - (void)drawChartWithChartConfiguration {
