@@ -212,7 +212,6 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       legendEnabled) //是否显
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, borderRadius) //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
 AAPropSetFuncImplementation(AAChartModel, NSString *, zoomResetButtonText)  //String to display in 'zoom reset button"
-AAPropSetFuncImplementation(AAChartModel, BOOL      , touchEventEnabled)
 AAPropSetFuncImplementation(AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)
 
 @end

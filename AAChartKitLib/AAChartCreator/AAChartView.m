@@ -94,8 +94,11 @@ WKNavigationDelegate,
 WKScriptMessageHandler
 > {
     NSString  *_optionJson;
-    BOOL _touchEventEnabled;
+    BOOL _mouseOverEventEnabled;
+    BOOL _customEventEnabled;
 }
+
+@property (nonatomic, strong) AAWeakProxy *weakProxy;
 
 @end
 
@@ -432,20 +435,8 @@ WKScriptMessageHandler
     if (self.isClearBackgroundColor) {
         aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
     }
-
-    if ( _touchEventEnabled == false) {
-        AAWeakProxy *proxy = [AAWeakProxy proxyWithTarget:self];
-        if (aaOptions.touchEventEnabled == true) {
-            [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
-                                                                         name:kUserContentMessageNameMouseOver];
-        }
-        
-        if (aaOptions.customEventEnabled == true) {
-            [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)proxy
-                                                                         name:kUserContentMessageNameCustomEvent];
-        }
-        
-        _touchEventEnabled = true;
+    if (_mouseOverEventEnabled == true) {
+        aaOptions.touchEventEnabled = true;
     }
     
     _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
@@ -512,21 +503,15 @@ WKScriptMessageHandler
             self.moveOverEventBlock(self, eventMessageModel);
             return;
         }
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)]) {
-                [self.delegate aaChartView:self moveOverEventWithMessage:eventMessageModel];
-            }
-        }
+        
+        [self.delegate aaChartView:self moveOverEventWithMessage:eventMessageModel];
     } else if ([message.name isEqualToString:kUserContentMessageNameCustomEvent]) {
         if (self.didReceiveScriptMessageBlock) {
             self.didReceiveScriptMessageBlock(self, message);
             return;
         }
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector((aaChartView:didReceiveScriptMessage:))]) {
-                [self.delegate aaChartView:self didReceiveScriptMessage:message];
-            }
-        }
+        
+        [self.delegate aaChartView:self didReceiveScriptMessage:message];
     }
 }
 
@@ -613,6 +598,54 @@ WKScriptMessageHandler
         self.backgroundColor = [UIColor whiteColor];
         [self setOpaque:YES];
     }
+}
+
+- (void)setDelegate:(id<AAChartViewEventDelegate>)delegate {
+    _delegate = delegate;
+    
+    if (self.delegate && ([self.delegate respondsToSelector:@selector(aaChartView:moveOverEventWithMessage:)])) {
+        _mouseOverEventEnabled = true;
+        [self addMouseOverEventMessageHandler];
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector((aaChartView:didReceiveScriptMessage:))]) {
+        _customEventEnabled = true;
+        [self addCustomEventMessageHandler];
+    }
+}
+
+-(void)setMoveOverEventBlock:(AAMoveOverEventBlock)moveOverEventBlock {
+    _moveOverEventBlock = moveOverEventBlock;
+    if (self.moveOverEventBlock) {
+        _mouseOverEventEnabled = true;
+        [self addMouseOverEventMessageHandler];
+    }
+}
+
+- (void)setDidReceiveScriptMessageBlock:(AADidReceiveScriptMessageBlock)didReceiveScriptMessageBlock {
+    _didReceiveScriptMessageBlock = didReceiveScriptMessageBlock;
+    if (self.didReceiveScriptMessageBlock) {
+        _customEventEnabled = true;
+        [self addCustomEventMessageHandler];
+    }
+}
+
+- (void)addMouseOverEventMessageHandler {
+    [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)self.weakProxy
+                                                                 name:kUserContentMessageNameMouseOver];
+}
+
+- (void)addCustomEventMessageHandler {
+    [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)self.weakProxy
+                                                                 name:kUserContentMessageNameCustomEvent];
+}
+
+#pragma mark -- getter method
+- (AAWeakProxy *)weakProxy {
+    if (!_weakProxy) {
+        _weakProxy = [AAWeakProxy proxyWithTarget:self];
+    }
+    return _weakProxy;
 }
 
 - (void)dealloc {

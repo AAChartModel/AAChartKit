@@ -85,6 +85,7 @@
     } else {
         // Fallback on earlier versions
     }
+    [self setupAAChartViewEventBlockHandler];
     [self.view addSubview:self.aaChartView];
     
     AAAnimation *aaAnimation = AAAnimation.new
@@ -100,7 +101,6 @@
     
     [self drawChartWithChartConfiguration];
     
-    [self setupAAChartViewEventBlockHandler];
 }
 
 - (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
@@ -177,12 +177,8 @@
 - (void)drawChartWithChartConfiguration {
     id chartConfiguration = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
     if ([chartConfiguration isKindOfClass:AAChartModel.class]) {
-        AAChartModel *aaChartModel = chartConfiguration;
-        aaChartModel.touchEventEnabled = true;
         [self.aaChartView aa_drawChartWithChartModel:chartConfiguration];
     } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
-        AAOptions *aaOptions = chartConfiguration;
-        aaOptions.touchEventEnabled = true;
         [self.aaChartView aa_drawChartWithOptions:chartConfiguration];
     }
 }
@@ -190,12 +186,8 @@
 - (void)refreshChartWithChartConfiguration {
     id chartConfiguration = [self chartConfigurationWithSelectedIndex:self.selectedIndex];
     if ([chartConfiguration isKindOfClass:AAChartModel.class]) {
-        AAChartModel *aaChartModel = chartConfiguration;
-        aaChartModel.touchEventEnabled = true;
         [self.aaChartView aa_refreshChartWithChartModel:chartConfiguration];
     } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
-        AAOptions *aaOptions = chartConfiguration;
-        aaOptions.touchEventEnabled = true;
         [self.aaChartView aa_refreshChartWithOptions:chartConfiguration];
     }
 }

@@ -106,7 +106,7 @@
     CGFloat chartViewHeight = self.view.frame.size.height - 88;
     AAChartView *aaChartView = [[AAChartView alloc]init];
     aaChartView.frame = CGRectMake(0, 88, chartViewWidth, chartViewHeight);
-    aaChartView.delegate = self;
+//    aaChartView.delegate = self;
     aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
     [self.view addSubview:aaChartView];
     //设置 AAChartView 的背景色是否为透明
@@ -233,7 +233,6 @@
     .yAxisCrosshairColorSet(AAColor.whiteColor)
     .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
     .yAxisTickPositionsSet(@[@5,@10,@15,@20,@25,])
-    .touchEventEnabledSet(true)
     .seriesSet(@[
         AASeriesElement.new
         .colorSet(AAColor.whiteColor)
@@ -247,7 +246,7 @@
     aaOptions.chart.marginLeft = @40;
     aaOptions.chart.marginRight = @40;
     
-    aaOptions.customEventEnabled = true;//设置支持自定义事件 ⭐️⭐️⭐️⭐️(关键属性)
+//    aaOptions.customEventEnabled = true;//设置支持自定义事件 ⭐️⭐️⭐️⭐️(关键属性)
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
@@ -308,6 +307,23 @@
     }
 
     [self.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
+}
+
+- (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
+    NSDictionary *messageDic = @{
+        @"category":message.category,
+        @"index":@(message.index),
+        @"name":message.name,
+        @"offset":message.offset,
+        @"x":message.x,
+        @"y":message.y
+    };
+    
+    NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌 selected point series element name: %@\n",
+                      message.name];
+    NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
+                      messageDic];
+    NSLog(@"%@%@",str1, str2);
 }
 
 //在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调

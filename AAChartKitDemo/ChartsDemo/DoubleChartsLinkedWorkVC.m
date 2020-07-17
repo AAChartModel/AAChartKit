@@ -95,7 +95,6 @@
     ])
     .tooltipEnabledSet(false)
     .borderRadiusSet(@3)
-    .touchEventEnabledSet(true)
     .yAxisReversedSet(true)
     .xAxisReversedSet(true)
     .invertedSet(true)
