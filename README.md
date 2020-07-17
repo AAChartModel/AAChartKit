@@ -255,9 +255,6 @@ you can monitor the user touch events message through implementing delegate func
 ```objc
  //Set AAChartView events delegate
  self.aaChartView.delegate = self;
- 
- //set AAChartModel support user touch event
- self.aaChartModel.touchEventEnabledSet(true)
 
  //implement AAChartView user touch events delegate function
  #pragma mark -- AAChartView delegate

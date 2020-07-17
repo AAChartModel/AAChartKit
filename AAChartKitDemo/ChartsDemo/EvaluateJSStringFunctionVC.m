@@ -246,7 +246,6 @@
     aaOptions.chart.marginLeft = @40;
     aaOptions.chart.marginRight = @40;
     
-//    aaOptions.customEventEnabled = true;//设置支持自定义事件 ⭐️⭐️⭐️⭐️(关键属性)
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环

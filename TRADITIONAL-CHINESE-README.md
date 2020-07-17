@@ -211,9 +211,6 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
  ```objective-c
   //設置 AAChartView 事件代理
   self.aaChartView.delegate = self;
-  
-  //支持用戶點擊事件
-  self.aaChartModel.touchEventEnabledSet(true)
 
   //實現對 AAChartView 事件代理的監聽
   #pragma mark -- AAChartView delegate
