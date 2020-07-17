@@ -200,6 +200,15 @@
     if ([chartConfiguration isKindOfClass:AAChartModel.class]) {
         [self.aaChartView aa_drawChartWithChartModel:chartConfiguration];
     } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
+        AAOptions *aaOptions = chartConfiguration;
+        aaOptions.credits
+        .enabledSet(true)
+        .textSet(@"https://github.com/AAChartModel/AAChartKit")
+        .hrefSet(@"https://github.com/AAChartModel/AAChartKit")
+        .styleSet(AAStyle.new
+                  .colorSet(AAColor.redColor)
+                  .fontSizeSet(@"9px"));
+        self.aaChartView.scrollEnabled = true;
         [self.aaChartView aa_drawChartWithOptions:chartConfiguration];
     }
 }
@@ -209,6 +218,15 @@
     if ([chartConfiguration isKindOfClass:AAChartModel.class]) {
         [self.aaChartView aa_refreshChartWithChartModel:chartConfiguration];
     } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
+        AAOptions *aaOptions = chartConfiguration;
+        aaOptions.credits
+        .enabledSet(true)
+        .textSet(@"https://github.com/AAChartModel/AAChartKit")
+        .hrefSet(@"https://github.com/AAChartModel/AAChartKit")
+        .styleSet(AAStyle.new
+                  .colorSet(AAColor.redColor)
+                  .fontSizeSet(@"9px"));
+        self.aaChartView.scrollEnabled = true;
         [self.aaChartView aa_refreshChartWithOptions:chartConfiguration];
     }
 }

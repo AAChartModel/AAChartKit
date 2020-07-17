@@ -61,6 +61,7 @@
 #import "AAColor.h"
 #import "AAStates.h"
 #import "AAPane.h"
+#import "AACredits.h"
 
 @interface AAOptions : NSObject
 
@@ -74,7 +75,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPlotOptions *, plotO
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, series) 
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALegend      *, legend)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AAPane        *, pane)
-AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors) 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, colors)
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AACredits     *, credits)
 AAPropStatementAndPropSetFuncStatement(copy,   AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
 AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL           , touchEventEnabled)
 

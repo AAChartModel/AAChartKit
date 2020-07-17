@@ -34,6 +34,16 @@
 
 @implementation AAOptions
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        AACredits *aaCreadits = [[AACredits alloc]init];
+        aaCreadits.enabled = false;
+        self.credits = aaCreadits;
+    }
+    return self;
+}
+
 AAPropSetFuncImplementation(AAOptions, AAChart       *, chart)
 AAPropSetFuncImplementation(AAOptions, AATitle       *, title)
 AAPropSetFuncImplementation(AAOptions, AASubtitle    *, subtitle)
@@ -45,6 +55,7 @@ AAPropSetFuncImplementation(AAOptions, NSArray       *, series)
 AAPropSetFuncImplementation(AAOptions, AALegend      *, legend)
 AAPropSetFuncImplementation(AAOptions, AAPane        *, pane)
 AAPropSetFuncImplementation(AAOptions, NSArray       *, colors)
+AAPropSetFuncImplementation(AAOptions, AACredits     *, credits)
 AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText)  //String to display in 'zoom reset button"
 AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 
