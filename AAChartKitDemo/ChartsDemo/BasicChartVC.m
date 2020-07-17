@@ -102,8 +102,14 @@
     CGFloat chartViewHeight = self.view.frame.size.height - 160 - aaChartViewOriginY;
     _aaChartView = [[AAChartView alloc]init];
     _aaChartView.frame = CGRectMake(0, aaChartViewOriginY, chartViewWidth, chartViewHeight);
-//    _aaChartView.delegate = self;
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
+    _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明
+    //    _aaChartView.delegate = self;
+    [self setupChartViewEventHandlers];
+    [self.view addSubview:_aaChartView];
+}
+
+- (void)setupChartViewEventHandlers {
     //获取图表加载完成事件
     [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
         NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
@@ -127,11 +133,6 @@
                           messageDic];
         NSLog(@"%@%@",str1, str2);
     }];
-
-    //设置 AAChartView 的背景色是否为透明
-    _aaChartView.isClearBackgroundColor = YES;
-    
-    [self.view addSubview:_aaChartView];
 }
 
 - (void)setupAAChartViewWithChartType:(AAChartType)chartType {
