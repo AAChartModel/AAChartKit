@@ -100,6 +100,7 @@ AAPropSetFuncImplementation(AADataElement, NSNumber *, y)
 
 AAPropSetFuncImplementation(AAZonesElement, NSNumber *, value)
 AAPropSetFuncImplementation(AAZonesElement, NSString *, color)
+AAPropSetFuncImplementation(AAZonesElement, NSString *, fillColor)
 AAPropSetFuncImplementation(AAZonesElement, NSString *, dashStyle)
 
 @end
