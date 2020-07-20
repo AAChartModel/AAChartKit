@@ -67,7 +67,7 @@
         case 18: return [self configureAreaChartThreshold];
         case 19: return [self customScatterChartMarkerSymbolContent];
         case 20: return [self customLineChartMarkerSymbolContent];
-        case 21:  return [self configrueWithMinusNumberChart];
+        case 21: return [self configrueWithMinusNumberChart];
         case 22: return [self configureQuadrangleRadarChart];
         case 23: return [self configurePentagonRadarChart];
         case 24: return [self configureHexagonRadarChart];
