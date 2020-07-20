@@ -31,13 +31,8 @@
  */
 
 #import "BasicChartVC.h"
-#import "AAEasyTool.h"
-#import "AAChartKit.h"
 
 @interface BasicChartVC ()<AAChartViewEventDelegate>
-
-@property (nonatomic, strong) AAChartModel *aaChartModel;
-@property (nonatomic, strong) AAChartView  *aaChartView;
 
 @end
 
@@ -404,57 +399,27 @@
 }
 
 - (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
-    id options;
     switch (segmentedControl.tag) {
         case 0: {
-            NSArray *stackingArr = @[
-                AAChartStackingTypeFalse,
-                AAChartStackingTypeNormal,
-                AAChartStackingTypePercent
-            ];
-            AAChartStackingType stackingType = stackingArr[segmentedControl.selectedSegmentIndex];
-            AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-            .seriesSet(AASeries.new
-                       .stackingSet(stackingType));
-            options = aaPlotOptions;
+            NSArray *stackingArr = @[AAChartStackingTypeFalse,
+                                     AAChartStackingTypeNormal,
+                                     AAChartStackingTypePercent];
+            _aaChartModel.stacking = stackingArr[segmentedControl.selectedSegmentIndex];
         }
             break;
             
         case 1: {
             if (_chartType == 0 || _chartType == 1 ) {
-                NSArray *borderRadiusArr = @[
-                    @1,
-                    @10,
-                    @100
-                ];
-                NSNumber *borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
-                AAPlotOptions *aaPlotOptions;
-                if (_chartType == 0) {
-                    aaPlotOptions = AAPlotOptions.new
-                    .columnSet(AAColumn.new
-                               .borderRadiusSet(borderRadius));
-                } else {
-                    aaPlotOptions = AAPlotOptions.new
-                    .barSet(AABar.new
-                            .borderRadiusSet(borderRadius));
-                }
-                options = aaPlotOptions;
-                
+                NSArray *borderRadiusArr = @[ @0, @10, @100 ];
+                _aaChartModel.borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
             } else {
-                NSArray *symbolArr = @[
-                    AAChartSymbolTypeCircle,
-                    AAChartSymbolTypeSquare,
-                    AAChartSymbolTypeDiamond,
-                    AAChartSymbolTypeTriangle,
-                    AAChartSymbolTypeTriangle_down
-                ];
-                AAChartSymbolType markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
-                AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-                .seriesSet(AASeries.new
-                           .markerSet(AAMarker.new
-                                      .symbolSet(markerSymbol))
-                           );
-                options = aaPlotOptions;
+                
+                NSArray *symbolArr = @[AAChartSymbolTypeCircle,
+                                       AAChartSymbolTypeSquare,
+                                       AAChartSymbolTypeDiamond,
+                                       AAChartSymbolTypeTriangle,
+                                       AAChartSymbolTypeTriangle_down];
+                _aaChartModel.markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
             }
         }
             break;
@@ -462,7 +427,8 @@
         default:
             break;
     }
-    [_aaChartView aa_updateChartWithOptions:options];
+    
+    [self refreshTheChartView];
 }
 
 - (void)setUpTheSwitchs {
@@ -517,103 +483,29 @@
 }
 
 - (void)switchViewClicked:(UISwitch *)switchView {
-    id options;
     switch (switchView.tag) {
-        case 0: {
-            AAXAxis *aaXAxis = AAXAxis.new
-            .reversedSet(switchView.on);
-            options = aaXAxis;
-        }
+        case 0: _aaChartModel.xAxisReversed = switchView.on;
             break;
-        case 1: {
-            AAYAxis *aaYAxis = AAYAxis.new
-            .reversedSet(switchView.on);
-            options = aaYAxis;
-        }
+        case 1: _aaChartModel.yAxisReversed = switchView.on;
             break;
-        case 2: {
-            if (_aaChartModel.chartType == AAChartTypeBar) {
-                NSLog(@"⚠️⚠️⚠️inverted is useless for Bar Chart");
-            }
-            _aaChartModel.inverted = switchView.on;
-            AAChart *aaChart = AAChart.new
-            .invertedSet(switchView.on)
-            .polarSet(_aaChartModel.polar);
-            options = aaChart;
-        }
+        case 2: _aaChartModel.inverted = switchView.on;
             break;
-        case 3: {
-            _aaChartModel.polar = switchView.on;
-            AAChart *aaChart = AAChart.new
-            .polarSet(switchView.on)
-            .invertedSet(_aaChartModel.inverted);
-            options = aaChart;
-            
-            if (_aaChartModel.chartType == AAChartTypeColumn) {
-                if (_aaChartModel.polar == true) {
-                    options = AAOptions.new
-                    .chartSet(aaChart)
-                    .plotOptionsSet(AAPlotOptions.new
-                                    .columnSet(AAColumn.new
-                                               .pointPaddingSet(@0)
-                                               .groupPaddingSet(@0.005)));
-                } else {
-                    options = AAOptions.new
-                    .chartSet(aaChart)
-                    .plotOptionsSet(AAPlotOptions.new
-                                    .columnSet(AAColumn.new
-                                               .pointPaddingSet(@0.1)
-                                               .groupPaddingSet(@0.2)));
-                }
-            } else if (_aaChartModel.chartType == AAChartTypeBar) {
-                if (_aaChartModel.chartType == AAChartTypeBar) {
-                    if (_aaChartModel.polar == true) {
-                        options = AAOptions.new
-                        .chartSet(aaChart)
-                        .plotOptionsSet(AAPlotOptions.new
-                                        .barSet(AABar.new
-                                                .pointPaddingSet(@0)
-                                                .groupPaddingSet(@0.005)));
-                    } else {
-                        options = AAOptions.new
-                        .chartSet(aaChart)
-                        .plotOptionsSet(AAPlotOptions.new
-                                        .barSet(AABar.new
-                                                .pointPaddingSet(@0.1)
-                                                .groupPaddingSet(@0.2)));
-                    }
-                }
-            }
-        }
+        case 3: _aaChartModel.polar = switchView.on;
             break;
-        case 4:  {
-            AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-            .seriesSet(AASeries.new
-                       .dataLabelsSet(AADataLabels.new
-                                      .enabledSet(switchView.on)));
-            options = aaPlotOptions;
-        }
+        case 4: _aaChartModel.dataLabelsEnabled = switchView.on;
             break;
-        case 5: {
-            AAMarker *aaMarker = switchView.on ?
-            AAMarker.new
-            .enabledSet(false)
-            :
-            AAMarker.new
-            .enabledSet(true)
-            .radiusSet( @5);
-            
-            AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-            .seriesSet(AASeries.new
-                       .markerSet(aaMarker));
-            options = aaPlotOptions;
-        }
+        case 5: _aaChartModel.markerRadius = switchView.on ? @0 : @5;
             break;
         default:
             break;
     }
-    
-    [_aaChartView aa_updateChartWithOptions:options];
+
+    [self refreshTheChartView];
+}
+
+
+- (void)refreshTheChartView {
+    [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
 }
 
 - (void)setUpTheNextTypeChartButton {

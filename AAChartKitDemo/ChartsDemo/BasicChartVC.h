@@ -31,6 +31,8 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "AAEasyTool.h"
+#import "AAChartKit.h"
 
 typedef NS_ENUM(NSInteger,BasicChartVCChartType) {
     BasicChartVCChartTypeColumn = 0,
@@ -46,6 +48,8 @@ typedef NS_ENUM(NSInteger,BasicChartVCChartType) {
 
 @interface BasicChartVC : UIViewController
 
+@property (nonatomic, strong) AAChartModel *aaChartModel;
+@property (nonatomic, strong) AAChartView  *aaChartView;
 @property (nonatomic, assign) BasicChartVCChartType chartType;
 @property (nonatomic, copy  ) NSString  *receivedChartType;
 

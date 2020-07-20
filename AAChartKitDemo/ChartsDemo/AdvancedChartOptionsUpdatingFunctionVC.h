@@ -31,10 +31,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "BasicChartVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AdvancedChartOptionsUpdatingFunctionVC : UIViewController
+@interface AdvancedChartOptionsUpdatingFunctionVC : BasicChartVC
 
 @end
 
