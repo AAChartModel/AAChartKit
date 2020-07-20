@@ -493,7 +493,9 @@
               @"Pentagon Radar Chart With PlotBands---带有颜色标志带的五角形雷达图",
               @"Hexagon Radar Char With PlotBands----带有颜色标志带的六角形雷达图",
               @"Spider Web Radar Chart With PlotBands----带有颜色标志带の🕸蜘蛛网状雷达图",
-              @"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1"
+              @"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
+              @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
+
             ],
             /*同时显示多个 AAChartView*/
             @[@"同时显示多个 AAChartView",
