@@ -35,7 +35,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AdvancedChartOptionsUpdatingFunctionVC : BasicChartVC
+@interface ChartAdvancedUpdatingFeatureVC : BasicChartVC
 
 @end
 

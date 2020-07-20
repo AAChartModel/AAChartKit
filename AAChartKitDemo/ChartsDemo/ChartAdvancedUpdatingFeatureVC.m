@@ -30,13 +30,13 @@
  
  */
 
-#import "AdvancedChartOptionsUpdatingFunctionVC.h"
+#import "ChartAdvancedUpdatingFeatureVC.h"
 
-@interface AdvancedChartOptionsUpdatingFunctionVC ()
+@interface ChartAdvancedUpdatingFeatureVC ()
 
 @end
 
-@implementation AdvancedChartOptionsUpdatingFunctionVC
+@implementation ChartAdvancedUpdatingFeatureVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

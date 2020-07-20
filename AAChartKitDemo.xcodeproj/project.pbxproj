@@ -41,7 +41,7 @@
 		27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		27E475F524B2111400690657 /* AABaseChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E475F424B2111400690657 /* AABaseChartVC.m */; };
-		27EB89D8248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */; };
+		27EB89D8248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */; };
 		27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */; };
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
 		440B098024C189950056CE08 /* AACredits.m in Sources */ = {isa = PBXBuildFile; fileRef = 440B097F24C189950056CE08 /* AACredits.m */; };
@@ -178,8 +178,8 @@
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
 		27E475F324B2111400690657 /* AABaseChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABaseChartVC.h; sourceTree = "<group>"; };
 		27E475F424B2111400690657 /* AABaseChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AABaseChartVC.m; sourceTree = "<group>"; };
-		27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedChartOptionsUpdatingFunctionVC.h; sourceTree = "<group>"; };
-		27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvancedChartOptionsUpdatingFunctionVC.m; sourceTree = "<group>"; };
+		27EB89D6248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartAdvancedUpdatingFeatureVC.h; sourceTree = "<group>"; };
+		27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartAdvancedUpdatingFeatureVC.m; sourceTree = "<group>"; };
 		27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSortingWithAnimationChartVC.h; sourceTree = "<group>"; };
 		27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSortingWithAnimationChartVC.m; sourceTree = "<group>"; };
 		27F0CA7721018998004BD904 /* AADateUTCTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateUTCTool.h; sourceTree = "<group>"; };
@@ -394,8 +394,8 @@
 				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
 				27E475F324B2111400690657 /* AABaseChartVC.h */,
 				27E475F424B2111400690657 /* AABaseChartVC.m */,
-				27EB89D6248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.h */,
-				27EB89D7248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m */,
+				27EB89D6248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.h */,
+				27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
 				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
@@ -757,7 +757,7 @@
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
 				1E66D20B210AF4ED007EAB8C /* AABar.m in Sources */,
-				27EB89D8248BB38B007E6A6B /* AdvancedChartOptionsUpdatingFunctionVC.m in Sources */,
+				27EB89D8248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m in Sources */,
 				4486C51023E9BAB300B54849 /* DrawableChartVC.m in Sources */,
 				440B098324C190F60056CE08 /* AALang.m in Sources */,
 				1E66D1FD210AF4ED007EAB8C /* AALabels.m in Sources */,

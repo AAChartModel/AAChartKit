@@ -50,7 +50,7 @@
 #import "DoubleChartsLinkedWorkVC.h"
 #import "DrawableChartVC.h"
 #import "DataSortingWithAnimationChartVC.h"
-#import "AdvancedChartOptionsUpdatingFunctionVC.h"
+#import "ChartAdvancedUpdatingFeatureVC.h"
 
 #define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
@@ -278,7 +278,7 @@
             break;
             case 15: {
                 /*基础类型图表*/
-                AdvancedChartOptionsUpdatingFunctionVC *vc = AdvancedChartOptionsUpdatingFunctionVC.new;
+                ChartAdvancedUpdatingFeatureVC *vc = ChartAdvancedUpdatingFeatureVC.new;
                            vc.chartType = indexPath.row;
 
                 [self.navigationController pushViewController:vc animated:YES];
