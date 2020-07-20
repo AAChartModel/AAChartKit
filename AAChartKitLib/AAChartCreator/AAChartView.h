@@ -259,7 +259,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 - (void)aa_redrawWithAnimation:(BOOL)animation;
 
 
-/// Set the chart view content be adaptive to screen rotation
+/// Set the chart view content be adaptive to screen rotation with default animation effect
 - (void)aa_adaptiveScreenRotation;
 
 /// Set the chart view content be adaptive to screen rotation with custom animation effect
