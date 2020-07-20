@@ -92,6 +92,7 @@
         case 44: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
         case 45: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
         case 46: return [self configureSpiderWebRadarChart];//带有颜色标志带的🕸蜘蛛网状雷达图
+        case 47: return [self configureComplicatedCustomAreasplineChart];//复杂自定义曲线填充图 1
     }
     return nil;
 }
@@ -2651,5 +2652,153 @@
     return aaOptions;
 }
 
+- (AAOptions *)configureComplicatedCustomAreasplineChart {
+    NSArray *blueStopsArr = @[
+        @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
+        @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
+    ];
+    NSDictionary *gradientBlueColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:blueStopsArr];
+    
+    
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
+        @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+    ];
+    NSDictionary *gradientRedColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:redStopsArr];
+    
+    
+    AADataElement *singleSpecialData1 = AADataElement.new
+    .markerSet(AAMarker.new
+               .radiusSet(@8)//曲线连接点半径
+               .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+               //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+               .lineColorSet(@"#1e90ff")
+               )
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .useHTMLSet(true)
+                   .backgroundColorSet(@"#1e90ff")
+                   .borderRadiusSet(@5)
+                   .shapeSet(@"callout")
+                   .formatSet(@"{point.category}<br>空气湿度: {point.y} %")
+                   .styleSet(AAStyle.new
+                             .fontWeightSet(AAChartFontWeightTypeBold)
+                             .colorSet(AAColor.whiteColor)
+                             .fontSizeSet(@"16px"))
+                   .ySet(@(-75))
+                   .alignSet(AAChartAlignTypeCenter)
+                   .verticalAlignSet(AAChartVerticalAlignTypeTop)
+                   .overflowSet(@"none")
+                   .cropSet(false)
+                   )
+    .ySet(@51.5);
+    
+    AADataElement *singleSpecialData2 = AADataElement.new
+    .markerSet(AAMarker.new
+               .radiusSet(@8)//曲线连接点半径
+               .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+               //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+               .lineColorSet(@"#ef476f")
+               )
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .useHTMLSet(true)
+                   .backgroundColorSet(AAColor.redColor)
+                   .borderRadiusSet(@5)
+                   .shapeSet(@"callout")
+                   .formatSet(@"{point.category}<br>土壤湿度: {point.y} %")
+                   .styleSet(AAStyle.new
+                             .fontWeightSet(AAChartFontWeightTypeBold)
+                             .colorSet(AAColor.whiteColor)
+                             .fontSizeSet(@"16px"))
+                   .ySet(@(-75))
+                   .alignSet(AAChartAlignTypeCenter)
+                   .verticalAlignSet(AAChartVerticalAlignTypeTop)
+                   .overflowSet(@"none")
+                   .cropSet(false)
+                   )
+    .ySet(@26.5);
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    //    .backgroundColorSet(AARgbaColor(112, 184, 176, 1.0))
+//    .backgroundColorSet(@"#4b2b7f")
+//    .backgroundColorSet((id)AAGradientColor.wroughtIronColor)
+    .backgroundColorSet(AAColor.whiteColor)
+    .colorsThemeSet(@[@"#1e90ff",AAColor.redColor,])
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .markerRadiusSet(@0)
+    .dataLabelsEnabledSet(false)
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"空气湿度")
+        .fillColorSet((id)gradientBlueColorDic)
+        .lineWidthSet(@6)
+//        .zoneAxisSet(@"x")
+//        .zonesSet(@[
+//            AAZonesElement.new
+//            .valueSet(@5)
+//            .fillColorSet((id)gradientBlueColorDic),
+//            AAZonesElement.new
+//            .fillColorSet(AAColor.clearColor),
+//                  ])
+        .dataSet(@[@17.0, @16.9, @8.5, @34.5, @28.2, singleSpecialData1, @15.2, @56.5, @33.3, @85.3, @23.9, @29.6]),
+        AASeriesElement.new
+        .nameSet(@"土壤湿度")
+        .fillColorSet((id)gradientRedColorDic)
+        .lineWidthSet(@6)
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData2, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+               ]);
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    
+    aaOptions.xAxis
+    .tickWidthSet(@0)//X轴刻度线宽度
+    .lineWidthSet(@1.5)//X轴轴线宽度
+    .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
+    .gridLineColorSet(AAColor.whiteColor)
+    .gridLineWidthSet(@0.5)//X轴网格线宽度
+    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
+    .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
+    ;
+    
+    aaOptions.yAxis
+    .tickPositionsSet(@[@0, @20, @40, @60, @80, @100])
+    .lineWidthSet(@1.5)//Y轴轴线颜色
+    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
+    .gridLineWidthSet(@0)//Y轴网格线宽度
+    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash);
+    
+    aaOptions.tooltip.shared = false;
+    
+    aaOptions.legend
+    .enabledSet(true)
+    .itemStyleSet(AAItemStyle.new
+                  .colorSet(AAColor.whiteColor))
+    .alignSet(AAChartAlignTypeLeft)//设置图例位于水平方向上的右侧
+    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
+    ;
+    
+    aaOptions.yAxis
+    .labels.formatSet(@"{value} %")//给y轴添加单位
+    .style.colorSet(AAColor.whiteColor);//Y轴文字颜色
+    
+    return aaOptions;
+}
 
 @end
