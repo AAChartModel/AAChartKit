@@ -2814,67 +2814,22 @@
 }
 
 - (AAOptions *)configureComplicatedCustomAreasplineChart2 {
-    AAChart *aaChart = AAChart.new
-    .typeSet(AAChartTypeAreaspline)
-    .backgroundColorSet((id)AAGradientColor.new
-                        .directionSet(AALinearGradientDirectionToTop)
-                        .startColorSet(AARgbaColor(113, 180, 185, 1.0))
-                        .endColorSet(AARgbaColor(115, 183, 166, 1.0)));
+    AAOptions *aaOptions = [self configureComplicatedCustomAreasplineChart];
     
-    NSArray *aaColors = @[
+    aaOptions.chart.backgroundColor = (id)AAGradientColor.new
+    .directionSet(AALinearGradientDirectionToTop)
+    .startColorSet(AARgbaColor(113, 180, 185, 1.0))
+    .endColorSet(AARgbaColor(115, 183, 166, 1.0));
+    
+    aaOptions.colors = @[
         AARgbaColor(204, 150, 103, 1.0),
         AARgbaColor(154, 243, 247, 1.0),
     ];
-    
-    AATitle *aaTitle = AATitle.new
-    .textSet((id)NSNull.null);
-    
-    AAXAxis *aaXAxis = AAXAxis.new
-    .categoriesSet(@[
-        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
-        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
-                   ])
-    .tickWidthSet(@0)//X轴刻度线宽度
-    .lineWidthSet(@1.5)//X轴轴线宽度
-    .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
-    .gridLineColorSet(AAColor.whiteColor)
-    .gridLineWidthSet(@0.5)//X轴网格线宽度
-    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
-    .labelsSet(AALabels.new
-               .styleSet(AAStyle.new
-                         .colorSet(AAColor.whiteColor))//X轴文字颜色
-               );
-    
-    AAYAxis *aaYAXis = AAYAxis.new
-    .titleSet(AAAxisTitle.new
-              .textSet((id)NSNull.null))
-    .tickPositionsSet(@[@0, @20, @40, @60, @80, @100])
-    .maxSet(@100)
-    .lineWidthSet(@1.5)//Y轴轴线颜色
-    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
-    .gridLineWidthSet(@0)//Y轴网格线宽度
-    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
-    .labelsSet(AALabels.new
-               .formatSet(@"{value} %")//给y轴添加单位
-               .styleSet(AAStyle.new
-                         .colorSet(AAColor.whiteColor))//Y轴文字颜色
-               );
-    
-    
-    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-    .seriesSet(AASeries.new
-               .markerSet(AAMarker.new
-                          .symbolSet(AAChartSymbolTypeCircle)
-                          .radiusSet(@0)));
-    
-    AALegend *aaLegend = AALegend.new
-    .enabledSet(true)
-    .itemStyleSet(AAItemStyle.new
-                  .colorSet(AAColor.whiteColor))
-    .alignSet(AAChartAlignTypeLeft)//设置图例位于水平方向上的右侧
-    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
-    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
-    ;
+
+    aaOptions.tooltip = AATooltip.new
+    .sharedSet(true)
+    .backgroundColorSet(AAColor.whiteColor)
+    .valueSuffixSet(@" %");
     
     AAStyle *aaDataLabelsStyle = AAStyle.new
     .fontWeightSet(AAChartFontWeightTypeBold)
@@ -2973,24 +2928,13 @@
                   ])
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData2, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
     ];
-    
-    AAOptions *aaOptions = AAOptions.new
-    .chartSet(aaChart)
-    .colorsSet(aaColors)
-    .titleSet(aaTitle)
-    .xAxisSet(aaXAxis)
-    .yAxisSet(aaYAXis)
-    .plotOptionsSet(aaPlotOptions)
-    .legendSet(aaLegend)
-    .seriesSet(aaSeriesArr)
-    ;
+
+    aaOptions.series = aaSeriesArr;
     
     return aaOptions;
 }
 
 - (AAOptions *)configureComplicatedCustomAreasplineChart3 {
-    AAOptions *aaOptions = [self configureComplicatedCustomAreasplineChart2];
-    
     AAStyle *aaDataLabelsStyle = AAStyle.new
     .fontWeightSet(AAChartFontWeightTypeBold)
     .colorSet(AAColor.whiteColor)
@@ -3089,11 +3033,9 @@
         .dataSet(@[@7.0, @6.9, @2.5, singleSpecialData2, @18.2, @26.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
     ];
     
+    AAOptions *aaOptions = [self configureComplicatedCustomAreasplineChart2];
+
     aaOptions.series = aaSeriesArr;
-    aaOptions.tooltip = AATooltip.new
-    .sharedSet(true)
-    .backgroundColorSet(AAColor.whiteColor)
-    .valueSuffixSet(@" %");
     
     return aaOptions;
 }
