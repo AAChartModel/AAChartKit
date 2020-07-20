@@ -2653,6 +2653,57 @@
 }
 
 - (AAOptions *)configureComplicatedCustomAreasplineChart {
+    AAChart *aaChart = AAChart.new
+    .typeSet(AAChartTypeAreaspline)
+    .backgroundColorSet(AAColor.blackColor);
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet((id)NSNull.null);
+    
+    AAXAxis *aaXAxis = AAXAxis.new
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
+    .tickWidthSet(@0)//X轴刻度线宽度
+    .lineWidthSet(@1.5)//X轴轴线宽度
+    .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
+    .gridLineColorSet(AAColor.whiteColor)
+    .gridLineWidthSet(@0.5)//X轴网格线宽度
+    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
+    .labelsSet(AALabels.new
+               .styleSet(AAStyle.new
+                         .colorSet(AAColor.whiteColor))//X轴文字颜色
+               );
+    
+    AAYAxis *aaYAXis = AAYAxis.new
+    .tickPositionsSet(@[@0, @20, @40, @60, @80, @100])
+    .lineWidthSet(@1.5)//Y轴轴线颜色
+    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
+    .gridLineWidthSet(@0)//Y轴网格线宽度
+    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
+    .labelsSet(AALabels.new
+               .formatSet(@"{value} %")//给y轴添加单位
+               .styleSet(AAStyle.new
+                         .colorSet(AAColor.whiteColor))//Y轴文字颜色
+               );
+    
+    
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new
+               .markerSet(AAMarker.new
+                          .symbolSet(AAChartSymbolTypeCircle)
+                          .radiusSet(@0)));
+    
+    AALegend *aaLegend = AALegend.new
+    .enabledSet(true)
+    .itemStyleSet(AAItemStyle.new
+                  .colorSet(AAColor.whiteColor))
+    .alignSet(AAChartAlignTypeLeft)//设置图例位于水平方向上的右侧
+    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
+    ;
+    
     NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
@@ -2729,74 +2780,37 @@
                    )
     .ySet(@26.5);
     
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)
-    //    .backgroundColorSet(AARgbaColor(112, 184, 176, 1.0))
-//    .backgroundColorSet(@"#4b2b7f")
-//    .backgroundColorSet((id)AAGradientColor.wroughtIronColor)
-    .backgroundColorSet(AAColor.whiteColor)
-    .colorsThemeSet(@[@"#1e90ff",AAColor.redColor,])
-    .markerSymbolSet(AAChartSymbolTypeCircle)
-    .markerRadiusSet(@0)
-    .dataLabelsEnabledSet(false)
-    .categoriesSet(@[
-        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
-        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
-                   ])
-    .seriesSet(@[
+    NSArray *aaSeriesArr = @[
         AASeriesElement.new
         .nameSet(@"空气湿度")
         .fillColorSet((id)gradientBlueColorDic)
         .lineWidthSet(@6)
-//        .zoneAxisSet(@"x")
-//        .zonesSet(@[
-//            AAZonesElement.new
-//            .valueSet(@5)
-//            .fillColorSet((id)gradientBlueColorDic),
-//            AAZonesElement.new
-//            .fillColorSet(AAColor.clearColor),
-//                  ])
+        //        .zoneAxisSet(@"x")
+        //        .zonesSet(@[
+        //            AAZonesElement.new
+        //            .valueSet(@5)
+        //            .fillColorSet((id)gradientBlueColorDic),
+        //            AAZonesElement.new
+        //            .fillColorSet(AAColor.clearColor),
+        //                  ])
         .dataSet(@[@17.0, @16.9, @8.5, @34.5, @28.2, singleSpecialData1, @15.2, @56.5, @33.3, @85.3, @23.9, @29.6]),
         AASeriesElement.new
         .nameSet(@"土壤湿度")
         .fillColorSet((id)gradientRedColorDic)
         .lineWidthSet(@6)
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData2, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
-               ]);
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    ];
     
-    
-    aaOptions.xAxis
-    .tickWidthSet(@0)//X轴刻度线宽度
-    .lineWidthSet(@1.5)//X轴轴线宽度
-    .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
-    .gridLineColorSet(AAColor.whiteColor)
-    .gridLineWidthSet(@0.5)//X轴网格线宽度
-    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
-    .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .colorsSet(@[@"#1e90ff",AAColor.redColor,])
+    .xAxisSet(aaXAxis)
+    .yAxisSet(aaYAXis)
+    .plotOptionsSet(aaPlotOptions)
+    .legendSet(aaLegend)
+    .seriesSet(aaSeriesArr)
     ;
-    
-    aaOptions.yAxis
-    .tickPositionsSet(@[@0, @20, @40, @60, @80, @100])
-    .lineWidthSet(@1.5)//Y轴轴线颜色
-    .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
-    .gridLineWidthSet(@0)//Y轴网格线宽度
-    .gridLineDashStyleSet(AAChartLineDashStyleTypeDash);
-    
-    aaOptions.tooltip.shared = false;
-    
-    aaOptions.legend
-    .enabledSet(true)
-    .itemStyleSet(AAItemStyle.new
-                  .colorSet(AAColor.whiteColor))
-    .alignSet(AAChartAlignTypeLeft)//设置图例位于水平方向上的右侧
-    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
-    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
-    ;
-    
-    aaOptions.yAxis
-    .labels.formatSet(@"{value} %")//给y轴添加单位
-    .style.colorSet(AAColor.whiteColor);//Y轴文字颜色
     
     return aaOptions;
 }
