@@ -59,6 +59,7 @@
 
 - (AAGradientColor * (^) (NSString *endColor))endColorSet {
     return ^(NSString *endColor) {
+        NSAssert(self->_stops != nil, @"You should set startColor before setting endColor");
         [self->_stops addObject:@[@(1),endColor]];
         return self;
     };
