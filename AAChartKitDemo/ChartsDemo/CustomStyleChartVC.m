@@ -52,8 +52,8 @@
         case 3:  return [self configureMixedLineChart];
         case 4:  return [self configureColorfulColumnChart];
         case 5:  return [self configureGradientColorBarChart];
-        case 6:  return [self configureHavePlotLinesChart];
-        case 7:  return [self configrueWithMinusNumberChart];
+        case 6:  return [self configureXAxisHaveAAZonesElementChart];
+        case 7:  return [self configureYAxisHaveAAZonesElementChart];
         case 8:  return [self configureStepLineChart];
         case 9:  return [self configureStepAreaChart];
         case 10: return [self configureNightingaleRoseChart];
@@ -67,7 +67,7 @@
         case 18: return [self configureAreaChartThreshold];
         case 19: return [self customScatterChartMarkerSymbolContent];
         case 20: return [self customLineChartMarkerSymbolContent];
-        case 21: return [self configureTriangleRadarChart];
+        case 21:  return [self configrueWithMinusNumberChart];
         case 22: return [self configureQuadrangleRadarChart];
         case 23: return [self configurePentagonRadarChart];
         case 24: return [self configureHexagonRadarChart];
@@ -287,10 +287,10 @@
                ]);
 }
 
-- (AAChartModel *)configureHavePlotLinesChart {
+- (AAChartModel *)configureYAxisHaveAAZonesElementChart {
     NSArray *aaPlotLinesArr = @[
         AAPlotLinesElement.new
-        .colorSet(@"#FF0000")//颜色值(16进制)
+        .colorSet(AAColor.greenColor)//颜色值(16进制)
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)//样式：Dash,Dot,Solid等,默认Solid
         .widthSet(@(1)) //标示线粗细
         .valueSet(@(10)) //所在位置
@@ -298,17 +298,17 @@
         .labelSet(AALabel.new
                   .textSet(@"标示线1")
                   .styleSet(AAStyle.new
-                            .colorSet(@"#ff0000")))
+                            .colorSet(AAColor.greenColor)))
         ,
         AAPlotLinesElement.new
-        .colorSet(@"#FF0000")
+        .colorSet(AAColor.purpleColor)
         .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
         .widthSet(@(1))
         .valueSet(@(20))
         .labelSet(AALabel.new
                   .textSet(@"标示线2")
                   .styleSet(AAStyle.new
-                            .colorSet(@"#00ff00")))
+                            .colorSet(AAColor.purpleColor)))
     ];
     
     return AAChartModel.new
@@ -334,9 +334,32 @@
             .valueSet(@20)
             .colorSet(@"#FDC20A"),
             AAZonesElement.new
-            .colorSet(AAColor.redColor),
+            .colorSet(@"#00BFFF"),
                   ]),
                ]);
+}
+
+- (AAChartModel *)configureXAxisHaveAAZonesElementChart {
+    AAChartModel *aaChartModel = [self configureYAxisHaveAAZonesElementChart];
+    aaChartModel.chartTypeSet(AAChartTypeAreaspline)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+        .lineWidthSet(@5)
+        .zoneAxisSet(@"x")
+        .zonesSet(@[
+            AAZonesElement.new
+            .valueSet(@5)
+            .colorSet(@"#EA007B"),
+            AAZonesElement.new
+            .valueSet(@8)
+            .colorSet(@"#FDC20A"),
+            AAZonesElement.new
+            .colorSet(@"#00BFFF"),
+                  ]),
+               ]);
+    return aaChartModel;
 }
 
 - (AAChartModel *)configrueWithMinusNumberChart {
