@@ -375,7 +375,7 @@
         ];
     }
     
-    for (int i=0; i<segmentedNamesArr.count; i++) {
+    for (int i = 0; i < segmentedNamesArr.count; i++) {
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedNamesArr[i]];
         segmentedControl.frame = CGRectMake(20,
                                             40 * i + (self.view.frame.size.height - 145),
@@ -486,9 +486,9 @@
         ];
     }
     
-    CGFloat switchWidth = (self.view.frame.size.width-40)/nameArr.count;
+    CGFloat switchWidth = (self.view.frame.size.width - 40) / nameArr.count;
     
-    for (int i=0; i<nameArr.count; i++) {
+    for (int i = 0; i < nameArr.count; i++) {
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth * i + 20,
                                       self.view.frame.size.height - 70,
