@@ -68,7 +68,7 @@
         case 19: return [self customScatterChartMarkerSymbolContent];
         case 20: return [self customLineChartMarkerSymbolContent];
         case 21: return [self configrueWithMinusNumberChart];
-        case 22: return [self configureQuadrangleRadarChart];
+        case 22: return [self splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle];
         case 23: return [self configurePentagonRadarChart];
         case 24: return [self configureHexagonRadarChart];
         case 25: return [self adjustYAxisMaxAndMinValues];
@@ -983,6 +983,38 @@
                                         .lineColorSet(AAColor.greenColor)
                                         .lineWidthSet(@20))
                               ))
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+               ]);
+}
+
+- (AAChartModel *)splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .titleSet(@"Spline Chart Hover Line Width No Change && Custom Marker States Hover Style")
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineWidthSet(@0)
+    .legendEnabledSet(false)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .colorSet(AAColor.redColor)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .enabledSet(true)
+                             .lineWidthPlusSet(@0)//手指盘旋或选中图表时,禁止线条变粗
+                             ))
+        .markerSet(AAMarker.new
+                   .statesSet(AAMarkerStates.new
+                              .hoverSet(AAMarkerHover.new
+                                        .fillColorSet(AAColor.redColor)//设置手指选中点的颜色为红色
+                                        .radiusSet(@40))))
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
 }

@@ -398,7 +398,7 @@
               @"custom Scatter Chart Marker Symbol Content---自定义散点图的标志点内容",
               @"custom Line Chart Marker Symbol Content---自定义折线图的标志点内容",
               @"Area Chart with minus--带有负数的区域填充图",
-              @"Quadrangle Radar Chart---四角形雷达图",
+              @"splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle---曲线图禁用选中变粗&&自定义选中后的 marker 样式",
               @"Pentagon Radar Chart---五角形雷达图",
               @"Hexagon Radar Chart----六角形雷达图",
               @"adjustYAxisMaxAndMinValues----调整 X 轴和 Y 轴最大值",
