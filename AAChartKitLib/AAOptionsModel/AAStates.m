@@ -18,6 +18,14 @@ AAPropSetFuncImplementation(AAStates, AASelect *, select)
 
 @implementation AAHover
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
 AAPropSetFuncImplementation(AAHover, BOOL , enabled)
 AAPropSetFuncImplementation(AAHover, NSString *, borderColor)
 AAPropSetFuncImplementation(AAHover, NSNumber *, brightness)
