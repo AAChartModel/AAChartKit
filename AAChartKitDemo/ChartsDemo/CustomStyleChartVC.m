@@ -734,48 +734,6 @@
     return aaChartModel;
 }
 
-//三角形雷达图
-- (AAChartModel *)configureTriangleRadarChart {
-    return AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)
-    .yAxisMaxSet(@15.0)
-    .yAxisGridLineWidthSet(@0)
-    .xAxisVisibleSet(false)
-    .markerRadiusSet(@0)
-    .polarSet(true)//是否极化图形
-    .seriesSet(@[
-        AASeriesElement.new
-        .dataSet(@[@15.0,@15.0,@15.0,]),
-        AASeriesElement.new
-        .dataSet(@[@9.0,@9.0,@9.0,]),
-        AASeriesElement.new
-        .dataSet(@[@6.0,@6.0,@6.0,]),
-        AASeriesElement.new
-        .dataSet(@[@3.0,@3.0,@3.0,]),
-               ]);
-}
-
-//四边形雷达图
-- (AAChartModel *)configureQuadrangleRadarChart {
-    return AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)
-    .yAxisMaxSet(@15.0)
-    .yAxisGridLineWidthSet(@0)
-    .xAxisVisibleSet(false)
-    .markerRadiusSet(@0)
-    .polarSet(true)//是否极化图形
-    .seriesSet(@[
-        AASeriesElement.new
-        .dataSet(@[@15.0,@15.0,@15.0,@15.0,]),
-        AASeriesElement.new
-        .dataSet(@[@9.0,@9.0,@9.0,@9.0,]),
-        AASeriesElement.new
-        .dataSet(@[@6.0,@6.0,@6.0,@6.0,]),
-        AASeriesElement.new
-        .dataSet(@[@3.0,@3.0,@3.0,@3.0,]),
-               ]);
-}
-
 //五边形雷达图
 - (AAChartModel *)configurePentagonRadarChart {
     return AAChartModel.new
