@@ -45,7 +45,7 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0:  return [self configureTheAAOptionsOfAreaChart];
+        case 0:  return [self configureTheMirrorColumnChartWithNoAnyGap];
         case 1:  return [self configureTheAAOptionsOfPieChart];
         case 2:  return [self adjustPieChartTitleAndDataLabelFontStyle];
         case 3:  return [self configureTheAAOptionsOfSpecialNestedColumnChart];
@@ -62,7 +62,7 @@
         case 14: return [self disableChartAnimation];//禁用图表的渲染动画效果
         case 15: return [self customChartLengendItemStyle];//自定义图表的 legend 图例样式
         case 16: return [self configureTheMirrorColumnChart];//正负对称的镜像柱状图
-        case 17: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
+        case 17: return [self configureTheMirrorColumnChartWithNoAnyGap];//没有任何衔接缝隙的镜像柱状图📊
         case 18: return [self simpleGaugeChart];//简易仪表图
         case 19: return [self gaugeChartWithPlotBand];//带有颜色标志带的仪表图
         case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图
@@ -95,6 +95,8 @@
         case 47: return [self configureComplicatedCustomAreasplineChart];//复杂自定义曲线填充图 1
         case 48: return [self configureComplicatedCustomAreasplineChart2];//复杂自定义曲线填充图 2
         case 49: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
+        case 50: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
+
     }
     return nil;
 }
@@ -949,7 +951,7 @@
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeColumn)
-              //              .backgroundColorSet(@"#161139")
+                            .backgroundColorSet(@"#161139")
               )
     .titleSet(AATitle.new.textSet(@""))
     .xAxisSet(AAXAxis.new
@@ -997,13 +999,33 @@
                   .endColorSet(@"#00b0ff")),
         AASeriesElement.new
         .nameSet(@"支出")
-        .dataSet(@[@-20.1, @-14.1, @-8.6, @-2.5, @-0.8, @-5.7, @-11.3, @-17.0,
-                   @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-2.5])
+        .dataSet(@[@-20.1, @-14.1, @-8.6, @-4.5, @-5.8, @-5.7, @-11.3, @-17.0,
+                   @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-4.5])
         .colorSet((id)AAGradientColor.new
                   .directionSet(AALinearGradientDirectionToTop)
                   .startColorSet(@"#EF71FF")
                   .endColorSet(@"#4740C8")),
                ]);
+    return aaOptions;
+}
+
+- (AAOptions *)configureTheMirrorColumnChartWithNoAnyGap {
+    AAOptions *aaOptions = [self configureTheMirrorColumnChart];
+    
+    aaOptions.plotOptions.column.borderRadius = @0;
+    
+    [aaOptions.series enumerateObjectsUsingBlock:^(AASeriesElement *  _Nonnull aaSeriesElement, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx == 0) {
+            aaSeriesElement
+            .borderRadiusTopLeftSet((id)@"50%")
+            .borderRadiusTopRightSet((id)@"50%");
+        } else if (idx == 1) {
+            aaSeriesElement
+            .borderRadiusBottomLeftSet((id)@"50%")
+            .borderRadiusBottomRightSet((id)@"50%");
+        }
+    }];
+    
     return aaOptions;
 }
 

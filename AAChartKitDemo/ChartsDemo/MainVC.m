@@ -472,8 +472,8 @@
               @"specialStyleStepLineChart---时间不连续的直方折线填充图连接图",
               @"Disable Animation ---禁用动画效果",
               @"Custom Legend Item Style---自定义图例样式",
-              @"Mirror Chart ---镜像效果的柱状图",
-              @"yAxisOnTheRightSideChart---y轴在右侧的图表",
+              @"Mirror Column Chart ---镜像效果的柱状图📊",
+              @"Mirror Column Chart With No Any Gap---没有任何衔接缝隙的镜像柱状图📊",
               @"simpleGaugeChart---简易仪表图",
               @"gaugeChartWithPlotBand---带有颜色标志带的仪表图",
               @"configureAAPlotBandsForChart---带有颜色标志带的曲线图",
@@ -506,6 +506,7 @@
               @"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
               @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
               @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
+              @"yAxisOnTheRightSideChart---y轴在右侧的图表",
             ],
             /*同时显示多个 AAChartView*/
             @[@"同时显示多个 AAChartView",

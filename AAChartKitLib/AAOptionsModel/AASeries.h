@@ -53,7 +53,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLab
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusTopLeft)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusTopRight)
-
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusBottomLeft)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusBottomRight)
 
 @end
 
