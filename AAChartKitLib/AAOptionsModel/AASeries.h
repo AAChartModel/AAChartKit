@@ -51,7 +51,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAEvents *, events)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
-
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusTopLeft)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusTopRight)
 
 
 @end

@@ -84,6 +84,7 @@
         case 35: return [self configureColorfulDataLabelsStepLineChart];
         case 36: return [self configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart];
         case 37: return [self disableSplineChartMarkerHoverEffect];
+        case 38: return [self topRoundedCornersStackingColumnChart];
             
         default:
             return nil;
@@ -1362,6 +1363,30 @@
                               )
                    )
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+               ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/842
+- (AAChartModel *)topRoundedCornersStackingColumnChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .stackingSet(AAChartStackingTypeNormal)
+    .titleSet(@"Top Rounded Corners Stacking Column Chart")
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",])
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
+        .dataSet(@[@5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
+        
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .dataSet(@[@1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
+        
+        AASeriesElement.new
+        .nameSet(@"NewYork Hot")
+        .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
                ]);
 }
 

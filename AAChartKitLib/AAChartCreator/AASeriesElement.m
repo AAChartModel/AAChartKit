@@ -63,6 +63,8 @@ AAPropSetFuncImplementation(AASeriesElement, NSNumber *, fillOpacity) //折线�
 AAPropSetFuncImplementation(AASeriesElement, NSString *, negativeColor)  //The color for the parts of the graph or points that are below the threshold
 AAPropSetFuncImplementation(AASeriesElement, NSString *, negativeFillColor)//A separate color for the negative part of the area.
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius)
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusTopLeft)
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusTopRight)
 AAPropSetFuncImplementation(AASeriesElement, NSString *, innerSize) 
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, size) 
 AAPropSetFuncImplementation(AASeriesElement, NSArray  *, keys) 

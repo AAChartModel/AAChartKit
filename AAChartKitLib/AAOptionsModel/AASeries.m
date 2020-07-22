@@ -46,6 +46,8 @@ AAPropSetFuncImplementation(AASeries, AAEvents *, events)
 AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
 AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AASeries, AAStates *, states)
+AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusTopLeft)
+AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusTopRight)
 
 @end
 

@@ -414,7 +414,7 @@
               @"configureColorfulDataLabelsStepLineChart---彩色 DataLabels 的直方折线图",
               @"configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart---彩色渐变效果且彩色 DataLabels 的直方折线填充图",
               @"disableSplineChartMarkerHoverEffect---禁用曲线图的手指滑动 marker 点的光圈变化放大的效果",
-              
+              @"Top Rounded Corners Stacking Column Chart---顶部为圆角的堆积柱状图"
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",
