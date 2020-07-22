@@ -414,6 +414,7 @@ WKScriptMessageHandler
                        @"AAFunnel.js",
                        @"AAHighchartsLib.js",
                        @"AAHighchartsMore.js",
+                       @"AARoundedCorners.js",
                        ];
     
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
