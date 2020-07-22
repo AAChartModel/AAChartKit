@@ -33,8 +33,6 @@
 #import <WebKit/WebKit.h>
 #import "AAOptions.h"
 
-
-
 @interface AAMoveOverEventMessageModel : NSObject
 
 @property (nonatomic, copy)   NSString *name;
