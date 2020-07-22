@@ -33,7 +33,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AAAnimation,AAShadow,AADataLabels,AAEvents;
+@class AAMarker,AAAnimation,AAShadow,AADataLabels,AAEvents,AAStates;
 
 @interface AASeries : NSObject
 
@@ -50,6 +50,8 @@ AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL ,          connect
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAEvents *, events)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
+
 
 
 @end

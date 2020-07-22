@@ -12,6 +12,7 @@
 
 AAPropSetFuncImplementation(AAStates, AAHover *, hover)
 AAPropSetFuncImplementation(AAStates, AASelect *, select)
+AAPropSetFuncImplementation(AAStates, AAInactive *, inactive)
 
 @end
 
@@ -53,5 +54,21 @@ AAPropSetFuncImplementation(AASelect, AAHalo *, halo)
 AAPropSetFuncImplementation(AAHalo, NSDictionary *, attributes)
 AAPropSetFuncImplementation(AAHalo, NSNumber *, opacity)
 AAPropSetFuncImplementation(AAHalo, NSNumber *, size)
+
+@end
+
+
+@implementation AAInactive
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AAInactive, BOOL , enabled)
+AAPropSetFuncImplementation(AAInactive, NSNumber *, opacity)
 
 @end
