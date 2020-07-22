@@ -465,6 +465,11 @@
     ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    aaOptions.plotOptions.series.states = AAStates.new
+    .inactiveSet(AAInactive.new
+                 .enabledSet(false));
+    
     aaOptions.tooltip
     .sharedSet(false)
     .formatterSet(@AAJSFunc(function () {

@@ -972,7 +972,7 @@
                   ])
     .tooltipSet(AATooltip.new
                 .enabledSet(true)
-                .sharedSet(true))
+                .sharedSet(false))
     .plotOptionsSet(AAPlotOptions.new
                     .seriesSet(AASeries.new
                                .animationSet(AAAnimation.new
@@ -2091,6 +2091,15 @@
     AALegend *aaLegend = AALegend.new
     .enabledSet(false);
     
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new
+               .animationSet(AAAnimation.new
+                             .easingSet(AAChartAnimationBounce)
+                             .durationSet(@1000))
+               .statesSet(AAStates.new
+                          .inactiveSet(AAInactive.new
+                                       .opacitySet(@1))));
+    
     AASeriesElement *element1 = AASeriesElement.new
     .nameSet(@"Bids")
     .colorSet(AAColor.redColor)
@@ -2169,6 +2178,7 @@
     .yAxisSet((id)@[yAxis1,yAxis2])
     .tooltipSet(aaTooltip)
     .legendSet(aaLegend)
+    .plotOptionsSet(aaPlotOptions)
     .seriesSet(@[element1,element2])
     ;
     return aaOptions;
