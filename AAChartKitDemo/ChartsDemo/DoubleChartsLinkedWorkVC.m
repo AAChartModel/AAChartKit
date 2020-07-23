@@ -130,6 +130,8 @@
         AASeriesElement.new
         .nameSet(@"ElementOne")
         .zIndexSet(@0)
+        .borderRadiusBottomLeftSet((id)@"50%")
+        .borderRadiusBottomRightSet((id)@"50%")
         .dataSet(@[
             @211, @183, @157, @133, @111, @91, @73, @57, @43, @31, @21, @13,
             @211, @183, @157, @133, @111, @91, @73, @57, @43, @31, @21, @13,
@@ -202,11 +204,16 @@
     .xAxisCrosshairColorSet(@"#ff0000")
     .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
     .legendEnabledSet(false)
+//    .borderRadiusSet((id)@"50%")//Do not work and I dont know why
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2018")
+        .borderRadiusBottomLeftSet((id)@"50%")
+        .borderRadiusBottomRightSet((id)@"50%")
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
         .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
-    ]);
+               ]);
     
     AAOptions *aaOptions2 = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel2];
     aaOptions2.plotOptions.column.groupPadding = @0;
