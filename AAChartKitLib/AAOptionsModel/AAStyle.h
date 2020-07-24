@@ -44,14 +44,14 @@ AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline) /
 + (AAStyle *)styleWithColor:(NSString *)color;
 
 + (AAStyle *)styleWithColor:(NSString *)color
-                   fontSize:(NSString *)fontSize;;
+                   fontSize:(float)fontSize;
 
 + (AAStyle *)styleWithColor:(NSString *)color
-                   fontSize:(NSString *)fontSize
+                   fontSize:(float)fontSize
                  fontWeight:(NSString *)fontWeight;
 
 + (AAStyle *)styleWithColor:(NSString *)color
-                   fontSize:(NSString *)fontSize
+                   fontSize:(float)fontSize
                  fontWeight:(NSString *)fontWeight
                 textOutline:(NSString *)textOutline;
 

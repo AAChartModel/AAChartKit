@@ -42,22 +42,18 @@ AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) //文字轮廓描�
 
 + (AAStyle *)styleWithColor:(NSString *)color {
     return [self styleWithColor:color
-                       fontSize:nil];
+                       fontSize:0];
 }
 
-
-
-
 + (AAStyle *)styleWithColor:(NSString *)color
-                   fontSize:(NSString *)fontSize {
+                   fontSize:(float)fontSize {
     return [self styleWithColor:color
                        fontSize:fontSize
                      fontWeight:nil];
-    
 }
 
 + (AAStyle *)styleWithColor:(NSString *)color
-                   fontSize:(NSString *)fontSize
+                   fontSize:(float)fontSize
                  fontWeight:(NSString *)fontWeight {
     return [self styleWithColor:color
                        fontSize:fontSize
@@ -66,12 +62,14 @@ AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) //文字轮廓描�
 }
 
 + (AAStyle *)styleWithColor:(NSString *)color
-                   fontSize:(NSString *)fontSize
+                   fontSize:(float)fontSize
                  fontWeight:(NSString *)fontWeight
                 textOutline:(NSString *)textOutline {
     AAStyle *aaStyle = [[AAStyle alloc]init];
     aaStyle.color = color;
-    aaStyle.fontSize = fontSize;
+    if (fontSize != 0) {
+        aaStyle.fontSize = [NSString stringWithFormat:@"%fpx",fontSize];
+    }
     aaStyle.fontWeight = fontWeight;
     aaStyle.textOutline = textOutline;
     return aaStyle;
