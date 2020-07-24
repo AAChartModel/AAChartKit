@@ -58,7 +58,8 @@
         case 9:  return [self configurePolarMixedChart];
         case 10: return [self configureColumnMixedScatterChart];//柱形图混合散点图
         case 11: return [self configureNegativeColorMixedAreasplineChart];
-        case 12: return [self configureAreaChartMixedStepAreaChart];
+        case 12: return [self configureNegativeColorMixedAreasChart];
+        case 13: return [self configureAreaChartMixedStepAreaChart];
     }
     return nil;
 }
@@ -863,6 +864,88 @@
                ]);
 }
 
+//GitHub issue https://github.com/AAChartModel/AAChartKit/issues/953
+- (AAChartModel *)configureNegativeColorMixedAreasChart {
+    NSArray *blueStopsArr = @[
+        @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.8, AARgbaColor(30, 144, 255, 0.0)],
+        @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
+    ];
+    
+    NSDictionary *gradientBlueColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                     stopsArray:blueStopsArr];
+    
+    NSArray *toBottomBlueStopsArr = @[
+        @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
+        @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
+    ];
+    
+    NSDictionary *toBottomGradientBlueColorDic =
+       [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                        stopsArray:toBottomBlueStopsArr];
+    
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.85, AARgbaColor(255, 0, 0, 0.0)],
+        @[@1.0, AARgbaColor(255, 0, 0, 0.6)]
+    ];
+    
+    NSDictionary *gradientRedColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                     stopsArray:redStopsArr];
+    
+    NSArray *toBottomRedStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
+        @[@1.0, AARgbaColor(255, 0, 0, 0.6)]
+    ];
+    
+    NSDictionary *toBottomGradientRedColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:toBottomRedStopsArr];
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .legendEnabledSet(true)
+    .dataLabelsEnabledSet(false)
+    .markerRadiusSet(@3)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .yAxisGridLineWidthSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"BLUE")
+        .dataSet(@[
+            @17.0, @16.9, @18.5, @34.5, @28.2, @51.5, @15.2, @56.5, @33.3, @85.3, @23.9, @29.6,
+            @17.0, @16.9, @18.5, @34.5, @28.2, @51.5, @15.2, @56.5, @33.3, @85.3, @23.9, @29.6,
+            @-117.0, @-116.9, @-118.5, @-134.5, @-128.2, @-151.5, @-115.2, @-156.5, @-133.3, @-185.3, @-123.9, @-129.6,
+            @-117.0, @-116.9, @-118.5, @-134.5, @-128.2, @-151.5, @-115.2, @-156.5, @-133.3, @-185.3, @-123.9, @-129.6,
+                 ])
+        .lineWidthSet(@1)
+        .colorSet(AARgbaColor(30, 144, 255, 1.0))
+        .fillColorSet((id)gradientBlueColorDic)
+        .negativeFillColorSet((id)toBottomGradientBlueColorDic)
+        .thresholdSet(@0)//default:0
+        ,
+        
+        AASeriesElement.new
+        .nameSet(@"RED")
+        .dataSet(@[
+            @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6,
+            @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6,
+            @-17.0, @-16.9, @-12.5, @-114.5, @-60.2, @-121.5, @-15.2, @-126.5, @-123.3, @-145.3, @-113.9, @-19.6,
+            @-17.0, @-16.9, @-12.5, @-114.5, @-60.2, @-121.5, @-15.2, @-126.5, @-123.3, @-145.3, @-113.9, @-19.6,
+                 ])
+        .lineWidthSet(@1)
+        .colorSet(AARgbaColor(255, 0, 0, 1.0))
+        .fillColorSet((id)gradientRedColorDic)
+        .negativeFillColorSet((id)toBottomGradientRedColorDic)
+        .thresholdSet(@0)//default:0
+        ,
+               ]);
+}
 
 - (AAChartModel *)configureAreaChartMixedStepAreaChart {
     return AAChartModel.new
