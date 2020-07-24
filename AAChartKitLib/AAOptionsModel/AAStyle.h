@@ -41,5 +41,19 @@ AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontSize) //�
 AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontWeight) //可选的值有 bold, regular和 thin 三种,分别对应的是加粗字体,常规字体和纤细字体
 AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline) //文字轮廓描边
 
++ (AAStyle *)styleWithColor:(NSString *)color;
+
++ (AAStyle *)styleWithColor:(NSString *)color
+                   fontSize:(NSString *)fontSize;;
+
++ (AAStyle *)styleWithColor:(NSString *)color
+                   fontSize:(NSString *)fontSize
+                 fontWeight:(NSString *)fontWeight;
+
++ (AAStyle *)styleWithColor:(NSString *)color
+                   fontSize:(NSString *)fontSize
+                 fontWeight:(NSString *)fontWeight
+                textOutline:(NSString *)textOutline;
+
 @end
 

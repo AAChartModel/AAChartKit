@@ -40,4 +40,41 @@ AAPropSetFuncImplementation(AAStyle, NSString *, fontSize) //文字大小
 AAPropSetFuncImplementation(AAStyle, NSString *, fontWeight) //可选的值有 bold, regular和 thin 三种,分别对应的是加粗字体,常规字体和纤细字体
 AAPropSetFuncImplementation(AAStyle, NSString *, textOutline) //文字轮廓描边
 
++ (AAStyle *)styleWithColor:(NSString *)color {
+    return [self styleWithColor:color
+                       fontSize:nil];
+}
+
+
+
+
++ (AAStyle *)styleWithColor:(NSString *)color
+                   fontSize:(NSString *)fontSize {
+    return [self styleWithColor:color
+                       fontSize:fontSize
+                     fontWeight:nil];
+    
+}
+
++ (AAStyle *)styleWithColor:(NSString *)color
+                   fontSize:(NSString *)fontSize
+                 fontWeight:(NSString *)fontWeight {
+    return [self styleWithColor:color
+                       fontSize:fontSize
+                     fontWeight:fontWeight
+                    textOutline:nil];
+}
+
++ (AAStyle *)styleWithColor:(NSString *)color
+                   fontSize:(NSString *)fontSize
+                 fontWeight:(NSString *)fontWeight
+                textOutline:(NSString *)textOutline {
+    AAStyle *aaStyle = [[AAStyle alloc]init];
+    aaStyle.color = color;
+    aaStyle.fontSize = fontSize;
+    aaStyle.fontWeight = fontWeight;
+    aaStyle.textOutline = textOutline;
+    return aaStyle;
+}
+
 @end
