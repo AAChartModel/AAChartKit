@@ -42,6 +42,7 @@
         _shared = true;
         _crosshairs = true;
         _followTouchMove = true;
+        _shadow = true;
     }
     return self;
 }
@@ -64,6 +65,7 @@ AAPropSetFuncImplementation(AATooltip, BOOL,       shared)
 AAPropSetFuncImplementation(AATooltip, BOOL,       crosshairs) 
 AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix) 
 AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
+AAPropSetFuncImplementation(AATooltip, BOOL,       shadow)
 
 - (void)setFormatter:(NSString *)formatter {
     _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
