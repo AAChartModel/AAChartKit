@@ -110,9 +110,12 @@
     id options;
     switch (switchView.tag) {
         case 0: {
-            AAXAxis *aaXAxis = AAXAxis.new
-            .reversedSet(switchView.on);
-            options = aaXAxis;
+//            AAXAxis *aaXAxis = AAXAxis.new
+//            .reversedSet(switchView.on);
+            
+            AAChart *chart = AAChart.new;
+            chart.backgroundColor = AAGradientColor.springGreensColor;
+            options = chart;
         }
             break;
         case 1: {
