@@ -108,8 +108,6 @@
         AASeriesElement.new
         .nameSet(@"2020 Year")
         .colorByPointSet(@true)
-        .borderRadiusTopLeftSet(@"50%")
-        .borderRadiusTopRightSet(@"50%")
         .dataSortingSet(AADataSorting.new
                         .enabledSet(true)
                         .matchByNameSet(true))

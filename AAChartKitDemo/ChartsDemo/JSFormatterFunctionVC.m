@@ -1346,8 +1346,8 @@ function () {
         .nameSet(@"AD 2020")
         .dataSet(@[@9.0, @9.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5])
         .colorByPointSet(@true)
-        .borderRadiusTopLeftSet(@"50%")
-        .borderRadiusTopRightSet(@"50%")
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
                ]);
     
     NSString *imageLinkFlagJSArrStr = [self javaScriptArrayStringWithObjcArray:imageLinkFlagArr];

@@ -114,7 +114,7 @@
 //            .reversedSet(switchView.on);
             
             AAChart *chart = AAChart.new;
-            chart.backgroundColor = AAGradientColor.springGreensColor;
+            chart.backgroundColor = (id)AAGradientColor.springGreensColor;
             options = chart;
         }
             break;

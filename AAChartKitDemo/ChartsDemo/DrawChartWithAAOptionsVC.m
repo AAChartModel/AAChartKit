@@ -335,8 +335,8 @@
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
     .seriesSet(AASeries.new
-               .borderRadiusTopLeftSet(@"50%")
-               .borderRadiusTopRightSet(@"50%")
+               .borderRadiusTopLeftSet((id)@"50%")
+               .borderRadiusTopRightSet((id)@"50%")
                .animationSet(AAAnimation.new
                              .easingSet(AAChartAnimationBounce)
                              .durationSet(@1000)
@@ -428,8 +428,8 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2020")
-        .borderRadiusTopLeftSet(@"50%")
-        .borderRadiusTopRightSet(@"50%")
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                ]);
     
@@ -1851,8 +1851,8 @@
     .typeSet(AAChartTypeColumn)
     .yAxisSet(@1)
     .dataSet(@[@49.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
-    .borderRadiusTopLeftSet(@"50%")
-    .borderRadiusTopRightSet(@"50%")
+    .borderRadiusTopLeftSet((id)@"50%")
+    .borderRadiusTopRightSet((id)@"50%")
     .tooltipSet(AATooltip.new
                 .valueSuffixSet(@" mm"));
     
