@@ -1610,12 +1610,10 @@
     aaOptions.plotOptions.series
     .dataLabels
     .enabledSet(true)
-    .styleSet(AAStyle.new
-              .colorSet(AAColor.whiteColor)
-              .fontSizeSet(@"14px")
-              .fontWeightSet(AAChartFontWeightTypeThin)
-              .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
-              )
+    .styleSet([AAStyle styleWithColor:AAColor.whiteColor
+                             fontSize:14
+                           fontWeight:AAChartFontWeightTypeThin
+                          textOutline:@"0px 0px contrast"])
     ;
     
     aaOptions.xAxis
