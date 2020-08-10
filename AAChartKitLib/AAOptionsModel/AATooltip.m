@@ -78,4 +78,16 @@ AAPropSetFuncImplementation(AATooltip, BOOL,       shadow)
     };
 }
 
+
+- (void)setPositioner:(NSString *)positioner {
+    _positioner = [AAJSStringPurer pureJavaScriptFunctionStringWithString:positioner];
+}
+
+- (AATooltip * (^) (NSString * formatter))positionerSet {
+    return ^(NSString * positioner) {
+        self->_positioner = [AAJSStringPurer pureJavaScriptFunctionStringWithString:positioner];
+        return self;
+    };
+}
+
 @end

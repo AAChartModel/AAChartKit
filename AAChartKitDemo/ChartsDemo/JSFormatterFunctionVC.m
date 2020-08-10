@@ -72,6 +72,8 @@
         case 18: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
         case 19: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
         case 20: return [self customLegendItemClickEvent];//自定义图例点击事件🖱
+        case 21: return [self customTooltipPostionerFunction];//自定义浮动提示框 Postioner 函数
+        case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Postioner 函数来实现一个位置固定的提示框
         default:
             return nil;
     }
@@ -1478,6 +1480,59 @@ function () {
         return enableDefault;
     }));
 
+    return aaOptions;
+}
+
+- (AAOptions *)customTooltipPostionerFunction {
+    NSArray *categoriesArr = @[
+        @"孤岛危机",
+        @"使命召唤",
+        @"荣誉勋章",
+        @"狙击精英",
+        @"神秘海域",
+        @"最后生还者",
+        @"巫师3狂猎",
+        @"对马之魂",
+        @"蝙蝠侠阿甘骑士",
+        @"地狱边境",
+        @"闪客",
+        @"忍者之印"
+    ];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .categoriesSet(categoriesArr)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"单机大作")
+        .colorSet(AAColor.redColor)
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+               ])
+    ;
+    
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    aaOptions.tooltip
+    .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
+        let position = {};
+        position["x"] = point.plotX;
+        position["y"] = 20;
+        return position;
+    }));
+    
+    return aaOptions;
+}
+
+- (AAOptions *)fixedTooltipPositionByCustomPositionerFunction {
+    AAOptions *aaOptions = [self customTooltipPostionerFunction];
+    aaOptions.tooltip
+    .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
+        let position = {};
+        position["x"] = 50;
+        position["y"] = 50;
+        return position;
+    }));
+    
     return aaOptions;
 }
 
