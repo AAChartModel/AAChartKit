@@ -436,7 +436,7 @@
     return aaOptions;
 }
 
-//https://github.com/AAChartModel/AAChartKit/issues/560
+//https://github.com/AAChartModel/AAChartKit/issues/685
 - (AAOptions *)customStackedAndGroupedColumnChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .titleSet(@"Total fruit consumtion, grouped by gender")
