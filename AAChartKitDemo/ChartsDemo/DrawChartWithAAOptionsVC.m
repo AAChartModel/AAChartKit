@@ -335,6 +335,8 @@
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
     .seriesSet(AASeries.new
+               .borderRadiusTopLeftSet(@"50%")
+               .borderRadiusTopRightSet(@"50%")
                .animationSet(AAAnimation.new
                              .easingSet(AAChartAnimationBounce)
                              .durationSet(@1000)
@@ -352,7 +354,8 @@
         .colorSet(@"rgba(165,170,217,1)")
         .groupingSet(false)
         .pointPaddingSet(@0.3)
-        .pointPlacementSet(@(-0.2)),
+        .pointPlacementSet(@(-0.2))
+        ,
         AAColumn.new
         .nameSet(@"优化的员工")
         .dataSet(@[@140, @90, @40])
@@ -425,6 +428,8 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2020")
+        .borderRadiusTopLeftSet(@"50%")
+        .borderRadiusTopRightSet(@"50%")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                ]);
     
@@ -973,7 +978,7 @@
         .oppositeSet(true)
                   ])
     .tooltipSet(AATooltip.new
-                .enabledSet(true)
+                .enabledSet(false)
                 .sharedSet(false))
     .plotOptionsSet(AAPlotOptions.new
                     .seriesSet(AASeries.new
@@ -1848,6 +1853,8 @@
     .typeSet(AAChartTypeColumn)
     .yAxisSet(@1)
     .dataSet(@[@49.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
+    .borderRadiusTopLeftSet(@"50%")
+    .borderRadiusTopRightSet(@"50%")
     .tooltipSet(AATooltip.new
                 .valueSuffixSet(@" mm"));
     
