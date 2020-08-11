@@ -53,7 +53,7 @@
 		44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartVC.m */; };
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
-		448330BB24E272FB00368A30 /* NSString+pureJSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 448330BA24E272FA00368A30 /* NSString+pureJSString.m */; };
+		448330BB24E272FB00368A30 /* NSString+toPureJSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 448330BA24E272FA00368A30 /* NSString+toPureJSString.m */; };
 		4486C50D23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */; };
 		4486C51023E9BAB300B54849 /* DrawableChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4486C50F23E9BAB300B54849 /* DrawableChartVC.m */; };
 		4486D0A62466AFE5000D7FDA /* AAPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 4486D0A52466AFE5000D7FDA /* AAPane.m */; };
@@ -200,8 +200,8 @@
 		44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
 		447B4B3121C9E04E00FDA965 /* AAEasyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAEasyTool.h; sourceTree = "<group>"; };
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
-		448330B924E272FA00368A30 /* NSString+pureJSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+pureJSString.h"; sourceTree = "<group>"; };
-		448330BA24E272FA00368A30 /* NSString+pureJSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+pureJSString.m"; sourceTree = "<group>"; };
+		448330B924E272FA00368A30 /* NSString+toPureJSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+toPureJSString.h"; sourceTree = "<group>"; };
+		448330BA24E272FA00368A30 /* NSString+toPureJSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+toPureJSString.m"; sourceTree = "<group>"; };
 		4486C50B23DE02A900B54849 /* DoubleChartsLinkedWorkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoubleChartsLinkedWorkVC.h; sourceTree = "<group>"; };
 		4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoubleChartsLinkedWorkVC.m; sourceTree = "<group>"; };
 		4486C50E23E9BAB300B54849 /* DrawableChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawableChartVC.h; sourceTree = "<group>"; };
@@ -462,8 +462,8 @@
 				272BBE7A21A28D0C00DBE69D /* AAColor.m */,
 				44143D3721A1950300D44657 /* AAGradientColor.h */,
 				44143D3821A1950300D44657 /* AAGradientColor.m */,
-				448330B924E272FA00368A30 /* NSString+pureJSString.h */,
-				448330BA24E272FA00368A30 /* NSString+pureJSString.m */,
+				448330B924E272FA00368A30 /* NSString+toPureJSString.h */,
+				448330BA24E272FA00368A30 /* NSString+toPureJSString.m */,
 			);
 			path = AATool;
 			sourceTree = "<group>";
@@ -738,7 +738,7 @@
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,
 				1E66D203210AF4ED007EAB8C /* AATooltip.m in Sources */,
-				448330BB24E272FB00368A30 /* NSString+pureJSString.m in Sources */,
+				448330BB24E272FB00368A30 /* NSString+toPureJSString.m in Sources */,
 				44E4137323C339160097D0ED /* AAStates.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,

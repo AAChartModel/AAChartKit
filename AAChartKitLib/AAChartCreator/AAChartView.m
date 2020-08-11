@@ -31,7 +31,7 @@
  */
 
 #import "AAChartView.h"
-#import "NSString+pureJSString.h"
+#import "NSString+toPureJSString.h"
 
 @interface AAWeakProxy : NSProxy
 

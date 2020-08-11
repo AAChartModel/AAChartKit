@@ -1,5 +1,5 @@
 //
-//  NSString+pureJSString.m
+//  NSString+toPureJSString.h
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2020/8/11.
@@ -30,24 +30,14 @@
  
  */
 
-#import "NSString+pureJSString.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSString (pureJSString)
+NS_ASSUME_NONNULL_BEGIN
 
-- (NSString *)aa_toPureJSString {
-    //https://stackoverflow.com/questions/34334232/why-does-function-not-work-but-function-does-chrome-devtools-node
-    NSString *pureJSStr = [NSString stringWithFormat:@"(%@)",self];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"'" withString:@"\""];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\0" withString:@""];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\f" withString:@"\\f"];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\u2028" withString:@"\\u2028"];
-    pureJSStr = [pureJSStr stringByReplacingOccurrencesOfString:@"\u2029" withString:@"\\u2029"];
-    return pureJSStr;
-}
+@interface NSString (pureJSString)
+
+- (NSString *)aa_toPureJSString;
 
 @end
+
+NS_ASSUME_NONNULL_END

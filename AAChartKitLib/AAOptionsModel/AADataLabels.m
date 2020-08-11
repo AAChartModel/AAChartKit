@@ -31,7 +31,7 @@
  */
 
 #import "AADataLabels.h"
-#import "NSString+pureJSString.h"
+#import "NSString+toPureJSString.h"
 
 @implementation AADataLabels
 

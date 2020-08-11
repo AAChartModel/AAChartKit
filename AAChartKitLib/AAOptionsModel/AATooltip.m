@@ -31,7 +31,7 @@
  */
 
 #import "AATooltip.h"
-#import "NSString+pureJSString.h"
+#import "NSString+toPureJSString.h"
 @implementation AATooltip
 
 - (instancetype)init {

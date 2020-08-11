@@ -32,7 +32,7 @@
  */
 
 #import "AASeries.h"
-#import "NSString+pureJSString.h"
+#import "NSString+toPureJSString.h"
 
 @implementation AASeries
 
