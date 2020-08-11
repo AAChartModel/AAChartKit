@@ -733,7 +733,7 @@
     ;
     
     NSArray *categoryArr = @[@"Java", @"",@"C", @"", @"C++", @"",];
-    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
+    NSString *categoryJSArrStr = [categoryArr aa_toJSArray];
     
     NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return  'The value for <b>' + %@[this.x] +
@@ -1023,7 +1023,7 @@
         @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
     ];
     
-    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
+    NSString *categoryJSArrStr = [categoryArr aa_toJSArray];
     
     NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return  'The value for <b>' + %@[this.x] +
@@ -1101,14 +1101,14 @@
         @(arc4random() % 10), @(arc4random() % 10), @(arc4random() % 10),
     ];
     
-    NSString *总时长JS数组 = [self javaScriptArrayStringWithObjcArray:总时长数组];
-    NSString *有效时长JS数组 = [self javaScriptArrayStringWithObjcArray:有效时长数组];
-    NSString *看近时长JS数组 = [self javaScriptArrayStringWithObjcArray:看近时长数组];
-    NSString *看中时长JS数组 = [self javaScriptArrayStringWithObjcArray:看中时长数组];
-    NSString *看远时长JS数组 = [self javaScriptArrayStringWithObjcArray:看远时长数组];
-    NSString *切换次数JS数组 = [self javaScriptArrayStringWithObjcArray:切换次数数组];
-    NSString *停止次数JS数组 = [self javaScriptArrayStringWithObjcArray:停止次数数组];
-    NSString *干预次数JS数组 = [self javaScriptArrayStringWithObjcArray:干预次数数组];
+    NSString *总时长JS数组 = [总时长数组 aa_toJSArray];
+    NSString *有效时长JS数组 = [有效时长数组 aa_toJSArray];
+    NSString *看近时长JS数组 = [看近时长数组 aa_toJSArray];
+    NSString *看中时长JS数组 = [看中时长数组 aa_toJSArray];
+    NSString *看远时长JS数组 = [看远时长数组 aa_toJSArray];
+    NSString *切换次数JS数组 = [切换次数数组 aa_toJSArray];
+    NSString *停止次数JS数组 = [停止次数数组 aa_toJSArray];
+    NSString *干预次数JS数组 = [干预次数数组 aa_toJSArray];
 
 
     NSString *jsFormatterStr = [NSString stringWithFormat:@AAJSFunc(
@@ -1160,17 +1160,6 @@ function () {
     return aaOptions;
 }
 
-//将 Objective-C 数组转换为 JavaScript 数组
-- (NSString *)javaScriptArrayStringWithObjcArray:(NSArray<NSString *> *)objcArr {
-    NSString *originalJsArrStr = @"";
-    for (NSString *obj in objcArr) {
-        originalJsArrStr = [originalJsArrStr stringByAppendingFormat:@"'%@',",obj];
-    }
-    
-    NSString *finalJSArrStr = [NSString stringWithFormat:@"[%@]",originalJsArrStr];
-    return finalJSArrStr;
-}
-
 //https://github.com/AAChartModel/AAChartKit/issues/852 自定义蜘蛛🕷图样式
 - (AAOptions *)customSpiderChartStyle {
     NSArray *categoryArr = @[
@@ -1184,7 +1173,7 @@ function () {
         @"停采金额占比",
      ];
     
-    NSString *categoryJSArrStr = [self javaScriptArrayStringWithObjcArray:categoryArr];
+    NSString *categoryJSArrStr = [categoryArr aa_toJSArray];
     
     NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return %@[this.value];
@@ -1273,7 +1262,7 @@ function () {
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     
     NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
-    NSString *unitJSArrStr = [self javaScriptArrayStringWithObjcArray:unitArr];
+    NSString *unitJSArrStr = [unitArr aa_toJSArray];
     NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
     })),unitJSArrStr];
@@ -1351,7 +1340,7 @@ function () {
         .borderRadiusTopRightSet((id)@"50%")
                ]);
     
-    NSString *imageLinkFlagJSArrStr = [self javaScriptArrayStringWithObjcArray:imageLinkFlagArr];
+    NSString *imageLinkFlagJSArrStr = [imageLinkFlagArr aa_toJSArray];
     NSString *xLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
         let imageFlag = %@[this.pos];
         let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";

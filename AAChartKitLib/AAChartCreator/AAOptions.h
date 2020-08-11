@@ -63,6 +63,7 @@
 #import "AAPane.h"
 #import "AACredits.h"
 #import "AALang.h"
+#import "NSArray+toJSArray.h"
 
 @interface AAOptions : NSObject
 
