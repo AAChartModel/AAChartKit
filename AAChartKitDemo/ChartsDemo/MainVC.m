@@ -80,9 +80,8 @@
 
 - (void)configTheTableView {
     UITableView *tableView = [[UITableView alloc]init];
-    tableView.delegate =self;
-    tableView.dataSource =self;
-    tableView.rowHeight = 40;
+    tableView.delegate = self;
+    tableView.dataSource = self;
     tableView.sectionHeaderHeight = 50;
     tableView.frame = CGRectMake(0, 0, 100, self.view.frame.size.height);
     [self.view addSubview:tableView];
@@ -111,6 +110,17 @@
     label.translatesAutoresizingMaskIntoConstraints = NO;
     [view addConstraints:[self configureTheConstraintArrayWithItem:label toItem:view]];
     return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (   indexPath.section == 2
+        || indexPath.section == 3
+        || indexPath.section == 6
+        || indexPath.section == 9) {
+        return 60;
+    } else {
+        return 40;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
