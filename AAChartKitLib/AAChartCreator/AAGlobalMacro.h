@@ -33,7 +33,7 @@
 #ifndef AAGlobalMacro_h
 #define AAGlobalMacro_h
 
-
+#define AACHARTKIT_STATIC_INLINE    static inline
 #define AAObject(objectName) [[objectName alloc]init]
 #define AARgbaColor(r,g,b,a) [NSString stringWithFormat:@"rgba(%d,%d,%d,%f)",r,g,b,a]
 #define AAJSFunc(x) #x

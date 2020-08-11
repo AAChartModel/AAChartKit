@@ -1,5 +1,5 @@
 //
-//  AAMarginMake.h
+//  AAMarginConvenience.h
 //  AAChartKitDemo
 //
 //  Created by An An on 2020/7/24.
@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -30,13 +30,14 @@
  
  */
 
-#ifndef AAMarginMake_h
-#define AAMarginMake_h
+#ifndef AAMarginConvenience_h
+#define AAMarginConvenience_h
 
-#define AACHARTKIT_STATIC_INLINE    static inline
-
-
-AACHARTKIT_STATIC_INLINE NSArray * AAMarginMake(float marginTop, float marginRight, float marginBottom, float marginLeft) {
+AACHARTKIT_STATIC_INLINE
+NSArray * AAMargin(float marginTop,
+                   float marginRight,
+                   float marginBottom,
+                   float marginLeft) {
     return @[
         @(marginTop),
         @(marginRight),
@@ -45,12 +46,16 @@ AACHARTKIT_STATIC_INLINE NSArray * AAMarginMake(float marginTop, float marginRig
     ];
 }
 
-AACHARTKIT_STATIC_INLINE NSArray * AAMarginTopBottomMake(float marginTop, float marginBottom) {
-    return AAMarginMake(marginTop, 0, marginBottom, 0);
+AACHARTKIT_STATIC_INLINE
+NSArray * AAMarginTopBottom(float marginTop,
+                            float marginBottom) {
+    return AAMargin(marginTop, 0, marginBottom, 0);
 }
 
-AACHARTKIT_STATIC_INLINE NSArray * AAMarginLeftRightMake(float marginLeft, float marginRight) {
-    return AAMarginMake(0, marginRight, 0, marginLeft);
+AACHARTKIT_STATIC_INLINE
+NSArray * AAMarginLeftRight(float marginLeft,
+                            float marginRight) {
+    return AAMargin(0, marginRight, 0, marginLeft);
 }
 
-#endif /* AAMarginMake_h */
+#endif /* AAMarginConvenience_h */

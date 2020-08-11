@@ -64,6 +64,8 @@
 #import "AACredits.h"
 #import "AALang.h"
 #import "NSArray+toJSArray.h"
+#import "AAStyleConvenience.h"
+#import "AAMarginConvenience.h"
 
 @interface AAOptions : NSObject
 

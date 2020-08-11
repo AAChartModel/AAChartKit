@@ -45,7 +45,7 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0:  return [self configureTheMirrorColumnChartWithNoAnyGap];
+        case 0:  return [self configureTheAAOptionsOfAreaChart];
         case 1:  return [self configureTheAAOptionsOfPieChart];
         case 2:  return [self adjustPieChartTitleAndDataLabelFontStyle];
         case 3:  return [self configureTheAAOptionsOfSpecialNestedColumnChart];
@@ -130,6 +130,9 @@
                ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    
+    aaOptions.chart
+    .marginSet(AAMargin(100,100,100,100));
     
     aaOptions.legend
     .enabledSet(true)
