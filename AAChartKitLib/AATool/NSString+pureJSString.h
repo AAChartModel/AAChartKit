@@ -1,9 +1,9 @@
 //
-//  AAJSStringPurer.h
+//  NSString+pureJSString.h
 //  AAChartKitDemo
 //
-//  Created by AnAn on 2019/7/17.
-//  Copyright © 2019 Danny boy. All rights reserved.
+//  Created by AnAn on 2020/8/11.
+//  Copyright © 2020 Danny boy. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -19,7 +19,7 @@
  *
  * Please contact me on GitHub,if there are any problems encountered in use.
  * GitHub Issues : https://github.com/AAChartModel/AAChartKit/issues
- * -------------------------------------------------------------------------------
+ * ------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
  * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
@@ -34,9 +34,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AAJSStringPurer : NSObject
+@interface NSString (pureJSString)
 
-+ (NSString *)pureJavaScriptFunctionStringWithString:(NSString *)jsString;
+- (NSString *)aa_toPureJSString;
 
 @end
 

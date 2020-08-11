@@ -31,7 +31,7 @@
  */
 
 #import "AADataLabels.h"
-#import "AAJSStringPurer.h"
+#import "NSString+pureJSString.h"
 
 @implementation AADataLabels
 
@@ -70,12 +70,12 @@ AAPropSetFuncImplementation(AADataLabels, NSDictionary *, textPath)
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, filter);
 
 - (void)setFormatter:(NSString *)formatter {
-    _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+    _formatter = [formatter aa_toPureJSString];
 }
 
 - (AADataLabels * (^) (NSString * formatter))formatterSet {
     return ^(NSString * formatter) {
-        self->_formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        self->_formatter = [formatter aa_toPureJSString];
         return self;
     };
 }

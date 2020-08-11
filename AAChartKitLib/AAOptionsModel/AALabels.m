@@ -31,7 +31,8 @@
  */
 
 #import "AALabels.h"
-#import "AAJSStringPurer.h"
+#import "NSString+pureJSString.h"
+
 @implementation AALabels
 
 - (instancetype)init {
@@ -59,12 +60,12 @@ AAPropSetFuncImplementation(AALabels, NSNumber *, y)//相对于坐标轴刻度�
 AAPropSetFuncImplementation(AALabels, BOOL      , useHTML)//HTML渲染
 
 - (void)setFormatter:(NSString *)formatter {
-    _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+    _formatter = [formatter aa_toPureJSString];
 }
 
 - (AALabels * (^) (NSString * formatter))formatterSet {
     return ^(NSString * formatter) {
-        self->_formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        self->_formatter = [formatter aa_toPureJSString];
         return self;
     };
 }

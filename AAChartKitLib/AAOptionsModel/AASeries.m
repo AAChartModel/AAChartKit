@@ -32,7 +32,8 @@
  */
 
 #import "AASeries.h"
-#import "AAJSStringPurer.h"
+#import "NSString+pureJSString.h"
+
 @implementation AASeries
 
 AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius) 
@@ -59,12 +60,12 @@ AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusBottomRight)
 //AAPropSetFuncImplementation(AAEvents, NSString     *, legendItemClick)
 
 - (void)setLegendItemClick:(NSString *)legendItemClick {
-    _legendItemClick = [AAJSStringPurer pureJavaScriptFunctionStringWithString:legendItemClick];
+    _legendItemClick = [legendItemClick aa_toPureJSString];
 }
 
 - (AAEvents * (^) (NSString * legendItemClick))legendItemClickSet {
     return ^(NSString * legendItemClick) {
-        self->_legendItemClick = [AAJSStringPurer pureJavaScriptFunctionStringWithString:legendItemClick];
+        self->_legendItemClick = [legendItemClick aa_toPureJSString];
         return self;
     };
 }

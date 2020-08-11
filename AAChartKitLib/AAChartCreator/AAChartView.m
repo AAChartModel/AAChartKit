@@ -31,7 +31,7 @@
  */
 
 #import "AAChartView.h"
-#import "AAJSStringPurer.h"
+#import "NSString+pureJSString.h"
 
 @interface AAWeakProxy : NSProxy
 
@@ -293,7 +293,7 @@ WKScriptMessageHandler
 }
 
 - (void)aa_evaluateJavaScriptStringFunction:(NSString *)JavaScriptString {
-    NSString *pureJSFuncStr = [AAJSStringPurer pureJavaScriptFunctionStringWithString:JavaScriptString];
+    NSString *pureJSFuncStr = [JavaScriptString aa_toPureJSString];
     
     //remove the useless punctuation: the first "((" and the end "))"
     NSRange range = NSMakeRange(2, pureJSFuncStr.length - 4);

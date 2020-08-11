@@ -31,7 +31,7 @@
  */
 
 #import "AATooltip.h"
-#import "AAJSStringPurer.h"
+#import "NSString+pureJSString.h"
 @implementation AATooltip
 
 - (instancetype)init {
@@ -68,24 +68,24 @@ AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 AAPropSetFuncImplementation(AATooltip, BOOL,       shadow)
 
 - (void)setFormatter:(NSString *)formatter {
-    _formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+    _formatter = [formatter aa_toPureJSString];
 }
 
 - (AATooltip * (^) (NSString * formatter))formatterSet {
     return ^(NSString * formatter) {
-        self->_formatter = [AAJSStringPurer pureJavaScriptFunctionStringWithString:formatter];
+        self->_formatter = [formatter aa_toPureJSString];
         return self;
     };
 }
 
 
 - (void)setPositioner:(NSString *)positioner {
-    _positioner = [AAJSStringPurer pureJavaScriptFunctionStringWithString:positioner];
+    _positioner = [positioner aa_toPureJSString];
 }
 
 - (AATooltip * (^) (NSString * formatter))positionerSet {
     return ^(NSString * positioner) {
-        self->_positioner = [AAJSStringPurer pureJavaScriptFunctionStringWithString:positioner];
+        self->_positioner = [positioner aa_toPureJSString];
         return self;
     };
 }
