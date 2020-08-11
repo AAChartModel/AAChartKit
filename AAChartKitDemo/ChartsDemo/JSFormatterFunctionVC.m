@@ -1298,7 +1298,8 @@ function () {
     return aaOptions;
 }
 
-//https://github.com/AAChartModel/AAChartKit/issues/938
+// Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
+// Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
 - (AAOptions *)customXAxisLabelsBeImages {
     NSArray *nameArr = @[
         @"South Korea",
