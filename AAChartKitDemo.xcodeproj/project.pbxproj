@@ -461,16 +461,32 @@
 		441AF0B8233463A200F0D39D /* AATool */ = {
 			isa = PBXGroup;
 			children = (
+				448330C424E27CB000368A30 /* Color */,
+				448330C524E27CC000368A30 /* Category */,
+			);
+			path = AATool;
+			sourceTree = "<group>";
+		};
+		448330C424E27CB000368A30 /* Color */ = {
+			isa = PBXGroup;
+			children = (
 				272BBE7921A28D0C00DBE69D /* AAColor.h */,
 				272BBE7A21A28D0C00DBE69D /* AAColor.m */,
 				44143D3721A1950300D44657 /* AAGradientColor.h */,
 				44143D3821A1950300D44657 /* AAGradientColor.m */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		448330C524E27CC000368A30 /* Category */ = {
+			isa = PBXGroup;
+			children = (
 				448330B924E272FA00368A30 /* NSString+toPureJSString.h */,
 				448330BA24E272FA00368A30 /* NSString+toPureJSString.m */,
 				448330BF24E2791400368A30 /* NSArray+toJSArray.h */,
 				448330C024E2791400368A30 /* NSArray+toJSArray.m */,
 			);
-			path = AATool;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		713F54341E7B71C000D506C7 /* ChartsDemo */ = {
