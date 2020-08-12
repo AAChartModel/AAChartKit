@@ -59,15 +59,10 @@ AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusBottomRight)
 
 //AAPropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
 
+AAJSFuncTypePropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
+
 - (void)setLegendItemClick:(NSString *)legendItemClick {
     _legendItemClick = [legendItemClick aa_toPureJSString];
-}
-
-- (AAEvents * (^) (NSString * legendItemClick))legendItemClickSet {
-    return ^(NSString * legendItemClick) {
-        self->_legendItemClick = [legendItemClick aa_toPureJSString];
-        return self;
-    };
 }
 
 @end
@@ -89,6 +84,14 @@ AAPropSetFuncImplementation(AAPoint, AAPointEvents     *, events)
 //AAPropSetFuncImplementation(AAPointEvents, NSString *, select) //选中
 //AAPropSetFuncImplementation(AAPointEvents, NSString *, unselect) //取消选中
 //AAPropSetFuncImplementation(AAPointEvents, NSString *, update) //更新
+
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, click) //点击事件
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, mouseOut) //鼠标划出
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, mouseOver) //鼠标划过
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, remove) //删除
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, select) //选中
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, unselect) //取消选中
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, update) //更新
 
 - (void)setClick:(NSString *)click {
     _click = [click aa_toPureJSString];
@@ -116,56 +119,6 @@ AAPropSetFuncImplementation(AAPoint, AAPointEvents     *, events)
 
 - (void)setUpdate:(NSString *)update {
     _update = [update aa_toPureJSString];
-}
-
-
-- (AAPointEvents * (^) (NSString * click))clickSet {
-    return ^(NSString * click) {
-        self->_click = [click aa_toPureJSString];
-        return self;
-    };
-}
-
-- (AAPointEvents * (^) (NSString * mouseOut))mouseOutSet {
-    return ^(NSString * mouseOut) {
-        self->_mouseOut = [mouseOut aa_toPureJSString];
-        return self;
-    };
-}
-
-- (AAPointEvents * (^) (NSString * mouseOver))mouseOverSet {
-    return ^(NSString * mouseOver) {
-        self->_mouseOver = [mouseOver aa_toPureJSString];
-        return self;
-    };
-}
-
-- (AAPointEvents * (^) (NSString * remove))removeSet {
-    return ^(NSString * remove) {
-        self->_remove = [remove aa_toPureJSString];
-        return self;
-    };
-}
-
-- (AAPointEvents * (^) (NSString * select))selectSet {
-    return ^(NSString * select) {
-        self->_select = [select aa_toPureJSString];
-        return self;
-    };
-}
-
-- (AAPointEvents * (^) (NSString * unselect))unselectSet {
-    return ^(NSString * unselect) {
-        self->_unselect = [unselect aa_toPureJSString];
-        return self;
-    };
-}
-
-- (AAPointEvents * (^) (NSString * update))updateSet {
-    return ^(NSString * update) {
-        self->_update = [update aa_toPureJSString];
-        return self;
-    };
 }
 
 @end

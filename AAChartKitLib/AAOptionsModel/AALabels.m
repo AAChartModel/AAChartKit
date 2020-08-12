@@ -59,15 +59,10 @@ AAPropSetFuncImplementation(AALabels, NSNumber *, x)//相对于坐标轴刻度�
 AAPropSetFuncImplementation(AALabels, NSNumber *, y)//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
 AAPropSetFuncImplementation(AALabels, BOOL      , useHTML)//HTML渲染
 
+AAJSFuncTypePropSetFuncImplementation(AALabels, NSString *, formatter)//坐标轴格式化字符串。 默认是：{value}.
+
 - (void)setFormatter:(NSString *)formatter {
     _formatter = [formatter aa_toPureJSString];
-}
-
-- (AALabels * (^) (NSString * formatter))formatterSet {
-    return ^(NSString * formatter) {
-        self->_formatter = [formatter aa_toPureJSString];
-        return self;
-    };
 }
 
 @end

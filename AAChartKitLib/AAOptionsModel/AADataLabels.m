@@ -69,15 +69,11 @@ AAPropSetFuncImplementation(AADataLabels, BOOL      , softConnector)//Whether to
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, textPath)
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, filter);
 
+AAJSFuncTypePropSetFuncImplementation(AADataLabels, NSString *, formatter)
+
 - (void)setFormatter:(NSString *)formatter {
     _formatter = [formatter aa_toPureJSString];
 }
 
-- (AADataLabels * (^) (NSString * formatter))formatterSet {
-    return ^(NSString * formatter) {
-        self->_formatter = [formatter aa_toPureJSString];
-        return self;
-    };
-}
 
 @end

@@ -67,27 +67,16 @@ AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix)
 AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 AAPropSetFuncImplementation(AATooltip, BOOL,       shadow)
 
+AAJSFuncTypePropSetFuncImplementation(AATooltip, NSString *, formatter)
+AAJSFuncTypePropSetFuncImplementation(AATooltip, NSString *, positioner)
+
 - (void)setFormatter:(NSString *)formatter {
     _formatter = [formatter aa_toPureJSString];
 }
-
-- (AATooltip * (^) (NSString * formatter))formatterSet {
-    return ^(NSString * formatter) {
-        self->_formatter = [formatter aa_toPureJSString];
-        return self;
-    };
-}
-
 
 - (void)setPositioner:(NSString *)positioner {
     _positioner = [positioner aa_toPureJSString];
 }
 
-- (AATooltip * (^) (NSString * formatter))positionerSet {
-    return ^(NSString * positioner) {
-        self->_positioner = [positioner aa_toPureJSString];
-        return self;
-    };
-}
 
 @end
