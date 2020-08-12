@@ -58,7 +58,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAScrollablePlotArea *, 
 @end
 
 
-
+//Refer to online API document: https://api.highcharts.com/highcharts/chart.scrollablePlotArea
 @interface AAScrollablePlotArea : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *, minHeight)

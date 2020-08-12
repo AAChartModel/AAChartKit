@@ -54,7 +54,7 @@ AAPropSetFuncImplementation(AAChart, AAScrollablePlotArea *, scrollablePlotArea)
 @end
 
 
-
+//Refer to online API document: https://api.highcharts.com/highcharts/chart.scrollablePlotArea
 @implementation AAScrollablePlotArea
 
 AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, minHeight)
