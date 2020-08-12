@@ -30,7 +30,13 @@
                     container.style.height = receivedHeight;
                 }
                 
-                var aaOptions = JSON.parse(sender);
+                var aaOptions = JSON.parse(sender, function (key, value) {
+                  if (   typeof(value) == 'string'
+                      && value.indexOf('function') != -1) {
+                     return eval("(function(){return " + value + " })()")
+                  }
+                   return value;
+                });
 
                 if (aaOptions.defaultOptions) {
                     Highcharts.setOptions({
@@ -41,9 +47,7 @@
                 if (aaOptions.plotOptions) {
                     configurePlotOptions(aaOptions);
                 }
-                
-                configureOptionsJSFunctions(aaOptions);
-                
+                                
                 aaGlobalChart = Highcharts.chart('container', aaOptions);
             }
         
@@ -79,43 +83,6 @@
                 }
             };
             aaPlotOptions.series.point = seriesPoint;
-        }
-        
-        function configureOptionsJSFunctions(aaOptions) {
-            if (aaOptions.tooltip) {
-                if (aaOptions.tooltip.formatter) {
-                    aaOptions.tooltip.formatter = eval(aaOptions.tooltip.formatter);
-                }
-                if (aaOptions.tooltip.positioner) {
-                    aaOptions.tooltip.positioner = eval(aaOptions.tooltip.positioner);
-                }
-            }
-
-            if (aaOptions.xAxis
-                && aaOptions.xAxis.labels
-                && aaOptions.xAxis.labels.formatter) {
-                aaOptions.xAxis.labels.formatter = eval(aaOptions.xAxis.labels.formatter);
-            }
-
-            if (aaOptions.yAxis
-                && aaOptions.yAxis.labels
-                && aaOptions.yAxis.labels.formatter) {
-                aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
-            }
-                
-            if (aaOptions.plotOptions
-                && aaOptions.plotOptions.series
-               ) {
-                if (aaOptions.plotOptions.series.dataLabels
-                    && aaOptions.plotOptions.series.dataLabels.formatter) {
-                    aaOptions.plotOptions.series.dataLabels.formatter = eval(aaOptions.plotOptions.series.dataLabels.formatter);
-                }
-                    
-                if (aaOptions.plotOptions.series.events
-                    && aaOptions.plotOptions.series.events.legendItemClick) {
-                    aaOptions.plotOptions.series.events.legendItemClick = eval(aaOptions.plotOptions.series.events.legendItemClick);
-                }
-            }
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
