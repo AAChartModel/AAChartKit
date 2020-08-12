@@ -7,7 +7,8 @@
 //
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
-//***    https://github.com/AAChartModel/AAChartKit     ***
+//*** https://github.com/AAChartModel/AAChartKit        ***
+//*** https://github.com/AAChartModel/AAChartKit-Swift  ***
 //***...................................................***
 //*************** ...... SOURCE CODE ...... ***************
 //
