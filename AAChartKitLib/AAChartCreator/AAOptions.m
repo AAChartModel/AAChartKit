@@ -310,3 +310,13 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 @end
 
 
+@implementation AAChartModel (toAAOptions)
+
+- (AAOptions *)aa_toAAOptions {
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:self];
+    return aaOptions;
+}
+
+@end
+
+

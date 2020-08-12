@@ -103,3 +103,12 @@ AAPropStatementAndPropSetFuncStatement(assign, AAOptions, BOOL           , touch
 
 
 @end
+
+
+@interface AAChartModel (toAAOptions)
+
+- (AAOptions *)aa_toAAOptions;
+
+@end
+
+

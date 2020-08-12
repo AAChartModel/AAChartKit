@@ -1548,7 +1548,7 @@ function () {
                    )
                ]);
         
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     AAPoint *point = AAPoint.new
     .eventsSet(AAPointEvents.new
