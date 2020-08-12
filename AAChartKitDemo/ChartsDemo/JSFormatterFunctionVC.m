@@ -74,6 +74,7 @@
         case 20: return [self customLegendItemClickEvent];//自定义图例点击事件🖱
         case 21: return [self customTooltipPostionerFunction];//自定义浮动提示框 Postioner 函数
         case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Postioner 函数来实现一个位置固定的提示框
+        case 23: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
         default:
             return nil;
     }
@@ -1473,6 +1474,7 @@ function () {
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/966
 - (AAOptions *)customTooltipPostionerFunction {
     NSArray *categoriesArr = @[
         @"孤岛危机",
@@ -1522,6 +1524,43 @@ function () {
         position["y"] = 50;
         return position;
     }));
+    
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/967
+- (AAOptions *)disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeBar)
+    .titleSet(@"Custom Bar Chart select color")
+    .yAxisReversedSet(true)
+    .xAxisReversedSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"ElementOne")
+        .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+        .allowPointSelectSet(YES)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .colorSet(AAColor.yellowColor))
+                   .selectSet(AASelect.new
+                              .colorSet(AAColor.redColor))
+                   )
+               ]);
+        
+    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+
+    AAPoint *point = AAPoint.new
+    .eventsSet(AAPointEvents.new
+               .clickSet(@AAJSFunc(function () {
+                   if (this.selected == true) {
+                       this.selected = false;
+                   }
+                   return;
+               })));
+    
+    aaOptions.plotOptions.series
+    .pointSet(point);
     
     return aaOptions;
 }

@@ -77,12 +77,16 @@
             window.webkit.messageHandlers.mouseover.postMessage(message);
             };
             
-            var seriesPoint = {
-                events:{
-                    mouseOver: mouseOverFunc,
-                }
-            };
-            aaPlotOptions.series.point = seriesPoint;
+            if (aaPlotOptions.series.point) {// set property directlly for series point
+                aaPlotOptions.series.point.events.mouseOver = mouseOverFunc;
+            } else {// creat a new series point object instance
+                var seriesPoint = {
+                    events:{
+                        mouseOver: mouseOverFunc,
+                    }
+                };
+                aaPlotOptions.series.point = seriesPoint;
+            }
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
