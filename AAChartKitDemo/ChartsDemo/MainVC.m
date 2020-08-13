@@ -523,6 +523,7 @@
               @"customTooltipPostionerFunction---自定义浮动提示框 positioner 函数",
               @"fixedTooltipPositionByCustomPositionerFunction---通过 Positioner 函数来实现一个位置固定的提示框",
               @"disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction---通过 Series 的 Point 的选中事件函数来禁用条形图反选效果",
+               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[@"Custom Chart DataLabel Sample One",
