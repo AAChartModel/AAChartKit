@@ -96,12 +96,12 @@
     
     UILabel *sectionTitleLabel = [[UILabel alloc]init];
     sectionTitleLabel.frame = sectionHeaderView.bounds;
-    sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth;
-    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
-    sectionTitleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     sectionTitleLabel.backgroundColor = AAGrayColor;
-    sectionTitleLabel.textColor = [UIColor purpleColor];
     sectionTitleLabel.text = self.sectionTypeArr[section];
+    sectionTitleLabel.textColor = [UIColor purpleColor];
+    sectionTitleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
     [sectionHeaderView addSubview:sectionTitleLabel];
 
     return sectionHeaderView;
