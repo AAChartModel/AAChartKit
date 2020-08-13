@@ -139,10 +139,7 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet(AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px")
-              )
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
     return aaOptions;
 }
@@ -394,10 +391,7 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet(AAStyle.new
-              .colorSet(@"#1e90ff")
-              .fontSizeSet(@"12px")
-              )
+    .styleSet(AAStyleColorSize(@"#1e90ff", 12))
     ;
     
     return aaOptions;
@@ -549,10 +543,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet((id)gradientColorDic1)
-    .styleSet(AAStyle.new
-              .colorSet(@"#FFFFFF")
-              .fontSizeSet(@"12px")
-              )
+    .styleSet(AAStyleColorSize(@"#FFFFFF", 12))
     .formatterSet(@AAJSFunc(function () {
         return '<b>'
         + this.x
@@ -620,10 +611,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet(AAColor.darkGrayColor)
-    .styleSet(AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px")
-              )
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     .formatterSet(@AAJSFunc(function () {
         return '<b>'
         + this.x
@@ -693,10 +681,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet(AAColor.darkGrayColor)
-    .styleSet(AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px")
-              )
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     .formatterSet(@AAJSFunc(function () {
         return '<b>'
         + this.x
@@ -757,10 +742,8 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet(AAStyle.new
-              .colorSet(@"#1e90ff")
-              .fontSizeSet(@"12px")
-              );
+    .styleSet(AAStyleColorSize(@"#1e90ff", 12))
+    ;
     
     aaOptions.xAxis.lineWidth = @0.0;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
@@ -984,10 +967,7 @@
     }")
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet(AAStyle.new
-              .colorSet(@"#1e90ff")
-              .fontSizeSet(@"12px")
-              )
+    .styleSet(AAStyleColorSize(@"#1e90ff", 12))
     ;
     
     return aaOptions;
@@ -1154,11 +1134,8 @@ function () {
     .useHTMLSet(true)
     .formatterSet(jsFormatterStr)
     .backgroundColorSet(@"#000000")//黑色背景色
-       .borderColorSet(@"#FFD700")//边缘颜色纯金色
-       .styleSet(AAStyle.new
-                 .colorSet(@"#FFD700")//文字颜色纯金色
-                 .fontSizeSet(@"12px")
-                 )
+    .borderColorSet(@"#FFD700")//边缘颜色纯金色
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))//文字颜色纯金色
     ;
 
     return aaOptions;
@@ -1210,16 +1187,13 @@ function () {
     
     aaOptions.xAxis
     .lineWidthSet(@0)//避免多边形外环之外有额外套了一层无用的外环
-    .labels
-    .styleSet(AAStyle.new
-              .colorSet(AAColor.blackColor))
+    .labels.styleSet(AAStyleColor(AAColor.blackColor))
     .formatterSet(xAxisLabelsFormatter);
 
     aaOptions.yAxis
     .gridLineInterpolationSet(AAYAxisGridLineInterpolationPolygon)//设置蜘蛛网🕸图表的网线为多边形
-    .labelsSet(AALabels.new
-               .styleSet(AAStyle.new
-                         .colorSet(AAColor.blackColor)));
+    .labels.styleSet(AAStyleColor(AAColor.blackColor))
+    ;
     
     //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
     /*默认是：{
@@ -1273,12 +1247,7 @@ function () {
     
     AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
     aaDatalabels
-    .styleSet(AAStyle.new
-              .fontSizeSet(@"10px")
-              .fontWeightSet(AAChartFontWeightTypeBold)
-              .colorSet(AAColor.redColor)
-              .textOutlineSet(@"1px 1px contrast")
-              )
+    .styleSet(AAStyleColorSizeWeightOutline(AAColor.redColor, 10, AAChartFontWeightTypeBold, @"1px 1px contrast"))
     .formatterSet(dataLabelsFormatter)
     .backgroundColorSet(AAColor.whiteColor)// white color
     .borderColorSet(AAColor.redColor)// red color
