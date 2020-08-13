@@ -52,9 +52,7 @@
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
 
-#define ColorWithRGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
-#define AABlueColor            ColorWithRGB(63, 153,231,1)
 
 @interface MainVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -80,15 +78,12 @@
 
 - (void)configTheTableView {
     UITableView *tableView = [[UITableView alloc]init];
+    tableView.frame = self.view.bounds;
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.sectionHeaderHeight = 50;
-    tableView.frame = CGRectMake(0, 0, 100, self.view.frame.size.height);
     [self.view addSubview:tableView];
-    
-    tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraints:[self configureTheConstraintArrayWithItem:tableView toItem:self.view]];
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -97,19 +92,19 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc]init];
+    UIView *sectionHeaderView = [[UIView alloc]init];
     
-    UILabel *label = [[UILabel alloc]init];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont boldSystemFontOfSize:16.0f];
-    label.backgroundColor = AAGrayColor;
-    label.textColor = [UIColor purpleColor];
-    label.text = self.sectionTypeArr[section];
-    [view addSubview:label];
-    
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    [view addConstraints:[self configureTheConstraintArrayWithItem:label toItem:view]];
-    return view;
+    UILabel *sectionTitleLabel = [[UILabel alloc]init];
+    sectionTitleLabel.frame = sectionHeaderView.bounds;
+    sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleWidth;
+    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
+    sectionTitleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    sectionTitleLabel.backgroundColor = AAGrayColor;
+    sectionTitleLabel.textColor = [UIColor purpleColor];
+    sectionTitleLabel.text = self.sectionTypeArr[section];
+    [sectionHeaderView addSubview:sectionTitleLabel];
+
+    return sectionHeaderView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -299,39 +294,6 @@
             break;
     }
     
-}
-
-- (NSArray *)configureTheConstraintArrayWithItem:(UIView *)view1 toItem:(UIView *)view2 {
-    return  @[[NSLayoutConstraint constraintWithItem:view1
-                                           attribute:NSLayoutAttributeLeft
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:view2
-                                           attribute:NSLayoutAttributeLeft
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:view1
-                                           attribute:NSLayoutAttributeRight
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:view2
-                                           attribute:NSLayoutAttributeRight
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:view1
-                                           attribute:NSLayoutAttributeTop
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:view2
-                                           attribute:NSLayoutAttributeTop
-                                          multiplier:1.0
-                                            constant:0],
-              [NSLayoutConstraint constraintWithItem:view1
-                                           attribute:NSLayoutAttributeBottom
-                                           relatedBy:NSLayoutRelationEqual
-                                              toItem:view2
-                                           attribute:NSLayoutAttributeBottom
-                                          multiplier:1.0
-                                            constant:0],
-              
-              ];
 }
 
 - (NSArray *)sectionTypeArr {
