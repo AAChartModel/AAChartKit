@@ -33,7 +33,7 @@
                 var aaOptions = JSON.parse(sender, function (key, value) {
                   if (   typeof(value) == 'string'
                       && value.indexOf('function') != -1) {
-                     return eval("(function(){return " + value + " })()")
+                     return eval(value)
                   }
                    return value;
                 });
