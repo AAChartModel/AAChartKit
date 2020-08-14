@@ -120,7 +120,7 @@
     
     
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .sharedSet(false)
@@ -188,7 +188,7 @@
         .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
@@ -252,7 +252,7 @@
         .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
@@ -314,7 +314,7 @@
     ]);
     
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
@@ -383,7 +383,7 @@
     NSString *pointFormatStr = [NSString stringWithFormat:@"%@%@%@%@%@%@",str1,str2,str3,str4,str5,str6];
     
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .useHTMLSet(true)
     .headerFormatSet(@"<em>实验号码： {point.key}</em><br/>")
@@ -413,7 +413,7 @@
         .dataSet( @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions
     .yAxis.labels
     .formatterSet(@AAJSFunc(function () {
@@ -464,7 +464,7 @@
         .stackSet(@"female"),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.plotOptions.series.states = AAStates.new
     .inactiveSet(AAInactive.new
@@ -519,7 +519,7 @@
         .dataSet( @[@29.9, @71.5, @106.4, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis
     .lineWidthSet(@1)
     .lineColorSet(@"rgba(255,255,255,0.3)")
@@ -587,7 +587,7 @@
         .dataSet( @[ @148.5, @216.4, @194.1, @95.6, @54.4, @129.2, @144.0, @176.0,@29.9, @71.5, @106.4, @135.6,]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis
     .lineWidthSet(@1)
     .lineColorSet(@"rgba(255,255,255,0.3)")
@@ -657,7 +657,7 @@
         .dataSet(@[@0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f, @0.f,]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis
     .lineWidthSet(@1)
     .lineColorSet(@"rgba(255,255,255,0.3)")
@@ -733,7 +733,7 @@
         return %@[this.value];
     })),categoryJSArrStr];
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.tooltip
     .useHTMLSet(true)
@@ -873,7 +873,7 @@
             @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels
     .formatterSet(@AAJSFunc(function () {
         let xValue = this.value;
@@ -950,7 +950,7 @@
         .lineWidthSet(@0),
     ]);
 
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@"function () {\
@@ -1000,7 +1000,7 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, ]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     NSArray *categoryArr = @[
         @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
@@ -1124,7 +1124,7 @@ function () {
     return wholeContentString;
     }),总时长JS数组, 有效时长JS数组, 看近时长JS数组, 看中时长JS数组, 看远时长JS数组, 切换次数JS数组, 停止次数JS数组, 干预次数JS数组];
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     aaOptions.tooltip
     //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
@@ -1179,7 +1179,7 @@ function () {
         .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, ]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.chart
     .marginLeftSet(@80)
@@ -1236,7 +1236,7 @@ function () {
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2]),
     ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     
     NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
@@ -1321,7 +1321,7 @@ function () {
     })),imageLinkFlagJSArrStr];
     
     //    https://api.highcharts.com.cn/highcharts#xAxis.labels.formatter
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels
     .useHTMLSet(true)
     .formatterSet(xLabelsFormatter)
@@ -1388,7 +1388,7 @@ function () {
     ]);
     ;
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.legend
     .enabledSet(true)
@@ -1474,7 +1474,7 @@ function () {
                ])
     ;
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.tooltip
     .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
@@ -1588,7 +1588,7 @@ function () {
     
     //https://zhidao.baidu.com/question/301691908.html
     //https://jshare.com.cn/highcharts/hhhhGc
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .sharedSet(true)
