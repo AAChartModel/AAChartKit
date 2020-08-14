@@ -129,7 +129,7 @@
         .dataSet(@[@60000, @51000, @52000, @53000, @64000, @84000, @65000, @68000, @63000, @47000, @72000, @60000, @65000, @74000, @66000, @65000, @71000, @59000, @65000, @77000, @52000, @53000, @58000, @53000]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.chart
     .marginSet(AAMargin(100,100,100,100));
@@ -411,7 +411,7 @@
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.visible = false;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     return aaOptions;
@@ -436,7 +436,7 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     //    *  关于 `pointPadding`
     //https://api.highcharts.com.cn/highcharts#plotOptions.column.groupPadding
@@ -497,7 +497,7 @@
                ]);
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
     .useHTMLSet(true)
@@ -526,7 +526,7 @@
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.chart.marginLeft = @70;
     aaOptions.chart.marginRight = @70;
     return aaOptions;
@@ -556,7 +556,7 @@
                  ]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.chart.plotBackgroundImage = @"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2859216016,2109779587&fm=27&gp=0.jpg";
     return aaOptions;
 }
@@ -670,7 +670,7 @@
     //数值格式化字符串是采用了 C 语言浮点型格式化的子集，格式化字符是在大括号内，变量之后，用冒号（:）分隔的内容。
     //默认情况下点号（.）表示小数点，空格（ ）代表千分符，当然这两个符号可以在 语言文字 选项集里中来设定。
     //具体参见 https://www.hcharts.cn/docs/basic-labels-string-formatting#h2-1
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip.valueDecimals = @9;//设置tooltip取值精确到小数点后9位
     aaOptions.plotOptions.area.dataLabels.format = @"{point.y:.9f}";//设置dataLabels取值精确到小数点后9位
     return aaOptions;
@@ -689,7 +689,7 @@
         .dataSet(@[@211,@183,@157,@133,@111]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AAColumn *aaColumn = aaOptions.plotOptions.column;
     aaColumn.groupPadding = @0.05;
     aaColumn.colorByPoint = true;
@@ -736,12 +736,10 @@
     .stackingSet(AAChartStackingTypeNormal)
     .dataLabelsSet(AADataLabels.new
                    .enabledSet(true)
-                   .styleSet(AAStyle.new
-                             .colorSet(AAColor.whiteColor)
-                             .fontSizeSet(@"15px")
-                             .fontWeightSet(AAChartFontWeightTypeThin)
-                             .textOutlineSet(@"0px 0px contrast")
-                             )
+                   .styleSet([AAStyle styleWithColor:AAColor.whiteColor
+                                           fontSize:15
+                                         fontWeight:AAChartFontWeightTypeThin
+                                        textOutline:@"0px 0px contrast"])
                    )
     .pointPaddingSet(@0)//Padding between each value groups, in x axis units. default：0.2.
     .groupPaddingSet(@0.005)//Padding between each column or bar, in x axis units. default：0.1.
@@ -872,7 +870,7 @@
                ]
                )
     ;
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     NSDictionary *xAxisDic = @{
         @"type": @"datetime",
         @"dateTimeLabelFormats": @{
@@ -895,7 +893,7 @@
         .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     return aaOptions;
@@ -921,7 +919,7 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
     /*默认是：{
@@ -959,8 +957,7 @@
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeColumn)
-                            .backgroundColorSet(@"#161139")
-              )
+              .backgroundColorSet(@"#161139"))
     .titleSet(AATitle.new.textSet(@""))
     .xAxisSet(AAXAxis.new
               .visibleSet(true)
@@ -1051,7 +1048,7 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2,]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AAColumn *aaColumn = aaOptions.plotOptions.column;
     aaColumn.groupPadding = @0.02;
     //是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，
@@ -1147,7 +1144,7 @@
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     
     NSArray *aaPlotBandsArr = @[
@@ -1210,7 +1207,7 @@
         .zIndexSet(@0)
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels.enabled = false;
     aaOptions.xAxis.tickWidth = @0;
     aaOptions.plotOptions.series.animation = (id)@(false);//禁用图表的渲染动画效果
@@ -1344,7 +1341,7 @@
                   ]),
                ]);
     //    @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",]
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     NSArray *aaPlotLinesArr = @[
         AAPlotLinesElement.new
@@ -1355,9 +1352,7 @@
         .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
                   .textSet(@"PLOT LINES ONE")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#1e90ff")
-                            .fontWeightSet(AAChartFontWeightTypeBold)))
+                  .styleSet(AAStyleColorSizeWeight(@"#1e90ff", 13, AAChartFontWeightTypeBold)))
         ,
         AAPlotLinesElement.new
         .colorSet(@"#ef476f")
@@ -1366,9 +1361,7 @@
         .valueSet(@(24))
         .labelSet(AALabel.new
                   .textSet(@"PLOT LINES TWO")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#ef476f")
-                            .fontWeightSet(AAChartFontWeightTypeBold)))
+                  .styleSet(AAStyleColorSizeWeight(@"#ef476f", 13, AAChartFontWeightTypeBold)))
         ,
         AAPlotLinesElement.new
         .colorSet(@"#04d69f")
@@ -1377,9 +1370,7 @@
         .valueSet(@(36))
         .labelSet(AALabel.new
                   .textSet(@"PLOT LINES THREE")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#04d69f")
-                            .fontWeightSet(AAChartFontWeightTypeBold)))
+                  .styleSet(AAStyleColorSizeWeight(@"#04d69f", 13, AAChartFontWeightTypeBold)))
     ];
     
     AAYAxis *aaYAxis = aaOptions.yAxis;
@@ -1412,17 +1403,18 @@
             @4.17, @3.85, @4.17, @3.46, @3.46, @3.55,]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
-    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
-    aaDatalabels
+    aaOptions.plotOptions.series.dataLabels
     .ySet(@-10)
     .formatSet(@"{y}美元")
     .colorSet(AAColor.redColor)
     .backgroundColorSet(AAColor.whiteColor)
     .borderColorSet(AAColor.redColor)
+    .shapeSet(@"callout")
     .borderRadiusSet(@1)
     .borderWidthSet(@1);
+    
     return aaOptions;
 }
 
@@ -1487,25 +1479,20 @@
         .dataSet(dataArr),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
     
-    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
-    aaDatalabels
+    aaOptions.plotOptions.series.dataLabels
     .xSet(@3)
-    .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
     .ySet(@-20)
-    .styleSet(AAStyle.new
-              .fontSizeSet(@"10px")
-              .fontWeightSet(AAChartFontWeightTypeBold)
-              .colorSet(AAColor.redColor)
-              .textOutlineSet(@"1px 1px contrast")
-              )
+    .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
     .backgroundColorSet(AAColor.whiteColor)// white color
     .borderColorSet(AAColor.redColor)// red color
+    .shapeSet(@"callout")
     .borderRadiusSet(@1.5)
     .borderWidthSet(@1.3)
+    .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
     ;
     return aaOptions;
 }
@@ -1538,7 +1525,7 @@
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
     aaOptions.xAxis.labels.useHTML = true;
     return aaOptions;
@@ -1574,7 +1561,7 @@
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.labels.format = @"{value} %";//给y轴添加单位
     aaOptions.xAxis.labels.useHTML = true;
     return aaOptions;
@@ -1608,7 +1595,7 @@
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.plotOptions.series
     .dataLabels
@@ -1679,7 +1666,7 @@
         .colorSet(@"#25547c")
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
     NSArray *aaPlotBandsArr = @[
@@ -1726,7 +1713,7 @@
         ,
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AADataLabels *aaDataLabels = aaOptions.plotOptions.series.dataLabels;
     
     //通过设置 crop 为 false 及 overflow 为"none" 可以让数据标签显示在绘图区的外面
@@ -1759,7 +1746,7 @@
         .dataSet(@[@140,@120,@100,@80,@60,@40,@20])
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.plotOptions.series
     .dataLabelsSet(AADataLabels.new
@@ -2249,7 +2236,7 @@
         .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .sharedSet(true)
     .useHTMLSet(true)
@@ -2286,7 +2273,7 @@
         ,
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.xAxis
     .tickWidthSet(@0); //隐藏 X轴刻度线
@@ -2340,7 +2327,7 @@
         .dataSet(@[@0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, ]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.yAxis
     .minSet(@0)
@@ -2375,7 +2362,7 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.plotOptions
     .splineSet(AASpline.new
@@ -2427,7 +2414,7 @@
                  ])])
     ;
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    AAOptions *aaOptions = chartModel.aa_toAAOptions;
     aaOptions.chart
     .marginLeftSet(@120)
     .marginRightSet(@120)
@@ -2466,7 +2453,7 @@
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @13.2, @18.2, @29.5, @21.5, ]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels.useHTML = true;
     return aaOptions;
 }
@@ -2500,7 +2487,7 @@
         .dataSet(@[@17.0, @16.9, @12.5,]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
