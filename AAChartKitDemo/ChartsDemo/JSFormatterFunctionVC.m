@@ -1613,7 +1613,7 @@ function () {
         
         return '<style>\
         div{margin:0;padding:0}\
-        #container{width:300px;height:40px;border:80px;marigin:}\
+        #container{width:300px;height:40px;border:80px;}\
         #container .box1{width:150px;height:40px;float:left;background:red;line-height:40px;color:#fff}\
         #container .box2{width:150px;height:40px;float:right;background:green;line-height:40px;color:#fff}\
         </style>\
