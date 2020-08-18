@@ -35,7 +35,7 @@
 #import <Foundation/Foundation.h>
 #import "AAGlobalMacro.h"
 
-@class AAAnimation, AAScrollablePlotArea;
+@class AAAnimation, AAScrollablePlotArea, AAResetZoomButton;
 
 @interface AAChart : NSObject
 
@@ -54,6 +54,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRig
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginBottom) //👇
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft) //👈
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAScrollablePlotArea *, scrollablePlotArea)
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAResetZoomButton *, resetZoomButton)
 
 @end
 
@@ -66,6 +67,17 @@ AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *,
 AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *, opacity)
 AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *, scrollPositionX)
 AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *, scrollPositionY)
+
+@end
+
+
+@class AAPosition;
+
+@interface AAResetZoomButton : NSObject
+
+AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, AAPosition   *, position)
+AAPropStatementAndPropSetFuncStatement(copy  , AAResetZoomButton, NSString     *, relativeTo)
+AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, NSDictionary *, theme)
 
 @end
 

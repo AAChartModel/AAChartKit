@@ -460,6 +460,8 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/199
+//https://github.com/AAChartModel/AAChartKit/issues/954
 - (AAOptions *)configureCustomStyleTooltipChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
@@ -469,6 +471,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
     .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .zoomTypeSet(AAChartZoomTypeX)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
         @"10-12",@"10-13",@"10-14",@"10-15",@"10-16",@"10-17",@"10-18",@"10-19",@"10-20",@"10-21",@"10-22",
@@ -496,10 +499,16 @@
                  ])
                ]);
     
-    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    AATooltip *tooltip = aaOptions.tooltip;
-    tooltip
+    
+    aaOptions.chart
+    .resetZoomButtonSet(AAResetZoomButton.new
+                        .themeSet(@{
+                            @"display":@"none"//隐藏图表缩放后的默认显示的缩放按钮
+                                  }));
+    
+    /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
+    aaOptions.tooltip
     .useHTMLSet(true)
     .headerFormatSet(@"🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br>")
     .pointFormatSet(@" Support format properties Just Right Now !!!<br>")
@@ -507,10 +516,9 @@
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet(AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px"))
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
+        
     return aaOptions;
 }
 
