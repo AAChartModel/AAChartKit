@@ -824,17 +824,16 @@
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
     ];
-    
     NSDictionary *gradientBlueColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:blueStopsArr];
+    
     
     NSArray *redStopsArr = @[
         @[@0.0, AARgbaColor(255, 0, 0, 0.6)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
     ];
-    
     NSDictionary *gradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:redStopsArr];
@@ -871,37 +870,36 @@
         @[@0.8, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
     ];
-    
     NSDictionary *gradientBlueColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:blueStopsArr];
+    
     
     NSArray *toBottomBlueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
     ];
-    
     NSDictionary *toBottomGradientBlueColorDic =
        [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                         stopsArray:toBottomBlueStopsArr];
+    
     
     NSArray *redStopsArr = @[
         @[@0.0, AARgbaColor(255, 0, 0, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.85, AARgbaColor(255, 0, 0, 0.0)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.6)]
     ];
-    
     NSDictionary *gradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:redStopsArr];
+    
     
     NSArray *toBottomRedStopsArr = @[
         @[@0.0, AARgbaColor(255, 0, 0, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.6)]
     ];
-    
     NSDictionary *toBottomGradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:toBottomRedStopsArr];
