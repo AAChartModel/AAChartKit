@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AADataLabels,AATooltip,AAStates,AAShadow,AAZonesElement,AADataSorting;
+@class AAMarker, AADataLabels, AATooltip, AAStates, AAShadow, AAZonesElement, AADataSorting;
 
 @interface AASeriesElement : NSObject
 

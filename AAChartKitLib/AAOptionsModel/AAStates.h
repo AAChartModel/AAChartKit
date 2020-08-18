@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class AAHover,AASelect,AAHalo,AAInactive;
+@class AAHover, AASelect, AAHalo, AAInactive;
 
 @interface AAStates : NSObject
 

@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAAxisTitle,AALabels,AACrosshair,AAStyle,AAPlotBandsElement,AAPlotLinesElement;
+@class AAAxisTitle, AALabels, AACrosshair, AAStyle, AAPlotBandsElement, AAPlotLinesElement;
 
 typedef NSString *AAYAxisGridLineInterpolation;
 static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationCircle  = @"circle";//圆形

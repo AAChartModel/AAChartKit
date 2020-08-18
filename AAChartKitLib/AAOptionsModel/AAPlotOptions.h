@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAColumn,AABar,AALine,AASpline,AAArea,AAAreaspline,AAPie,AASeries;
+@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AASeries;
 
 @interface AAPlotOptions : NSObject
 

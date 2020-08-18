@@ -34,7 +34,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class AAPosition,AAStyle;
+@class AAPosition, AAStyle;
 
 @interface AACredits : NSObject
 

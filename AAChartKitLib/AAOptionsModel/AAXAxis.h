@@ -34,7 +34,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AALabels,AACrosshair,AAPlotBandsElement,AAPlotLinesElement;
+@class AALabels, AACrosshair, AAPlotBandsElement, AAPlotLinesElement;
 
 @interface AAXAxis : NSObject
 

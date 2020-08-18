@@ -34,7 +34,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker,AAAnimation,AAShadow,AADataLabels,AAEvents,AAStates,AAPoint;
+@class AAMarker, AAAnimation, AAShadow, AADataLabels, AAEvents, AAStates, AAPoint;
 
 @interface AASeries : NSObject
 
