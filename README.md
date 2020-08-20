@@ -124,12 +124,10 @@ pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
 2. Create an instance object of chart view:`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
-CGFloat chartViewHeight = self.view.frame.size.height-250;
+CGFloat chartViewHeight = self.view.frame.size.height - 250;
 _aaChartView = [[AAChartView alloc]init];
 _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 //_aaChartView.scrollEnabled = NO;
-//// set the content height of aaChartView
-// _aaChartView.contentHeight = chartViewHeight;
 [self.view addSubview:_aaChartView];
 ```
 
@@ -306,9 +304,7 @@ For example
     .valueDecimalsSet(@2)
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px"))
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
 ```
 
@@ -526,7 +522,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPl
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText);
 
 ```
 

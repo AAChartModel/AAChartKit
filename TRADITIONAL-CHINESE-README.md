@@ -84,13 +84,11 @@
 2. 創建視圖`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
-CGFloat chartViewHeight = self.view.frame.size.height-250;
+CGFloat chartViewHeight = self.view.frame.size.height - 250;
 _aaChartView = [[AAChartView alloc]init];
 _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 ////禁用 AAChartView 滾動效果(默認不禁用)
 //self.aaChartView.scrollEnabled = NO;
-////設置圖表視圖的內容高度(默認 contentHeight 和 AAChartView 的高度相同)
-//_aaChartView.contentHeight = chartViewHeight;
 [self.view addSubview:_aaChartView];
 ```
 3. 配置視圖模型`AAChartModel`
@@ -254,9 +252,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
     .valueDecimalsSet(@2)//設置取值精確到小數點後幾位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px"))
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
 ```
 即可完成圖表的浮動提示框的特殊定制化.得到的浮動提示框的視覺效果圖如下👇
@@ -447,8 +443,6 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connect
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) //是否顯示圖例 lengend(圖表底部可點按的圓點和文字)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius) //柱狀圖長條圖頭部圓角半徑(可用於設置頭部的形狀,僅對條形圖,柱狀圖有效)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius) //折線連接點的半徑長度
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText)  //String to display in 'zoom reset button"
-
 
 ```
 

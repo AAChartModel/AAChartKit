@@ -95,13 +95,11 @@
 2. 创建视图`AAChartView`
 ```objective-c
 CGFloat chartViewWidth  = self.view.frame.size.width;
-CGFloat chartViewHeight = self.view.frame.size.height-250;
+CGFloat chartViewHeight = self.view.frame.size.height - 250;
 _aaChartView = [[AAChartView alloc]init];
 _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 ////禁用 AAChartView 滚动效果(默认不禁用)
 //self.aaChartView.scrollEnabled = NO;
-////设置图表视图的内容高度(默认 contentHeight 和 AAChartView 的高度相同)
-//_aaChartView.contentHeight = chartViewHeight;
 [self.view addSubview:_aaChartView];
 ```
 3. 配置视图模型`AAChartModel`
@@ -272,9 +270,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
-    .styleSet((id)AAStyle.new
-              .colorSet(@"#FFD700")
-              .fontSizeSet(@"12px"))
+    .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
 ```
 得到的浮动提示框的视觉效果图如下👇
@@ -512,8 +508,6 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connect
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) //是否显示图例 lengend(图表底部可点按的圆点和文字)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius) //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, zoomResetButtonText)  //String to display in 'zoom reset button"
-
 
 ```
 
