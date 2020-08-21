@@ -401,9 +401,11 @@
 - (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
     switch (segmentedControl.tag) {
         case 0: {
-            NSArray *stackingArr = @[AAChartStackingTypeFalse,
-                                     AAChartStackingTypeNormal,
-                                     AAChartStackingTypePercent];
+            NSArray *stackingArr = @[
+                AAChartStackingTypeFalse,
+                AAChartStackingTypeNormal,
+                AAChartStackingTypePercent
+            ];
             _aaChartModel.stacking = stackingArr[segmentedControl.selectedSegmentIndex];
         }
             break;
@@ -413,12 +415,13 @@
                 NSArray *borderRadiusArr = @[ @0, @10, @100 ];
                 _aaChartModel.borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
             } else {
-                
-                NSArray *symbolArr = @[AAChartSymbolTypeCircle,
-                                       AAChartSymbolTypeSquare,
-                                       AAChartSymbolTypeDiamond,
-                                       AAChartSymbolTypeTriangle,
-                                       AAChartSymbolTypeTriangle_down];
+                NSArray *symbolArr = @[
+                    AAChartSymbolTypeCircle,
+                    AAChartSymbolTypeSquare,
+                    AAChartSymbolTypeDiamond,
+                    AAChartSymbolTypeTriangle,
+                    AAChartSymbolTypeTriangle_down
+                ];
                 _aaChartModel.markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
             }
         }
