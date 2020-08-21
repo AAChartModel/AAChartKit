@@ -176,8 +176,7 @@
         .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
                   .textSet(@"PlotLines Element One")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#F05353")))
+                  .styleSet(AAStyleColor(@"#F05353")))
         ,
         AAPlotLinesElement.new
         .colorSet(@"#33BDFD")
@@ -187,8 +186,7 @@
         .zIndexSet(@5)
         .labelSet(AALabel.new
                   .textSet(@"PlotLines Element Two")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#33BDFD")))
+                  .styleSet(AAStyleColor(@"#33BDFD")))
         ,
         AAPlotLinesElement.new
         .colorSet(@"#ADFF2F")
@@ -198,8 +196,7 @@
         .zIndexSet(@5)
         .labelSet(AALabel.new
                   .textSet(@"PlotLines Element Three")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#ADFF2F")))
+                  .styleSet(AAStyleColor(@"#ADFF2F")))
                        ]);
 }
 
