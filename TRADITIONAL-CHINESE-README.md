@@ -230,6 +230,11 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
   
   @end
   ```
+   
+  監聽用戶點擊事件可實現多種多樣的自定義功能. 例如可通過用戶點擊事件回調來實現**雙表聯動**, 示例效果如下
+   
+   ![doubleChartsLinkage](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/doubleChartsLinkage.gif)
+
 
 
 ### 支持通過`JavaScript` 函數來自定義 `AATooltip`視圖顯示效果
