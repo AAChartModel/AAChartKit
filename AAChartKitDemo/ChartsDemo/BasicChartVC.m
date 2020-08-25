@@ -396,6 +396,8 @@
 }
 
 - (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
+    NSInteger selectedSegmentIndex = segmentedControl.selectedSegmentIndex;
+    
     switch (segmentedControl.tag) {
         case 0: {
             NSArray *stackingArr = @[
@@ -403,14 +405,14 @@
                 AAChartStackingTypeNormal,
                 AAChartStackingTypePercent
             ];
-            _aaChartModel.stacking = stackingArr[segmentedControl.selectedSegmentIndex];
+            _aaChartModel.stacking = stackingArr[selectedSegmentIndex];
         }
             break;
             
         case 1: {
             if (_chartType == 0 || _chartType == 1 ) {
                 NSArray *borderRadiusArr = @[ @0, @10, @100 ];
-                _aaChartModel.borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
+                _aaChartModel.borderRadius = borderRadiusArr[selectedSegmentIndex];
             } else {
                 NSArray *symbolArr = @[
                     AAChartSymbolTypeCircle,
@@ -419,7 +421,7 @@
                     AAChartSymbolTypeTriangle,
                     AAChartSymbolTypeTriangle_down
                 ];
-                _aaChartModel.markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
+                _aaChartModel.markerSymbol = symbolArr[selectedSegmentIndex];
             }
         }
             break;
@@ -483,19 +485,15 @@
 }
 
 - (void)switchViewClicked:(UISwitch *)switchView {
+    BOOL isOn = switchView.isOn;
+    
     switch (switchView.tag) {
-        case 0: _aaChartModel.xAxisReversed = switchView.on;
-            break;
-        case 1: _aaChartModel.yAxisReversed = switchView.on;
-            break;
-        case 2: _aaChartModel.inverted = switchView.on;
-            break;
-        case 3: _aaChartModel.polar = switchView.on;
-            break;
-        case 4: _aaChartModel.dataLabelsEnabled = switchView.on;
-            break;
-        case 5: _aaChartModel.markerRadius = switchView.on ? @0 : @5;
-            break;
+        case 0: _aaChartModel.xAxisReversed = isOn; break;
+        case 1: _aaChartModel.yAxisReversed = isOn; break;
+        case 2: _aaChartModel.inverted = isOn; break;
+        case 3: _aaChartModel.polar = isOn; break;
+        case 4: _aaChartModel.dataLabelsEnabled = isOn; break;
+        case 5: _aaChartModel.markerRadius = isOn ? @0 : @5; break;
         default:
             break;
     }
