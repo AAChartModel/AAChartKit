@@ -480,6 +480,7 @@
               @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
               @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
               @"yAxisOnTheRightSideChart---y轴在右侧的图表",
+              @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
             ],
             /*同时显示多个 AAChartView*/
             @[@"同时显示多个 AAChartView",

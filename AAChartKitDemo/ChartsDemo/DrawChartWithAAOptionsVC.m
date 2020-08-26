@@ -96,6 +96,7 @@
         case 48: return [self configureComplicatedCustomAreasplineChart2];//复杂自定义曲线填充图 2
         case 49: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
         case 50: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
+        case 51: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
 
     }
     return nil;
@@ -3071,6 +3072,57 @@
     AAOptions *aaOptions = [self configureComplicatedCustomAreasplineChart2];
 
     aaOptions.series = aaSeriesArr;
+    
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/981
+- (AAOptions *)doubleLayerHalfPieChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypePie)
+    .titleSet(@"浏览器市场占比历史对比")
+    .subtitleSet(@"无任何可靠依据的虚拟数据")
+    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
+    .yAxisTitleSet(@"摄氏度")
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Past")
+        .sizeSet((id)@"25%")//尺寸大小
+        .innerSizeSet(@"20%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataSet(@[
+            @[@"Firefox Past",   @3336.2],
+            @[@"Chrome Past",      @26.8],
+            @[@"Safari Past",      @88.5],
+            @[@"Opera Past",       @46.0],
+            @[@"Others Past",     @223.0],
+                 ]),
+        
+        AASeriesElement.new
+        .nameSet(@"Now")
+        .sizeSet((id)@"80%")//尺寸大小
+        .innerSizeSet(@"45%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataSet(@[
+            @[@"Firefox Now",    @336.2],
+            @[@"Chrome Now",    @6926.8],
+            @[@"Safari Now",     @388.5],
+            @[@"Opera Now",      @446.0],
+            @[@"Others Now",     @223.0],
+                 ])
+               ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.plotOptions
+    .pieSet(AAPie.new
+            .startAngleSet(@-138)
+            .endAngleSet(@138)
+            .dataLabelsSet(AADataLabels.new
+                           .enabledSet(false)))
+    ;
     
     return aaOptions;
 }
