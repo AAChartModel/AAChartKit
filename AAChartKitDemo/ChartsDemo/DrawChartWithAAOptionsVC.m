@@ -3082,7 +3082,7 @@
     .chartTypeSet(AAChartTypePie)
     .titleSet(@"浏览器市场占比历史对比")
     .subtitleSet(@"无任何可靠依据的虚拟数据")
-    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
+    .dataLabelsEnabledSet(false)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[
         AASeriesElement.new
@@ -3116,12 +3116,9 @@
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
-    aaOptions.plotOptions
-    .pieSet(AAPie.new
-            .startAngleSet(@-138)
-            .endAngleSet(@138)
-            .dataLabelsSet(AADataLabels.new
-                           .enabledSet(false)))
+    aaOptions.plotOptions.pie
+    .startAngleSet(@-138)
+    .endAngleSet(@138)
     ;
     
     return aaOptions;
