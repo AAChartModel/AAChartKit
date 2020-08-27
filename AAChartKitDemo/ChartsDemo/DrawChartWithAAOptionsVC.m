@@ -1069,7 +1069,7 @@
 }
 
 - (AAOptions *)simpleGaugeChart {
-    AAOptions *aaOptions2 = AAOptions.new
+    return AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge))
     .paneSet(AAPane.new
@@ -1088,12 +1088,10 @@
     .seriesSet(@[
         AASeriesElement.new
         .dataSet(@[@80])]);
-    
-    return aaOptions2;
 }
 
 - (AAOptions *)gaugeChartWithPlotBand {
-    AAOptions *aaOptions2 = AAOptions.new
+    return AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge))
     .titleSet(AATitle.new
@@ -1126,8 +1124,6 @@
         .nameSet(@"Speed")
         .dataSet(@[@80])
                ]);
-    
-    return aaOptions2;
 }
 
 - (AAOptions *)configureAAPlotBandsForChart {
