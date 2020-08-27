@@ -1131,6 +1131,11 @@
 }
 
 - (AAOptions *)configureAAPlotBandsForChart {
+    AACrosshair *aaCrosshair =
+    [AACrosshair crosshairWithColor:AAColor.grayColor
+                          dashStyle:AAChartLineDashStyleTypeLongDashDotDot
+                              width:@1.5];
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
     .backgroundColorSet(AAColor.whiteColor)
@@ -1138,13 +1143,9 @@
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .xAxisCrosshairSet(aaCrosshair)
+    .yAxisCrosshairSet(aaCrosshair)
     .legendEnabledSet(false)
-//    .xAxisCrosshairWidthSet(@1.5)
-//    .xAxisCrosshairColorSet(AAColor.grayColor)
-//    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
-//    .yAxisCrosshairWidthSet(@1.5)
-//    .yAxisCrosshairColorSet(AAColor.grayColor)
-//    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")

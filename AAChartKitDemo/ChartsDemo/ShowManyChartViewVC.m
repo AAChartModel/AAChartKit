@@ -109,12 +109,6 @@
     .yAxisCrosshairSet([AACrosshair crosshairWithColor:@"#ff0000"
                                              dashStyle:AAChartLineDashStyleTypeLongDashDot
                                                  width:@1.5f])
-//    .xAxisCrosshairWidthSet(@1.5)
-//    .xAxisCrosshairColorSet(@"#ff0000")
-//    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
-//    .yAxisCrosshairWidthSet(@1.5)
-//    .yAxisCrosshairColorSet(@"#ff0000")
-//    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2018")

@@ -232,9 +232,6 @@
                                               dashStyle:AAChartLineDashStyleTypeLongDashDot
                                                   width:@0.9]//Zero width to disable crosshair by default
                             );
-//    .xAxisCrosshairWidthSet(@0.9)//Zero width to disable crosshair by default
-//    .xAxisCrosshairColorSet(@"#FFE4C4")//(浓汤)乳脂,番茄色准星线
-//    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot);
     if (_chartType == BasicChartVCChartTypeArea) {
         _aaChartModel
         .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);//设置 X 轴坐标文字内容
@@ -265,10 +262,6 @@
                                               dashStyle:AAChartLineDashStyleTypeLongDashDotDot
                                                   width:@1.2]//Zero width to disable crosshair by default
                             );
-//    .xAxisCrosshairWidthSet(@01.2)//Zero width to disable crosshair by default
-//    .xAxisCrosshairColorSet(@"#778899")//浅石板灰准星线
-//    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot);
-    
     if (_chartType == BasicChartVCChartTypeLine) {
         _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容
     } else if (_chartType == BasicChartVCChartTypeSpline) {
