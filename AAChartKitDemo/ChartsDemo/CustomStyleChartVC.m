@@ -233,7 +233,7 @@
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .yAxisTitleSet(@"摄氏度")
     .dataLabelsEnabledSet(true)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"本专业")
@@ -318,7 +318,7 @@
     .titleSet(@"带有数据阈值标志线的区域填充图")
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
     .subtitleSet(@"横屏查看效果更佳")
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0.5])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .dataLabelsEnabledSet(true)
     .yAxisPlotLinesSet(aaPlotLinesArr)
@@ -369,7 +369,7 @@
     .titleSet(@"带有负数的区域填充图")
     .markerRadiusSet(@0)//设置折线连接点宽度为0,即是隐藏连接点
     .subtitleSet(@"横屏查看效果更佳")
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"HTML",@"CSS",@"Perl",@"R",@"MATLAB",@"SQL"])
     .colorsThemeSet(@[@"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81", @"#EA007B"])
     .seriesSet(@[
@@ -529,7 +529,7 @@
     .backgroundColorSet(@"#FFFFFF")
     .markerRadiusSet(@0)
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -560,7 +560,7 @@
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -586,7 +586,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
     .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -667,7 +667,7 @@
                                  endColorString:@"rgba(30, 144, 255,0.1)"];//DodgerBlue, alpha 透明度 0.1
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",@"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"])
     .dataLabelsEnabledSet(false)//是否显示值
     .markerRadiusSet(@8)
@@ -722,7 +722,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
     .yAxisMaxSet(@3.5)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@8)
     .seriesSet(@[element1,element2,element3,element4]);
@@ -740,7 +740,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .yAxisMaxSet(@15.0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .xAxisVisibleSet(false)
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
@@ -761,7 +761,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .yAxisMaxSet(@15.0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .xAxisVisibleSet(false)
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
@@ -927,7 +927,7 @@
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@8.0)//marker点半径为8个像素
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -956,7 +956,7 @@
                    ])
     .markerRadiusSet(@8.0)//marker点半径为8个像素
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .seriesSet(@[
@@ -1034,7 +1034,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .stackingSet(AAChartStackingTypeNormal)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .markerRadiusSet(@0)
     .categoriesSet(categories)
     .colorsThemeSet(colorsTheme)
@@ -1336,7 +1336,7 @@
                    ])
     .markerRadiusSet(@0)//marker点半径为0个像素
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new

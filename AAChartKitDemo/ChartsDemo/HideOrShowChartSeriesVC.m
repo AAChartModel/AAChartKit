@@ -76,7 +76,7 @@
     .subtitleSet(@"2020/08/08")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
     .scrollablePlotAreaSet(
           AAScrollablePlotArea.new

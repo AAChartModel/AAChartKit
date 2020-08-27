@@ -119,7 +119,7 @@
     .chartTypeSet(AAChartTypeLine)//图表类型
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .yAxisMaxSet(@95)
     .markerRadiusSet(@8)
     .markerSymbolSet(AAChartSymbolTypeCircle)
@@ -191,7 +191,7 @@
     .chartTypeSet(AAChartTypeLine)//图表类型
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .markerRadiusSet(@8)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
@@ -214,12 +214,12 @@
 
 //五边形雷达图
 - (AAOptions *)configurePentagonRadarChart {
-    AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:1];
+    AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:@1];
     
     AACrosshair *crosshair =
     [AACrosshair crosshairWithColor:AAColor.whiteColor
                           dashStyle:AAChartLineDashStyleTypeLongDashDotDot
-                              width:1.5];
+                              width:@1.5];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)

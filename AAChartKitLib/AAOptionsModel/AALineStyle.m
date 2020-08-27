@@ -39,36 +39,34 @@ AAPropSetFuncImplementation(AALineStyle, NSString *, dashStyle)  //准星线样�
 AAPropSetFuncImplementation(AALineStyle, NSNumber *, width)  //准星线宽度
 AAPropSetFuncImplementation(AALineStyle, NSNumber *, zIndex)  //准星线的层叠值, 增大层叠值可以让准星线显示在数据里或网格线的上方。 默认是：2.
 
-+ (AALineStyle *)styleWithWidth:(float)width {
-    AALineStyle *aaLineStyle = [[AALineStyle alloc]init];
-    aaLineStyle.width = @(width);
-    return aaLineStyle;
++ (AALineStyle *)styleWithWidth:(NSNumber *)width {
+    return [self styleWithColor:nil dashStyle:nil width:width];
 }
 
 + (AALineStyle *)styleWithColor:(NSString *)color {
-    return [self styleWithColor:color dashStyle:@"Solid"];
+    return [self styleWithColor:color dashStyle:nil];
 }
 
 + (AALineStyle *)styleWithColor:(NSString *)color
                       dashStyle:(NSString *)dashStyle {
-    return [self styleWithColor:color dashStyle:dashStyle width:0];
+    return [self styleWithColor:color dashStyle:dashStyle width:nil];
 }
 
 + (AALineStyle *)styleWithColor:(NSString *)color
                       dashStyle:(NSString *)dashStyle
-                          width:(float)width {
-    return [self styleWithColor:color dashStyle:dashStyle width:width zIndex:0];
+                          width:(NSNumber *)width {
+    return [self styleWithColor:color dashStyle:dashStyle width:width zIndex:nil];
 }
 
 + (AALineStyle *)styleWithColor:(NSString *)color
                       dashStyle:(NSString *)dashStyle
-                          width:(float)width
-                         zIndex:(NSUInteger)zIndex {
+                          width:(NSNumber *)width
+                         zIndex:(NSNumber *)zIndex {
     AALineStyle *aaLineStyle = [[AALineStyle alloc]init];
     aaLineStyle.color = color;
     aaLineStyle.dashStyle = dashStyle;
-    aaLineStyle.width = @(width);
-    aaLineStyle.zIndex = @(zIndex);
+    aaLineStyle.width = width;
+    aaLineStyle.zIndex = zIndex;
     return aaLineStyle;
 }
 

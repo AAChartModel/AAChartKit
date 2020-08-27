@@ -68,7 +68,7 @@
     return AAChartModel.new
     .titleSet(@"面积范围均线图")
     .subtitleSet(@"混合图的一种")
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .xAxisVisibleSet(false)
     .yAxisTitleSet(@"摄氏度")
     .seriesSet(@[
@@ -164,7 +164,7 @@
     .yAxisTitleSet(@"摄氏度")
     .markerRadiusSet(@6)
     .yAxisVisibleSet(true)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .chartTypeSet(AAChartTypeLine)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
@@ -270,7 +270,7 @@
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0",@"cyan",@"gray"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)//隐藏连接点
     .seriesSet(@[
@@ -317,7 +317,7 @@
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
     .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
     .markerRadiusSet(@0)//隐藏连接点
     .seriesSet(@[
@@ -845,7 +845,7 @@
     .dataLabelsEnabledSet(false)
     .markerRadiusSet(@5)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Column")
@@ -911,7 +911,7 @@
     .markerRadiusSet(@3)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"BLUE")

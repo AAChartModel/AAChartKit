@@ -105,10 +105,10 @@
     .markerRadiusSet(@6)
     .xAxisCrosshairSet([AACrosshair crosshairWithColor:@"#ff0000"
                                              dashStyle:AAChartLineDashStyleTypeDashDot
-                                                 width:1.5f])
+                                                 width:@1.5f])
     .yAxisCrosshairSet([AACrosshair crosshairWithColor:@"#ff0000"
                                              dashStyle:AAChartLineDashStyleTypeLongDashDot
-                                                 width:1.5f])
+                                                 width:@1.5f])
 //    .xAxisCrosshairWidthSet(@1.5)
 //    .xAxisCrosshairColorSet(@"#ff0000")
 //    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)

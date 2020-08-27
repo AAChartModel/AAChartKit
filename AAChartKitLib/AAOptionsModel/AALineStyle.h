@@ -32,8 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AALineStyle : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, color)  //准星线颜色
@@ -41,7 +39,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, dashStyl
 AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, width)  //准星线宽度
 AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, zIndex)  //准星线的层叠值,
 
-+ (AALineStyle *)styleWithWidth:(float)width;
++ (AALineStyle *)styleWithWidth:(NSNumber *)width;
 
 + (AALineStyle *)styleWithColor:(NSString *)color;
 
@@ -50,13 +48,11 @@ AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, zIndex) 
 
 + (AALineStyle *)styleWithColor:(NSString *)color
                       dashStyle:(NSString *)dashStyle
-                          width:(float)width;
+                          width:(NSNumber *)width;
 
 + (AALineStyle *)styleWithColor:(NSString *)color
                       dashStyle:(NSString *)dashStyle
-                          width:(float)width
-                         zIndex:(NSUInteger)zIndex;
+                          width:(NSNumber *)width
+                         zIndex:(NSNumber *)zIndex;
 
 @end
-
-NS_ASSUME_NONNULL_END

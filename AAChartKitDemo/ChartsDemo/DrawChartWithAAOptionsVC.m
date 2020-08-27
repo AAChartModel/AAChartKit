@@ -401,8 +401,8 @@
     .chartTypeSet(AAChartTypeArea)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:1])//y轴横向分割线宽度为0(即是隐藏分割线)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0.5])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerRadiusSet(@0)
     .polarSet(true)
     .seriesSet(@[
@@ -425,8 +425,8 @@
     .subtitleSet(@"调整一下groupPadding即可")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:1])//y轴横向分割线宽度为0(即是隐藏分割线)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0.5])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerRadiusSet(@0)
     .dataLabelsEnabledSet(true)
     .seriesSet(@[
@@ -471,7 +471,7 @@
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0.8])//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.8])//y轴横向分割线宽度(为0即是隐藏分割线)
     .zoomTypeSet(AAChartZoomTypeX)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
@@ -668,7 +668,7 @@
     .dataLabelsEnabledSet(true)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0.5])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .seriesSet(@[
         AASeriesElement.new
@@ -1137,7 +1137,7 @@
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
 //    .xAxisCrosshairWidthSet(@1.5)
 //    .xAxisCrosshairColorSet(AAColor.grayColor)
@@ -1205,7 +1205,7 @@
     .categoriesSet(categories)
     .backgroundColorSet(AAColor.whiteColor)
     .markerRadiusSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -1326,7 +1326,7 @@
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -1396,7 +1396,7 @@
     .dataLabelsEnabledSet(true)
     .yAxisLineWidthSet(0)
     .legendEnabledSet(false)
-    .xAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.grayColor dashStyle:AAChartLineDashStyleTypeLongDashDot width:1])
+    .xAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.grayColor dashStyle:AAChartLineDashStyleTypeLongDashDot width:@1])
     .tooltipEnabledSet(false)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",
@@ -1659,7 +1659,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
     .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -2268,7 +2268,7 @@
     .markerRadiusSet(@4)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"智能设备记录")
@@ -2467,19 +2467,19 @@
 
 //三角形雷达图
 - (AAOptions *)configureTriangleRadarChart {
-    AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:1];
+    AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:@1];
     
     AACrosshair *crosshairStyle =
     [AACrosshair crosshairWithColor:AAColor.whiteColor
                       dashStyle:AAChartLineDashStyleTypeLongDashDotDot
-                          width:1.5];
+                          width:@1.5];
     
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .backgroundColorSet(AAColor.whiteColor)
     .markerRadiusSet(@0)
     .yAxisMaxSet(@25)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:1])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])
     .polarSet(true)
     .legendEnabledSet(false)
     .tooltipEnabledSet(false)
