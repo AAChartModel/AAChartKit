@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface DrawableChartVC : UIViewController
 
 typedef NS_ENUM(NSInteger, DrawableChartVCChartType) {
@@ -34,4 +32,4 @@ typedef NS_ENUM(NSInteger, DrawableChartVCType) {
 
 @end
 
-NS_ASSUME_NONNULL_END
+

@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class AAHover, AASelect, AAHalo, AAInactive;
 
 @interface AAStates : NSObject
@@ -60,7 +58,5 @@ AAPropStatementAndPropSetFuncStatement(strong, AAInactive, NSNumber *, opacity)
 
 @end
 
-
-NS_ASSUME_NONNULL_END
 
 

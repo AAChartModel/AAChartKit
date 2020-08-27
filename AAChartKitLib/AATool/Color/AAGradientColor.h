@@ -32,8 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
     AALinearGradientDirectionToTop = 0,     //⇧⇧⇧⇧⇧⇧
     AALinearGradientDirectionToBottom,      //⇩⇩⇩⇩⇩⇩
@@ -115,6 +113,6 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 
 @end
 
-NS_ASSUME_NONNULL_END
+
 
 

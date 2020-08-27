@@ -46,8 +46,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AAPlotBandsElement : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, borderColor)
@@ -60,5 +58,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, t
 AAPropStatementAndPropSetFuncStatement(assign, AAPlotBandsElement, NSUInteger , zIndex)
 
 @end
-
-NS_ASSUME_NONNULL_END

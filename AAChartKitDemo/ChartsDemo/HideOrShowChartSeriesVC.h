@@ -35,11 +35,8 @@
 #import <UIKit/UIKit.h>
 #import "AAChartKit.h"
 
-
-NS_ASSUME_NONNULL_BEGIN
-
 @interface HideOrShowChartSeriesVC : UIViewController
 @property (nonatomic, assign) NSInteger chartTypeIndex;
 @end
 
-NS_ASSUME_NONNULL_END
+

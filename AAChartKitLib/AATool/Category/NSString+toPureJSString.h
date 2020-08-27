@@ -32,12 +32,10 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface NSString (pureJSString)
 
 - (NSString *)aa_toPureJSString;
 
 @end
 
-NS_ASSUME_NONNULL_END
+

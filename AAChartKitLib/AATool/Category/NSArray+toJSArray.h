@@ -32,8 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface NSArray (toJSArray)
 
 //Convert Objective-C array to be JavaScript array
@@ -41,4 +39,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+

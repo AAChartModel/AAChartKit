@@ -32,8 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class AAPosition, AAStyle;
 
 @interface AACredits : NSObject
@@ -56,4 +54,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPosition, NSNumber    *, y)
 
 @end
 
-NS_ASSUME_NONNULL_END

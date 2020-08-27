@@ -33,10 +33,8 @@
 #import <UIKit/UIKit.h>
 #import "BasicChartVC.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface ChartAdvancedUpdatingFeatureVC : BasicChartVC
 
 @end
 
-NS_ASSUME_NONNULL_END
+
