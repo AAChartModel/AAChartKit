@@ -64,7 +64,6 @@ AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          floating
 
 AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, cursor)
-AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, pointer)
 AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontSize)
 AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontWeight)
 
