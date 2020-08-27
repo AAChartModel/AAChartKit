@@ -136,7 +136,7 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
-    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")
@@ -228,9 +228,13 @@
     _aaChartModel
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//设置折线连接点样式为:内部白色
     .animationTypeSet(AAChartAnimationEaseOutQuart)//图形的渲染动画为 EaseOutQuart 动画
-    .xAxisCrosshairWidthSet(@0.9)//Zero width to disable crosshair by default
-    .xAxisCrosshairColorSet(@"#FFE4C4")//(浓汤)乳脂,番茄色准星线
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot);
+    .xAxisCrosshairSet([AACrosshair crosshairWithColor:@"#FFE4C4"//(浓汤)乳脂,番茄色准星线
+                                              dashStyle:AAChartLineDashStyleTypeLongDashDot
+                                                  width:0.9]//Zero width to disable crosshair by default
+                            );
+//    .xAxisCrosshairWidthSet(@0.9)//Zero width to disable crosshair by default
+//    .xAxisCrosshairColorSet(@"#FFE4C4")//(浓汤)乳脂,番茄色准星线
+//    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot);
     if (_chartType == BasicChartVCChartTypeArea) {
         _aaChartModel
         .categoriesSet(@[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);//设置 X 轴坐标文字内容
@@ -257,9 +261,13 @@
 - (void)configureLineChartAndSplineChartStyle {
     _aaChartModel
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//设置折线连接点样式为:边缘白色
-    .xAxisCrosshairWidthSet(@01.2)//Zero width to disable crosshair by default
-    .xAxisCrosshairColorSet(@"#778899")//浅石板灰准星线
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot);
+    .xAxisCrosshairSet([AACrosshair crosshairWithColor:@"#778899"//浅石板灰准星线
+                                              dashStyle:AAChartLineDashStyleTypeLongDashDotDot
+                                                  width:1.2]//Zero width to disable crosshair by default
+                            );
+//    .xAxisCrosshairWidthSet(@01.2)//Zero width to disable crosshair by default
+//    .xAxisCrosshairColorSet(@"#778899")//浅石板灰准星线
+//    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot);
     
     if (_chartType == BasicChartVCChartTypeLine) {
         _aaChartModel.categories = @[@"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"];//设置 X 轴坐标文字内容

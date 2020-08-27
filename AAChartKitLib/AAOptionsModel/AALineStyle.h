@@ -36,10 +36,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AALineStyle : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, dashStyle)  //准星线样式
 AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, color)  //准星线颜色
+AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, dashStyle)  //准星线样式
 AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, width)  //准星线宽度
 AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, zIndex)  //准星线的层叠值,
+
++ (AALineStyle *)styleWithWidth:(float)width;
+
++ (AALineStyle *)styleWithColor:(NSString *)color;
+
++ (AALineStyle *)styleWithColor:(NSString *)color
+                      dashStyle:(NSString *)dashStyle;
+
++ (AALineStyle *)styleWithColor:(NSString *)color
+                      dashStyle:(NSString *)dashStyle
+                          width:(float)width;
+
++ (AALineStyle *)styleWithColor:(NSString *)color
+                      dashStyle:(NSString *)dashStyle
+                          width:(float)width
+                         zIndex:(NSUInteger)zIndex;
 
 @end
 

@@ -39,4 +39,37 @@ AAPropSetFuncImplementation(AACrosshair, NSString *, color)  //准星线颜色
 AAPropSetFuncImplementation(AACrosshair, NSNumber *, width)  //准星线宽度
 AAPropSetFuncImplementation(AACrosshair, NSNumber *, zIndex)  //准星线的层叠值, 增大层叠值可以让准星线显示在数据里或网格线的上方。 默认是：2.
 
++ (AACrosshair *)crosshairWithWidth:(float)width {
+    AACrosshair *aaCrosshair = [[AACrosshair alloc]init];
+    aaCrosshair.width = @(width);
+    return aaCrosshair;
+}
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color {
+    return [self crosshairWithColor:color dashStyle:@"Solid"];
+}
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color
+                          dashStyle:(NSString *)dashStyle {
+    return [self crosshairWithColor:color dashStyle:dashStyle width:0];
+}
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color
+                          dashStyle:(NSString *)dashStyle
+                              width:(float)width {
+    return [self crosshairWithColor:color dashStyle:dashStyle width:width zIndex:0];
+}
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color
+                          dashStyle:(NSString *)dashStyle
+                              width:(float)width
+                             zIndex:(NSUInteger)zIndex {
+    AACrosshair *aaCrosshair = [[AACrosshair alloc]init];
+    aaCrosshair.color = color;
+    aaCrosshair.dashStyle = dashStyle;
+    aaCrosshair.width = @(width);
+    aaCrosshair.zIndex = @(zIndex);
+    return aaCrosshair;
+}
+
 @end

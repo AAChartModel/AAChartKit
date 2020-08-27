@@ -39,6 +39,21 @@ AAPropStatementAndPropSetFuncStatement(copy,   AACrosshair, NSString *, color)  
 AAPropStatementAndPropSetFuncStatement(strong, AACrosshair, NSNumber *, width)  //准星线宽度
 AAPropStatementAndPropSetFuncStatement(strong, AACrosshair, NSNumber *, zIndex)  //准星线的层叠值, 增大层叠值可以让准星线显示在数据里或网格线的上方。 默认是：2.
 
++ (AACrosshair *)crosshairWithWidth:(float)width;
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color;
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color
+                          dashStyle:(NSString *)dashStyle;
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color
+                          dashStyle:(NSString *)dashStyle
+                              width:(float)width;
+
++ (AACrosshair *)crosshairWithColor:(NSString *)color
+                          dashStyle:(NSString *)dashStyle
+                              width:(float)width
+                             zIndex:(NSUInteger)zIndex;
 
 @end
 

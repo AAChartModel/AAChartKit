@@ -116,14 +116,12 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
         _tooltipEnabled        = YES;//默认启用浮动提示框
         _tooltipShared         = YES;//默认多组数据共享一个浮动提示框
         _xAxisLabelsEnabled    = YES;//默认显示 X轴坐标点文字
-        _xAxisGridLineWidth    = @0; //设置x轴分割线宽度为0个像素,即是隐藏 X轴分割线
         _xAxisTickInterval     = @1; //x轴坐标点间隔数(默认是1)
         _xAxisVisible          = YES;//x轴默认可见
         _yAxisTitle            = @"";
         _yAxisVisible          = YES;//y轴默认可见
         _yAxisLabelsEnabled    = YES;
         _yAxisLineWidth        = @0.5; //y轴轴线的宽度
-        _yAxisGridLineWidth    = @1; //y轴分割线线宽
         _legendEnabled         = YES;//默认显示图例(图表下方可点击的带有文字的小圆点)
         _borderRadius          = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
         _markerRadius          = @5; //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
@@ -173,12 +171,9 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisLabelsFontSize) //x �
 AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisLabelsFontColor) //x 轴文字字体颜色
 AAPropSetFuncImplementation(AAChartModel, AAChartFontWeightType, xAxisLabelsFontWeight) //x 轴文字字体粗细
 
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisGridLineWidth) //x 轴网格线的宽度
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisTickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisCrosshairWidth) 
-AAPropSetFuncImplementation(AAChartModel, NSString *, xAxisCrosshairColor) 
-AAPropSetFuncImplementation(AAChartModel, AAChartLineDashStyleType,   xAxisCrosshairDashStyleType) 
+AAPropSetFuncImplementation(AAChartModel, AALineStyle *, xAxisGridLineStyle) //x 轴网格线的样式
+AAPropSetFuncImplementation(AAChartModel, AACrosshair *, xAxisCrosshair)
 
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
@@ -190,7 +185,6 @@ AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisLabelsFontColor) //y 
 AAPropSetFuncImplementation(AAChartModel, AAChartFontWeightType , yAxisLabelsFontWeight) //y 轴文字字体粗细
 AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisTitle) //y 轴标题
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisLineWidth) //y y-axis line width
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisGridLineWidth) //y轴网格线的宽度
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisAllowDecimals) //是否允许 y 轴显示小数
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisPlotLines) //y 轴标示线🧶的配置
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMax) //y 轴最大值
@@ -198,10 +192,8 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin) //y 轴最小值
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisTickInterval) 
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 
-AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisCrosshairWidth) 
-AAPropSetFuncImplementation(AAChartModel, NSString *, yAxisCrosshairColor) 
-AAPropSetFuncImplementation(AAChartModel, AAChartLineDashStyleType,   yAxisCrosshairDashStyleType) 
-
+AAPropSetFuncImplementation(AAChartModel, AALineStyle *, yAxisGridLineStyle) //y 轴网格线的样式
+AAPropSetFuncImplementation(AAChartModel, AACrosshair *, yAxisCrosshair)
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框

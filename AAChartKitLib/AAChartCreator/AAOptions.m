@@ -240,6 +240,8 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         || aaChartType == AAChartTypeBoxplot
         || aaChartType == AAChartTypeWaterfall
         || aaChartType == AAChartTypePolygon) {
+        
+        
         AAXAxis *aaXAxis = AAXAxis.new
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
@@ -250,20 +252,24 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
                              )
                    )
         .reversedSet(aaChartModel.xAxisReversed)
-        .gridLineWidthSet(aaChartModel.xAxisGridLineWidth)//x轴网格线宽度
         .categoriesSet(aaChartModel.categories)
         .visibleSet(aaChartModel.xAxisVisible)//x轴是否可见
-        .tickIntervalSet(aaChartModel.xAxisTickInterval);//x轴坐标点间隔数
+        .tickIntervalSet(aaChartModel.xAxisTickInterval)//x轴坐标点间隔数
+        .crosshairSet((id)aaChartModel.xAxisCrosshair)
+        ;
         
-        if ([aaChartModel.xAxisCrosshairWidth doubleValue] > 0) {
-            aaXAxis.crosshairSet(AACrosshair.new
-                                 .widthSet(aaChartModel.xAxisCrosshairWidth)
-                                 .colorSet(aaChartModel.xAxisCrosshairColor)
-                                 .dashStyleSet(aaChartModel.xAxisCrosshairDashStyleType)
-                                 );
-        }
+        AALineStyle *aaXAxisGridLineStyle = aaChartModel.xAxisGridLineStyle;
+        aaXAxis
+        .gridLineColorSet(aaXAxisGridLineStyle.color)
+        .gridLineWidthSet(aaXAxisGridLineStyle.width)
+        .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
+        .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
+        ;
+        
         
         AAYAxis *aaYAxis = AAYAxis.new
+        .titleSet(AAAxisTitle.new
+                  .textSet(aaChartModel.yAxisTitle))//y 轴标题
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                    .styleSet(AAStyle.new
@@ -279,20 +285,19 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .allowDecimalsSet(aaChartModel.yAxisAllowDecimals)//是否允许显示小数
         .plotLinesSet(aaChartModel.yAxisPlotLines) //标示线设置
         .reversedSet(aaChartModel.yAxisReversed)
-        .gridLineWidthSet(aaChartModel.yAxisGridLineWidth)//y轴网格线宽度
-        .titleSet(AAAxisTitle.new
-                  .textSet(aaChartModel.yAxisTitle))//y 轴标题
         .lineWidthSet(aaChartModel.yAxisLineWidth)//设置 y轴轴线的宽度,为0即是隐藏 y轴轴线
         .visibleSet(aaChartModel.yAxisVisible)
-        .tickIntervalSet(aaChartModel.yAxisTickInterval);
-        
-        if ([aaChartModel.yAxisCrosshairWidth doubleValue] > 0) {
-            aaYAxis.crosshairSet(AACrosshair.new
-                                 .widthSet(aaChartModel.yAxisCrosshairWidth)
-                                 .colorSet(aaChartModel.yAxisCrosshairColor)
-                                 .dashStyleSet(aaChartModel.yAxisCrosshairDashStyleType)
-                                 );
-        }
+        .tickIntervalSet(aaChartModel.yAxisTickInterval)
+        .crosshairSet((id)aaChartModel.yAxisCrosshair)
+        ;
+
+        AALineStyle *aaYAxisGridLineStyle = aaChartModel.yAxisGridLineStyle;
+        aaYAxis
+        .gridLineColorSet(aaYAxisGridLineStyle.color)
+        .gridLineWidthSet(aaYAxisGridLineStyle.width)
+        .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
+        .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
+        ;
         
         aaOptions.xAxis = aaXAxis;
         aaOptions.yAxis = aaYAxis;
