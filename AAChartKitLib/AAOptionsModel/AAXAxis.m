@@ -55,6 +55,7 @@ AAPropSetFuncImplementation(AAXAxis, NSNumber *, min)  //x轴最小值（设置�
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineDashStyle) //x轴网格线样式
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridZIndex) //网格线的层叠值（zIndex） 默认是：1.
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, offset) //x轴垂直偏移
 AAPropSetFuncImplementation(AAXAxis, AALabels *, labels) 
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      visible)
