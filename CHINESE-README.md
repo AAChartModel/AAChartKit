@@ -244,7 +244,7 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
   
   监听用户点击事件可实现多种多样的自定义功能. 例如可通过用户点击事件回调来实现**双表联动**, 示例效果如下
   
-  ![doubleChartsLinkedWork](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/doubleChartsLinkedWork.gif)
+  ![doubleChartsLinkedWork](https://raw.githubusercontent.com/AAChartModel/Gallery/master/AAChartKit/doubleChartsLinkage.gif)
 
 
 
