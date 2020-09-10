@@ -157,9 +157,12 @@
     return aaOptions;
 }
 
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/173
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/986
 - (AAOptions *)configureTheAAOptionsOfPieChart {
+    CGFloat aaChartViewWidth = self.view.frame.size.width;
     //计算X轴偏移量
-    CGFloat xOffSet = (self.aaChartView.frame.size.width - 40) * 0.1;
+    CGFloat xOffSet = (aaChartViewWidth - 40) * 0.1;
     
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
@@ -197,7 +200,6 @@
                     )
     .legendSet(AALegend.new
                .enabledSet(true)
-               
                .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
                .layoutSet(AAChartLayoutTypeVertical)
                .alignSet(AAChartAlignTypeRight)
