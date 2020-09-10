@@ -164,13 +164,14 @@
 - (void)setupAAChartViewEventBlockHandler {
     __weak __typeof__(self) weakSelf = self;
 
-    //获取图表加载完成事件
-    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
-        NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
-        NSString *jsStr = [ weakSelf configureAddEventForXAxisLabelsGroupElementJSFunctionString];
-        [weakSelf.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
-    }];
-    
+//    //获取图表加载完成事件
+//    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+//        NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
+//
+//        NSString *jsStr = [ weakSelf configureAddEventForXAxisLabelsGroupElementJSFunctionString];
+//        [weakSelf.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
+//    }];
+//
     //获取图表上的手指点击及滑动事件
     [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
                                          AAMoveOverEventMessageModel *message) {
