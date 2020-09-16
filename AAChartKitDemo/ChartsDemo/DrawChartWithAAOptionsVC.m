@@ -97,6 +97,7 @@
         case 49: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
         case 50: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 51: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
+        case 52: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
 
     }
     return nil;
@@ -2107,7 +2108,7 @@
     
     AATooltip *aaTooltip = AATooltip.new
     .enabledSet(true)
-    .headerFormatSet(@"<span style=""font-size=10px;"">Price: {point.key}</span><br/>")
+    .headerFormatSet(@"<span style=""font-size:10px;"">Price: {point.key}</span><br/>")
     .valueDecimalsSet(@2)
     ;
     
@@ -3123,5 +3124,59 @@
     
     return aaOptions;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/987
+//headerFormat 参考链接: https://api.highcharts.com.cn/highcharts#tooltip.headerFormat
+// \<span> 标签🏷 参考链接: https://www.w3school.com.cn/tags/tag_span.asp
+- (AAOptions *)customAreasplineChartTooltipContentWithHeaderFormat {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@0)
+    .categoriesSet(@[
+        @"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10",
+        @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20",
+        @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30",
+        @"31"
+                   ])
+    .yAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"客流")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[
+            @26, @27, @53, @41, @35, @55, @33, @42, @33, @63,
+            @40, @43, @36, @0,  @0,  @0,  @0,  @0,  @0,  @0,
+            @0,  @0,  @0,  @0,  @0,  @0,  @0,  @0,  @0,  @0,
+            @0
+                 ]),
+               ]);
+    
+    NSString *title = @"<span style=""color:red;font-size:17px;font-weight:bold;"">客流</span><br>";
+    NSString *week = @"周一";
+    NSString *time = [NSString stringWithFormat:@"时间: 8.{point.x} (%@)<br>",week];
+    NSString *headerFormat = [NSString stringWithFormat:@"%@%@",title,time];
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .headerFormatSet(headerFormat)
+    .styleSet(AAStyleColorSize(AAColor.whiteColor, 14))
+    .backgroundColorSet(@"#050505")
+    .borderColorSet(@"#050505")
+    ;
+    
+    //禁用图例点击事件
+    aaOptions.plotOptions.series.events = AAEvents.new
+    .legendItemClickSet(@AAJSFunc(function() {
+        return false;
+    }));
+    
+    return aaOptions;
+}
+
 
 @end

@@ -481,6 +481,7 @@
               @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
               @"yAxisOnTheRightSideChart---y轴在右侧的图表",
               @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
+              @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
             ],
             /*同时显示多个 AAChartView*/
             @[@"同时显示多个 AAChartView",
