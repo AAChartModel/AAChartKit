@@ -34,7 +34,6 @@
 
 #import <Foundation/Foundation.h>
 @class AABackground;
-NS_ASSUME_NONNULL_BEGIN
 
 @interface AAPane : NSObject
 
@@ -58,5 +57,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AABackground, NSNumber *, outerRa
 AAPropStatementAndPropSetFuncStatement(copy  , AABackground, NSString *, shape)
 
 @end
-
-NS_ASSUME_NONNULL_END

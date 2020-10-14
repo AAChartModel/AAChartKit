@@ -33,8 +33,6 @@
 #import <Foundation/Foundation.h>
 @class AAStyle;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AALabel : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AALabel, NSString *, align)//标签的对齐方式，可用的值有 "left"、"center" 及 "right"。默认值是根据坐标轴的位置（在图表中的位置）即标签的旋转角度进行智能判断的。 默认是：center.
@@ -48,5 +46,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AALabel, NSNumber *, x)//水平�
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, NSNumber *, y)// 竖直偏移
 
 @end
-
-NS_ASSUME_NONNULL_END

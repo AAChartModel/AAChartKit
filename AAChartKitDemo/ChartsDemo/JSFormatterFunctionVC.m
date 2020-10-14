@@ -76,7 +76,7 @@
         case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Postioner 函数来实现一个位置固定的提示框
         case 23: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
         case 24: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
-            
+        case 25: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
         default:
             return nil;
     }
@@ -92,7 +92,7 @@
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
         @"10-12",@"10-13",@"10-14",@"10-15",@"10-16",@"10-17",@"10-18",@"10-19",@"10-20",@"10-21",@"10-22",
@@ -174,7 +174,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
     .stackingSet(AAChartStackingTypeNormal)
     //    .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
         .lineWidthSet(@6)
@@ -292,12 +292,12 @@
     .chartTypeSet(AAChartTypeLine)//图表类型
     .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
     .categoriesSet(@[@"临床一期",@"临床二期",@"临床三期",@"临床四期",])
     .markerRadiusSet(@8.0)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
-    .xAxisCrosshairWidthSet(@1.0)
-    .xAxisCrosshairColorSet(AAColor.darkGrayColor)
+    .xAxisCrosshairSet([AACrosshair crosshairWithColor:AAColor.darkGrayColor
+                                             dashStyle:AAChartLineDashStyleTypeDashDot
+                                                 width:@1])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"上市")
@@ -404,7 +404,6 @@
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为内部白色
     .markerRadiusSet(@8)
-    .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Tokyo Hot")
@@ -712,7 +711,7 @@
     .chartTypeSet(AAChartTypeArea)
     .connectNullsSet(true)
     .yAxisMaxSet(@13.0)
-    .yAxisGridLineWidthSet(@2)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@2])
     //    .categoriesSet(@[@"Java", @"Swift",@"C", @"C#", @"C++", @"Perl",])
     .markerRadiusSet(@0)
     .polarSet(true)//是否极化图形
@@ -869,7 +868,7 @@
     .titleSet(@"Custom X Axis Labels Text")//图表主标题
     .subtitleSet(@"By Using JavaScript Formatter Function")//图表副标题
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
     .seriesSet(@[
         AASeriesElement.new
         .lineWidthSet(@1.5)
@@ -918,7 +917,7 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArearange)
     .titleSet(@"面积范围图")
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .xAxisVisibleSet(false)
     .yAxisTitleSet(@"摄氏度")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
@@ -996,7 +995,7 @@
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisTitleSet(@"℃")//设置 Y 轴标题
     .yAxisLineWidthSet(@1)//Y轴轴线线宽为0即是隐藏Y轴轴线
-    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .seriesSet(@[
         AASeriesElement.new
@@ -1048,7 +1047,7 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .yAxisLineWidthSet(@1)//Y轴轴线线宽为0即是隐藏Y轴轴线
-    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为1(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为1(为0即是隐藏分割线)
     .colorsThemeSet(@[@"#FFD700"/*纯金色*/])
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
@@ -1177,7 +1176,7 @@ function () {
     .titleSet(@"健康体检表")//图表主标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",])//设置主体颜色数组
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .yAxisTickPositionsSet(@[@0, @5, @10, @15, @20, @25, @30, @35])
     .markerRadiusSet(@5)
     .markerSymbolSet(AAChartSymbolTypeCircle)
@@ -1558,7 +1557,7 @@ function () {
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@3)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
@@ -1634,5 +1633,136 @@ function () {
     
     return aaOptions;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/901
+//https://github.com/AAChartModel/AAChartKit/issues/952
+- (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart {
+    AAChart *aaChart = AAChart.new
+    .backgroundColorSet(AAColor.whiteColor);
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"");
+    
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .minSet(@0)
+    .categoriesSet(@[
+        @"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C",
+        @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"
+                   ]);
+    
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new
+               .markerSet(AAMarker.new
+                          .radiusSet(@7)//曲线连接点半径，默认是4
+                          .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                          .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+                          .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                          .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                          ));
+    
+    AAYAxis *yAxis1 = AAYAxis.new
+    .visibleSet(true)
+    .lineWidthSet(@1)
+    .tickPositionsSet(@[@0, @50, @100, @150, @200])
+    .labelsSet(AALabels.new
+               .enabledSet(true)
+               .styleSet(AAStyle.new
+                         .colorSet(@"DodgerBlue"))
+               .formatterSet(@AAJSFunc(function () {
+        let yValue = this.value;
+        if (yValue >= 200) {
+            return "极佳";
+        } else if (yValue >= 150 && yValue < 200) {
+            return "非常棒";
+        } else if (yValue >= 100 && yValue < 150) {
+            return "相当棒";
+        } else if (yValue >= 50 && yValue < 100) {
+            return "还不错";
+        } else {
+            return "一般";
+        }
+    })))
+    .gridLineWidthSet(@0)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"中文")
+              .styleSet(AAStyle.new
+                        .colorSet(@"DodgerBlue")//Title font color
+                        .fontSizeSet(@"14px")//Title font size
+                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+                        .textOutlineSet(@"0px 0px contrast")));
+    
+    AAYAxis *yAxis2 = AAYAxis.new
+    .visibleSet(true)
+    .lineWidthSet(@1)
+    .tickPositionsSet(@[@0, @50, @100, @150, @200])
+    .labelsSet(AALabels.new
+               .enabledSet(true)
+               .styleSet(AAStyle.new
+                         .colorSet(AAColor.redColor))
+               .formatterSet(@AAJSFunc(function () {
+        let yValue = this.value;
+        if (yValue >= 200) {
+            return "Awesome";
+        } else if (yValue >= 150 && yValue < 200) {
+            return "Great";
+        } else if (yValue >= 100 && yValue < 150) {
+            return "Very Good";
+        } else if (yValue >= 50 && yValue < 100) {
+            return "Not Bad";
+        } else {
+            return "Just So So";
+        }
+    })))
+    .gridLineWidthSet(@0)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"ENGLISH")
+              .styleSet(AAStyle.new
+                        .colorSet(AAColor.redColor)//Title font color
+                        .fontSizeSet(@"14px")//Title font size
+                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+                        .textOutlineSet(@"0px 0px contrast")))
+    .oppositeSet(true);
+    
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
+    NSArray *seriesArr = @[
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .typeSet(AAChartTypeSpline)
+        .lineWidthSet(@7)
+        .colorSet((id)AAGradientColor.deepSeaColor)
+        .borderRadiusSet(@4)
+        .yAxisSet(@1)
+        .dataSet(@[
+            @0, @71.5, @106.4, @129.2, @144.0, @176.0,
+            @135.6, @148.5, @216.4, @194.1, @95.6, @54.4
+                 ]),
+        AASeriesElement.new
+        .nameSet(@"2021")
+        .typeSet(AAChartTypeSpline)
+        .lineWidthSet(@7)
+        .colorSet((id)AAGradientColor.sanguineColor)
+        .yAxisSet(@0)
+        .dataSet(@[
+            @135.6, @148.5, @216.4, @194.1, @95.6, @54.4,
+            @0, @71.5, @106.4, @129.2, @144.0, @176.0
+                 ])
+    ];
+    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .plotOptionsSet(aaPlotOptions)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxis1,yAxis2])
+    .tooltipSet(aaTooltip)
+    .seriesSet(seriesArr)
+    ;
+    return aaOptions;
+}
+
 
 @end

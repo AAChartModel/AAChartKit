@@ -32,8 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AAShadow : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAShadow, NSString *, color)
@@ -43,5 +41,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, opacity)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, width)
 
 @end
-
-NS_ASSUME_NONNULL_END

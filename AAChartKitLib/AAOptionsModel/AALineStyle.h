@@ -1,8 +1,8 @@
 //
-//  AACredits.h
+//  AALineStyle.h
 //  AAChartKitDemo
 //
-//  Created by AnAn on 2020/7/17.
+//  Created by AnAn on 2020/8/27.
 //  Copyright © 2020 AnAn. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
@@ -32,25 +32,27 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAPosition, AAStyle;
+@interface AALineStyle : NSObject
 
-@interface AACredits : NSObject
+AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, color)  //准星线颜色
+AAPropStatementAndPropSetFuncStatement(copy,   AALineStyle, NSString *, dashStyle)  //准星线样式
+AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, width)  //准星线宽度
+AAPropStatementAndPropSetFuncStatement(strong, AALineStyle, NSNumber *, zIndex)  //准星线的层叠值,
 
-AAPropStatementAndPropSetFuncStatement(assign, AACredits, BOOL,          enabled)
-AAPropStatementAndPropSetFuncStatement(copy,   AACredits, NSString    *, href)
-AAPropStatementAndPropSetFuncStatement(strong, AACredits, AAPosition  *, position)
-AAPropStatementAndPropSetFuncStatement(strong, AACredits, AAStyle     *, style)
-AAPropStatementAndPropSetFuncStatement(copy,   AACredits, NSString    *, text)
++ (AALineStyle *)styleWithWidth:(NSNumber *)width;
+
++ (AALineStyle *)styleWithColor:(NSString *)color;
+
++ (AALineStyle *)styleWithColor:(NSString *)color
+                      dashStyle:(NSString *)dashStyle;
+
++ (AALineStyle *)styleWithColor:(NSString *)color
+                      dashStyle:(NSString *)dashStyle
+                          width:(NSNumber *)width;
+
++ (AALineStyle *)styleWithColor:(NSString *)color
+                      dashStyle:(NSString *)dashStyle
+                          width:(NSNumber *)width
+                         zIndex:(NSNumber *)zIndex;
 
 @end
-
-
-@interface AAPosition : NSObject
-
-AAPropStatementAndPropSetFuncStatement(copy,   AAPosition, NSString    *, align)
-AAPropStatementAndPropSetFuncStatement(copy,   AAPosition, NSString    *, verticalAlign)
-AAPropStatementAndPropSetFuncStatement(strong, AAPosition, NSNumber    *, x)
-AAPropStatementAndPropSetFuncStatement(strong, AAPosition, NSNumber    *, y)
-
-@end
-

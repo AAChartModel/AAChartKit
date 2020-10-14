@@ -200,9 +200,7 @@
     .chartTypeSet(AAChartTypeColumn)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .markerRadiusSet(@6)
-    .xAxisCrosshairWidthSet(@1.5)
-    .xAxisCrosshairColorSet(@"#ff0000")
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeDashDot)
+    .xAxisCrosshairSet([AACrosshair crosshairWithColor:@"#ff0000" dashStyle:AAChartLineDashStyleTypeDashDot])
     .legendEnabledSet(false)
 //    .borderRadiusSet((id)@"50%")//Do not work and I dont know why
     .seriesSet(@[

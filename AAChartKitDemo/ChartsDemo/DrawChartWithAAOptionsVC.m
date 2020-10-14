@@ -97,6 +97,7 @@
         case 49: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
         case 50: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 51: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
+        case 52: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
 
     }
     return nil;
@@ -157,9 +158,12 @@
     return aaOptions;
 }
 
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/173
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/986
 - (AAOptions *)configureTheAAOptionsOfPieChart {
+    CGFloat aaChartViewWidth = self.view.frame.size.width;
     //计算X轴偏移量
-    CGFloat xOffSet = (self.aaChartView.frame.size.width - 40) * 0.1;
+    CGFloat xOffSet = (aaChartViewWidth - 40) * 0.1;
     
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
@@ -197,7 +201,6 @@
                     )
     .legendSet(AALegend.new
                .enabledSet(true)
-               
                .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
                .layoutSet(AAChartLayoutTypeVertical)
                .alignSet(AAChartAlignTypeRight)
@@ -401,8 +404,8 @@
     .chartTypeSet(AAChartTypeArea)//图表类型
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
-    .xAxisGridLineWidthSet(@0.5)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerRadiusSet(@0)
     .polarSet(true)
     .seriesSet(@[
@@ -425,8 +428,8 @@
     .subtitleSet(@"调整一下groupPadding即可")//图表副标题
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineWidthSet(@1)//y轴横向分割线宽度为0(即是隐藏分割线)
-    .xAxisGridLineWidthSet(@0.5)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerRadiusSet(@0)
     .dataLabelsEnabledSet(true)
     .seriesSet(@[
@@ -471,7 +474,7 @@
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
     .xAxisTickIntervalSet(@15)//x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-    .yAxisGridLineWidthSet(@0.8)//y轴横向分割线宽度(为0即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.8])//y轴横向分割线宽度(为0即是隐藏分割线)
     .zoomTypeSet(AAChartZoomTypeX)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",@"10-10",@"10-11",
@@ -668,7 +671,7 @@
     .dataLabelsEnabledSet(true)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerRadiusSet(@6)//设置折线连接点宽度为0,即是隐藏连接点
-    .yAxisGridLineWidthSet(@0.5)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .seriesSet(@[
         AASeriesElement.new
@@ -1069,7 +1072,7 @@
 }
 
 - (AAOptions *)simpleGaugeChart {
-    AAOptions *aaOptions2 = AAOptions.new
+    return AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge))
     .paneSet(AAPane.new
@@ -1088,12 +1091,10 @@
     .seriesSet(@[
         AASeriesElement.new
         .dataSet(@[@80])]);
-    
-    return aaOptions2;
 }
 
 - (AAOptions *)gaugeChartWithPlotBand {
-    AAOptions *aaOptions2 = AAOptions.new
+    return AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge))
     .titleSet(AATitle.new
@@ -1126,25 +1127,24 @@
         .nameSet(@"Speed")
         .dataSet(@[@80])
                ]);
-    
-    return aaOptions2;
 }
 
 - (AAOptions *)configureAAPlotBandsForChart {
+    AACrosshair *aaCrosshair =
+    [AACrosshair crosshairWithColor:AAColor.grayColor
+                          dashStyle:AAChartLineDashStyleTypeLongDashDotDot
+                              width:@1.5];
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
     .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .xAxisCrosshairSet(aaCrosshair)
+    .yAxisCrosshairSet(aaCrosshair)
     .legendEnabledSet(false)
-    .xAxisCrosshairWidthSet(@1.5)
-    .xAxisCrosshairColorSet(AAColor.grayColor)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
-    .yAxisCrosshairWidthSet(@1.5)
-    .yAxisCrosshairColorSet(AAColor.grayColor)
-    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")
@@ -1205,7 +1205,7 @@
     .categoriesSet(categories)
     .backgroundColorSet(AAColor.whiteColor)
     .markerRadiusSet(@0)
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -1326,7 +1326,7 @@
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .markerRadiusSet(@0)
     .yAxisMaxSet(@50)
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -1396,9 +1396,7 @@
     .dataLabelsEnabledSet(true)
     .yAxisLineWidthSet(0)
     .legendEnabledSet(false)
-    .xAxisCrosshairWidthSet(@1)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDot)
-    .xAxisCrosshairColorSet(AAColor.grayColor)
+    .xAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.grayColor dashStyle:AAChartLineDashStyleTypeLongDashDot width:@1])
     .tooltipEnabledSet(false)
     .categoriesSet(@[
         @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",@"10-09",
@@ -1661,7 +1659,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
     .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
     .yAxisLineWidthSet(@0)
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
@@ -2110,7 +2108,7 @@
     
     AATooltip *aaTooltip = AATooltip.new
     .enabledSet(true)
-    .headerFormatSet(@"<span style=""font-size=10px;"">Price: {point.key}</span><br/>")
+    .headerFormatSet(@"<span style=""font-size:10px;"">Price: {point.key}</span><br/>")
     .valueDecimalsSet(@2)
     ;
     
@@ -2270,7 +2268,7 @@
     .markerRadiusSet(@4)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"智能设备记录")
@@ -2469,23 +2467,26 @@
 
 //三角形雷达图
 - (AAOptions *)configureTriangleRadarChart {
+    AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:@1];
+    
+    AACrosshair *crosshairStyle =
+    [AACrosshair crosshairWithColor:AAColor.whiteColor
+                      dashStyle:AAChartLineDashStyleTypeLongDashDotDot
+                          width:@1.5];
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .backgroundColorSet(AAColor.whiteColor)
     .markerRadiusSet(@0)
     .yAxisMaxSet(@25)
-    .yAxisGridLineWidthSet(@1)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])
     .polarSet(true)
     .legendEnabledSet(false)
     .tooltipEnabledSet(false)
-    .xAxisGridLineWidthSet(@1)
-    .yAxisGridLineWidthSet(@1)
-    .xAxisCrosshairWidthSet(@1.5)
-    .xAxisCrosshairColorSet(AAColor.whiteColor)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
-    .yAxisCrosshairWidthSet(@1.5)
-    .yAxisCrosshairColorSet(AAColor.whiteColor)
-    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
+    .xAxisGridLineStyleSet(gridLineStyle)
+    .yAxisGridLineStyleSet(gridLineStyle)
+    .xAxisCrosshairSet(crosshairStyle)
+    .yAxisCrosshairSet(crosshairStyle)
     .yAxisTickPositionsSet(@[@5,@10,@15,@20,@25,])
     .seriesSet(@[
         AASeriesElement.new
@@ -3123,5 +3124,59 @@
     
     return aaOptions;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/987
+//headerFormat 参考链接: https://api.highcharts.com.cn/highcharts#tooltip.headerFormat
+// \<span> 标签🏷 参考链接: https://www.w3school.com.cn/tags/tag_span.asp
+- (AAOptions *)customAreasplineChartTooltipContentWithHeaderFormat {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@0)
+    .categoriesSet(@[
+        @"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10",
+        @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20",
+        @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30",
+        @"31"
+                   ])
+    .yAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"客流")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[
+            @26, @27, @53, @41, @35, @55, @33, @42, @33, @63,
+            @40, @43, @36, @0,  @0,  @0,  @0,  @0,  @0,  @0,
+            @0,  @0,  @0,  @0,  @0,  @0,  @0,  @0,  @0,  @0,
+            @0
+                 ]),
+               ]);
+    
+    NSString *title = @"<span style=""color:red;font-size:17px;font-weight:bold;"">客流</span><br>";
+    NSString *week = @"周一";
+    NSString *time = [NSString stringWithFormat:@"时间: 8.{point.x} (%@)<br>",week];
+    NSString *headerFormat = [NSString stringWithFormat:@"%@%@",title,time];
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .headerFormatSet(headerFormat)
+    .styleSet(AAStyleColorSize(AAColor.whiteColor, 14))
+    .backgroundColorSet(@"#050505")
+    .borderColorSet(@"#050505")
+    ;
+    
+    //禁用图例点击事件
+    aaOptions.plotOptions.series.events = AAEvents.new
+    .legendItemClickSet(@AAJSFunc(function() {
+        return false;
+    }));
+    
+    return aaOptions;
+}
+
 
 @end

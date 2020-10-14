@@ -119,7 +119,7 @@
     .chartTypeSet(AAChartTypeLine)//图表类型
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .yAxisMaxSet(@95)
     .markerRadiusSet(@8)
     .markerSymbolSet(AAChartSymbolTypeCircle)
@@ -191,7 +191,7 @@
     .chartTypeSet(AAChartTypeLine)//图表类型
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .markerRadiusSet(@8)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
@@ -214,24 +214,26 @@
 
 //五边形雷达图
 - (AAOptions *)configurePentagonRadarChart {
+    AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:@1];
+    
+    AACrosshair *crosshair =
+    [AACrosshair crosshairWithColor:AAColor.whiteColor
+                          dashStyle:AAChartLineDashStyleTypeLongDashDotDot
+                              width:@1.5];
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .backgroundColorSet(AAColor.whiteColor)
     .categoriesSet(@[@"孤岛危机",@"美国末日",@"使命召唤",@"荣誉勋章",@"死亡搁浅"])
     .markerRadiusSet(@0)
-    .yAxisMaxSet(@25)
-    .yAxisGridLineWidthSet(@1)
     .polarSet(true)
     .legendEnabledSet(false)
     .tooltipEnabledSet(false)
-    .xAxisGridLineWidthSet(@1)
-    .yAxisGridLineWidthSet(@1)
-    .xAxisCrosshairWidthSet(@1.5)
-    .xAxisCrosshairColorSet(AAColor.whiteColor)
-    .xAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
-    .yAxisCrosshairWidthSet(@1.5)
-    .yAxisCrosshairColorSet(AAColor.whiteColor)
-    .yAxisCrosshairDashStyleTypeSet(AAChartLineDashStyleTypeLongDashDotDot)
+    .xAxisGridLineStyleSet(gridLineStyle)
+    .yAxisGridLineStyleSet(gridLineStyle)
+    .xAxisCrosshairSet(crosshair)
+    .yAxisCrosshairSet(crosshair)
+    .yAxisMaxSet(@25)
     .yAxisTickPositionsSet(@[@5,@10,@15,@20,@25,])
     .seriesSet(@[
         AASeriesElement.new

@@ -72,7 +72,8 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet([self configureChartType])
     .tooltipEnabledSet(true)
-    .yAxisGridLineWidthSet(@0)
+    .yAxisGridLineStyleSet(AALineStyle.new
+                           .widthSet(@0))
     .borderRadiusSet(@8)
     .stackingSet(AAChartStackingTypeNormal)
     .dataLabelsEnabledSet(false)

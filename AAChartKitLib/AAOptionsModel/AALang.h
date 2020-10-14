@@ -32,8 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AALang : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, resetZoom)
@@ -41,4 +39,3 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, thousandsS
 
 @end
 
-NS_ASSUME_NONNULL_END
