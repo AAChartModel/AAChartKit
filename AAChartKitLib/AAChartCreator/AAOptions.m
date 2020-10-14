@@ -111,10 +111,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
                );//设置是否百分比堆叠显示图形
     
     if (aaChartModel.animationType != 0) {
-        aaPlotOptions.series.animation = (AAAnimation.new
-                                          .easingSet(aaChartModel.animationType)
-                                          .durationSet(aaChartModel.animationDuration)
-                                          );
+        aaPlotOptions.series.animation = AAAnimation.new
+        .easingSet(aaChartModel.animationType)
+        .durationSet(aaChartModel.animationDuration);
     }
     
     [self configureTheStyleOfConnectNodeWithChartModel:aaChartModel plotOptions:aaPlotOptions];
@@ -151,9 +150,11 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         || aaChartType == AAChartTypeAreasplinerange
         || aaChartType == AAChartTypePolygon
         ) {
+        
         AAMarker *aaMarker = AAMarker.new
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(aaChartModel.markerSymbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+        
         if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeInnerBlank) {
             aaMarker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@(0.4 * aaChartModel.markerRadius.floatValue))//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
@@ -162,6 +163,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
             aaMarker.lineWidthSet(@2)
             .lineColorSet(aaChartModel.backgroundColor);
         }
+        
         AASeries *aaSeries = aaPlotOptions.series;
         aaSeries.connectNulls = aaChartModel.connectNulls;
         aaSeries.marker = aaMarker;
@@ -241,7 +243,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         || aaChartType == AAChartTypeWaterfall
         || aaChartType == AAChartTypePolygon) {
         
-        
         AAXAxis *aaXAxis = AAXAxis.new
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
@@ -265,7 +266,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
         .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
         ;
-        
         
         AAYAxis *aaYAxis = AAYAxis.new
         .titleSet(AAAxisTitle.new
