@@ -1501,7 +1501,7 @@ function () {
 - (AAOptions *)fixedTooltipPositionByCustomPositionerFunction {
     AAOptions *aaOptions = [self customTooltipPostionerFunction];
     aaOptions.tooltip
-    .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
+    .positionerSet(@AAJSFunc(function () {
         let position = {};
         position["x"] = 50;
         position["y"] = 50;
