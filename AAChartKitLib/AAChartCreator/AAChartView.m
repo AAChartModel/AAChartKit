@@ -375,62 +375,10 @@ WKScriptMessageHandler
                                          ofType:@"html"
                                     inDirectory:@"AAJSFiles.bundle"];
     NSURL *webURL = [NSURL fileURLWithPath:webPath];
-    if ([[UIDevice currentDevice].systemVersion floatValue] < 9.0) {
-        webURL = [self localFileURLForBuggyiOS8WKWebViewWithFileURL:webURL];
-    }
-    
     NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
     return URLRequest;
 }
 
-- (NSURL *)localFileURLForBuggyiOS8WKWebViewWithFileURL:(NSURL *)fileURL {
-    // Create "/tmp/www" directory
-    NSError *creatDirError = nil;
-    NSFileManager *fileManager= [NSFileManager defaultManager];
-    NSURL *tmpWwwDirURL = [[NSURL fileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:@"www"];
-    NSString *htmlFileName = @"AAChartView.html";
-    NSString *tmpJsFilesDir = [tmpWwwDirURL.absoluteString stringByAppendingString:@"/"];
-    NSURL *destURL = [NSURL URLWithString:[tmpJsFilesDir stringByAppendingString:htmlFileName]];
-
-    BOOL isDir = NO;
-    BOOL isTmpWwwDirExist = [fileManager fileExistsAtPath:tmpWwwDirURL.path isDirectory:&isDir];
-    if (isTmpWwwDirExist) {
-        return destURL;
-    }
-    
-    [fileManager createDirectoryAtURL:tmpWwwDirURL
-          withIntermediateDirectories:YES
-                           attributes:nil
-                                error:&creatDirError];
-    if (creatDirError) {
-        AADetailLog("creat directory error%@",creatDirError);
-    }
-    
-    NSString *bundleFilesDir = [fileURL.absoluteString stringByReplacingOccurrencesOfString:htmlFileName
-                                                                                 withString:@""];
-    
-    NSArray *array = @[htmlFileName,
-                       @"AAEasing.js",
-                       @"AAFunnel.js",
-                       @"AAHighchartsLib.js",
-                       @"AAHighchartsMore.js",
-                       @"AARoundedCorners.js",
-                       ];
-    
-    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *bundleFilePath = [bundleFilesDir stringByAppendingString:obj];
-        NSString *tmpFilePath = [tmpJsFilesDir stringByAppendingString:obj];
-        // Now copy bundle files to the temp directory
-        NSError *copyItemError = nil;
-        [fileManager copyItemAtURL:[NSURL URLWithString:bundleFilePath]
-                             toURL:[NSURL URLWithString:tmpFilePath]
-                             error:&copyItemError];
-        if (copyItemError) {
-            AADetailLog("copy file Error%@",copyItemError);
-        }
-    }];
-    return destURL;
-}
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
     if (self.isClearBackgroundColor) {
