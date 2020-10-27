@@ -39,7 +39,7 @@ AAPropSetFuncImplementation(AAChart, NSString    *, backgroundColor)
 AAPropSetFuncImplementation(AAChart, NSString    *, plotBackgroundImage) //指定绘图区背景图片的地址。如果需要设置整个图表的背景，请通过 CSS 来给容器元素（div）设置背景图。另外如果需要在导出图片中包含这个背景图，要求这个地址是公网可以访问的地址（包含可以访问且是绝对路径）。
 AAPropSetFuncImplementation(AAChart, NSString    *, pinchType) 
 AAPropSetFuncImplementation(AAChart, BOOL ,         panning) 
-//AAPropSetFuncImplementation(AAChart, NSString    *, panKey) 
+AAPropSetFuncImplementation(AAChart, NSString    *, panKey) 
 AAPropSetFuncImplementation(AAChart, BOOL ,         polar) 
 AAPropSetFuncImplementation(AAChart, AAAnimation *, animation) 
 AAPropSetFuncImplementation(AAChart, BOOL ,         inverted)
@@ -47,7 +47,12 @@ AAPropSetFuncImplementation(AAChart, NSArray     *, margin)//  图表外边缘�
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginTop)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginRight)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginBottom)
-AAPropSetFuncImplementation(AAChart, NSNumber    *, marginLeft) 
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginLeft)
+AAPropSetFuncImplementation(AAChart, NSArray     *, spacing) // 图表的内边距，指图表外边缘和绘图区之间的距离，数组中的数字分别表示顶部，右侧，底部和左侧。可以使用选项 spacingTop，spacingRight，spacingBottom 和 spacingLeft 来指定某一个内边距。 默认是：[10, 10, 15, 10].
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingTop)
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingRight)
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingBottom)
+AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingLeft)
 AAPropSetFuncImplementation(AAChart, AAScrollablePlotArea *, scrollablePlotArea)
 AAPropSetFuncImplementation(AAChart, AAResetZoomButton *, resetZoomButton)
 
