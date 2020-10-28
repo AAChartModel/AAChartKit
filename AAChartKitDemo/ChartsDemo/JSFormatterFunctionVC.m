@@ -1559,6 +1559,20 @@ function () {
     .heightSet(@"70%")//https://api.highcharts.com/highcharts/yAxis.height
     ;
     
+    CGFloat screenWidth = self.view.frame.size.width;
+    
+    NSString *positionerStr = [NSString stringWithFormat:@AAJSFunc(function (labelWidth, labelHeight, point) {
+        let xPosition = point.plotX;
+        let maxXPosition = %@ - 388;
+        if (xPosition >= maxXPosition) {
+            xPosition = maxXPosition
+        }
+        let position = {};
+        position["x"] = xPosition;
+        position["y"] = 50;
+        return position;
+    }), @(screenWidth)];
+    
     aaOptions.tooltip
     .useHTMLSet(true)
     .headerFormatSet(@"总计<br/>")
@@ -1569,12 +1583,7 @@ function () {
     .borderWidthSet(@0)
     .shapeSet(@"square")
     .styleSet(AAStyleColorSize(AARgbaColor(132, 132, 132, 1.0), 28))
-    .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
-        let position = {};
-        position["x"] = point.plotX;
-        position["y"] = 50;
-        return position;
-    }));
+    .positionerSet(positionerStr);
     
     return aaOptions;
 }
