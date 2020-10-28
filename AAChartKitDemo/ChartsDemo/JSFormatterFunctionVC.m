@@ -1264,9 +1264,8 @@ function () {
     .borderColorSet(AAColor.redColor)// red color
     .borderRadiusSet(@1.5)
     .borderWidthSet(@1.3)
-    .xSet(@3)
+    .xSet(@3).ySet(@-20)
     .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
-    .ySet(@-20)
     ;
     return aaOptions;
 }
@@ -1383,7 +1382,7 @@ function () {
     .stackingSet(AAChartStackingTypeNormal)
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主题颜色数组
     .markerRadiusSet(@0)
-       .seriesSet(@[
+    .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
@@ -1396,7 +1395,7 @@ function () {
         AASeriesElement.new
         .nameSet(@"2020")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-    ]);
+               ]);
     ;
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
