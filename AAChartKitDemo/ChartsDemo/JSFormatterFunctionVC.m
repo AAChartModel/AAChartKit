@@ -74,9 +74,11 @@
         case 20: return [self customLegendItemClickEvent];//自定义图例点击事件🖱
         case 21: return [self customTooltipPostionerFunction];//自定义浮动提示框 Postioner 函数
         case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Postioner 函数来实现一个位置固定的提示框
-        case 23: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
-        case 24: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
-        case 25: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
+        case 23: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Postioner 函数来实现绘图区外的复杂浮动提示框样式
+        case 24: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
+        case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
+        case 26: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
+
         default:
             return nil;
     }
@@ -1503,6 +1505,73 @@ function () {
     .positionerSet(@AAJSFunc(function () {
         let position = {};
         position["x"] = 50;
+        position["y"] = 50;
+        return position;
+    }));
+    
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1033
+- (AAOptions *)customPlotAreaOutsideComlicatedTooltipStyle {
+    NSArray *categoriesArr = @[
+        @"12 月 20 日",
+        @"12 月 21 日",
+        @"12 月 22 日",
+        @"12 月 23 日",
+        @"12 月 24 日",
+        @"12 月 25 日",
+        @"12 月 26 日",
+        @"12 月 27 日",
+        @"12 月 28 日",
+        @"12 月 29 日",
+        @"12 月 30 日",
+        @"12 月 31 日",
+    ];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .categoriesSet(categoriesArr)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"个人徒步数据统计")
+        .colorSet(AARgbaColor(235, 88, 40, 1.0))
+        .borderRadiusTopLeftSet(@3)
+        .borderRadiusTopRightSet(@3)
+        .dataSet(@[
+            @1300.988, @900.699,@1000.089, @1100.965, @1000.534, @1400.523,
+            @1800.254, @1900.377, @2100.523, @2500.256, @2600.555, @2800.366,
+                 ])
+               ])
+    ;
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.xAxis
+    .crosshairSet(AACrosshair.new
+                  .colorSet(AARgbaColor(209, 209, 209, 1.0))
+                  .dashStyleSet(AAChartLineDashStyleTypeLongDash)
+                  .widthSet(@3))
+    ;
+    
+    aaOptions.yAxis
+    .topSet(@"30%")//https://api.highcharts.com/highcharts/yAxis.top
+    .heightSet(@"70%")//https://api.highcharts.com/highcharts/yAxis.height
+    ;
+    
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .headerFormatSet(@"总计<br/>")
+    .pointFormatSet(@"<span style=""color:black;font-weight:bold;font-size:38px"">{point.y} </span> 步<br/>")
+    .footerFormatSet(@"2020 年 {point.x} ")
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(AARgbaColor(242, 242, 242, 1.0))
+    .borderWidthSet(@0)
+    .shapeSet(@"square")
+    .styleSet(AAStyleColorSize(AARgbaColor(132, 132, 132, 1.0), 28))
+    .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
+        let position = {};
+        position["x"] = point.plotX;
         position["y"] = 50;
         return position;
     }));

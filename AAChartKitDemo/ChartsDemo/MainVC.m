@@ -524,6 +524,7 @@
               @"custom Legend Item Click Event---自定义图例点击事件🖱",
               @"customTooltipPostionerFunction---自定义浮动提示框 positioner 函数",
               @"fixedTooltipPositionByCustomPositionerFunction---通过 Positioner 函数来实现一个位置固定的提示框",
+              @"customPlotAreaOutsideComlicatedTooltipStyle---通过 Postioner 函数来实现绘图区外的复杂浮动提示框样式",
               @"disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction---通过 Series 的 Point 的选中事件函数来禁用条形图反选效果",
               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
               @"configureTheAxesLabelsFormattersOfDoubleYAxesChart---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数",
