@@ -57,7 +57,8 @@ AAPropSetFuncImplementation(AATooltip, BOOL,       enabled)
 AAPropSetFuncImplementation(AATooltip, BOOL,       useHTML) 
 //AAPropSetFuncImplementation(AATooltip, NSString *, formatter)
 AAPropSetFuncImplementation(AATooltip, NSString *, headerFormat)
-AAPropSetFuncImplementation(AATooltip, NSString *, pointFormat) 
+AAPropSetFuncImplementation(AATooltip, NSString *, pointFormat)
+//AAPropSetFuncImplementation(AATooltip, NSString *, pointFormatter)
 AAPropSetFuncImplementation(AATooltip, NSString *, footerFormat) 
 AAPropSetFuncImplementation(AATooltip, NSNumber *, valueDecimals) //设置取值精确到小数点后几位
 AAPropSetFuncImplementation(AATooltip, NSString *, shape)
@@ -71,10 +72,15 @@ AAPropSetFuncImplementation(AATooltip, NSNumber *, padding) //设置取值精确
 
 
 AAJSFuncTypePropSetFuncImplementation(AATooltip, NSString *, formatter)
+AAJSFuncTypePropSetFuncImplementation(AATooltip, NSString *, pointFormatter)
 AAJSFuncTypePropSetFuncImplementation(AATooltip, NSString *, positioner)
 
 - (void)setFormatter:(NSString *)formatter {
     _formatter = [formatter aa_toPureJSString];
+}
+
+- (void)setPointFormatter:(NSString *)pointFormatter {
+    _pointFormatter = [pointFormatter aa_toPureJSString];
 }
 
 - (void)setPositioner:(NSString *)positioner {

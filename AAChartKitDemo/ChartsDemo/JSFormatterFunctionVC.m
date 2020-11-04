@@ -78,6 +78,7 @@
         case 24: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
         case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
         case 26: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
+        case 27: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
 
         default:
             return nil;
@@ -1841,5 +1842,37 @@ function () {
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1042
+- (AAOptions *)makePieChartShow0Data {
+    NSArray *dataArr = @[
+        @{@"y":@1,
+          @"isZero":@true,
+          @"name": @"One",
+        },
+        @{@"y":@1,
+          @"isZero":@true,
+          @"name": @"Two",
+        },
+        @{@"y":@1,
+          @"isZero":@true,
+          @"name": @"Three",
+        }];
+    
+    return AAOptions.new
+    .titleSet((id)NSNull.null)
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypePie))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"ZeroDataPie")
+        .dataSet(dataArr)
+        .tooltipSet(AATooltip.new
+                    .sharedSet(false)
+                    .pointFormatterSet(@AAJSFunc(function() {
+            return "<span style=\'color:" + this.color + "\'> ◉ </span>" + this.series.name + ": <b>" + (this.options.isZero ? 0 : this.y) + "</b><br/>";
+        })))
+               ])
+    ;
+}
 
 @end
