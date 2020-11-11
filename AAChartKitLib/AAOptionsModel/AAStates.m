@@ -10,8 +10,8 @@
 
 @implementation AAStates
 
-AAPropSetFuncImplementation(AAStates, AAHover *, hover)
-AAPropSetFuncImplementation(AAStates, AASelect *, select)
+AAPropSetFuncImplementation(AAStates, AAHover    *, hover)
+AAPropSetFuncImplementation(AAStates, AASelect   *, select)
 AAPropSetFuncImplementation(AAStates, AAInactive *, inactive)
 
 @end
@@ -27,11 +27,11 @@ AAPropSetFuncImplementation(AAStates, AAInactive *, inactive)
     return self;
 }
 
-AAPropSetFuncImplementation(AAHover, BOOL , enabled)
+AAPropSetFuncImplementation(AAHover, BOOL,       enabled)
 AAPropSetFuncImplementation(AAHover, NSString *, borderColor)
 AAPropSetFuncImplementation(AAHover, NSNumber *, brightness)
 AAPropSetFuncImplementation(AAHover, NSString *, color)
-AAPropSetFuncImplementation(AAHover, AAHalo *, halo)
+AAPropSetFuncImplementation(AAHover, AAHalo   *, halo)
 AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidth)
 AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidthPlus)
 
@@ -50,10 +50,10 @@ AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidthPlus)
     return self;
 }
 
-AAPropSetFuncImplementation(AASelect, BOOL , enabled)
+AAPropSetFuncImplementation(AASelect, BOOL,       enabled)
 AAPropSetFuncImplementation(AASelect, NSString *, borderColor)
 AAPropSetFuncImplementation(AASelect, NSString *, color)
-AAPropSetFuncImplementation(AASelect, AAHalo *, halo)
+AAPropSetFuncImplementation(AASelect, AAHalo   *, halo)
 
 @end
 
@@ -77,7 +77,7 @@ AAPropSetFuncImplementation(AAHalo, NSNumber *, size)
     return self;
 }
 
-AAPropSetFuncImplementation(AAInactive, BOOL , enabled)
+AAPropSetFuncImplementation(AAInactive, BOOL,       enabled)
 AAPropSetFuncImplementation(AAInactive, NSNumber *, opacity)
 
 @end
