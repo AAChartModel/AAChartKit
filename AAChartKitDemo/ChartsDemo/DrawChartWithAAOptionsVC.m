@@ -134,7 +134,7 @@
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
     aaOptions.chart
-    .marginSet(AAMargin(100,100,100,100));
+    .marginSet(AAMargin(100, 100, 100, 100));
     
     aaOptions.legend
     .enabledSet(true)
@@ -414,7 +414,6 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerRadiusSet(@0)
     .polarSet(true)
     .seriesSet(@[
@@ -439,7 +438,6 @@
     .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
     .markerRadiusSet(@0)
     .dataLabelsEnabledSet(true)
     .seriesSet(@[
