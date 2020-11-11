@@ -97,7 +97,7 @@ AAChartKit is an elegant and friendly (user-friendly && enviroment-friendly) cha
 
 ## Installation
 
-### CocoaPods (recommend)
+### CocoaPods (recommended practice)
 1. Add following content
 ```ruby
 pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
@@ -164,7 +164,7 @@ AAChartModel *aaChartModel = AAChartModel.new
 🎉🎉🎉 Congratulations! Everything was done!!! You will get what you want!!! 🌈🌈🌈
 
 ### Update chart content 
-if you want to refresh chart content,you should do something as follow.According to your actual needs, select the function that fits you.
+If you want to refresh chart content, you should do something as follow. According to your actual needs, select the function that fits you.
 
 *  Refresh the chart data (this method is recommended for updating the series data dynamically)
 ```objective-c
