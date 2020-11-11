@@ -42,6 +42,15 @@ AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidthPlus)
 
 @implementation AASelect
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AASelect, BOOL , enabled)
 AAPropSetFuncImplementation(AASelect, NSString *, borderColor)
 AAPropSetFuncImplementation(AASelect, NSString *, color)
 AAPropSetFuncImplementation(AASelect, AAHalo *, halo)
