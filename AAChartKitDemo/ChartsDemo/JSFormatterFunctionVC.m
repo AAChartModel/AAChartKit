@@ -968,18 +968,18 @@
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip
     .useHTMLSet(true)
-    .formatterSet(@"function () {\
-        let myPointOptions = this.points[0].point.options;\
-        let xValue = myPointOptions.x;\
-        let lowValue = myPointOptions.low;\
-        let highValue = myPointOptions.high;\
-        let titleStr = '🌕 this is my custom tooltip description text content <br>';\
-        let xValueStr = '🌖 this is x value  : ' + xValue + '<br>';\
-        let lowValueStr = ' 🌗 this is low value  : ' + lowValue + '<br>';\
-        let highValueStr = '🌘 this is high value : ' + highValue + '<br>';\
-        let tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;\
-        return tooltipDescStr;\
-    }")
+    .formatterSet(@AAJSFunc(function () {
+        let myPointOptions = this.points[0].point.options;
+        let xValue = myPointOptions.x;
+        let lowValue = myPointOptions.low;
+        let highValue = myPointOptions.high;
+        let titleStr = '🌕 this is my custom tooltip description text content <br>';
+        let xValueStr = '🌖 this is x value  : ' + xValue + '<br>';
+        let lowValueStr = ' 🌗 this is low value  : ' + lowValue + '<br>';
+        let highValueStr = '🌘 this is high value : ' + highValue + '<br>';
+        let tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;
+        return tooltipDescStr;
+    }))
     .backgroundColorSet(@"#000000")
     .borderColorSet(@"#000000")
     .styleSet(AAStyleColorSize(@"#1e90ff", 12))
