@@ -34,10 +34,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class AALabels, AACrosshair, AAPlotBandsElement, AAPlotLinesElement;
+@class AAAxisTitle, AALabels, AACrosshair, AAPlotBandsElement, AAPlotLinesElement;
 
 @interface AAXAxis : NSObject
 
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AAAxisTitle  *, title)
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, type) 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotLinesElement *>*, plotLines)

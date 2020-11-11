@@ -143,6 +143,15 @@
     .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
     ;
     
+    //https://api.highcharts.com.cn/highcharts#xAxis.title
+    aaOptions.xAxis
+    .titleSet(AAAxisTitle.new
+              .textSet(@"问世间情为何物???")
+              .offsetSet(@25)
+              .rotationSet(@-5)
+              .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
+              );
+    
     aaOptions.yAxis.labels.format = @"{value} €";//给y轴添加单位
     
     //禁用图例点击事件
@@ -416,6 +425,7 @@
                ]);
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+
     aaOptions.xAxis.visible = false;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     return aaOptions;
