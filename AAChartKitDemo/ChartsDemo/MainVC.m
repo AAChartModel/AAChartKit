@@ -111,7 +111,8 @@
     if (   indexPath.section == 2
         || indexPath.section == 3
         || indexPath.section == 6
-        || indexPath.section == 9) {
+        || indexPath.section == 9
+        || indexPath.section == 10) {
         return 60;
     } else {
         return 40;
@@ -135,12 +136,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = self.chartTypeNameArr[indexPath.section][indexPath.row];
+    NSString *textStr = self.chartTypeNameArr[indexPath.section][indexPath.row];
+    NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
+    cell.textLabel.text = textStrArr[0];
+    cell.textLabel.textColor = [UIColor redColor];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.font = [UIFont systemFontOfSize:15];
+    cell.detailTextLabel.text = textStrArr[1];
     return cell;
 }
 
@@ -308,8 +313,8 @@
             @"Draw Chart With AAOptions---通过Options绘图",
             @"Many ChartView simultaneously---同时显示多个AAChartView",
             @"Hide Or Show Chart Series---隐藏或显示内容",
-            @"Support JS Formatter Function",
-            @"Evaluate JS String Function---执行js函数",
+            @"Support JS Formatter Function---支持 JS 函数属性",
+            @"Evaluate JS String Function---注入并执行js函数",
             @"Scrolling Updating Data---图表滚动刷新",
             @"Drawable Chart---可拖拽的图表1📈",
             @"Drawable Chart---可拖拽的图表2📊",
@@ -330,17 +335,17 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ],
             /*特殊类型图表*/
             @[@"Pie Chart---扇形图",
               @"Bubble Chart---气泡图",
-              @"Scatter Chart--散点图",
-              @"Area Range Chart--折线区域面积图",
-              @"Area Spline range Chart--曲线区域面积图",
-              @"Column Range Chart--柱形范围图",
+              @"Scatter Chart---散点图",
+              @"Area Range Chart---折线区域面积图",
+              @"Area Spline range Chart---曲线区域面积图",
+              @"Column Range Chart---柱形范围图",
               @"Box Plot Chart---箱线图",
               @"Water Fall---瀑布图",
               @"Pyramid Chart---金字塔图",
@@ -356,28 +361,28 @@
               @"Gradient Color Bar Chart---颜色渐变条形图",
               @"configureXAxisHaveAAZonesElementChart--- X 轴阈值分割区",
               @"configureYAxisHaveAAZonesElementChart--- Y 轴带有阈值分割区",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Nightingale Rose Chart---南丁格尔玫瑰图",
-              @"Specific Data Customize Datalabel",
+              @"Specific Data Customize Datalabel---指定 data 元素自定义 Datalabel",
               @"Chart With Shadow Style---带有阴影效果の图表",
               @"Colorful gradient Areaspline Chart---多层次渐变区域填充图",
               @"Colorful gradient Spline Chart---多层次渐变曲线图",
               @"Gradient Color Areaspline Chart---半透明渐变效果区域填充图",
-              @"Special Style Marker Of Single Data Element Chart",
-              @"Special Style Column Of Single Data Element Chart",
+              @"Special Style Marker Of Single Data Element Chart---指定单个数据元素的 Marker 为特殊样式",
+              @"Special Style Column Of Single Data Element Chart---指定单个数据元素的 Column 为特殊样式",
               @"configure Area Chart Threshold---自定义阈值",
               @"custom Scatter Chart Marker Symbol Content---自定义散点图的标志点内容",
               @"custom Line Chart Marker Symbol Content---自定义折线图的标志点内容",
-              @"Area Chart with minus--带有负数的区域填充图",
+              @"Area Chart with minus---带有负数的区域填充图",
               @"splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle---曲线图禁用选中变粗&&自定义选中后的 marker 样式",
               @"Pentagon Radar Chart---五角形雷达图",
-              @"Hexagon Radar Chart----六角形雷达图",
-              @"adjustYAxisMaxAndMinValues----调整 X 轴和 Y 轴最大值",
-              @"custom Special Style DataLabel Of Single Data Element Chart",
-              @"custom Bar Chart Hover Color and Select Color---自定义条形图手指滑动颜色和单个长条被选中颜色",
-              @"custom Line Chart Chart Hover And Select Halo Style",
-              @"custom Spline Chart Marker States Hover Style",
+              @"Hexagon Radar Chart---六角形雷达图",
+              @"adjustYAxisMaxAndMinValues---调整 X 轴和 Y 轴最大值",
+              @"custom Special Style DataLabel Of Single Data Element Chart---指定单个数据元素的 DataLabel 为特殊样式",
+              @"custom Bar Chart Hover Color and Select Colorc---自定义条形图手指滑动颜色和单个长条被选中颜色",
+              @"custom Line Chart Chart Hover And Select Halo Style---自定义直线图手指略过和选中的 Halo 样式",
+              @"custom Spline Chart Marker States Hover Style---自定义曲线图手指略过时的 Marker 样式",
               @"customNormalStackingChartDataLabelsContentAndStyle---自定义堆积柱状图 DataLabels 的内容及样式",
               @"upsideDownPyramidChart---倒立的金字塔图",
               @"doubleLayerPieChart---双层嵌套扇形图",
@@ -412,8 +417,8 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ],
             /*JQuery动画样式类型演示*/
@@ -423,10 +428,10 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
-              @"Scatter Chart --散点图",
-              @"Pie Chart --扇形图"
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
+              @"Scatter Chart---散点图",
+              @"Pie Chart---扇形图"
             ],
             /*通过AAOptions实例对象来绘制图形*/
             @[@"configureTheAAOptionsOfAreaChart---绘制legend居顶部的区域填充图",
@@ -435,7 +440,7 @@
               @"configureTheAAOptionsOfSpecialNestedColumnChart---绘制嵌套的柱状图",
               @"configureThePolygonPolarChart---多边形线框的雷达图",
               @"configureTheNoGapColunmChart---缝隙很小的柱状图",
-              @"Custom style tooltip--自定义浮动提示框",
+              @"Custom style tooltip---自定义浮动提示框",
               @"adjustChartLeftAndRightMargin---调整图表的左右边距",
               @"configureChartWithBackgroundImage---设置图表绘图区的背景图片",
               @"Double Y Axises Chart---双Y轴混合图",
@@ -456,7 +461,7 @@
               @"adjustChartDataLabelsStyle---自定义DataLabels样式",
               @"customizeEveryDataLabelBySinglely---单独自定义指定的data的DataLabels样式",
               @"configureXAxisLabelsFontColorWithHTMLString---通过HTML字符串自定义X轴文字颜色",
-              @"configureXAxisLabelsFontColorAndFontSizeWithHTMLString通过HTML字符串自定义X轴文字颜色和字体大小",
+              @"configureXAxisLabelsFontColorAndFontSizeWithHTMLString---通过HTML字符串自定义X轴文字颜色和字体大小",
               @"configure_DataLabels_XAXis_YAxis_Legend_Style---配置DataLabels、XAXis、YAxis、Legend等图表元素样式",
               @"configureXAxisPlotBand---X轴带有颜色标志带的混合图表",
               @"configureStackingColumnChartDataLabelsOverflow---允许DataLabels文字溢出绘图区",
@@ -474,8 +479,8 @@
               @"Triangle Radar Chart With PlotBands---带有颜色标志带的三角形雷达图",
               @"Quadrangle Radar Chart With PlotBands---带有颜色标志带的四角形雷达图",
               @"Pentagon Radar Chart With PlotBands---带有颜色标志带的五角形雷达图",
-              @"Hexagon Radar Char With PlotBands----带有颜色标志带的六角形雷达图",
-              @"Spider Web Radar Chart With PlotBands----带有颜色标志带の🕸蜘蛛网状雷达图",
+              @"Hexagon Radar Char With PlotBands---带有颜色标志带的六角形雷达图",
+              @"Spider Web Radar Chart With PlotBands---带有颜色标志带の🕸蜘蛛网状雷达图",
               @"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
               @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
               @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
@@ -484,8 +489,8 @@
               @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
             ],
             /*同时显示多个 AAChartView*/
-            @[@"同时显示多个 AAChartView",
-              @"UITableView上显示多个 AAChartView",
+            @[@"Show Two AAChartView On View---同时显示多个 AAChartView",
+              @"Show Many AAChartView On UITableView---UITableView上显示多个 AAChartView",
               @"Double Charts Linked Working---双表联动",
             ],
             /*隐藏或显示图表的Series*/
@@ -495,8 +500,8 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ],
             
@@ -531,12 +536,12 @@
               @"makePieChartShow0Data---使饼图显示为 0 的数据",
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
-            @[@"Custom Chart DataLabel Sample One",
-              @"Custom Chart DataLabel Sample Two",
-              @"Custom Chart StackLabel Sample ",
-              @"Support Dragging Chart On X Axis",
-              @"Show Tooltip In Specific Postion after chart was loaded",
-              @"Add Event For XAxis Labels Group Element "
+            @[@"Custom Chart DataLabel Sample One---自定义 DataLabel 1",
+              @"Custom Chart DataLabel Sample Two---自定义 DataLabel 2",
+              @"Custom Chart StackLabel Sample---自定义 StackLabel ",
+              @"Support Dragging Chart On X Axis---支持图表在 X 轴方向上拖动",
+              @"Show Tooltip In Specific Postion after chart was loaded---图表加载完成后,指定位置默认显示 tooltip",
+              @"Add Event For XAxis Labels Group Element---为 X 轴文字 Labels 添加点击事件 "
             ],
             /*基础类型图表X轴水平滚动刷新*/
             @[@"Column Chart---柱形图",
@@ -545,8 +550,8 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ],
             /*基础类型图表X轴水平拖动类型 1*/
@@ -556,8 +561,8 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ],
             /*基础类型图表X轴水平拖动类型 2*/
@@ -567,8 +572,8 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ],
             /*基础类型图表X轴水平拖动类型 2*/
@@ -583,8 +588,8 @@
               @"Areaspline Chart---曲线填充图",
               @"Line Chart---折线图",
               @"Spline Chart---曲线图",
-              @"Step Line Chart--直方折线图",
-              @"Step Area Chart--直方折线填充图",
+              @"Step Line Chart---直方折线图",
+              @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
             ]
         ];
