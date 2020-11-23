@@ -167,7 +167,10 @@
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .chartTypeSet(AAChartTypeLine)
-    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
     .dataLabelsEnabledSet(true)
     .colorsThemeSet(@[@"#1e90ff",@"#EA007B", @"#49C1B6", @"#FDC20A", @"#F78320", @"#068E81",])
     .seriesSet(@[
@@ -208,6 +211,14 @@
 }
 
 - (AAChartModel *)configureStackingColumnMixedLineChart {
+    AAMarker *aaMarker = AAMarker.new
+    .radiusSet(@7)//曲线连接点半径，默认是4
+    .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+    .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+    .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+    ;
+    
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .titleSet(@"16年1月-16年11月充值客单分析")
@@ -219,46 +230,24 @@
         .colorSet((id)AAGradientColor.mysticMauveColor)
         .dataSet(@[@82.89,@67.54,@62.07,@59.43,@67.02,@67.09,@35.66,@71.78,@81.61,@78.85,@79.12,@72.30])
         .dataLabelsSet(AADataLabels.new
-                       .enabledSet(YES)
-                       .styleSet(AAStyle.new
-                                 .colorSet(@"#000000")
-                                 .fontSizeSet(@"11px")
-                                 )
-                       )
+                       .styleSet(AAStyleColorSize(@"#000000", 11)))
         ,
         AASeriesElement.new
         .nameSet(@"老用户")
         .colorSet((id)AAGradientColor.deepSeaColor)
         .dataSet(@[@198.66,@330.81,@151.95,@160.12,@222.56,@229.05,@128.53,@250.91,@224.47,@473.99,@126.85,@260.50])
         .dataLabelsSet(AADataLabels.new
-                       .enabledSet(YES)
-                       .styleSet(AAStyle.new
-                                 .colorSet(@"#000000")
-                                 .fontSizeSet(@"11px")
-                                 )
-                       )
+                       .styleSet(AAStyleColorSize(@"#000000", 11)))
         ,
         AASeriesElement.new
         .typeSet(AAChartTypeLine)
         .lineWidthSet(@5)
         .nameSet(@"总量")
         .colorSet((id)AAGradientColor.sanguineColor)
+        .markerSet(aaMarker)
         .dataSet(@[@281.55,@398.35,@214.02,@219.55,@289.57,@296.14,@164.18,@322.69,@306.08,@552.84,@205.97,@332.79])
         .dataLabelsSet(AADataLabels.new
-                       .enabledSet(YES)
-                       .styleSet(AAStyle.new
-                                 .colorSet(@"#000000")
-                                 .fontSizeSet(@"15px")
-                                 .fontWeightSet(AAChartFontWeightTypeBold)
-                                 )
-                       )
-        .markerSet(AAMarker.new
-                     .radiusSet(@7)//曲线连接点半径，默认是4
-                     .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                     .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
-                     .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                     .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                     )
+                       .styleSet(AAStyleColorSizeWeight(@"#000000", 15, AAChartFontWeightTypeBold)))
         ,
     ]);
     
@@ -733,6 +722,15 @@
         @[@176.5, @71.8], @[@164.4, @55.5], @[@160.7, @48.6], @[@174.0, @66.4], @[@163.8, @67.3],
     ];
     
+    AAMarker *aaMarker = AAMarker.new
+    .radiusSet(@7)//曲线连接点半径，默认是4
+    .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+    .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+    //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+    .lineColorSet(@"")
+    ;
+    
     return AAChartModel.new
     .titleSet(@"polygon mixed scatter chart")
     .seriesSet(@[
@@ -747,14 +745,7 @@
         .typeSet(AAChartTypeScatter)
         .dataSet(scatterChartArr)
         .colorSet(AARgbaColor(255, 69, 0, 1.0))//OrangeRed
-        .markerSet(AAMarker.new
-                   .radiusSet(@7)//曲线连接点半径，默认是4
-                   .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                   .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
-                   .lineWidthSet(@2)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
-                   //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                   .lineColorSet(@"")
-                   ),
+        .markerSet(aaMarker),
     ]);
 }
 
@@ -962,10 +953,7 @@
                                      ])
                       )
         .dataLabelsSet(AADataLabels.new
-                       .styleSet(AAStyle.new
-                                 .colorSet(AARgbaColor(255, 0, 0, 1.0))
-                                 .fontSizeSet(@"11px")
-                                 ))
+                       .styleSet(AAStyleColorSize(AARgbaColor(255, 0, 0, 1.0), 11)))
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
         
         AASeriesElement.new
@@ -981,10 +969,7 @@
                                      ])
                       )
         .dataLabelsSet(AADataLabels.new
-                       .styleSet(AAStyle.new
-                                 .colorSet(AARgbaColor(30, 144, 255, 1.0))
-                                 .fontSizeSet(@"11px")
-                                 ))
+                       .styleSet(AAStyleColorSize(AARgbaColor(30, 144, 255, 1.0), 11)))
         .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
                ]
                );
