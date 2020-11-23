@@ -301,8 +301,7 @@
         .zIndexSet(@(1)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
                   .textSet(@"标示线1")
-                  .styleSet(AAStyle.new
-                            .colorSet(AAColor.greenColor)))
+                  .styleSet(AAStyleColor(AAColor.greenColor)))
         ,
         AAPlotLinesElement.new
         .colorSet(AAColor.purpleColor)
@@ -311,8 +310,7 @@
         .valueSet(@(20))
         .labelSet(AALabel.new
                   .textSet(@"标示线2")
-                  .styleSet(AAStyle.new
-                            .colorSet(AAColor.purpleColor)))
+                  .styleSet(AAStyleColor(AAColor.purpleColor)))
     ];
     
     return AAChartModel.new
