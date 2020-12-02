@@ -31,6 +31,7 @@
  */
 
 #import <Foundation/Foundation.h>
+
 @class AAStyle;
 
 @interface AATooltip : NSObject
@@ -56,7 +57,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, valueSuffi
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       followTouchMove) //在触摸设备上，tooltip.followTouchMove选项为true（默认）时，平移需要两根手指。若要允许用一根手指平移，请将followTouchMove设置为false。
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, padding) //设置取值精确到小数点后几位
-AAPropStatementAndPropSetFuncStatement(copy, AATooltip, NSString *, positioner)
-
+AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, positioner)
+AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, hideDelay) //提示框隐藏延时: 当鼠标移出数据点或者图表后，数据提示框会在设定的延迟时间后消失 默认是：500.
 
 @end
