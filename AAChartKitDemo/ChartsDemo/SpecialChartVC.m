@@ -101,8 +101,7 @@
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#ffffa0",@"#EA007B"])
     .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
-    .seriesSet(@[element])
-    ;
+    .seriesSet(@[element]);
 }
 
 - (AAChartModel *)configureBubbleChart {
@@ -159,8 +158,7 @@
     .yAxisGridLineStyleSet(AALineStyle.new
                            .widthSet(@0))
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",@"#facd32",@"#ffffa0",@"#EA007B"])
-    .seriesSet(seriesArr)
-    ;
+    .seriesSet(seriesArr);
     
 }
 

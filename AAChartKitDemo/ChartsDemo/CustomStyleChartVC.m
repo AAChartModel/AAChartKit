@@ -512,8 +512,7 @@
                    .offsetYSet(@15.0)
                    .opacitySet(@0.2)
                    .widthSet(@8.0)
-                   .colorSet(AAColor.redColor)
-                   ),
+                   .colorSet(AAColor.redColor)),
                ]);
 }
 
@@ -709,29 +708,25 @@
     .nameSet(@"Predefined symbol")
     .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36])
     .markerSet(AAMarker.new
-               .symbolSet(predefinedSymbol1))
-    ;
+               .symbolSet(predefinedSymbol1));
     
     AASeriesElement *element2 = AASeriesElement.new
     .nameSet(@"Image symbol")
     .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67])
     .markerSet(AAMarker.new
-               .symbolSet(imageSymbol))
-    ;
+               .symbolSet(imageSymbol));
     
     AASeriesElement *element3 = AASeriesElement.new
     .nameSet(@"Base64 symbol (*)")
     .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64])
     .markerSet(AAMarker.new
-               .symbolSet(base64Symbol))
-    ;
+               .symbolSet(base64Symbol));
     
     AASeriesElement *element4 = AASeriesElement.new
     .nameSet(@"Custom symbol")
     .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53])
     .markerSet(AAMarker.new
-               .symbolSet(predefinedSymbol2))
-    ;
+               .symbolSet(predefinedSymbol2));
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
@@ -824,8 +819,7 @@
         .nameSet(@"体重")
         .colorSet(@"#2494F3")
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-               ])
-    ;
+               ]);
 }
 
 
@@ -855,8 +849,7 @@
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
                    .overflowSet(@"none")
-                   .cropSet(false)
-                   )
+                   .cropSet(false))
     .ySet(@26.5);
     
     return AAChartModel.new
@@ -918,8 +911,7 @@
                                           @"stroke-width": @50,
                                           @"fill": @"#00BFFF",
                                           @"stroke": @"#00FA9A"
-                                                     }))
-                             )
+                                                     })))
                    .selectSet(AASelect.new
                               .haloSet(AAHalo.new
                                        .sizeSet(@130)
@@ -928,8 +920,7 @@
                                            @"stroke-width": @150,
                                            @"fill": AARgbaColor(138, 43, 226, 1.0),
                                            @"stroke": AARgbaColor(30, 144, 255, 1.0)
-                                                      }))
-                              ))
+                                                      }))))
                ]);
 }
 
@@ -956,8 +947,7 @@
                                         .fillColorSet(AAColor.whiteColor)
                                         .radiusSet(@40)
                                         .lineColorSet(AAColor.greenColor)
-                                        .lineWidthSet(@20))
-                              ))
+                                        .lineWidthSet(@20))))
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
 }
@@ -983,8 +973,8 @@
         .statesSet(AAStates.new
                    .hoverSet(AAHover.new
                              .enabledSet(true)
-                             .lineWidthPlusSet(@0)//手指盘旋或选中图表时,禁止线条变粗
-                             ))
+                             //手指盘旋或选中图表时,禁止线条变粗
+                             .lineWidthPlusSet(@0)))
         .markerSet(AAMarker.new
                    .statesSet(AAMarkerStates.new
                               .hoverSet(AAMarkerHover.new
@@ -1028,8 +1018,7 @@
                    .backgroundColorSet(AAColor.whiteColor)
                    .borderColorSet(AAColor.redColor)
                    .borderRadiusSet(@1)
-                   .borderWidthSet(@1)
-                   )
+                   .borderWidthSet(@1))
     .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]);
     
     
@@ -1167,8 +1156,7 @@
                    .offsetYSet(@15.0)
                    .opacitySet(@0.2)
                    .widthSet(@8.0)
-                   .colorSet(@"#1e90ff")
-                   ),
+                   .colorSet(@"#1e90ff")),
         AASeriesElement.new
         .nameSet(@"2018")
         .lineWidthSet(@5)
@@ -1178,8 +1166,7 @@
                    .offsetYSet(@15.0)
                    .opacitySet(@0.2)
                    .widthSet(@8.0)
-                   .colorSet(@"#ef476f")
-                   ),
+                   .colorSet(@"#ef476f")),
         AASeriesElement.new
         .nameSet(@"2019")
         .lineWidthSet(@5)
@@ -1189,8 +1176,7 @@
                    .offsetYSet(@15.0)
                    .opacitySet(@0.2)
                    .widthSet(@8.0)
-                   .colorSet(@"#ffd066")
-                   ),
+                   .colorSet(@"#ffd066")),
         AASeriesElement.new
         .nameSet(@"2020")
         .lineWidthSet(@5)
@@ -1200,8 +1186,7 @@
                    .offsetYSet(@15.0)
                    .opacitySet(@0.2)
                    .widthSet(@8.0)
-                   .colorSet(@"#04d69f")
-                   ),
+                   .colorSet(@"#04d69f")),
                ]);
 }
 
@@ -1350,10 +1335,7 @@
         .markerSet(AAMarker.new
                    .statesSet(AAMarkerStates.new
                               .hoverSet(AAMarkerHover.new
-                                        .enabledSet(false)
-                                        )
-                              )
-                   )
+                                        .enabledSet(false))))
         .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
                ]);
 }
