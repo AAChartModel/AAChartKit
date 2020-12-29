@@ -37,9 +37,9 @@
 
 AACHARTKIT_STATIC_INLINE
 NSString * AARgbaColor(int red,
-                      int green,
-                      int blue,
-                      float alpha) {
+                       int green,
+                       int blue,
+                       float alpha) {
     return [NSString stringWithFormat:@"rgba(%d,%d,%d,%f)",
             red,
             green,
