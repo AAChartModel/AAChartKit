@@ -79,7 +79,6 @@
 		713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 713191171E80B32C00382A09 /* IMG_1865.JPG */; };
 		7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911B1E80B33700382A09 /* IMG_1863.JPG */; };
 		7131911E1E80B6AE00382A09 /* IMG_1873.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 7131911D1E80B6AE00382A09 /* IMG_1873.JPG */; };
-		713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 713F54361E7B71C000D506C7 /* AAChartKitShow.gif */; };
 		713F543D1E7B71C000D506C7 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* MainVC.m */; };
 		713F543E1E7B71C000D506C7 /* BasicChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F543A1E7B71C000D506C7 /* BasicChartVC.m */; };
 		7172A3D81E763EA6000D5B99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3D71E763EA6000D5B99 /* main.m */; };
@@ -245,7 +244,6 @@
 		713191171E80B32C00382A09 /* IMG_1865.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1865.JPG; sourceTree = "<group>"; };
 		7131911B1E80B33700382A09 /* IMG_1863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1863.JPG; sourceTree = "<group>"; };
 		7131911D1E80B6AE00382A09 /* IMG_1873.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1873.JPG; sourceTree = "<group>"; };
-		713F54361E7B71C000D506C7 /* AAChartKitShow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AAChartKitShow.gif; sourceTree = "<group>"; };
 		713F54371E7B71C000D506C7 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		713F54381E7B71C000D506C7 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		713F54391E7B71C000D506C7 /* BasicChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicChartVC.h; sourceTree = "<group>"; };
@@ -595,7 +593,6 @@
 				64245AD51EC37396005B8021 /* IMG_1879.JPG */,
 				64245AD71EC37495005B8021 /* IMG_1880.JPG */,
 				64245AD91EC4BA44005B8021 /* IMG_1882.JPG */,
-				713F54361E7B71C000D506C7 /* AAChartKitShow.gif */,
 				64245ADB1EC8388B005B8021 /* AAChartKitDocumentLive.html */,
 			);
 			name = ChartSamples;
@@ -718,7 +715,6 @@
 				64245AD61EC37396005B8021 /* IMG_1879.JPG in Resources */,
 				713191141E80B32000382A09 /* IMG_1867.JPG in Resources */,
 				64245ACC1EC36307005B8021 /* IMG_1875.JPG in Resources */,
-				713F543C1E7B71C000D506C7 /* AAChartKitShow.gif in Resources */,
 				7131911C1E80B33700382A09 /* IMG_1863.JPG in Resources */,
 				7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */,
 				713191181E80B32C00382A09 /* IMG_1865.JPG in Resources */,
