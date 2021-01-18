@@ -779,7 +779,7 @@
     .invertedSet(true)
     .backgroundColorSet(@"#4b2b7f")
     .dataLabelsEnabledSet(true)
-    .dataLabelsFontColorSet(@"#ffffff")
+    .dataLabelsStyleSet(AAStyleColor(AAColor.whiteColor))
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"温度")

@@ -33,7 +33,7 @@
 #import <Foundation/Foundation.h>
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
-@class AAScrollablePlotArea, AALineStyle, AACrosshair;
+@class AAStyle, AALineStyle, AACrosshair, AAScrollablePlotArea;
 
 #define AACHARTKIT_EXTERN     extern __attribute__((visibility ("default")))
 
@@ -155,74 +155,52 @@ AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDas
 @interface AAChartModel : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title) //标题内容
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, titleFontSize) //Title label font size
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontColor) //Title label font color
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight) //Title label font weight
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, titleStyle) //标题文字样式
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle) //副标题内容
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, subtitleFontSize) //Subtitle label font size
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor) //Subtitle label font color
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight) //Subtitle label font weight
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, subtitleStyle) //副标题文字样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor) //图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, colorsTheme) //图表主题颜色数组
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories) //x轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series) //图表的数据列内容
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType) //图表类型
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking) //堆积样式
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *,               markerRadius) //折线连接点的半径长度
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   markerSymbolStyle) 
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   markerSymbolStyle)
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType) //缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType) //设置图表的渲染动画类型
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration) //设置图表的渲染动画时长(动画单位为毫秒)
-
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted) //x 轴是否垂直,默认为否
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) //是否极化图形(变为雷达图),默认为否
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelsEnabled) //是否显示数据,默认为否
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelsFontColor) //Datalabel font color
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelsFontSize) //Datalabel font size
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelsFontWeight) //Datalabel font weight
-
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, dataLabelsStyle) //dataLabels文字样式
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) //x 轴是否可见(默认可见)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed) // x 轴翻转,默认为否
-
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled) //x 轴是否显示文字
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisLabelsFontSize) //x 轴文字字体大小
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor) //x 轴文字字体颜色
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartFontWeightType, xAxisLabelsFontWeight) //x 轴文字字体粗细
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, xAxisLabelsStyle) //x 轴文字样式
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, xAxisGridLineStyle) //x 轴网格线的样式
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, xAxisCrosshair)
 
-
-
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed) //y 轴翻转,默认为否
-
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled) //y 轴是否显示文字
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLabelsFontSize) //y 轴文字字体大小
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor) //y 轴文字字体颜色
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartFontWeightType , yAxisLabelsFontWeight) //y 轴文字字体粗细
-
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, yAxisLabelsStyle) // y 轴文字样式
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle) //y 轴标题
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLineWidth) //y y-axis line width
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals) //是否允许 y 轴显示小数
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines) //y 轴标示线🧶的配置
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax) //y 轴最大值
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin) //y 轴最小值（设置为0就不会有负数）
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval) 
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
-
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, yAxisGridLineStyle) //y 轴网格线的样式
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, yAxisCrosshair)
-
-
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框
@@ -231,6 +209,65 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltip
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls) //设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) //是否显示图例 lengend(图表底部可点按的圆点和文字)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius) //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)
+
+@end
+
+
+@interface AAChartModel(Unavailable)
+
+@property (nonatomic, strong) NSNumber * titleFontSize AAChartKitUnavailable("`titleFontSize` was removed, please use titleStyle instead of it");
+- (AAChartModel * (^) (NSNumber * titleFontSize))titleFontSizeSet AAChartKitUnavailable("`titleFontSizeSet` was removed, please use titleStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * titleFontColor AAChartKitUnavailable("`titleFontColor` was removed, please use titleStyle instead of it");
+- (AAChartModel * (^) (NSString * titleFontColor))titleFontColorSet AAChartKitUnavailable("`titleFontColorSet` was removed, please use titleStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * titleFontWeight AAChartKitUnavailable("`titleFontWeight` was removed, please use titleStyle instead of it");
+- (AAChartModel * (^) (NSString * titleFontWeight))titleFontWeightSet AAChartKitUnavailable("`titleFontWeightSet` was removed, please use titleStyleSet instead of it");
+
+
+
+@property (nonatomic, strong) NSNumber * subtitleFontSize AAChartKitUnavailable("`subtitleFontSize` was removed, please use subtitleStyle instead of it");
+- (AAChartModel * (^) (NSNumber * subtitleFontSize))subtitleFontSizeSet AAChartKitUnavailable("`subtitleFontSizeSet` was removed, please use subtitleStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * subtitleFontColor AAChartKitUnavailable("`subtitleFontColor` was removed, please use subtitleStyle instead of it");
+- (AAChartModel * (^) (NSString * subtitleFontColor))subtitleFontColorSet AAChartKitUnavailable("`subtitleFontColorSet` was removed, please use subtitleStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * subtitleFontWeight AAChartKitUnavailable("`subtitleFontColor` was removed, please use subtitleStyle instead of it");
+- (AAChartModel * (^) (NSString * subtitleFontWeight))subtitleFontWeightSet AAChartKitUnavailable("`subtitleFontWeightSet` was removed, please use subtitleStyleSet instead of it");
+
+
+
+@property (nonatomic, strong) NSNumber * dataLabelsFontSize AAChartKitUnavailable("`dataLabelsFontSize` was removed, please use dataLabelsStyle instead of it");
+- (AAChartModel * (^) (NSNumber * dataLabelsFontSize))dataLabelsFontSizeSet AAChartKitUnavailable("`dataLabelsFontSizeSet` was removed, please use dataLabelsStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * dataLabelsFontColor AAChartKitUnavailable("`dataLabelsFontColor` was removed, please use dataLabelsStyle instead of it");
+- (AAChartModel * (^) (NSString * dataLabelsFontColor))dataLabelsFontColorSet AAChartKitUnavailable("`dataLabelsFontColorSet` was removed, please use dataLabelsStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * dataLabelsFontWeight AAChartKitUnavailable("`dataLabelsFontWeight` was removed, please use dataLabelsStyle instead of it");
+- (AAChartModel * (^) (NSString * dataLabelsFontWeight))dataLabelsFontWeightSet AAChartKitUnavailable("`dataLabelsFontWeightSet` was removed, please use dataLabelsStyleSet instead of it");
+
+
+
+@property (nonatomic, strong) NSNumber * xAxisLabelsFontSize AAChartKitUnavailable("`xAxisLabelsFontSize` was removed, please use xAxisLabelsStyle instead of it");
+- (AAChartModel * (^) (NSNumber * xAxisLabelsFontSize))xAxisLabelsFontSizeSet AAChartKitUnavailable("`xAxisLabelsFontSizeSet` was removed, please use xAxisLabelsStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * xAxisLabelsFontColor AAChartKitUnavailable("`xAxisLabelsFontColor` was removed, please use xAxisLabelsStyle instead of it");
+- (AAChartModel * (^) (NSString * xAxisLabelsFontColor))xAxisLabelsFontColorSet AAChartKitUnavailable("`xAxisLabelsFontColorSet` was removed, please use xAxisLabelsStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * xAxisLabelsFontWeight AAChartKitUnavailable("`xAxisLabelsFontWeight` was removed, please use xAxisLabelsStyle instead of it");
+- (AAChartModel * (^) (NSString * xAxisLabelsFontWeight))xAxisLabelsFontWeightSet AAChartKitUnavailable("`xAxisLabelsFontWeightSet` was removed, please use xAxisLabelsStyleSet instead of it");
+
+
+
+@property (nonatomic, strong) NSNumber * yAxisLabelsFontSize AAChartKitUnavailable("`yAxisLabelsFontSize` was removed, please use yAxisLabelsStyle instead of it");
+- (AAChartModel * (^) (NSNumber * yAxisLabelsFontSize))yAxisLabelsFontSizeSet AAChartKitUnavailable("`yAxisLabelsFontSizeSet` was removed, please use yAxisLabelsStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * yAxisLabelsFontColor AAChartKitUnavailable("`yAxisLabelsFontColor` was removed, please use yAxisLabelsStyle instead of it");
+- (AAChartModel * (^) (NSString * yAxisLabelsFontColor))yAxisLabelsFontColorSet AAChartKitUnavailable("`yAxisLabelsFontColorSet` was removed, please use yAxisLabelsStyleSet instead of it");
+
+@property (nonatomic, strong) NSString * yAxisLabelsFontWeight AAChartKitUnavailable("`yAxisLabelsFontWeight` was removed, please use yAxisLabelsStyle instead of it");
+- (AAChartModel * (^) (NSString * yAxisLabelsFontWeight))yAxisLabelsFontWeightSet AAChartKitUnavailable("`yAxisLabelsFontWeightSet` was removed, please use yAxisLabelsStyleSet instead of it");
 
 @end

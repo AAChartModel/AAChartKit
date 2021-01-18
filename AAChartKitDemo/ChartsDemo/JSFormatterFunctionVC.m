@@ -500,8 +500,7 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .backgroundColorSet(@"#111c4e")
-    .xAxisLabelsFontSizeSet(@9)
-    .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
+    .xAxisLabelsStyleSet(AAStyleColorSizeWeight(AAColor.whiteColor, 9, AAChartFontWeightTypeBold))
     .categoriesSet(@[
         @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
         @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
@@ -575,8 +574,7 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .backgroundColorSet(@"#111c4e")
-    .xAxisLabelsFontSizeSet(@9)
-    .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
+    .xAxisLabelsStyleSet(AAStyleColorSizeWeight(AAColor.whiteColor, 9, AAChartFontWeightTypeBold))
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisMaxSet(@260.0)
@@ -640,8 +638,7 @@
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .backgroundColorSet(@"#111c4e")
     .colorsThemeSet(@[@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC"])
-    .xAxisLabelsFontSizeSet(@9)
-    .xAxisLabelsFontWeightSet(AAChartFontWeightTypeBold)
+    .xAxisLabelsStyleSet(AAStyleColorSizeWeight(AAColor.whiteColor, 9, AAChartFontWeightTypeBold))
     .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
                      @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
     .yAxisMaxSet(@260.0)

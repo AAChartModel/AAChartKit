@@ -2275,8 +2275,7 @@
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .subtitleSet(@"温度 (℃)")//图表副标题
-    .subtitleFontSizeSet(@14)
-    .subtitleFontColorSet(AAColor.grayColor)
+    .subtitleStyleSet(AAStyleColorSizeWeight(AAColor.grayColor, 14, AAChartFontWeightTypeBold))
     .subtitleAlignSet(AAChartAlignTypeLeft)
     .stackingSet(AAChartStackingTypeFalse)
     .categoriesSet(@[@"12.03", @"12.04", @"12.05", @"12.06", @"12.07", @"12.08", @"12.09",])
