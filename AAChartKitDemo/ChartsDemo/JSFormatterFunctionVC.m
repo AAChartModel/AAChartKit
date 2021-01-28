@@ -1812,11 +1812,7 @@ function () {
     .gridLineWidthSet(@0)
     .titleSet(AAAxisTitle.new
               .textSet(@"中文")
-              .styleSet(AAStyle.new
-                        .colorSet(@"DodgerBlue")//Title font color
-                        .fontSizeSet(@"14px")//Title font size
-                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
-                        .textOutlineSet(@"0px 0px contrast")));
+              .styleSet(AAStyleColorSizeWeight(@"DodgerBlue", 14, AAChartFontWeightTypeBold)));
     
     AAYAxis *yAxis2 = AAYAxis.new
     .visibleSet(true)
@@ -1843,11 +1839,7 @@ function () {
     .gridLineWidthSet(@0)
     .titleSet(AAAxisTitle.new
               .textSet(@"ENGLISH")
-              .styleSet(AAStyle.new
-                        .colorSet(AAColor.redColor)//Title font color
-                        .fontSizeSet(@"14px")//Title font size
-                        .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
-                        .textOutlineSet(@"0px 0px contrast")))
+              .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 14, AAChartFontWeightTypeBold)))
     .oppositeSet(true);
     
     AATooltip *aaTooltip = AATooltip.new
