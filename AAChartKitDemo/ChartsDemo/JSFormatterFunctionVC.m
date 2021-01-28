@@ -259,22 +259,18 @@
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
-        let colorsArr = [];
-        colorsArr.push("mediumspringgreen");
-        colorsArr.push("deepskyblue");
-        colorsArr.push("red");
-        colorsArr.push("sandybrown");
-        let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-        for (let i = 0;i < 4;i++) {
+        let wholeContentStr ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        let length = this.points.length;
+        for (let i = 0; i < length; i++) {
             let thisPoint = this.points[i];
             let yValue = thisPoint.y;
             if (yValue != 0) {
-                let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+                let spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
                 let spanStyleEndStr = '</span> <br/>';
-                wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+                wholeContentStr += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
             }
         }
-        return wholeContentString;
+        return wholeContentStr;
     }))
     .backgroundColorSet(@"#050505")
     .borderColorSet(@"#050505")
@@ -321,24 +317,17 @@
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
-        let colorDot0 = '<span style=\"' + 'color:red; font-size:13px\"' + '>◉</span> ';
-        let colorDot1 = '<span style=\"' + 'color:mediumspringgreen; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:deepskyblue; font-size:13px\"' + '>◉</span> ';
-        let colorDot3 = '<span style=\"' + 'color:sandybrown; font-size:13px\"' + '>◉</span> ';
-        let colorDotArr = [];
-        colorDotArr.push(colorDot0);
-        colorDotArr.push(colorDot1);
-        colorDotArr.push(colorDot2);
-        colorDotArr.push(colorDot3);
-        let wholeContentString = this.points[0].x + '<br/>';
-        for (let i = 0;i < 4;i++) {
-            let yValue = this.points[i].y;
+        let wholeContentStr = this.points[0].x + '<br/>';
+        let length = this.points.length;
+        for (let i = 0; i < length; i++) {
+            let thisPoint = this.points[i];
+            let yValue = thisPoint.y;
             if (yValue != 0) {
-                let prefixStr = colorDotArr[i];
-                wholeContentString += prefixStr + this.points[i].series.name + ': ' + this.points[i].y + '<br/>';
+                let prefixStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                wholeContentStr += prefixStr + thisPoint.series.name + ': ' + yValue + '<br/>';
             }
         }
-        return wholeContentString;
+        return wholeContentStr;
     }))
     ;
     
@@ -1130,9 +1119,9 @@ function () {
     let 单个停止次数字符串 = "停止次数: &nbsp" + 停止次数数组[pointIndex] + 频率单位后缀;
     let 单个干预次数字符串 = "干预次数: &nbsp" + 干预次数数组[pointIndex] + 频率单位后缀;
 
-    let wholeContentString =  单个总时长字符串 + 单个有效时长字符串 + 单个看近时长字符串 + 单个看中时长字符串 + 单个看远时长字符串 + 单个切换次数字符串 + 单个停止次数字符串 + 单个干预次数字符串;
+    let wholeContentStr =  单个总时长字符串 + 单个有效时长字符串 + 单个看近时长字符串 + 单个看中时长字符串 + 单个看远时长字符串 + 单个切换次数字符串 + 单个停止次数字符串 + 单个干预次数字符串;
 
-    return wholeContentString;
+    return wholeContentStr;
     }),总时长JS数组, 有效时长JS数组, 看近时长JS数组, 看中时长JS数组, 看远时长JS数组, 切换次数JS数组, 停止次数JS数组, 干预次数JS数组];
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
