@@ -98,6 +98,8 @@
         case 50: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 51: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
         case 52: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
+        case 53: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
+
 
     }
     return nil;
@@ -3188,6 +3190,63 @@
     .legendItemClickSet(@AAJSFunc(function() {
         return false;
     }));
+    
+    return aaOptions;
+}
+
+
+//https://github.com/AAChartModel/AAChartKit/issues/1125
+- (AAOptions *)customAreaChartTooltipStyleWithTotalValueHeader {
+    NSArray *goldStopsArr = @[
+        @[@0.0, AARgbaColor(255, 215, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(255, 215, 0, 0.2)],
+        @[@1.0, AARgbaColor(255, 215, 0, 0.0)]
+    ];
+    NSDictionary *gradientGoldColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:goldStopsArr];
+    
+    
+    NSArray *greenStopsArr = @[
+        @[@0.0, AARgbaColor(50, 205, 50, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(50, 205, 50, 0.2)],
+        @[@1.0, AARgbaColor(50, 205, 50, 0.0)]
+    ];
+    NSDictionary *gradientGreenColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:greenStopsArr];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .titleSet(@"2021 年 10 月上海市猫与狗生存调查")//图表主标题
+    .subtitleSet(@"数据来源：www.无任何可靠依据.com")//图表副标题
+    .colorsThemeSet(@[
+        AARgbaColor(255, 215, 0, 1.0),
+        AARgbaColor(50, 205, 50, 1.0),
+                    ])
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
+    .categoriesSet(@[
+        @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",])
+    .seriesSet(@[
+        AASeriesElement.new
+        .lineWidthSet(@6)
+        .fillColorSet((id)gradientGoldColorDic)
+        .nameSet(@"🐶狗")
+        .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
+        AASeriesElement.new
+        .lineWidthSet(@6)
+        .fillColorSet((id)gradientGreenColorDic)
+        .nameSet(@"🐱猫")
+        .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .headerFormatSet(@"狗和猫的总数为:{point.total}<br/>")
+    ;
     
     return aaOptions;
 }

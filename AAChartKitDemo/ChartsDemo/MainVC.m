@@ -487,6 +487,7 @@
               @"yAxisOnTheRightSideChart---y轴在右侧的图表",
               @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
               @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
+              @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
             ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",
@@ -534,7 +535,6 @@
               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
               @"configureTheAxesLabelsFormattersOfDoubleYAxesChart---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数",
               @"makePieChartShow0Data---使饼图显示为 0 的数据",
-              @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[@"Custom Chart DataLabel Sample One---自定义 DataLabel 1",
