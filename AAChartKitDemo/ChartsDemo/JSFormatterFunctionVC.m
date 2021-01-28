@@ -79,6 +79,7 @@
         case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
         case 26: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
         case 27: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
+        case 28: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
 
         default:
             return nil;
@@ -1932,6 +1933,84 @@ function () {
         })))
                ])
     ;
+}
+
+
+//https://github.com/AAChartModel/AAChartKit/issues/1125
+- (AAOptions *)customAreaChartTooltipStyleWithTotalValueHeader {
+    NSArray *goldStopsArr = @[
+        @[@0.0, AARgbaColor(255, 215, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(255, 215, 0, 0.2)],
+        @[@1.0, AARgbaColor(255, 215, 0, 0.0)]
+    ];
+    NSDictionary *gradientGoldColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:goldStopsArr];
+    
+    
+    NSArray *greenStopsArr = @[
+        @[@0.0, AARgbaColor(50, 205, 50, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.6, AARgbaColor(50, 205, 50, 0.2)],
+        @[@1.0, AARgbaColor(50, 205, 50, 0.0)]
+    ];
+    NSDictionary *gradientGreenColorDic =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:greenStopsArr];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .titleSet(@"2021 年 10 月上海市猫与狗生存调查")//图表主标题
+    .subtitleSet(@"数据来源：www.无任何可靠依据.com")//图表副标题
+    .colorsThemeSet(@[AARgbaColor(255, 215, 0, 1.0), AARgbaColor(50, 205, 50, 1.0),])
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式为内部白色
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
+    .categoriesSet(@[
+        @"10-01",@"10-02",@"10-03",@"10-04",@"10-05",@"10-06",@"10-07",@"10-08",])
+    .seriesSet(@[
+        AASeriesElement.new
+        .lineWidthSet(@6)
+        .fillColorSet((id)gradientGoldColorDic)
+        .nameSet(@"🐶狗")
+        .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
+        AASeriesElement.new
+        .lineWidthSet(@6)
+        .fillColorSet((id)gradientGreenColorDic)
+        .nameSet(@"🐱猫")
+        .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let timeStr = '<b>' + '2021-' + this.x +  '</b>'  + '<br/>';
+        
+        let selectedPoint1 = this.points[0];
+        let selectedPoint2 = this.points[1];
+        
+        let dogValue = selectedPoint1.y;
+        let catValue = selectedPoint2.y;
+        
+        let valuePlusValueStr = '狗和猫的总数为:' + (dogValue + catValue) + '<br/>';
+        let colorDot1 = '<span style=\"' + 'color:' + selectedPoint1.color + '; font-size:13px\"' + '>◉</span> ';
+        let colorDot2 = '<span style=\"' + 'color:' + selectedPoint2.color + '; font-size:13px\"' + '>◉</span> ';
+
+        let dogValueStr = colorDot1 + selectedPoint1.series.name + ': ' + dogValue + '条' + '<br/>';
+        let catValueStr = colorDot2 + selectedPoint2.series.name + ': ' + catValue + '只';
+        
+        let wholeContentStr = timeStr + valuePlusValueStr + dogValueStr + catValueStr;
+        return wholeContentStr;
+    }))
+    ;
+    
+    //禁用图例点击事件
+     aaOptions.plotOptions.series.events = AAEvents.new
+     .legendItemClickSet(@AAJSFunc(function() {
+         return false;
+     }));
+    
+    return aaOptions;
 }
 
 @end
