@@ -142,7 +142,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         || aaChartType == AAChartTypeAreasplinerange
         || aaChartType == AAChartTypePolygon
         ) {
-        
         AAMarker *aaMarker = AAMarker.new
         .radiusSet(aaChartModel.markerRadius)//曲线连接点半径，默认是4
         .symbolSet(aaChartModel.markerSymbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -229,8 +228,8 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         || aaChartType == AAChartTypeAreasplinerange
         || aaChartType == AAChartTypeBoxplot
         || aaChartType == AAChartTypeWaterfall
-        || aaChartType == AAChartTypePolygon) {
-        
+        || aaChartType == AAChartTypePolygon
+        ) {
         AAXAxis *aaXAxis = AAXAxis.new
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.xAxisLabelsEnabled)//设置 x 轴是否显示文字
