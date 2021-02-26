@@ -164,7 +164,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 + (void)configureTheAAPlotOptionsWithPlotOptions:(AAPlotOptions *)aaPlotOptions
                                       chartModel:(AAChartModel *)aaChartModel {
     
-    AAChartType chartType = aaChartModel.chartType;
+    AAChartType aaChartType = aaChartModel.chartType;
     
     AADataLabels *aaDataLabels = AADataLabels.new
     .enabledSet(aaChartModel.dataLabelsEnabled);
@@ -173,7 +173,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .styleSet(aaChartModel.dataLabelsStyle);
     }
     
-    if (chartType == AAChartTypeColumn) {
+    if (aaChartType == AAChartTypeColumn) {
         AAColumn *aaColumn = (AAColumn.new
                               .borderWidthSet(@0)
                               .borderRadiusSet(aaChartModel.borderRadius)
@@ -183,7 +183,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.columnSet(aaColumn);
-    } else if (chartType == AAChartTypeBar) {
+    } else if (aaChartType == AAChartTypeBar) {
         AABar *aaBar = (AABar.new
                         .borderWidthSet(@0)
                         .borderRadiusSet(aaChartModel.borderRadius)
@@ -193,7 +193,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
             .groupPaddingSet(@0.005);
         }
         aaPlotOptions.barSet(aaBar);
-    } else if (chartType == AAChartTypePie) {
+    } else if (aaChartType == AAChartTypePie) {
         AAPie *aaPie = AAPie.new
         .allowPointSelectSet(true)
         .cursorSet(@"pointer")
@@ -202,7 +202,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
             aaDataLabels.formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %");
         }
         aaPlotOptions.pieSet(aaPie);
-    } else if (chartType == AAChartTypeColumnrange) {
+    } else if (aaChartType == AAChartTypeColumnrange) {
         NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
         [columnRangeDic setValue:aaChartModel.borderRadius forKey:@"borderRadius"];//The color of the border surrounding each column or bar
         [columnRangeDic setValue:@0 forKey:@"borderWidth"];//The corner radius of the border surrounding each column or bar. default：0.
