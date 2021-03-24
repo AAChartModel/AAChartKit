@@ -63,7 +63,6 @@ AAPropSetFuncImplementation(AATooltip, NSString *, footerFormat)
 AAPropSetFuncImplementation(AATooltip, NSNumber *, valueDecimals) //设置取值精确到小数点后几位
 AAPropSetFuncImplementation(AATooltip, NSString *, shape)
 AAPropSetFuncImplementation(AATooltip, BOOL,       shared) 
-AAPropSetFuncImplementation(AATooltip, BOOL,       crosshairs) 
 AAPropSetFuncImplementation(AATooltip, NSString *, valueSuffix) 
 AAPropSetFuncImplementation(AATooltip, BOOL,       followTouchMove)
 AAPropSetFuncImplementation(AATooltip, BOOL,       shadow)
