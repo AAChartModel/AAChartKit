@@ -40,7 +40,6 @@
         _enabled = true;
         _animation = true;
         _shared = true;
-        _crosshairs = true;
         _followTouchMove = true;
         _shadow = true;
     }
