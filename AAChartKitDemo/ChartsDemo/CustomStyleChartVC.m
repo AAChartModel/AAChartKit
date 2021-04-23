@@ -873,7 +873,7 @@
 - (AAChartModel *)customBarChartHoverColorAndSelectColor {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
-    .titleSet(@"Custom Bar Chart select color")
+    .titleSet(@"Custom Bar Chart Hover Color And Select Color")
     .yAxisReversedSet(true)
     .xAxisReversedSet(true)
     .seriesSet(@[
@@ -883,7 +883,7 @@
         .allowPointSelectSet(YES)
         .statesSet(AAStates.new
                    .hoverSet(AAHover.new
-                             .colorSet(AARgbaColor(220, 20, 60, 1.0)))//猩红色, alpha 透明度 1
+                             .colorSet(AAColor.orangeColor))
                    .selectSet(AASelect.new
                               .colorSet(AAColor.redColor)))
                ]);
@@ -952,6 +952,7 @@
                ]);
 }
 
+//Issue: https://github.com/AAChartModel/AAChartKit/issues/948
 - (AAChartModel *)splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
