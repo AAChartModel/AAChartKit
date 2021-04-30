@@ -212,7 +212,7 @@
                ]);
 }
 
-//五边形雷达图
+// 五边形雷达图，Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/930
 - (AAOptions *)configurePentagonRadarChart {
     AALineStyle *gridLineStyle = [AALineStyle styleWithWidth:@1];
     
@@ -221,10 +221,17 @@
                           dashStyle:AAChartLineDashStyleTypeLongDashDotDot
                               width:@1.5];
     
+    /**
+     * 设置雷达图周边文案有两种方式
+     * 1、设置 categoriesSet，但会导致雷达图翻转，需在设置 series 时配置  pointPlacement 为 "on"（https://github.com/AAChartModel/AAChartKit/issues/301）
+     * 2、用 aaOptions.xAxis.labels.formatter 进行格式化输出
+     */
+    NSArray *categories = @[@"孤岛危机",@"美国末日",@"使命召唤",@"荣誉勋章",@"死亡搁浅"];
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .backgroundColorSet(AAColor.whiteColor)
-    .categoriesSet(@[@"孤岛危机",@"美国末日",@"使命召唤",@"荣誉勋章",@"死亡搁浅"])
+//    .categoriesSet(categories)
     .markerRadiusSet(@0)
     .polarSet(true)
     .legendEnabledSet(false)
@@ -241,12 +248,17 @@
         .fillOpacitySet(@0.01)
         .dataLabelsSet(AADataLabels.new
                        .colorSet(AARgbaColor(30, 144, 255, 1.0)))
+//        .pointPlacementSet(@"on")
         .dataSet(@[@17.0, @16.9, @12.5,]),
                ]);
     
     AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
     aaOptions.chart.marginLeft = @40;
     aaOptions.chart.marginRight = @40;
+    
+    aaOptions.xAxis.labels.formatter = [NSString stringWithFormat:(@AAJSFunc(function() {
+        return %@[this.value];
+    })), [categories aa_toJSArray]];
     
     aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
     
