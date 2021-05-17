@@ -144,7 +144,7 @@
         aaChartModel.yAxisVisible = false;
     }
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.tooltip.followTouchMove = false;
     aaOptions.xAxis.minRange = @2;
     return aaOptions;

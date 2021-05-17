@@ -60,7 +60,7 @@
         
     } else if (_sampleChartTypeIndex == 2 || _sampleChartTypeIndex == 3) {
         AAChartModel *aaChartModel = [self configureStackingColumnMixedLineChart];
-        AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+        AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
         if (_sampleChartTypeIndex == 2) {
             aaOptions.colors = @[
                 AAGradientColor.springGreensColor,
@@ -252,7 +252,7 @@
         .dataSet(@[@17.0, @16.9, @12.5,]),
                ]);
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.chart.marginLeft = @40;
     aaOptions.chart.marginRight = @40;
     

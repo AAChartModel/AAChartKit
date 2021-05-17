@@ -141,7 +141,7 @@
     
     _gradientColorsArr = aaChartModel.colorsTheme;
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.plotOptions.column.groupPadding = @0;
     aaOptions.yAxis.gridLineWidth = @0;
     aaOptions.xAxis
@@ -213,7 +213,7 @@
         .dataSet(@[@31,@22,@33,@54,@35,@36,@27,@38,@39,@54,@41,@29]),
                ]);
     
-    AAOptions *aaOptions2 = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel2];
+    AAOptions *aaOptions2 = aaChartModel2.aa_toAAOptions;
     aaOptions2.plotOptions.column.groupPadding = @0;
     aaOptions2.yAxis.gridLineWidth = @0;
     

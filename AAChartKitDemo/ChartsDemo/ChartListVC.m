@@ -253,7 +253,7 @@
 
     chartModel.backgroundColor = (id)gradientColor;
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    AAOptions *aaOptions = chartModel.aa_toAAOptions;
     
     aaOptions.plotOptions
     .columnrangeSet(AALine.new

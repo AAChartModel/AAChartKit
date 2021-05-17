@@ -121,12 +121,12 @@ WKScriptMessageHandler
 #pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
 
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
-    AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    AAOptions *options = chartModel.aa_toAAOptions;
     [self aa_drawChartWithOptions:options];
 }
 
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel {
-    AAOptions *options = [AAOptionsConstructor configureChartOptionsWithAAChartModel:chartModel];
+    AAOptions *options = chartModel.aa_toAAOptions;
     [self aa_refreshChartWithOptions:options];
 }
 

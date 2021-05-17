@@ -86,7 +86,7 @@
         .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank);
     }
     
-    AAOptions *aaOptions = [AAOptionsConstructor configureChartOptionsWithAAChartModel:aaChartModel];
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     if (aaChartModel.chartType == AAChartTypeColumn) {
         aaOptions.plotOptions.column
         .groupPaddingSet(@0);
