@@ -104,6 +104,7 @@ WKScriptMessageHandler
 
 @implementation AAChartView
 
+#pragma mark - Initialization
 - (instancetype)init {
     self = [self initConfiguration];
     if (self) {
@@ -132,8 +133,7 @@ WKScriptMessageHandler
 }
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
-
+#pragma mark - Configure Chart View Content With AAChartModel
 - (void)aa_drawChartWithChartModel:(AAChartModel *)chartModel {
     AAOptions *options = chartModel.aa_toAAOptions;
     [self aa_drawChartWithOptions:options];
@@ -154,8 +154,7 @@ WKScriptMessageHandler
 }
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH AAOPTIONS
-
+#pragma mark - Configure Chart View Content With AAOptions
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     if (!_optionJson) {
         [self configureTheOptionsJsonStringWithAAOptions:options];
@@ -519,8 +518,7 @@ WKScriptMessageHandler
     }];
 }
 
-#pragma mark -- setter method
-
+#pragma mark -- Setter Method
 - (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
     self.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
@@ -606,7 +604,7 @@ WKScriptMessageHandler
                                                                  name:kUserContentMessageNameCustomEvent];
 }
 
-#pragma mark -- getter method
+#pragma mark -- Getter Method
 - (AAWeakProxy *)weakProxy {
     if (!_weakProxy) {
         _weakProxy = [AAWeakProxy proxyWithTarget:self];
