@@ -104,17 +104,29 @@ WKScriptMessageHandler
 
 @implementation AAChartView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)init {
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    config.userContentController = [[WKUserContentController alloc] init];
-    self = [super initWithFrame:frame configuration:config];
-    
+    self = [super initWithFrame:CGRectNull configuration:config];
     if (self) {
-        self.UIDelegate = self;
-        self.navigationDelegate = self;
-        self.backgroundColor = [UIColor whiteColor];
+        [self initBasicContent];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    self = [super initWithFrame:CGRectNull configuration:config];
+    if (self) {
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        [self initBasicContent];
+    }
+    return self;
+}
+
+- (void)initBasicContent {
+    self.UIDelegate = self;
+    self.navigationDelegate = self;
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 
