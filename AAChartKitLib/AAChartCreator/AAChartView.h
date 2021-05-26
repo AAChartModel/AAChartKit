@@ -121,7 +121,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 - (void)didReceiveScriptMessageHandler:(AADidReceiveScriptMessageBlock)handler;
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH AACHARTMODEL
+#pragma mark - Configure Chart View Content With AAChartModel
 
 /// Function of drawing chart view
 /// @param chartModel The instance object of AAChartModel
@@ -141,7 +141,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 - (void)aa_refreshChartWithChartModel:(AAChartModel *)chartModel;
 
 
-#pragma CONFIGURE THE CHART VIEW CONTENT WITH AAOPTIONS
+#pragma mark - Configure Chart View Content With AAOptions
 
 /// Function of drawing chart view
 /// @param options The instance object of AAOptions
