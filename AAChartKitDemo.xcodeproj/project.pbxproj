@@ -75,6 +75,8 @@
 		7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172A3E41E763EA6000D5B99 /* LaunchScreen.storyboard */; };
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
+		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
+		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +239,9 @@
 		7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartKitUITests.m; sourceTree = "<group>"; };
 		7172A3FD1E763EA6000D5B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAAChartViewForXibVC.h; sourceTree = "<group>"; };
+		848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAAChartViewForXibVC.m; sourceTree = "<group>"; };
+		848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAAChartViewForXibVC.xib; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -382,6 +387,9 @@
 				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
 				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
 				44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */,
+				848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */,
+				848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */,
+				848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */,
 			);
 			name = AdditionalContent2;
 			sourceTree = "<group>";
@@ -661,6 +669,7 @@
 				1E66D1FB210AF4ED007EAB8C /* AAJSFiles.bundle in Resources */,
 				7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */,
 				7172A3E31E763EA6000D5B99 /* Assets.xcassets in Resources */,
+				848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */,
 				7172A3E11E763EA6000D5B99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +701,7 @@
 				1E66D200210AF4ED007EAB8C /* AAPlotOptions.m in Sources */,
 				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
 				1E66D202210AF4ED007EAB8C /* AALine.m in Sources */,
+				848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */,
 				1E66D206210AF4ED007EAB8C /* AACrosshair.m in Sources */,
 				447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */,
 				448330C124E2791400368A30 /* NSArray+toJSArray.m in Sources */,
@@ -852,7 +862,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -903,7 +913,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

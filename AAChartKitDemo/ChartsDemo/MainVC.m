@@ -51,6 +51,7 @@
 #import "DrawableChartVC.h"
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
+#import "TestAAChartViewForXibVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -295,6 +296,13 @@
         }
             break;
             
+        case 16: {
+            /*在 XIB 中创建 AAChartView*/
+            TestAAChartViewForXibVC *vc = TestAAChartViewForXibVC.new;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -320,6 +328,7 @@
             @"Drawable Chart---可拖拽的图表2📊",
             @"Data Sorting Chart With Animation---图表动态排序",
             @"Chart Options Advanced Updating---图表高级更新",
+            @"XIB AAChartView---在 XIB 中创建 AAChartView",
         ];
     }
     return _sectionTypeArr;
@@ -592,7 +601,10 @@
               @"Step Line Chart---直方折线图",
               @"Step Area Chart---直方折线填充图",
               @"Scatter Chart---散点图"
-            ]
+            ],
+            /*在 XIB 中创建 AAChartView*/
+            @[@"XIB AAChartView---在 XIB 中创建 AAChartView",
+            ],
         ];
     }
     return _chartTypeNameArr;
