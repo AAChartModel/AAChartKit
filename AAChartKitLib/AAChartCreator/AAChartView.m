@@ -345,9 +345,11 @@ WKScriptMessageHandler
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
+#if TARGET_OS_IPHONE
 - (void)aa_adaptiveScreenRotation {
     [self aa_adaptiveScreenRotationWithAnimation:nil];
 }
+
 
 - (void)aa_adaptiveScreenRotationWithAnimation:(AAAnimation *)animation {
     __weak __typeof__(self) weakSelf = self;
@@ -358,6 +360,8 @@ WKScriptMessageHandler
         [weakSelf handleDeviceOrientationChangeEventWithAnimation:animation];
     }];
 }
+#endif
+
 
 - (void)handleDeviceOrientationChangeEventWithAnimation:(AAAnimation *)animation {
     [self aa_changeChartSizeWithWidth:self.frame.size.width
@@ -406,6 +410,7 @@ WKScriptMessageHandler
 
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+#if TARGET_OS_IPHONE
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING"
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -419,6 +424,14 @@ WKScriptMessageHandler
     [self addSubview:alertHelperController.view];
     
     [alertHelperController presentViewController:alertController animated:YES completion:nil];
+#else
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = @"JS WARNING";
+    alert.informativeText = message;
+    [alert addButtonWithTitle:@"Okay"];
+    [alert beginSheetModalForWindow:[self window] completionHandler:nil];
+#endif
 }
 
 #pragma mark - AAChartView Event Handler
@@ -519,14 +532,21 @@ WKScriptMessageHandler
 }
 
 #pragma mark -- Setter Method
+#if TARGET_OS_IPHONE
 - (void)setContentInsetAdjustmentBehavior:(UIScrollViewContentInsetAdjustmentBehavior)contentInsetAdjustmentBehavior {
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
     self.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
 }
+#endif
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
+#if TARGET_OS_IPHONE
     self.scrollView.scrollEnabled = _scrollEnabled;
+#else
+    self.scrollEnabled = _scrollEnabled;
+#endif
+
 }
 
 - (void)setContentWidth:(CGFloat)contentWidth {
@@ -552,6 +572,7 @@ WKScriptMessageHandler
 
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
     _isClearBackgroundColor = isClearBackgroundColor;
+#if TARGET_OS_IPHONE
     if (_isClearBackgroundColor) {
         [self setBackgroundColor:[UIColor clearColor]];
         [self setOpaque:NO];
@@ -559,6 +580,15 @@ WKScriptMessageHandler
         self.backgroundColor = [UIColor whiteColor];
         [self setOpaque:YES];
     }
+#else
+    if (_isClearBackgroundColor) {
+        [self.layer setBackgroundColor:[NSColor clearColor].CGColor];
+        [self.layer setOpaque:NO];
+    } else {
+        self.layer.backgroundColor = [NSColor whiteColor].CGColor;
+        [self.layer setOpaque:YES];
+    }
+#endif
 }
 
 - (void)setDelegate:(id<AAChartViewEventDelegate>)delegate {

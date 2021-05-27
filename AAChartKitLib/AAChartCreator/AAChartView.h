@@ -29,7 +29,12 @@
  * -------------------------------------------------------------------------------
  
  */
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
+
 #import <WebKit/WebKit.h>
 #import "AAOptions.h"
 
@@ -79,9 +84,11 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// The AAChartView did finish load event and move over event delegate
 @property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
 
+#if TARGET_OS_IPHONE
 /// Configure the behavior of adjustedContentInset.
 /// Default is UIScrollViewContentInsetAdjustmentAutomatic.
 @property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior API_AVAILABLE(ios(11.0),tvos(11.0));
+#endif
 
 /// The block method of chart view finish loading
 @property (nonatomic, copy) AADidFinishLoadBlock didFinishLoadBlock;
@@ -256,7 +263,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// @param animation Have animation effect or not
 - (void)aa_redrawWithAnimation:(BOOL)animation;
 
-
+#if TARGET_OS_IPHONE
 /// Set the chart view content be adaptive to screen rotation with default animation effect
 - (void)aa_adaptiveScreenRotation;
 
@@ -265,7 +272,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 ///
 /// @param animation The instance object of AAAnimation
 - (void)aa_adaptiveScreenRotationWithAnimation:(AAAnimation *)animation;
-
+#endif
 
 /// Change chart view content size
 /// @param width content size width
