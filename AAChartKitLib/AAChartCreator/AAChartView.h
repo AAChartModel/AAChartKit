@@ -31,7 +31,7 @@
  */
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
-#else
+#elif TARGET_OS_MAC
 #import <AppKit/AppKit.h>
 #endif
 
@@ -80,27 +80,17 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 
 @interface AAChartView:WKWebView
 
-
-/// The AAChartView did finish load event and move over event delegate
-@property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
-
 #if TARGET_OS_IPHONE
 /// Configure the behavior of adjustedContentInset.
 /// Default is UIScrollViewContentInsetAdjustmentAutomatic.
 @property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior API_AVAILABLE(ios(11.0),tvos(11.0));
 #endif
 
-/// The block method of chart view finish loading
-@property (nonatomic, copy) AADidFinishLoadBlock didFinishLoadBlock;
-
-/// The block method of user finger move over event
-@property (nonatomic, copy) AAMoveOverEventBlock moveOverEventBlock;
-
-/// The block method that did receive JavaScript event Message
-@property (nonatomic, copy) AADidReceiveScriptMessageBlock didReceiveScriptMessageBlock;
-
 /// Set the chart view can scroll or not
 @property (nonatomic, assign) BOOL scrollEnabled;
+
+/// Set the chart view background color be clear
+@property (nonatomic, assign) BOOL isClearBackgroundColor;
 
 /// Content width of AAChartView
 @property (nonatomic, assign) CGFloat  contentWidth;
@@ -111,8 +101,17 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// Hide chart series content or not
 @property (nonatomic, assign) BOOL chartSeriesHidden;
 
-/// Set the chart view background color be clear
-@property (nonatomic, assign) BOOL isClearBackgroundColor;
+/// The AAChartView did finish load event and move over event delegate
+@property (nonatomic, weak)   id<AAChartViewEventDelegate> delegate;
+
+/// The block method of chart view finish loading
+@property (nonatomic, copy) AADidFinishLoadBlock didFinishLoadBlock;
+
+/// The block method of user finger move over event
+@property (nonatomic, copy) AAMoveOverEventBlock moveOverEventBlock;
+
+/// The block method that did receive JavaScript event Message
+@property (nonatomic, copy) AADidReceiveScriptMessageBlock didReceiveScriptMessageBlock;
 
 
 /// Chart view finish loading event handler

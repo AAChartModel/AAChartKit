@@ -424,7 +424,7 @@ WKScriptMessageHandler
     [self addSubview:alertHelperController.view];
     
     [alertHelperController presentViewController:alertController animated:YES completion:nil];
-#else
+#elif TARGET_OS_MAC
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
     alert.messageText = @"JS WARNING";
@@ -543,10 +543,30 @@ WKScriptMessageHandler
     _scrollEnabled = scrollEnabled;
 #if TARGET_OS_IPHONE
     self.scrollView.scrollEnabled = _scrollEnabled;
-#else
+#elif TARGET_OS_MAC
     self.scrollEnabled = _scrollEnabled;
 #endif
+}
 
+- (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
+    _isClearBackgroundColor = isClearBackgroundColor;
+#if TARGET_OS_IPHONE
+    if (_isClearBackgroundColor) {
+        self.backgroundColor = [UIColor clearColor];
+        self.opaque = NO;
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+        self.opaque = YES;
+    }
+#elif TARGET_OS_MAC
+    if (_isClearBackgroundColor) {
+        self.layer.backgroundColor = [NSColor clearColor].CGColor;
+        self.layer.opaque = NO;
+    } else {
+        self.layer.backgroundColor = [NSColor whiteColor].CGColor;
+        self.layer.opaque = YES;
+    }
+#endif
 }
 
 - (void)setContentWidth:(CGFloat)contentWidth {
@@ -570,26 +590,6 @@ WKScriptMessageHandler
     [self safeEvaluateJavaScriptString:jsStr];
 }
 
-- (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
-    _isClearBackgroundColor = isClearBackgroundColor;
-#if TARGET_OS_IPHONE
-    if (_isClearBackgroundColor) {
-        self.backgroundColor = [UIColor clearColor];
-        self.opaque = NO;
-    } else {
-        self.backgroundColor = [UIColor whiteColor];
-        self.opaque = YES;
-    }
-#else
-    if (_isClearBackgroundColor) {
-        self.layer.backgroundColor = [NSColor clearColor].CGColor;
-        self.layer.opaque = NO;
-    } else {
-        self.layer.backgroundColor = [NSColor whiteColor].CGColor;
-        self.layer.opaque = YES;
-    }
-#endif
-}
 
 - (void)setDelegate:(id<AAChartViewEventDelegate>)delegate {
     NSAssert(_optionJson == nil, @"You should set delegate before drawing chart");
