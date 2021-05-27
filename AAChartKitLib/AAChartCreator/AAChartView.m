@@ -574,19 +574,19 @@ WKScriptMessageHandler
     _isClearBackgroundColor = isClearBackgroundColor;
 #if TARGET_OS_IPHONE
     if (_isClearBackgroundColor) {
-        [self setBackgroundColor:[UIColor clearColor]];
-        [self setOpaque:NO];
+        self.backgroundColor = [UIColor clearColor];
+        self.opaque = NO;
     } else {
         self.backgroundColor = [UIColor whiteColor];
-        [self setOpaque:YES];
+        self.opaque = YES;
     }
 #else
     if (_isClearBackgroundColor) {
-        [self.layer setBackgroundColor:[NSColor clearColor].CGColor];
-        [self.layer setOpaque:NO];
+        self.layer.backgroundColor = [NSColor clearColor].CGColor;
+        self.layer.opaque = NO;
     } else {
         self.layer.backgroundColor = [NSColor whiteColor].CGColor;
-        [self.layer setOpaque:YES];
+        self.layer.opaque = YES;
     }
 #endif
 }
