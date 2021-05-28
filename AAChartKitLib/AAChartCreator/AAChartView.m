@@ -360,14 +360,13 @@ WKScriptMessageHandler
         [weakSelf handleDeviceOrientationChangeEventWithAnimation:animation];
     }];
 }
-#endif
-
 
 - (void)handleDeviceOrientationChangeEventWithAnimation:(AAAnimation *)animation {
     [self aa_changeChartSizeWithWidth:self.frame.size.width
                                height:self.frame.size.height
                             animation:animation];
 }
+#endif
 
 - (void)aa_changeChartSizeWithWidth:(CGFloat)width
                              height:(CGFloat)height
@@ -411,14 +410,18 @@ WKScriptMessageHandler
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
 #if TARGET_OS_IPHONE
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING"
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:([UIAlertAction actionWithTitle:@"Okay"
-                                                         style:UIAlertActionStyleDefault
-                                                       handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertController =
+    [UIAlertController alertControllerWithTitle:@"JS WARNING"
+                                        message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertAction =
+    [UIAlertAction actionWithTitle:@"Okay"
+                             style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
-    }])];
+    }];
+    [alertController addAction:alertAction];
     
     UIViewController *alertHelperController = [[UIViewController alloc]init];
     [self addSubview:alertHelperController.view];
