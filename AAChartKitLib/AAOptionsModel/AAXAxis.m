@@ -53,6 +53,17 @@ AAPropSetFuncImplementation(AAXAxis, NSString *, lineColor) //x轴轴线线颜�
 AAPropSetFuncImplementation(AAXAxis, NSNumber *,  linkedTo)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, max)  //x轴最大值
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, min)  //x轴最小值（设置为0就不会有负数）
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minRange)
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minTickInterval) //最小间隔
+AAPropSetFuncImplementation(AAXAxis, NSString *, minorGridLineColor) //次网格线颜色
+AAPropSetFuncImplementation(AAXAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minorGridLineWidth) //次网格线宽度
+AAPropSetFuncImplementation(AAXAxis, NSString *, minorTickColor) //次刻度线颜色
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minorTickInterval)
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minorTickLength) //次刻度线长度
+AAPropSetFuncImplementation(AAXAxis, NSString *, minorTickPosition) //次刻度线位置
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minorTickWidth) // 次刻度线宽度
+
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
 AAPropSetFuncImplementation(AAXAxis, NSString *, gridLineDashStyle) //x轴网格线样式
@@ -70,7 +81,5 @@ AAPropSetFuncImplementation(AAXAxis, NSString *, tickmarkPlacement) //本参数�
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, tickWidth) //坐标轴刻度线的宽度，设置为 0 时则不显示刻度线
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, tickLength)//坐标轴刻度线的长度。 默认是：10.
 AAPropSetFuncImplementation(AAXAxis, NSString *, tickPosition) //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
-AAPropSetFuncImplementation(AAXAxis, NSNumber * , minRange)
-
 
 @end

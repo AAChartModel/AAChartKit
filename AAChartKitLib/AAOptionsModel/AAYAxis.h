@@ -57,11 +57,19 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, lineColor) /
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, offset) // y 轴线水平偏移
 
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       allowDecimals)  //y轴是否允许显示小数
-AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, NSNumber *, max)  //y轴最大值
-AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, NSNumber *, min)  //y轴最小值（设置为0就不会有负数）
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, max)  //y轴最大值
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, min)  //y轴最小值（设置为0就不会有负数）
 //AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, NSNumber *, minPadding)  //Padding of the min value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the lowest data value to appear on the edge of the plot area. 默认是：0.05.
-AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, NSNumber *, minRange)  
-
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minRange)
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minTickInterval) //最小间隔
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorGridLineColor) //次网格线颜色
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorGridLineWidth) //次网格线宽度
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorTickColor) //次刻度线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorTickInterval)
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorTickLength) //次刻度线长度
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorTickPosition) //次刻度线位置
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorTickWidth) // 次刻度线宽度
 
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       visible)  //y轴是否允许显示
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       opposite) //是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，坐标轴显示在对立面后，x 轴是在上方显示，y 轴是在右方显示（即坐标轴会显示在对立面）。该配置一般是用于多坐标轴区分展示，另外在 Highstock 中，y 轴默认是在对立面显示的。 默认是：false.

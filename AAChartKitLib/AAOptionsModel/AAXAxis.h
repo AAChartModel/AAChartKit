@@ -49,6 +49,17 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, lineColor) /
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *,  linkedTo)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, max)  //x轴最大值
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴最小值
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minRange)
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minTickInterval) //最小间隔
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineColor) //次网格线颜色
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorGridLineWidth) //次网格线宽度
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorTickColor) //次刻度线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorTickInterval)
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorTickLength) //次刻度线长度
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorTickPosition) //次刻度线位置
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorTickWidth) // 次刻度线宽度
+
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineDashStyle) //x轴网格线样式
@@ -66,6 +77,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickmarkPlac
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickWidth) //坐标轴刻度线的宽度，设置为 0 时则不显示刻度线
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickLength)//坐标轴刻度线的长度。 默认是：10.
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickPosition) //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
-AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber * , minRange)
+
 
 @end

@@ -152,9 +152,24 @@
               .offsetSet(@25)
               .rotationSet(@-5)
               .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
-              );
+              )
+    .gridLineColorSet(AAColor.darkGrayColor)
+    .gridLineWidthSet(@1)
+    .minorGridLineColorSet(AAColor.lightGrayColor)
+    .minorGridLineWidthSet(@0.5)
+    .minorTickIntervalSet((id)@"auto")
+    ;
     
     aaOptions.yAxis.labels.format = @"{value} €";//给y轴添加单位
+    
+    aaOptions.yAxis
+    .gridLineColorSet(AAColor.darkGrayColor)
+    .gridLineWidthSet(@1)
+    .minorGridLineColorSet(AAColor.lightGrayColor)
+    .minorGridLineWidthSet(@0.5)
+    .minorTickIntervalSet((id)@"auto")
+    ;
+
     
     //禁用图例点击事件
     aaOptions.plotOptions.series.events = AAEvents.new
