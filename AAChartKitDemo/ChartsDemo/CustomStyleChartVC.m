@@ -85,6 +85,8 @@
         case 36: return [self configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart];
         case 37: return [self disableSplineChartMarkerHoverEffect];
         case 38: return [self topRoundedCornersStackingColumnChart];
+        case 39: return [self configureMaxAndMinDataLabelsForChart];
+        case 40: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
             
         default:
             return nil;
@@ -1362,6 +1364,91 @@
         AASeriesElement.new
         .nameSet(@"NewYork Hot")
         .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
+               ]);
+}
+
+
+//https://github.com/AAChartModel/AAChartKit/issues/1203
+- (AAChartModel *)configureMaxAndMinDataLabelsForChart {
+    AADataElement *minData = AADataElement.new
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .formatSet(@"{y} 美元")
+                   .shapeSet(@"callout")
+                   .backgroundColorSet((id)AAGradientColor.freshPapayaColor)
+                   .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
+                   .backgroundColorSet(AAColor.whiteColor)// white color
+                   .borderColorSet(AAColor.redColor)// red color
+                   .borderRadiusSet(@1.5)
+                   .borderWidthSet(@1.3)
+                   )
+    .ySet(@2.5);
+    
+    AADataElement *maxData = AADataElement.new
+    .dataLabelsSet(AADataLabels.new
+                   .enabledSet(true)
+                   .formatSet(@"{y} 美元")
+                   .shapeSet(@"callout")
+                   .backgroundColorSet((id)AAGradientColor.berrySmoothieColor)
+                   .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
+                   .backgroundColorSet(AAColor.whiteColor)// white color
+                   .borderColorSet(AAColor.redColor)// red color
+                   .borderRadiusSet(@1.5)
+                   .borderWidthSet(@1.3)
+                   )
+    .ySet(@49.5);
+    
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .dataLabelsEnabledSet(false)//是否显示值
+    .tooltipEnabledSet(false)
+    .markerRadiusSet(@0)
+    .xAxisVisibleSet(false)
+    .yAxisVisibleSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Show The Max and Min values Data Labels")
+        .lineWidthSet(@7)
+        .dataSet(@[@7.0, @6.9, minData, @14.5, @18.2, maxData, @5.2, @26.5, @23.3, @26.5, @13.9, @9.6])
+        .colorSet((id)AAGradientColor.oceanBlueColor)
+               ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1201
+- (AAChartModel *)customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)
+    .categoriesSet(@[
+        @"孤<br>岛<br>危<br>机",
+        @"使<br>命<br>召<br>唤",
+        @"荣<br>誉<br>勋<br>章",
+        @"狙<br>击<br>精<br>英",
+        @"神<br>秘<br>海<br>域",
+        @"最<br>后<br>生<br>还<br>者",
+        @"巫<br>师<br>3<br>狂<br>猎",
+        @"对<br>马<br>之<br>魂",
+        @"蝙<br>蝠<br>侠<br>阿<br>甘<br>骑<br>士<br>",
+        @"地<br>狱<br>边<br>境",
+        @"闪<br>客",
+        @"忍<br>者<br>之<br>印"])
+    .tooltipEnabledSet(false)
+    .borderRadiusSet(@3)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .xAxisLabelsStyleSet(AAStyleColorSizeWeight(AAColor.blackColor, 16, AAChartFontWeightTypeBold))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+        AASeriesElement.new
+        .nameSet(@"2019")
+        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                ]);
 }
 
