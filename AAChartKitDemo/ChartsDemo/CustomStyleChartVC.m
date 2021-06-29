@@ -1370,34 +1370,23 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1203
 - (AAChartModel *)configureMaxAndMinDataLabelsForChart {
+    AADataLabels *aaDataLabels = AADataLabels.new
+    .enabledSet(true)
+    .formatSet(@"{y} 美元")
+    .shapeSet(@"callout")
+    .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
+    .backgroundColorSet(AAColor.whiteColor)// white color
+    .borderColorSet(AAColor.redColor)// red color
+    .borderRadiusSet(@1.5)
+    .borderWidthSet(@1.3);
+    
     AADataElement *minData = AADataElement.new
-    .dataLabelsSet(AADataLabels.new
-                   .enabledSet(true)
-                   .formatSet(@"{y} 美元")
-                   .shapeSet(@"callout")
-                   .backgroundColorSet((id)AAGradientColor.freshPapayaColor)
-                   .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
-                   .backgroundColorSet(AAColor.whiteColor)// white color
-                   .borderColorSet(AAColor.redColor)// red color
-                   .borderRadiusSet(@1.5)
-                   .borderWidthSet(@1.3)
-                   )
+    .dataLabelsSet(aaDataLabels)
     .ySet(@2.5);
     
     AADataElement *maxData = AADataElement.new
-    .dataLabelsSet(AADataLabels.new
-                   .enabledSet(true)
-                   .formatSet(@"{y} 美元")
-                   .shapeSet(@"callout")
-                   .backgroundColorSet((id)AAGradientColor.berrySmoothieColor)
-                   .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
-                   .backgroundColorSet(AAColor.whiteColor)// white color
-                   .borderColorSet(AAColor.redColor)// red color
-                   .borderRadiusSet(@1.5)
-                   .borderWidthSet(@1.3)
-                   )
+    .dataLabelsSet(aaDataLabels)
     .ySet(@49.5);
-    
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)
