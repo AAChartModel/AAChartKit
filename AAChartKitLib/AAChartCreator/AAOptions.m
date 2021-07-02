@@ -242,12 +242,14 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         ;
         
         AALineStyle *aaXAxisGridLineStyle = aaChartModel.xAxisGridLineStyle;
-        aaXAxis
-        .gridLineColorSet(aaXAxisGridLineStyle.color)
-        .gridLineWidthSet(aaXAxisGridLineStyle.width)
-        .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
-        .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
-        ;
+        if (aaXAxisGridLineStyle) {
+            aaXAxis
+            .gridLineColorSet(aaXAxisGridLineStyle.color)
+            .gridLineWidthSet(aaXAxisGridLineStyle.width)
+            .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
+            .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
+            ;
+        }
         
         AAYAxis *aaYAxis = AAYAxis.new
         .titleSet(AAAxisTitle.new
@@ -270,12 +272,14 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         ;
 
         AALineStyle *aaYAxisGridLineStyle = aaChartModel.yAxisGridLineStyle;
-        aaYAxis
-        .gridLineColorSet(aaYAxisGridLineStyle.color)
-        .gridLineWidthSet(aaYAxisGridLineStyle.width)
-        .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
-        .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
-        ;
+        if (aaYAxisGridLineStyle) {
+            aaYAxis
+            .gridLineColorSet(aaYAxisGridLineStyle.color)
+            .gridLineWidthSet(aaYAxisGridLineStyle.width)
+            .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
+            .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
+            ;
+        }
         
         aaOptions.xAxis = aaXAxis;
         aaOptions.yAxis = aaYAxis;
