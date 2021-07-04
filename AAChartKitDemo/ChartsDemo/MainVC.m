@@ -400,7 +400,10 @@
               @"configureColorfulDataLabelsStepLineChart---彩色 DataLabels 的直方折线图",
               @"configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart---彩色渐变效果且彩色 DataLabels 的直方折线填充图",
               @"disableSplineChartMarkerHoverEffect---禁用曲线图的手指滑动 marker 点的光圈变化放大的效果",
-              @"Top Rounded Corners Stacking Column Chart---顶部为圆角的堆积柱状图"
+              @"Top Rounded Corners Stacking Column Chart---顶部为圆角的堆积柱状图",
+              @"configureMaxAndMinDataLabelsForChart---为图表最大值最小值添加 DataLabels 标记",
+              @"customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag---通过 HTML 的换行标签来实现图表的 X 轴的 分类文字标签的换行效果",
+
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",
