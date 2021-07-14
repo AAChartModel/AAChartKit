@@ -257,7 +257,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                    .styleSet(aaChartModel.yAxisLabelsStyle)
-                   .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
                    )
         .minSet(aaChartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
         .maxSet(aaChartModel.yAxisMax)//y轴最大值

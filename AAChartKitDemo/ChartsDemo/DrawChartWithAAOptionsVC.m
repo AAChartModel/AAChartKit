@@ -99,6 +99,8 @@
         case 51: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
         case 52: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
         case 53: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
+        case 54:  return [self configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart];//自定义 Y 轴的 Labels 国际单位符基数及国际单位符
+
 
 
     }
@@ -186,6 +188,7 @@
 
     return aaOptions;
 }
+
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/173
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/986
@@ -3264,6 +3267,46 @@
     aaOptions.tooltip
     .useHTMLSet(true)
     .headerFormatSet(@"狗和猫的总数为:{point.total}<br/>")
+    ;
+    
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1208
+- (AAOptions *)configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                               startColorString:@"#FC354C"
+                                 endColorString:@"#0ABFBC"];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .titleSet(@"Numeric symbols magnitude")
+    .subtitleSet(@"Chinese and Japanese uses ten thousands (万) as numeric symbol")
+    .categoriesSet(@[
+        @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
+        @"July", @"Aug", @"Spe", @"Oct", @"Nov", @"Dec"
+    ])
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+    .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@7.0)
+        .colorSet(AAColor.redColor)//猩红色, alpha 透明度 1
+        .fillColorSet((id)gradientColorDic1)
+        .dataSet(@[@70000.0, @60000.9, @20000.5, @140000.5, @180000.2, @210000.5, @50000.2, @260000.5, @230000.3, @450000.3, @130000.9, @90000.6]),
+               ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.defaultOptions = AALang.new
+    .numericSymbolMagnitudeSet(@10000) //国际单位符基数
+    .numericSymbolsSet(@[@"万",@"億"]) //国际单位符
     ;
     
     return aaOptions;

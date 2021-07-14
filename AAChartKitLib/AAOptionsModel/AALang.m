@@ -34,7 +34,10 @@
 
 @implementation AALang
 
-AAPropSetFuncImplementation(AALang, NSString    *, resetZoom)
-AAPropSetFuncImplementation(AALang, NSString    *, thousandsSep)
+AAPropSetFuncImplementation(AALang, NSString    *, noData) //没有数据
+AAPropSetFuncImplementation(AALang, NSNumber    *, numericSymbolMagnitude) //国际单位符基数
+AAPropSetFuncImplementation(AALang, NSArray<NSString *>    *, numericSymbols) //国际单位符
+AAPropSetFuncImplementation(AALang, NSString    *, resetZoom) // 重置缩放比例
+AAPropSetFuncImplementation(AALang, NSString    *, thousandsSep) //千分号
 
 @end
