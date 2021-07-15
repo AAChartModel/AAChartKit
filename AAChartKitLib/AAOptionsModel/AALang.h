@@ -34,8 +34,11 @@
 
 @interface AALang : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, resetZoom)
-AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, thousandsSep)
+AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, noData) //没有数据
+AAPropStatementAndPropSetFuncStatement(strong, AALang, NSNumber    *, numericSymbolMagnitude) //国际单位符基数
+AAPropStatementAndPropSetFuncStatement(strong, AALang, NSArray<NSString *>    *, numericSymbols) //国际单位符
+AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, resetZoom) // 重置缩放比例
+AAPropStatementAndPropSetFuncStatement(copy,   AALang, NSString    *, thousandsSep) // 千分号
 
 @end
 

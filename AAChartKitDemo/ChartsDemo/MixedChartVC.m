@@ -60,6 +60,8 @@
         case 11: return [self configureNegativeColorMixedAreasplineChart];
         case 12: return [self configureNegativeColorMixedAreasChart];
         case 13: return [self configureAreaChartMixedStepAreaChart];
+        case 14:  return [self configureColumnrangeMixedScatterChart];
+
     }
     return nil;
 }
@@ -971,9 +973,71 @@
         .dataLabelsSet(AADataLabels.new
                        .styleSet(AAStyleColorSize(AARgbaColor(30, 144, 255, 1.0), 11)))
         .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-               ]
-               );
+               ]);
 }
+
+- (AAChartModel *)configureColumnrangeMixedScatterChart {
+    NSArray *columnrangeDataArr = @[
+        @[@-9.7,  @9.4],
+        @[@-8.7,  @6.5],
+        @[@-3.5,  @9.4],
+        @[@-1.4, @19.9],
+        @[@0.0 , @22.6],
+        @[@2.9 , @29.5],
+        @[@9.2 , @30.7],
+        @[@7.3 , @26.5],
+        @[@4.4 , @18.0],
+        @[@-3.1, @11.4],
+        @[@-5.2, @10.4],
+        @[@-9.9, @16.8]
+    ];
+    
+    NSMutableArray *highPointDataArr = [NSMutableArray array];
+    NSMutableArray *lowPointDataArr = [NSMutableArray array];
+
+    [columnrangeDataArr enumerateObjectsUsingBlock:^(NSArray *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [highPointDataArr addObject:obj.firstObject];
+        [lowPointDataArr addObject:obj[1]];
+    }];
+    
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeScatter)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisTitleSet(@"℃")
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .dataLabelsEnabledSet(true)
+    .invertedSet(false)
+    .backgroundColorSet(@"#4b2b7f")
+    .dataLabelsEnabledSet(true)
+    .dataLabelsStyleSet(AAStyleColor(AAColor.whiteColor))
+    .markerRadiusSet(@8)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"温度")
+        .colorSet(@"#06caf4")
+        .typeSet(AAChartTypeColumnrange)
+        .dataSet(columnrangeDataArr)
+        .borderColorSet(@"#4b2b7f")
+        .borderWidthSet(@15)
+//        .groupingSet(@false)
+//        .pointPaddingSet(@0.8)
+//        .groupPaddingSet(@0.8)
+        ,
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(highPointDataArr)
+//        .groupingSet(@false)
+        ,
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .dataSet(lowPointDataArr)
+//        .groupingSet(@false)
+        ,
+    ]);
+}
+
 
 
 @end

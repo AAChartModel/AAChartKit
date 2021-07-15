@@ -242,12 +242,14 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         ;
         
         AALineStyle *aaXAxisGridLineStyle = aaChartModel.xAxisGridLineStyle;
-        aaXAxis
-        .gridLineColorSet(aaXAxisGridLineStyle.color)
-        .gridLineWidthSet(aaXAxisGridLineStyle.width)
-        .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
-        .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
-        ;
+        if (aaXAxisGridLineStyle) {
+            aaXAxis
+            .gridLineColorSet(aaXAxisGridLineStyle.color)
+            .gridLineWidthSet(aaXAxisGridLineStyle.width)
+            .gridLineDashStyleSet(aaXAxisGridLineStyle.dashStyle)
+            .gridZIndexSet(aaXAxisGridLineStyle.zIndex)
+            ;
+        }
         
         AAYAxis *aaYAxis = AAYAxis.new
         .titleSet(AAAxisTitle.new
@@ -255,7 +257,6 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .labelsSet(AALabels.new
                    .enabledSet(aaChartModel.yAxisLabelsEnabled)//设置 y 轴是否显示数字
                    .styleSet(aaChartModel.yAxisLabelsStyle)
-                   .formatSet(@"{value:.,0f}")//让y轴的值完整显示 而不是100000显示为100k
                    )
         .minSet(aaChartModel.yAxisMin)//设置 y 轴最小值,最小值等于零就不能显示负值了
         .maxSet(aaChartModel.yAxisMax)//y轴最大值
@@ -270,12 +271,14 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         ;
 
         AALineStyle *aaYAxisGridLineStyle = aaChartModel.yAxisGridLineStyle;
-        aaYAxis
-        .gridLineColorSet(aaYAxisGridLineStyle.color)
-        .gridLineWidthSet(aaYAxisGridLineStyle.width)
-        .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
-        .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
-        ;
+        if (aaYAxisGridLineStyle) {
+            aaYAxis
+            .gridLineColorSet(aaYAxisGridLineStyle.color)
+            .gridLineWidthSet(aaYAxisGridLineStyle.width)
+            .gridLineDashStyleSet(aaYAxisGridLineStyle.dashStyle)
+            .gridZIndexSet(aaYAxisGridLineStyle.zIndex)
+            ;
+        }
         
         aaOptions.xAxis = aaXAxis;
         aaOptions.yAxis = aaYAxis;

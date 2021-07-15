@@ -500,6 +500,7 @@
               @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
               @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
               @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
+              @"configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart---自定义 Y 轴的 Labels 国际单位符基数及国际单位符",
             ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",
