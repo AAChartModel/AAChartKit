@@ -916,14 +916,14 @@
                )
     ;
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    NSDictionary *xAxisDic = @{
-        @"type": @"datetime",
-        @"dateTimeLabelFormats": @{
-                @"month": @"%e.%m.%y"
-        }
-    };
-    
-    aaOptions.xAxis = (id)xAxisDic;
+
+    aaOptions.xAxis
+    .typeSet(@"dateTime")
+    .dateTimeLabelFormatsSet(
+        AADateTimeLabelFormats.new
+                       .monthSet(@"%e.%m.%y"))
+    ;
+
     return aaOptions;
 }
 

@@ -63,6 +63,7 @@
 #import "AAPane.h"
 #import "AACredits.h"
 #import "AALang.h"
+#import "AADateTimeLabelFormats.h"
 #import "NSArray+toJSArray.h"
 #import "AAStyleConvenience.h"
 #import "AAMarginConvenience.h"

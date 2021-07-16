@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAStyle;
+@class AAStyle, AADateTimeLabelFormats;
 
 @interface AATooltip : NSObject
 
@@ -58,5 +58,6 @@ AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, padding) //设置取值精确到小数点后几位
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, positioner)
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, hideDelay) //提示框隐藏延时: 当鼠标移出数据点或者图表后，数据提示框会在设定的延迟时间后消失 默认是：500.
+AAPropStatementAndPropSetFuncStatement(strong, AATooltip, AADateTimeLabelFormats  *, dateTimeLabelFormats)
 
 @end

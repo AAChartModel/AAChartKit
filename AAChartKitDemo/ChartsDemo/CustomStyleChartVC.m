@@ -107,7 +107,8 @@
         @"lightGray",
         @"magenta",
         @"brown",
-        @"black"];
+        @"black"
+    ];
     
     NSArray *colorsArr = @[
         AAColor.redColor,

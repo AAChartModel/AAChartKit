@@ -43,13 +43,14 @@
 
 AAPropSetFuncImplementation(AAXAxis, AAAxisTitle  *, title)
 AAPropSetFuncImplementation(AAXAxis, NSString *, type)
+AAPropSetFuncImplementation(AAXAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
 AAPropSetFuncImplementation(AAXAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropSetFuncImplementation(AAXAxis, NSArray<AAPlotLinesElement *>*, plotLines)
 AAPropSetFuncImplementation(AAXAxis, NSArray  *, categories) 
 AAPropSetFuncImplementation(AAXAxis, BOOL ,      reversed) 
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, lineWidth) //x轴轴线宽度
 AAPropSetFuncImplementation(AAXAxis, NSString *, lineColor) //x轴轴线线颜色
-AAPropSetFuncImplementation(AAXAxis, NSNumber *,  linkedTo)
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, linkedTo)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, max)  //x轴最大值
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, min)  //x轴最小值（设置为0就不会有负数）
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minRange)
