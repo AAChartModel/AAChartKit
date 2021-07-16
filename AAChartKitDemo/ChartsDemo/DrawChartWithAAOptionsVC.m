@@ -829,6 +829,8 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/363
 - (AAOptions *)specialStyleStepLineChart {
+    
+    
     //Method 1
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图形类型
@@ -1624,12 +1626,27 @@
                                startColorString:@"#4F00BC"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"#29ABE2"];
     
+    AAStyle *dataLabelsStyle =
+    [AAStyle styleWithColor:AAColor.whiteColor
+                   fontSize:16
+                 fontWeight:AAChartFontWeightTypeBold
+                textOutline:@"0px 0px contrast"];
+    
+    AAStyle *axisLabelsStyle = AAStyleColor(AAColor.whiteColor);
+    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .backgroundColorSet((id)backgroundColorGradientColor)
     .stackingSet(AAChartStackingTypeNormal)
+    .dataLabelsEnabledSet(true)
+    .dataLabelsStyleSet(dataLabelsStyle)
+    .xAxisLabelsStyleSet(axisLabelsStyle)
+    .yAxisLabelsStyleSet(axisLabelsStyle)
     .yAxisVisibleSet(true)
-    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
     .markerRadiusSet(@0)
     .seriesSet(@[
         AASeriesElement.new
@@ -1637,19 +1654,12 @@
         .colorSet(AAColor.whiteColor)
         .lineWidthSet(@7)
         .fillColorSet((id)fillColorGradientColor)
-        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+        .dataSet(@[
+            @7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6
+                 ]),
                ]);
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    
-    aaOptions.plotOptions.series
-    .dataLabels
-    .enabledSet(true)
-    .styleSet([AAStyle styleWithColor:AAColor.whiteColor
-                             fontSize:14
-                           fontWeight:AAChartFontWeightTypeThin
-                          textOutline:@"0px 0px contrast"])
-    ;
     
     aaOptions.xAxis
     .tickWidthSet(@0)//X轴刻度线宽度
@@ -1658,7 +1668,6 @@
     .gridLineColorSet(AAColor.whiteColor)
     .gridLineWidthSet(@0.5)//X轴网格线宽度
     .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
-    .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
     ;
     
     aaOptions.yAxis
@@ -1667,7 +1676,6 @@
     .gridLineColorSet(AAColor.whiteColor)
     .gridLineWidthSet(@0.5)//Y轴网格线宽度
     .gridLineDashStyleSet(AAChartLineDashStyleTypeDash)
-    .labels.style.colorSet(AAColor.whiteColor)//Y轴文字颜色
     ;
     
     //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
