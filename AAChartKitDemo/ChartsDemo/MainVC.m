@@ -502,7 +502,8 @@
               @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
               @"configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart---自定义 Y 轴的 Labels 国际单位符基数及国际单位符",
               @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
-              @"logarithmicAxisChart---对数轴折线图📈",
+              @"logarithmicAxisLineChart---对数轴折线图📈",
+              @"logarithmicAxisScatterChart---对数轴散点图📈",
             ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",
