@@ -42,7 +42,7 @@ static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationPolygon = 
 @interface AAYAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AAAxisTitle  *, title)
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAAXisType, type)
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotLinesElement *>*, plotLines)
