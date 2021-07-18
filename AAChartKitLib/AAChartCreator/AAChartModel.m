@@ -116,7 +116,6 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
         _tooltipEnabled        = YES;//默认启用浮动提示框
         _tooltipShared         = YES;//默认多组数据共享一个浮动提示框
         _xAxisLabelsEnabled    = YES;//默认显示 X轴坐标点文字
-        _xAxisTickInterval     = @1; //x轴坐标点间隔数(默认是1)
         _xAxisVisible          = YES;//x轴默认可见
         _yAxisTitle            = @"";
         _yAxisVisible          = YES;//y轴默认可见
