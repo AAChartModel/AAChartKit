@@ -245,6 +245,7 @@
 		848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAAChartViewForXibVC.xib; sourceTree = "<group>"; };
 		84AE6B1A26A1775A001F0755 /* AADateTimeLabelFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateTimeLabelFormats.h; sourceTree = "<group>"; };
 		84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADateTimeLabelFormats.m; sourceTree = "<group>"; };
+		84AE6B1D26A19E1E001F0755 /* AAAxisType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAxisType.h; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,6 +351,7 @@
 				440B098224C190F60056CE08 /* AALang.m */,
 				84AE6B1A26A1775A001F0755 /* AADateTimeLabelFormats.h */,
 				84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */,
+				84AE6B1D26A19E1E001F0755 /* AAAxisType.h */,
 			);
 			path = AAOptionsModel;
 			sourceTree = "<group>";
