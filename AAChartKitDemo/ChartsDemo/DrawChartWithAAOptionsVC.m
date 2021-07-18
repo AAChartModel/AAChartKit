@@ -101,6 +101,7 @@
         case 53: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
         case 54:  return [self configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart];//自定义 Y 轴的 Labels 国际单位符基数及国际单位符
         case 55:  return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
+        case 56:  return [self logarithmicAxisChart];//对数轴折线图📈            
 
     }
     return nil;
@@ -906,9 +907,8 @@
             @[AADateUTC(2018, 6 - 1, 18),  @389.00],
             @[AADateUTC(2018, 7 - 1, 12),  @155.60],
                  ]),
-               ]
-               )
-    ;
+               ]);
+    
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     aaOptions.xAxis
@@ -1124,7 +1124,8 @@
               )
     .seriesSet(@[
         AASeriesElement.new
-        .dataSet(@[@80])]);
+        .dataSet(@[@80])
+               ]);
 }
 
 - (AAOptions *)gaugeChartWithPlotBand {
@@ -3441,8 +3442,8 @@
             @[AADateUTC(1971, 4, 21),  @0.34],
             @[AADateUTC(1971, 4, 25),     @0]
                  ]),
-               ])
-    ;
+               ]);
+    
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     aaOptions.xAxis
@@ -3455,5 +3456,27 @@
     return aaOptions;
 }
 
+- (AAOptions *)logarithmicAxisChart {
+    return AAOptions.new
+    .titleSet(AATitle.new
+              .textSet(@"Logarithmic Axis Chart"))
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeLine))
+    .xAxisSet(AAXAxis.new
+              .typeSet(AAChartAxisTypeLogarithmic)
+              .gridLineWidthSet(@0.6))
+    .yAxisSet(AAYAxis.new
+              .typeSet(AAChartAxisTypeLogarithmic)
+              .minorTickIntervalSet(@0.1))
+    .tooltipSet(AATooltip.new
+                .enabledSet(true)
+                .headerFormatSet(@"<b>{series.name}</b><br />")
+                .pointFormatSet(@"x = {point.x}, y = {point.y}"))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .dataSet(@[@1, @2, @4, @8, @16, @32, @64, @128, @256, @512])
+               ]);
+}
 
 @end
