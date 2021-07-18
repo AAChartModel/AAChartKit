@@ -33,14 +33,14 @@
 
 
 #import <Foundation/Foundation.h>
-#import "AAAxisType.h"
+#import "AAChartAxisType.h"
 
 @class AAAxisTitle, AALabels, AACrosshair, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
 @interface AAXAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AAAxisTitle  *, title)
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, AAAxisType, type)
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, AAChartAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotLinesElement *>*, plotLines)

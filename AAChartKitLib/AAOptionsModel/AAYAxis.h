@@ -31,7 +31,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AAAxisType.h"
+#import "AAChartAxisType.h"
 
 @class AAAxisTitle, AALabels, AACrosshair, AAStyle, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
@@ -42,7 +42,7 @@ static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationPolygon = 
 @interface AAYAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AAAxisTitle  *, title)
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAAxisType, type)
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAChartAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotLinesElement *>*, plotLines)

@@ -100,8 +100,7 @@
         case 52: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
         case 53: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
         case 54:  return [self configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart];//自定义 Y 轴的 Labels 国际单位符基数及国际单位符
-
-
+        case 55:  return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
 
     }
     return nil;
@@ -829,9 +828,6 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/363
 - (AAOptions *)specialStyleStepLineChart {
-    
-    
-    //Method 1
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图形类型
     .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
@@ -874,7 +870,6 @@
             @[AADateUTC(2018, 6 - 1, 8),   @155.60],
             @[AADateUTC(2018, 6 - 1, 18),  @389.00],
             @[AADateUTC(2018, 7 - 1, 12),  @194.50],
-            //                                      @[Date.now(), @194.50]
                  ]),
         AASeriesElement.new
         .nameSet(@"PS+")
@@ -910,7 +905,6 @@
             @[AADateUTC(2018, 6 - 1, 8),   @155.60],
             @[AADateUTC(2018, 6 - 1, 18),  @389.00],
             @[AADateUTC(2018, 7 - 1, 12),  @155.60],
-            //                                      @[Date.now(), @155.60]
                  ]),
                ]
                )
@@ -918,7 +912,7 @@
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     aaOptions.xAxis
-    .typeSet(@"dateTime")
+    .typeSet(AAChartAxisTypeDatetime)
     .dateTimeLabelFormatsSet(
         AADateTimeLabelFormats.new
                        .monthSet(@"%e.%m.%y"))
@@ -3317,6 +3311,147 @@
     .numericSymbolsSet(@[@"万",@"億"]) //国际单位符
     ;
     
+    return aaOptions;
+}
+
+//X 轴时间不连续的折线图
+- (AAOptions *)timeDataWithIrregularIntervalsChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图形类型
+    .titleSet(@"Snow depth at Vikjafjellet, Norway")//图形标题
+    .subtitleSet(@"Irregular time data in AAChartKit")//图形副标题
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",])
+    .dataLabelsEnabledSet(NO)//是否显示数字
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
+    .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Winter 2014-2015")
+        .dataSet(@[
+            @[AADateUTC(1970, 10, 25),    @0],
+            @[AADateUTC(1970, 11,  6), @0.25],
+            @[AADateUTC(1970, 11, 20), @1.41],
+            @[AADateUTC(1970, 11, 25), @1.64],
+            @[AADateUTC(1971, 0,  4),   @1.6],
+            @[AADateUTC(1971, 0, 17),  @2.55],
+            @[AADateUTC(1971, 0, 24),  @2.62],
+            @[AADateUTC(1971, 1,  4),   @2.5],
+            @[AADateUTC(1971, 1, 14),  @2.42],
+            @[AADateUTC(1971, 2,  6),  @2.74],
+            @[AADateUTC(1971, 2, 14),  @2.62],
+            @[AADateUTC(1971, 2, 24),   @2.6],
+            @[AADateUTC(1971, 3,  1),  @2.81],
+            @[AADateUTC(1971, 3, 11),  @2.63],
+            @[AADateUTC(1971, 3, 27),  @2.77],
+            @[AADateUTC(1971, 4,  4),  @2.68],
+            @[AADateUTC(1971, 4,  9),  @2.56],
+            @[AADateUTC(1971, 4, 14),  @2.39],
+            @[AADateUTC(1971, 4, 19),   @2.3],
+            @[AADateUTC(1971, 5,  4),     @2],
+            @[AADateUTC(1971, 5,  9),  @1.85],
+            @[AADateUTC(1971, 5, 14),  @1.49],
+            @[AADateUTC(1971, 5, 19),  @1.27],
+            @[AADateUTC(1971, 5, 24),  @0.99],
+            @[AADateUTC(1971, 5, 29),  @0.67],
+            @[AADateUTC(1971, 6,  3),  @0.18],
+            @[AADateUTC(1971, 6,  4),     @0]
+                 ]),
+        AASeriesElement.new
+        .nameSet(@"Winter 2015-2016")
+        .dataSet(@[
+            @[AADateUTC(1970, 10,  9),    @0],
+            @[AADateUTC(1970, 10, 15), @0.23],
+            @[AADateUTC(1970, 10, 20), @0.25],
+            @[AADateUTC(1970, 10, 25), @0.23],
+            @[AADateUTC(1970, 10, 30), @0.39],
+            @[AADateUTC(1970, 11,  5), @0.41],
+            @[AADateUTC(1970, 11, 10), @0.59],
+            @[AADateUTC(1970, 11, 15), @0.73],
+            @[AADateUTC(1970, 11, 20), @0.41],
+            @[AADateUTC(1970, 11, 25), @1.07],
+            @[AADateUTC(1970, 11, 30), @0.88],
+            @[AADateUTC(1971, 0,  5),  @0.85],
+            @[AADateUTC(1971, 0, 11),  @0.89],
+            @[AADateUTC(1971, 0, 17),  @1.04],
+            @[AADateUTC(1971, 0, 20),  @1.02],
+            @[AADateUTC(1971, 0, 25),  @1.03],
+            @[AADateUTC(1971, 0, 30),  @1.39],
+            @[AADateUTC(1971, 1,  5),  @1.77],
+            @[AADateUTC(1971, 1, 26),  @2.12],
+            @[AADateUTC(1971, 3, 19),   @2.1],
+            @[AADateUTC(1971, 4,  9),   @1.7],
+            @[AADateUTC(1971, 4, 29),  @0.85],
+            @[AADateUTC(1971, 5,  7),     @0]
+                 ]),
+        AASeriesElement.new
+        .nameSet(@"Winter 2016-2017")
+        .dataSet(@[
+            @[AADateUTC(1970, 9, 15),     @0],
+            @[AADateUTC(1970, 9, 31),  @0.09],
+            @[AADateUTC(1970, 10,  7), @0.17],
+            @[AADateUTC(1970, 10, 10),  @0.1],
+            @[AADateUTC(1970, 11, 10),  @0.1],
+            @[AADateUTC(1970, 11, 13),  @0.1],
+            @[AADateUTC(1970, 11, 16), @0.11],
+            @[AADateUTC(1970, 11, 19), @0.11],
+            @[AADateUTC(1970, 11, 22), @0.08],
+            @[AADateUTC(1970, 11, 25), @0.23],
+            @[AADateUTC(1970, 11, 28), @0.37],
+            @[AADateUTC(1971, 0, 16),  @0.68],
+            @[AADateUTC(1971, 0, 19),  @0.55],
+            @[AADateUTC(1971, 0, 22),   @0.4],
+            @[AADateUTC(1971, 0, 25),   @0.4],
+            @[AADateUTC(1971, 0, 28),  @0.37],
+            @[AADateUTC(1971, 0, 31),  @0.43],
+            @[AADateUTC(1971, 1,  4),  @0.42],
+            @[AADateUTC(1971, 1,  7),  @0.39],
+            @[AADateUTC(1971, 1, 10),  @0.39],
+            @[AADateUTC(1971, 1, 13),  @0.39],
+            @[AADateUTC(1971, 1, 16),  @0.39],
+            @[AADateUTC(1971, 1, 19),  @0.35],
+            @[AADateUTC(1971, 1, 22),  @0.45],
+            @[AADateUTC(1971, 1, 25),  @0.62],
+            @[AADateUTC(1971, 1, 28),  @0.68],
+            @[AADateUTC(1971, 2,  4),  @0.68],
+            @[AADateUTC(1971, 2,  7),  @0.65],
+            @[AADateUTC(1971, 2, 10),  @0.65],
+            @[AADateUTC(1971, 2, 13),  @0.75],
+            @[AADateUTC(1971, 2, 16),  @0.86],
+            @[AADateUTC(1971, 2, 19),  @1.14],
+            @[AADateUTC(1971, 2, 22),   @1.2],
+            @[AADateUTC(1971, 2, 25),  @1.27],
+            @[AADateUTC(1971, 2, 27),  @1.12],
+            @[AADateUTC(1971, 2, 30),  @0.98],
+            @[AADateUTC(1971, 3,  3),  @0.85],
+            @[AADateUTC(1971, 3,  6),  @1.04],
+            @[AADateUTC(1971, 3,  9),  @0.92],
+            @[AADateUTC(1971, 3, 12),  @0.96],
+            @[AADateUTC(1971, 3, 15),  @0.94],
+            @[AADateUTC(1971, 3, 18),  @0.99],
+            @[AADateUTC(1971, 3, 21),  @0.96],
+            @[AADateUTC(1971, 3, 24),  @1.15],
+            @[AADateUTC(1971, 3, 27),  @1.18],
+            @[AADateUTC(1971, 3, 30),  @1.12],
+            @[AADateUTC(1971, 4,  3),  @1.06],
+            @[AADateUTC(1971, 4,  6),  @0.96],
+            @[AADateUTC(1971, 4,  9),  @0.87],
+            @[AADateUTC(1971, 4, 12),  @0.88],
+            @[AADateUTC(1971, 4, 15),  @0.79],
+            @[AADateUTC(1971, 4, 18),  @0.54],
+            @[AADateUTC(1971, 4, 21),  @0.34],
+            @[AADateUTC(1971, 4, 25),     @0]
+                 ]),
+               ])
+    ;
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+
+    aaOptions.xAxis
+    .typeSet(AAChartAxisTypeDatetime)
+    .dateTimeLabelFormatsSet(AADateTimeLabelFormats.new
+                             .monthSet(@"%e. %b")
+                             .yearSet(@"%b")
+                             );
+
     return aaOptions;
 }
 

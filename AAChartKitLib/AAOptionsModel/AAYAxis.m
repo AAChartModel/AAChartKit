@@ -43,7 +43,7 @@
 }
 
 AAPropSetFuncImplementation(AAYAxis, AAAxisTitle  *, title)
-AAPropSetFuncImplementation(AAYAxis, AAAxisType, type)
+AAPropSetFuncImplementation(AAYAxis, AAChartAxisType, type)
 AAPropSetFuncImplementation(AAYAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
 AAPropSetFuncImplementation(AAYAxis, NSArray<AAPlotBandsElement *>*, plotBands)
 AAPropSetFuncImplementation(AAYAxis, NSArray<AAPlotLinesElement *>*, plotLines)
