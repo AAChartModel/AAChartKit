@@ -1717,8 +1717,7 @@ function () {
     //https://zhidao.baidu.com/question/301691908.html
     //https://jshare.com.cn/highcharts/hhhhGc
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    AATooltip *tooltip = aaOptions.tooltip;
-    tooltip
+    aaOptions.tooltip
     .sharedSet(true)
     .useHTMLSet(true)
     .paddingSet(@0)
