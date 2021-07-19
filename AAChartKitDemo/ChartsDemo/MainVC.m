@@ -551,6 +551,7 @@
               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
               @"configureTheAxesLabelsFormattersOfDoubleYAxesChart---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数",
               @"makePieChartShow0Data---使饼图显示为 0 的数据",
+              @"customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters---通过截取前四个字符来自定义 X 轴 labels",
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[@"Custom Chart DataLabel Sample One---自定义 DataLabel 1",

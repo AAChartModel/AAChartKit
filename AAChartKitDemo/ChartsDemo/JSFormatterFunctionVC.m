@@ -51,16 +51,16 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
-        case 1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
-        case 2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
-        case 3: return [self customLineChartTooltipStyleWhenValueBeZeroDoNotShow];//值为0时,在tooltip中不显示
-        case 4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
-        case 5: return [self customYAxisLabels];//自定义Y轴文字
-        case 6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
-        case 7: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
-        case 8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
-        case 9: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
+        case  0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
+        case  1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
+        case  2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
+        case  3: return [self customLineChartTooltipStyleWhenValueBeZeroDoNotShow];//值为0时,在tooltip中不显示
+        case  4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
+        case  5: return [self customYAxisLabels];//自定义Y轴文字
+        case  6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
+        case  7: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
+        case  8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
+        case  9: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
         case 10: return [self configureSpecialStyleTrianglePolarChart];//外部显示六边形边框的三角形雷达图
         case 11: return [self customDoubleXAxesChart];//双 X 轴镜像条形图
         case 12: return [self customAreaChartXAxisLabelsTextUnitSuffix1];//自定义X轴文字单位后缀(通过 formatter 函数)
@@ -79,6 +79,7 @@
         case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
         case 26: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
         case 27: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
+        case 28: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
 
         default:
             return nil;
@@ -1904,6 +1905,67 @@ function () {
                ])
     ;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/1217
+- (AAOptions *)customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeBar)//图表类型
+    .titleSet(@"春江花月夜")//图表主标题
+    .subtitleSet(@"张若虚")//图表副标题
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
+    .xAxisReversedSet(true)
+    .xAxisLabelsStyleSet(AAStyleColor(AAColor.blackColor))
+    .legendEnabledSet(false)
+    .categoriesSet(@[
+        @"春江潮水连海平", @"海上明月共潮生",
+        @"滟滟随波千万里", @"何处春江无月明",
+        @"江流宛转绕芳甸", @"月照花林皆似霰",
+        @"空里流霜不觉飞", @"汀上白沙看不见",
+        @"江天一色无纤尘", @"皎皎空中孤月轮",
+        @"江畔何人初见月", @"江月何年初照人",
+        @"人生代代无穷已", @"江月年年望相似",
+        @"不知江月待何人", @"但见长江送流水",
+        @"白云一片去悠悠", @"青枫浦上不胜愁",
+        @"谁家今夜扁舟子", @"何处相思明月楼",
+        @"可怜楼上月裴回", @"应照离人妆镜台",
+        @"玉户帘中卷不去", @"捣衣砧上拂还来",
+        @"此时相望不相闻", @"愿逐月华流照君",
+        @"鸿雁长飞光不度", @"鱼龙潜跃水成文",
+        @"昨夜闲潭梦落花", @"可怜春半不还家",
+        @"江水流春去欲尽", @"江潭落月复西斜",
+        @"斜月沉沉藏海雾", @"碣石潇湘无限路",
+        @"不知乘月几人归", @"落月摇情满江树",
+                   ])
+    .seriesSet(@[
+        AASeriesElement.new
+        .lineWidthSet(@1.5)
+        .colorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToTop)
+                  .startColorSet(@"#7052f4")
+                  .endColorSet(@"#00b0ff"))
+        .nameSet(@"2018")
+        .dataSet(@[
+            @1.51, @3.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
+            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @2.7, @0.94, @1.44,
+            @3.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90,
+                 ])
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.xAxis.labels
+    .formatterSet(@AAJSFunc(function () {
+        let xAxisCategory = this.value;
+        if (xAxisCategory.length > 4) {
+            return xAxisCategory.substr(0, 4);
+        } else {
+            return xAxisCategory;
+        }
+    }))
+    ;
+    
+    return aaOptions;
+}
+
 
 
 @end
