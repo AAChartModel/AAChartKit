@@ -55,7 +55,7 @@
 
 - (void)setupTitle {
     NSString *chartType = self.navigationItemTitleArr[self.selectedIndex];
-    self.title = [NSString stringWithFormat:@"%@ chart",chartType];
+    self.title = [NSString stringWithFormat:@"%@",chartType];
 }
 
 - (void)setupNextTypeChartButton {
