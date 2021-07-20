@@ -41,6 +41,8 @@ static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationPolygon = 
 
 @interface AAYAxis : NSObject
 
+AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       allowDecimals)  //y轴是否允许显示小数
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AAAxisTitle  *, title)
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAChartAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
@@ -52,14 +54,12 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridLineWidt
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineColor) // y 轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineDashStyle) //网格线线条样式，所有可用的线条样式参考：Highcharts线条样式
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridZIndex) //网格线的层叠值（zIndex） 默认是：1.
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, alternateGridColor) //backcolor of every other grid line area
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAYAxisGridLineInterpolation, gridLineInterpolation) //Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, labels) //用于设置 y 轴文字相关的
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, lineWidth) // y 轴线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, lineColor) // y 轴线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, offset) // y 轴线水平偏移
 
-AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       allowDecimals)  //y轴是否允许显示小数
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, max)  //y轴最大值
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, min)  //y轴最小值（设置为0就不会有负数）
 //AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, NSNumber *, minPadding)  //Padding of the min value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the lowest data value to appear on the edge of the plot area. 默认是：0.05.
