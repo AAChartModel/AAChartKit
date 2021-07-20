@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -202,10 +202,10 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         }
         aaPlotOptions.pieSet(aaPie);
     } else if (aaChartType == AAChartTypeColumnrange) {
-        NSMutableDictionary *columnRangeDic = [[NSMutableDictionary alloc]init];
-        [columnRangeDic setValue:aaChartModel.borderRadius forKey:@"borderRadius"];//The color of the border surrounding each column or bar
-        [columnRangeDic setValue:@0 forKey:@"borderWidth"];//The corner radius of the border surrounding each column or bar. default：0.
-        aaPlotOptions.columnrangeSet(columnRangeDic);
+        AAColumnrange *aaColumnrange = AAColumnrange.new
+        .borderRadiusSet(aaChartModel.borderRadius)
+        .borderWidthSet(@0);
+        aaPlotOptions.columnrangeSet(aaColumnrange);
     }
     
     aaPlotOptions.series.dataLabelsSet(aaDataLabels);

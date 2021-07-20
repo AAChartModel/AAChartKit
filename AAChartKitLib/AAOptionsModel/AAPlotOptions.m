@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -42,7 +42,7 @@ AAPropSetFuncImplementation(AAPlotOptions, AASpline     *, spline)
 AAPropSetFuncImplementation(AAPlotOptions, AASeries     *, series) 
 AAPropSetFuncImplementation(AAPlotOptions, AAArea       *, area) 
 AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline *, areaspline) 
-AAPropSetFuncImplementation(AAPlotOptions, NSObject     *, columnrange) 
+AAPropSetFuncImplementation(AAPlotOptions, AAColumnrange*, columnrange)
 AAPropSetFuncImplementation(AAPlotOptions, NSObject     *, arearange) 
 
 @end

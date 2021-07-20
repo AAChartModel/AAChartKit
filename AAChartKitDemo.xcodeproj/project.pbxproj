@@ -75,6 +75,7 @@
 		7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172A3E41E763EA6000D5B99 /* LaunchScreen.storyboard */; };
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
+		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
 		84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */; };
@@ -240,6 +241,8 @@
 		7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartKitUITests.m; sourceTree = "<group>"; };
 		7172A3FD1E763EA6000D5B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		846CB10B26A6B14100DE8D5A /* AAColumnrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAColumnrange.h; sourceTree = "<group>"; };
+		846CB10C26A6B14100DE8D5A /* AAColumnrange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAColumnrange.m; sourceTree = "<group>"; };
 		848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAAChartViewForXibVC.h; sourceTree = "<group>"; };
 		848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAAChartViewForXibVC.m; sourceTree = "<group>"; };
 		848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAAChartViewForXibVC.xib; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				1E66D1E7210AF4EC007EAB8C /* AASpline.m */,
 				1E66D1D1210AF4EC007EAB8C /* AAPie.h */,
 				1E66D1E9210AF4EC007EAB8C /* AAPie.m */,
+				846CB10B26A6B14100DE8D5A /* AAColumnrange.h */,
+				846CB10C26A6B14100DE8D5A /* AAColumnrange.m */,
 				1E66D1E6210AF4EC007EAB8C /* AAPlotOptions.h */,
 				1E66D1C7210AF4EC007EAB8C /* AAPlotOptions.m */,
 				44E4137123C339150097D0ED /* AAStates.h */,
@@ -747,6 +752,7 @@
 				1E66D216210AF4ED007EAB8C /* AAChartModel.m in Sources */,
 				27E475F524B2111400690657 /* AABaseChartVC.m in Sources */,
 				1E66D207210AF4ED007EAB8C /* AAColumn.m in Sources */,
+				846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */,
 				1E66D208210AF4ED007EAB8C /* AAPlotLinesElement.m in Sources */,
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,

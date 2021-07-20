@@ -1,9 +1,9 @@
 //
-//  AAPlotOptions.h
-//  AAChartKit
+//  AAColumnrange.h
+//  AAChartKitDemo
 //
-//  Created by An An on 17/1/5.
-//  Copyright © 2017年 An An. All rights reserved.
+//  Created by An An on 2021/7/20.
+//  Copyright © 2021 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -32,19 +32,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AAColumnrange, AASeries;
+@class AADataLabels;
 
-@interface AAPlotOptions : NSObject
+@interface AAColumnrange : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn     *, column) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine       *, line) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie        *, pie) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar        *, bar) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline     *, spline) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries     *, series) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea       *, area) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumnrange*, columnrange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, arearange) 
+AAPropStatementAndPropSetFuncStatement(strong, AAColumnrange, NSNumber *,     borderRadius)
+AAPropStatementAndPropSetFuncStatement(strong, AAColumnrange, NSNumber *,     borderWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AAColumnrange, AADataLabels *, dataLabels)
+AAPropStatementAndPropSetFuncStatement(strong, AAColumnrange, NSNumber *,     groupPadding) //Padding between each value groups, in x axis units. default：0.2.
+AAPropStatementAndPropSetFuncStatement(assign, AAColumnrange, BOOL,           grouping) //Whether to group non-stacked columns or to let them render independent of each other. Non-grouped columns will be laid out individually and overlap each other. default：true.
+AAPropStatementAndPropSetFuncStatement(strong, AAColumnrange, NSNumber *,     pointPadding) //Padding between each column or bar, in x axis units. default：0.1.
+AAPropStatementAndPropSetFuncStatement(strong, AAColumnrange, NSNumber *,     pointPlacement) //Padding between each column or bar, in x axis units. default：0.1.
+
 
 @end
+
