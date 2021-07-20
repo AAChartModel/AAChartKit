@@ -114,9 +114,9 @@
         || indexPath.section == 6
         || indexPath.section == 9
         || indexPath.section == 10) {
-        return 60;
+        return 85;
     } else {
-        return 40;
+        return 60;
     }
 }
 
@@ -145,8 +145,11 @@
     cell.textLabel.textColor = [UIColor redColor];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
+    cell.textLabel.font = [UIFont systemFontOfSize:18];
     cell.detailTextLabel.text = textStrArr[1];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:16];
+    cell.detailTextLabel.numberOfLines = 0;
+
     return cell;
 }
 
