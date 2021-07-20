@@ -41,6 +41,7 @@
     return self;
 }
 
+AAPropSetFuncImplementation(AAXAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
 AAPropSetFuncImplementation(AAXAxis, AAAxisTitle  *, title)
 AAPropSetFuncImplementation(AAXAxis, AAChartAxisType, type)
 AAPropSetFuncImplementation(AAXAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)

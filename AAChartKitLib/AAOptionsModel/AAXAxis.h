@@ -39,6 +39,7 @@
 
 @interface AAXAxis : NSObject
 
+AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AAAxisTitle  *, title)
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, AAChartAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
