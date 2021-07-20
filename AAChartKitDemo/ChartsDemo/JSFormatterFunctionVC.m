@@ -1874,12 +1874,6 @@ function () {
 
 //https://github.com/AAChartModel/AAChartKit/issues/1042
 - (AAOptions *)makePieChartShow0Data {
-    NSArray *dataArr = @[
-        @{@"y":@1, @"isZero":@true, @"name": @"One"  },
-        @{@"y":@1, @"isZero":@true, @"name": @"Two"  },
-        @{@"y":@1, @"isZero":@true, @"name": @"Three"}
-    ];
-    
     return AAOptions.new
     .titleSet((id)NSNull.null)
     .chartSet(AAChart.new
@@ -1887,11 +1881,20 @@ function () {
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"ZeroDataPie")
-        .dataSet(dataArr)
+        .dataSet(@[
+            @{@"y":@1, @"isZero":@true, @"name": @"One"  },
+            @{@"y":@1, @"isZero":@true, @"name": @"Two"  },
+            @{@"y":@1, @"isZero":@true, @"name": @"Three"}
+                 ])
         .tooltipSet(AATooltip.new
                     .sharedSet(false)
-                    .pointFormatterSet(@AAJSFunc(function() {
-            return "<span style=\'color:" + this.color + "\'> ◉ </span>" + this.series.name + ": <b>" + (this.options.isZero ? 0 : this.y) + "</b><br/>";
+                    .pointFormatterSet(@AAJSFunc(
+        function() {
+            return "<span style=\'color:" + this.color + "\'> ◉ </span>"
+            + this.series.name
+            + ": <b>"
+            + (this.options.isZero ? 0 : this.y)
+            + "</b><br/>";
         })))
                ])
     ;
