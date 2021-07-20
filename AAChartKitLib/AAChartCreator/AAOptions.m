@@ -178,37 +178,44 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
                               .borderRadiusSet(aaChartModel.borderRadius)
                               );
         if (aaChartModel.polar == true) {
-            aaColumn.pointPaddingSet(@0)
+            aaColumn
+            .pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
-        aaPlotOptions.columnSet(aaColumn);
+        aaPlotOptions
+        .columnSet(aaColumn);
     } else if (aaChartType == AAChartTypeBar) {
         AABar *aaBar = (AABar.new
                         .borderWidthSet(@0)
                         .borderRadiusSet(aaChartModel.borderRadius)
                         );
         if (aaChartModel.polar == true) {
-            aaBar.pointPaddingSet(@0)
+            aaBar
+            .pointPaddingSet(@0)
             .groupPaddingSet(@0.005);
         }
-        aaPlotOptions.barSet(aaBar);
+        aaPlotOptions
+        .barSet(aaBar);
     } else if (aaChartType == AAChartTypePie) {
-        AAPie *aaPie = AAPie.new
-        .allowPointSelectSet(true)
-        .cursorSet(@"pointer")
-        .showInLegendSet(true);
         if (aaChartModel.dataLabelsEnabled == true) {
             aaDataLabels.formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %");
         }
-        aaPlotOptions.pieSet(aaPie);
+        aaPlotOptions
+        .pieSet(AAPie.new
+                .allowPointSelectSet(true)
+                .cursorSet(@"pointer")
+                .showInLegendSet(true)
+                );
     } else if (aaChartType == AAChartTypeColumnrange) {
-        AAColumnrange *aaColumnrange = AAColumnrange.new
-        .borderRadiusSet(aaChartModel.borderRadius)
-        .borderWidthSet(@0);
-        aaPlotOptions.columnrangeSet(aaColumnrange);
+        aaPlotOptions
+        .columnrangeSet(AAColumnrange.new
+                        .borderRadiusSet(aaChartModel.borderRadius)
+                        .borderWidthSet(@0)
+                        );
     }
     
-    aaPlotOptions.series.dataLabelsSet(aaDataLabels);
+    aaPlotOptions.series
+    .dataLabelsSet(aaDataLabels);
 }
 
 + (void)configureAxisContentAndStyleWithAAOptions:(AAOptions *)aaOptions
