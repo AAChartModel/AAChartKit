@@ -60,7 +60,7 @@
         case 11: return [self configureNegativeColorMixedAreasplineChart];
         case 12: return [self configureNegativeColorMixedAreasChart];
         case 13: return [self configureAreaChartMixedStepAreaChart];
-        case 14:  return [self configureColumnrangeMixedScatterChart];
+        case 14: return [self configureColumnrangeMixedScatterChart];
 
     }
     return nil;
