@@ -1875,18 +1875,10 @@ function () {
 //https://github.com/AAChartModel/AAChartKit/issues/1042
 - (AAOptions *)makePieChartShow0Data {
     NSArray *dataArr = @[
-        @{@"y":@1,
-          @"isZero":@true,
-          @"name": @"One",
-        },
-        @{@"y":@1,
-          @"isZero":@true,
-          @"name": @"Two",
-        },
-        @{@"y":@1,
-          @"isZero":@true,
-          @"name": @"Three",
-        }];
+        @{@"y":@1, @"isZero":@true, @"name": @"One"  },
+        @{@"y":@1, @"isZero":@true, @"name": @"Two"  },
+        @{@"y":@1, @"isZero":@true, @"name": @"Three"}
+    ];
     
     return AAOptions.new
     .titleSet((id)NSNull.null)
