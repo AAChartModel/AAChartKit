@@ -22,7 +22,7 @@
  * -------------------------------------------------------------------------------
  * And if you want to contribute for this project, please contact me as well
  * GitHub        : https://github.com/AAChartModel
- * StackOverflow : https://stackoverflow.com/users/7842508/codeforu
+ * StackOverflow : https://stackoverflow.com/users/12302132/codeforu
  * JianShu       : https://www.jianshu.com/u/f1e6753d4254
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
@@ -34,11 +34,26 @@
 
 @implementation AABar
 
-AAPropSetFuncImplementation(AABar, NSNumber *,     pointPadding) 
-AAPropSetFuncImplementation(AABar, NSNumber *,     groupPadding) 
-AAPropSetFuncImplementation(AABar, NSNumber *,     borderWidth) 
-AAPropSetFuncImplementation(AABar, BOOL ,          colorByPoint) 
-AAPropSetFuncImplementation(AABar, AADataLabels *, dataLabels) 
-AAPropSetFuncImplementation(AABar, NSNumber *,     borderRadius) 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _grouping = true;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AABar, NSString *,     name)
+AAPropSetFuncImplementation(AABar, NSArray  *,     data)
+AAPropSetFuncImplementation(AABar, NSString *,     color)
+AAPropSetFuncImplementation(AABar, BOOL,           grouping)
+AAPropSetFuncImplementation(AABar, NSNumber *,     pointPadding)
+AAPropSetFuncImplementation(AABar, NSNumber *,     pointPlacement)
+AAPropSetFuncImplementation(AABar, NSNumber *,     groupPadding)
+AAPropSetFuncImplementation(AABar, NSNumber *,     borderWidth)
+AAPropSetFuncImplementation(AABar, BOOL ,          colorByPoint)
+AAPropSetFuncImplementation(AABar, AADataLabels *, dataLabels)
+AAPropSetFuncImplementation(AABar, NSString *,     stacking)
+AAPropSetFuncImplementation(AABar, NSNumber *,     borderRadius)
+AAPropSetFuncImplementation(AABar, NSNumber *,     yAxis)
 
 @end
