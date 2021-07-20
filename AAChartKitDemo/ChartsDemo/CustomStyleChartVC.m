@@ -536,7 +536,7 @@
         @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
         @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
                    ])
-    .backgroundColorSet(@"#FFFFFF")
+    .backgroundColorSet(AAColor.whiteColor)
     .markerRadiusSet(@0)
     .yAxisLineWidthSet(@0)
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
@@ -629,10 +629,10 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-               .lineColorSet(@"#FF0000")
+               .lineColorSet(AAColor.redColor)
                )
     .ySet(@26.5);
     

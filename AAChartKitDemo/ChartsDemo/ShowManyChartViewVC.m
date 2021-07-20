@@ -103,10 +103,10 @@
     .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++",@"Perl",@"R",@"MATLAB",@"SQL"])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .markerRadiusSet(@6)
-    .xAxisCrosshairSet([AACrosshair crosshairWithColor:@"#ff0000"
+    .xAxisCrosshairSet([AACrosshair crosshairWithColor:AAColor.redColor
                                              dashStyle:AAChartLineDashStyleTypeDashDot
                                                  width:@1.5f])
-    .yAxisCrosshairSet([AACrosshair crosshairWithColor:@"#ff0000"
+    .yAxisCrosshairSet([AACrosshair crosshairWithColor:AAColor.redColor
                                              dashStyle:AAChartLineDashStyleTypeLongDashDot
                                                  width:@1.5f])
     .seriesSet(@[

@@ -146,7 +146,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
         .symbolSet(aaChartModel.markerSymbol);//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
         
         if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeInnerBlank) {
-            aaMarker.fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+            aaMarker.fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
             .lineWidthSet(@(0.4 * aaChartModel.markerRadius.floatValue))//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
             .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
         } else if (aaChartModel.markerSymbolStyle == AAChartSymbolStyleTypeBorderBlank) {

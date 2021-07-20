@@ -141,8 +141,8 @@
         + ' </b> Dollars ';
     }))
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
+    .backgroundColorSet(AAColor.blackColor)
+    .borderColorSet(AAColor.blackColor)
     .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
     return aaOptions;
@@ -372,8 +372,8 @@
     .headerFormatSet(@"<em>实验号码： {point.key}</em><br/>")
     .pointFormatSet(pointFormatStr)
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
+    .backgroundColorSet(AAColor.blackColor)
+    .borderColorSet(AAColor.blackColor)
     .styleSet(AAStyleColorSize(@"#1e90ff", 12))
     ;
     
@@ -531,7 +531,7 @@
     aaOptions.tooltip
     .sharedSet(false)
     .backgroundColorSet((id)gradientColorDic1)
-    .styleSet(AAStyleColorSize(@"#FFFFFF", 12))
+    .styleSet(AAStyleColorSize(AAColor.whiteColor, 12))
     .formatterSet(@AAJSFunc(function () {
         return '<b>'
         + this.x
@@ -732,8 +732,8 @@
     .sharedSet(false)
     .formatterSet(tooltipFormatter)
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
+    .backgroundColorSet(AAColor.blackColor)
+    .borderColorSet(AAColor.blackColor)
     .styleSet(AAStyleColorSize(@"#1e90ff", 12))
     ;
     
@@ -957,8 +957,8 @@
         let tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;
         return tooltipDescStr;
     }))
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
+    .backgroundColorSet(AAColor.blackColor)
+    .borderColorSet(AAColor.blackColor)
     .styleSet(AAStyleColorSize(@"#1e90ff", 12))
     ;
     
@@ -1124,7 +1124,7 @@ function () {
     .sharedSet(true)
     .useHTMLSet(true)
     .formatterSet(jsFormatterStr)
-    .backgroundColorSet(@"#000000")//黑色背景色
+    .backgroundColorSet(AAColor.blackColor)//黑色背景色
     .borderColorSet(@"#FFD700")//边缘颜色纯金色
     .styleSet(AAStyleColorSize(@"#FFD700", 12))//文字颜色纯金色
     ;
@@ -1772,7 +1772,7 @@ function () {
                .markerSet(AAMarker.new
                           .radiusSet(@7)//曲线连接点半径，默认是4
                           .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-                          .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+                          .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                           .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                           .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                           ));

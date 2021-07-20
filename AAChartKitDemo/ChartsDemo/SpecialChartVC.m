@@ -282,7 +282,7 @@
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerRadiusSet(@9)
-    .backgroundColorSet(@"#000000")
+    .backgroundColorSet(AAColor.blackColor)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"男")

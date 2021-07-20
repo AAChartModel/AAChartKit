@@ -51,7 +51,7 @@ AAPropSetFuncImplementation(AATooltip, NSString *, backgroundColor) //背景色
 AAPropSetFuncImplementation(AATooltip, NSString *, borderColor) //边框颜色
 AAPropSetFuncImplementation(AATooltip, NSNumber *, borderRadius) //边框的圆角半径
 AAPropSetFuncImplementation(AATooltip, NSNumber *, borderWidth) //边框宽度
-AAPropSetFuncImplementation(AATooltip, AAStyle  *, style) //为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":@"#ffffff",@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }
+AAPropSetFuncImplementation(AATooltip, AAStyle  *, style) //为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":AAColor.whiteColor,@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }
 AAPropSetFuncImplementation(AATooltip, BOOL,       enabled) 
 AAPropSetFuncImplementation(AATooltip, BOOL,       useHTML) 
 //AAPropSetFuncImplementation(AATooltip, NSString *, formatter)

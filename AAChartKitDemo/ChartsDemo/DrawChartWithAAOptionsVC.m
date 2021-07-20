@@ -210,7 +210,7 @@
               .xSet(@(-xOffSet))
               .ySet(@(-5))
               .styleSet(AAStyle.new
-                        .colorSet(@"#000000")//Title font color
+                        .colorSet(AAColor.blackColor)//Title font color
                         .fontSizeSet(@"14 px")//Title font size
                         .fontWeightSet(@"bold")//Title font weight
                         )
@@ -549,8 +549,8 @@
     .pointFormatSet(@" Support format properties Just Right Now !!!<br>")
     .footerFormatSet(@"The Gold Price In <b>{series.name}-{point.key}</b> Is &nbsp<b>{point.y}</b>&nbspDollars Per Gram")
     .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(@"#000000")
-    .borderColorSet(@"#000000")
+    .backgroundColorSet(AAColor.blackColor)
+    .borderColorSet(AAColor.blackColor)
     .styleSet(AAStyleColorSize(@"#FFD700", 12))
     ;
         
@@ -628,7 +628,7 @@
     .enabledSet(true)//设置 y 轴是否显示数字
     .formatSet(@"{value:.,0f}mm")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
     .styleSet(AAStyle.new
-              .colorSet(@"#ff0000")//yAxis Label font color
+              .colorSet(AAColor.redColor)//yAxis Label font color
               .fontSizeSet(@"15px")//yAxis Label font size
               .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
               );
@@ -656,7 +656,7 @@
     AAMarker *aaMarker = AAMarker.new
     .radiusSet(@7)//曲线连接点半径，默认是4
     .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-    .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+    .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
     .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
     .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
     
@@ -966,7 +966,7 @@
      }
      */
     AAItemStyle *aaItemStyle = AAItemStyle.new
-    .colorSet(@"#ff0000")//字体颜色
+    .colorSet(AAColor.redColor)//字体颜色
     .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
     .fontSizeSet(@"20px")//字体大小
     .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
@@ -1119,7 +1119,7 @@
                   AAPlotBandsElement.new
                   .fromSet(@0)
                   .toSet(@60)
-                  .colorSet(@"#FF0000")
+                  .colorSet(AAColor.redColor)
                             ])
               )
     .seriesSet(@[
@@ -1772,7 +1772,7 @@
     .cropSet(false)
     .overflowSet(@"none")
     .styleSet(AAStyle.new
-              .colorSet(@"#000000")
+              .colorSet(AAColor.blackColor)
               .fontSizeSet(@"11px")
               )
     ;
@@ -2069,7 +2069,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@7)//曲线连接点半径，默认是4
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#ffffff")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                )
@@ -2809,7 +2809,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                .lineColorSet(@"#1e90ff")
@@ -2838,7 +2838,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                .lineColorSet(@"#ef476f")
@@ -2918,7 +2918,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                .lineColorSet(AARgbaColor(204, 150, 103, 1.0))
@@ -2944,7 +2944,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                .lineColorSet(AARgbaColor(154, 243, 247, 1.0))
@@ -3022,7 +3022,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                .lineColorSet(AARgbaColor(204, 150, 103, 1.0))
@@ -3048,7 +3048,7 @@
     .markerSet(AAMarker.new
                .radiusSet(@8)//曲线连接点半径
                .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-               .fillColorSet(@"#FFFFFF")//点的填充色(用来设置折线连接点的填充色)
+               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
                .lineColorSet(AARgbaColor(154, 243, 247, 1.0))
