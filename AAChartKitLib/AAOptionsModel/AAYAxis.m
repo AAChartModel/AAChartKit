@@ -32,6 +32,9 @@
 
 #import "AAYAxis.h"
 
+AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle  = @"circle";//圆形
+AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon = @"polygon";//多边形
+
 @implementation AAYAxis
 
 - (instancetype)init {

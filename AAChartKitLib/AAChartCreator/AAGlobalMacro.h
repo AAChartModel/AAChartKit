@@ -37,6 +37,7 @@
 #define AAObject(objectName) [[objectName alloc]init]
 #define AAJSFunc(x) #x
 
+#define AACHARTKIT_EXTERN     extern __attribute__((visibility ("default")))
 #define AAChartKitUnavailable(DESCRIPTION) __attribute__((unavailable(DESCRIPTION)))
 
 

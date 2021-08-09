@@ -35,8 +35,6 @@
 #import "AAPlotLinesElement.h"
 @class AAStyle, AALineStyle, AACrosshair, AAScrollablePlotArea;
 
-#define AACHARTKIT_EXTERN     extern __attribute__((visibility ("default")))
-
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationLinear = 0,
     AAChartAnimationEaseInQuad,
