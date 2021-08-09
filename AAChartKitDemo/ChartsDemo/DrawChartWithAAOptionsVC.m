@@ -449,7 +449,7 @@
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
 
     aaOptions.xAxis.visible = false;//避免多边形外环之外有额外套了一层无用的外环
-    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
     return aaOptions;
 }
 
@@ -1189,7 +1189,7 @@
                ]);
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
     
     NSArray *aaPlotBandsArr = @[
         AAPlotBandsElement.new
@@ -2538,7 +2538,7 @@
                ]);
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
     
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.xAxis.gridLineColor = AARgbaColor(30, 144, 255, 0.6);

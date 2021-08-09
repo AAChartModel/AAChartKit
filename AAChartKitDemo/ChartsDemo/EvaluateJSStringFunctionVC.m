@@ -260,7 +260,7 @@
         return %@[this.value];
     })), [categories aa_toJSArray]];
     
-    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
     
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.yAxis.plotBands = @[

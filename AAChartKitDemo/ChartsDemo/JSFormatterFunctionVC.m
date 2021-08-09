@@ -738,7 +738,7 @@
     ;
     
     aaOptions.xAxis.lineWidth = @0.0;//避免多边形外环之外有额外套了一层无用的外环
-    aaOptions.yAxis.gridLineInterpolation = AAYAxisGridLineInterpolationPolygon;
+    aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
     aaOptions.yAxis.tickAmount = @8.0;
     aaOptions
     .xAxis.labels
@@ -1182,7 +1182,7 @@ function () {
     .formatterSet(xAxisLabelsFormatter);
 
     aaOptions.yAxis
-    .gridLineInterpolationSet(AAYAxisGridLineInterpolationPolygon)//设置蜘蛛网🕸图表的网线为多边形
+    .gridLineInterpolationSet(AAChartYAxisGridLineInterpolationTypePolygon)//设置蜘蛛网🕸图表的网线为多边形
     .labels.styleSet(AAStyleColor(AAColor.blackColor))
     ;
     

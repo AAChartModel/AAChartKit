@@ -35,9 +35,9 @@
 
 @class AAAxisTitle, AALabels, AACrosshair, AAStyle, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
-typedef NSString *AAYAxisGridLineInterpolation;
-static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationCircle  = @"circle";//圆形
-static AAYAxisGridLineInterpolation const AAYAxisGridLineInterpolationPolygon = @"polygon";//多边形
+typedef NSString *AAChartYAxisGridLineInterpolationType;
+static AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle  = @"circle";//圆形
+static AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon = @"polygon";//多边形
 
 @interface AAYAxis : NSObject
 
@@ -54,7 +54,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridLineWidt
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineColor) // y 轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineDashStyle) //网格线线条样式，所有可用的线条样式参考：Highcharts线条样式
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridZIndex) //网格线的层叠值（zIndex） 默认是：1.
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAYAxisGridLineInterpolation, gridLineInterpolation) //Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
+AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAChartYAxisGridLineInterpolationType, gridLineInterpolation) //Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, labels) //用于设置 y 轴文字相关的
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, lineWidth) // y 轴线宽度
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, lineColor) // y 轴线颜色
