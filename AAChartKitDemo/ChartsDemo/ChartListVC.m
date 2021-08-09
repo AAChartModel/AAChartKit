@@ -245,41 +245,39 @@
       ];
     
     NSDictionary *gradientColor = gradientColorArr[index];
-    chartModel.colorsThemeSet(@[@"rgba(255,255,255,0.4)",
-                                @"rgba(255,255,255,0.6)",
-                                @"rgba(255,255,255,0.8)",
-                                @"rgba(255,255,255,1.0)",
-                                ]);//设置主体颜色数组
+    
+    chartModel.colorsTheme = @[
+        @"rgba(255,255,255,0.4)",
+        @"rgba(255,255,255,0.6)",
+        @"rgba(255,255,255,0.8)",
+        @"rgba(255,255,255,1.0)",
+    ];//设置主体颜色数组
 
     chartModel.backgroundColor = (id)gradientColor;
-    
+
     AAOptions *aaOptions = chartModel.aa_toAAOptions;
     
-    aaOptions.plotOptions
-    .columnrangeSet(AALine.new
-                    .dataLabelsSet(AADataLabels.new
-                                   .enabledSet(true)
-                                   .styleSet(AAStyle.new
-                                             .colorSet(AAColor.whiteColor)
-                                             .fontSizeSet(@"14px")
-                                             .fontWeightSet(AAChartFontWeightTypeThin)
-                                             .textOutlineSet(@"0px 0px contrast")//文字轮廓描边
-                                             )));
     aaOptions.plotOptions.series.animation = (id)@false;//禁用图表的渲染动画效果
     
     aaOptions.yAxis
     .lineWidthSet(@1.5)//Y轴轴线颜色
     .lineColorSet(AAColor.whiteColor)//Y轴轴线颜色
     .gridLineWidthSet(@0)//Y轴网格线宽度
-    .labels.style.colorSet(AAColor.whiteColor)//Y轴文字颜色
     ;
+    
+    aaOptions.yAxis.labels
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.whiteColor));//Y轴文字颜色
     
     aaOptions.xAxis
     .tickWidthSet(@0)//X轴刻度线宽度
     .lineWidthSet(@1.5)//X轴轴线宽度
     .lineColorSet(AAColor.whiteColor)//X轴轴线颜色
-    .labels.style.colorSet(AAColor.whiteColor)//X轴文字颜色
     ;
+    
+    aaOptions.xAxis.labels
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.whiteColor));//X轴文字颜色
 
     aaOptions.legend
     .itemStyleSet(AAItemStyle.new
