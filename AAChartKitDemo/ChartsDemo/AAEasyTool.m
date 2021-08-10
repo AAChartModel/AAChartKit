@@ -3,7 +3,7 @@
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2018/12/19.
-//  Copyright © 2018 Danny boy. All rights reserved.
+//  Copyright © 2018 An An. All rights reserved.
 //
 
 #import "AAEasyTool.h"

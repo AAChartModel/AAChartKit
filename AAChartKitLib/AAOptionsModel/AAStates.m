@@ -3,7 +3,7 @@
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2020/1/6.
-//  Copyright © 2020 Danny boy. All rights reserved.
+//  Copyright © 2020 An An. All rights reserved.
 //
 
 #import "AAStates.h"
