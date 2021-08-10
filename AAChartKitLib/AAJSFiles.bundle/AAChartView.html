@@ -22,34 +22,34 @@
         <script>
         var aaGlobalChart;
         function loadTheHighChartView(sender, receivedWidth, receivedHeight) {
-                var container = document.getElementById('container');
-                if (receivedWidth != 0) {
-                    container.style.width = receivedWidth;
-                }
-                if (receivedHeight != 0) {
-                    container.style.height = receivedHeight;
-                }
-                
-                var aaOptions = JSON.parse(sender, function (key, value) {
-                  if (   typeof(value) == 'string'
-                      && value.indexOf('function') != -1) {
-                     return eval(value)
-                  }
-                   return value;
-                });
-
-                if (aaOptions.defaultOptions) {
-                    Highcharts.setOptions({
-                        lang: aaOptions.defaultOptions
-                    });
-                }
-
-                if (aaOptions.plotOptions) {
-                    configurePlotOptions(aaOptions);
-                }
-                                
-                aaGlobalChart = Highcharts.chart('container', aaOptions);
+            var container = document.getElementById('container');
+            if (receivedWidth != 0) {
+                container.style.width = receivedWidth;
             }
+            if (receivedHeight != 0) {
+                container.style.height = receivedHeight;
+            }
+            
+            var aaOptions = JSON.parse(sender, function (key, value) {
+                if (   typeof(value) == 'string'
+                    && value.indexOf('function') != -1) {
+                    return eval(value)
+                }
+                    return value;
+            });
+            
+            if (aaOptions.defaultOptions) {
+                Highcharts.setOptions({
+                    lang: aaOptions.defaultOptions
+                });
+            }
+            
+            if (aaOptions.plotOptions) {
+                configurePlotOptions(aaOptions);
+            }
+            
+            aaGlobalChart = Highcharts.chart('container', aaOptions);
+        }
         
         function configurePlotOptions(aaOptions) {
             var aaPlotOptions = aaOptions.plotOptions;
@@ -77,7 +77,7 @@
             window.webkit.messageHandlers.mouseover.postMessage(message);
             };
             
-            if (aaPlotOptions.series.point) {// set property directlly for series point
+            if (aaPlotOptions.series.point) {// set property directly for series point
                 aaPlotOptions.series.point.events.mouseOver = mouseOverFunc;
             } else {// creat a new series point object instance
                 var seriesPoint = {
