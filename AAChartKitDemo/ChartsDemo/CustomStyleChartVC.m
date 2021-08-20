@@ -250,6 +250,9 @@
         .lineWidthSet(@5)
         .zonesSet(@[
             AAZonesElement.new
+            .valueSet(@3)
+            .dashStyleSet(AAChartLineDashStyleTypeDash),
+            AAZonesElement.new
             .valueSet(@8)
             .dashStyleSet(AAChartLineDashStyleTypeDot)
                   ]),
