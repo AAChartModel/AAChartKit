@@ -68,6 +68,11 @@ AAPropSetFuncImplementation(AADataLabels, NSString *, overflow)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, textPath)
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, filter);
+AAPropSetFuncImplementation(AADataLabels, NSString *, connectorColor)
+AAPropSetFuncImplementation(AADataLabels, NSNumber *, connectorPadding)
+AAPropSetFuncImplementation(AADataLabels, NSString *, connectorShape)
+AAPropSetFuncImplementation(AADataLabels, NSNumber *, connectorWidth)
+AAPropSetFuncImplementation(AADataLabels, NSString *, crookDistance)
 
 AAJSFuncTypePropSetFuncImplementation(AADataLabels, NSString *, formatter)
 

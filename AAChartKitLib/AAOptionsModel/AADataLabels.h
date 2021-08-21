@@ -108,8 +108,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, y)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, backgroundColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, borderColor)
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderRadius)
-AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSNumber *, borderWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, borderRadius)
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, shape)
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , crop)
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , inside)
@@ -117,5 +117,10 @@ AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, overflo
 AAPropStatementAndPropSetFuncStatement(assign, AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSDictionary *, textPath)
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSDictionary *, filter)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, connectorColor)
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, connectorPadding)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, connectorShape)
+AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, connectorWidth)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, crookDistance)
 
 @end
