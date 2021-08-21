@@ -80,14 +80,15 @@
         case 30: return [self customNormalStackingChartDataLabelsContentAndStyle];
         case 31: return [self upsideDownPyramidChart];
         case 32: return [self doubleLayerPieChart];
-        case 33: return [self disableSomeOfLinesMouseTrackingEffect];
-        case 34: return [self configureColorfulShadowSplineChart];
-        case 35: return [self configureColorfulDataLabelsStepLineChart];
-        case 36: return [self configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart];
-        case 37: return [self disableSplineChartMarkerHoverEffect];
-        case 38: return [self topRoundedCornersStackingColumnChart];
-        case 39: return [self configureMaxAndMinDataLabelsForChart];
-        case 40: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
+        case 33: return [self doubleLayerDoubleColorsPieChart];
+        case 34: return [self disableSomeOfLinesMouseTrackingEffect];
+        case 35: return [self configureColorfulShadowSplineChart];
+        case 36: return [self configureColorfulDataLabelsStepLineChart];
+        case 37: return [self configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart];
+        case 38: return [self disableSplineChartMarkerHoverEffect];
+        case 39: return [self topRoundedCornersStackingColumnChart];
+        case 40: return [self configureMaxAndMinDataLabelsForChart];
+        case 41: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
             
         default:
             return nil;
@@ -1109,6 +1110,67 @@
                  ])
                ]);
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/1234
+- (AAChartModel *)doubleLayerDoubleColorsPieChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypePie)
+    .titleSet(@"浏览器市场占比历史对比")
+    .subtitleSet(@"无任何可靠依据的虚拟数据")
+    .dataLabelsEnabledSet(false)//是否直接显示扇形图数据
+    .yAxisTitleSet(@"摄氏度")
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Past")
+        .colorsSet(@[
+            AARgbaColor(255, 0, 0, 1.0),
+            AARgbaColor(255, 0, 0, 0.8),
+            AARgbaColor(255, 0, 0, 0.6),
+            AARgbaColor(255, 0, 0, 0.4),
+            AARgbaColor(255, 0, 0, 0.2),
+                   ])
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
+                       .styleSet(AAStyleColor(AARgbaColor(255, 0, 0, 1.0))))
+        .sizeSet((id)@"25%")//尺寸大小
+        .innerSizeSet(@"20%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataSet(@[
+            @[@"Firefox Past",   @3336.2],
+            @[@"Chrome Past",     @126.8],
+            @[@"Safari Past",     @188.5],
+            @[@"Opera Past",      @146.0],
+            @[@"Others Past",     @223.0],
+                 ]),
+        AASeriesElement.new
+        .nameSet(@"Now")
+        .colorsSet(@[
+            AARgbaColor(30, 144, 255, 1.0),
+            AARgbaColor(30, 144, 255, 0.8),
+            AARgbaColor(30, 144, 255, 0.6),
+            AARgbaColor(30, 144, 255, 0.4),
+            AARgbaColor(30, 144, 255, 0.2),
+                   ])
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
+                       .styleSet(AAStyleColor(AARgbaColor(30, 144, 255, 1.0))))
+        .sizeSet((id)@"80%")//尺寸大小
+        .innerSizeSet(@"45%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataSet(@[
+            @[@"Firefox Now",   @6926.8],
+            @[@"Chrome Now",     @336.2],
+            @[@"Safari Now",     @388.5],
+            @[@"Opera Now",      @446.0],
+            @[@"Others Now",     @223.0],
+                 ])
+               ]);
+}
+
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/903
 - (AAChartModel *)disableSomeOfLinesMouseTrackingEffect {

@@ -41,6 +41,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , allo
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, name) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, data) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSArray  *, colors)
 AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, id        , colorByPoint) //When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. 默认是：false.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AAMarker *, marker) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stacking) 
