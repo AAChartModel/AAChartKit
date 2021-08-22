@@ -73,6 +73,7 @@ AAPropSetFuncImplementation(AADataLabels, NSNumber *, connectorPadding)
 AAPropSetFuncImplementation(AADataLabels, NSString *, connectorShape)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, connectorWidth)
 AAPropSetFuncImplementation(AADataLabels, NSString *, crookDistance)
+AAPropSetFuncImplementation(AADataLabels, NSString *, alignTo)
 
 AAJSFuncTypePropSetFuncImplementation(AADataLabels, NSString *, formatter)
 

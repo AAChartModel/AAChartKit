@@ -122,5 +122,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, connect
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, connectorShape)
 AAPropStatementAndPropSetFuncStatement(strong, AADataLabels, NSNumber *, connectorWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, crookDistance)
+AAPropStatementAndPropSetFuncStatement(copy,   AADataLabels, NSString *, alignTo)
 
 @end
