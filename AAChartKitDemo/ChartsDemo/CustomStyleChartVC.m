@@ -416,15 +416,15 @@
         AASeriesElement.new
         .nameSet(@"Berlin")
         .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
-        .stepSet(@"right"), //折线连接点靠右👉
+        .stepSet(AAChartAlignTypeRight), //折线连接点靠右👉
         AASeriesElement.new
         .nameSet(@"New York")
         .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
-        .stepSet(@"center"),//折线连接点居中
+        .stepSet(AAChartAlignTypeCenter),//折线连接点居中
         AASeriesElement.new
         .nameSet(@"Tokyo")
         .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
-        .stepSet(@"left"),//折线连接点靠左边👈
+        .stepSet(AAChartAlignTypeLeft),//折线连接点靠左边👈
                ]);
 }
 
@@ -1119,6 +1119,7 @@
     .subtitleSet(@"无任何可靠依据的虚拟数据")
     .dataLabelsEnabledSet(false)//是否直接显示扇形图数据
     .yAxisTitleSet(@"摄氏度")
+    .legendEnabledSet(false)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Past")
@@ -1130,15 +1131,13 @@
             AARgbaColor(255, 0, 0, 0.2),
                    ])
         .dataLabelsSet(AADataLabels.new
-                       .enabledSet(true)
-                       .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
-                       .styleSet(AAStyleColor(AARgbaColor(255, 0, 0, 1.0))))
+                       .enabledSet(false))
         .sizeSet((id)@"25%")//尺寸大小
         .innerSizeSet(@"20%")//内部圆环半径大小占比
         .borderWidthSet(@0)//描边的宽度
         .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
         .dataSet(@[
-            @[@"Firefox Past",   @3336.2],
+            @[@"Firefox Past",    @336.2],
             @[@"Chrome Past",     @126.8],
             @[@"Safari Past",     @188.5],
             @[@"Opera Past",      @146.0],
@@ -1156,13 +1155,16 @@
         .dataLabelsSet(AADataLabels.new
                        .enabledSet(true)
                        .formatSet(@"<b>{point.name}</b>: {point.percentage:.1f} %")
+                       .alignToSet(@"plotEdges")
+                       .connectorShapeSet(@"crookedLine")
+                       .crookDistanceSet(@"90%")
                        .styleSet(AAStyleColor(AARgbaColor(30, 144, 255, 1.0))))
         .sizeSet((id)@"80%")//尺寸大小
         .innerSizeSet(@"45%")//内部圆环半径大小占比
         .borderWidthSet(@0)//描边的宽度
         .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
         .dataSet(@[
-            @[@"Firefox Now",   @6926.8],
+            @[@"Firefox Now",    @926.8],
             @[@"Chrome Now",     @336.2],
             @[@"Safari Now",     @388.5],
             @[@"Opera Now",      @446.0],
