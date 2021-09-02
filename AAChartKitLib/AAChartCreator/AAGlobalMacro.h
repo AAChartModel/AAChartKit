@@ -46,7 +46,7 @@
 - (className * (^) (propertyPointerType propertyName)) propertyName##Set;
 
 #define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
-- (className * (^) (propertyPointerType propertyName))propertyName##Set{                                                \
+- (className * (^) (propertyPointerType propertyName))propertyName##Set {                                               \
 return ^(propertyPointerType propertyName) {                                                                            \
 self->_##propertyName = propertyName;                                                                                   \
 return self;                                                                                                            \
@@ -54,7 +54,7 @@ return self;                                                                    
 }
 
 #define AAJSFuncTypePropSetFuncImplementation(className, propertyPointerType, propertyName)                             \
-- (className * (^) (propertyPointerType propertyName))propertyName##Set{                                                \
+- (className * (^) (propertyPointerType propertyName))propertyName##Set {                                               \
 return ^(propertyPointerType propertyName) {                                                                            \
 self->_##propertyName = [propertyName aa_toPureJSString];                                                               \
 return self;                                                                                                            \
