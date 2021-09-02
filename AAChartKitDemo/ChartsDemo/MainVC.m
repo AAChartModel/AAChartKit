@@ -99,7 +99,7 @@
     sectionTitleLabel.frame = sectionHeaderView.bounds;
     sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     sectionTitleLabel.backgroundColor = AAGrayColor;
-    sectionTitleLabel.text = self.sectionTypeArr[section];
+    sectionTitleLabel.text = self.sectionTypeArr[(NSUInteger) section];
     sectionTitleLabel.textColor = [UIColor purpleColor];
     sectionTitleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -121,7 +121,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *arr = self.chartTypeNameArr[section];
+    NSArray *arr = self.chartTypeNameArr[(NSUInteger) section];
     return arr.count;
 }
 
@@ -139,7 +139,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
-    NSString *textStr = self.chartTypeNameArr[indexPath.section][indexPath.row];
+    NSString *textStr = self.chartTypeNameArr[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.textLabel.text = textStrArr[0];
     cell.textLabel.textColor = [UIColor redColor];
@@ -154,12 +154,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    switch (indexPath.section) {
+   NSUInteger row = (NSUInteger) indexPath.row;
+   NSUInteger section = (NSUInteger) indexPath.section;
+
+    switch (section) {
         case 0: {
             /*基础类型图表*/
             BasicChartVC *vc = BasicChartVC.new;
-            vc.chartType = indexPath.row;
+            vc.chartType = row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -167,8 +169,8 @@
         case 1: {
             /*特殊类型图表*/
             SpecialChartVC *vc = SpecialChartVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -176,8 +178,8 @@
         case 2: {
             /*一些自定义样式图表*/
             CustomStyleChartVC *vc = CustomStyleChartVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -185,8 +187,8 @@
         case 3: {
             /*图表数据动态刷新*/
             MixedChartVC *vc = MixedChartVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -194,8 +196,8 @@
         case 4: {
             /*图表数据动态刷新*/
             OnlyRefreshChartDataVC *vc = OnlyRefreshChartDataVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -203,7 +205,7 @@
         case 5: {
             /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = ChartAnimationTypeVC.new;
-            vc.chartType = indexPath.row;
+            vc.chartType = row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -211,18 +213,18 @@
         case 6: {
             /*通过AAOptions实例对象来绘制图形*/
             DrawChartWithAAOptionsVC *vc = DrawChartWithAAOptionsVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
         case 7: {
             /*同时显示多个 AAChartView*/
-            if (indexPath.row == 0) {
+            if (row == 0) {
                 ShowManyChartViewVC *vc = ShowManyChartViewVC.new;
                 [self.navigationController pushViewController:vc animated:YES];
-            } else if (indexPath.row == 1) {
+            } else if (row == 1) {
                 ChartListVC *listVC = ChartListVC.new;
                 [self.navigationController pushViewController:listVC animated:YES];
             } else {
@@ -234,15 +236,15 @@
             
         case 8: {
             HideOrShowChartSeriesVC *vc = HideOrShowChartSeriesVC.new;
-            vc.chartTypeIndex = indexPath.row;
+            vc.chartTypeIndex = row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
         case 9: {
             JSFormatterFunctionVC *vc = JSFormatterFunctionVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -250,7 +252,7 @@
         case 10: {
             /*基础类型图表*/
             EvaluateJSStringFunctionVC *vc = EvaluateJSStringFunctionVC.new;
-            vc.sampleChartTypeIndex = indexPath.row;
+            vc.sampleChartTypeIndex = row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -258,8 +260,8 @@
         case 11: {
             /*基础类型图表*/
             ScrollingUpdateDataVC *vc = ScrollingUpdateDataVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -267,7 +269,7 @@
         case 12: {
             /*基础类型图表*/
             DrawableChartVC *vc = DrawableChartVC.new;
-            vc.chartType = indexPath.row;
+            vc.chartType = row;
             vc.type = DrawableChartVCTypeUpdateXAxsiExtremes;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -276,7 +278,7 @@
         case 13: {
             /*基础类型图表*/
             DrawableChartVC *vc = DrawableChartVC.new;
-            vc.chartType = indexPath.row;
+            vc.chartType = row;
             vc.type = DrawableChartVCTypeChangeChartViewContentSize;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -285,8 +287,8 @@
         case 14: {
             /*基础类型图表*/
             DataSortingWithAnimationChartVC *vc = DataSortingWithAnimationChartVC.new;
-            vc.selectedIndex = indexPath.row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[indexPath.section];
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -294,7 +296,7 @@
         case 15: {
             /*基础类型图表*/
             ChartAdvancedUpdatingFeatureVC *vc = ChartAdvancedUpdatingFeatureVC.new;
-            vc.chartType = indexPath.row;
+            vc.chartType = row;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -392,7 +394,7 @@
               @"Hexagon Radar Chart---六角形雷达图",
               @"adjustYAxisMaxAndMinValues---调整 X 轴和 Y 轴最大值",
               @"custom Special Style DataLabel Of Single Data Element Chart---指定单个数据元素的 DataLabel 为特殊样式",
-              @"custom Bar Chart Hover Color and Select Colorc---自定义条形图手指滑动颜色和单个长条被选中颜色",
+              @"custom Bar Chart Hover Color and Select Color---自定义条形图手指滑动颜色和单个长条被选中颜色",
               @"custom Line Chart Chart Hover And Select Halo Style---自定义直线图手指略过和选中的 Halo 样式",
               @"custom Spline Chart Marker States Hover Style---自定义曲线图手指略过时的 Marker 样式",
               @"customNormalStackingChartDataLabelsContentAndStyle---自定义堆积柱状图 DataLabels 的内容及样式",
@@ -455,11 +457,11 @@
               @"adjustPieChartTitleAndDataLabelFontStyle---调整扇形图的标题和DataLabel字体样式",
               @"configureTheAAOptionsOfSpecialNestedColumnChart---绘制嵌套的柱状图",
               @"configureThePolygonPolarChart---多边形线框的雷达图",
-              @"configureTheNoGapColunmChart---缝隙很小的柱状图",
+              @"configureTheNoGapColumnChart---缝隙很小的柱状图",
               @"Custom style tooltip---自定义浮动提示框",
               @"adjustChartLeftAndRightMargin---调整图表的左右边距",
               @"configureChartWithBackgroundImage---设置图表绘图区的背景图片",
-              @"Double Y Axises Chart---双Y轴混合图",
+              @"Double Y Axes Chart---双Y轴混合图",
               @"Adjust Data Accuracy---调整数据精度",
               @"Adjust Group Padding---调整group间距",
               @"Custom Style Stacked Column---自定义堆积柱状图",
@@ -548,9 +550,9 @@
               @"customize Every DataLabel Singlely By DataLabels Formatter---通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义",
               @"custom XAxis Labels Be Images---自定义柱形图 X 轴 labels 为一组图片🖼",
               @"custom Legend Item Click Event---自定义图例点击事件🖱",
-              @"customTooltipPostionerFunction---自定义浮动提示框 positioner 函数",
+              @"customTooltipPositionerFunction---自定义浮动提示框 positioner 函数",
               @"fixedTooltipPositionByCustomPositionerFunction---通过 Positioner 函数来实现一个位置固定的提示框",
-              @"customPlotAreaOutsideComlicatedTooltipStyle---通过 Postioner 函数来实现绘图区外的复杂浮动提示框样式",
+              @"customPlotAreaOutsideComplicatedTooltipStyle---通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式",
               @"disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction---通过 Series 的 Point 的选中事件函数来禁用条形图反选效果",
               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
               @"configureTheAxesLabelsFormattersOfDoubleYAxesChart---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数",

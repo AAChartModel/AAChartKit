@@ -31,11 +31,6 @@
  */
 
 #import "SpecialChartVC.h"
-#import "AAEasyTool.h"
-
-@interface SpecialChartVC ()
-
-@end
 
 @implementation SpecialChartVC
 
@@ -109,7 +104,7 @@
     .titleSet(@"Bubble")
     .subtitleSet(@"Virtual data")
     .yAxisTitleSet(@"℃")
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#d11b5f",])
     .seriesSet(@[
         AASeriesElement.new
@@ -164,7 +159,7 @@
     .titleSet(@"按性别划分的身高体重分布图")
     .yAxisTitleSet(@"千克(kg)")
     .markerRadiusSet(@9)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .colorsThemeSet(@[@"#c3b1fb",@"#e70b2d",])
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
     .markerSymbolSet(AAChartSymbolTypeCircle)
@@ -755,7 +750,7 @@
 - (AAChartModel *)configureColumnrangeChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumnrange)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:0])
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .yAxisTitleSet(@"℃")
     .categoriesSet(@[
         @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",

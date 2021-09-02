@@ -103,6 +103,8 @@
         case 55: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
         case 56: return [self logarithmicAxisLineChart];//对数轴折线图📈
         case 57: return [self logarithmicAxisScatterChart];//对数轴散点图
+        default:
+            break;
     }
     return nil;
 }
@@ -351,7 +353,7 @@
     
     AAYAxis *aaYAxis1 = AAYAxis.new
     .visibleSet(true)
-    .minSet(0)
+    .minSet(@0)
     .tickWidthSet(@3)
     .tickLengthSet(@10)
     .tickPositionSet(@"outside")
@@ -1429,7 +1431,7 @@
     .markerRadiusSet(@7)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
     .dataLabelsEnabledSet(true)
-    .yAxisLineWidthSet(0)
+    .yAxisLineWidthSet(@0)
     .legendEnabledSet(false)
     .xAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.grayColor dashStyle:AAChartLineDashStyleTypeLongDashDot width:@1])
     .tooltipEnabledSet(false)
@@ -1966,7 +1968,7 @@
     
     NSMutableArray *rateValuesArr = [NSMutableArray arrayWithCapacity:33];
     
-    for (int i = 0; i < 33; i++) {
+    for (NSUInteger i = 0; i < 33; i++) {
         NSNumber *goalValueNum = goalValuesArr[i];
         NSNumber *realValueNum = realValuesArr[i];
         CGFloat goalValue = [goalValueNum doubleValue];

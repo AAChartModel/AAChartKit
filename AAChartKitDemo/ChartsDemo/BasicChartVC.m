@@ -57,7 +57,7 @@
     self.view.backgroundColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
 
     [self setUpTheSegmentedControls];
-    [self setUpTheSwitchs];
+    [self setUpTheSwitches];
     
     AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
@@ -79,6 +79,7 @@
         case BasicChartVCChartTypeStepArea: return AAChartTypeArea;
         case BasicChartVCChartTypeScatter: return AAChartTypeScatter;
     }
+    return nil;
 }
 
 - (void)drawChart {
@@ -368,7 +369,7 @@
         ];
     }
     
-    for (int i = 0; i < segmentedNamesArr.count; i++) {
+    for (NSUInteger i = 0; i < segmentedNamesArr.count; i++) {
         UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedNamesArr[i]];
         segmentedControl.frame = CGRectMake(20,
                                             40 * i + (self.view.frame.size.height - 145),
@@ -379,7 +380,7 @@
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
         [segmentedControl addTarget:self
-                             action:@selector(customsegmentedControlCellValueBeChanged:)
+                             action:@selector(customSegmentedControlCellValueBeChanged:)
                    forControlEvents:UIControlEventValueChanged];
         [self.view addSubview:segmentedControl];
         
@@ -396,8 +397,8 @@
     }
 }
 
-- (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
-    NSInteger selectedSegmentIndex = segmentedControl.selectedSegmentIndex;
+- (void)customSegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
+    NSUInteger selectedSegmentIndex = (NSUInteger) segmentedControl.selectedSegmentIndex;
     
     switch (segmentedControl.tag) {
         case 0: {
@@ -434,7 +435,7 @@
     [self refreshTheChartView];
 }
 
-- (void)setUpTheSwitchs {
+- (void)setUpTheSwitches {
     NSArray *nameArr;
     if (_chartType == BasicChartVCChartTypeColumn || _chartType == BasicChartVCChartTypeBar) {
         nameArr = @[
@@ -457,7 +458,7 @@
     
     CGFloat switchWidth = (self.view.frame.size.width - 40) / nameArr.count;
     
-    for (int i = 0; i < nameArr.count; i++) {
+    for (NSUInteger i = 0; i < nameArr.count; i++) {
         UISwitch * switchView = [[UISwitch alloc]init];
         switchView.frame = CGRectMake(switchWidth * i + 20,
                                       self.view.frame.size.height - 70,

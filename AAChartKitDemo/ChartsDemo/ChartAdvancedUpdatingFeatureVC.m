@@ -44,7 +44,7 @@
 }
 
 
-- (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
+- (void)customSegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
     id options;
     switch (segmentedControl.tag) {
         case 0: {

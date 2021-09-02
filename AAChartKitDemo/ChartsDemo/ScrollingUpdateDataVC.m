@@ -31,7 +31,6 @@
  */
 
 #import "ScrollingUpdateDataVC.h"
-#import "AAChartKit.h"
 
 @interface ScrollingUpdateDataVC ()<AAChartViewEventDelegate> {
     CGFloat _x;
@@ -63,6 +62,8 @@
         case 6: return AAChartTypeLine;
         case 7: return AAChartTypeArea;
         case 8: return AAChartTypeScatter;
+        default:
+            break;
     }
     return nil;
 }
@@ -101,8 +102,8 @@
 - (NSArray *)configureChartSeriesArray {
     NSMutableArray *sinNumArr = [[NSMutableArray alloc]init];
     NSMutableArray *sinNumArr2 = [[NSMutableArray alloc]init];
-    CGFloat y1 = 0.f;
-    CGFloat y2 = 0.f;
+    CGFloat y1;
+    CGFloat y2;
     
     _x = 18;
 

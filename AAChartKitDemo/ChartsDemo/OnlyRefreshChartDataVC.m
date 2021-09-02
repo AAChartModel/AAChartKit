@@ -67,6 +67,8 @@
         case 6: return AAChartTypeLine;
         case 7: return AAChartTypeArea;
         case 8: return AAChartTypeScatter;
+        default:
+            break;
     }
     return nil;
 }
@@ -148,8 +150,8 @@
 - (NSArray *)configureSeries {
     NSMutableArray *sinNumArr = [[NSMutableArray alloc]init];
     NSMutableArray *sinNumArr2 = [[NSMutableArray alloc]init];
-    CGFloat y1 = 0.f;
-    CGFloat y2 = 0.f;
+    CGFloat y1;
+    CGFloat y2;
     int Q = arc4random()%30;
     for (float x = globalIntenger; x <= globalIntenger + 50 ; x++) {
           //第一个波纹的公式

@@ -34,13 +34,6 @@
 
 #import "JSFormatterFunctionVC.h"
 
-@interface JSFormatterFunctionVC ()
-
-@property (nonatomic, strong) AAChartModel *chartModel;
-@property (nonatomic, strong) AAChartView  *chartView;
-
-@end
-
 @implementation JSFormatterFunctionVC
 
 - (void)viewDidLoad {
@@ -72,9 +65,9 @@
         case 18: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
         case 19: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
         case 20: return [self customLegendItemClickEvent];//自定义图例点击事件🖱
-        case 21: return [self customTooltipPostionerFunction];//自定义浮动提示框 Postioner 函数
-        case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Postioner 函数来实现一个位置固定的提示框
-        case 23: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Postioner 函数来实现绘图区外的复杂浮动提示框样式
+        case 21: return [self customTooltipPostionerFunction];//自定义浮动提示框 Positioner 函数
+        case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Positioner 函数来实现一个位置固定的提示框
+        case 23: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式
         case 24: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
         case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
         case 26: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数
@@ -1043,7 +1036,7 @@
     NSArray *看中时长数组 = @[@20, @80, @57, @11, @17, @22, @24, @24, @20, @14, @86, @25];
     NSArray *看远时长数组 = @[@90, @60, @35, @84, @13, @17, @18, @17, @14, @90, @39, @10];
     NSMutableArray *总时长数组 = [NSMutableArray array];
-    for (int i = 0; i < 12; i++) {
+    for (NSUInteger i = 0; i < 12; i++) {
         NSNumber *单个总时长 = @(
           [看近时长数组[i] floatValue]
         + [看中时长数组[i] floatValue]

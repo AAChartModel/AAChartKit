@@ -31,7 +31,6 @@
  */
 
 #import "AABaseChartVC.h"
-#import "AAEasyTool.h"
 
 @interface AABaseChartVC ()
 
@@ -110,16 +109,16 @@
     CGFloat topConstraintConstant;
     // 如果statusBarFrame为CGRectZero,说明状态栏是隐藏的
     CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    BOOL istatusHiden = (statusBarFrame.size.height == 0);
+    BOOL isStatusHidden = (statusBarFrame.size.height == 0);
     
     if ([self isHairPhone]) {
         topConstraintConstant = 88;
-        if (istatusHiden == true) {
+        if (isStatusHidden == true) {
             topConstraintConstant -= 44;
         }
     } else {
         topConstraintConstant = 64;
-        if (istatusHiden == true) {
+        if (isStatusHidden == true) {
             topConstraintConstant -= 20;
         }
     }
