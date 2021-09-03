@@ -263,7 +263,8 @@
     .chartSet(AAChart.new.typeSet(AAChartTypePie))
     .titleSet(AATitle.new
               .useHTMLSet(true)
-              .textSet(@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>")//标题文本内容
+              .textSet(@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br>\
+                         <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>")//标题文本内容
               .alignSet(AAChartAlignTypeCenter)//标题水平居中
               .verticalAlignSet(AAChartVerticalAlignTypeMiddle)//标题垂直居中
               .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
@@ -278,7 +279,9 @@
                        .enabledSet(true)
                        .useHTMLSet(true)
                        .distanceSet(@30)//扇形图百分比线的长度
-                       .formatSet(@"<span style=""color:#A9A9A9;font-weight:thin;font-size:10px"">{point.name}</span> <span style=""color:#1E90FF;font-weight:bold;font-size:15px"">{point.percentage:.1f}</span><span style=""color:#1E90FF;font-weight:thin;font-size:10px"">%</span>")
+                       .formatSet(@"<span style=""color:#A9A9A9;font-weight:thin;font-size:10px"">{point.name}</span>\
+                                    <span style=""color:#1E90FF;font-weight:bold;font-size:15px"">{point.percentage:.1f}</span>\
+                                    <span style=""color:#1E90FF;font-weight:thin;font-size:10px"">%</span>")
                        )
         .dataSet(@[
             @[@"Firefox",   @150],
@@ -294,7 +297,8 @@
     .chartSet(AAChart.new.typeSet(AAChartTypePie))
     .titleSet(AATitle.new
               .useHTMLSet(true)
-              .textSet((@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br> <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>"))//标题文本内容
+              .textSet((@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br>\
+                          <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>"))//标题文本内容
               .alignSet(AAChartAlignTypeCenter)//标题水平居中
               .verticalAlignSet(AAChartVerticalAlignTypeMiddle)//标题垂直居中
               .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
