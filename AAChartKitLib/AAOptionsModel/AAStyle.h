@@ -36,10 +36,30 @@
 @interface AAStyle : NSObject
 
 //Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, color) //设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontSize) //文字大小
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, fontWeight) //可选的值有 bold, regular和 thin 三种,分别对应的是加粗字体,常规字体和纤细字体
-AAPropStatementAndPropSetFuncStatement(copy, AAStyle, NSString *, textOutline) //文字轮廓描边
+//https://api.highcharts.com/class-reference/Highcharts.CSSObject#background
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, background)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, border)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, borderRadius)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, color)//设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, cursor)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, fontFamily)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, fontSize)//文字大小
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, fontWeight)//可选的值有 bold, regular和 thin 三种,分别对应的是加粗字体,常规字体和纤细字体
+AAPropStatementAndPropSetFuncStatement(strong, AAStyle, NSNumber *, height)
+AAPropStatementAndPropSetFuncStatement(strong, AAStyle, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AAStyle, NSNumber *, opacity)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, padding)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, pointerEvents)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, position)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, textAlign)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, textDecoration)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, textOutline)//文字轮廓描边
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, textOverflow)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, top)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, transition)
+AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, whiteSpace)
+AAPropStatementAndPropSetFuncStatement(strong, AAStyle, NSNumber *, width)
 
 + (AAStyle *)styleWithColor:(NSString *)color;
 

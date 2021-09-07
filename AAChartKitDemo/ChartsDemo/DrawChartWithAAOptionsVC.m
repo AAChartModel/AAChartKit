@@ -1266,10 +1266,24 @@
 
 - (AAOptions *)configureAAPlotLinesForChart  {
     AAOptions *aaOptions = [self configureValueSegmentChartBasicOptions];
-    
+
     AAStyle *aaStyle = AAStyle.new
-    .colorSet(@"#ef476f")
+    .colorSet(@"#FFD700")//#FFD700(纯金色)
+    .backgroundColorSet(AAColor.blackColor)
+    .borderRadiusSet(@"5px")
+    .borderSet(@"6px solid #000000")
+    .opacitySet(@1.0)
     .fontWeightSet(AAChartFontWeightTypeBold);
+    
+    AAStyle *aaStyle1 = AAStyle.new
+    .colorSet(AAColor.redColor)//#FFD700(纯金色)
+    .backgroundColorSet(AAColor.blackColor)
+    .borderRadiusSet(@"5px")
+    .borderSet(@"2px solid red")
+    .opacitySet(@1.0)
+    .fontWeightSet(AAChartFontWeightTypeBold)
+    .paddingSet(@"6px")
+    .fontSizeSet(@"16px");
     
     NSArray *aaPlotLinesArr = @[
         AAPlotLinesElement.new
@@ -1279,7 +1293,8 @@
         .valueSet(@(50))
         .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
-                  .textSet(@"PLOT LINES ONE")
+                  .useHTMLSet(true)
+                  .textSet(@"PLOT LINES 000001")
                   .styleSet(aaStyle))
         ,
         AAPlotLinesElement.new
@@ -1289,7 +1304,8 @@
         .valueSet(@(100))
         .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
-                  .textSet(@"PLOT LINES TWO")
+                  .useHTMLSet(true)
+                  .textSet(@"PLOT LINES 000002")
                   .styleSet(aaStyle))
         ,
         AAPlotLinesElement.new
@@ -1299,7 +1315,8 @@
         .valueSet(@(150))
         .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
-                  .textSet(@"PLOT LINES THREE")
+                  .useHTMLSet(true)
+                  .textSet(@"PLOT LINES 000003")
                   .styleSet(aaStyle))
         ,
         AAPlotLinesElement.new
@@ -1309,7 +1326,8 @@
         .valueSet(@(200))
         .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
-                  .textSet(@"PLOT LINES FOUR")
+                  .useHTMLSet(true)
+                  .textSet(@"PLOT LINES 000004")
                   .styleSet(aaStyle))
         ,
         AAPlotLinesElement.new
@@ -1319,15 +1337,15 @@
         .valueSet(@(300)) //所在位置
         .zIndexSet(@(5)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
         .labelSet(AALabel.new
-                  .textSet(@"PLOT LINES FIVE")
-                  .styleSet(AAStyle.new
-                            .colorSet(@"#5e5e5e")
-                            .fontWeightSet(AAChartFontWeightTypeBold)))
+                  .useHTMLSet(true)
+                  .textSet(@"PLOT LINES 000005")
+                  .styleSet(aaStyle1))
         ,
     ];
     
     AAYAxis *aaYAxis = aaOptions.yAxis;
     aaYAxis.plotLines = aaPlotLinesArr;
+    
     
     return aaOptions;
 }
