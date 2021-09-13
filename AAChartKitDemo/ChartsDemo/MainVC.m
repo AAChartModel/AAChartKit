@@ -510,6 +510,7 @@
               @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
+              @"configureColumnChartDataLabelsLayout---配置柱状图📊的 dataLabels 布局",
             ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",

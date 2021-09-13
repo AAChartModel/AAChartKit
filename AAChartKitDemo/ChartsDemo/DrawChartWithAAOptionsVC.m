@@ -43,6 +43,8 @@
     
 }
 
+
+
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
         case 0:  return [self configureTheAAOptionsOfAreaChart];
@@ -103,6 +105,7 @@
         case 55: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
         case 56: return [self logarithmicAxisLineChart];//对数轴折线图📈
         case 57: return [self logarithmicAxisScatterChart];//对数轴散点图
+        case 58: return [self configureColumnChartDataLabelsLayout];//配置柱状图📊的 dataLabels 布局
         default:
             break;
     }
@@ -3557,6 +3560,43 @@
         .markerSet(aaMarker)
         .dataSet(scatterData)
                ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1247
+- (AAOptions *)configureColumnChartDataLabelsLayout {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)//图表类型
+    .borderRadiusSet(@10)
+    .colorsThemeSet(@[AAColor.redColor])//设置主题颜色数组
+    .categoriesSet(@[
+        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
+                   ])
+    .dataLabelsEnabledSet(true)
+    .yAxisVisibleSet(false)
+    .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[
+            @7.0, @6.9, @9.5, @14.5, @18.2, @21.5,
+            @25.2, @26.5, @23.3, @18.3, @13.9, @9.6
+                 ]),
+               ])
+    ;
+    
+    AAOptions *aaOptions = [aaChartModel aa_toAAOptions];
+    
+    aaOptions.tooltip.enabled = false;
+    
+    aaOptions.plotOptions.series.dataLabels
+    .insideSet(true)//DataLabels是否在内部
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)
+    .styleSet(AAStyleColorSizeWeightOutline(AAColor.whiteColor, 14, AAChartFontWeightTypeBold,@"none"))
+    ;
+    
+    return aaOptions;
 }
 
 @end
