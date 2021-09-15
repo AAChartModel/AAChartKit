@@ -55,6 +55,7 @@
 #import "PieChartOptionsVC.h"
 #import "PolarChartOptionsVC.h"
 #import "MultiYAxesChartOptionsVC.h"
+#import "PlotLinesBandsZonesOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -321,7 +322,7 @@
             break;
             
         case 18: {
-            /*通过 AAOptions 自定义饼图"*/
+            /*通过 AAOptions 自定义极地图"*/
             PolarChartOptionsVC *vc = PolarChartOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
@@ -330,8 +331,17 @@
             break;
             
         case 19: {
-            /*通过 AAOptions 自定义饼图"*/
+            /*通过 AAOptions 自定义多 Y 轴图表"*/
             MultiYAxesChartOptionsVC *vc = MultiYAxesChartOptionsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 20: {
+            /*颜色线-颜色带-值颜色分区图表"*/
+            PlotLinesBandsZonesOptionsVC *vc = PlotLinesBandsZonesOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
@@ -366,7 +376,8 @@
             @"XIB AAChartView---在 XIB 中创建 AAChartView",
             @"Pie Chart Options---通过 AAOptions 自定义饼图",
             @"Polar Chart Options---通过 AAOptions 自定义极地图",
-            @"Multi YAxes Chart Options---通过 AAOptions 自定义多 Y 轴图表"
+            @"Multi YAxes Chart Options---通过 AAOptions 自定义多 Y 轴图表",
+            @"Plot Lines Bands Zones Options---颜色线-颜色带-值颜色分区图表"
         ];
     }
     return _sectionTypeArr;
@@ -674,6 +685,14 @@
               @"configureTripleYAxesColumnMixedSplineChart---三条Y轴柱形-曲线混合图",
               @"configureDoubleYAxesColumnMixedSplineChart---双Y轴柱形-曲线混合图",
               @"configureDoubleYAxesMarketDepthChart---双Y轴市场深度图",
+            ],
+            /*颜色线-颜色带-值颜色分区图表*/
+            @[@"simpleGaugeChart---简易仪表图",
+              @"gaugeChartWithPlotBand---带有颜色标志带的仪表图",
+              @"configureAAPlotBandsForChart---带有颜色标志带的曲线图",
+              @"configureAAPlotLinesForChart---带有颜色标志线及文字的折线图表",
+              @"configureAASeriesElementZones---数据分区 Zones",
+              @"configureAASeriesElementZonesMixedAAPlotLines---数据分区 Zones 和颜色标志线混合",
             ]
         ];
     }
