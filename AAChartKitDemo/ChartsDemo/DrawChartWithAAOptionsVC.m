@@ -56,7 +56,7 @@
         case 6:  return [self configureCustomStyleTooltipChart];
         case 7:  return [self adjustChartLeftAndRightMargin];
         case 8:  return [self configureChartWithBackgroundImage];
-        case 9:  return [self configureDoubleYAxisChartOptions];
+        case 9:  return [self configureDoubleYAxesChartOptions];
         case 10: return [self adjustChartSeriesDataAccuracy];
         case 11: return [self adjustGroupPaddingForPolarChart];
         case 12: return [self customStyleStackedColumnChart];
@@ -613,7 +613,7 @@
     return aaOptions;
 }
 
-- (AAOptions *)configureDoubleYAxisChartOptions {
+- (AAOptions *)configureDoubleYAxesChartOptions {
     AAChart *aaChart = AAChart.new
     .backgroundColorSet(@"#4b2b7f");
     

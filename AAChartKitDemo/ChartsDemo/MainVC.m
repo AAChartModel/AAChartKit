@@ -54,6 +54,7 @@
 #import "TestAAChartViewForXibVC.h"
 #import "PieChartOptionsVC.h"
 #import "PolarChartOptionsVC.h"
+#import "MultiYAxesChartOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -326,6 +327,14 @@
         }
             break;
             
+        case 19: {
+            /*通过 AAOptions 自定义饼图"*/
+            MultiYAxesChartOptionsVC *vc = MultiYAxesChartOptionsVC.new;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -352,8 +361,9 @@
             @"Data Sorting Chart With Animation---图表动态排序",
             @"Chart Options Advanced Updating---图表高级更新",
             @"XIB AAChartView---在 XIB 中创建 AAChartView",
-            @"Custom Pie Chart By AAOptions---通过 AAOptions 自定义饼图",
-            @"Custom Polar Chart By AAOptions---通过 AAOptions 自定义极地图"
+            @"Pie Chart Options---通过 AAOptions 自定义饼图",
+            @"Polar Chart Options---通过 AAOptions 自定义极地图",
+            @"Multi YAxes Chart Options---通过 AAOptions 自定义多 Y 轴图表"
         ];
     }
     return _sectionTypeArr;
@@ -654,6 +664,13 @@
               @"configurePentagonRadarChart---带有颜色标志带的五角形雷达图",
               @"configureHexagonRadarChart---带有颜色标志带的六角形雷达图",
               @"configureSpiderWebRadarChart---带有颜色标志带的🕸蜘蛛网状雷达图",
+            ],
+            
+            /*多 Y 轴图表*/
+            @[@"configureDoubleYAxesAreasplineMixedColumnChart---双Y轴曲线面积-柱形混合图",
+              @"configureTripleYAxesColumnMixedSplineChart---三条Y轴柱形-曲线混合图",
+              @"configureDoubleYAxesColumnMixedSplineChart---双Y轴柱形-曲线混合图",
+              @"configureDoubleYAxesMarketDepthChart---双Y轴市场深度图",
             ]
         ];
     }
