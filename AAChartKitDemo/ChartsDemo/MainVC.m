@@ -314,6 +314,7 @@
         case 17: {
             /*通过 AAOptions 自定义饼图"*/
             PieChartOptionsVC *vc = PieChartOptionsVC.new;
+            vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -322,6 +323,7 @@
         case 18: {
             /*通过 AAOptions 自定义饼图"*/
             PolarChartOptionsVC *vc = PolarChartOptionsVC.new;
+            vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -330,6 +332,7 @@
         case 19: {
             /*通过 AAOptions 自定义饼图"*/
             MultiYAxesChartOptionsVC *vc = MultiYAxesChartOptionsVC.new;
+            vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
         }
