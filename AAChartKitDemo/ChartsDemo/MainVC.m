@@ -53,6 +53,7 @@
 #import "ChartAdvancedUpdatingFeatureVC.h"
 #import "TestAAChartViewForXibVC.h"
 #import "PieChartOptionsVC.h"
+#import "PolarChartOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -317,6 +318,14 @@
         }
             break;
             
+        case 18: {
+            /*通过 AAOptions 自定义饼图"*/
+            PolarChartOptionsVC *vc = PolarChartOptionsVC.new;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -344,6 +353,7 @@
             @"Chart Options Advanced Updating---图表高级更新",
             @"XIB AAChartView---在 XIB 中创建 AAChartView",
             @"Custom Pie Chart By AAOptions---通过 AAOptions 自定义饼图",
+            @"Custom Polar Chart By AAOptions---通过 AAOptions 自定义极地图"
         ];
     }
     return _sectionTypeArr;
@@ -637,6 +647,13 @@
               @"adjustPieChartTitleAndDataLabelFontStyle2---自定义饼图的标题和 DataLabels",
               @"configurePieChartFormatProperty---配置饼图的 dataLabels 的 format 属性",
               @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
+            ],
+            /*polar chart 极地图*/
+            @[@"configureTriangleRadarChart---带有颜色标志带的三角形雷达图",
+              @"configureQuadrangleRadarChart---带有颜色标志带的四角形雷达图",
+              @"configurePentagonRadarChart---带有颜色标志带的五角形雷达图",
+              @"configureHexagonRadarChart---带有颜色标志带的六角形雷达图",
+              @"configureSpiderWebRadarChart---带有颜色标志带的🕸蜘蛛网状雷达图",
             ]
         ];
     }
