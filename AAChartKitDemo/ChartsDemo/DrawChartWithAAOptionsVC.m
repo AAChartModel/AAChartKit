@@ -2139,6 +2139,7 @@
         .colorSet(@"#888")
         .valueSet(@0.1523)
         .widthSet(@1)
+        .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
         .labelSet(AALabel.new
                   .textSet(@"实际价格")
                   .rotationSet(@90))
