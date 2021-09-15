@@ -52,6 +52,7 @@
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
 #import "TestAAChartViewForXibVC.h"
+#import "PieChartOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -308,6 +309,14 @@
         }
             break;
             
+        case 17: {
+            /*通过 AAOptions 自定义饼图"*/
+            PieChartOptionsVC *vc = PieChartOptionsVC.new;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -334,6 +343,7 @@
             @"Data Sorting Chart With Animation---图表动态排序",
             @"Chart Options Advanced Updating---图表高级更新",
             @"XIB AAChartView---在 XIB 中创建 AAChartView",
+            @"Custom Pie Chart By AAOptions---通过 AAOptions 自定义饼图",
         ];
     }
     return _sectionTypeArr;
@@ -620,6 +630,14 @@
             /*在 XIB 中创建 AAChartView*/
             @[@"XIB AAChartView---在 XIB 中创建 AAChartView",
             ],
+            
+            /*自定义饼图*/
+            @[@"configurePieChartTitle---自定义饼图的标题",
+              @"adjustPieChartTitleAndDataLabelFontStyle---自定义饼图的标题和 DataLabels",
+              @"adjustPieChartTitleAndDataLabelFontStyle2---自定义饼图的标题和 DataLabels",
+              @"configurePieChartFormatProperty---配置饼图的 dataLabels 的 format 属性",
+              @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
+            ]
         ];
     }
     return _chartTypeNameArr;
