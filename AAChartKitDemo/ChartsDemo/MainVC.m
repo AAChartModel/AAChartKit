@@ -58,6 +58,7 @@
 #import "PlotLinesBandsZonesOptionsVC.h"
 #import "AreasplineChartOptionsVC.h"
 #import "TooltipOptionsVC.h"
+#import "DataLabelsOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -370,6 +371,15 @@
         }
             break;
             
+        case  23: {
+            /*通过 AAOptions 自定义 DataLabels 数据标签*/
+            DataLabelsOptionsVC *vc = DataLabelsOptionsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -402,6 +412,8 @@
             @"Plot Lines Bands Zones Options---颜色线-颜色带-值颜色分区图表",
             @"Areaspline Chart Options---通过 AAOptions 自定义曲线区域面积图",
             @"Tooltip Options---通过 AAOptions 自定义 tooltip 浮动提示框",
+            @"DataLabels Options---通过 AAOptions 自定义 DataLabels 数据标签",
+
         ];
     }
     return _sectionTypeArr;
@@ -726,7 +738,14 @@
               @"customAreaChartTooltipStyleLikeHTMLTable---自定义 tooltip 提示框为 HTML 表格样式",
               @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
               @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
-            ]
+            ],
+            /*自定义 DataLabels 数据标签*/
+            @[@"adjustChartDataLabelsStyle---自定义DataLabels样式",
+              @"customizeEveryDataLabelBySinglely---单独自定义指定的data的DataLabels样式",
+              @"configureStackingColumnChartDataLabelsOverflow---允许DataLabels文字溢出绘图区",
+              @"configureReversedBarChartDataLabelsStyle---调整Y轴倒转的条形图的DataLabels风格样式",
+              @"configureColumnChartDataLabelsLayout---配置柱状图📊的 dataLabels 布局",
+            ],
         ];
     }
     return _chartTypeNameArr;
