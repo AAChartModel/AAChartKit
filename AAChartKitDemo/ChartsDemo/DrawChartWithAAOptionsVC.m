@@ -44,73 +44,23 @@
 }
 
 
-
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
         case 0:  return [self configureTheAAOptionsOfAreaChart];
-//        case 1:  return [self configureTheAAOptionsOfPieChart];
-//        case 2:  return [self adjustPieChartTitleAndDataLabelFontStyle];
         case 1:  return [self configureTheAAOptionsOfSpecialNestedColumnChart];
-//        case 4:  return [self configureThePolygonPolarChart];
         case 2:  return [self configureTheNoGapColunmChart];
-//        case 6:  return [self configureCustomStyleTooltipChart];
         case 3:  return [self adjustChartLeftAndRightMargin];
         case 4:  return [self configureChartWithBackgroundImage];
-//        case 9:  return [self configureDoubleYAxesChartOptions];
-        case 5: return [self adjustChartSeriesDataAccuracy];
-//        case 11: return [self adjustGroupPaddingForPolarChart];
-        case 6: return [self customStyleStackedColumnChart];
-//        case 7: return [self specialStyleStepLineChart];
-        case 7: return [self disableChartAnimation];//禁用图表的渲染动画效果
-        case 8: return [self customChartLengendItemStyle];//自定义图表的 legend 图例样式
-//        case 9: return [self configureTheMirrorColumnChart];//正负对称的镜像柱状图
-//        case 10: return [self configureTheMirrorColumnChartWithNoAnyGap];//没有任何衔接缝隙的镜像柱状图📊
-//
-//        case 18: return [self simpleGaugeChart];//简易仪表图
-//        case 19: return [self gaugeChartWithPlotBand];//带有颜色标志带的仪表图
-//        case 20: return [self configureAAPlotBandsForChart];//带有颜色标志带的曲线图
-//        case 21: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的折线图表
-//        case 22: return [self configureAASeriesElementZones];//数据分区 Zones
-//        case 23: return [self configureAASeriesElementZonesMixedAAPlotLines];//数据分区 Zones 和颜色标志线混合
-//        case 24: return [self adjustChartDataLabelsStyle];//自定义DataLabels样式
-//        case 25: return [self customizeEveryDataLabelBySinglely];//单独自定义指定的data的DataLabels样式
-//        case 26: return [self configureXAxisLabelsFontColorWithHTMLString];//通过HTML字符串自定义X轴文字颜色
-//        case 27: return [self configureXAxisLabelsFontColorAndFontSizeWithHTMLString];//通过HTML字符串自定义X轴文字颜色和字体大小
-            
-            
-        case 11: return [self configure_DataLabels_XAXis_YAxis_Legend_Style];//配置DataLabels、XAXis、YAxis、Legend等图表元素样式
-            
-//        case 29: return [self configureXAxisPlotBand];//X轴带有颜色标志带的混合图表
-//        case 30: return [self configureStackingColumnChartDataLabelsOverflow];//允许DataLabels文字溢出绘图区
-//        case 31: return [self configureReversedBarChartDataLabelsStyle];//调整Y轴倒转的条形图的DataLabels风格样式
-//        case 32: return [self configureTripleYAxesMixedChart];//三条Y轴的混合图
-//        case 33: return [self configureDoubleYAxesAndColumnLineMixedChart];//双Y轴柱形曲线混合图
-//        case 34: return [self configureDoubleYAxesMarketDepthChart];//双Y轴市场深度图
-//        case 35: return [self customAreaChartTooltipStyleLikeHTMLTable];//自定义 tooltip 提示框为 HTML 表格样式
-//        case 36: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
-//
-        case 12: return [self customChartStyleWhenNoData];//数据为空的情况下,配置图表的 x 轴 y 轴等样式
-        case 13: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
-        case 14: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
-//        case 40: return [self configurePieChartFormatProperty];//配置饼图的 dataLabels 的 format 属性
-//        case 41: return [self customXAxisLabelsBeImages];//自定义曲线面积图 X 轴 labels 为一组图片🖼
-//        case 42: return [self configureTriangleRadarChart];//带有颜色标志带的三角形雷达图
-//        case 43: return [self configureQuadrangleRadarChart];//带有颜色标志带的四角形雷达图
-//        case 44: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
-//        case 45: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
-//        case 46: return [self configureSpiderWebRadarChart];//带有颜色标志带的🕸蜘蛛网状雷达图
-//        case 47: return [self configureComplicatedCustomAreasplineChart];//复杂自定义曲线填充图 1
-//        case 48: return [self configureComplicatedCustomAreasplineChart2];//复杂自定义曲线填充图 2
-//        case 49: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
-        case 15: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
-//        case 51: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
-//        case 52: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
-//        case 53: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
-//        case 54: return [self configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart];//自定义 Y 轴的 Labels 国际单位符基数及国际单位符
-//        case 55: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
-//        case 56: return [self logarithmicAxisLineChart];//对数轴折线图📈
-//        case 57: return [self logarithmicAxisScatterChart];//对数轴散点图
-//        case 58: return [self configureColumnChartDataLabelsLayout];//配置柱状图📊的 dataLabels 布局
+        case 5:  return [self adjustChartSeriesDataAccuracy];
+        case 6:  return [self customStyleStackedColumnChart];
+        case 7:  return [self disableChartAnimation];//禁用图表的渲染动画效果
+        case 8:  return [self customChartLengendItemStyle];//自定义图表的 legend 图例样式
+        case 9:  return [self configure_DataLabels_XAXis_YAxis_Legend_Style];//配置DataLabels、XAXis、YAxis、Legend等图表元素样式
+        case 10: return [self customChartStyleWhenNoData];//数据为空的情况下,配置图表的 x 轴 y 轴等样式
+        case 11: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
+        case 12: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
+        case 13: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
+
         default:
             break;
     }
@@ -198,8 +148,6 @@
 
     return aaOptions;
 }
-
-
 
 
 - (AAOptions *)configureTheAAOptionsOfSpecialNestedColumnChart {
@@ -343,7 +291,6 @@
 }
 
 
-
 - (AAOptions *)adjustChartLeftAndRightMargin {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
@@ -361,6 +308,7 @@
     aaOptions.chart.marginRight = @70;
     return aaOptions;
 }
+
 
 - (AAOptions *)configureChartWithBackgroundImage {
     AAChartModel *aaChartModel = AAChartModel.new
