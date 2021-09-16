@@ -21,18 +21,62 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self configureTriangleRadarChart];//带有颜色标志带的三角形雷达图
-        case 1: return [self configureQuadrangleRadarChart];//带有颜色标志带的四角形雷达图
-        case 2: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
-        case 3: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
-        case 4: return [self configureSpiderWebRadarChart];//带有颜色标志带的🕸蜘蛛网状雷达图
-            
+        case 0: return [self configureThePolygonPolarChart];//简单的多边形雷达图
+        case 1: return [self adjustGroupPaddingForPolarChart];//调整柱状极地图的 GroupPadding
+        case 2: return [self configureTriangleRadarChart];//带有颜色标志带的三角形雷达图
+        case 3: return [self configureQuadrangleRadarChart];//带有颜色标志带的四角形雷达图
+        case 4: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
+        case 5: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
+        case 6: return [self configureSpiderWebRadarChart];//带有颜色标志带的🕸蜘蛛网状雷达图
+
         default:
             break;
     }
     return nil;
 }
 
+
+- (AAOptions *)configureThePolygonPolarChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
+    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@1])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .markerRadiusSet(@0)
+    .polarSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .colorSet((id)AAGradientColor.deepSeaColor)
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+               ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+
+    aaOptions.xAxis.visible = false;//避免多边形外环之外有额外套了一层无用的外环
+    aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
+    return aaOptions;
+}
+
+- (AAOptions *)adjustGroupPaddingForPolarChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"Colorful Column Chart")
+    .subtitleSet(@"single data array colorful column chart")
+    .borderRadiusSet(@5)
+    .polarSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@211,@183,@157,@133,@111]),
+               ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    AAColumn *aaColumn = aaOptions.plotOptions.column;
+    aaColumn.groupPadding = @0.05;
+    aaColumn.colorByPoint = true;
+    return aaOptions;
+}
 
 //三角形雷达图
 - (AAOptions *)configureTriangleRadarChart {
@@ -259,8 +303,6 @@
     
     return aaOptions;
 }
-
-
 
 
 @end

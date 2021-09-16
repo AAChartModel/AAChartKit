@@ -708,7 +708,9 @@
               @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
             ],
             /*polar chart 极地图*/
-            @[@"configureTriangleRadarChart---带有颜色标志带的三角形雷达图",
+            @[@"configureThePolygonPolarChart---简单的多边形雷达图",
+              @"adjustGroupPaddingForPolarChart---调整柱状极地图的 GroupPadding",
+              @"configureTriangleRadarChart---带有颜色标志带的三角形雷达图",
               @"configureQuadrangleRadarChart---带有颜色标志带的四角形雷达图",
               @"configurePentagonRadarChart---带有颜色标志带的五角形雷达图",
               @"configureHexagonRadarChart---带有颜色标志带的六角形雷达图",
