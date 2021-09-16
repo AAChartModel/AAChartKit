@@ -56,6 +56,7 @@
 #import "PolarChartOptionsVC.h"
 #import "MultiYAxesChartOptionsVC.h"
 #import "PlotLinesBandsZonesOptionsVC.h"
+#import "AreasplineChartOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -348,6 +349,15 @@
         }
             break;
             
+        case 21: {
+            /*通过 AAOptions 自定义饼图"*/
+            AreasplineChartOptionsVC *vc = AreasplineChartOptionsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -377,7 +387,8 @@
             @"Pie Chart Options---通过 AAOptions 自定义饼图",
             @"Polar Chart Options---通过 AAOptions 自定义极地图",
             @"Multi YAxes Chart Options---通过 AAOptions 自定义多 Y 轴图表",
-            @"Plot Lines Bands Zones Options---颜色线-颜色带-值颜色分区图表"
+            @"Plot Lines Bands Zones Options---颜色线-颜色带-值颜色分区图表",
+            @"Areaspline Chart Options---通过 AAOptions 自定义曲线区域面积图"
         ];
     }
     return _sectionTypeArr;
@@ -664,7 +675,6 @@
             /*在 XIB 中创建 AAChartView*/
             @[@"XIB AAChartView---在 XIB 中创建 AAChartView",
             ],
-            
             /*自定义饼图*/
             @[@"configurePieChartTitle---自定义饼图的标题",
               @"adjustPieChartTitleAndDataLabelFontStyle---自定义饼图的标题和 DataLabels",
@@ -679,7 +689,6 @@
               @"configureHexagonRadarChart---带有颜色标志带的六角形雷达图",
               @"configureSpiderWebRadarChart---带有颜色标志带的🕸蜘蛛网状雷达图",
             ],
-            
             /*多 Y 轴图表*/
             @[@"configureDoubleYAxesAreasplineMixedColumnChart---双Y轴曲线面积-柱形混合图",
               @"configureTripleYAxesColumnMixedSplineChart---三条Y轴柱形-曲线混合图",
@@ -693,6 +702,11 @@
               @"configureAAPlotLinesForChart---带有颜色标志线及文字的折线图表",
               @"configureAASeriesElementZones---数据分区 Zones",
               @"configureAASeriesElementZonesMixedAAPlotLines---数据分区 Zones 和颜色标志线混合",
+            ],
+            /*自定义曲线区域面积图*/
+            @[@"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
+              @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
+              @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
             ]
         ];
     }

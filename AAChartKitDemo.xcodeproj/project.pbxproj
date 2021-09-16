@@ -83,6 +83,7 @@
 		84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B826F1F08300D4CAFC /* PolarChartOptionsVC.m */; };
 		84B548BC26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548BB26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m */; };
 		84B548BF26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548BE26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m */; };
+		84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548C126F2E19900D4CAFC /* AreasplineChartOptionsVC.m */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -262,6 +263,8 @@
 		84B548BB26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiYAxesChartOptionsVC.m; sourceTree = "<group>"; };
 		84B548BD26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlotLinesBandsZonesOptionsVC.h; sourceTree = "<group>"; };
 		84B548BE26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlotLinesBandsZonesOptionsVC.m; sourceTree = "<group>"; };
+		84B548C026F2E19900D4CAFC /* AreasplineChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreasplineChartOptionsVC.h; sourceTree = "<group>"; };
+		84B548C126F2E19900D4CAFC /* AreasplineChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreasplineChartOptionsVC.m; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -473,6 +476,8 @@
 				84B548BB26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m */,
 				84B548BD26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.h */,
 				84B548BE26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m */,
+				84B548C026F2E19900D4CAFC /* AreasplineChartOptionsVC.h */,
+				84B548C126F2E19900D4CAFC /* AreasplineChartOptionsVC.m */,
 			);
 			name = AdditionalContent1;
 			sourceTree = "<group>";
@@ -752,6 +757,7 @@
 				27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */,
 				84B548BF26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
+				84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */,
 				44EF0FA524F759FD00F5639A /* AALineStyle.m in Sources */,
 				44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */,
 				27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */,
