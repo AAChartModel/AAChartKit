@@ -59,6 +59,8 @@
 #import "AreasplineChartOptionsVC.h"
 #import "TooltipOptionsVC.h"
 #import "DataLabelsOptionsVC.h"
+#import "XAxisYAxisLabelsOptionsVC.h"
+#import "XAxisYAxisTypeOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -380,6 +382,24 @@
         }
             break;
             
+        case  24: {
+            /*通过 AAOptions 自定义 X 轴 Y 轴的文字标签*/
+            XAxisYAxisLabelsOptionsVC *vc = XAxisYAxisLabelsOptionsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case  25: {
+            /*通过 AAOptions 自定义 X 轴 Y 轴的轴类型*/
+            XAxisYAxisTypeOptionsVC *vc = XAxisYAxisTypeOptionsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -413,6 +433,8 @@
             @"Areaspline Chart Options---通过 AAOptions 自定义曲线区域面积图",
             @"Tooltip Options---通过 AAOptions 自定义 tooltip 浮动提示框",
             @"DataLabels Options---通过 AAOptions 自定义 DataLabels 数据标签",
+            @"X Axis Y Axis Labels Options---通过 AAOptions 自定义 X 轴 Y 轴的文字标签",
+            @"X Axis Y Axis Type Options---通过 AAOptions 自定义 X 轴 Y 轴的轴类型",
 
         ];
     }
@@ -747,6 +769,18 @@
               @"configureStackingColumnChartDataLabelsOverflow---允许DataLabels文字溢出绘图区",
               @"configureReversedBarChartDataLabelsStyle---调整Y轴倒转的条形图的DataLabels风格样式",
               @"configureColumnChartDataLabelsLayout---配置柱状图📊的 dataLabels 布局",
+            ],
+            /*自定义 X 轴 Y 轴文字标签*/
+            @[@"configureXAxisLabelsFontColorWithHTMLString---通过HTML字符串自定义X轴文字颜色",
+              @"configureXAxisLabelsFontColorAndFontSizeWithHTMLString---通过HTML字符串自定义X轴文字颜色和字体大小",
+              @"customXAxisLabelsBeImages---自定义曲线面积图 X 轴 labels 为一组图片🖼",
+              @"configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart---自定义 Y 轴的 Labels 国际单位符基数及国际单位符",
+            ],
+            /*自定义 X 轴 Y 轴的轴类型*/
+            @[@"dateTimeTypeStepLineChart---时间轴类型的阶梯型折线图📈",
+              @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
+              @"logarithmicAxisLineChart---对数轴折线图📈",
+              @"logarithmicAxisScatterChart---对数轴散点图",
             ],
         ];
     }
