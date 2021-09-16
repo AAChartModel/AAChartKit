@@ -27,6 +27,7 @@
         case 3: return [self configureAAPlotLinesForChart];//带有颜色标志线及文字的折线图表
         case 4: return [self configureAASeriesElementZones];//数据分区 Zones
         case 5: return [self configureAASeriesElementZonesMixedAAPlotLines];//数据分区 Zones 和颜色标志线混合
+        case 6: return [self configureXAxisPlotBandAreaMixedColumnChart];//X轴有 plotBand 的区域面积与柱形混合图
 
         default:
             break;
@@ -369,5 +370,55 @@
     aaYAxis.plotLines = aaPlotLinesArr;
     return aaOptions;
 }
+
+- (AAOptions *)configureXAxisPlotBandAreaMixedColumnChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                     @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+    .markerRadiusSet(@8.0)//marker点半径为8个像素
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+    .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"New York Hot")
+        .lineWidthSet(@5.0)
+        .colorSet(@"rgba(220,20,60,1)")//猩红色, alpha 透明度 1
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+        AASeriesElement.new
+        .typeSet(AAChartTypeColumn)
+        .nameSet(@"Berlin Hot")
+        .colorSet(@"#25547c")
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+               ]);
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    //  refer to https://api.highcharts.com.cn/highcharts#xAxis.plotBands
+    NSArray *aaPlotBandsArr = @[
+        AAPlotBandsElement.new
+        .fromSet(@-0.25)//值域颜色带X轴起始值
+        .toSet(@4.75)//值域颜色带X轴结束值
+        .colorSet(@"#ef476f66")//值域颜色带填充色
+        .zIndexSet(0),//层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+        AAPlotBandsElement.new
+        .fromSet(@4.75)
+        .toSet(@8.25)
+        .colorSet(@"#ffd06666")
+        .zIndexSet(0),
+        AAPlotBandsElement.new
+        .fromSet(@8.25)
+        .toSet(@11.25)
+        .colorSet(@"#04d69f66")
+        .zIndexSet(0),
+    ];
+    
+    AAXAxis *aaXAxis = aaOptions.xAxis;
+    aaXAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
+}
+
 
 @end

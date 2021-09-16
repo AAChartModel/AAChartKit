@@ -751,6 +751,7 @@
               @"configureAAPlotLinesForChart---带有颜色标志线及文字的折线图表",
               @"configureAASeriesElementZones---数据分区 Zones",
               @"configureAASeriesElementZonesMixedAAPlotLines---数据分区 Zones 和颜色标志线混合",
+              @"configureXAxisPlotBandAreaMixedColumnChart---X轴有 plotBand 的区域面积与柱形混合图",
             ],
             /*自定义曲线区域面积图*/
             @[@"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
