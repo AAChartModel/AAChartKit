@@ -25,7 +25,9 @@
         case 1: return [self configureTripleYAxesColumnMixedSplineChart];//三条Y轴柱形-曲线混合图
         case 2: return [self configureDoubleYAxesColumnMixedSplineChart];//双Y轴柱形-曲线混合图
         case 3: return [self configureDoubleYAxesMarketDepthChart];//双Y轴市场深度图
-
+        case 4: return [self configureTheMirrorColumnChart];//正负对称的镜像柱状图
+        case 5: return [self configureTheMirrorColumnChartWithNoAnyGap];//没有任何衔接缝隙的镜像柱状图📊
+            
         default:
             break;
     }
@@ -563,5 +565,85 @@
     return aaOptions;
 }
 
+- (AAOptions *)configureTheMirrorColumnChart {
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeColumn)
+              .backgroundColorSet(@"#161139"))
+    .titleSet(AATitle.new.textSet(@""))
+    .xAxisSet(AAXAxis.new
+              .visibleSet(true)
+              .categoriesSet(@[
+                  @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                  @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
+    .yAxisSet((id)@[
+        AAYAxis.new
+        .visibleSet(true)
+        .gridLineWidthSet(@0)
+        .titleSet(AAAxisTitle.new
+                  .textSet(@"收入")),
+        AAYAxis.new
+        .visibleSet(true)
+        .titleSet(AAAxisTitle.new
+                  .textSet(@"支出"))
+        .lineWidthSet(@1)
+        .oppositeSet(true)
+                  ])
+    .tooltipSet(AATooltip.new
+                .enabledSet(false)
+                .sharedSet(false))
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .animationSet(AAAnimation.new
+                                             .easingSet(AAChartAnimationBounce)
+                                             .durationSet(@1000)
+                                             )
+                               )
+                    .columnSet(AAColumn.new
+                               .groupingSet(false)
+                               .borderWidthSet(@0)
+                               .borderRadiusSet(@5)
+                               )
+                    )
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"收入")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5,
+                   @23.3, @18.3, @13.9,@7.0, @6.9, @9.5, @14.5,])
+        .colorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToTop)
+                  .startColorSet(@"#7052f4")
+                  .endColorSet(@"#00b0ff")),
+        AASeriesElement.new
+        .nameSet(@"支出")
+        .dataSet(@[@-20.1, @-14.1, @-8.6, @-4.5, @-5.8, @-5.7, @-11.3, @-17.0,
+                   @-22.0, @-24.8, @-24.1, @-20.1, @-14.1, @-8.6, @-4.5])
+        .colorSet((id)AAGradientColor.new
+                  .directionSet(AALinearGradientDirectionToTop)
+                  .startColorSet(@"#EF71FF")
+                  .endColorSet(@"#4740C8")),
+               ]);
+    return aaOptions;
+}
+
+- (AAOptions *)configureTheMirrorColumnChartWithNoAnyGap {
+    AAOptions *aaOptions = [self configureTheMirrorColumnChart];
+    
+    aaOptions.plotOptions.column.borderRadius = @0;
+    
+    [aaOptions.series enumerateObjectsUsingBlock:^(AASeriesElement *  _Nonnull aaSeriesElement, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx == 0) {
+            aaSeriesElement
+            .borderRadiusTopLeftSet((id)@"50%")
+            .borderRadiusTopRightSet((id)@"50%");
+        } else if (idx == 1) {
+            aaSeriesElement
+            .borderRadiusBottomLeftSet((id)@"50%")
+            .borderRadiusBottomRightSet((id)@"50%");
+        }
+    }];
+    
+    return aaOptions;
+}
 
 @end
