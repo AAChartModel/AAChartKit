@@ -57,6 +57,7 @@
 #import "MultiYAxesChartOptionsVC.h"
 #import "PlotLinesBandsZonesOptionsVC.h"
 #import "AreasplineChartOptionsVC.h"
+#import "TooltipOptionsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -118,7 +119,9 @@
         || indexPath.section == 3
         || indexPath.section == 6
         || indexPath.section == 9
-        || indexPath.section == 10) {
+        || indexPath.section == 10
+        || indexPath.section == 22
+        ) {
         return 85;
     } else {
         return 60;
@@ -358,6 +361,15 @@
         }
             break;
             
+        case 22: {
+            /*通过 AAOptions 自定义 tooltip 浮动提示框*/
+            TooltipOptionsVC *vc = TooltipOptionsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
         default:
             break;
     }
@@ -388,7 +400,8 @@
             @"Polar Chart Options---通过 AAOptions 自定义极地图",
             @"Multi YAxes Chart Options---通过 AAOptions 自定义多 Y 轴图表",
             @"Plot Lines Bands Zones Options---颜色线-颜色带-值颜色分区图表",
-            @"Areaspline Chart Options---通过 AAOptions 自定义曲线区域面积图"
+            @"Areaspline Chart Options---通过 AAOptions 自定义曲线区域面积图",
+            @"Tooltip Options---通过 AAOptions 自定义 tooltip 浮动提示框",
         ];
     }
     return _sectionTypeArr;
@@ -707,6 +720,12 @@
             @[@"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
               @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
               @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
+            ],
+            /*自定义 tooltip 浮动提示框*/
+            @[@"customTooltipStyleByFormatProperties---通过 tooltip 的 format 属性自定义 tooltip 样式内容",
+              @"customAreaChartTooltipStyleLikeHTMLTable---自定义 tooltip 提示框为 HTML 表格样式",
+              @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
+              @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
             ]
         ];
     }
