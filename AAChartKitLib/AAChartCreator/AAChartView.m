@@ -659,7 +659,6 @@ WKScriptMessageHandler
 
 @implementation AAJsonConverter
 
-    NSString *modelStr = [NSString stringWithFormat:@"%@.new\n",classNameStr];
 + (NSDictionary*)dictionaryWithObjectInstance:(id)objc {
     unsigned int propsCount;
     objc_property_t *props = class_copyPropertyList([objc class], &propsCount);
