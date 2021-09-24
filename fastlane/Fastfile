@@ -63,9 +63,11 @@ lane :release_pod do |options|
   pod_lib_lint(allow_warnings: true)
   if target_repo
     pod_push(path: spec_path, repo: target_repo, allow_warnings: true)
+    # 发布成功
     UI.message("Release lib #{target_project} new version #{target_version} to #{target_repo}  Successfully! 🎉 ")
   else
     pod_push(path: spec_path, allow_warnings: true)
+    # 发布成功
     UI.message("Release lib #{target_project} new version #{target_version} to CocoaPods/Specs Successfully! 🎉 ")
   end
 end
