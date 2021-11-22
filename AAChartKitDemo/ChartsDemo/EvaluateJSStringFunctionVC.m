@@ -223,7 +223,7 @@
     
     /**
      * 设置雷达图周边文案有两种方式
-     * 1、设置 categoriesSet，但会导致雷达图翻转，需在设置 series 时配置  pointPlacement 为 "on"（https://github.com/AAChartModel/AAChartKit/issues/301）
+     * 1、设置 categoriesSet，但会导致雷达图翻转，需在设置 series 时配置  pointPlacement 为 "on"（ https://github.com/AAChartModel/AAChartKit/issues/301 ）
      * 2、用 aaOptions.xAxis.labels.formatter 进行格式化输出
      */
     NSArray *categories = @[@"孤岛危机",@"美国末日",@"使命召唤",@"荣誉勋章",@"死亡搁浅"];
