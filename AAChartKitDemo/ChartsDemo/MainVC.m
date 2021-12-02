@@ -511,7 +511,8 @@
               @"Top Rounded Corners Stacking Column Chart---顶部为圆角的堆积柱状图",
               @"configureMaxAndMinDataLabelsForChart---为图表最大值最小值添加 DataLabels 标记",
               @"customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag---通过 HTML 的换行标签来实现图表的 X 轴的 分类文字标签的换行效果",
-
+              @"noMoreGroupingAndOverlapEachOtherColumnChart---不分组的相互重叠柱状图📊",
+              @"noMoreGroupingAndNestedColumnChart---不分组的嵌套柱状图📊",
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",

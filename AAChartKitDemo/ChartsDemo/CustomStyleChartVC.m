@@ -89,6 +89,9 @@
         case 39: return [self topRoundedCornersStackingColumnChart];
         case 40: return [self configureMaxAndMinDataLabelsForChart];
         case 41: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
+        case 42: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
+        case 43: return [self noMoreGroupingAndNestedColumnChart];
+
             
         default:
             return nil;
@@ -1504,6 +1507,56 @@
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
                ]);
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/1269
+- (AAChartModel *)noMoreGroupingAndOverlapEachOtherColumnChart {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
+        .yAxisTickPositionsSet(@[@0,@10,@20,@30,@40,@50])
+        .yAxisMaxSet(@50)
+        .yAxisMinSet(@0)
+        .borderRadiusSet(@5)
+        .seriesSet(@[
+            AAColumn.new
+                .nameSet(@"总做题")
+                .colorSet(@"#D8D8D8")
+                .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
+                .groupingSet(false)
+            ,
+            AAColumn.new
+                .nameSet(@"正确做题")
+                .colorSet(@"#00D9CD")
+                .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
+        ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1271
+- (AAChartModel *)noMoreGroupingAndNestedColumnChart {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
+        .yAxisTickPositionsSet(@[@0,@10,@20,@30,@40,@50])
+        .yAxisMaxSet(@50)
+        .yAxisMinSet(@0)
+        .borderRadiusSet(@5)
+        .seriesSet(@[
+            AAColumn.new
+                .nameSet(@"总目标")
+                .colorSet(@"DeepSkyBlue")
+                .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
+                .groupingSet(false)
+                .pointPaddingSet(@0.05)
+            ,
+            AAColumn.new
+                .nameSet(@"完成度")
+                .colorSet(@"#FF3030") //Firebrick1 color
+                .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
+                .groupingSet(false)
+                .pointPaddingSet(@0.2)
+        ]);
+}
+
 
 @end
 
