@@ -105,8 +105,8 @@ WKScriptMessageHandler
 @implementation AAChartView
 
 #pragma mark - Initialization
-- (instancetype)init {
-    self = [self initConfiguration];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [self initConfigurationWithFrame:frame];
     if (self) {
         [self setupDelegate];
     }
@@ -114,7 +114,7 @@ WKScriptMessageHandler
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [self initConfiguration];
+    self = [self initConfigurationWithFrame:CGRectNull];
     if (self) {
         self.translatesAutoresizingMaskIntoConstraints = NO;
         [self setupDelegate];
@@ -122,9 +122,9 @@ WKScriptMessageHandler
     return self;
 }
 
-- (instancetype)initConfiguration {
+- (instancetype)initConfigurationWithFrame:(CGRect)frame {
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    return [super initWithFrame:CGRectNull configuration:config];
+    return [super initWithFrame:frame configuration:config];
 }
 
 - (void)setupDelegate {
