@@ -73,11 +73,12 @@
                                        88,
                                        self.view.frame.size.width,
                                        self.view.frame.size.height - 88);
-    AAChartView *aaChartView = [[AAChartView alloc]initWithFrame:chartViewFrame];
+    AAChartView *aaChartView = [[AAChartView alloc]init];
+    aaChartView.frame = chartViewFrame;
     self.view.backgroundColor = [UIColor whiteColor];
     [self configureChartViewTypeWithChartView:aaChartView];
     [self.view addSubview:aaChartView];
-    
+
     return aaChartView;
 }
 
