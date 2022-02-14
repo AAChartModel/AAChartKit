@@ -1,0 +1,73 @@
+desc '发布pod新版本'
+lane :release_pod do |options|
+  # 存放私有podspec的仓库名
+  target_repo    = options[:repo]
+
+  # 需要更新的项目名称
+  target_project = options[:project]
+
+  # 需要更新的 pod 版本
+  target_version = options[:version]
+
+  # 本次更新的提交信息
+  target_desc    = options[:desc]
+
+  # podspec 的路径
+  spec_path      = "#{target_project}.podspec"
+
+  # 参数判断
+  if target_project.nil? || target_project.empty? || target_version.nil? || target_version.empty?
+    UI.message("❌ 项目名称、更新的pod版本必须填写")
+    exit
+  end
+
+  # 开始发布
+  UI.message("👉 开始发布 #{target_project} 新的版本： #{target_version}")
+
+  # 确认是master分支
+  ensure_git_branch
+  # 修改 spec 为即将发布的版本
+  version_bump_podspec(path: spec_path, version_number: target_version)
+  # commit 代码
+  git_add(path: '.')
+  begin
+    if target_desc.nil? || target_desc.empty?
+      git_commit(path: '.', message: "release #{target_version}")
+    else
+      git_commit(path: '.', message: target_desc)
+    end
+  rescue
+    error_message = "#{$!}"
+    UI.message("❌ git commit 报错:#{error_message}")
+    unless error_message.include?("nothing to commit, working directory clean")
+      exit
+    end
+    UI.message("本地代码已经commit, 跳过此次commit")
+  end
+  # 拉取最新代码
+  # git_pull_allow_unrelated_histories
+  git_pull(rebase: true) # use --rebase with pull
+  # 提交代码到远端仓库
+  push_to_git_remote
+  # 判断 tag 是否存在
+  if git_tag_exists(tag: target_version)
+      UI.message("Tag #{target_version} 已经存在, 正在删除旧的tag 💥")
+      # tag 已存在，则删除旧的tag
+      remove_git_tag(tag: target_version)
+  end
+  # 添加新的 tag
+  add_git_tag(tag: target_version)
+  # 提交新的 tag 到远端仓库
+  push_git_tags
+  # 验证此次更新是否合法
+  pod_lib_lint(allow_warnings: true)
+  if target_repo
+    pod_push(path: spec_path, repo: target_repo, allow_warnings: true)
+    # 发布成功
+    UI.message("Release lib #{target_project} new version #{target_version} to #{target_repo}  Successfully! 🎉 ")
+  else
+    pod_push(path: spec_path, allow_warnings: true)
+    # 发布成功
+    UI.message("Release lib #{target_project} new version #{target_version} to CocoaPods/Specs Successfully! 🎉 ")
+  end
+end
