@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AABaseChartVC.h"
 
-@interface DrawableChartVC : UIViewController
+@interface DrawableChartVC : AABaseChartVC
 
 typedef NS_ENUM(NSInteger, DrawableChartVCChartType) {
     DrawableChartVCChartTypeColumn = 0,

@@ -280,6 +280,8 @@
         case 12: {
             /*基础类型图表*/
             DrawableChartVC *vc = DrawableChartVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.chartType = row;
             vc.type = DrawableChartVCTypeUpdateXAxsiExtremes;
             [self.navigationController pushViewController:vc animated:YES];
@@ -289,6 +291,8 @@
         case 13: {
             /*基础类型图表*/
             DrawableChartVC *vc = DrawableChartVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.chartType = row;
             vc.type = DrawableChartVCTypeChangeChartViewContentSize;
             [self.navigationController pushViewController:vc animated:YES];

@@ -37,9 +37,6 @@
     int myBasicValue;
 }
 
-@property (nonatomic, strong) AAChartModel *chartModel;
-@property (nonatomic, strong) AAChartView  *chartView;
-
 @end
 
 @implementation DrawableChartVC
@@ -48,38 +45,35 @@
     [super viewDidLoad];
     myBasicValue = 0;
     
-    AAChartView *aaChartView = [self setupChartView];
-    AAOptions *aaOptions = [self setupChartOtions];
-    
-    [aaChartView aa_drawChartWithOptions:aaOptions];
 }
 
 - (AAChartType)configureChartType {
-    switch (_chartType) {
-        case DrawableChartVCChartTypeColumn: return AAChartTypeColumn;
-        case DrawableChartVCChartTypeBar: return AAChartTypeBar;
-        case DrawableChartVCChartTypeArea: return AAChartTypeArea;
-        case DrawableChartVCChartTypeAreaspline: return AAChartTypeAreaspline;
-        case DrawableChartVCChartTypeLine: return AAChartTypeLine;
-        case DrawableChartVCChartTypeSpline: return AAChartTypeSpline;
-        case DrawableChartVCChartTypeStepLine: return AAChartTypeLine;
-        case DrawableChartVCChartTypeStepArea: return AAChartTypeArea;
-        case DrawableChartVCChartTypeScatter: return AAChartTypeScatter;
+    switch (self.selectedIndex) {
+        case 0: return AAChartTypeColumn;
+        case 1: return AAChartTypeBar;
+        case 2: return AAChartTypeArea;
+        case 3: return AAChartTypeAreaspline;
+        case 4: return AAChartTypeLine;
+        case 5: return AAChartTypeSpline;
+        case 6: return AAChartTypeLine;
+        case 7: return AAChartTypeArea;
+        case 8: return AAChartTypeScatter;
+        case 9: return AAChartTypePie;
     }
+    return AAChartTypeColumn;
 }
 
-- (AAChartView *)setupChartView {
-    CGRect chartViewFrame = CGRectMake(0,
-                                       88,
-                                       self.view.frame.size.width,
-                                       self.view.frame.size.height - 88);
-    AAChartView *aaChartView = [[AAChartView alloc]init];
-    aaChartView.frame = chartViewFrame;
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self configureChartViewTypeWithChartView:aaChartView];
-    [self.view addSubview:aaChartView];
-
-    return aaChartView;
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    self.selectedIndex = selectedIndex;
+    
+    if (selectedIndex == 6) {
+        self.chartType = DrawableChartVCChartTypeStepLine;
+    } else if (selectedIndex == 7) {
+        self.chartType = DrawableChartVCChartTypeStepArea;
+    }
+    
+    AAChartType chartType = [self configureChartType];
+    return [self setupChartOtionsWithChartType:chartType];
 }
 
 
@@ -100,7 +94,7 @@
     }
 }
 
-- (AAOptions *) setupChartOtions {
+- (AAOptions *)setupChartOtionsWithChartType:(AAChartType)chartType {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                startColorString:@"rgba(138,43,226,1)"
@@ -112,7 +106,7 @@
                                  endColorString:@"#00FA9A"];
     
     AAChartModel *aaChartModel =  AAChartModel.new
-    .chartTypeSet([self configureChartType])//图表类型随机
+    .chartTypeSet(chartType)//图表类型随机
     .xAxisVisibleSet(true)
     .yAxisTitleSet(@"摄氏度")
     .stackingSet(AAChartStackingTypeNormal)
