@@ -232,7 +232,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAScrollablePlotAre
 @property (nonatomic, strong) NSString * subtitleFontColor AAChartKitUnavailable("`subtitleFontColor` was removed, please use subtitleStyle instead of it");
 - (AAChartModel * (^) (NSString * subtitleFontColor))subtitleFontColorSet AAChartKitUnavailable("`subtitleFontColorSet` was removed, please use subtitleStyleSet instead of it");
 
-@property (nonatomic, strong) NSString * subtitleFontWeight AAChartKitUnavailable("`subtitleFontColor` was removed, please use subtitleStyle instead of it");
+@property (nonatomic, strong) NSString * subtitleFontWeight AAChartKitUnavailable("`subtitleFontWeight` was removed, please use subtitleStyle instead of it");
 - (AAChartModel * (^) (NSString * subtitleFontWeight))subtitleFontWeightSet AAChartKitUnavailable("`subtitleFontWeightSet` was removed, please use subtitleStyleSet instead of it");
 
 
