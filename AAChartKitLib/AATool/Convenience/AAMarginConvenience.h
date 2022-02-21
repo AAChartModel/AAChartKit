@@ -49,13 +49,23 @@ NSArray * AAMargin(float marginTop,
 AACHARTKIT_STATIC_INLINE
 NSArray * AAMarginTopBottom(float marginTop,
                             float marginBottom) {
-    return AAMargin(marginTop, 0, marginBottom, 0);
+    return @[
+        @(marginTop),
+        NSNull.null,
+        @(marginBottom),
+        NSNull.null,
+    ];
 }
 
 AACHARTKIT_STATIC_INLINE
 NSArray * AAMarginLeftRight(float marginLeft,
                             float marginRight) {
-    return AAMargin(0, marginRight, 0, marginLeft);
+    return @[
+        NSNull.null,
+        @(marginRight),
+        NSNull.null,
+        @(marginLeft)
+    ];
 }
 
 #endif /* AAMarginConvenience_h */

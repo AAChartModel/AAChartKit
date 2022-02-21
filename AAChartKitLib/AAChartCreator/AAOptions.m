@@ -74,7 +74,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .pinchTypeSet(aaChartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(aaChartModel.polar)
-    .scrollablePlotAreaSet(aaChartModel.scrollablePlotArea);
+    .marginSet(aaChartModel.margin)
+    .scrollablePlotAreaSet(aaChartModel.scrollablePlotArea)
+    ;
     
     AATitle *aaTitle = AATitle.new
     .textSet(aaChartModel.title);//标题文本内容
@@ -121,7 +123,8 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .plotOptionsSet(aaPlotOptions)
     .legendSet(aaLegend)
     .seriesSet(aaChartModel.series)
-    .colorsSet(aaChartModel.colorsTheme);//设置颜色主题
+    .colorsSet(aaChartModel.colorsTheme)//设置颜色主题
+    ;
     
     [self configureAxisContentAndStyleWithAAOptions:aaOptions AAChartModel:aaChartModel];
     
