@@ -71,7 +71,10 @@
                     y: this.y,
                     x: this.x,
                     category:this.category,
-                    offset: {plotX: this.plotX, plotY: this.plotY},
+                    offset: {
+                        plotX: this.plotX,
+                        plotY: this.plotY
+                    },
                     index: this.index,
                 };
             window.webkit.messageHandlers.mouseover.postMessage(message);
