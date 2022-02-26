@@ -103,11 +103,9 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
                .stackingSet(aaChartModel.stacking)
                );//设置是否百分比堆叠显示图形
     
-    if (aaChartModel.animationType != 0) {
-        aaPlotOptions.series.animation = AAAnimation.new
-        .easingSet(aaChartModel.animationType)
-        .durationSet(aaChartModel.animationDuration);
-    }
+    aaPlotOptions.series.animation = AAAnimation.new
+    .easingSet(aaChartModel.animationType)
+    .durationSet(aaChartModel.animationDuration);
     
     [self configureTheStyleOfConnectNodeWithChartModel:aaChartModel plotOptions:aaPlotOptions];
     [self configureTheAAPlotOptionsWithPlotOptions:aaPlotOptions chartModel:aaChartModel];
