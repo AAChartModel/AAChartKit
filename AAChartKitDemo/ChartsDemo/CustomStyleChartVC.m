@@ -1513,7 +1513,7 @@
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
-        .yAxisTickPositionsSet(@[@0,@10,@20,@30,@40,@50])
+        .yAxisTickPositionsSet(@[@0, @10, @20, @30, @40, @50])
         .yAxisMaxSet(@50)
         .yAxisMinSet(@0)
         .borderRadiusSet(@5)
@@ -1536,7 +1536,7 @@
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
-        .yAxisTickPositionsSet(@[@0,@10,@20,@30,@40,@50])
+        .yAxisTickPositionsSet(@[@0, @10, @20, @30, @40, @50])
         .yAxisMaxSet(@50)
         .yAxisMinSet(@0)
         .borderRadiusSet(@5)
