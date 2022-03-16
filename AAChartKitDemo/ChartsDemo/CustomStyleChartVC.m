@@ -91,6 +91,7 @@
         case 41: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
         case 42: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
         case 43: return [self noMoreGroupingAndNestedColumnChart];
+        case 44: return [self customLineChartWithColorfulMarkersAndLines];
 
             
         default:
@@ -1556,6 +1557,94 @@
                 .pointPaddingSet(@0.2)
         ]);
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/1291
+- (AAChartModel *)customLineChartWithColorfulMarkersAndLines {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)
+    .titleSet(@"Custom Line Chart With Colorful Markers And Lines")
+    .markerRadiusSet(@18.0)//marker点半径为8个像素
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Tokyo Hot")
+            .lineWidthSet(@5.0)
+            .markerSet(AAMarker.new
+            .statesSet(AAMarkerStates.new
+            .hoverSet(AAMarkerHover.new
+            .radiusSet(@40)
+            .lineWidthSet(@5))))
+            .dataSet(@[
+                AADataElement.new
+                    .ySet(@2.0)
+                    .colorSet(AAColor.redColor)
+                ,
+                AADataElement.new
+                    .ySet(@4.0)
+                    .colorSet(AAColor.orangeColor)
+                ,
+                AADataElement.new
+                    .ySet(@8.0)
+                    .colorSet(AAColor.yellowColor)
+                ,
+                AADataElement.new
+                    .ySet(@16.0)
+                    .colorSet(AAColor.greenColor)
+                ,
+                AADataElement.new
+                    .ySet(@32.0)
+                    .colorSet(AAColor.cyanColor)
+                ,
+                AADataElement.new
+                    .ySet(@64.0)
+                    .colorSet(AAColor.blueColor)
+                ,
+                AADataElement.new
+                    .ySet(@128.0)
+                    .colorSet(AAColor.purpleColor)
+                ,
+                AADataElement.new
+                    .ySet(@256.0)
+                    .colorSet(AAColor.redColor)
+                ,
+            ])
+            .zoneAxisSet(@"x")
+            .zonesSet(@[
+                AAZonesElement.new
+                    .valueSet(@1)
+                    .colorSet(AAColor.redColor)
+                ,
+                AAZonesElement.new
+                    .valueSet(@2)
+                    .colorSet(AAColor.orangeColor)
+                ,
+                AAZonesElement.new
+                    .valueSet(@3)
+                    .colorSet(AAColor.yellowColor)
+                ,
+                AAZonesElement.new
+                    .valueSet(@4)
+                    .colorSet(AAColor.greenColor)
+                ,
+                AAZonesElement.new
+                    .valueSet(@5)
+                    .colorSet(AAColor.cyanColor)
+                ,
+                AAZonesElement.new
+                    .valueSet(@6)
+                    .colorSet(AAColor.blueColor)
+                ,
+                AAZonesElement.new
+                    .valueSet(@7)
+                    .colorSet(AAColor.purpleColor)
+                ,
+            ])
+        ,
+    ]);
+}
+
 
 
 @end
