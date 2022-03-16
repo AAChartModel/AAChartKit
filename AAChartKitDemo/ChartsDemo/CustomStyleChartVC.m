@@ -1577,30 +1577,10 @@
                                             .radiusSet(@40)
                                             .lineWidthSet(@5))))
             .dataSet(@[
-                AADataElement.new
-                    .ySet(@2.0)
-                    .colorSet(AAColor.redColor),
-                AADataElement.new
-                    .ySet(@4.0)
-                    .colorSet(AAColor.orangeColor),
-                AADataElement.new
-                    .ySet(@8.0)
-                    .colorSet(AAColor.yellowColor),
-                AADataElement.new
-                    .ySet(@16.0)
-                    .colorSet(AAColor.greenColor),
-                AADataElement.new
-                    .ySet(@32.0)
-                    .colorSet(AAColor.cyanColor),
-                AADataElement.new
-                    .ySet(@64.0)
-                    .colorSet(AAColor.blueColor),
-                AADataElement.new
-                    .ySet(@128.0)
-                    .colorSet(AAColor.purpleColor),
+                @2, @4, @8, @16, @32, @64, @128,
                 AADataElement.new
                     .ySet(@256.0)
-                    .colorSet(AAColor.redColor),
+                    .colorSet(AAColor.redColor)
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
