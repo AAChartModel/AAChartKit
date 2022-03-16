@@ -1572,74 +1572,59 @@
             .nameSet(@"Tokyo Hot")
             .lineWidthSet(@5.0)
             .markerSet(AAMarker.new
-            .statesSet(AAMarkerStates.new
-            .hoverSet(AAMarkerHover.new
-            .radiusSet(@40)
-            .lineWidthSet(@5))))
+                       .statesSet(AAMarkerStates.new
+                                  .hoverSet(AAMarkerHover.new
+                                            .radiusSet(@40)
+                                            .lineWidthSet(@5))))
             .dataSet(@[
                 AADataElement.new
                     .ySet(@2.0)
-                    .colorSet(AAColor.redColor)
-                ,
+                    .colorSet(AAColor.redColor),
                 AADataElement.new
                     .ySet(@4.0)
-                    .colorSet(AAColor.orangeColor)
-                ,
+                    .colorSet(AAColor.orangeColor),
                 AADataElement.new
                     .ySet(@8.0)
-                    .colorSet(AAColor.yellowColor)
-                ,
+                    .colorSet(AAColor.yellowColor),
                 AADataElement.new
                     .ySet(@16.0)
-                    .colorSet(AAColor.greenColor)
-                ,
+                    .colorSet(AAColor.greenColor),
                 AADataElement.new
                     .ySet(@32.0)
-                    .colorSet(AAColor.cyanColor)
-                ,
+                    .colorSet(AAColor.cyanColor),
                 AADataElement.new
                     .ySet(@64.0)
-                    .colorSet(AAColor.blueColor)
-                ,
+                    .colorSet(AAColor.blueColor),
                 AADataElement.new
                     .ySet(@128.0)
-                    .colorSet(AAColor.purpleColor)
-                ,
+                    .colorSet(AAColor.purpleColor),
                 AADataElement.new
                     .ySet(@256.0)
-                    .colorSet(AAColor.redColor)
-                ,
+                    .colorSet(AAColor.redColor),
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
                 AAZonesElement.new
                     .valueSet(@1)
-                    .colorSet(AAColor.redColor)
-                ,
+                    .colorSet(AAColor.redColor),
                 AAZonesElement.new
                     .valueSet(@2)
-                    .colorSet(AAColor.orangeColor)
-                ,
+                    .colorSet(AAColor.orangeColor),
                 AAZonesElement.new
                     .valueSet(@3)
-                    .colorSet(AAColor.yellowColor)
-                ,
+                    .colorSet(AAColor.yellowColor),
                 AAZonesElement.new
                     .valueSet(@4)
-                    .colorSet(AAColor.greenColor)
-                ,
+                    .colorSet(AAColor.greenColor),
                 AAZonesElement.new
                     .valueSet(@5)
-                    .colorSet(AAColor.cyanColor)
-                ,
+                    .colorSet(AAColor.cyanColor),
                 AAZonesElement.new
                     .valueSet(@6)
-                    .colorSet(AAColor.blueColor)
-                ,
+                    .colorSet(AAColor.blueColor),
                 AAZonesElement.new
                     .valueSet(@7)
-                    .colorSet(AAColor.purpleColor)
-                ,
+                    .colorSet(AAColor.purpleColor),
             ])
         ,
     ]);
