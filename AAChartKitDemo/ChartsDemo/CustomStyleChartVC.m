@@ -1621,16 +1621,15 @@
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .legendEnabledSet(true)
     .stackingSet(AAChartStackingTypeNormal)
-    .xAxisReversedSet(true)
     .seriesSet(@[
         AASeriesElement.new
             .nameSet(@"Tokyo Hot")
             .lineWidthSet(@30.0)
             .dataSet(@[
-                @128, @128, @128,@256.0, @512.0,
+                @1024, @512, @256, @512, @1024,
                 AADataElement.new
-                    .ySet(@1024.0)
-                    .colorSet(AAColor.redColor),
+                    .ySet(@2048)
+                    .colorSet(AARgbaColor(30, 144, 255, 1.0)),
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
@@ -1639,10 +1638,10 @@
                     .colorSet(AARgbaColor(30, 144, 255, 1.0)),
                 AAZonesElement.new
                     .valueSet(@2)
-                    .colorSet(AAColor.blueColor),
+                    .colorSet(AARgbaColor(30, 144, 255, 0.8)),
                 AAZonesElement.new
                     .valueSet(@3)
-                    .colorSet(AAColor.greenColor),
+                    .colorSet(AARgbaColor(30, 144, 255, 0.6)),
                 AAZonesElement.new
                     .valueSet(@4)
                     .colorSet(AARgbaColor(30, 144, 255, 0.4)),
@@ -1655,10 +1654,10 @@
             .nameSet(@"Tokyo Hot")
             .lineWidthSet(@30.0)
             .dataSet(@[
-                @128, @128, @128,@256.0, @512.0,
+                @1024, @512, @256, @512, @1024,
                 AADataElement.new
-                    .ySet(@1024.0)
-                    .colorSet(AAColor.redColor),
+                    .ySet(@2048)
+                    .colorSet(AARgbaColor(255, 0, 0, 1.0)),
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
@@ -1683,10 +1682,10 @@
             .nameSet(@"Tokyo Hot")
             .lineWidthSet(@30.0)
             .dataSet(@[
-                @128, @128, @128,@256.0, @512.0,
+                @1024, @512, @256, @512, @1024,
                 AADataElement.new
-                    .ySet(@1024.0)
-                    .colorSet(AAColor.redColor),
+                    .ySet(@2048)
+                    .colorSet(AARgbaColor(255, 215, 0, 1.0)),
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
@@ -1711,10 +1710,10 @@
             .nameSet(@"Tokyo Hot")
             .lineWidthSet(@30.0)
             .dataSet(@[
-                @128, @128, @128,@256.0, @512.0,
+                @1024, @512, @256, @512, @1024,
                 AADataElement.new
-                    .ySet(@1024.0)
-                    .colorSet(AAColor.redColor),
+                    .ySet(@2048)
+                    .colorSet(AARgbaColor(50, 205, 50, 1.0)),
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
@@ -1739,10 +1738,10 @@
             .nameSet(@"Tokyo Hot")
             .lineWidthSet(@30.0)
             .dataSet(@[
-                @128, @128, @128,@256.0, @512.0,
+                @1024, @512, @256, @512, @1024,
                 AADataElement.new
-                    .ySet(@1024.0)
-                    .colorSet(AAColor.redColor),
+                    .ySet(@2048)
+                    .colorSet(AARgbaColor(138, 43, 226, 1.0)),
             ])
             .zoneAxisSet(@"x")
             .zonesSet(@[
