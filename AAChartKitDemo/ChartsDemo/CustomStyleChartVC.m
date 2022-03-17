@@ -1610,7 +1610,161 @@
     ]);
 }
 
-
+//https://github.com/AAChartModel/AAChartKit/issues/1291
+- (AAChartModel *)customLineChartWithColorfulMarkersAndLines2 {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)
+    .titleSet(@"Custom Line Chart With Colorful Markers And Lines")
+    .markerRadiusSet(@18.0)//marker点半径为8个像素
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .legendEnabledSet(true)
+    .stackingSet(AAChartStackingTypeNormal)
+    .xAxisReversedSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Tokyo Hot")
+            .lineWidthSet(@30.0)
+            .dataSet(@[
+                @128, @128, @128,@256.0, @512.0,
+                AADataElement.new
+                    .ySet(@1024.0)
+                    .colorSet(AAColor.redColor),
+            ])
+            .zoneAxisSet(@"x")
+            .zonesSet(@[
+                AAZonesElement.new
+                    .valueSet(@1)
+                    .colorSet(AARgbaColor(30, 144, 255, 1.0)),
+                AAZonesElement.new
+                    .valueSet(@2)
+                    .colorSet(AAColor.blueColor),
+                AAZonesElement.new
+                    .valueSet(@3)
+                    .colorSet(AAColor.greenColor),
+                AAZonesElement.new
+                    .valueSet(@4)
+                    .colorSet(AARgbaColor(30, 144, 255, 0.4)),
+                AAZonesElement.new
+                    .valueSet(@5)
+                    .colorSet(AARgbaColor(30, 144, 255, 0.2)),
+            ])
+        ,
+        AASeriesElement.new
+            .nameSet(@"Tokyo Hot")
+            .lineWidthSet(@30.0)
+            .dataSet(@[
+                @128, @128, @128,@256.0, @512.0,
+                AADataElement.new
+                    .ySet(@1024.0)
+                    .colorSet(AAColor.redColor),
+            ])
+            .zoneAxisSet(@"x")
+            .zonesSet(@[
+                AAZonesElement.new
+                    .valueSet(@1)
+                    .colorSet(AARgbaColor(255, 0, 0, 1.0)),
+                AAZonesElement.new
+                    .valueSet(@2)
+                    .colorSet(AARgbaColor(255, 0, 0, 0.8)),
+                AAZonesElement.new
+                    .valueSet(@3)
+                    .colorSet(AARgbaColor(255, 0, 0, 0.6)),
+                AAZonesElement.new
+                    .valueSet(@4)
+                    .colorSet(AARgbaColor(255, 0, 0, 0.4)),
+                AAZonesElement.new
+                    .valueSet(@5)
+                    .colorSet(AARgbaColor(255, 0, 0, 0.2)),
+            ])
+        ,
+        AASeriesElement.new
+            .nameSet(@"Tokyo Hot")
+            .lineWidthSet(@30.0)
+            .dataSet(@[
+                @128, @128, @128,@256.0, @512.0,
+                AADataElement.new
+                    .ySet(@1024.0)
+                    .colorSet(AAColor.redColor),
+            ])
+            .zoneAxisSet(@"x")
+            .zonesSet(@[
+                AAZonesElement.new
+                    .valueSet(@1)
+                    .colorSet(AARgbaColor(255, 215, 0, 1.0)),
+                AAZonesElement.new
+                    .valueSet(@2)
+                    .colorSet(AARgbaColor(255, 215, 0, 0.8)),
+                AAZonesElement.new
+                    .valueSet(@3)
+                    .colorSet(AARgbaColor(255, 215, 0, 0.6)),
+                AAZonesElement.new
+                    .valueSet(@4)
+                    .colorSet(AARgbaColor(255, 215, 0, 0.4)),
+                AAZonesElement.new
+                    .valueSet(@5)
+                    .colorSet(AARgbaColor(255, 215, 0, 0.2)),
+            ])
+        ,
+        AASeriesElement.new
+            .nameSet(@"Tokyo Hot")
+            .lineWidthSet(@30.0)
+            .dataSet(@[
+                @128, @128, @128,@256.0, @512.0,
+                AADataElement.new
+                    .ySet(@1024.0)
+                    .colorSet(AAColor.redColor),
+            ])
+            .zoneAxisSet(@"x")
+            .zonesSet(@[
+                AAZonesElement.new
+                    .valueSet(@1)
+                    .colorSet(AARgbaColor(50, 205, 50, 1.0)),
+                AAZonesElement.new
+                    .valueSet(@2)
+                    .colorSet(AARgbaColor(50, 205, 50, 0.8)),
+                AAZonesElement.new
+                    .valueSet(@3)
+                    .colorSet(AARgbaColor(50, 205, 50, 0.6)),
+                AAZonesElement.new
+                    .valueSet(@4)
+                    .colorSet(AARgbaColor(50, 205, 50, 0.4)),
+                AAZonesElement.new
+                    .valueSet(@5)
+                    .colorSet(AARgbaColor(50, 205, 50, 0.2)),
+            ])
+        ,
+        AASeriesElement.new
+            .nameSet(@"Tokyo Hot")
+            .lineWidthSet(@30.0)
+            .dataSet(@[
+                @128, @128, @128,@256.0, @512.0,
+                AADataElement.new
+                    .ySet(@1024.0)
+                    .colorSet(AAColor.redColor),
+            ])
+            .zoneAxisSet(@"x")
+            .zonesSet(@[
+                AAZonesElement.new
+                    .valueSet(@1)
+                    .colorSet(AARgbaColor(138, 43, 226, 1.0)),
+                AAZonesElement.new
+                    .valueSet(@2)
+                    .colorSet(AARgbaColor(138, 43, 226, 0.8)),
+                AAZonesElement.new
+                    .valueSet(@3)
+                    .colorSet(AARgbaColor(138, 43, 226, 0.6)),
+                AAZonesElement.new
+                    .valueSet(@4)
+                    .colorSet(AARgbaColor(138, 43, 226, 0.4)),
+                AAZonesElement.new
+                    .valueSet(@5)
+                    .colorSet(AARgbaColor(138, 43, 226, 0.2)),
+            ])
+        ,
+    ]);
+}
 
 @end
 
