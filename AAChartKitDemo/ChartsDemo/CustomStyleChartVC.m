@@ -1615,7 +1615,7 @@
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .titleSet(@"Custom Line Chart With Colorful Markers And Lines")
-    .markerRadiusSet(@18.0)//marker点半径为8个像素
+    .markerRadiusSet(@25.0)//marker点半径为8个像素
     .markerSymbolSet(AAChartSymbolTypeCircle)
     .yAxisLineWidthSet(@0)
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
@@ -1623,10 +1623,10 @@
     .stackingSet(AAChartStackingTypeNormal)
     .seriesSet(@[
         AASeriesElement.new
-            .nameSet(@"Tokyo Hot")
-            .lineWidthSet(@30.0)
+            .nameSet(AAColor.blueColor)
+            .lineWidthSet(@20.0)
             .dataSet(@[
-                @1024, @512, @256, @512, @1024,
+                @2048, @1024, @1024, @1024, @1024,
                 AADataElement.new
                     .ySet(@2048)
                     .colorSet(AARgbaColor(30, 144, 255, 1.0)),
@@ -1651,10 +1651,10 @@
             ])
         ,
         AASeriesElement.new
-            .nameSet(@"Tokyo Hot")
-            .lineWidthSet(@30.0)
+            .nameSet(AAColor.redColor)
+            .lineWidthSet(@20.0)
             .dataSet(@[
-                @1024, @512, @256, @512, @1024,
+                @2048, @1024, @1024, @1024, @1024,
                 AADataElement.new
                     .ySet(@2048)
                     .colorSet(AARgbaColor(255, 0, 0, 1.0)),
@@ -1679,10 +1679,10 @@
             ])
         ,
         AASeriesElement.new
-            .nameSet(@"Tokyo Hot")
-            .lineWidthSet(@30.0)
+            .nameSet(AAColor.yellowColor)
+            .lineWidthSet(@20.0)
             .dataSet(@[
-                @1024, @512, @256, @512, @1024,
+                @2048, @1024, @1024, @1024, @1024,
                 AADataElement.new
                     .ySet(@2048)
                     .colorSet(AARgbaColor(255, 215, 0, 1.0)),
@@ -1707,10 +1707,10 @@
             ])
         ,
         AASeriesElement.new
-            .nameSet(@"Tokyo Hot")
-            .lineWidthSet(@30.0)
+            .nameSet(AAColor.greenColor)
+            .lineWidthSet(@20.0)
             .dataSet(@[
-                @1024, @512, @256, @512, @1024,
+                @2048, @1024, @1024, @1024, @1024,
                 AADataElement.new
                     .ySet(@2048)
                     .colorSet(AARgbaColor(50, 205, 50, 1.0)),
@@ -1735,10 +1735,10 @@
             ])
         ,
         AASeriesElement.new
-            .nameSet(@"Tokyo Hot")
-            .lineWidthSet(@30.0)
+            .nameSet(AAColor.purpleColor)
+            .lineWidthSet(@20.0)
             .dataSet(@[
-                @1024, @512, @256, @512, @1024,
+                @2048, @1024, @1024, @1024, @1024,
                 AADataElement.new
                     .ySet(@2048)
                     .colorSet(AARgbaColor(138, 43, 226, 1.0)),
