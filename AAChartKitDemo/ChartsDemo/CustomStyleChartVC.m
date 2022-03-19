@@ -92,7 +92,7 @@
         case 42: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
         case 43: return [self noMoreGroupingAndNestedColumnChart];
         case 44: return [self customLineChartWithColorfulMarkersAndLines];
-
+        case 45: return [self drawLineChartWithPointsCoordinates];
             
         default:
             return nil;
@@ -1762,6 +1762,19 @@
                     .colorSet(AARgbaColor(138, 43, 226, 0.2)),
             ])
         ,
+    ]);
+}
+
+- (AAChartModel *)drawLineChartWithPointsCoordinates {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)
+    .titleSet(@"Draw Line Chart With Points Coordinates")
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .markerRadiusSet(@7)
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Blue Dot")
+            .dataSet(@[@[@0, @200], @[@0, @300], @[@0, @400], @[@1, @100], @[@2, @120], @[@3, @130]])
     ]);
 }
 
