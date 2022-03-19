@@ -518,6 +518,7 @@
               @"noMoreGroupingAndOverlapEachOtherColumnChart---不分组的相互重叠柱状图📊",
               @"noMoreGroupingAndNestedColumnChart---不分组的嵌套柱状图📊",
               @"customLineChartWithColorfulMarkersAndLines---彩色连接点和连接线的折线图📈",
+              @"customLineChartWithColorfulMarkersAndLines2---彩色连接点和连接线的多组折线的折线图📈",
               @"drawLineChartWithPointsCoordinates---通过点坐标来绘制折线图"
             ],
             /*混合类型图表*/

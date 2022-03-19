@@ -92,7 +92,8 @@
         case 42: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
         case 43: return [self noMoreGroupingAndNestedColumnChart];
         case 44: return [self customLineChartWithColorfulMarkersAndLines];
-        case 45: return [self drawLineChartWithPointsCoordinates];
+        case 45: return [self customLineChartWithColorfulMarkersAndLines2];
+        case 46: return [self drawLineChartWithPointsCoordinates];
             
         default:
             return nil;
@@ -1611,6 +1612,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1291
+//https://github.com/AAChartModel/AAChartKit/issues/1293
 - (AAChartModel *)customLineChartWithColorfulMarkersAndLines2 {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
