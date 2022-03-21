@@ -35,7 +35,11 @@
 
 @implementation AASeries
 
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius) 
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius)
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusTopLeft)
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusTopRight)
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusBottomLeft)
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusBottomRight)
 AAPropSetFuncImplementation(AASeries, AAMarker     *, marker) 
 AAPropSetFuncImplementation(AASeries, NSString     *, stacking) 
 AAPropSetFuncImplementation(AASeries, AAAnimation  *, animation) 
@@ -47,10 +51,6 @@ AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
 AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AASeries, AAStates *, states)
 AAPropSetFuncImplementation(AASeries, AAPoint  *, point)
-AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusTopLeft)
-AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusTopRight)
-AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusBottomLeft)
-AAPropSetFuncImplementation(AASeries, NSNumber *, borderRadiusBottomRight)
 
 @end
 
