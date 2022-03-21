@@ -38,7 +38,11 @@
 
 @interface AASeries : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadius) 
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadius)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadiusTopLeft)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadiusTopRight)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadiusBottomLeft)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber     *, borderRadiusBottomRight)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAMarker     *, marker) 
 AAPropStatementAndPropSetFuncStatement(copy,   AASeries, NSString     *, stacking) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAAnimation  *, animation) 
@@ -53,10 +57,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAPoint  *, point)
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusTopLeft)
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusTopRight)
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusBottomLeft)
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, borderRadiusBottomRight)
 
 @end
 
