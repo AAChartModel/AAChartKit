@@ -1768,22 +1768,37 @@
 }
 
 - (AAChartModel *)drawLineChartWithPointsCoordinates {
+    NSArray *dataArr = @[
+        @[@0, @200],
+        @[@0, @300],
+        @[@0, @400],
+        @[@1, @100],
+        @[@2, @120],
+        @[@3, @130]
+    ];
+    
     return AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)
+    .chartTypeSet(AAChartTypeScatter)
     .titleSet(@"Draw Line Chart With Points Coordinates")
+    .markerSymbolSet(AAChartSymbolTypeCircle)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-    .markerRadiusSet(@7)
+    .markerRadiusSet(@8)
+    .colorsThemeSet(@[AAColor.redColor])
     .seriesSet(@[
         AASeriesElement.new
-            .nameSet(@"Blue Dot")
-            .dataSet(@[
-                @[@0, @200],
-                @[@0, @300],
-                @[@0, @400],
-                @[@1, @100],
-                @[@2, @120],
-                @[@3, @130]
-            ])
+            .typeSet(AAChartTypeLine)
+            .enableMouseTrackingSet(false)
+            .showInLegendSet(false)
+            .markerSet(AAMarker.new
+                       .enabledSet(false))
+            .statesSet(AAStates.new
+                       .inactiveSet(AAInactive.new
+                                    .enabledSet(false)))
+            .dataSet(dataArr),
+        AASeriesElement.new
+            .nameSet(@"Red Dot")
+            .typeSet(AAChartTypeScatter)
+            .dataSet(dataArr),
     ]);
 }
 
