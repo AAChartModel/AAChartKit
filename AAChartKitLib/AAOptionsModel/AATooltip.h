@@ -53,6 +53,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, valueDecim
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, shape)
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       shared) 
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, valueSuffix)
+AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       followPointer)
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       followTouchMove) //在触摸设备上，tooltip.followTouchMove选项为true（默认）时，平移需要两根手指。若要允许用一根手指平移，请将followTouchMove设置为false。
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, padding) //设置取值精确到小数点后几位
