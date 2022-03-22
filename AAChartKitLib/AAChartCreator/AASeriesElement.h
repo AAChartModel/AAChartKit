@@ -48,8 +48,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stac
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, dashStyle) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, threshold) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth) //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
-AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth)//柱形图、条形图、扇形图等图形的描边宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor) //柱形图、条形图、扇形图顿号等图形的描边颜色
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiusTopLeft)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiusTopRight)
