@@ -35,7 +35,9 @@
 
 @implementation AASeries
 
-AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius)
+AAPropSetFuncImplementation(AASeries, NSString     *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
+AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadius) //The corner radius of the border surrounding each column or bar.
 AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusTopLeft)
 AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusTopRight)
 AAPropSetFuncImplementation(AASeries, NSNumber     *, borderRadiusBottomLeft)
