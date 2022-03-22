@@ -59,7 +59,7 @@ AAPropSetFuncImplementation(AASeriesElement, NSNumber *, threshold)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, lineWidth) //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
 AAPropSetFuncImplementation(AASeriesElement, NSString *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
-AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius)
+AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadius) //The corner radius of the border surrounding each column or bar.
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusTopLeft)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusTopRight)
 AAPropSetFuncImplementation(AASeriesElement, NSNumber *, borderRadiusBottomLeft)
