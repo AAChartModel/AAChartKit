@@ -51,6 +51,7 @@
 
     [self setUpSegmentedControls];
     [self setUpTheHideChartSeriesSwitch];
+    [self setUpTheAddSeriesElementButton];
     
     [self setUpChartView];
     [self setUpTheChartModel];
@@ -78,10 +79,10 @@
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
-    .scrollablePlotAreaSet(
-          AAScrollablePlotArea.new
-          .minWidthSet(@3000)
-          .scrollPositionXSet(@0))
+//    .scrollablePlotAreaSet(
+//          AAScrollablePlotArea.new
+//          .minWidthSet(@3000)
+//          .scrollPositionXSet(@0))
     ;
     
     NSArray *seriesArr;
@@ -238,6 +239,29 @@
     label.text = @"Hide Chart Whole Series Content";
     label.font = [UIFont systemFontOfSize:8.0f];
     [self.view addSubview:label];
+}
+
+- (void)setUpTheAddSeriesElementButton {
+    NSInteger i = 1;
+    CGFloat switchWidth = 100;
+    CGFloat buttonWidth = 200;
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(switchWidth * i + 20,
+                              self.view.frame.size.height - 70,
+                              buttonWidth,
+                              40);
+    [button setTitle:@"Add Sereies Element" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(addSeriesButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)addSeriesButtonClicked {
+   AASeriesElement *seriesElement = AASeriesElement.new
+    .nameSet(@"2020")
+    .fillOpacitySet(@1.0)
+    .stepSet(@(true))
+    .dataSet(@[@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]);
+    [self.aaChartView aa_addElementToChartSeriesWithElement:seriesElement];
 }
 
 - (void)switchViewClicked:(UISwitch *)switchView {
