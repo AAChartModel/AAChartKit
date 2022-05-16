@@ -2014,15 +2014,15 @@ function () {
                .styleSet(AAStyle.new
                          .colorSet(@"DodgerBlue"))
                .formatterSet(@AAJSFunc(
-                                       function () {
-                                           var yValue = this.value;
-                                           var unitStr = '千';
-                                           if (yValue == 0) {
-                                               unitStr = '';
-                                           }
-                                           var formattedYValue = (yValue / 1000).toFixed(3) + unitStr;
-                                           return formattedYValue;
-                                       }
+                function () {
+                    var yValue = this.value;
+                    var unitStr = "千";
+                    if (yValue == 0) {
+                        unitStr = "";
+                    }
+                    var formattedYValue = (yValue / 1000).toFixed(3) + unitStr;
+                    return formattedYValue;
+                }
                                        )))//Y轴文字数值为 0 的时候, 不显示单位
     .gridLineWidthSet(@0)
     .titleSet(AAAxisTitle.new
@@ -2038,15 +2038,15 @@ function () {
                .styleSet(AAStyle.new
                          .colorSet(AAColor.redColor))
                .formatterSet(@AAJSFunc(
-                                       function () {
-                                           var yValue = this.value;
-                                           var unitStr = '万';
-                                           if (yValue == 0) {
-                                               unitStr = '';
-                                           }
-                                           var formattedYValue = (yValue / 10000).toFixed(4) + unitStr;
-                                           return formattedYValue;
-                                       }
+                function () {
+                    var yValue = this.value;
+                    var unitStr = "万";
+                    if (yValue == 0) {
+                        unitStr = "";
+                    }
+                    var formattedYValue = (yValue / 10000).toFixed(4) + unitStr;
+                    return formattedYValue;
+                }
                                        )))//Y轴文字数值为 0 的时候, 不显示单位
     .gridLineWidthSet(@0)
     .titleSet(AAAxisTitle.new
