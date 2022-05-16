@@ -72,8 +72,10 @@
         case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
         case 26: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 1
         case 27: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart2];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 2
-        case 28: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
-        case 29: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
+        case 28: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart3];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 3
+
+        case 29: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
+        case 30: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
 
         default:
             return nil;
@@ -1932,6 +1934,120 @@ function () {
                     return formattedYValue;
                    }
                                        )))
+    .gridLineWidthSet(@0)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"以『万』为单位")
+              .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 14, AAChartFontWeightTypeBold)))
+    .oppositeSet(true);
+    
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
+    NSArray *seriesArr = @[
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .typeSet(AAChartTypeSpline)
+        .lineWidthSet(@7)
+        .colorSet((id)AAGradientColor.deepSeaColor)
+        .borderRadiusSet(@4)
+        .yAxisSet(@1)
+        .dataSet(@[
+            @0, @71.5, @106.4, @129.2, @144.0, @176.0,
+            @135.6, @148.5, @216.4, @194.1, @95.6, @54.4
+                 ]),
+        AASeriesElement.new
+        .nameSet(@"2021")
+        .typeSet(AAChartTypeSpline)
+        .lineWidthSet(@7)
+        .colorSet((id)AAGradientColor.sanguineColor)
+        .yAxisSet(@0)
+        .dataSet(@[
+            @135.6, @148.5, @216.4, @194.1, @95.6, @54.4,
+            @0, @71.5, @106.4, @129.2, @144.0, @176.0
+                 ])
+    ];
+    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .plotOptionsSet(aaPlotOptions)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxis1,yAxis2])
+    .tooltipSet(aaTooltip)
+    .seriesSet(seriesArr)
+    ;
+    return aaOptions;
+}
+
+- (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart3 {
+    AAChart *aaChart = AAChart.new
+    .backgroundColorSet(AAColor.whiteColor);
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"");
+    
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .minSet(@0)
+    .categoriesSet(@[
+        @"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C",
+        @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"
+                   ]);
+    
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+    .seriesSet(AASeries.new
+               .markerSet(AAMarker.new
+                          .radiusSet(@7)//曲线连接点半径，默认是4
+                          .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                          .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                          .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                          .lineColorSet(@"")//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                          ));
+    
+    AAYAxis *yAxis1 = AAYAxis.new
+    .visibleSet(true)
+    .lineWidthSet(@1)
+    .tickPositionsSet(@[@0, @50, @100, @150, @200])
+    .labelsSet(AALabels.new
+               .enabledSet(true)
+               .styleSet(AAStyle.new
+                         .colorSet(@"DodgerBlue"))
+               .formatterSet(@AAJSFunc(
+                                       function () {
+                                           var yValue = this.value;
+                                           var unitStr = '千';
+                                           if (yValue == 0) {
+                                               unitStr = '';
+                                           }
+                                           var formattedYValue = (yValue / 1000).toFixed(3) + unitStr;
+                                           return formattedYValue;
+                                       }
+                                       )))//Y轴文字数值为 0 的时候, 不显示单位
+    .gridLineWidthSet(@0)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"以「千」为单位")
+              .styleSet(AAStyleColorSizeWeight(@"DodgerBlue", 14, AAChartFontWeightTypeBold)));
+    
+    AAYAxis *yAxis2 = AAYAxis.new
+    .visibleSet(true)
+    .lineWidthSet(@1)
+    .tickPositionsSet(@[@0, @50, @100, @150, @200])
+    .labelsSet(AALabels.new
+               .enabledSet(true)
+               .styleSet(AAStyle.new
+                         .colorSet(AAColor.redColor))
+               .formatterSet(@AAJSFunc(
+                                       function () {
+                                           var yValue = this.value;
+                                           var unitStr = '万';
+                                           if (yValue == 0) {
+                                               unitStr = '';
+                                           }
+                                           var formattedYValue = (yValue / 10000).toFixed(4) + unitStr;
+                                           return formattedYValue;
+                                       }
+                                       )))//Y轴文字数值为 0 的时候, 不显示单位
     .gridLineWidthSet(@0)
     .titleSet(AAAxisTitle.new
               .textSet(@"以『万』为单位")
