@@ -1980,6 +1980,8 @@ function () {
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1324
+//https://github.com/AAChartModel/AAChartKit/issues/1330
 - (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart3 {
     AAChart *aaChart = AAChart.new
     .backgroundColorSet(AAColor.whiteColor);
