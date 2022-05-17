@@ -104,26 +104,26 @@ AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongD
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _title                 = @"";                      //标题默认不显示
-        _subtitle              = @"";                      //副标题默认不显示
-        _chartType             = AAChartTypeColumn;        //默认图表类型为柱状图
-        _animationType         = AAChartAnimationLinear;   //默认使用非easing.js中的'linear'线性渐变效果
-        _animationDuration     = @800;                     //默认动画时长为800毫秒
+        _title                 = @""; //标题默认不显示
+        _subtitle              = @""; //副标题默认不显示
+        _chartType             = AAChartTypeColumn; //默认图表类型为柱状图
+        _animationType         = AAChartAnimationLinear; //默认使用非easing.js中的'linear'线性渐变效果
+        _animationDuration     = @800; //默认动画时长为800毫秒
         _stacking              = AAChartStackingTypeFalse; //默认不开启图表数据的堆积效果
-        _zoomType              = AAChartZoomTypeNone;      //默认禁用图表的手势缩放功能
+        _zoomType              = AAChartZoomTypeNone; //默认禁用图表的手势缩放功能
         _colorsTheme           = @[@"#1e90ff",@"#ef476f",@"#ffd066",@"#04d69f",@"#25547c",];//默认颜色主题
-        _tooltipEnabled        = YES;  //默认启用浮动提示框
-        _tooltipShared         = YES;  //默认多组数据共享一个浮动提示框
-        _xAxisLabelsEnabled    = YES;  //默认显示 X 轴坐标点文字
-        _xAxisVisible          = YES;  //X 轴默认可见
-        _yAxisTitle            = @"";  //Y 轴标题默认不显示
-        _yAxisVisible          = YES;  //Y 轴默认可见
-        _yAxisLabelsEnabled    = YES;  //Y 轴文字标签默认显示
+        _tooltipEnabled        = YES; //默认启用浮动提示框
+        _tooltipShared         = YES; //默认多组数据共享一个浮动提示框
+        _xAxisLabelsEnabled    = YES; //默认显示 X 轴坐标点文字
+        _xAxisVisible          = YES; //X 轴默认可见
+        _yAxisTitle            = @""; //Y 轴标题默认不显示
+        _yAxisVisible          = YES; //Y 轴默认可见
+        _yAxisLabelsEnabled    = YES; //Y 轴文字标签默认显示
         _yAxisLineWidth        = @0.5; //y轴轴线的宽度
-        _legendEnabled         = YES;  //默认显示图例(图表下方可点击的带有文字的小圆点)
-        _borderRadius          = @0;   //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
-        _markerRadius          = @5;   //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
-        _yAxisAllowDecimals    = YES;  //默认y轴允许显示小数
+        _legendEnabled         = YES; //默认显示图例(图表下方可点击的带有文字的小圆点)
+        _borderRadius          = @0; //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效,设置为1000时,柱形图或者条形图头部为楔形)
+        _markerRadius          = @5; //折线连接点的半径长度,如果值设置为0,这样就相当于不显示了
+        _yAxisAllowDecimals    = YES; //默认y轴允许显示小数
     }
     return self;
 }
