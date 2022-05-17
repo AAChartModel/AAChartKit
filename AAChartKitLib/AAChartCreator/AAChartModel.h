@@ -104,39 +104,39 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;
 AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;
 
-AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeHorizontal;
-AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeVertical;
+AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeHorizontal; //水平布局
+AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeVertical;   //垂直布局
 
-AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeLeft;
-AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeCenter;
-AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeRight;
+AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeLeft;   //位于左边
+AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeCenter; //位于中间
+AACHARTKIT_EXTERN AAChartAlignType const AAChartAlignTypeRight;  //位于右边
 
-AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeTop;
-AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeMiddle;
-AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeBottom;
+AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeTop;    //垂直方向上位于顶部
+AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeMiddle; //垂直方向上位于中间
+AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeBottom; //垂直方向上位于底部
 
-AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
-AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
-AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
-AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone; //禁用缩放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;    //仅仅支持 X 轴缩放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;    //仅仅支持 Y 轴缩放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;   //X 轴和 Y 轴均可缩放
 
-AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;
-AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;
-AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent;
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;   //禁用堆积效果
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;  //常规堆积效果
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent; //百分比堆积效果
 
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;   //◉ ◉ ◉
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;   //■ ■ ■
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;  //◆ ◆ ◆
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle; //▲ ▲ ▲
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;        //◉ ◉ ◉
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;        //■ ■ ■
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;       //◆ ◆ ◆
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle;      //▲ ▲ ▲
 AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down; //▼ ▼ ▼
 
-AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
-AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
-AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank;
+AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;     //symbol 为默认样式
+AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;  //symbol 为内部空白样式
+AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank; //symbol 为外部空白样式
 
-AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
-AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
-AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
+AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;    //纤细字体
+AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular; //常规字体
+AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;    //加粗字体
 
 AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid;           //———————————————————————————————————
 AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash;       //— — — — — — — — — — — — — — — — — —
@@ -166,7 +166,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series)
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType) //图表类型
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking) //堆积样式
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle ◉ ", "square ■ ", "diamond ◆ ", "triangle ▲ ","triangle-down ▼ "，默认是"circle  ◉ "
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   markerSymbolStyle)
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType) //缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType) //设置图表的渲染动画类型
