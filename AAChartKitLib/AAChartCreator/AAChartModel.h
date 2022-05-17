@@ -124,11 +124,11 @@ AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;
 AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;
 AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent;
 
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle;
-AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down;
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeCircle;   //◉ ◉ ◉
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeSquare;   //■ ■ ■
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeDiamond;  //◆ ◆ ◆
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle; //▲ ▲ ▲
+AACHARTKIT_EXTERN AAChartSymbolType const AAChartSymbolTypeTriangle_down; //▼ ▼ ▼
 
 AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault;
 AACHARTKIT_EXTERN AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank;
@@ -138,17 +138,17 @@ AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeThin;
 AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeRegular;
 AACHARTKIT_EXTERN AAChartFontWeightType const AAChartFontWeightTypeBold;
 
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDot;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDash;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot;
-AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot;
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid;           //———————————————————————————————————
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash;       //— — — — — — — — — — — — — — — — — —
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot;        //ⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈ
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot;    //—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot; //—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDot;             //‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDash;            //—— —— —— —— —— —— —— —— —— —— —— ——
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash;        //——— ——— ——— ——— ——— ——— ——— ——— ———
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot;         //——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot;     //———‧———‧———‧———‧———‧———‧———‧———‧———‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot;  //———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧
 
 @interface AAChartModel : NSObject
 
@@ -184,7 +184,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLa
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, xAxisLabelsStyle) //x 轴文字样式
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, xAxisGridLineStyle) //x 轴网格线的样式
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, xAxisCrosshair)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, xAxisCrosshair) // x 轴准星线
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed) //y 轴翻转,默认为否
@@ -199,7 +199,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMi
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, yAxisGridLineStyle) //y 轴网格线的样式
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, yAxisCrosshair)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, yAxisCrosshair)// y 轴准星线
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框
