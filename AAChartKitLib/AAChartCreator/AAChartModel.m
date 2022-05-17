@@ -33,71 +33,71 @@
 
 #import "AAChartModel.h"
 
-AAChartType const AAChartTypeColumn          = @"column";
-AAChartType const AAChartTypeBar             = @"bar";
-AAChartType const AAChartTypeArea            = @"area";
-AAChartType const AAChartTypeAreaspline      = @"areaspline";
-AAChartType const AAChartTypeLine            = @"line";
-AAChartType const AAChartTypeSpline          = @"spline";
-AAChartType const AAChartTypeScatter         = @"scatter";
-AAChartType const AAChartTypePie             = @"pie";
-AAChartType const AAChartTypeBubble          = @"bubble";
-AAChartType const AAChartTypePyramid         = @"pyramid";
-AAChartType const AAChartTypeFunnel          = @"funnel";
-AAChartType const AAChartTypeColumnrange     = @"columnrange";
-AAChartType const AAChartTypeArearange       = @"arearange";
-AAChartType const AAChartTypeAreasplinerange = @"areasplinerange";
-AAChartType const AAChartTypeBoxplot         = @"boxplot";
-AAChartType const AAChartTypeWaterfall       = @"waterfall";
-AAChartType const AAChartTypePolygon         = @"polygon";
-AAChartType const AAChartTypeErrorbar        = @"errorbar";
-AAChartType const AAChartTypeGauge           = @"gauge";
+AAChartType const AAChartTypeColumn          = @"column";          //柱形图
+AAChartType const AAChartTypeBar             = @"bar";             //柱形图
+AAChartType const AAChartTypeArea            = @"area";            //折线区域填充图
+AAChartType const AAChartTypeAreaspline      = @"areaspline";      //曲线区域填充图
+AAChartType const AAChartTypeLine            = @"line";            //折线图
+AAChartType const AAChartTypeSpline          = @"spline";          //曲线图
+AAChartType const AAChartTypeScatter         = @"scatter";         //散点图
+AAChartType const AAChartTypePie             = @"pie";             //扇形图
+AAChartType const AAChartTypeBubble          = @"bubble";          //气泡图
+AAChartType const AAChartTypePyramid         = @"pyramid";         //金字塔图
+AAChartType const AAChartTypeFunnel          = @"funnel";          //漏斗图
+AAChartType const AAChartTypeColumnrange     = @"columnrange";     //柱形范围图
+AAChartType const AAChartTypeArearange       = @"arearange";       //区域折线范围图
+AAChartType const AAChartTypeAreasplinerange = @"areasplinerange"; //区域曲线范围图
+AAChartType const AAChartTypeBoxplot         = @"boxplot";         //箱线图
+AAChartType const AAChartTypeWaterfall       = @"waterfall";       //瀑布图
+AAChartType const AAChartTypePolygon         = @"polygon";         //多边形图
+AAChartType const AAChartTypeErrorbar        = @"errorbar";        //误差图
+AAChartType const AAChartTypeGauge           = @"gauge";           //仪表图
 
-AAChartLayoutType const AAChartLayoutTypeHorizontal = @"horizontal";
-AAChartLayoutType const AAChartLayoutTypeVertical   = @"vertical";
+AAChartLayoutType const AAChartLayoutTypeHorizontal = @"horizontal"; //水平布局
+AAChartLayoutType const AAChartLayoutTypeVertical   = @"vertical";   //垂直布局
 
-AAChartAlignType const AAChartAlignTypeLeft   = @"left";
-AAChartAlignType const AAChartAlignTypeCenter = @"center";
-AAChartAlignType const AAChartAlignTypeRight  = @"right";
+AAChartAlignType const AAChartAlignTypeLeft   = @"left";   //位于左边
+AAChartAlignType const AAChartAlignTypeCenter = @"center"; //位于中间
+AAChartAlignType const AAChartAlignTypeRight  = @"right";  //位于右边
 
-AAChartVerticalAlignType const AAChartVerticalAlignTypeTop    = @"top";
-AAChartVerticalAlignType const AAChartVerticalAlignTypeMiddle = @"middle";
-AAChartVerticalAlignType const AAChartVerticalAlignTypeBottom = @"bottom";
+AAChartVerticalAlignType const AAChartVerticalAlignTypeTop    = @"top";    //垂直方向上位于顶部
+AAChartVerticalAlignType const AAChartVerticalAlignTypeMiddle = @"middle"; //垂直方向上位于中间
+AAChartVerticalAlignType const AAChartVerticalAlignTypeBottom = @"bottom"; //垂直方向上位于底部
 
-AAChartZoomType const AAChartZoomTypeNone = @"none";
-AAChartZoomType const AAChartZoomTypeX    = @"x";
-AAChartZoomType const AAChartZoomTypeY    = @"y";
-AAChartZoomType const AAChartZoomTypeXY   = @"xy";
+AAChartZoomType const AAChartZoomTypeNone = @"none"; //禁用缩放 (默认)
+AAChartZoomType const AAChartZoomTypeX    = @"x";    //仅仅支持 X 轴缩放
+AAChartZoomType const AAChartZoomTypeY    = @"y";    //仅仅支持 Y 轴缩放
+AAChartZoomType const AAChartZoomTypeXY   = @"xy";   //X 轴和 Y 轴均可缩放
 
-AAChartStackingType const AAChartStackingTypeFalse   = @"";
-AAChartStackingType const AAChartStackingTypeNormal  = @"normal";
-AAChartStackingType const AAChartStackingTypePercent = @"percent";
+AAChartStackingType const AAChartStackingTypeFalse   = @"";        //禁用堆积效果 (默认)
+AAChartStackingType const AAChartStackingTypeNormal  = @"normal";  //常规堆积效果
+AAChartStackingType const AAChartStackingTypePercent = @"percent"; //百分比堆积效果
 
-AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";
-AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";
-AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";
-AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";
-AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down";
+AAChartSymbolType const AAChartSymbolTypeCircle        = @"circle";        //◉ ◉ ◉
+AAChartSymbolType const AAChartSymbolTypeSquare        = @"square";        //■ ■ ■
+AAChartSymbolType const AAChartSymbolTypeDiamond       = @"diamond";       //◆ ◆ ◆
+AAChartSymbolType const AAChartSymbolTypeTriangle      = @"triangle";      //▲ ▲ ▲
+AAChartSymbolType const AAChartSymbolTypeTriangle_down = @"triangle-down"; //▼ ▼ ▼
 
-AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";
-AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";
-AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank";
+AAChartSymbolStyleType const AAChartSymbolStyleTypeDefault     = @"default";     //symbol 为默认样式
+AAChartSymbolStyleType const AAChartSymbolStyleTypeInnerBlank  = @"innerBlank";  //symbol 为内部空白样式
+AAChartSymbolStyleType const AAChartSymbolStyleTypeBorderBlank = @"borderBlank"; //symbol 为外部空白样式
 
-AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";
-AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular";
-AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";
+AAChartFontWeightType const AAChartFontWeightTypeThin     = @"thin";    //纤细字体
+AAChartFontWeightType const AAChartFontWeightTypeRegular  = @"regular"; //常规字体
+AAChartFontWeightType const AAChartFontWeightTypeBold     = @"bold";    //加粗字体
 
-AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid           = @"Solid";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash       = @"ShortDash";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot        = @"ShortDot";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot    = @"ShortDashDot";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot = @"ShortDashDotDot";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeDot             = @"Dot";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeDash            = @"Dash";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash        = @"LongDash";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot         = @"DashDot";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot     = @"LongDashDot";
-AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongDashDotDot";
+AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid           = @"Solid";           //———————————————————————————————————
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash       = @"ShortDash";       //— — — — — — — — — — — — — — — — — —
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot        = @"ShortDot";        //ⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈ
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot    = @"ShortDashDot";    //—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧
+AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot = @"ShortDashDotDot"; //—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧
+AAChartLineDashStyleType const AAChartLineDashStyleTypeDot             = @"Dot";             //‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧
+AAChartLineDashStyleType const AAChartLineDashStyleTypeDash            = @"Dash";            //—— —— —— —— —— —— —— —— —— —— —— ——
+AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash        = @"LongDash";        //——— ——— ——— ——— ——— ——— ——— ——— ———
+AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot         = @"DashDot";         //——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
+AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot     = @"LongDashDot";     //———‧———‧———‧———‧———‧———‧———‧———‧———‧
+AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot  = @"LongDashDotDot";  //———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧
 
 @implementation AAChartModel
 
