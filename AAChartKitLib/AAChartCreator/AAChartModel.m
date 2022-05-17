@@ -140,7 +140,7 @@ AAPropSetFuncImplementation(AAChartModel, NSArray  *, series) //图表的数据�
 
 AAPropSetFuncImplementation(AAChartModel, AAChartType,              chartType) //图表类型
 AAPropSetFuncImplementation(AAChartModel, AAChartStackingType,      stacking) //堆积样式
-AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+AAPropSetFuncImplementation(AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle ◉ ", "square ■ ", "diamond ◆ ", "triangle ▲ ","triangle-down ▼ "，默认是"circle  ◉ "
 AAPropSetFuncImplementation(AAChartModel, AAChartSymbolStyleType,   markerSymbolStyle)
 AAPropSetFuncImplementation(AAChartModel, AAChartZoomType,          zoomType) //缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
 AAPropSetFuncImplementation(AAChartModel, AAChartAnimation,         animationType) //设置图表的渲染动画类型
