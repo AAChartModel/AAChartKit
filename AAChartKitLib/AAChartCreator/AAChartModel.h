@@ -84,25 +84,25 @@ typedef NSString *AAChartSymbolStyleType;
 typedef NSString *AAChartFontWeightType;
 typedef NSString *AAChartLineDashStyleType;
 
-AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;
-AACHARTKIT_EXTERN AAChartType const AAChartTypePie;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;
-AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;
-AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;
-AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;          //柱形图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;             //条形图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;            //折线区域填充图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;      //曲线区域填充图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //折线图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;          //曲线图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;         //散点图
+AACHARTKIT_EXTERN AAChartType const AAChartTypePie;             //扇形图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //气泡图
+AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;         //金字塔图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;          //漏斗图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;     //柱形范围图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeArearange;       //区域折线范围图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange; //区域曲线范围图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;         //箱线图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;       //瀑布图
+AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;         //多边形图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;        //误差图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;           //仪表图
 
 AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeHorizontal; //水平布局
 AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeVertical;   //垂直布局
@@ -115,12 +115,12 @@ AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeTop;   
 AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeMiddle; //垂直方向上位于中间
 AACHARTKIT_EXTERN AAChartVerticalAlignType const AAChartVerticalAlignTypeBottom; //垂直方向上位于底部
 
-AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone; //禁用缩放
+AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone; //禁用缩放 (默认)
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;    //仅仅支持 X 轴缩放
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;    //仅仅支持 Y 轴缩放
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;   //X 轴和 Y 轴均可缩放
 
-AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;   //禁用堆积效果
+AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeFalse;   //禁用堆积效果 (默认)
 AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypeNormal;  //常规堆积效果
 AACHARTKIT_EXTERN AAChartStackingType const AAChartStackingTypePercent; //百分比堆积效果
 
