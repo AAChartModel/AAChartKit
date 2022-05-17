@@ -159,7 +159,7 @@ AAPropSetFuncImplementation(AAChartModel, BOOL,       xAxisLabelsEnabled) //x �
 AAPropSetFuncImplementation(AAChartModel, AAStyle  *, xAxisLabelsStyle) //x 轴文字样式
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, xAxisTickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
 AAPropSetFuncImplementation(AAChartModel, AALineStyle *, xAxisGridLineStyle) //x 轴网格线的样式
-AAPropSetFuncImplementation(AAChartModel, AACrosshair *, xAxisCrosshair)
+AAPropSetFuncImplementation(AAChartModel, AACrosshair *, xAxisCrosshair) // x 轴准星线
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       yAxisReversed) //y 轴翻转,默认为否
@@ -174,7 +174,7 @@ AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisMin) //y 轴最小值
 AAPropSetFuncImplementation(AAChartModel, NSNumber *, yAxisTickInterval)
 AAPropSetFuncImplementation(AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropSetFuncImplementation(AAChartModel, AALineStyle *, yAxisGridLineStyle) //y 轴网格线的样式
-AAPropSetFuncImplementation(AAChartModel, AACrosshair *, yAxisCrosshair)
+AAPropSetFuncImplementation(AAChartModel, AACrosshair *, yAxisCrosshair) // y 轴准星线
 
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)
 AAPropSetFuncImplementation(AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框
