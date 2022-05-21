@@ -49,6 +49,7 @@
     self.title = @"ChartSeriesHideOrShow";
     self.view.backgroundColor = UIColor.whiteColor;
 
+    [self setupSlider];
     [self setUpSegmentedControls];
     [self setUpTheHideChartSeriesSwitch];
     [self setUpTheAddSeriesElementButton];
@@ -60,7 +61,7 @@
 
 - (void)setUpChartView {
     CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat chartViewHeight = self.view.frame.size.height - 220;
+    CGFloat chartViewHeight = self.view.frame.size.height - 300;
     self.aaChartView = [[AAChartView alloc]init];
     self.aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
     self.aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
@@ -79,10 +80,10 @@
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .stackingSet(AAChartStackingTypeNormal)
-//    .scrollablePlotAreaSet(
-//          AAScrollablePlotArea.new
-//          .minWidthSet(@3000)
-//          .scrollPositionXSet(@0))
+    .scrollablePlotAreaSet(
+          AAScrollablePlotArea.new
+          .minWidthSet(@3000)
+          .scrollPositionXSet(@0))
     ;
     
     NSArray *seriesArr;
@@ -159,6 +160,53 @@
     }
     
     self.aaChartModel.series = seriesArr;
+}
+
+- (void)setupSlider {
+    CGFloat sliderHeight = 40;
+    for (int i = 0; i < 2; i++) {
+        UISlider *slider = [[UISlider alloc]init];
+        slider.frame = CGRectMake(0,  (self.view.frame.size.height - 200 - i * sliderHeight), self.view.frame.size.width, sliderHeight);
+        slider.minimumValue = 0.0;
+        if (i == 1) {
+            slider.maximumValue = 3000.0;
+            slider.value = 3000.0;
+        } else {
+            slider.maximumValue = 1;
+            slider.value = 0.0;
+        }
+        slider.tag = i;
+        [slider addTarget:self action:@selector(sliderValueDidChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:slider];
+    }
+}
+
+- (void)sliderValueDidChanged:(UISlider *)slider {
+    NSLog(@"%@", [NSString stringWithFormat:@"slider selected value:  %f",slider.value]);
+    
+    if (slider.tag == 0) {
+        AAChart *aaChart = AAChart.new
+        .panningSet(true)
+            .scrollablePlotAreaSet(AAScrollablePlotArea.new
+                                   .scrollPositionXSet(@(slider.value))
+                                   .minWidthSet(@3000)
+                                   );
+        
+//        [self.aaChartView aa_updateChartWithOptions:aaChart];
+        AAOptions *options = self.aaChartModel.aa_toAAOptions.chartSet(aaChart);
+         [self.aaChartView aa_drawChartWithOptions:options];
+    } else {
+        AAChart *aaChart = AAChart.new
+            .scrollablePlotAreaSet(AAScrollablePlotArea.new
+                                   .minWidthSet(@(slider.value))
+                                   );
+
+        [self.aaChartView aa_updateChartWithOptions:aaChart];
+        
+    
+    }
+
+
 }
 
 - (void)setUpSegmentedControls {
@@ -256,11 +304,23 @@
 }
 
 - (void)addSeriesButtonClicked {
-   AASeriesElement *seriesElement = AASeriesElement.new
-    .nameSet(@"2020")
-    .fillOpacitySet(@1.0)
-    .stepSet(@(true))
-    .dataSet(@[@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]);
+    CGFloat randomNum = arc4random() % 3000;
+    
+    AAScrollablePlotArea *test =
+    AAScrollablePlotArea.new
+        .minWidthSet(@(randomNum))
+        .scrollPositionXSet(@0);
+        [self.aaChartView aa_updateChartWithOptions:AAChart.new.scrollablePlotAreaSet(test)];
+
+    
+//    [self.aaChartView aa_updateChartWithOptions:AAOptions.new.chartSet(AAChart.new.scrollablePlotAreaSet(test))];
+//    return;
+    
+    AASeriesElement *seriesElement = AASeriesElement.new
+        .nameSet(@"2020")
+        .fillOpacitySet(@1.0)
+        .stepSet(@(true))
+        .dataSet(@[@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]);
     [self.aaChartView aa_addElementToChartSeriesWithElement:seriesElement];
 }
 
