@@ -88,6 +88,7 @@
 		84B548C826F2EE2C00D4CAFC /* DataLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548C726F2EE2C00D4CAFC /* DataLabelsOptionsVC.m */; };
 		84B548CB26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */; };
 		84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */; };
+		84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -277,6 +278,8 @@
 		84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisLabelsOptionsVC.m; sourceTree = "<group>"; };
 		84B548CC26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisTypeOptionsVC.h; sourceTree = "<group>"; };
 		84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisTypeOptionsVC.m; sourceTree = "<group>"; };
+		84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsConfigurationGenerator.h; sourceTree = "<group>"; };
+		84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConfigurationGenerator.m; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -430,6 +433,8 @@
 				848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */,
 				848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */,
 				848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */,
+				84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */,
+				84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */,
 			);
 			name = AdditionalContent2;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
+				84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */,
 				1E66D20B210AF4ED007EAB8C /* AABar.m in Sources */,
 				27EB89D8248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m in Sources */,
 				4486C51023E9BAB300B54849 /* DrawableChartVC.m in Sources */,
