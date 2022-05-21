@@ -26,6 +26,7 @@
         case 2: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
         case 3: return [self configurePieChartFormatProperty];//配置饼图的 dataLabels 的 format 属性
         case 4: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
+        case 5: return [self adjustPieChartDataLabelStyleAndPostion];//调整饼图的 dataLabels 样式及位置使其居中
 
         default:
             break;
@@ -273,6 +274,39 @@
     .endAngleSet(@138)
     ;
     
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1331
+- (AAOptions *)adjustPieChartDataLabelStyleAndPostion {
+    AAOptions *aaOptions = AAOptions.new
+        .chartSet(AAChart.new
+                  .typeSet(AAChartTypePie))
+        .titleSet((id)NSNull.null)
+        .tooltipSet(AATooltip.new
+                    .enabledSet(true)
+                    .valueDecimalsSet(@2))
+        .legendSet(AALegend.new
+                   .enabledSet(false))
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"")
+                .sizeSet(@100)//尺寸大小
+                .borderWidthSet(@0)//描边的宽度
+                .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+                .dataLabelsSet(AADataLabels.new
+                    .enabledSet(true)
+                    .useHTMLSet(true)
+                    .colorSet(AAColor.whiteColor)
+                    .ySet(@-20)
+                    .distanceSet(@-25)//扇形图百分比线的长度
+                    .formatSet(@"<b>{point.name}</b>: <br> {point.y:.0f} <br>kWh"))
+                .dataSet(@[
+                    @[@"充电量",   @2506],
+                    @[@"放电量",   @2506],
+                ]
+            ),
+        ]);
     return aaOptions;
 }
 
