@@ -141,7 +141,7 @@
             @"y":message.y
         };
         
-        NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌 selected point series element name: %@\n",
+        NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌 move over point series element name: %@\n",
                           message.name];
         NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event BLOCK message: %@",
                           messageDic];
