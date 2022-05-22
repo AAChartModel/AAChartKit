@@ -100,7 +100,7 @@
     _aaChartView.frame = CGRectMake(0, aaChartViewOriginY, chartViewWidth, chartViewHeight);
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
     _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明
-    //    _aaChartView.delegate = self;
+//        _aaChartView.delegate = self;//解开注释(同时需要注释掉 block 方法), 可以测试一下获取交互事件回调的 delegate 方法
     [self.view addSubview:_aaChartView];
     [self setupChartViewEventHandlers];
 }
@@ -109,6 +109,24 @@
     //获取图表加载完成事件
     [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
         NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
+    }];
+    
+    [_aaChartView clickEventHandler:^(AAChartView *aaChartView,
+                                      AAClickEventMessageModel *message) {
+            NSDictionary *messageDic = @{
+                @"category":message.category,
+                @"index":@(message.index),
+                @"name":message.name,
+                @"offset":message.offset,
+                @"x":message.x,
+                @"y":message.y
+            };
+            
+            NSString *str1 = [NSString stringWithFormat:@"🖱🖱🖱🖱 clicked point series element name: %@\n",
+                              message.name];
+            NSString *str2 = [NSString stringWithFormat:@"user finger clicked!!!,get the click event BLOCK message: %@",
+                              messageDic];
+            NSLog(@"%@%@",str1, str2);
     }];
     
     //获取图表上的手指点击及滑动事件
@@ -125,7 +143,7 @@
         
         NSString *str1 = [NSString stringWithFormat:@"👌👌👌👌 selected point series element name: %@\n",
                           message.name];
-        NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
+        NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event BLOCK message: %@",
                           messageDic];
         NSLog(@"%@%@",str1, str2);
     }];
@@ -316,6 +334,22 @@
     NSLog(@"🔥 AAChartView content did finish load!!!");
 }
 
+- (void)aaChartView:(AAChartView *)aaChartView clickEventWithMessage:(AAClickEventMessageModel *)message {
+    NSDictionary *messageDic = @{
+        @"category":message.category,
+        @"index":@(message.index),
+        @"name":message.name,
+        @"offset":message.offset,
+        @"x":message.x,
+        @"y":message.y
+    };
+    NSString *str1 = [NSString stringWithFormat:@"🖱🖱🖱 clicked the point series element name: %@\n",
+                      message.name];
+    NSString *str2 = [NSString stringWithFormat:@"user finger clicked!!!,get the move over event DELEGATE message: %@",
+                      messageDic];
+    NSLog(@"%@%@",str1, str2);
+}
+
 - (void)aaChartView:(AAChartView *)aaChartView moveOverEventWithMessage:(AAMoveOverEventMessageModel *)message {
     NSDictionary *messageDic = @{
         @"category":message.category,
@@ -326,9 +360,9 @@
         @"y":message.y
     };
     
-    NSString *str1 = [NSString stringWithFormat:@"👌 selected point series element name: %@\n",
+    NSString *str1 = [NSString stringWithFormat:@"👌👌👌 move over the point series element name: %@\n",
                       message.name];
-    NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event message: %@",
+    NSString *str2 = [NSString stringWithFormat:@"user finger moved over!!!,get the move over event DELEGATE message: %@",
                       messageDic];
     NSLog(@"%@%@",str1, str2);
 }

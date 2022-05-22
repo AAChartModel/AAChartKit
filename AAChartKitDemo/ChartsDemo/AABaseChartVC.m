@@ -171,17 +171,35 @@
 //        [weakSelf.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
 //    }];
 //
+    //获取图表上的手指点击事件
+    [_aaChartView clickEventHandler:^(AAChartView *aaChartView,
+                                      AAClickEventMessageModel *message) {
+        NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
+        [weakSelf printPrettyPrintedClickEventMessageJsonStringWithJsonObject:messageDic];
+    }];
+    
     //获取图表上的手指点击及滑动事件
     [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
                                          AAMoveOverEventMessageModel *message) {
-        NSDictionary *messageDic = [AAJsonConverter dictionaryWithObjectInstance:message];
-        [weakSelf printPrettyPrintedJsonStringWithJsonObject:messageDic];
+        NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
+        [weakSelf printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:messageDic];
     }];
     
     //在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调
     [_aaChartView didReceiveScriptMessageHandler:^(AAChartView *aaChartView, WKScriptMessage *message) {
         NSLog(@"Clicked X axis label,  name is %@", message.body);
     }];
+}
+
+- (NSMutableDictionary *)eventMessageModelWithMessageBody:(AAEventMessageModel *)eventMessageModel {
+    NSMutableDictionary *messageBody = [NSMutableDictionary dictionary];
+    messageBody[@"name"] = eventMessageModel.name;
+    messageBody[@"x"] = eventMessageModel.x;
+    messageBody[@"y"] = eventMessageModel.y;
+    messageBody[@"category"] = eventMessageModel.category;
+    messageBody[@"offset"] = eventMessageModel.offset;
+    messageBody[@"index"] = @(eventMessageModel.index);
+    return messageBody;
 }
 
 //【案例分享】Highcharts 坐标轴标签点击高亮: https://blog.jianshukeji.com/highcharts/highlight-label-by-click.html
@@ -273,7 +291,26 @@
 
 }
 
-- (NSString*)printPrettyPrintedJsonStringWithJsonObject:(id)jsonObject {
+- (NSString*)printPrettyPrintedClickEventMessageJsonStringWithJsonObject:(id)jsonObject {
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *logPrefix = @"🖱🖱🖱🖱  user finger clicked!!!,get the clicked event series element message:";
+    NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
+                              logPrefix,
+                              jsonStr];
+    NSLog(@"%@",eventMessage);
+    
+    if (error) {
+        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
+        return nil;
+    }
+    return jsonStr;
+}
+
+- (NSString*)printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:(id)jsonObject {
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
                                                        options:NSJSONWritingPrettyPrinted
