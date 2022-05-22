@@ -84,16 +84,16 @@
         }
             
         function configureChartClickEvent(aaPlotOptions) {
-            var mouseOverFunc = function() {
+            var clickEventFunc = function() {
                 var message = configureEventMessageBody(this);
                 window.webkit.messageHandlers.click.postMessage(message);
             };
             if (aaPlotOptions.series.point) {// set property directly for series point
-                aaPlotOptions.series.point.events.click = mouseOverFunc;
+                aaPlotOptions.series.point.events.click = clickEventFunc;
             } else {// creat a new series point object instance
                 var seriesPoint = {
                     events:{
-                        click: mouseOverFunc,
+                        click: clickEventFunc,
                     }
                 };
                 aaPlotOptions.series.point = seriesPoint;
@@ -101,17 +101,17 @@
         }
         
         function configureChartTouchEvent(aaPlotOptions) {
-            var mouseOverFunc = function() {
+            var mouseOverEventFunc = function() {
                 var message = configureEventMessageBody(this);
                 window.webkit.messageHandlers.mouseover.postMessage(message);
             };
             
             if (aaPlotOptions.series.point) {// set property directly for series point
-                aaPlotOptions.series.point.events.mouseOver = mouseOverFunc;
+                aaPlotOptions.series.point.events.mouseOver = mouseOverEventFunc;
             } else {// creat a new series point object instance
                 var seriesPoint = {
                     events:{
-                        mouseOver: mouseOverFunc,
+                        mouseOver: mouseOverEventFunc,
                     }
                 };
                 aaPlotOptions.series.point = seriesPoint;
