@@ -68,20 +68,25 @@
             }
         }
             
+        function configureEventMessageBody(selectedPoint) {
+            var messageBody = {
+                name: selectedPoint.series.name,
+                y: selectedPoint.y,
+                x: selectedPoint.x,
+                category:selectedPoint.category,
+                offset: {
+                    plotX: selectedPoint.plotX,
+                    plotY: selectedPoint.plotY
+                },
+                index: selectedPoint.index,
+            };
+            return messageBody;
+        }
+            
         function configureChartClickEvent(aaPlotOptions) {
             var mouseOverFunc = function() {
-                var message = {
-                    name: this.series.name,
-                    y: this.y,
-                    x: this.x,
-                    category:this.category,
-                    offset: {
-                        plotX: this.plotX,
-                        plotY: this.plotY
-                    },
-                    index: this.index,
-                };
-            window.webkit.messageHandlers.click.postMessage(message);
+                var message = configureEventMessageBody(this);
+                window.webkit.messageHandlers.click.postMessage(message);
             };
             if (aaPlotOptions.series.point) {// set property directly for series point
                 aaPlotOptions.series.point.events.click = mouseOverFunc;
@@ -97,18 +102,8 @@
         
         function configureChartTouchEvent(aaPlotOptions) {
             var mouseOverFunc = function() {
-                var message = {
-                    name: this.series.name,
-                    y: this.y,
-                    x: this.x,
-                    category:this.category,
-                    offset: {
-                        plotX: this.plotX,
-                        plotY: this.plotY
-                    },
-                    index: this.index,
-                };
-            window.webkit.messageHandlers.mouseover.postMessage(message);
+                var message = configureEventMessageBody(this);
+                window.webkit.messageHandlers.mouseover.postMessage(message);
             };
             
             if (aaPlotOptions.series.point) {// set property directly for series point
