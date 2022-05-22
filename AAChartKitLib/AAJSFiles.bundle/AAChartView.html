@@ -59,8 +59,39 @@
                 animation.easing = configureTheChartAnimationEasingType(animationEasingType);
             }
             
+            if (aaOptions.clickEventEnabled == true && aaPlotOptions.series) {
+                configureChartClickEvent(aaPlotOptions);
+            }
+            
             if (aaOptions.touchEventEnabled == true && aaPlotOptions.series) {
                 configureChartTouchEvent(aaPlotOptions);
+            }
+        }
+            
+        function configureChartClickEvent(aaPlotOptions) {
+            var mouseOverFunc = function() {
+                var message = {
+                    name: this.series.name,
+                    y: this.y,
+                    x: this.x,
+                    category:this.category,
+                    offset: {
+                        plotX: this.plotX,
+                        plotY: this.plotY
+                    },
+                    index: this.index,
+                };
+            window.webkit.messageHandlers.click.postMessage(message);
+            };
+            if (aaPlotOptions.series.point) {// set property directly for series point
+                aaPlotOptions.series.point.events.click = mouseOverFunc;
+            } else {// creat a new series point object instance
+                var seriesPoint = {
+                    events:{
+                        click: mouseOverFunc,
+                    }
+                };
+                aaPlotOptions.series.point = seriesPoint;
             }
         }
         

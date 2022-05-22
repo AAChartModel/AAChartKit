@@ -38,7 +38,7 @@
 #import <WebKit/WebKit.h>
 #import "AAOptions.h"
 
-@interface AAMoveOverEventMessageModel : NSObject
+@interface AAEventMessageModel : NSObject
 
 @property (nonatomic, copy)   NSString *name;
 @property (nonatomic, strong) NSNumber *x;
@@ -47,6 +47,14 @@
 @property (nonatomic, strong) NSDictionary *offset;
 @property (nonatomic, assign) NSUInteger index;
 
+@end
+
+
+@interface AAClickEventMessageModel : AAEventMessageModel
+@end
+
+
+@interface AAMoveOverEventMessageModel : AAEventMessageModel
 @end
 
 
@@ -59,6 +67,12 @@
 /// The delegate method of chart view finish loading
 /// @param aaChartView AAChartView object instance
 - (void)aaChartViewDidFinishLoad:(AAChartView *)aaChartView;
+
+
+/// The delegate method of getting click event message model
+/// @param aaChartView The instance object of chart view
+/// @param message User finger click event message model
+- (void)aaChartView:(AAChartView *)aaChartView clickEventWithMessage:(AAClickEventMessageModel *)message;
 
 /// The delegate method of getting move over event message model
 /// @param aaChartView The instance object of chart view
@@ -74,6 +88,7 @@
 @end
 
 typedef void(^AADidFinishLoadBlock)(AAChartView *aaChartView);
+typedef void(^AAClickEventBlock)(AAChartView *aaChartView, AAClickEventMessageModel *message);
 typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMessageModel *message);
 typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScriptMessage *message);
 
@@ -107,6 +122,9 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// The block method of chart view finish loading
 @property (nonatomic, copy) AADidFinishLoadBlock didFinishLoadBlock;
 
+/// The block method of user finger click event
+@property (nonatomic, copy) AAClickEventBlock clickEventBlock;
+
 /// The block method of user finger move over event
 @property (nonatomic, copy) AAMoveOverEventBlock moveOverEventBlock;
 
@@ -117,6 +135,10 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// Chart view finish loading event handler
 /// @param handler event handler
 - (void)didFinishLoadHandler:(AADidFinishLoadBlock)handler;
+
+/// Chart view getting click event message model
+/// @param handler event handler
+- (void)clickEventHandler:(AAClickEventBlock)handler;
 
 /// Chart view getting moved over event message model
 /// @param handler event handler
