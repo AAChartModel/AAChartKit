@@ -140,7 +140,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// @param handler event handler
 - (void)clickEventHandler:(AAClickEventBlock)handler;
 
-/// Chart view getting moved over event message model
+/// Chart view getting move over event message model
 /// @param handler event handler
 - (void)moveOverEventHandler:(AAMoveOverEventBlock)handler;
 
