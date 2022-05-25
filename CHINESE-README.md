@@ -104,27 +104,26 @@ _aaChartView.frame = CGRectMake(0, 60, chartViewWidth, chartViewHeight);
 ```
 3. 配置视图模型`AAChartModel`
 ```objective-c
-AAChartModel *aaChartModel= AAObject(AAChartModel)
+AAChartModel *aaChartModel = AAChartModel.new
 .chartTypeSet(AAChartTypeArea)//设置图表的类型(这里以设置的为折线面积图为例)
 .titleSet(@"编程语言热度")//设置图表标题
 .subtitleSet(@"虚拟数据")//设置图表副标题
 .categoriesSet(@[@"Java",@"Swift",@"Python",@"Ruby", @"PHP",@"Go",@"C",@"C#",@"C++"])//图表横轴的内容
 .yAxisTitleSet(@"摄氏度")//设置图表 y 轴的单位
 .seriesSet(@[
-        AAObject(AASeriesElement)
+    AASeriesElement.new
         .nameSet(@"2017")
         .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
-        AAObject(AASeriesElement)
+    AASeriesElement.new
         .nameSet(@"2018")
         .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
-        AAObject(AASeriesElement)
+    AASeriesElement.new
         .nameSet(@"2019")
         .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
-        AAObject(AASeriesElement)
+    AASeriesElement.new
         .nameSet(@"2020")
         .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-                 ])
-;
+]);
 ```
 4.  绘制图形(创建 `AAChartView` 实例对象后,首次绘制图形调用此方法)
 ```objective-c
@@ -281,22 +280,18 @@ AAChartModel *aaChartModel= AAObject(AAChartModel)
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
-        let colorsArr = [];
-        colorsArr.push("mediumspringgreen");
-        colorsArr.push("deepskyblue");
-        colorsArr.push("red");
-        colorsArr.push("sandybrown");
-        let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-        for (let i = 0;i < 4;i++) {
+        let wholeContentStr ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        let length = this.points.length;
+        for (let i = 0; i < length; i++) {
             let thisPoint = this.points[i];
             let yValue = thisPoint.y;
             if (yValue != 0) {
-                let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
+                let spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
                 let spanStyleEndStr = '</span> <br/>';
-                wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+                wholeContentStr += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
             }
         }
-        return wholeContentString;
+        return wholeContentStr;
     }))
     .backgroundColorSet(@"#050505")
     .borderColorSet(@"#050505")
@@ -370,6 +365,25 @@ AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;   //支持图表等�
 ```
 NOTE:例如,设置了`AAChartModel`的缩放属性`zoomType`为`AAChartZoomTypeX`,并且将图表进行了手势放大之后,这时候如果想要左右滑动图表,可以使用 **双指点按** 屏幕中的`AAChartView`视图区域进行 **左右拖动** 即可.同时屏幕的右上角会自动出现一个标题为 **"恢复缩放"** 的按钮,点击恢复缩放,图表大小和位置将会回归到原初的样式.
 
+
+### 当前已支持的图表线条类型共有十一种,说明如下
+```objc
+typedef NSString *AAChartLineDashStyleType;
+
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid;           //———————————————————————————————————
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash;       //— — — — — — — — — — — — — — — — — —
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot;        //ⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈ
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot;    //—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot; //—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDot;             //‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDash;            //—— —— —— —— —— —— —— —— —— —— —— ——
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash;        //——— ——— ——— ——— ——— ——— ——— ——— ———
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot;         //——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot;     //———‧———‧———‧———‧———‧———‧———‧———‧———‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot;  //———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧
+```
+
+
 ### 当前已支持的图表渲染动画类型有三十种以上,说明如下
 ```objective-c
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
@@ -427,87 +441,64 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
 
 ### `AAChartModel` 属性配置列表
 ```objective-c
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title) //标题文本内容
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, titleFontSize) //标题字体尺寸大小
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontColor) //标题字体颜色
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight) //标题字体粗细
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title) //标题内容
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, titleStyle) //标题文字样式
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle) //副标题文本内容
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, subtitleFontSize) //副标题字体尺寸大小
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor) //副标题字体颜色
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight) //副标题字体粗细
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle) //副标题内容
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, subtitleStyle) //副标题文字样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor) //图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme) //图表主题颜色数组
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories) //x轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, colorsTheme) //图表主题颜色数组
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories) //X轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series) //图表的数据列内容
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType) //图表类型
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking) //堆积样式
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        markerSymbol) //折线曲线连接点的类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   markerSymbolStyle) 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType) //缩放类型 AAChartZoomTypeX 表示可沿着 x 轴进行手势缩放
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType) //设置图表的渲染动画类型
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,            chartType) //图表类型
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,    stacking) //堆积样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,      markerSymbol) //折线曲线连接点的类型："circle ◉ ", "square ■ ", "diamond ◆ ", "triangle ▲ ","triangle-down ▼ "，默认是"circle  ◉ "
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType, markerSymbolStyle)
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,        zoomType) //缩放类型 AAChartZoomTypeX 表示可沿着 X 轴进行手势缩放
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,       animationType) //设置图表的渲染动画类型
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration) //设置图表的渲染动画时长(动画单位为毫秒)
-
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted) //x 轴是否垂直,默认为否
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       gradientColorsThemeEnabled) //是否将常规主题颜色数组 colorsTheme 自动转换为半透明渐变效果的颜色数组(设置后就不用自己再手动去写渐变色字典,相当于是设置渐变色的一个快捷方式,当然了,如果需要细致地自定义渐变色效果,还是需要自己手动配置渐变颜色字典内容,具体方法参见图表示例中的`颜色渐变条形图`示例代码),默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted) //X 轴是否垂直,默认为否
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) //是否极化图形(变为雷达图),默认为否
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, margin) //图表外边缘和绘图区域之间的边距。 数组中的数字分别表示顶部，右侧，底部和左侧 ([👆,👉,👇,👈])。 也可以使用 AAChart 对象的 marginTop，marginRight，marginBottom 和 marginLeft 来设置某一个方向的边距。默认值为[null]
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled) //是否显示数据,默认为否
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor) //Datalabel font color
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize) //Datalabel font size
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight) //Datalabel font weight
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelsEnabled) //是否显示数据,默认为否
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, dataLabelsStyle) //dataLabels文字样式
 
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) //X 轴是否可见(默认可见)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed) //X 轴翻转,默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled) //X 轴是否显示文字
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, xAxisLabelsStyle) //X 轴文字样式
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval) //X 轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, xAxisGridLineStyle) //X 轴网格线的样式
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, xAxisCrosshair) //X 轴准星线
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) //x 轴是否可见(默认可见)
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed) // x 轴翻转,默认为否
-
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled) //x 轴是否显示文字
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisLabelsFontSize) //x 轴文字字体大小
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor) //x 轴文字字体颜色
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartFontWeightType, xAxisLabelsFontWeight) //x 轴文字字体粗细
-
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth) //x 轴网格线的宽度
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
-
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisCrosshairWidth) //设置 x 轴准星线的宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisCrosshairColor) //设置 x 轴准星线的颜色
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   xAxisCrosshairDashStyleType) //设置 x 轴准星线的线条样式类型
-
-
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //y 轴是否可见(默认可见)
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed) //y 轴翻转,默认为否
-
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled) //y 轴是否显示文字
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLabelsFontSize) //y 轴文字字体大小
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor) //y 轴文字字体颜色
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartFontWeightType , yAxisLabelsFontWeight) //y 轴文字字体粗细
-
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle) //y 轴标题
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLineWidth) //y y-axis line width
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth) //y轴网格线的宽度
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals) //是否允许 y 轴显示小数
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines) //y 轴基线的配置
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax) //y 轴最大值
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin) //y 轴最小值（设置为0就不会有负数）
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
-
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisCrosshairWidth) //设置 y 轴准星线的宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisCrosshairColor) //设置 y 轴准星线的颜色
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AALineDashSyleType,   yAxisCrosshairDashStyleType) //设置 y 轴准星线的线条样式类型
-
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //Y 轴是否可见(默认可见)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed) //Y 轴翻转,默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled) //Y 轴是否显示文字
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, yAxisLabelsStyle) //Y 轴文字样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle) //Y 轴标题
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLineWidth) //Y 轴的轴线宽度
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals) //是否允许 Y 轴显示小数
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines) //Y 轴标示线🧶的配置
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax) //Y 轴最大值
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin) //Y 轴最小值（设置为0就不会有负数）
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 Y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, yAxisGridLineStyle) //Y 轴网格线的样式
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, yAxisCrosshair) //Y 轴准星线
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared)//是否多组数据共享一个浮动提示框
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared) //是否多组数据共享一个浮动提示框
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix) //浮动提示框单位后缀
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls) //设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) //是否显示图例 lengend(图表底部可点按的圆点和文字)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius) //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)
 
 ```
 
@@ -598,6 +589,7 @@ Java | AAChartCore | Android | https://github.com/AAChartModel/AAChartCore |
  - [x] 支持渲染南丁格尔🌹玫瑰图
  - [x] 支持渲染活动刻度仪表图
  - [x] 支持为图形添加点击事件回调
+ - [x] 支持为图形添加手指✋🏻或鼠标🖱滑过的事件回调
  - [ ] 支持代码覆盖率测试
 
 
