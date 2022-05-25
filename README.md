@@ -141,19 +141,18 @@ AAChartModel *aaChartModel = AAChartModel.new
 .yAxisTitleSet(@"Degrees Celsius")
 .seriesSet(@[
     AASeriesElement.new
-    .nameSet(@"2017")
-    .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
     AASeriesElement.new
-    .nameSet(@"2018")
-    .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+        .nameSet(@"2018")
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
     AASeriesElement.new
-    .nameSet(@"2019")
-    .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+        .nameSet(@"2019")
+        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
     AASeriesElement.new
-    .nameSet(@"2020")
-    .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
-])
-;
+        .nameSet(@"2020")
+        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+]);
 ```
 4. Draw the chart (this method is only called the first time you create an AAChartView instance object) 
 ```objective-c
@@ -292,7 +291,7 @@ For example
 * configuring AATooltip instance object properties as follow:
 
 
-```swift
+```js
  /*Custom Tooltip Style ---*/
     AATooltip *tooltip = aaOptions.tooltip;
     tooltip
@@ -318,30 +317,26 @@ you can get the customized tooltip style chart like this👇
 
 * configuring AATooltip instance object properties as follow:
 
-```swift
- aaOptions.tooltip
- .useHTMLSet(true)
- .formatterSet(@AAJSFunc(function () {
-     let colorsArr = [];
-     colorsArr.push("mediumspringgreen");
-     colorsArr.push("deepskyblue");
-     colorsArr.push("red");
-     colorsArr.push("sandybrown");
-     let wholeContentString ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-     for (let i = 0;i < 4;i++) {
-         let thisPoint = this.points[i];
-         let yValue = thisPoint.y;
-         if (yValue != 0) {
-             let spanStyleStartStr = '<span style=\"' + 'color:'+ colorsArr[i] + '; font-size:13px\"' + '>◉ ';
-             let spanStyleEndStr = '</span> <br/>';
-             wholeContentString += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
-         }
-     }
-     return wholeContentString;
- }))
- .backgroundColorSet(@"#050505")
- .borderColorSet(@"#050505")
- ;
+```js
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .formatterSet(@AAJSFunc(function () {
+        let wholeContentStr ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
+        let length = this.points.length;
+        for (let i = 0; i < length; i++) {
+            let thisPoint = this.points[i];
+            let yValue = thisPoint.y;
+            if (yValue != 0) {
+                let spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                let spanStyleEndStr = '</span> <br/>';
+                wholeContentStr += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
+            }
+        }
+        return wholeContentStr;
+    }))
+    .backgroundColorSet(@"#050505")
+    .borderColorSet(@"#050505")
+    ;
 ```
 
 you can get the customized tooltip style chart like this👇  
@@ -383,11 +378,11 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;          //column chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;             //bar chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeArea;            //area chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeAreaspline;      //area spline chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //line chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeLine;            //line chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeSpline;          //spline chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeScatter;         //scatter chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypePie;             //pie chart
-AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //bubble chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeBubble;          //bubble chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypePyramid;         //pyramid chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeFunnel;          //funnel chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeColumnrange;     //column range chart
@@ -396,15 +391,32 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange; //area spline ra
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;         //box plot chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;       //Waterfall chart
 AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;         //polygon chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;           //gauge chart
+AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;        //error bar chart
 ```
 ### Supported zoom guesture types for now
-```Objective-c
+```objective-c
 typedef NSString *AAChartZoomType;
 
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeNone;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeX;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeY;
 AACHARTKIT_EXTERN AAChartZoomType const AAChartZoomTypeXY;
+```
+
+### Suppported line dash style types for now
+```objective-c
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeSolid;           //———————————————————————————————————
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDash;       //— — — — — — — — — — — — — — — — — —
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDot;        //ⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈⵈ
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDot;    //—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧—‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeShortDashDotDot; //—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧—‧‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDot;             //‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDash;            //—— —— —— —— —— —— —— —— —— —— —— ——
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDash;        //——— ——— ——— ——— ——— ——— ——— ——— ———
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeDashDot;         //——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDot;     //———‧———‧———‧———‧———‧———‧———‧———‧———‧
+AACHARTKIT_EXTERN AAChartLineDashStyleType const AAChartLineDashStyleTypeLongDashDotDot;  //———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧———‧‧
 ```
 
 ### Supported animation types for now
@@ -463,70 +475,64 @@ Here are the ten concrete animation types of AAChartKit
 
 ## AAChartModel:chart attribute list
 ```objective-c
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, titleFontSize);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontColor);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, titleFontWeight);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, title) //标题内容
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, titleStyle) //标题文字样式
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, subtitleFontSize);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontColor);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitleFontWeight);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitle) //副标题内容
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, subtitleStyle) //副标题文字样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor) //图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, colorsTheme) //图表主题颜色数组
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories) //X轴坐标每个点对应的名称(注意:这个不是用来设置 X 轴的值,仅仅是用于设置 X 轴文字内容的而已)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series) //图表的数据列内容
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSubtitleAlignType, subtitleAlign);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,              chartType);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,      stacking);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,        symbol);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType,   symbolStyle);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,          zoomType);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,         animationType);
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,            chartType) //图表类型
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,    stacking) //堆积样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,      markerSymbol) //折线曲线连接点的类型："circle ◉ ", "square ■ ", "diamond ◆ ", "triangle ▲ ","triangle-down ▼ "，默认是"circle  ◉ "
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType, markerSymbolStyle)
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,        zoomType) //缩放类型 AAChartZoomTypeX 表示可沿着 X 轴进行手势缩放
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,       animationType) //设置图表的渲染动画类型
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration) //设置图表的渲染动画时长(动画单位为毫秒)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted) //X 轴是否垂直,默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) //是否极化图形(变为雷达图),默认为否
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, margin) //图表外边缘和绘图区域之间的边距。 数组中的数字分别表示顶部，右侧，底部和左侧 ([👆,👉,👇,👈])。 也可以使用 AAChart 对象的 marginTop，marginRight，marginBottom 和 marginLeft 来设置某一个方向的边距。默认值为[null]
 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverted);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       gradientColorEnabled);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelEnabled);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontColor);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, dataLabelFontSize);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, dataLabelFontWeight);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, xAxisLabelsFontSize);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontColor);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, xAxisLabelsFontWeight);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, categories);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisGridLineWidth);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelsEnabled) //是否显示数据,默认为否
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, dataLabelsStyle) //dataLabels文字样式
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSNumber *, yAxisLabelsFontSize);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontColor);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisLabelsFontWeight);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisGridLineWidth);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, colorsTheme);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) //X 轴是否可见(默认可见)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisReversed) //X 轴翻转,默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisLabelsEnabled) //X 轴是否显示文字
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, xAxisLabelsStyle) //X 轴文字样式
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, xAxisTickInterval) //X 轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, xAxisGridLineStyle) //X 轴网格线的样式
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, xAxisCrosshair) //X 轴准星线
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled);
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix);
-AAPropStatementAndPropSetFuncStatement(copy  , AAChartModel, NSString *, tooltipValueString);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipCrosshairs);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls);
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisVisible) //Y 轴是否可见(默认可见)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisReversed) //Y 轴翻转,默认为否
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisLabelsEnabled) //Y 轴是否显示文字
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, yAxisLabelsStyle) //Y 轴文字样式
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, yAxisTitle) //Y 轴标题
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisLineWidth) //Y 轴的轴线宽度
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals) //是否允许 Y 轴显示小数
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines) //Y 轴标示线🧶的配置
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax) //Y 轴最大值
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin) //Y 轴最小值（设置为0就不会有负数）
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisTickInterval)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions) //自定义 Y 轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AALineStyle *, yAxisGridLineStyle) //Y 轴网格线的样式
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AACrosshair *, yAxisCrosshair) //Y 轴准星线
 
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipEnabled) //是否显示浮动提示框(默认显示)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       tooltipShared) //是否多组数据共享一个浮动提示框
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltipValueSuffix) //浮动提示框单位后缀
 
-AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       yAxisAllowDecimals);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisPlotLines);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMax);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, yAxisMin);
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, yAxisTickPositions);
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls) //设置折线是否断点重连(是否连接空值点)
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) //是否显示图例 lengend(图表底部可点按的圆点和文字)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius) //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)
 
 ```
 
@@ -631,6 +637,7 @@ AAChartKit is available under the MIT license. See the [LICENSE](https://github.
  - [x] Support rendering the Nightingale rose 🌹chart
  - [x] Support rendering the circular progress bar chart 
  - [x] Support adding clicked event callbacks for graphics
+ - [x] Support adding finger✋🏻 or mouse🖱 move over event callbacks for graphics
  - [ ] Support  code coverage test
 
 
