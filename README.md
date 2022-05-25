@@ -484,7 +484,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, s
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, colorsTheme)
-AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, 
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray     <NSString *>*, categories)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series)
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,            chartType) 
@@ -498,7 +498,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       inverte
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       polar) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, margin)
 
-AAPropStatementAndPropSetFuncStatement(
+AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       dataLabelsEnabled) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, dataLabelsStyle)
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       xAxisVisible) 
