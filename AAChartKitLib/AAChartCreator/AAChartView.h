@@ -99,10 +99,10 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 /// Configure the behavior of adjustedContentInset.
 /// Default is UIScrollViewContentInsetAdjustmentAutomatic.
 @property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior API_AVAILABLE(ios(11.0),tvos(11.0));
-#endif
 
 /// Set the chart view can scroll or not
 @property (nonatomic, assign) BOOL scrollEnabled;
+#endif
 
 /// Set the chart view background color be clear
 @property (nonatomic, assign) BOOL isClearBackgroundColor;

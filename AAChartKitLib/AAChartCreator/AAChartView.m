@@ -563,16 +563,13 @@ WKScriptMessageHandler
     _contentInsetAdjustmentBehavior = contentInsetAdjustmentBehavior;
     self.scrollView.contentInsetAdjustmentBehavior = _contentInsetAdjustmentBehavior;
 }
-#endif
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
-#if TARGET_OS_IPHONE
     self.scrollView.scrollEnabled = _scrollEnabled;
-#elif TARGET_OS_MAC
-    self.scrollEnabled = _scrollEnabled;
-#endif
 }
+#endif
+
 
 - (void)setIsClearBackgroundColor:(BOOL)isClearBackgroundColor {
     _isClearBackgroundColor = isClearBackgroundColor;
