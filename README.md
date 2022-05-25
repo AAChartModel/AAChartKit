@@ -491,6 +491,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartType,       
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartStackingType,    stacking) 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartSymbolType,      markerSymbol) 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartSymbolStyleType, markerSymbolStyle)
+AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartZoomType,        zoomType)
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, AAChartAnimation,       animationType) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, animationDuration)
