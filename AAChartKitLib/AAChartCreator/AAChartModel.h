@@ -101,8 +101,8 @@ AACHARTKIT_EXTERN AAChartType const AAChartTypeAreasplinerange; //区域曲线�
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBoxplot;         //箱线图
 AACHARTKIT_EXTERN AAChartType const AAChartTypeWaterfall;       //瀑布图
 AACHARTKIT_EXTERN AAChartType const AAChartTypePolygon;         //多边形图
-AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;        //误差图
 AACHARTKIT_EXTERN AAChartType const AAChartTypeGauge;           //仪表图
+AACHARTKIT_EXTERN AAChartType const AAChartTypeErrorbar;        //误差图
 
 AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeHorizontal; //水平布局
 AACHARTKIT_EXTERN AAChartLayoutType const AAChartLayoutTypeVertical;   //垂直布局

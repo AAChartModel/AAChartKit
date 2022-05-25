@@ -50,8 +50,8 @@ AAChartType const AAChartTypeAreasplinerange = @"areasplinerange"; //区域曲�
 AAChartType const AAChartTypeBoxplot         = @"boxplot";         //箱线图
 AAChartType const AAChartTypeWaterfall       = @"waterfall";       //瀑布图
 AAChartType const AAChartTypePolygon         = @"polygon";         //多边形图
-AAChartType const AAChartTypeErrorbar        = @"errorbar";        //误差图
 AAChartType const AAChartTypeGauge           = @"gauge";           //仪表图
+AAChartType const AAChartTypeErrorbar        = @"errorbar";        //误差图
 
 AAChartLayoutType const AAChartLayoutTypeHorizontal = @"horizontal"; //水平布局
 AAChartLayoutType const AAChartLayoutTypeVertical   = @"vertical";   //垂直布局
