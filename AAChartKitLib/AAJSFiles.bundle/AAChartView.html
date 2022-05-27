@@ -59,11 +59,11 @@
                 animation.easing = configureTheChartAnimationEasingType(animationEasingType);
             }
             
-            if (aaOptions.clickEventEnabled == true && aaPlotOptions.series) {
+            if (aaOptions.clickEventEnabled == true) {
                 configureChartClickEvent(aaPlotOptions);
             }
             
-            if (aaOptions.touchEventEnabled == true && aaPlotOptions.series) {
+            if (aaOptions.touchEventEnabled == true) {
                 configureChartTouchEvent(aaPlotOptions);
             }
         }
@@ -88,34 +88,15 @@
                 var message = configureEventMessageBody(this);
                 window.webkit.messageHandlers.click.postMessage(message);
             };
-            if (aaPlotOptions.series.point) {// set property directly for series point
-                aaPlotOptions.series.point.events.click = clickEventFunc;
-            } else {// creat a new series point object instance
-                var seriesPoint = {
-                    events:{
-                        click: clickEventFunc,
-                    }
-                };
-                aaPlotOptions.series.point = seriesPoint;
-            }
+            aaPlotOptions.series.point.events.click = clickEventFunc;
         }
-        
+            
         function configureChartTouchEvent(aaPlotOptions) {
             var mouseOverEventFunc = function() {
                 var message = configureEventMessageBody(this);
                 window.webkit.messageHandlers.mouseover.postMessage(message);
             };
-            
-            if (aaPlotOptions.series.point) {// set property directly for series point
-                aaPlotOptions.series.point.events.mouseOver = mouseOverEventFunc;
-            } else {// creat a new series point object instance
-                var seriesPoint = {
-                    events:{
-                        mouseOver: mouseOverEventFunc,
-                    }
-                };
-                aaPlotOptions.series.point = seriesPoint;
-            }
+            aaPlotOptions.series.point.events.mouseOver = mouseOverEventFunc;
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {

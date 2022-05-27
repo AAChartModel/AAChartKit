@@ -402,6 +402,17 @@ WKScriptMessageHandler
     return URLRequest;
 }
 
+- (void)configurePlotOptionsSeriesPointEventsWithAAOptions:(AAOptions *)aaOptions {
+    if (aaOptions.plotOptions == nil) {
+        aaOptions.plotOptions = AAPlotOptions.new.seriesSet(AASeries.new.pointSet(AAPoint.new.eventsSet(AAPointEvents.new)));
+    } else if (aaOptions.plotOptions.series == nil) {
+        aaOptions.plotOptions.series = AASeries.new.pointSet(AAPoint.new.eventsSet(AAPointEvents.new));
+    } else if (aaOptions.plotOptions.series.point == nil) {
+        aaOptions.plotOptions.series.point = AAPoint.new.eventsSet(AAPointEvents.new);
+    } else if (aaOptions.plotOptions.series.point.events == nil) {
+        aaOptions.plotOptions.series.point.events = AAPointEvents.new;
+    }
+}
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
     if (_isClearBackgroundColor) {
@@ -410,9 +421,13 @@ WKScriptMessageHandler
     
     if (_clickEventEnabled == true) {
         aaOptions.clickEventEnabled = true;
+        [self configurePlotOptionsSeriesPointEventsWithAAOptions:aaOptions];
     }
     if (_mouseOverEventEnabled == true) {
         aaOptions.touchEventEnabled = true;
+        if (_clickEventEnabled == false) {//避免重复调用配置方法
+            [self configurePlotOptionsSeriesPointEventsWithAAOptions:aaOptions];
+        }
     }
     
     _optionJson = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:aaOptions];
