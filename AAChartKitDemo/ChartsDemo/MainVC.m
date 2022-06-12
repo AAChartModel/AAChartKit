@@ -673,7 +673,7 @@
               @"Bar Chart---条形图",
               @"Scatter Chart---散点图"
             ],
-            /*基础类型图表*/
+            /*图表高级更新*/
             @[@"Column Chart---柱形图",
               @"Bar Chart---条形图",
               @"Area Chart---折线填充图",
