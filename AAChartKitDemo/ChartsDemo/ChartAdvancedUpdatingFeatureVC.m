@@ -46,6 +46,7 @@
 
 - (void)customSegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
     id options;
+    NSInteger selectedSegmentIndex = segmentedControl.selectedSegmentIndex;
     switch (segmentedControl.tag) {
         case 0: {
             NSArray *stackingArr = @[
@@ -53,7 +54,7 @@
                 AAChartStackingTypeNormal,
                 AAChartStackingTypePercent
             ];
-            AAChartStackingType stackingType = stackingArr[segmentedControl.selectedSegmentIndex];
+            AAChartStackingType stackingType = stackingArr[selectedSegmentIndex];
             AAPlotOptions *aaPlotOptions = AAPlotOptions.new
             .seriesSet(AASeries.new
                        .stackingSet(stackingType));
@@ -68,7 +69,7 @@
                     @10,
                     @100
                 ];
-                NSNumber *borderRadius = borderRadiusArr[segmentedControl.selectedSegmentIndex];
+                NSNumber *borderRadius = borderRadiusArr[selectedSegmentIndex];
                 AAPlotOptions *aaPlotOptions;
                 if (self.chartType == 0) {
                     aaPlotOptions = AAPlotOptions.new
@@ -89,7 +90,7 @@
                     AAChartSymbolTypeTriangle,
                     AAChartSymbolTypeTriangle_down
                 ];
-                AAChartSymbolType markerSymbol = symbolArr[segmentedControl.selectedSegmentIndex];
+                AAChartSymbolType markerSymbol = symbolArr[selectedSegmentIndex];
                 AAPlotOptions *aaPlotOptions = AAPlotOptions.new
                 .seriesSet(AASeries.new
                            .markerSet(AAMarker.new
@@ -110,12 +111,12 @@
     id options;
     switch (switchView.tag) {
         case 0: {
-//            AAXAxis *aaXAxis = AAXAxis.new
-//            .reversedSet(switchView.on);
-            
-            AAChart *chart = AAChart.new;
-            chart.backgroundColor = (id)AAGradientColor.springGreensColor;
-            options = chart;
+            AAXAxis *aaXAxis = AAXAxis.new
+            .reversedSet(switchView.on);
+            options = aaXAxis;
+//            AAChart *chart = AAChart.new;
+//            chart.backgroundColor = (id)AAGradientColor.springGreensColor;
+//            options = chart;
         }
             break;
         case 1: {
