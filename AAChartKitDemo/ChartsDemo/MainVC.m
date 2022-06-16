@@ -519,7 +519,8 @@
               @"noMoreGroupingAndNestedColumnChart---不分组的嵌套柱状图📊",
               @"customLineChartWithColorfulMarkersAndLines---彩色连接点和连接线的折线图📈",
               @"customLineChartWithColorfulMarkersAndLines2---彩色连接点和连接线的多组折线的折线图📈",
-              @"drawLineChartWithPointsCoordinates---通过点坐标来绘制折线图"
+              @"drawLineChartWithPointsCoordinates---通过点坐标来绘制折线图",
+              @"configureSpecialStyleColumnForNegativeDataMixedPositiveData---为正负数混合的柱形图自定义特殊样式效果"
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",

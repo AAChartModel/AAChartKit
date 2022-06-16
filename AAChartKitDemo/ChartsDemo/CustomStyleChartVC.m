@@ -58,7 +58,7 @@
         case 8:  return [self configureStepLineChart];
         case 9:  return [self configureStepAreaChart];
         case 10: return [self configureNightingaleRoseChart];
-        case 11: return [self configureCustomSingleDataLabelChart];
+        case 11: return [self configureCustomSingleDataLabelsElementChart];
         case 12: return [self configureChartWithShadowStyle];
         case 13: return [self configureColorfulGradientAreaChart];
         case 14: return [self configureColorfulGradientSplineChart];
@@ -94,6 +94,7 @@
         case 44: return [self customLineChartWithColorfulMarkersAndLines];
         case 45: return [self customLineChartWithColorfulMarkersAndLines2];
         case 46: return [self drawLineChartWithPointsCoordinates];
+        case 47: return [self configureSpecialStyleColumnForNegativeDataMixedPositiveData];
             
         default:
             return nil;
@@ -483,7 +484,7 @@
                ]);
 }
 
-- (AAChartModel*)configureCustomSingleDataLabelChart {
+- (AAChartModel*)configureCustomSingleDataLabelsElementChart {
     AADataElement *aaDataElement = AADataElement.new
     .ySet(@1.25)
     .dataLabelsSet(AADataLabels.new
@@ -671,7 +672,6 @@
     .chartTypeSet(AAChartTypeColumn)
     .dataLabelsEnabledSet(false)//是否显示值
     .tooltipEnabledSet(false)
-    .markerRadiusSet(@0)
     .xAxisVisibleSet(false)
     .yAxisVisibleSet(false)
     .seriesSet(@[
@@ -1801,6 +1801,58 @@
             .typeSet(AAChartTypeScatter)
             .dataSet(dataArr),
     ]);
+}
+
+- (AAChartModel *)configureSpecialStyleColumnForNegativeDataMixedPositiveData {
+    NSArray *categoriesArr = @[
+        @"立春", @"雨水", @"惊蛰", @"春分", @"清明", @"谷雨", @"立夏", @"小满", @"芒种", @"夏至", @"小暑", @"大暑",
+        @"立秋", @"处暑", @"白露", @"秋分", @"寒露", @"霜降", @"立冬", @"小雪", @"大雪", @"冬至", @"小寒", @"大寒"
+    ];
+    
+    NSArray *dataArr = @[
+        @-70, @-69, @-25, @-145, @-182, @-215, @-52, @-265, @-233, @-453, @-139, @-96,
+        @+70, @+69, @+25, @+145, @+182, @+215, @+52, @+265, @+233, @+453, @+139, @+96,
+    ];
+    NSMutableArray *newDataArr = [NSMutableArray arrayWithCapacity:dataArr.count];
+    
+    [dataArr enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull dataElement, NSUInteger idx, BOOL * _Nonnull stop) {
+        AADataLabels *aaDataLabels = AADataLabels.new
+            .enabledSet(true)
+            .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
+            .xSet(@0)
+            .ySet(@-10);
+        
+        NSInteger dataElementValue = dataElement.intValue;
+        if (dataElementValue < 0) {
+            AADataElement *negativeDataElement = AADataElement.new
+            .ySet(@(-dataElementValue))
+            .colorSet(AAColor.greenColor)
+            .dataLabelsSet(aaDataLabels
+                           .formatSet(@"-{y} 美元")
+                           .styleSet(AAStyleColorSizeWeight(AAColor.greenColor, 11, AAChartFontWeightTypeThin)));
+            [newDataArr addObject:negativeDataElement];
+        } else {
+            AADataElement *positiveDataElement = AADataElement.new
+            .ySet(@(dataElementValue))
+            .colorSet(AAColor.redColor)
+            .dataLabelsSet(aaDataLabels
+                           .formatSet(@"+{y} 美元")
+                           .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 11, AAChartFontWeightTypeThin)));
+            [newDataArr addObject:positiveDataElement];
+        }
+    }];
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .categoriesSet(categoriesArr)
+    .tooltipEnabledSet(false)
+    .yAxisVisibleSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"虚构数据")
+        .lineWidthSet(@6)
+        .dataSet(newDataArr)
+               ]);
 }
 
 @end
