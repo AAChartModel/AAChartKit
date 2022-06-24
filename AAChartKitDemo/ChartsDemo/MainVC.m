@@ -149,17 +149,18 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        cell.textLabel.textColor = [UIColor redColor];
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+        cell.textLabel.font = [UIFont systemFontOfSize:18];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:16];
+        cell.detailTextLabel.numberOfLines = 0;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     NSString *textStr = self.chartTypeNameArr[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.textLabel.text = textStrArr[0];
-    cell.textLabel.textColor = [UIColor redColor];
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.textAlignment = NSTextAlignmentLeft;
-    cell.textLabel.font = [UIFont systemFontOfSize:18];
     cell.detailTextLabel.text = textStrArr[1];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:16];
-    cell.detailTextLabel.numberOfLines = 0;
 
     return cell;
 }
