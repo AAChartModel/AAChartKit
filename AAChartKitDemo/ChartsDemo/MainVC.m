@@ -107,9 +107,11 @@
     UILabel *sectionTitleLabel = [[UILabel alloc]init];
     sectionTitleLabel.frame = sectionHeaderView.bounds;
     sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    sectionTitleLabel.backgroundColor = AAGrayColor;
-    sectionTitleLabel.text = self.sectionTypeArr[(NSUInteger) section];
-    sectionTitleLabel.textColor = [UIColor purpleColor];
+    sectionTitleLabel.backgroundColor = [UIColor colorWithRed:0/255.0 green:191/255.0 blue:255/255.0 alpha:1.0]; //0 191 255
+    NSString *titleStr = self.sectionTypeArr[(NSUInteger) section];
+    titleStr = [titleStr stringByReplacingOccurrencesOfString:@"---" withString:@" | "];
+    sectionTitleLabel.text = titleStr;
+    sectionTitleLabel.textColor = UIColor.whiteColor; //255 48 48
     sectionTitleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
     [sectionHeaderView addSubview:sectionTitleLabel];
@@ -136,7 +138,7 @@
     return arr.count;
 }
 
-- (NSArray *) sectionIndexTitlesForTableView: (UITableView *)tableView {
+- (NSArray *)sectionIndexTitlesForTableView: (UITableView *)tableView {
     NSMutableArray *listTitles = [[NSMutableArray alloc] init];
     for (NSString *item in self.sectionTypeArr) {
           NSString *title = [item substringToIndex: 1];
@@ -161,6 +163,11 @@
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.textLabel.text = textStrArr[0];
     cell.detailTextLabel.text = textStrArr[1];
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor colorWithRed:240/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];// 164 211 238
+    } else {
+        cell.backgroundColor = UIColor.whiteColor;
+    }
 
     return cell;
 }
