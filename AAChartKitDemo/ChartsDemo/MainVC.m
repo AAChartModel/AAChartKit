@@ -107,7 +107,7 @@
     UILabel *sectionTitleLabel = [[UILabel alloc]init];
     sectionTitleLabel.frame = sectionHeaderView.bounds;
     sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    sectionTitleLabel.backgroundColor = [UIColor colorWithRed:0/255.0 green:191/255.0 blue:255/255.0 alpha:1.0]; //0 191 255
+    sectionTitleLabel.backgroundColor = [AAEasyTool colorWithHexString:@"#FF3030"]; 
     NSString *titleStr = self.sectionTypeArr[(NSUInteger) section];
     titleStr = [titleStr stringByReplacingOccurrencesOfString:@"---" withString:@" | "];
     sectionTitleLabel.text = titleStr;
@@ -155,7 +155,7 @@
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
         cell.textLabel.font = [UIFont systemFontOfSize:18];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:16];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
         cell.detailTextLabel.numberOfLines = 0;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -164,7 +164,7 @@
     cell.textLabel.text = textStrArr[0];
     cell.detailTextLabel.text = textStrArr[1];
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithRed:240/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];// 164 211 238
+        cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
     } else {
         cell.backgroundColor = UIColor.whiteColor;
     }
