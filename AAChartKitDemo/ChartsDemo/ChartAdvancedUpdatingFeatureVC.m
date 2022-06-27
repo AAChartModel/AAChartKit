@@ -109,10 +109,11 @@
 
 - (void)switchViewClicked:(UISwitch *)switchView {
     id options;
+    BOOL isOn = switchView.isOn;
     switch (switchView.tag) {
         case 0: {
             AAXAxis *aaXAxis = AAXAxis.new
-            .reversedSet(switchView.on);
+            .reversedSet(isOn);
             options = aaXAxis;
 //            AAChart *chart = AAChart.new;
 //            chart.backgroundColor = (id)AAGradientColor.springGreensColor;
@@ -121,7 +122,7 @@
             break;
         case 1: {
             AAYAxis *aaYAxis = AAYAxis.new
-            .reversedSet(switchView.on);
+            .reversedSet(isOn);
             options = aaYAxis;
         }
             break;
@@ -129,17 +130,17 @@
             if (self.aaChartModel.chartType == AAChartTypeBar) {
                 NSLog(@"⚠️⚠️⚠️inverted is useless for Bar Chart");
             }
-            self.aaChartModel.inverted = switchView.on;
+            self.aaChartModel.inverted = isOn;
             AAChart *aaChart = AAChart.new
-            .invertedSet(switchView.on)
+            .invertedSet(isOn)
             .polarSet(self.aaChartModel.polar);
             options = aaChart;
         }
             break;
         case 3: {
-            self.aaChartModel.polar = switchView.on;
+            self.aaChartModel.polar = isOn;
             AAChart *aaChart = AAChart.new
-            .polarSet(switchView.on)
+            .polarSet(isOn)
             .invertedSet(self.aaChartModel.inverted);
             options = aaChart;
             
@@ -184,12 +185,12 @@
             AAPlotOptions *aaPlotOptions = AAPlotOptions.new
             .seriesSet(AASeries.new
                        .dataLabelsSet(AADataLabels.new
-                                      .enabledSet(switchView.on)));
+                                      .enabledSet(isOn)));
             options = aaPlotOptions;
         }
             break;
         case 5: {
-            AAMarker *aaMarker = switchView.on ?
+            AAMarker *aaMarker = isOn ?
             AAMarker.new
             .enabledSet(false)
             :
