@@ -391,15 +391,15 @@
             @[@"No stacking",
               @"Normal stacking",
               @"Percent stacking"],
-            @[@"Circle",
-              @"Square",
-              @"Diamond",
-              @"Triangle",
-              @"Triangle-down"]
+            @[@"◉ ◉ ◉",
+              @"■ ■ ■",
+              @"◆ ◆ ◆",
+              @"▲ ▲ ▲",
+              @"▼ ▼ ▼"]
         ];
         typeLabelNameArr = @[
             @"Stacking type selection",
-            @"Chart symbol type selection"
+            @"Maker symbols type selection"
         ];
     }
     
