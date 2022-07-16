@@ -1802,6 +1802,7 @@
     ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1351
 - (AAChartModel *)configureSpecialStyleColumnForNegativeDataMixedPositiveData {
     NSArray *categoriesArr = @[
         @"立春", @"雨水", @"惊蛰", @"春分", @"清明", @"谷雨", @"立夏", @"小满", @"芒种", @"夏至", @"小暑", @"大暑",
