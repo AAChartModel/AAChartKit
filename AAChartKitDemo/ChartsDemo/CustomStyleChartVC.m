@@ -1901,7 +1901,7 @@
     ];
     NSMutableArray *newDataArr = [NSMutableArray arrayWithCapacity:dataArr.count];
     
-    [dataArr enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull dataElement, NSUInteger idx, BOOL * _Nonnull stop) {
+    for (NSNumber *  _Nonnull dataElement in dataArr) {
         AADataLabels *aaDataLabels = AADataLabels.new
             .enabledSet(true)
             .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
@@ -1926,7 +1926,7 @@
                            .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 11, AAChartFontWeightTypeThin)));
             [newDataArr addObject:positiveDataElement];
         }
-    }];
+    }
     
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
