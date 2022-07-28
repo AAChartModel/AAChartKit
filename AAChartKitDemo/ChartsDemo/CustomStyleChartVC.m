@@ -86,15 +86,18 @@
         case 36: return [self configureColorfulDataLabelsStepLineChart];
         case 37: return [self configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart];
         case 38: return [self disableSplineChartMarkerHoverEffect];
-        case 39: return [self topRoundedCornersStackingColumnChart];
-        case 40: return [self configureMaxAndMinDataLabelsForChart];
-        case 41: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
-        case 42: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
-        case 43: return [self noMoreGroupingAndNestedColumnChart];
-        case 44: return [self customLineChartWithColorfulMarkersAndLines];
-        case 45: return [self customLineChartWithColorfulMarkersAndLines2];
-        case 46: return [self drawLineChartWithPointsCoordinates];
-        case 47: return [self configureSpecialStyleColumnForNegativeDataMixedPositiveData];
+        case 39: return [self configureMaxAndMinDataLabelsForChart];
+        case 40: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
+        case 41: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
+        case 42: return [self noMoreGroupingAndNestedColumnChart];
+        case 43: return [self topRoundedCornersStackingColumnChart];
+        case 44: return [self freeStyleRoundedCornersStackingColumnChart];
+        case 45: return [self customColumnChartBorderStyleAndStatesHoverColor];
+            
+        case 46: return [self customLineChartWithColorfulMarkersAndLines];
+        case 47: return [self customLineChartWithColorfulMarkersAndLines2];
+        case 48: return [self drawLineChartWithPointsCoordinates];
+        case 49: return [self configureSpecialStyleColumnForNegativeDataMixedPositiveData];
             
         default:
             return nil;
@@ -1412,31 +1415,6 @@
                ]);
 }
 
-//https://github.com/AAChartModel/AAChartKit/issues/842
-- (AAChartModel *)topRoundedCornersStackingColumnChart {
-    return AAChartModel.new
-    .chartTypeSet(AAChartTypeColumn)
-    .stackingSet(AAChartStackingTypeNormal)
-    .titleSet(@"Top Rounded Corners Stacking Column Chart")
-    .colorsThemeSet(@[@"#fe117c", @"#ffc069", @"#06caf4",])
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"Tokyo Hot")
-        .borderRadiusTopLeftSet((id)@"50%")
-        .borderRadiusTopRightSet((id)@"50%")
-        .dataSet(@[@5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
-        
-        AASeriesElement.new
-        .nameSet(@"Berlin Hot")
-        .dataSet(@[@1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
-        
-        AASeriesElement.new
-        .nameSet(@"NewYork Hot")
-        .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
-               ]);
-}
-
-
 //https://github.com/AAChartModel/AAChartKit/issues/1203
 - (AAChartModel *)configureMaxAndMinDataLabelsForChart {
     AADataLabels *aaDataLabels = AADataLabels.new
@@ -1558,6 +1536,113 @@
                 .pointPaddingSet(@0.2)
         ]);
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/842
+- (AAChartModel *)topRoundedCornersStackingColumnChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .stackingSet(AAChartStackingTypeNormal)
+    .titleSet(@"Top Rounded Corners Stacking Column Chart")
+    .colorsThemeSet(@[@"#fe117c", @"#ffc069", @"#06caf4",])
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
+        .dataSet(@[@5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
+        
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .dataSet(@[@1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
+        
+        AASeriesElement.new
+        .nameSet(@"NewYork Hot")
+        .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
+               ]);
+}
+
+
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/323
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/346
+//https://github.com/highcharts/rounded-corners
+- (AAChartModel *)freeStyleRoundedCornersStackingColumnChart {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .stackingSet(AAChartStackingTypePercent)
+        .titleSet(@"Free-Style Rounded Corners Stacking Column Chart")
+        .colorsThemeSet(@[
+            [AAGradientColor gradientColorWithStartColorString:AARgbColor(128, 255, 165) endColorString:AARgbColor(1  , 191, 236)],
+            [AAGradientColor gradientColorWithStartColorString:AARgbColor(0  , 221, 255) endColorString:AARgbColor(77 , 119, 255)],
+            [AAGradientColor gradientColorWithStartColorString:AARgbColor(55 , 162, 255) endColorString:AARgbColor(116, 21 , 219)],
+            [AAGradientColor gradientColorWithStartColorString:AARgbColor(255, 0  , 135) endColorString:AARgbColor(135, 0  , 157)],
+            [AAGradientColor gradientColorWithStartColorString:AARgbColor(255, 191, 0  ) endColorString:AARgbColor(224, 62 , 76 )],
+        ])
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Tokyo Hot")
+                .borderRadiusTopLeftSet((id)@"50%")
+                .borderRadiusTopRightSet((id)@"50%")
+                .dataSet(@[@2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
+            
+            AASeriesElement.new
+                .nameSet(@"Berlin Hot")
+                .borderRadiusBottomLeftSet((id)@"50%")
+                .borderRadiusBottomRightSet((id)@"50%")
+                .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
+            
+            AASeriesElement.new
+                .nameSet(@"Beijing Hot")
+                .borderRadiusTopLeftSet((id)@"50%")
+                .borderRadiusBottomRightSet((id)@"50%")
+                .dataSet(@[@1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
+            
+            AASeriesElement.new
+                .nameSet(@"London Hot")
+                .borderRadiusTopRightSet((id)@"50%")
+                .borderRadiusBottomLeftSet((id)@"50%")
+                .dataSet(@[@5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
+            
+            AASeriesElement.new
+                .nameSet(@"NewYork Hot")
+                .borderRadiusSet(@20)
+                .dataSet(@[@2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
+        ]);
+}
+
+
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/365
+- (AAChartModel *)customColumnChartBorderStyleAndStatesHoverColor {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .stackingSet(AAChartStackingTypeNormal)
+        .colorsThemeSet(@[AAColor.darkGrayColor, AAColor.lightGrayColor])//Colors theme
+        .categoriesSet(@[
+            @"January", @"February", @"March", @"April", @"May", @"June",
+            @"July", @"August", @"September", @"October", @"November", @"December"
+        ])
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Berlin Hot")
+                .borderColorSet(AAColor.whiteColor)
+                .borderWidthSet(@3)
+                .borderRadiusSet(@10)
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .colorSet(AAColor.redColor)))
+                .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+            
+            AASeriesElement.new
+                .nameSet(@"Beijing Hot")
+                .borderColorSet(AAColor.whiteColor)
+                .borderWidthSet(@3)
+                .borderRadiusSet(@10)
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .colorSet(@"dodgerblue")))// Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
+                .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+        ]);
+}
+
 
 //https://github.com/AAChartModel/AAChartKit/issues/1291
 - (AAChartModel *)customLineChartWithColorfulMarkersAndLines {
@@ -1767,6 +1852,7 @@
     ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1294
 - (AAChartModel *)drawLineChartWithPointsCoordinates {
     NSArray *dataArr = @[
         @[@0, @200],
