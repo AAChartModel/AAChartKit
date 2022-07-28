@@ -48,6 +48,16 @@ NSString * AARgbaColor(int red,
 }
 
 AACHARTKIT_STATIC_INLINE
+NSString * AARgbColor(int red,
+                      int green,
+                      int blue) {
+    return [NSString stringWithFormat:@"rgba(%d,%d,%d,1.0)",
+            red,
+            green,
+            blue];
+}
+
+AACHARTKIT_STATIC_INLINE
 AAStyle * AAStyleColorSizeWeightOutline(NSString * color,
                                         float fontSize,
                                         NSString * fontWeight,
