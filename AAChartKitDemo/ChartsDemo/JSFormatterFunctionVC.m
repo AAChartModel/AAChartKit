@@ -1263,16 +1263,15 @@ function () {
     ];
     
     NSArray *colorArr = @[
-        @"rgb(201, 36, 39)",
-        @"rgb(201, 36, 39)",
-        @"rgb(0, 82, 180)",
-        @"rgb(0, 0, 0)",
-        @"rgb(240, 240, 240)",
-        @"rgb(255, 217, 68)",
-        @"rgb(0, 82, 180)",
-        @"rgb(215, 0, 38)"
+        AARgbColor(201, 36,  39 ),
+        AARgbColor(201, 36,  39 ),
+        AARgbColor(0,   82,  180),
+        AARgbColor(0,   0,   0  ),
+        AARgbColor(240, 240, 240),
+        AARgbColor(255, 217, 68 ),
+        AARgbColor(0,   82,  180),
+        AARgbColor(215, 0,   38 )
     ];
-    
     
     NSArray *imageLinkFlagArr = @[
         @"197582",
