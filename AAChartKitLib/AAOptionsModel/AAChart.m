@@ -31,6 +31,7 @@
  */
 
 #import "AAChart.h"
+#import "NSString+toPureJSString.h"
 
 @implementation AAChart
 
@@ -83,7 +84,15 @@ AAPropSetFuncImplementation(AAResetZoomButton, NSDictionary *, theme)
 
 @implementation AAChartEvents : NSObject
 
-AAPropSetFuncImplementation(AAChartEvents, NSString     *, load)
-AAPropSetFuncImplementation(AAChartEvents, NSString     *, selection)
+AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, load)
+AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, selection)
+
+- (void)setLoad:(NSString *)load {
+    _load = [load aa_toPureJSString];
+}
+
+- (void)setSelection:(NSString *)selection {
+    _selection = [selection aa_toPureJSString];
+}
 
 @end
