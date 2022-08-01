@@ -55,6 +55,7 @@ AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingBottom)
 AAPropSetFuncImplementation(AAChart, NSNumber    *, spacingLeft)
 AAPropSetFuncImplementation(AAChart, AAScrollablePlotArea *, scrollablePlotArea)
 AAPropSetFuncImplementation(AAChart, AAResetZoomButton *, resetZoomButton)
+AAPropSetFuncImplementation(AAChart, AAChartEvents *, events)
 
 @end
 
@@ -76,5 +77,13 @@ AAPropSetFuncImplementation(AAScrollablePlotArea, NSNumber *, scrollPositionY)
 AAPropSetFuncImplementation(AAResetZoomButton, AAPosition   *, position)
 AAPropSetFuncImplementation(AAResetZoomButton, NSString     *, relativeTo)
 AAPropSetFuncImplementation(AAResetZoomButton, NSDictionary *, theme)
+
+@end
+
+
+@implementation AAChartEvents : NSObject
+
+AAPropSetFuncImplementation(AAChartEvents, NSString     *, load)
+AAPropSetFuncImplementation(AAChartEvents, NSString     *, selection)
 
 @end

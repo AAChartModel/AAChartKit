@@ -35,7 +35,7 @@
 #import <Foundation/Foundation.h>
 #import "AAGlobalMacro.h"
 
-@class AAAnimation, AAScrollablePlotArea, AAResetZoomButton;
+@class AAAnimation, AAScrollablePlotArea, AAResetZoomButton, AAChartEvents;
 
 @interface AAChart : NSObject
 
@@ -60,6 +60,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, spacingBo
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, spacingLeft) //👈
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAScrollablePlotArea *, scrollablePlotArea)
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAResetZoomButton *, resetZoomButton)
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAChartEvents *, events)
+
 
 @end
 
@@ -83,6 +85,14 @@ AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *,
 AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, AAPosition   *, position)
 AAPropStatementAndPropSetFuncStatement(copy  , AAResetZoomButton, NSString     *, relativeTo)
 AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, NSDictionary *, theme)
+
+@end
+
+
+@interface AAChartEvents : NSObject
+
+AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, load)
+AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, selection)
 
 @end
 
