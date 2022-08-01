@@ -76,6 +76,8 @@
 
         case 29: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
         case 30: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
+        case 31: return [self setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart];//图表加载完成后, 在指定位置默认显示 crosshair 和 tooltip
+        case 32: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
 
         default:
             return nil;
@@ -212,6 +214,7 @@
     
     return aaOptions;
 }
+
 
 //https://github.com/AAChartModel/AAChartKit/issues/653
 - (AAOptions *)customAreaChartTooltipStyleWithColorfulHtmlLabels {
@@ -2184,6 +2187,120 @@ function () {
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/345
+- (AAOptions *)setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .stackingSet(AAChartStackingTypeNormal)
+    .yAxisVisibleSet(false)
+    .markerRadiusSet(@0)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+        AASeriesElement.new
+        .nameSet(@"London Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+        AASeriesElement.new
+        .nameSet(@"NewYork Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.tooltip
+        .styleSet(AAStyleColor(AAColor.whiteColor))
+        .backgroundColorSet(@"#050505")
+        .borderColorSet(@"#050505");
+    
+    aaOptions.xAxis
+        .crosshairSet(AACrosshair.new
+            .colorSet(AAColor.darkGrayColor)
+            .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+            .widthSet(@2));
+    
+    //默认选中的位置索引
+    NSUInteger defaultSelectedIndex = 5;
+    
+    //https://api.highcharts.com/highcharts/chart.events.load
+    //https://www.highcharts.com/forum/viewtopic.php?t=36508
+    aaOptions.chart
+        .eventsSet(AAChartEvents.new
+            .loadSet([NSString stringWithFormat:@AAJSFunc(function() {
+                let points = [];
+                let chart = this;
+                let series = chart.series;
+                let length = series.length;
+                           
+                for (let i = 0; i < length; i++) {
+                    let pointElement = series[i].data[%ld];
+                    points.push(pointElement);
+                }
+                chart.xAxis[0].drawCrosshair(null, points[0]);
+                chart.tooltip.refresh(points);
+                       }), defaultSelectedIndex]));
+    
+    
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/365
+//https://api.highcharts.com/highcharts/tooltip.formatter
+//Callback function to format the text of the tooltip from scratch. In case of single or shared tooltips,
+//a string should be returned. In case of split tooltips, it should return an array where the first item
+//is the header, and subsequent items are mapped to the points. Return `false` to disable tooltip for a
+//specific point on series.
+- (AAOptions *)customColumnChartBorderStyleAndStatesHoverColor {
+    AAChartModel *aaChartModel = AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .stackingSet(AAChartStackingTypeNormal)
+        .colorsThemeSet(@[AAColor.darkGrayColor, AAColor.lightGrayColor])//Colors theme
+        .categoriesSet(@[
+            @"January", @"February", @"March", @"April", @"May", @"June",
+            @"July", @"August", @"September", @"October", @"November", @"December"
+        ])
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Berlin Hot")
+                .borderColorSet(AAColor.whiteColor)
+                .borderWidthSet(@3)
+                .borderRadiusSet(@10)
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .colorSet(AAColor.redColor)))
+                .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+            
+            AASeriesElement.new
+                .nameSet(@"Beijing Hot")
+                .borderColorSet(AAColor.whiteColor)
+                .borderWidthSet(@3)
+                .borderRadiusSet(@10)
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .colorSet(@"dodgerblue")))// Dodgerblue／道奇藍／#1e90ff十六进制颜色代码
+                .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+        ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.tooltip
+        .formatterSet(@AAJSFunc(function () {
+               return false;
+        }));
+    
+    return aaOptions;
+}
 
 
 @end
