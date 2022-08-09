@@ -45,8 +45,8 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case  0: return [self advancedTimeLineChart];//简单字符串拼接
-        case  1: return [self generalDrawingChart];//自定义不同单位后缀
+        case  0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
+        case  1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
         case  2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
         case  3: return [self customLineChartTooltipStyleWhenValueBeZeroDoNotShow];//值为0时,在tooltip中不显示
         case  4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
@@ -79,7 +79,9 @@
         case 30: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
         case 31: return [self setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart];//图表加载完成后, 在指定位置默认显示 crosshair 和 tooltip
         case 32: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
-
+        case 33: return [self generalDrawingChart];//自由绘图🎨
+        case 34: return [self advancedTimeLineChart];//高级时间线图
+            
         default:
             return nil;
     }
@@ -2770,7 +2772,7 @@ function () {
                 .maxSet(@100)
                 .labelsSet(AALabels.new
                     .enabledSet(false))
-                .titleSet(AATitle.new
+                .titleSet(AAAxisTitle.new
                     .textSet(@""))
                 .gridLineColorSet(@"rgba(0, 0, 0, 0.07)"),
             AAYAxis.new
@@ -2779,7 +2781,7 @@ function () {
                 .labelsSet(AALabels.new
                     .styleSet(AAStyle.new
                         .colorSet(@"#90ed7d")))
-                .titleSet(AATitle.new
+                .titleSet(AAAxisTitle.new
                     .textSet(@"雇员")
                     .styleSet(AAStyle.new
                         .colorSet(@"#90ed7d")))
