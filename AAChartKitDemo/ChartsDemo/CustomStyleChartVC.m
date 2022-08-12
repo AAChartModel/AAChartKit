@@ -104,6 +104,7 @@
     }
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/692
 - (AAChartModel *)setUpColorfulBarChart {
     NSArray *colorsNameArr = @[
         @"red",
@@ -154,6 +155,8 @@
                ]);
 }
 
+
+//https://github.com/AAChartModel/AAChartKit/issues/692
 - (AAChartModel *)setUpColorfulGradientColorChart {
     NSArray *gradientColorNamesArr = @[
         @"oceanBlue",
@@ -226,6 +229,7 @@
                ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1265
 - (AAChartModel *)setUpDiscontinuousDataChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
@@ -564,6 +568,7 @@
                ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/751#issuecomment-543019799
 - (AAChartModel *)configureColorfulGradientSplineChart {
     NSArray *stopsArr = @[
         @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
@@ -625,6 +630,7 @@
                ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/695
 - (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
     NSArray *stopsArr = @[
         @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
@@ -833,7 +839,7 @@
 }
 
 
-
+//https://github.com/AAChartModel/AAChartKit/issues/747
 - (AAChartModel *)customSpecialStyleDataLabelOfSingleDataElementChart {
     NSDictionary *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
@@ -880,6 +886,7 @@
                ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/838
 - (AAChartModel *)customBarChartHoverColorAndSelectColor {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
@@ -934,6 +941,7 @@
                ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1345
 - (AAChartModel *)customSplineChartMarkerStatesHoverStyle {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
