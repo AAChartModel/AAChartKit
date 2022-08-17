@@ -45,6 +45,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, fillColor) 
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *, lineWidth) //外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
 AAPropStatementAndPropSetFuncStatement(copy,   AAMarker, NSString *, lineColor) //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色。)
 AAPropStatementAndPropSetFuncStatement(strong, AAMarker, AAMarkerStates *,  states)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *,  width)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *,  height)
 
 @end
 
