@@ -29,11 +29,6 @@
  * -------------------------------------------------------------------------------
  
  */
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-#elif TARGET_OS_MAC
-#import <AppKit/AppKit.h>
-#endif
 
 #import <WebKit/WebKit.h>
 #import "AAOptions.h"
@@ -93,7 +88,7 @@ typedef void(^AAMoveOverEventBlock)(AAChartView *aaChartView, AAMoveOverEventMes
 typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScriptMessage *message);
 
 
-@interface AAChartView:WKWebView
+@interface AAChartView : WKWebView
 
 #if TARGET_OS_IPHONE
 /// Configure the behavior of adjustedContentInset.
