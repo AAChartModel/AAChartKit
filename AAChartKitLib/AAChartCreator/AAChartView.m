@@ -394,11 +394,12 @@ WKScriptMessageHandler
     if (!bundle) { //installed manually
         bundle = [NSBundle mainBundle];
     }
-    NSString *webPath = [bundle pathForResource:@"AAChartView"
+    NSString *aaChartViewHtmlPath = [bundle pathForResource:@"AAChartView"
                                          ofType:@"html"
                                     inDirectory:@"AAJSFiles.bundle"];
-    NSURL *webURL = [NSURL fileURLWithPath:webPath];
-    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
+    NSAssert(aaChartViewHtmlPath.length > 0, @"Failed to get the loading path of `AAChartView.html` file, please check whether the importing method is correct or the file name is correct");
+    NSURL *aaChartViewHtmlURL = [NSURL fileURLWithPath:aaChartViewHtmlPath];
+    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:aaChartViewHtmlURL];
     return URLRequest;
 }
 
