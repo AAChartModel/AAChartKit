@@ -31,7 +31,8 @@
  */
 
 #import "ShowManyChartViewVC.h"
-#import "AAChartView.h"
+#import "AAChartKit.h"
+
 @interface ShowManyChartViewVC ()
 
 @end

@@ -58,16 +58,12 @@
 #import "AASeries.h"
 #import "AAShadow.h"
 #import "AAMarker.h"
-#import "AAGradientColor.h"
 #import "AAColor.h"
 #import "AAStates.h"
 #import "AAPane.h"
 #import "AACredits.h"
 #import "AALang.h"
 #import "AADateTimeLabelFormats.h"
-#import "NSArray+toJSArray.h"
-#import "AAStyleConvenience.h"
-#import "AAMarginConvenience.h"
 #import "AALineStyle.h"
 
 @interface AAOptions : NSObject
