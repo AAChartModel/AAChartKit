@@ -85,10 +85,20 @@ AAPropSetFuncImplementation(AAResetZoomButton, NSDictionary *, theme)
 @implementation AAChartEvents : NSObject
 
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, load)
+AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, redraw)
+AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, render)
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, selection)
 
 - (void)setLoad:(NSString *)load {
     _load = [load aa_toPureJSString];
+}
+
+- (void)setRedraw:(NSString *)redraw {
+    _redraw = [redraw aa_toPureJSString];
+}
+
+- (void)setRender:(NSString *)render {
+    _render = [render aa_toPureJSString];
 }
 
 - (void)setSelection:(NSString *)selection {
