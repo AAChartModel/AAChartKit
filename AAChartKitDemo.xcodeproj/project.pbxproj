@@ -75,6 +75,7 @@
 		7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7172A3E41E763EA6000D5B99 /* LaunchScreen.storyboard */; };
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
+		8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */; };
 		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
@@ -251,6 +252,8 @@
 		7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartKitUITests.m; sourceTree = "<group>"; };
 		7172A3FD1E763EA6000D5B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsVC.h; sourceTree = "<group>"; };
+		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC.m; sourceTree = "<group>"; };
 		846CB10B26A6B14100DE8D5A /* AAColumnrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAColumnrange.h; sourceTree = "<group>"; };
 		846CB10C26A6B14100DE8D5A /* AAColumnrange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAColumnrange.m; sourceTree = "<group>"; };
 		848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAAChartViewForXibVC.h; sourceTree = "<group>"; };
@@ -643,6 +646,8 @@
 			children = (
 				44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */,
 				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
+				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */,
+				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */,
 			);
 			name = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,
 				1E66D215210AF4ED007EAB8C /* AAChartView.m in Sources */,
+				8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m in Sources */,
 				84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */,
 				449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */,
 				1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */,
@@ -1037,7 +1043,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AACharthuhu;
+				PRODUCT_BUNDLE_IDENTIFIER = "AACharthuhu------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
@@ -1059,7 +1065,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AACharthuhu;
+				PRODUCT_BUNDLE_IDENTIFIER = "AACharthuhu------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
