@@ -61,6 +61,7 @@
 #import "DataLabelsOptionsVC.h"
 #import "XAxisYAxisLabelsOptionsVC.h"
 #import "XAxisYAxisTypeOptionsVC.h"
+#import "JSFunctionForAAChartEventsVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -411,6 +412,14 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case  26: {
+            /*通过 AAOptions 自定义 X 轴 Y 轴的轴类型*/
+            JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
             
         default:
             break;
@@ -447,6 +456,7 @@
             @"DataLabels Options---通过 AAOptions 自定义 DataLabels 数据标签",
             @"X Axis Y Axis Labels Options---通过 AAOptions 自定义 X 轴 Y 轴的文字标签",
             @"X Axis Y Axis Type Options---通过 AAOptions 自定义 X 轴 Y 轴的轴类型",
+            @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
 
         ];
     }
@@ -767,6 +777,16 @@
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
             ],
+            /*通过 JSFunction 自定义 AAChartEvents 的事件*/
+            @[@"setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart---图表加载完成后设置 crosshair 和 tooltip 到默认位置",
+              @"generalDrawingChart---普通绘图",
+              @"advancedTimeLineChart---高级时间轴绘图",
+              @"configureBlinkMarkerChart---配置闪烁特效的 marker 图表",
+              @"configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect---配置闪烁特效的 marker 图表2",
+              @"configureScatterChartWithBlinkEffect---配置闪烁特效的散点图",
+              @"densityChart---密度图",
+            ]
+
         ];
     }
     return _chartTypeNameArr;
