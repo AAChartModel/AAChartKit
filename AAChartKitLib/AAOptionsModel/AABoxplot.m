@@ -1,9 +1,9 @@
 //
-//  AAPlotOptions.m
+//  AABoxplot.h
 //  AAChartKit
 //
-//  Created by An An on 17/1/5.
-//  Copyright © 2017年 An An. All rights reserved.
+// Created by AnAn on 2022/8/29.
+// Copyright (c) 2022 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -12,7 +12,7 @@
 //*************** ...... SOURCE CODE ...... ***************
 
 /*
- 
+
  * -------------------------------------------------------------------------------
  *
  * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
@@ -27,24 +27,26 @@
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
  * -------------------------------------------------------------------------------
- 
+
  */
 
-#import "AAPlotOptions.h"
 #import "AABoxplot.h"
 
-@implementation AAPlotOptions
 
-AAPropSetFuncImplementation(AAPlotOptions, AAColumn     *, column) 
-AAPropSetFuncImplementation(AAPlotOptions, AALine       *, line) 
-AAPropSetFuncImplementation(AAPlotOptions, AAPie        *, pie) 
-AAPropSetFuncImplementation(AAPlotOptions, AABar        *, bar) 
-AAPropSetFuncImplementation(AAPlotOptions, AASpline     *, spline) 
-AAPropSetFuncImplementation(AAPlotOptions, AASeries     *, series) 
-AAPropSetFuncImplementation(AAPlotOptions, AAArea       *, area) 
-AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline *, areaspline) 
-AAPropSetFuncImplementation(AAPlotOptions, AAColumnrange*, columnrange)
-AAPropSetFuncImplementation(AAPlotOptions, NSObject     *, arearange)
-AAPropSetFuncImplementation(AAPlotOptions, AABoxplot    *, boxplot)
+@implementation AABoxplot
+
+AAPropSetFuncImplementation(AABoxplot, NSString *, boxDashStyle)
+AAPropSetFuncImplementation(AABoxplot, NSString *, fillColor)
+AAPropSetFuncImplementation(AABoxplot, NSNumber *, lineWidth)
+AAPropSetFuncImplementation(AABoxplot, NSString *, medianColor)
+AAPropSetFuncImplementation(AABoxplot, NSString *, medianDashStyle)
+AAPropSetFuncImplementation(AABoxplot, NSNumber *, medianWidth)
+AAPropSetFuncImplementation(AABoxplot, NSString *, stemColor)
+AAPropSetFuncImplementation(AABoxplot, NSString *, stemDashStyle)
+AAPropSetFuncImplementation(AABoxplot, NSNumber *, stemWidth)
+AAPropSetFuncImplementation(AABoxplot, NSString *, whiskerColor)
+AAPropSetFuncImplementation(AABoxplot, NSString *, whiskerDashStyle)
+AAPropSetFuncImplementation(AABoxplot, NSString *, whiskerLength)
+AAPropSetFuncImplementation(AABoxplot, NSNumber *, whiskerWidth)
 
 @end

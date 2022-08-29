@@ -1,9 +1,9 @@
 //
-//  AAPlotOptions.h
+//  AABoxplot.h
 //  AAChartKit
 //
-//  Created by An An on 17/1/5.
-//  Copyright © 2017年 An An. All rights reserved.
+// Created by AnAn on 2022/8/29.
+// Copyright (c) 2022 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -12,7 +12,7 @@
 //*************** ...... SOURCE CODE ...... ***************
 
 /*
- 
+
  * -------------------------------------------------------------------------------
  *
  * 🌕 🌖 🌗 🌘  ❀❀❀   WARM TIPS!!!   ❀❀❀ 🌑 🌒 🌓 🌔
@@ -27,25 +27,25 @@
  * SegmentFault  : https://segmentfault.com/u/huanghunbieguan
  *
  * -------------------------------------------------------------------------------
- 
+
  */
 
 #import <Foundation/Foundation.h>
 
-@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AAColumnrange, AASeries, AABoxplot;
+@interface AABoxplot : NSObject
 
-@interface AAPlotOptions : NSObject
-
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn     *, column) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine       *, line) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie        *, pie) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar        *, bar) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline     *, spline) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries     *, series) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea       *, area) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumnrange*, columnrange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, arearange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABoxplot    *, boxplot)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, boxDashStyle)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, fillColor)
+AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, medianColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, medianDashStyle)
+AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, medianWidth)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, stemColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, stemDashStyle)
+AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, stemWidth)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, whiskerColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, whiskerDashStyle)
+AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, whiskerLength)
+AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, whiskerWidth)
 
 @end

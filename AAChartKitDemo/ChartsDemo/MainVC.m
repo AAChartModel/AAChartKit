@@ -598,6 +598,7 @@
               @"custom Chart Style When Every Data Value Is 0---所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式",
               @"disable Spline Chart Hover Animation Effect---禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果",
               @"yAxisOnTheRightSideChart---y轴在右侧的图表",
+              @"configureBoxplotChartWithSpecialStyle---配置盒须图特殊样式",
             ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",

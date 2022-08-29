@@ -52,6 +52,7 @@
 #import "AASpline.h"
 #import "AAPie.h"
 #import "AAColumnrange.h"
+#import "AABoxplot.h"
 #import "AALegend.h"
 #import "AADataLabels.h"
 #import "AAStyle.h"

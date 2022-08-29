@@ -60,6 +60,7 @@
         case 11: return [self customChartStyleWhenEveryDataValueIsZero];//所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式
         case 12: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
         case 13: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
+        case 14: return [self configureBoxplotChartWithSpecialStyle];//配置箱线图特殊样式
 
         default:
             break;
@@ -784,5 +785,47 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1381
+- (AAOptions *)configureBoxplotChartWithSpecialStyle {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeBoxplot)//图表类型
+    .titleSet(@"BOXPLOT CHART")//图表主标题
+    .subtitleSet(@"virtual data")//图表副标题
+    .yAxisTitleSet(@"℃")//设置 Y 轴标题
+    .yAxisVisibleSet(true)//设置 Y 轴是否可见
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Observed Data")
+        .colorSet(@"#ef476f")
+        .fillColorSet(@"#04d69f")
+        .dataSet(@[
+            @[@760, @801, @848, @895, @965],
+            @[@733, @853, @939, @980, @1080],
+            @[@714, @762, @817, @870, @918],
+            @[@724, @802, @806, @871, @950],
+            @[@834, @836, @864, @882, @910]
+        ]),
+    ]);
+
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+
+    aaOptions.plotOptions
+    .boxplotSet(AABoxplot.new
+                .boxDashStyleSet(AAChartLineDashStyleTypeDash)
+                .fillColorSet(@"#F0F0E0")
+                .lineWidthSet(@2)
+                .medianColorSet(@"#0C5DA5")
+                .medianDashStyleSet(AAChartLineDashStyleTypeShortDot)
+                .medianWidthSet(@3)
+                .stemColorSet(@"#A63400")
+                .stemDashStyleSet(AAChartLineDashStyleTypeDot)
+                .stemWidthSet(@1)
+                .whiskerColorSet(@"#3D9200")
+                .whiskerDashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+                .whiskerLengthSet(@"30%")
+                .whiskerWidthSet(@3)
+                );
+    return aaOptions;
+}
 
 @end
