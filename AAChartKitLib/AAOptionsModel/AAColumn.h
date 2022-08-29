@@ -49,5 +49,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAColumn, AADataLabels *, dataLab
 AAPropStatementAndPropSetFuncStatement(copy,   AAColumn, NSString *,     stacking)
 AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     borderRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     yAxis)
+AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     pointWidth) //柱形条的宽度
+AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     maxPointWidth) //柱形条的最大宽度
+AAPropStatementAndPropSetFuncStatement(strong, AAColumn, NSNumber *,     minPointLength) //柱形条的最小高度
 
 @end

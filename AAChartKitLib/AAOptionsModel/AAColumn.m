@@ -55,5 +55,8 @@ AAPropSetFuncImplementation(AAColumn, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AAColumn, NSString *,     stacking)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     borderRadius)
 AAPropSetFuncImplementation(AAColumn, NSNumber *,     yAxis)
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     pointWidth) //柱形条的宽度
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     maxPointWidth) //柱形条的最大宽度
+AAPropSetFuncImplementation(AAColumn, NSNumber *,     minPointLength) //柱形条的最小高度
 
 @end
