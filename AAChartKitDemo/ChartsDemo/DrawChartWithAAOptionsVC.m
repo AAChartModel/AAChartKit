@@ -821,10 +821,15 @@
                 .stemDashStyleSet(AAChartLineDashStyleTypeDot)
                 .stemWidthSet(@1)
                 .whiskerColorSet(@"#3D9200")
-                .whiskerDashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
-                .whiskerLengthSet(@"30%")
-                .whiskerWidthSet(@3)
+                .whiskerDashStyleSet(AAChartLineDashStyleTypeSolid)
+                .whiskerLengthSet(@"60%")
+                .whiskerWidthSet(@6)
                 );
+    
+    aaOptions.plotOptions.series
+//        .maxPointWidthSet(@120)
+        .pointWidthSet(@100);
+    
     return aaOptions;
 }
 
