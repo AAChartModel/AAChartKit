@@ -59,6 +59,9 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAPoint  *, point)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, pointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的宽度
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, maxPointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最大宽度
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, minPointLength) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最小高度
 
 @end
 
