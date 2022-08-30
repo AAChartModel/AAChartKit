@@ -62,6 +62,11 @@
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(monitorTap)];
+    [barItem setTitleTextAttributes:@{
+        NSForegroundColorAttributeName: UIColor.redColor,
+        NSFontAttributeName: [UIFont systemFontOfSize:28 weight:UIFontWeightBold]
+    } forState:UIControlStateNormal];
+
     self.navigationItem.rightBarButtonItem = barItem;
 }
 
