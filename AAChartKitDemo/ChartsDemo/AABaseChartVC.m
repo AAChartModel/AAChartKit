@@ -58,7 +58,7 @@
 }
 
 - (void)setupNextTypeChartButton {
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"Next Chart"
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"➷"
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(monitorTap)];
