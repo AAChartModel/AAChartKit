@@ -1671,6 +1671,7 @@
         ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1093
 //https://github.com/highcharts/highcharts-ios/issues/97
 - (AAOptions *)automaticallyHideTooltipAfterItIsShown {
     AAChartModel *aaChartModel = AAChartModel.new
@@ -1702,7 +1703,7 @@
     aaOptions.tooltip
         .styleSet(AAStyleColor(AAColor.whiteColor))
         .backgroundColorSet(@"#050505")
-        .borderColorSet(@"#050505");
+        .borderColorSet(AAColor.redColor);
     
     aaOptions.xAxis
         .crosshairSet(AACrosshair.new
@@ -1711,7 +1712,6 @@
             .widthSet(@2));
     
     //https://api.highcharts.com/highcharts/chart.events.load
-    //https://www.highcharts.com/forum/viewtopic.php?t=36508
     aaOptions.chart
         .eventsSet(AAChartEvents.new
             .loadSet(@AAJSFunc(function () {
