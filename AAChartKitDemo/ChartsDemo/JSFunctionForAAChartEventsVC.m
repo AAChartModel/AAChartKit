@@ -56,6 +56,7 @@
         case 4: return [self configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect];
         case 5: return [self configureScatterChartWithBlinkEffect];
         case 6: return [self densityChart];
+        case 7: return [self automaticallyHideTooltipAfterItIsShown];
     }
     return nil;
 }
@@ -1668,6 +1669,63 @@
                 .nameSet(@"gymnastics")
                 .zIndexSet(@1)
         ]);
+}
+
+//https://github.com/highcharts/highcharts-ios/issues/97
+- (AAOptions *)automaticallyHideTooltipAfterItIsShown {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图表类型
+    .colorsThemeSet(@[@"#04d69f", @"#1e90ff", @"#ef476f", @"#ffd066",])
+    .markerRadiusSet(@6)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .categoriesSet(@[
+        @"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",
+        @"C", @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"
+    ])//设置 X 轴坐标文字内容
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2017")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]),
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, @20.1, @14.1, @8.6, @2.5]),
+        AASeriesElement.new
+        .nameSet(@"2019")
+        .dataSet(@[@0.9, @0.6, @3.5, @8.4, @13.5, @17.0, @18.6, @17.9, @14.3, @9.0, @3.9, @1.0]),
+        AASeriesElement.new
+        .nameSet(@"2020")
+        .dataSet(@[@3.9, @4.2, @5.7, @8.5, @11.9, @15.2, @17.0, @16.6, @14.2, @10.3, @6.6, @4.8]),
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.tooltip
+        .styleSet(AAStyleColor(AAColor.whiteColor))
+        .backgroundColorSet(@"#050505")
+        .borderColorSet(@"#050505");
+    
+    aaOptions.xAxis
+        .crosshairSet(AACrosshair.new
+            .colorSet(AAColor.darkGrayColor)
+            .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+            .widthSet(@2));
+    
+    //https://api.highcharts.com/highcharts/chart.events.load
+    //https://www.highcharts.com/forum/viewtopic.php?t=36508
+    aaOptions.chart
+        .eventsSet(AAChartEvents.new
+            .loadSet(@AAJSFunc(function () {
+                const chart = this;
+                Highcharts.addEvent(
+                    chart.tooltip,
+                    'refresh',
+                    function () {
+                        //设置 tooltip 自动隐藏的时间
+                        chart.tooltip.hide(888);
+                });
+            })));
+    
+    return aaOptions;
 }
 
 @end

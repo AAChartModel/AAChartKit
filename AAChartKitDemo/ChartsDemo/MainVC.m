@@ -786,6 +786,7 @@
               @"configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect---配置闪烁特效的 marker 图表2",
               @"configureScatterChartWithBlinkEffect---配置闪烁特效的散点图",
               @"densityChart---密度图",
+              @"automaticallyHideTooltipAfterItIsShown---在浮动提示框显示后自动隐藏"
             ]
 
         ];
