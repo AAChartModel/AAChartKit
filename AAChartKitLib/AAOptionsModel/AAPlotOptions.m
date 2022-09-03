@@ -31,7 +31,6 @@
  */
 
 #import "AAPlotOptions.h"
-#import "AABoxplot.h"
 
 @implementation AAPlotOptions
 
@@ -46,5 +45,6 @@ AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline *, areaspline)
 AAPropSetFuncImplementation(AAPlotOptions, AAColumnrange*, columnrange)
 AAPropSetFuncImplementation(AAPlotOptions, NSObject     *, arearange)
 AAPropSetFuncImplementation(AAPlotOptions, AABoxplot    *, boxplot)
+AAPropSetFuncImplementation(AAPlotOptions, AAScatter    *, scatter)
 
 @end
