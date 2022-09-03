@@ -78,6 +78,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, poin
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enableMouseTracking)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AADataSorting *, dataSorting)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , reversed) //Only useful for pyramid chart and funnel chart
+AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, id)
 
 @end
 
