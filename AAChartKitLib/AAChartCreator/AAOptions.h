@@ -53,6 +53,7 @@
 #import "AAPie.h"
 #import "AAColumnrange.h"
 #import "AABoxplot.h"
+#import "AAScatter.h"
 #import "AALegend.h"
 #import "AADataLabels.h"
 #import "AAStyle.h"
