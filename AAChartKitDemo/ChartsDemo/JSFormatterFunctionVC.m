@@ -200,10 +200,10 @@
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
         var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
-        let colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
-        let colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
-        let s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
-        let s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        const colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
+        const colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
+        const s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
+        const s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
         s += s1 + s2;
         return s;
     }))
@@ -255,13 +255,13 @@
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
         let wholeContentStr ='<span style=\"' + 'color:lightGray; font-size:13px\"' + '>◉ Time: ' + this.x + ' year</span><br/>';
-        let length = this.points.length;
+        const length = this.points.length;
         for (let i = 0; i < length; i++) {
-            let thisPoint = this.points[i];
-            let yValue = thisPoint.y;
+            const thisPoint = this.points[i];
+            const yValue = thisPoint.y;
             if (yValue != 0) {
-                let spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
-                let spanStyleEndStr = '</span> <br/>';
+                const spanStyleStartStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                const spanStyleEndStr = '</span> <br/>';
                 wholeContentStr += spanStyleStartStr + thisPoint.series.name + ': ' + thisPoint.y + '℃' + spanStyleEndStr;
             }
         }
@@ -313,12 +313,12 @@
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
         let wholeContentStr = this.points[0].x + '<br/>';
-        let length = this.points.length;
+        const length = this.points.length;
         for (let i = 0; i < length; i++) {
-            let thisPoint = this.points[i];
-            let yValue = thisPoint.y;
+            const thisPoint = this.points[i];
+            const yValue = thisPoint.y;
             if (yValue != 0) {
-                let prefixStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
+                const prefixStr = '<span style=\"' + 'color:'+ thisPoint.color + '; font-size:13px\"' + '>◉ ';
                 wholeContentStr += prefixStr + thisPoint.series.name + ': ' + yValue + '<br/>';
             }
         }
@@ -403,7 +403,7 @@
     aaOptions
     .yAxis.labels
     .formatterSet(@AAJSFunc(function () {
-        let yValue = this.value;
+        const yValue = this.value;
         if (yValue >= 200) {
             return "极佳";
         } else if (yValue >= 150 && yValue < 200) {
@@ -872,7 +872,7 @@
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels
     .formatterSet(@AAJSFunc(function () {
-        let xValue = this.value;
+        const xValue = this.value;
         if (xValue%10 == 0) {
             return xValue + " sec"
         } else {
@@ -899,7 +899,7 @@
 //https://github.com/AAChartModel/AAChartKit/issues/781
 - (AAOptions *)customArearangeChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeArearange)
+    .chartTypeSet(AAChartTypeColumnrange)
     .titleSet(@"面积范围图")
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
     .xAxisVisibleSet(false)
@@ -909,8 +909,8 @@
         AASeriesElement.new
         .nameSet(@"Range")
         .dataSet(@[
-            @[@1246406400000, @14.3, @27.7],
-            @[@1246492800000, @14.5, @27.8],
+            @[@1246406400000, NSNull.null, NSNull.null],
+            @[@1246492800000, NSNull.null, NSNull.null],
             @[@1246579200000, @15.5, @29.6],
             @[@1246665600000, @16.7, @30.7],
             @[@1246752000000, @16.5, @25.0],
@@ -950,15 +950,15 @@
     aaOptions.tooltip
     .useHTMLSet(true)
     .formatterSet(@AAJSFunc(function () {
-        let myPointOptions = this.points[0].point.options;
-        let xValue = myPointOptions.x;
-        let lowValue = myPointOptions.low;
-        let highValue = myPointOptions.high;
-        let titleStr = '🌕 this is my custom tooltip description text content <br>';
-        let xValueStr = '🌖 this is x value  : ' + xValue + '<br>';
-        let lowValueStr = ' 🌗 this is low value  : ' + lowValue + '<br>';
-        let highValueStr = '🌘 this is high value : ' + highValue + '<br>';
-        let tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;
+        const myPointOptions = this.points[0].point.options;
+        const xValue = myPointOptions.x;
+        const lowValue = myPointOptions.low;
+        const highValue = myPointOptions.high;
+        const titleStr = '🌕 this is my custom tooltip description text content <br>';
+        const xValueStr = '🌖 this is x value  : ' + xValue + '<br>';
+        const lowValueStr = ' 🌗 this is low value  : ' + lowValue + '<br>';
+        const highValueStr = '🌘 this is high value : ' + highValue + '<br>';
+        const tooltipDescStr =  titleStr + xValueStr + lowValueStr + highValueStr;
         return tooltipDescStr;
     }))
     .backgroundColorSet(AAColor.blackColor)
@@ -1092,29 +1092,29 @@
 
     NSString *jsFormatterStr = [NSString stringWithFormat:@AAJSFunc(
 function () {
-    let 总时长数组 = %@;
-    let 有效时长数组 = %@;
-    let 看近时长数组 = %@;
-    let 看中时长数组 = %@;
-    let 看远时长数组 = %@;
-    let 切换次数数组 = %@;
-    let 停止次数数组 = %@;
-    let 干预次数数组 = %@;
-    let 时间单位后缀 = "min<br/>";
-    let 频率单位后缀 = "次<br/>";
+    const 总时长数组 = %@;
+    const 有效时长数组 = %@;
+    const 看近时长数组 = %@;
+    const 看中时长数组 = %@;
+    const 看远时长数组 = %@;
+    const 切换次数数组 = %@;
+    const 停止次数数组 = %@;
+    const 干预次数数组 = %@;
+    const 时间单位后缀 = "min<br/>";
+    const 频率单位后缀 = "次<br/>";
 
-    let selectedSeries = this.points[0];
-    let pointIndex = selectedSeries.point.index;
-    let 单个总时长字符串 = "总时长: &nbsp &nbsp" + 总时长数组[pointIndex] + 时间单位后缀;
-    let 单个有效时长字符串 = "有效时长: &nbsp" + 有效时长数组[pointIndex] + 时间单位后缀;
-    let 单个看近时长字符串 = "看近时长: &nbsp" + 看近时长数组[pointIndex] + 时间单位后缀;
-    let 单个看中时长字符串 = "看中时长: &nbsp" + 看中时长数组[pointIndex] + 时间单位后缀;
-    let 单个看远时长字符串 = "看远时长: &nbsp" + 看远时长数组[pointIndex] + 时间单位后缀;
-    let 单个切换次数字符串 = "切换次数: &nbsp" + 切换次数数组[pointIndex] + 频率单位后缀;
-    let 单个停止次数字符串 = "停止次数: &nbsp" + 停止次数数组[pointIndex] + 频率单位后缀;
-    let 单个干预次数字符串 = "干预次数: &nbsp" + 干预次数数组[pointIndex] + 频率单位后缀;
+    const selectedSeries = this.points[0];
+    const pointIndex = selectedSeries.point.index;
+    const 单个总时长字符串 = "总时长: &nbsp &nbsp" + 总时长数组[pointIndex] + 时间单位后缀;
+    const 单个有效时长字符串 = "有效时长: &nbsp" + 有效时长数组[pointIndex] + 时间单位后缀;
+    const 单个看近时长字符串 = "看近时长: &nbsp" + 看近时长数组[pointIndex] + 时间单位后缀;
+    const 单个看中时长字符串 = "看中时长: &nbsp" + 看中时长数组[pointIndex] + 时间单位后缀;
+    const 单个看远时长字符串 = "看远时长: &nbsp" + 看远时长数组[pointIndex] + 时间单位后缀;
+    const 单个切换次数字符串 = "切换次数: &nbsp" + 切换次数数组[pointIndex] + 频率单位后缀;
+    const 单个停止次数字符串 = "停止次数: &nbsp" + 停止次数数组[pointIndex] + 频率单位后缀;
+    const 单个干预次数字符串 = "干预次数: &nbsp" + 干预次数数组[pointIndex] + 频率单位后缀;
 
-    let wholeContentStr =  单个总时长字符串 + 单个有效时长字符串 + 单个看近时长字符串 + 单个看中时长字符串 + 单个看远时长字符串 + 单个切换次数字符串 + 单个停止次数字符串 + 单个干预次数字符串;
+    const wholeContentStr =  单个总时长字符串 + 单个有效时长字符串 + 单个看近时长字符串 + 单个看中时长字符串 + 单个看远时长字符串 + 单个切换次数字符串 + 单个停止次数字符串 + 单个干预次数字符串;
 
     return wholeContentStr;
     }),总时长JS数组, 有效时长JS数组, 看近时长JS数组, 看中时长JS数组, 看远时长JS数组, 切换次数JS数组, 停止次数JS数组, 干预次数JS数组];
@@ -1308,8 +1308,8 @@ function () {
     
     NSString *imageLinkFlagJSArrStr = [imageLinkFlagArr aa_toJSArray];
     NSString *xLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        let imageFlag = %@[this.pos];
-        let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+        const imageFlag = %@[this.pos];
+        const imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
         return imageLink;
     })),imageLinkFlagJSArrStr];
     
@@ -1324,8 +1324,8 @@ function () {
 
     /*Custom tooltip style*/
     NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        let imageFlag = %@[this.point.index];
-        let imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+        const imageFlag = %@[this.point.index];
+        const imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
         return imageLink
         + " 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> "
         + " Support JavaScript Function Just Right Now !!! <br/> "
@@ -1471,7 +1471,7 @@ function () {
     
     aaOptions.tooltip
     .positionerSet(@AAJSFunc(function (labelWidth, labelHeight, point) {
-        let position = {};
+        const position = {};
         position["x"] = point.plotX;
         position["y"] = 20;
         return position;
@@ -1484,7 +1484,7 @@ function () {
     AAOptions *aaOptions = [self customTooltipPostionerFunction];
     aaOptions.tooltip
     .positionerSet(@AAJSFunc(function () {
-        let position = {};
+        const position = {};
         position["x"] = 50;
         position["y"] = 50;
         return position;
@@ -1605,12 +1605,12 @@ function () {
     CGFloat screenWidth = self.view.frame.size.width;
     
     NSString *positionerStr = [NSString stringWithFormat:@AAJSFunc(function (labelWidth, labelHeight, point) {
-        let xPosition = point.plotX;
-        let maxXPosition = %@ - 268;
+        const xPosition = point.plotX;
+        const maxXPosition = %@ - 268;
         if (xPosition >= maxXPosition) {
             xPosition = maxXPosition
         }
-        let position = {};
+        const position = {};
         position["x"] = xPosition;
         position["y"] = 50;
         return position;
@@ -1792,7 +1792,7 @@ function () {
                .styleSet(AAStyle.new
                          .colorSet(@"DodgerBlue"))
                .formatterSet(@AAJSFunc(function () {
-        let yValue = this.value;
+        const yValue = this.value;
         if (yValue >= 200) {
             return "极佳";
         } else if (yValue >= 150 && yValue < 200) {
@@ -1819,7 +1819,7 @@ function () {
                .styleSet(AAStyle.new
                          .colorSet(AAColor.redColor))
                .formatterSet(@AAJSFunc(function () {
-        let yValue = this.value;
+        const yValue = this.value;
         if (yValue >= 200) {
             return "Awesome";
         } else if (yValue >= 150 && yValue < 200) {
@@ -2178,7 +2178,7 @@ function () {
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels
     .formatterSet(@AAJSFunc(function () {
-        let xAxisCategory = this.value;
+        const xAxisCategory = this.value;
         if (xAxisCategory.length > 4) {
             return xAxisCategory.substr(0, 4);
         } else {
@@ -2242,13 +2242,13 @@ function () {
     aaOptions.chart
         .eventsSet(AAChartEvents.new
             .loadSet([NSString stringWithFormat:@AAJSFunc(function() {
-                let points = [];
-                let chart = this;
-                let series = chart.series;
-                let length = series.length;
+                const points = [];
+                const chart = this;
+                const series = chart.series;
+                const length = series.length;
                            
                 for (let i = 0; i < length; i++) {
-                    let pointElement = series[i].data[%ld];
+                    const pointElement = series[i].data[%ld];
                     points.push(pointElement);
                 }
                 chart.xAxis[0].drawCrosshair(null, points[0]);
