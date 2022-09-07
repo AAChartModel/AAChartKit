@@ -60,9 +60,16 @@ AAPropSetFuncImplementation(AASelect, AAHalo   *, halo)
 
 @implementation AAHalo
 
-AAPropSetFuncImplementation(AAHalo, NSDictionary *, attributes)
+//AAPropSetFuncImplementation(AAHalo, NSDictionary *, attributes)
 AAPropSetFuncImplementation(AAHalo, NSNumber *, opacity)
 AAPropSetFuncImplementation(AAHalo, NSNumber *, size)
+
+- (AAHalo * (^) (AASVGAttributes *attributes)) attributesSet {
+    return ^(AASVGAttributes *attributes) {
+        self.attributes = attributes.toDic;
+        return self;
+    };
+}
 
 @end
 
@@ -79,5 +86,28 @@ AAPropSetFuncImplementation(AAHalo, NSNumber *, size)
 
 AAPropSetFuncImplementation(AAInactive, BOOL,       enabled)
 AAPropSetFuncImplementation(AAInactive, NSNumber *, opacity)
+
+@end
+
+
+@implementation AASVGAttributes
+
+AAPropSetFuncImplementation(AASVGAttributes, NSString *, fill)
+AAPropSetFuncImplementation(AASVGAttributes, NSString *, stroke)
+AAPropSetFuncImplementation(AASVGAttributes, NSNumber *, strokeWidth)
+
+- (NSDictionary *)toDic {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    if (self.fill) {
+        dic[@"fill"] = self.fill;
+    }
+    if (self.stroke) {
+        dic[@"stroke"] = self.stroke;
+    }
+    if (self.strokeWidth) {
+        dic[@"stroke-width"] = self.strokeWidth;
+    }
+    return dic;
+}
 
 @end

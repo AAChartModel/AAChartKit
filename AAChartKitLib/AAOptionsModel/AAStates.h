@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAHover, AASelect, AAHalo, AAInactive;
+@class AAHover, AASelect, AAHalo, AAInactive, AASVGAttributes;
 
 @interface AAStates : NSObject
 
@@ -45,9 +45,12 @@ AAPropStatementAndPropSetFuncStatement(strong, AASelect, AAHalo   *, halo)
 
 @interface AAHalo : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAHalo, NSDictionary *, attributes)//A collection of SVG attributes to override the appearance of the halo, for example fill, stroke and stroke-width.
-AAPropStatementAndPropSetFuncStatement(strong, AAHalo, NSNumber *, opacity)//Opacity for the halo unless a specific fill is overridden using the attributes setting. Note that Highcharts is only able to apply opacity to colors of hex or rgb(a) formats. Default Value：0.25.
+//AAPropStatementAndPropSetFuncStatement(strong, AAHalo, NSDictionary *, attributes)
+AAPropStatementAndPropSetFuncStatement(strong, AAHalo, NSNumber *, opacity) //Opacity for the halo unless a specific fill is overridden using the attributes setting. Note that Highcharts is only able to apply opacity to colors of hex or rgb(a) formats. Default Value：0.25.
 AAPropStatementAndPropSetFuncStatement(strong, AAHalo, NSNumber *, size)
+
+@property (nonatomic, strong) NSDictionary  *attributes; //A collection of SVG attributes to override the appearance of the halo, for example fill, stroke and stroke-width.
+- (AAHalo * (^) (AASVGAttributes *attributes)) attributesSet;
 
 @end
 
@@ -56,6 +59,17 @@ AAPropStatementAndPropSetFuncStatement(strong, AAHalo, NSNumber *, size)
 
 AAPropStatementAndPropSetFuncStatement(assign, AAInactive, BOOL,       enabled)
 AAPropStatementAndPropSetFuncStatement(strong, AAInactive, NSNumber *, opacity)
+
+@end
+
+
+@interface AASVGAttributes: NSObject
+
+AAPropStatementAndPropSetFuncStatement(copy,   AASVGAttributes, NSString *, fill)
+AAPropStatementAndPropSetFuncStatement(copy,   AASVGAttributes, NSString *, stroke)
+AAPropStatementAndPropSetFuncStatement(strong, AASVGAttributes, NSNumber *, strokeWidth)
+
+- (NSDictionary *)toDic;
 
 @end
 

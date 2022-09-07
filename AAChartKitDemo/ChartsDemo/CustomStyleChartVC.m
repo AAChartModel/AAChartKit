@@ -924,20 +924,18 @@
                              .haloSet(AAHalo.new
                                       .sizeSet(@130)
                                       .opacitySet(@0.8)
-                                      .attributesSet(@{
-                                          @"stroke-width": @50,
-                                          @"fill": @"#00BFFF",
-                                          @"stroke": @"#00FA9A"
-                                                     })))
+                                      .attributesSet(AASVGAttributes.new
+                                                     .strokeWidthSet(@50)
+                                                     .fillSet(@"#00BFFF")
+                                                     .strokeSet(@"#00FA9A"))))
                    .selectSet(AASelect.new
                               .haloSet(AAHalo.new
                                        .sizeSet(@130)
                                        .opacitySet(@1.0)
-                                       .attributesSet(@{
-                                           @"stroke-width": @150,
-                                           @"fill": AARgbaColor(138, 43, 226, 1.0),
-                                           @"stroke": AARgbaColor(30, 144, 255, 1.0)
-                                                      }))))
+                                       .attributesSet(AASVGAttributes.new
+                                                      .strokeWidthSet(@150)
+                                                      .fillSet(AARgbaColor(138, 43, 226, 1.0))
+                                                      .strokeSet(AARgbaColor(30, 144, 255, 1.0))))))
                ]);
 }
 
@@ -1927,7 +1925,7 @@
             [newDataArr addObject:negativeDataElement];
         } else {
             AADataElement *positiveDataElement = AADataElement.new
-            .ySet(@(dataElementValue))
+            .ySet(@(+dataElementValue))
             .colorSet(AAColor.redColor)
             .dataLabelsSet(aaDataLabels
                            .formatSet(@"+{y} 美元")
