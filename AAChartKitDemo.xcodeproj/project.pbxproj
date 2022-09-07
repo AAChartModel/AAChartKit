@@ -399,8 +399,8 @@
 				84AE6B1A26A1775A001F0755 /* AADateTimeLabelFormats.h */,
 				84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */,
 				84AE6B1D26A19E1E001F0755 /* AAChartAxisType.h */,
-				58603EBF3B2F2C183F46663C /* AABoxplot.m */,
 				58603F1D08A3368A46BC51CB /* AABoxplot.h */,
+				58603EBF3B2F2C183F46663C /* AABoxplot.m */,
 			);
 			path = AAOptionsModel;
 			sourceTree = "<group>";
