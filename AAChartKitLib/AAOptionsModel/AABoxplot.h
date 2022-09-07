@@ -36,16 +36,16 @@
 
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, boxDashStyle)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, fillColor)
-AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AABoxplot, NSNumber *, lineWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, medianColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, medianDashStyle)
-AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, medianWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AABoxplot, NSNumber *, medianWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, stemColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, stemDashStyle)
-AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, stemWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AABoxplot, NSNumber *, stemWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, whiskerColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, whiskerDashStyle)
 AAPropStatementAndPropSetFuncStatement(copy,   AABoxplot, NSString *, whiskerLength)
-AAPropStatementAndPropSetFuncStatement(assign, AABoxplot, NSNumber *, whiskerWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AABoxplot, NSNumber *, whiskerWidth)
 
 @end
