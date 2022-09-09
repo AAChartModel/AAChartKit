@@ -62,6 +62,7 @@
 #import "XAxisYAxisLabelsOptionsVC.h"
 #import "XAxisYAxisTypeOptionsVC.h"
 #import "JSFunctionForAAChartEventsVC.h"
+#import "CustomTableViewCell.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -94,6 +95,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.sectionHeaderHeight = 50;
+    [tableView registerNib:[UINib nibWithNibName:@"CustomTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"customCell"];
     [self.view addSubview:tableView];
 }
 
@@ -101,7 +103,7 @@
     return self.chartTypeNameArr.count;
 }
 
-
+#pragma mark -- UITableViewDelegate && UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *sectionHeaderView = [[UIView alloc]init];
     
@@ -120,19 +122,19 @@
     return sectionHeaderView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (   indexPath.section == 2
-        || indexPath.section == 3
-        || indexPath.section == 6
-        || indexPath.section == 9
-        || indexPath.section == 10
-        || indexPath.section == 22
-        ) {
-        return 85;
-    } else {
-        return 60;
-    }
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (   indexPath.section == 2
+//        || indexPath.section == 3
+//        || indexPath.section == 6
+//        || indexPath.section == 9
+//        || indexPath.section == 10
+//        || indexPath.section == 22
+//        ) {
+//        return 85;
+//    } else {
+//        return 60;
+//    }
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *arr = self.chartTypeNameArr[(NSUInteger) section];
@@ -149,21 +151,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        cell.textLabel.textColor = [UIColor redColor];
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.textAlignment = NSTextAlignmentLeft;
-        cell.textLabel.font = [UIFont systemFontOfSize:18];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        cell.detailTextLabel.numberOfLines = 0;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
+    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
+    
+    cell.titleLabel.textColor = [UIColor redColor];
+    cell.titleLabel.numberOfLines = 0;
+    cell.titleLabel.textAlignment = NSTextAlignmentLeft;
+    cell.titleLabel.font = [UIFont systemFontOfSize:18];
+    
+    cell.subtitleLabel.font = [UIFont systemFontOfSize:14];
+    cell.subtitleLabel.numberOfLines = 0;
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     NSString *textStr = self.chartTypeNameArr[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
-    cell.textLabel.text = textStrArr[0];
-    cell.detailTextLabel.text = textStrArr[1];
+    cell.titleLabel.text = textStrArr[0];
+    cell.subtitleLabel.text = textStrArr[1];
     if (indexPath.row % 2 == 0) {
         cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
     } else {
