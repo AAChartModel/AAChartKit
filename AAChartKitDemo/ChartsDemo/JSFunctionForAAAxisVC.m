@@ -19,6 +19,24 @@
     // Do any additional setup after loading the view.
 }
 
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    switch (self.selectedIndex) {
+        case 0: return [self customYAxisLabels];//自定义Y轴文字
+        case 1: return [self customAreaChartXAxisLabelsTextUnitSuffix1];//自定义X轴文字单位后缀(通过 formatter 函数)
+        case 2: return [self customAreaChartXAxisLabelsTextUnitSuffix2];//自定义X轴文字单位后缀(不通过 formatter 函数)
+        case 3: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
+        case 4: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
+        case 5: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
+        case 6: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 1
+        case 7: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart2];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 2
+        case 8: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart3];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 3
+        case 9: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
+
+        default:
+            return nil;
+    }
+}
+
 
 //https://github.com/AAChartModel/AAChartKit/issues/675
 - (AAOptions *)customYAxisLabels {
@@ -457,6 +475,87 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/852 自定义蜘蛛🕷图样式
+- (AAOptions *)customSpiderChartStyle {
+    NSArray *categoryArr = @[
+        @"周转天数(天)",
+        @"订单满足率",
+        @"订单履约时效",
+        @"动销率",
+        @"畅销商品缺货率",
+        @"高库存金额占比",
+        @"不动销金额占比",
+        @"停采金额占比",
+     ];
+    
+    NSString *categoryJSArrStr = [categoryArr aa_toJSArray];
+    
+    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return %@[this.value];
+    })),categoryJSArrStr];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .titleSet(@"健康体检表")//图表主标题
+    .colorsThemeSet(@[@"#fe117c",@"#ffc069",])//设置主体颜色数组
+    .yAxisLineWidthSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .yAxisTickPositionsSet(@[@0, @5, @10, @15, @20, @25, @30, @35])
+    .markerRadiusSet(@5)
+    .markerSymbolSet(AAChartSymbolTypeCircle)
+    .polarSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"本月得分")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5,]),
+        AASeriesElement.new
+        .nameSet(@"上月得分")
+        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, ]),
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.chart
+    .marginLeftSet(@80)
+    .marginRightSet(@80);
+    
+    aaOptions.xAxis
+    .lineWidthSet(@0)//避免多边形外环之外有额外套了一层无用的外环
+    .labels.styleSet(AAStyleColor(AAColor.blackColor))
+    .formatterSet(xAxisLabelsFormatter);
+
+    aaOptions.yAxis
+    .gridLineInterpolationSet(AAChartYAxisGridLineInterpolationTypePolygon)//设置蜘蛛网🕸图表的网线为多边形
+    .labels.styleSet(AAStyleColor(AAColor.blackColor))
+    ;
+    
+    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
+    /*默认是：{
+     "color": "#333333",
+     "cursor": "pointer",
+     "fontSize": "12px",
+     "fontWeight": "bold"
+     }
+     */
+    AAItemStyle *aaItemStyle = AAItemStyle.new
+    .colorSet(AAColor.grayColor)//字体颜色
+    .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+    .fontSizeSet(@"14px")//字体大小
+    .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
+    ;
+    
+    aaOptions.legend
+    .enabledSet(true)
+    .alignSet(AAChartAlignTypeCenter)//设置图例位于水平方向上的右侧
+    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
+    .itemStyleSet(aaItemStyle)
+    ;
+    
+    return aaOptions;
+}
+
+
 //https://github.com/AAChartModel/AAChartKit/issues/1217
 - (AAOptions *)customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters {
     AAChartModel *aaChartModel = AAChartModel.new
@@ -517,6 +616,134 @@
     return aaOptions;
 }
 
+// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
+- (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)//图表类型
+    .dataLabelsEnabledSet(true)
+    .tooltipEnabledSet(false)
+    .colorsThemeSet(@[AAGradientColor.fizzyPeachColor])
+    .markerRadiusSet(@0)
+    .legendEnabledSet(false)
+    .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
+    .seriesSet(@[
+        AASeriesElement.new
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2]),
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
+    
+    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
+    NSString *unitJSArrStr = [unitArr aa_toJSArray];
+    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
+    })),unitJSArrStr];
+    
+    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
+    aaDatalabels
+    .styleSet(AAStyleColorSizeWeightOutline(AAColor.redColor, 10, AAChartFontWeightTypeBold, @"1px 1px contrast"))
+    .formatterSet(dataLabelsFormatter)
+    .backgroundColorSet(AAColor.whiteColor)// white color
+    .borderColorSet(AAColor.redColor)// red color
+    .borderRadiusSet(@1.5)
+    .borderWidthSet(@1.3)
+    .xSet(@3).ySet(@-20)
+    .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
+    ;
+    return aaOptions;
+}
+
+// Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
+// Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
+- (AAOptions *)customXAxisLabelsBeImages {
+    NSArray *nameArr = @[
+        @"South Korea",
+        @"Japan",
+        @"Australia",
+        @"Germany",
+        @"Russia",
+        @"China",
+        @"Great Britain",
+        @"United States"
+    ];
+    
+    NSArray *colorArr = @[
+        AARgbColor(201, 36,  39 ),
+        AARgbColor(201, 36,  39 ),
+        AARgbColor(0,   82,  180),
+        AARgbColor(0,   0,   0  ),
+        AARgbColor(240, 240, 240),
+        AARgbColor(255, 217, 68 ),
+        AARgbColor(0,   82,  180),
+        AARgbColor(215, 0,   38 )
+    ];
+    
+    NSArray *imageLinkFlagArr = @[
+        @"197582",
+        @"197604",
+        @"197507",
+        @"197571",
+        @"197408",
+        @"197375",
+        @"197374",
+        @"197484"
+    ];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .titleSet(@"Custom X Axis Labels Be Images")
+    .subtitleSet(@"use HTML")
+    .categoriesSet(nameArr)
+    .colorsThemeSet(colorArr)
+    .borderRadiusSet(@5)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"AD 2020")
+        .dataSet(@[@9.0, @9.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5])
+        .colorByPointSet(@true)
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
+               ]);
+    
+    NSString *imageLinkFlagJSArrStr = [imageLinkFlagArr aa_toJSArray];
+    NSString *xLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        const imageFlag = %@[this.pos];
+        const imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+        return imageLink;
+    })),imageLinkFlagJSArrStr];
+    
+    //    https://api.highcharts.com.cn/highcharts#xAxis.labels.formatter
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.xAxis.labels
+    .useHTMLSet(true)
+    .formatterSet(xLabelsFormatter)
+    ;
+    
+    aaOptions.plotOptions.column.groupPaddingSet(@0.005);
+
+    /*Custom tooltip style*/
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        const imageFlag = %@[this.point.index];
+        const imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
+        return imageLink
+        + " 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> "
+        + " Support JavaScript Function Just Right Now !!! <br/> "
+        + " The Gold Price For <b>2020 "
+        +  this.x
+        + " </b> Is <b> "
+        +  this.y
+        + " </b> Dollars ";
+    })),imageLinkFlagJSArrStr];
+    
+    aaOptions.tooltip
+    .sharedSet(false)
+    .useHTMLSet(true)
+    .formatterSet(tooltipFormatter)
+    ;
+    
+    return aaOptions;
+}
 
 
 @end
