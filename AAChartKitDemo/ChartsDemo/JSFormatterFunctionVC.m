@@ -77,7 +77,7 @@
 
         case 29: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
         case 30: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
-        case 32: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
+        case 31: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
 
         default:
             return nil;
