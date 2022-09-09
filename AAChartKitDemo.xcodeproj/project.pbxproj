@@ -78,6 +78,8 @@
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
 		8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */; };
 		845589C928C3B27C009D1BC3 /* AAScatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845589C828C3B27C009D1BC3 /* AAScatter.m */; };
+		8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDD228CADF5800392C50 /* CustomTableViewCell.m */; };
+		8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */; };
 		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
@@ -260,6 +262,9 @@
 		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC.m; sourceTree = "<group>"; };
 		845589C728C3B27C009D1BC3 /* AAScatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAScatter.h; sourceTree = "<group>"; };
 		845589C828C3B27C009D1BC3 /* AAScatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAScatter.m; sourceTree = "<group>"; };
+		8463FDD128CADF5800392C50 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		8463FDD228CADF5800392C50 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		846CB10B26A6B14100DE8D5A /* AAColumnrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAColumnrange.h; sourceTree = "<group>"; };
 		846CB10C26A6B14100DE8D5A /* AAColumnrange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAColumnrange.m; sourceTree = "<group>"; };
 		848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAAChartViewForXibVC.h; sourceTree = "<group>"; };
@@ -448,6 +453,9 @@
 				848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */,
 				84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */,
 				84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */,
+				8463FDD128CADF5800392C50 /* CustomTableViewCell.h */,
+				8463FDD228CADF5800392C50 /* CustomTableViewCell.m */,
+				8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */,
 			);
 			name = AdditionalContent2;
 			sourceTree = "<group>";
@@ -771,6 +779,7 @@
 			files = (
 				1E66D1FB210AF4ED007EAB8C /* AAJSFiles.bundle in Resources */,
 				7172A3E61E763EA6000D5B99 /* LaunchScreen.storyboard in Resources */,
+				8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */,
 				7172A3E31E763EA6000D5B99 /* Assets.xcassets in Resources */,
 				848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */,
 				7172A3E11E763EA6000D5B99 /* Main.storyboard in Resources */,
@@ -876,6 +885,7 @@
 				44143D3921A1950300D44657 /* AAGradientColor.m in Sources */,
 				1E66D217210AF4ED007EAB8C /* AAOptions.m in Sources */,
 				92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */,
+				8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */,
 				58603C61BAE9EEFFCAA78970 /* AABoxplot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
