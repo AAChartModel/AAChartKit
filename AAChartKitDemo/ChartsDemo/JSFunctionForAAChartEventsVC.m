@@ -49,14 +49,14 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (selectedIndex) {
-        case 0: return [self setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart];
-        case 1: return [self generalDrawingChart];
-        case 2: return [self advancedTimeLineChart];
-        case 3: return [self configureBlinkMarkerChart];
-        case 4: return [self configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect];
-        case 5: return [self configureScatterChartWithBlinkEffect];
-        case 6: return [self automaticallyHideTooltipAfterItIsShown];
-        case 7: return [self dynamicHeightGridLineAreaChart];
+        case 0: return [self setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart]; //图表加载完成后,自动设置默认的十字准星和浮动提示框的位置
+        case 1: return [self generalDrawingChart]; //自由绘图
+        case 2: return [self advancedTimeLineChart]; //高级时间线图
+        case 3: return [self configureBlinkMarkerChart]; //配置闪烁的标记点
+        case 4: return [self configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect]; //配置单个数据元素的特殊样式标记点即闪烁特效
+        case 5: return [self configureScatterChartWithBlinkEffect]; //配置散点图的闪烁特效
+        case 6: return [self automaticallyHideTooltipAfterItIsShown]; //图表加载完成后,自动隐藏浮动提示框
+        case 7: return [self dynamicHeightGridLineAreaChart]; //动态高度网格线的区域填充图
     }
     return nil;
 }
