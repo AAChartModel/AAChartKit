@@ -80,6 +80,8 @@
 		845589C928C3B27C009D1BC3 /* AAScatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845589C828C3B27C009D1BC3 /* AAScatter.m */; };
 		8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDD228CADF5800392C50 /* CustomTableViewCell.m */; };
 		8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */; };
+		8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */; };
+		8463FDE128CB1F5F00392C50 /* JSFunctionForAALegendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */; };
 		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
@@ -265,6 +267,10 @@
 		8463FDD128CADF5800392C50 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		8463FDD228CADF5800392C50 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAAxisVC.h; sourceTree = "<group>"; };
+		8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAAxisVC.m; sourceTree = "<group>"; };
+		8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAALegendVC.h; sourceTree = "<group>"; };
+		8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAALegendVC.m; sourceTree = "<group>"; };
 		846CB10B26A6B14100DE8D5A /* AAColumnrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAColumnrange.h; sourceTree = "<group>"; };
 		846CB10C26A6B14100DE8D5A /* AAColumnrange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAColumnrange.m; sourceTree = "<group>"; };
 		848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAAChartViewForXibVC.h; sourceTree = "<group>"; };
@@ -666,6 +672,10 @@
 				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
 				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */,
 				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */,
+				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
+				8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */,
+				8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */,
+				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
 			);
 			name = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -867,10 +877,12 @@
 				27EB89D8248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m in Sources */,
 				4486C51023E9BAB300B54849 /* DrawableChartVC.m in Sources */,
 				440B098324C190F60056CE08 /* AALang.m in Sources */,
+				8463FDE128CB1F5F00392C50 /* JSFunctionForAALegendVC.m in Sources */,
 				1E66D1FD210AF4ED007EAB8C /* AALabels.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
 				84B548C826F2EE2C00D4CAFC /* DataLabelsOptionsVC.m in Sources */,
 				2750145224C03372005A5D73 /* AAShadow.m in Sources */,
+				8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */,
 				84B548CB26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m in Sources */,
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
 				84B548C526F2E74800D4CAFC /* TooltipOptionsVC.m in Sources */,
