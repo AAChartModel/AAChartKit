@@ -765,6 +765,7 @@
               @"customAreaChartTooltipStyleLikeHTMLTable---自定义 tooltip 提示框为 HTML 表格样式",
               @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
               @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
+              @"customBoxplotTooltipContent---自定义箱线图的浮动提示框头部内容",
             ],
             /*自定义 DataLabels 数据标签*/
             @[@"adjustChartDataLabelsStyle---自定义DataLabels样式",
