@@ -132,7 +132,8 @@
     UILabel *sectionTitleLabel = [[UILabel alloc]init];
     sectionTitleLabel.frame = sectionHeaderView.bounds;
     sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    sectionTitleLabel.backgroundColor = [AAEasyTool colorWithHexString:@"#FF3030"]; 
+    UIColor *bgColor = [AAEasyTool colorWithHexString:_colorsArr[section % 18]];
+    sectionTitleLabel.backgroundColor = bgColor;
     NSString *titleStr = self.sectionTypeArr[(NSUInteger) section];
     titleStr = [titleStr stringByReplacingOccurrencesOfString:@"---" withString:@" | "];
     sectionTitleLabel.text = titleStr;
@@ -143,20 +144,6 @@
 
     return sectionHeaderView;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (   indexPath.section == 2
-//        || indexPath.section == 3
-//        || indexPath.section == 6
-//        || indexPath.section == 9
-//        || indexPath.section == 10
-//        || indexPath.section == 22
-//        ) {
-//        return 85;
-//    } else {
-//        return 60;
-//    }
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *arr = self.chartTypeNameArr[(NSUInteger) section];
