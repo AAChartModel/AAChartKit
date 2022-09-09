@@ -27,7 +27,7 @@
         case 1: return [self customAreaChartTooltipStyleLikeHTMLTable];//自定义 tooltip 提示框为 HTML 表格样式
         case 2: return [self customAreasplineChartTooltipContentWithHeaderFormat];//通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip
         case 3: return [self customAreaChartTooltipStyleWithTotalValueHeader];//浮动提示框 header 显示总值信息
-
+        case 4: return [self customBoxplotTooltipContent];//自定义箱线图的浮动提示框头部内容
         default:
             break;
     }
@@ -248,6 +248,54 @@
     aaOptions.tooltip
     .useHTMLSet(true)
     .headerFormatSet(@"狗和猫的总数为:{point.total}<br/>")
+    ;
+    
+    return aaOptions;
+}
+
+- (AAOptions *)customBoxplotTooltipContent {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeBoxplot)
+    .titleSet(@"箱线图")
+    .subtitleSet(@"虚拟数据")
+    .yAxisTitleSet(@"摄氏度")
+    .yAxisVisibleSet(true)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"观测值")
+        .lineWidthSet(@1.8)
+        .fillColorSet((id)AAGradientColor.deepSeaColor)
+        .dataSet(@[
+            @[@760, @801, @848, @895, @965],
+            @[@733, @853, @939, @980, @1080],
+            @[@714, @762, @817, @870, @918],
+            @[@724, @802, @806, @871, @950],
+            @[@834, @836, @864, @882, @910]
+        ]),
+    ]);
+    
+    //    https://jshare.com.cn/demos/hhhhiQ
+    //    https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/tooltip/footerformat/
+    //pointFormat: '' + // eslint-disable-line no-dupe-keys
+    
+    NSString *str1 = @"<span style=""color:{point.color}"">◉</span> <b> {series.name}</b><br/>";
+    NSString *str2 = @"最大值: {point.high}<br/>";
+    NSString *str3 = @"Q2: {point.q3}<br/>";
+    NSString *str4 = @"中位数: {point.median}<br/>";
+    NSString *str5 = @"Q1: {point.q1}<br/>";
+    NSString *str6 = @"最小值: {point.low}<br/>";
+    NSString *pointFormatStr = [NSString stringWithFormat:@"%@%@%@%@%@%@",str1,str2,str3,str4,str5,str6];
+    
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.tooltip
+    .useHTMLSet(true)
+    .headerFormatSet(@"<em>实验号码： {point.key}</em><br/>")
+    .pointFormatSet(pointFormatStr)
+    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
+    .backgroundColorSet(AAColor.blackColor)
+    .borderColorSet(AAColor.blackColor)
+    .styleSet(AAStyleColorSize(@"#1e90ff", 12))
     ;
     
     return aaOptions;
