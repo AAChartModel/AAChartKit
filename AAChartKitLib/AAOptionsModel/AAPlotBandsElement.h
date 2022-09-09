@@ -54,7 +54,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, b
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, className)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, from)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, AALabel *, label)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, AALabel  *, label)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, to)
 AAPropStatementAndPropSetFuncStatement(assign, AAPlotBandsElement, NSUInteger , zIndex)
 

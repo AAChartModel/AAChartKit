@@ -39,7 +39,7 @@ AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, borderWidth)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSString *, className)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSString *, color)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, from)
-AAPropSetFuncImplementation(AAPlotBandsElement, AALabel *, label)
+AAPropSetFuncImplementation(AAPlotBandsElement, AALabel  *, label)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, to)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSUInteger , zIndex)
 

@@ -34,17 +34,17 @@
 
 @implementation AAPlotOptions
 
-AAPropSetFuncImplementation(AAPlotOptions, AAColumn     *, column) 
-AAPropSetFuncImplementation(AAPlotOptions, AALine       *, line) 
-AAPropSetFuncImplementation(AAPlotOptions, AAPie        *, pie) 
-AAPropSetFuncImplementation(AAPlotOptions, AABar        *, bar) 
-AAPropSetFuncImplementation(AAPlotOptions, AASpline     *, spline) 
-AAPropSetFuncImplementation(AAPlotOptions, AASeries     *, series) 
-AAPropSetFuncImplementation(AAPlotOptions, AAArea       *, area) 
-AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline *, areaspline) 
-AAPropSetFuncImplementation(AAPlotOptions, AAColumnrange*, columnrange)
-AAPropSetFuncImplementation(AAPlotOptions, NSObject     *, arearange)
-AAPropSetFuncImplementation(AAPlotOptions, AABoxplot    *, boxplot)
-AAPropSetFuncImplementation(AAPlotOptions, AAScatter    *, scatter)
+AAPropSetFuncImplementation(AAPlotOptions, AAColumn      *, column)
+AAPropSetFuncImplementation(AAPlotOptions, AALine        *, line)
+AAPropSetFuncImplementation(AAPlotOptions, AAPie         *, pie)
+AAPropSetFuncImplementation(AAPlotOptions, AABar         *, bar)
+AAPropSetFuncImplementation(AAPlotOptions, AASpline      *, spline)
+AAPropSetFuncImplementation(AAPlotOptions, AASeries      *, series)
+AAPropSetFuncImplementation(AAPlotOptions, AAArea        *, area)
+AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline  *, areaspline)
+AAPropSetFuncImplementation(AAPlotOptions, AAColumnrange *, columnrange)
+AAPropSetFuncImplementation(AAPlotOptions, NSObject      *, arearange)
+AAPropSetFuncImplementation(AAPlotOptions, AABoxplot     *, boxplot)
+AAPropSetFuncImplementation(AAPlotOptions, AAScatter     *, scatter)
 
 @end

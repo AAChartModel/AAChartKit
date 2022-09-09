@@ -36,17 +36,17 @@
 
 @interface AAPlotOptions : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn     *, column) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine       *, line) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie        *, pie) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar        *, bar) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline     *, spline)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries     *, series) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea       *, area) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline *, areaspline) 
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumnrange*, columnrange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject     *, arearange)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABoxplot    *, boxplot)
-AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAScatter    *, scatter)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumn      *, column)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AALine        *, line)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAPie         *, pie)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABar         *, bar)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASpline      *, spline)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AASeries      *, series)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArea        *, area)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAAreaspline  *, areaspline)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumnrange *, columnrange)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, NSObject      *, arearange)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABoxplot     *, boxplot)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAScatter     *, scatter)
 
 @end
