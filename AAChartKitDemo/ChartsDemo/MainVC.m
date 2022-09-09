@@ -70,6 +70,7 @@
 
 @property (nonatomic, strong) NSArray *chartTypeNameArr;
 @property (nonatomic, strong) NSArray *sectionTypeArr;
+@property (nonatomic, strong) NSArray *colorsArr;
 
 @end
 
@@ -84,6 +85,27 @@
     [super viewDidLoad];
     self.title = @"AAChartKit";
     self.view.backgroundColor = [UIColor whiteColor];
+    _colorsArr = @[
+        @"#5470c6",
+        @"#91cc75",
+        @"#fac858",
+        @"#ee6666",
+        @"#73c0de",
+        @"#3ba272",
+        @"#fc8452",
+        @"#9a60b4",
+        @"#ea7ccc",
+
+        @"#5470c6",
+        @"#91cc75",
+        @"#fac858",
+        @"#ee6666",
+        @"#73c0de",
+        @"#3ba272",
+        @"#fc8452",
+        @"#9a60b4",
+        @"#ea7ccc",
+    ];
 
     [self configTheTableView];
 }
@@ -155,6 +177,11 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
+    cell.numberLabel.layer.masksToBounds = true;
+    cell.numberLabel.layer.cornerRadius = 10;
+    UIColor *numBgColor = [AAEasyTool colorWithHexString:_colorsArr[indexPath.section % 18]];
+    cell.numberLabel.backgroundColor = numBgColor;
+    cell.numberLabel.textColor = UIColor.whiteColor;
     NSString *textStr = self.chartTypeNameArr[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.titleLabel.text = textStrArr[0];
