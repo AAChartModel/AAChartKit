@@ -113,13 +113,13 @@
     aaOptions.chart
         .eventsSet(AAChartEvents.new
             .loadSet([NSString stringWithFormat:@AAJSFunc(function() {
-                let points = [];
-                let chart = this;
-                let series = chart.series;
-                let length = series.length;
+                const points = [];
+                const chart = this;
+                const series = chart.series;
+                const length = series.length;
                            
                 for (let i = 0; i < length; i++) {
-                    let pointElement = series[i].data[%ld];
+                    const pointElement = series[i].data[%ld];
                     points.push(pointElement);
                 }
                 chart.xAxis[0].drawCrosshair(null, points[0]);
