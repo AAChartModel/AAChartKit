@@ -659,10 +659,7 @@
               @"configureTheAxesLabelsFormattersOfDoubleYAxesChart3---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 3",
               @"makePieChartShow0Data---使饼图显示为 0 的数据",
               @"customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters---通过截取前四个字符来自定义 X 轴 labels",
-              @"setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart---图表加载完成后, 在指定位置默认显示 crosshair 和 tooltip",
               @"customColumnChartBorderStyleAndStatesHoverColor---自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果",
-              @"generalDrawingChart---自由绘图🎨",
-              @"advancedTimeLineChart---高级时间线图",
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[@"Custom Chart DataLabel Sample One---自定义 DataLabel 1",
