@@ -49,30 +49,23 @@
         case  1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
         case  2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
         case  3: return [self customLineChartTooltipStyleWhenValueBeZeroDoNotShow];//值为0时,在tooltip中不显示
-        case  4: return [self customBoxplotTooltipContent];//不借助JavaScript函数自定义箱线图的浮动提示框头部内容
-        case  5: return [self customYAxisLabels];//自定义Y轴文字
-        case  6: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
-        case  7: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
-        case  8: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
-        case  9: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
-        case 10: return [self configureSpecialStyleTrianglePolarChart];//外部显示六边形边框的三角形雷达图
-        case 11: return [self customDoubleXAxesChart];//双 X 轴镜像条形图
-        case 12: return [self customAreaChartXAxisLabelsTextUnitSuffix1];//自定义X轴文字单位后缀(通过 formatter 函数)
-        case 13: return [self customAreaChartXAxisLabelsTextUnitSuffix2];//自定义X轴文字单位后缀(不通过 formatter 函数)
-        case 14: return [self customArearangeChartTooltip];//自定义面积范围图的 tooltip
-        case 15: return [self customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter];//通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距
-        case 16: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
-        case 17: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
-        case 18: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
-        case 19: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
-        case 20: return [self customLegendItemClickEvent];//自定义图例点击事件🖱
-        case 21: return [self customTooltipPostionerFunction];//自定义浮动提示框 Positioner 函数
-        case 22: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Positioner 函数来实现一个位置固定的提示框
-        case 23: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式
-        case 24: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
-        case 25: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
-        case 26: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
-        case 37: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
+        case  4: return [self customStackedAndGroupedColumnChartTooltip];//自定义分组堆积柱状图tooltip内容
+        case  5: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
+        case  6: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
+        case  7: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
+        case  8: return [self configureSpecialStyleTrianglePolarChart];//外部显示六边形边框的三角形雷达图
+        case  9: return [self customDoubleXAxesChart];//双 X 轴镜像条形图
+        case 10: return [self customArearangeChartTooltip];//自定义面积范围图的 tooltip
+        case 11: return [self customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter];//通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距
+        case 12: return [self customTooltipWhichDataSourceComeFromOutSideRatherThanSeries];//通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)
+        case 13: return [self customLegendItemClickEvent];//自定义图例点击事件🖱
+        case 14: return [self customTooltipPostionerFunction];//自定义浮动提示框 Positioner 函数
+        case 15: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Positioner 函数来实现一个位置固定的提示框
+        case 16: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式
+        case 17: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];//通过 Series 的 Point 的选中事件函数来禁用条形图反选效果
+        case 18: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
+        case 19: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
+        case 20: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
 
         default:
             return nil;
@@ -328,89 +321,7 @@
 }
 
 
-- (AAOptions *)customBoxplotTooltipContent {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeBoxplot)
-    .titleSet(@"箱线图")
-    .subtitleSet(@"虚拟数据")
-    .yAxisTitleSet(@"摄氏度")
-    .yAxisVisibleSet(true)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"观测值")
-        .lineWidthSet(@1.8)
-        .fillColorSet((id)AAGradientColor.deepSeaColor)
-        .dataSet(@[
-            @[@760, @801, @848, @895, @965],
-            @[@733, @853, @939, @980, @1080],
-            @[@714, @762, @817, @870, @918],
-            @[@724, @802, @806, @871, @950],
-            @[@834, @836, @864, @882, @910]
-        ]),
-    ]);
-    
-    //    https://jshare.com.cn/demos/hhhhiQ
-    //    https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/tooltip/footerformat/
-    //pointFormat: '' + // eslint-disable-line no-dupe-keys
-    
-    NSString *str1 = @"<span style=""color:{point.color}"">◉</span> <b> {series.name}</b><br/>";
-    NSString *str2 = @"最大值: {point.high}<br/>";
-    NSString *str3 = @"Q2: {point.q3}<br/>";
-    NSString *str4 = @"中位数: {point.median}<br/>";
-    NSString *str5 = @"Q1: {point.q1}<br/>";
-    NSString *str6 = @"最小值: {point.low}<br/>";
-    NSString *pointFormatStr = [NSString stringWithFormat:@"%@%@%@%@%@%@",str1,str2,str3,str4,str5,str6];
-    
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.tooltip
-    .useHTMLSet(true)
-    .headerFormatSet(@"<em>实验号码： {point.key}</em><br/>")
-    .pointFormatSet(pointFormatStr)
-    .valueDecimalsSet(@2)//设置取值精确到小数点后几位
-    .backgroundColorSet(AAColor.blackColor)
-    .borderColorSet(AAColor.blackColor)
-    .styleSet(AAStyleColorSize(@"#1e90ff", 12))
-    ;
-    
-    return aaOptions;
-}
 
-//https://github.com/AAChartModel/AAChartKit/issues/675
-- (AAOptions *)customYAxisLabels {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图表类型
-    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为内部白色
-    .markerRadiusSet(@8)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"Tokyo Hot")
-        .lineWidthSet(@5.0)
-        .fillOpacitySet(@0.4)
-        .dataSet( @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
-    ]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions
-    .yAxis.labels
-    .formatterSet(@AAJSFunc(function () {
-        const yValue = this.value;
-        if (yValue >= 200) {
-            return "极佳";
-        } else if (yValue >= 150 && yValue < 200) {
-            return "非常棒";
-        } else if (yValue >= 100 && yValue < 150) {
-            return "相当棒";
-        } else if (yValue >= 50 && yValue < 100) {
-            return "还不错";
-        } else {
-            return "一般";
-        }
-    }))
-    ;
-    return aaOptions;
-}
 
 //https://github.com/AAChartModel/AAChartKit/issues/685
 - (AAOptions *)customStackedAndGroupedColumnChartTooltip {
@@ -832,62 +743,6 @@
     return aaOptions;
 }
 
-//Stupid method
-- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix1 {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#00b0ff"];
-    
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)//图表类型
-    .titleSet(@"Custom X Axis Labels Text")//图表主标题
-    .subtitleSet(@"By Using JavaScript Formatter Function")//图表副标题
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
-    .seriesSet(@[
-        AASeriesElement.new
-        .lineWidthSet(@1.5)
-        .colorSet(@"#00b0ff")
-        .fillColorSet((id)gradientColorDic1)
-        .nameSet(@"2018")
-        .dataSet(@[
-            @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
-            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
-            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
-            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
-            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
-            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
-            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
-    ]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.xAxis.labels
-    .formatterSet(@AAJSFunc(function () {
-        const xValue = this.value;
-        if (xValue%10 == 0) {
-            return xValue + " sec"
-        } else {
-            return "";
-        }
-    }))
-    ;
-    
-    return aaOptions;
-}
-
-//Smart method
-- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix2 {
-    AAOptions *aaOptions = [self customAreaChartXAxisLabelsTextUnitSuffix1];
-    aaOptions.xAxis
-    .labelsSet(AALabels.new
-               .stepSet(@10)
-               .formatSet(@"{value} sec"))
-    ;
-    
-    return aaOptions;
-}
-
 //https://github.com/AAChartModel/AAChartKit/issues/781
 - (AAOptions *)customArearangeChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
@@ -1128,214 +983,6 @@ function () {
     return aaOptions;
 }
 
-//https://github.com/AAChartModel/AAChartKit/issues/852 自定义蜘蛛🕷图样式
-- (AAOptions *)customSpiderChartStyle {
-    NSArray *categoryArr = @[
-        @"周转天数(天)",
-        @"订单满足率",
-        @"订单履约时效",
-        @"动销率",
-        @"畅销商品缺货率",
-        @"高库存金额占比",
-        @"不动销金额占比",
-        @"停采金额占比",
-     ];
-    
-    NSString *categoryJSArrStr = [categoryArr aa_toJSArray];
-    
-    NSString *xAxisLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return %@[this.value];
-    })),categoryJSArrStr];
-    
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeLine)//图表类型
-    .titleSet(@"健康体检表")//图表主标题
-    .colorsThemeSet(@[@"#fe117c",@"#ffc069",])//设置主体颜色数组
-    .yAxisLineWidthSet(@0)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
-    .yAxisTickPositionsSet(@[@0, @5, @10, @15, @20, @25, @30, @35])
-    .markerRadiusSet(@5)
-    .markerSymbolSet(AAChartSymbolTypeCircle)
-    .polarSet(true)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"本月得分")
-        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5,]),
-        AASeriesElement.new
-        .nameSet(@"上月得分")
-        .dataSet(@[@0.2, @0.8, @5.7, @11.3, @17.0, @22.0, @24.8, @24.1, ]),
-    ]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    
-    aaOptions.chart
-    .marginLeftSet(@80)
-    .marginRightSet(@80);
-    
-    aaOptions.xAxis
-    .lineWidthSet(@0)//避免多边形外环之外有额外套了一层无用的外环
-    .labels.styleSet(AAStyleColor(AAColor.blackColor))
-    .formatterSet(xAxisLabelsFormatter);
-
-    aaOptions.yAxis
-    .gridLineInterpolationSet(AAChartYAxisGridLineInterpolationTypePolygon)//设置蜘蛛网🕸图表的网线为多边形
-    .labels.styleSet(AAStyleColor(AAColor.blackColor))
-    ;
-    
-    //设定图例项的CSS样式。只支持有关文本的CSS样式设定。
-    /*默认是：{
-     "color": "#333333",
-     "cursor": "pointer",
-     "fontSize": "12px",
-     "fontWeight": "bold"
-     }
-     */
-    AAItemStyle *aaItemStyle = AAItemStyle.new
-    .colorSet(AAColor.grayColor)//字体颜色
-    .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
-    .fontSizeSet(@"14px")//字体大小
-    .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字
-    ;
-    
-    aaOptions.legend
-    .enabledSet(true)
-    .alignSet(AAChartAlignTypeCenter)//设置图例位于水平方向上的右侧
-    .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布
-    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
-    .itemStyleSet(aaItemStyle)
-    ;
-    
-    return aaOptions;
-}
-
-// Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
-- (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)//图表类型
-    .dataLabelsEnabledSet(true)
-    .tooltipEnabledSet(false)
-    .colorsThemeSet(@[AAGradientColor.fizzyPeachColor])
-    .markerRadiusSet(@0)
-    .legendEnabledSet(false)
-    .categoriesSet(@[@"美国🇺🇸",@"欧洲🇪🇺",@"中国🇨🇳",@"日本🇯🇵",@"韩国🇰🇷",@"越南🇻🇳",@"中国香港🇭🇰",])
-    .seriesSet(@[
-        AASeriesElement.new
-        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2]),
-    ]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.yAxis.gridLineDashStyle = AAChartLineDashStyleTypeLongDash;//设置Y轴的网格线样式为 AAChartLineDashStyleTypeLongDash
-    
-    NSArray *unitArr = @[@"美元", @"欧元", @"人民币", @"日元", @"韩元", @"越南盾", @"港币", ];
-    NSString *unitJSArrStr = [unitArr aa_toJSArray];
-    NSString *dataLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        return this.y + %@[this.point.index];  //单组 serie 图表, 获取选中的点的索引是 this.point.index ,多组并且共享提示框,则是this.points[0].index
-    })),unitJSArrStr];
-    
-    AADataLabels *aaDatalabels = aaOptions.plotOptions.series.dataLabels;
-    aaDatalabels
-    .styleSet(AAStyleColorSizeWeightOutline(AAColor.redColor, 10, AAChartFontWeightTypeBold, @"1px 1px contrast"))
-    .formatterSet(dataLabelsFormatter)
-    .backgroundColorSet(AAColor.whiteColor)// white color
-    .borderColorSet(AAColor.redColor)// red color
-    .borderRadiusSet(@1.5)
-    .borderWidthSet(@1.3)
-    .xSet(@3).ySet(@-20)
-    .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
-    ;
-    return aaOptions;
-}
-
-// Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
-// Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
-- (AAOptions *)customXAxisLabelsBeImages {
-    NSArray *nameArr = @[
-        @"South Korea",
-        @"Japan",
-        @"Australia",
-        @"Germany",
-        @"Russia",
-        @"China",
-        @"Great Britain",
-        @"United States"
-    ];
-    
-    NSArray *colorArr = @[
-        AARgbColor(201, 36,  39 ),
-        AARgbColor(201, 36,  39 ),
-        AARgbColor(0,   82,  180),
-        AARgbColor(0,   0,   0  ),
-        AARgbColor(240, 240, 240),
-        AARgbColor(255, 217, 68 ),
-        AARgbColor(0,   82,  180),
-        AARgbColor(215, 0,   38 )
-    ];
-    
-    NSArray *imageLinkFlagArr = @[
-        @"197582",
-        @"197604",
-        @"197507",
-        @"197571",
-        @"197408",
-        @"197375",
-        @"197374",
-        @"197484"
-    ];
-    
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeColumn)
-    .titleSet(@"Custom X Axis Labels Be Images")
-    .subtitleSet(@"use HTML")
-    .categoriesSet(nameArr)
-    .colorsThemeSet(colorArr)
-    .borderRadiusSet(@5)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"AD 2020")
-        .dataSet(@[@9.0, @9.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5])
-        .colorByPointSet(@true)
-        .borderRadiusTopLeftSet((id)@"50%")
-        .borderRadiusTopRightSet((id)@"50%")
-               ]);
-    
-    NSString *imageLinkFlagJSArrStr = [imageLinkFlagArr aa_toJSArray];
-    NSString *xLabelsFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        const imageFlag = %@[this.pos];
-        const imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
-        return imageLink;
-    })),imageLinkFlagJSArrStr];
-    
-    //    https://api.highcharts.com.cn/highcharts#xAxis.labels.formatter
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.xAxis.labels
-    .useHTMLSet(true)
-    .formatterSet(xLabelsFormatter)
-    ;
-    
-    aaOptions.plotOptions.column.groupPaddingSet(@0.005);
-
-    /*Custom tooltip style*/
-    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
-        const imageFlag = %@[this.point.index];
-        const imageLink = "<span><img src=\"https://image.flaticon.com/icons/svg/197/" + imageFlag + ".svg\" style=\"width: 30px; height: 30px;\"/><br></span>";
-        return imageLink
-        + " 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 <br/> "
-        + " Support JavaScript Function Just Right Now !!! <br/> "
-        + " The Gold Price For <b>2020 "
-        +  this.x
-        + " </b> Is <b> "
-        +  this.y
-        + " </b> Dollars ";
-    })),imageLinkFlagJSArrStr];
-    
-    aaOptions.tooltip
-    .sharedSet(false)
-    .useHTMLSet(true)
-    .formatterSet(tooltipFormatter)
-    ;
-    
-    return aaOptions;
-}
 
 //https://bbs.hcharts.cn/article-109-1.html
 //图表自带的图例点击事件是：
