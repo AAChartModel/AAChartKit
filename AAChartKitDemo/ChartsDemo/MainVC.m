@@ -152,22 +152,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
-    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
-    
-    cell.titleLabel.textColor = [UIColor redColor];
-    cell.titleLabel.numberOfLines = 0;
-    cell.titleLabel.textAlignment = NSTextAlignmentLeft;
-    cell.titleLabel.font = [UIFont systemFontOfSize:18];
-    
-    cell.subtitleLabel.font = [UIFont systemFontOfSize:14];
-    cell.subtitleLabel.numberOfLines = 0;
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
     NSString *textStr = self.chartTypeNameArr[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.titleLabel.text = textStrArr[0];
     cell.subtitleLabel.text = textStrArr[1];
+    
     if (indexPath.row % 2 == 0) {
         cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
     } else {
