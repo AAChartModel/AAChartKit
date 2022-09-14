@@ -88,6 +88,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, id)
 AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AAMarker *, marker)
+AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, name)
+AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, x)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
 
 @end

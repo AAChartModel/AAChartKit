@@ -98,6 +98,8 @@ AAPropSetFuncImplementation(AASeriesElement, NSString *, id)
 AAPropSetFuncImplementation(AADataElement, NSString *, color)
 AAPropSetFuncImplementation(AADataElement, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AADataElement, AAMarker *, marker)
+AAPropSetFuncImplementation(AADataElement, NSString *, name)
+AAPropSetFuncImplementation(AADataElement, NSNumber *, x)
 AAPropSetFuncImplementation(AADataElement, NSNumber *, y)
 
 @end
