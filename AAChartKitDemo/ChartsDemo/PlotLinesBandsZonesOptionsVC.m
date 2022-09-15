@@ -28,6 +28,8 @@
         case 4: return [self configureAASeriesElementZones];//数据分区 Zones
         case 5: return [self configureAASeriesElementZonesMixedAAPlotLines];//数据分区 Zones 和颜色标志线混合
         case 6: return [self configureXAxisPlotBandAreaMixedColumnChart];//X轴有 plotBand 的区域面积与柱形混合图
+        case 7: return [self configureXAxisPlotLinesForChart];//X 轴有 plotLines 的图表
+        case 8: return [self configureXAxisPlotLinesForChart2];//X 轴有 plotLines 的图表2
 
         default:
             break;
@@ -271,6 +273,8 @@
     AAYAxis *aaYAxis = aaOptions.yAxis;
     aaYAxis.plotLines = aaPlotLinesArr;
     
+    aaOptions.xAxis.plotLines = aaPlotLinesArr;
+    
     
     return aaOptions;
 }
@@ -417,6 +421,157 @@
     
     AAXAxis *aaXAxis = aaOptions.xAxis;
     aaXAxis.plotBands = aaPlotBandsArr;
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1391
+//https://stackoverflow.com/questions/46418011/highchart-yaxis-plotlines-label-position
+- (AAOptions *)configureXAxisPlotLinesForChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+            .chartTypeSet(AAChartTypeAreaspline)
+            .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                    @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+            .markerRadiusSet(@8.0)//marker点半径为8个像素
+            .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+            .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+            .yAxisLineWidthSet(@0)
+            .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+            .legendEnabledSet(false)
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .nameSet(@"New York Hot")
+                            .lineWidthSet(@5.0)
+                            .colorSet(@"#25547c")
+                            .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+            ]);
+
+    AAStyle *aaStyle = AAStyle.new
+            .colorSet(AAColor.redColor)
+            .backgroundColorSet(AAColor.blackColor)
+            .borderRadiusSet(@"5px")
+            .borderSet(@"2px solid red")
+            .opacitySet(@1.0)
+            .fontWeightSet(AAChartFontWeightTypeBold)
+            .paddingSet(@"6px")
+            .fontSizeSet(@"16px");
+
+    NSArray *aaPlotLinesArr = @[
+            AAPlotLinesElement.new
+                    .colorSet(@"#1e90ff")//颜色值(16进制)
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+                    .widthSet(@(3)) //标示线粗细
+                    .valueSet(@(3)) //所在位置
+                    .zIndexSet(@(9999)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                    .labelSet(AALabel.new
+                            .useHTMLSet(true)
+                            .textSet(@"PLOT LINES ONE")
+                            .styleSet(aaStyle))
+            ,
+            AAPlotLinesElement.new
+                    .colorSet(@"#ef476f")
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                    .widthSet(@(3))
+                    .valueSet(@(6))
+                    .zIndexSet(@(9999)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                    .labelSet(AALabel.new
+                            .useHTMLSet(true)
+                            .textSet(@"PLOT LINES TWO")
+                            .styleSet(aaStyle))
+            ,
+            AAPlotLinesElement.new
+                    .colorSet(@"#04d69f")
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                    .widthSet(@(3))
+                    .valueSet(@(9))
+                    .zIndexSet(@(9999)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                    .labelSet(AALabel.new
+                            .useHTMLSet(true)
+                            .textSet(@"PLOT LINES THREE")
+                            .styleSet(aaStyle))
+    ];
+
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.xAxis.plotBands = aaPlotLinesArr;
+
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1391
+//https://stackoverflow.com/questions/46418011/highchart-yaxis-plotlines-label-position
+- (AAOptions *)configureXAxisPlotLinesForChart2 {
+    AAChartModel *aaChartModel = AAChartModel.new
+            .chartTypeSet(AAChartTypeAreaspline)
+            .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                    @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"])
+            .markerRadiusSet(@8.0)//marker点半径为8个像素
+            .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//marker点为空心效果
+            .markerSymbolSet(AAChartSymbolTypeCircle)//marker点为圆形点○
+            .yAxisLineWidthSet(@0)
+            .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+            .legendEnabledSet(false)
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .nameSet(@"New York Hot")
+                            .lineWidthSet(@5.0)
+                            .colorSet(@"#25547c")
+                            .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
+            ]);
+
+
+    AAStyle *aaStyle = AAStyle.new
+            .colorSet(AAColor.redColor)
+            .backgroundColorSet(AAColor.blackColor)
+            .borderRadiusSet(@"5px")
+            .borderSet(@"2px solid red")
+            .opacitySet(@1.0)
+            .fontWeightSet(AAChartFontWeightTypeBold)
+            .paddingSet(@"6px")
+            .fontSizeSet(@"16px");
+
+    NSArray *aaPlotLinesArr = @[
+            AAPlotLinesElement.new
+                    .colorSet(@"#1e90ff")//颜色值(16进制)
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)//样式：Dash,Dot,Solid等,默认Solid
+                    .widthSet(@(3)) //标示线粗细
+                    .valueSet(@(3)) //所在位置
+                    .zIndexSet(@(9999)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                    .labelSet(AALabel.new
+                            .useHTMLSet(true)
+                            .rotationSet(@0)
+                            .xSet(@-15)
+                            .textSet(@"孤<br>岛<br>危<br>机")
+                            .styleSet(aaStyle))
+            ,
+            AAPlotLinesElement.new
+                    .colorSet(@"#ef476f")
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                    .widthSet(@(3))
+                    .valueSet(@(6))
+                    .zIndexSet(@(9999)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                    .labelSet(AALabel.new
+                            .useHTMLSet(true)
+                            .rotationSet(@0)
+                            .xSet(@-15)
+                            .textSet(@"使<br>命<br>召<br>唤")
+                            .styleSet(aaStyle))
+            ,
+            AAPlotLinesElement.new
+                    .colorSet(@"#04d69f")
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                    .widthSet(@(3))
+                    .valueSet(@(9))
+                    .zIndexSet(@(9999)) //层叠,标示线在图表中显示的层叠级别，值越大，显示越向前
+                    .labelSet(AALabel.new
+                            .useHTMLSet(true)
+                            .rotationSet(@0)
+                            .xSet(@-15)
+                            .textSet(@"最<br>后<br>生<br>还<br>者")
+                            .styleSet(aaStyle))
+    ];
+
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.xAxis.plotBands = aaPlotLinesArr;
+
     return aaOptions;
 }
 
