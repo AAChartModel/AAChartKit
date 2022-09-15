@@ -716,6 +716,8 @@
               @"configurePieChartFormatProperty---配置饼图的 dataLabels 的 format 属性",
               @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
               @"adjustPieChartDataLabelStyleAndPostion---调整饼图的 dataLabels 样式及位置使其居中",
+              @"showPieChartPointNamePointYAndPointPercentForDataLabels---自定义饼图 dataLabels 显示 point.name, point.x, point.percent",
+
             ],
             /*polar chart 极地图*/
             @[@"configureThePolygonPolarChart---简单的多边形雷达图",

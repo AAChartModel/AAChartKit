@@ -21,12 +21,13 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self configurePieChartTitle];//自定义饼图的标题
+        case 0: return [self showPieChartPointNamePointYAndPointPercentForDataLabels];//自定义饼图的标题
         case 1: return [self adjustPieChartTitleAndDataLabelFontStyle];//自定义饼图的标题和 DataLabels
         case 2: return [self adjustPieChartTitleAndDataLabelFontStyle2];//自定义饼图的标题和 DataLabels
         case 3: return [self configurePieChartFormatProperty];//配置饼图的 dataLabels 的 format 属性
         case 4: return [self doubleLayerHalfPieChart];//双层嵌套的玉阕图
         case 5: return [self adjustPieChartDataLabelStyleAndPostion];//调整饼图的 dataLabels 样式及位置使其居中
+        case 6: return [self showPieChartPointNamePointYAndPointPercentForDataLabels]; //自定义饼图 dataLabels 显示 point.name, point.x, point.percent
 
         default:
             break;
@@ -124,7 +125,6 @@
                ]);
     return aaOptions;
 }
-
 
 - (AAOptions *)adjustPieChartTitleAndDataLabelFontStyle2 {
     AAOptions *aaOptions = AAOptions.new
@@ -307,6 +307,41 @@
                 ]
             ),
         ]);
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1395
+- (AAOptions *)showPieChartPointNamePointYAndPointPercentForDataLabels {
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new.typeSet(AAChartTypePie))
+    .titleSet(AATitle.new
+              .useHTMLSet(true)
+              .textSet(@"<span style=""color:#1E90FF;font-weight:thin;font-size:13px""> &nbsp&nbsp&nbsp近七天 </span>  <br>\
+                         <span style=""color:#A9A9A9;font-weight:thin;font-size:10px""> 运行状态占比 </span>")//标题文本内容
+              .alignSet(AAChartAlignTypeCenter)//标题水平居中
+              .verticalAlignSet(AAChartVerticalAlignTypeMiddle)//标题垂直居中
+              .ySet(@0)//标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
+              )
+    .colorsSet(@[@"#1E90FF",@"#87CEFA",@"#A9A9A9",@"#fd4800",@"#F4A460"])//设置颜色主题
+    .seriesSet(@[
+        AASeriesElement.new
+        .sizeSet(@200)//环形图的半径大小
+        .innerSizeSet(@"60%")//内部圆环半径大小占比
+        .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .useHTMLSet(true)
+                       .distanceSet(@30)//扇形图百分比线的长度
+                       .formatSet(@"<span style=""color:#A9A9A9;font-weight:thin;font-size:10px"">{point.name}</span><br>\
+                                    <span style=""color:#FF0000;font-weight:bold;font-size:18px"">{point.y}&nbsp</span>\
+                                    <span style=""color:#1E90FF;font-weight:bold;font-size:15px"">({point.percentage:.2f}%)</span>")
+                       )
+        .dataSet(@[
+            @[@"Firefox",   @150],
+            @[@"Opera",      @15],
+            @[@"Others",     @35]
+                 ]),
+               ]);
     return aaOptions;
 }
 
