@@ -786,7 +786,8 @@
               @"configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect---配置闪烁特效的 marker 图表2",
               @"configureScatterChartWithBlinkEffect---配置闪烁特效的散点图",
               @"automaticallyHideTooltipAfterItIsShown---在浮动提示框显示后自动隐藏",
-              @"dynamicHeightGridLineAreaChart---动态高度的网格线区域填充图"
+              @"dynamicHeightGridLineAreaChart---动态高度的网格线区域填充图",
+              @"customizeYAxisPlotLinesLabelBeSpecialStyle---自定义 Y 轴轴线上面的标签文字特殊样式"
             ]
 
         ];

@@ -57,6 +57,8 @@
         case 5: return [self configureScatterChartWithBlinkEffect]; //配置散点图的闪烁特效
         case 6: return [self automaticallyHideTooltipAfterItIsShown]; //图表加载完成后,自动隐藏浮动提示框
         case 7: return [self dynamicHeightGridLineAreaChart]; //动态高度网格线的区域填充图
+        case 8: return [self customizeYAxisPlotLinesLabelBeSpecialStyle]; //自定义 Y 轴轴线上面的标签文字特殊样式
+
     }
     return nil;
 }
@@ -628,7 +630,7 @@
         .seriesSet(@[
             AASeriesElement.new
                 .typeSet(AAChartTypeLine)
-//                .idSet(@"google-trends")
+                .idSet(@"google-trends")
                 .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
                 .nameSet(@"Google search for highcharts")
                 .dataSet(@[
@@ -693,9 +695,9 @@
                     @{@"x": @1410818400000, @"y": @97},
                     @{@"x": @1413453600000, @"y": @98}
                 ])
-//                .tooltipSet(AATooltip.new
+                .tooltipSet(AATooltip.new
 //                    .xDateFormatSet(@"%B %Y")
-//                    .valueSuffixSet(@" % of best month"))
+                    .valueSuffixSet(@" % of best month"))
             ,
             AASeriesElement.new
                 .nameSet(@"收入")
@@ -763,21 +765,21 @@
                     @[@1409529600000, @89],
                     @[@1412121600000,@100]
                     ])
-//                .tooltipSet(AATooltip.new
+                .tooltipSet(AATooltip.new
 //                    .xDateFormatSet(@"%B %Y")
-//                    .valueSuffixSet(@" % of best month")
-//            )
+                    .valueSuffixSet(@" % of best month")
+            )
     ,
             AASeriesElement.new
                 .yAxisSet(@1)
                 .nameSet(@"Highsoft 员工")
-//                .idSet(@"employees")
+                .idSet(@"employees")
                 .typeSet(AAChartTypeArea)
                 .stepSet(@"left")
-//                .tooltipSet(AATooltip.new
-//                    .headerFormatSet(@"{point.x:%B %e, %Y}")
-//                    .pointFormatSet(@"{point.name}{point.y}")
-//                    .valueSuffixSet(@" employees"))
+                .tooltipSet(AATooltip.new
+                    .headerFormatSet(@"{point.x:%B %e, %Y}")
+                    .pointFormatSet(@"{point.name}{point.y}")
+                    .valueSuffixSet(@" employees"))
                 .dataSet(@[
                     @{@"x": AADateUTC(2009, 10,  1), @"y": @1,  @"name": @"Torstein 一个人工作", @"image": @"Torstein" },
                     @{@"x": AADateUTC(2010, 10, 20), @"y": @2,  @"name": @"Grethe 加入", @"image": @"Grethe" },
@@ -1103,5 +1105,58 @@
                 .enabledSet(false))
     ]);
 }
+
+//https://github.com/AAChartModel/AAChartKit-Swift-Pro/issues/3
+//https://www.highcharts.com/forum/viewtopic.php?f=9&t=49492
+- (AAOptions *)customizeYAxisPlotLinesLabelBeSpecialStyle {
+    return AAOptions.new
+    .chartSet(AAChart.new
+            .eventsSet(AAChartEvents.new
+                       .loadSet(@AAJSFunc((function () {
+                           const chart = this,
+                             ren = chart.renderer,
+                             plotLineLabel = chart.yAxis[0].plotLinesAndBands[0].label,
+                             {
+                               x: labelX,
+                               y: labelY,
+                               width: labelWidth,
+                               height: labelHeight
+                             } = plotLineLabel.getBBox(),
+                             x = labelX + labelWidth,
+                             y = labelY,
+                             lh = labelHeight,
+                             ll = 40;
+
+                           chart.customLabelTriangle = ren.path(['M', x - ll, y, x, y, x + lh, y + lh / 2, x, y + lh, x - ll, y + lh, 'Z']).attr({
+                             fill: '#a9a9ff',
+                           }).add().toFront();
+                       })))))
+    .yAxisSet(AAYAxis.new
+        .visibleSet(true)
+        .lineWidthSet(@2)
+        .plotLinesSet(@[
+            AAPlotLinesElement.new
+            .valueSet(@6.5)
+            .colorSet(@"#a9a9ff")
+            .widthSet(@2)
+            .dashStyleSet(AAChartLineDashStyleTypeDash)
+            .labelSet(AALabel.new
+                .useHTMLSet(true)
+                .textAlignSet(AAChartAlignTypeCenter)
+                .xSet(@0)
+                .ySet(@2)
+                .formatterSet(@AAJSFunc(function () {
+                    return `<span style="padding: 2px 10px; display: block; color: white">${this.options.value}</span>`
+                }))
+            )
+        ])
+    )
+    .seriesSet(@[
+        AASeriesElement.new
+        .dataSet(@[@2, @5, @2, @3, @6])
+    ]);
+}
+
+
 
 @end
