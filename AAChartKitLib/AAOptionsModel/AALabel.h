@@ -44,5 +44,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALabel, NSString *, verticalAlig
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, AAStyle  *, style)//轴标签的 CSS 样式
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, NSNumber *, x)//水平偏移
 AAPropStatementAndPropSetFuncStatement(strong, AALabel, NSNumber *, y)// 竖直偏移
+AAPropStatementAndPropSetFuncStatement(copy,   AALabel, NSString *, formatter)
+
 
 @end

@@ -31,6 +31,7 @@
  */
 
 #import "AALabel.h"
+#import "NSString+toPureJSString.h"
 
 @implementation AALabel
 
@@ -43,5 +44,12 @@ AAPropSetFuncImplementation(AALabel, NSString *, verticalAlign)//竖直对齐
 AAPropSetFuncImplementation(AALabel, AAStyle  *, style)//轴标签的 CSS 样式
 AAPropSetFuncImplementation(AALabel, NSNumber *, x)//水平偏移
 AAPropSetFuncImplementation(AALabel, NSNumber *, y)// 竖直偏移
+
+AAJSFuncTypePropSetFuncImplementation(AALabel, NSString *, formatter)
+
+- (void)setFormatter:(NSString *)formatter {
+    _formatter = [formatter aa_toPureJSString];
+}
+
 
 @end
