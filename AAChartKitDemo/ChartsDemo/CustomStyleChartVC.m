@@ -98,7 +98,8 @@
         case 47: return [self customLineChartWithColorfulMarkersAndLines2];
         case 48: return [self drawLineChartWithPointsCoordinates];
         case 49: return [self configureSpecialStyleColumnForNegativeDataMixedPositiveData];
-            
+        case 50: return [self connectNullsForSingleAASeriesElement];
+
         default:
             return nil;
     }
@@ -1944,6 +1945,50 @@
         .nameSet(@"虚构数据")
         .dataSet(newDataArr)
                ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1401
+- (AAChartModel *)connectNullsForSingleAASeriesElement {
+    NSArray *dataArr = @[
+        @0.45, NSNull.new, NSNull.new,
+        @0.55, @0.58, @0.62, NSNull.new, NSNull.new,
+        @0.56, @0.67, @0.50, @0.34, @0.50, NSNull.new, NSNull.new, NSNull.new, NSNull.new,
+        @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36, NSNull.new, NSNull.new, NSNull.new, NSNull.new, NSNull.new, NSNull.new, NSNull.new, NSNull.new,
+        @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53,
+    ];
+    
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeSpline)
+    .subtitleSet(@"虚拟数据")
+    .colorsThemeSet(@[@"#1e90ff", @"#ef476f", @"#ffd066", @"#04d69f"])
+    .yAxisTitleSet(@"摄氏度")
+    .dataLabelsEnabledSet(false)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@8)
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Do NOT Connect Nulls")
+            .lineWidthSet(@5)
+            .connectNullsSet(@false)
+            .dataSet(dataArr),
+        AASeriesElement.new
+            .nameSet(@"Connect Nulls")
+            .lineWidthSet(@5)
+            .connectNullsSet(@true)
+            .dataSet(dataArr),
+        AASeriesElement.new
+            .nameSet(@"Do NOT Connect Nulls")
+            .lineWidthSet(@5)
+            .connectNullsSet(@false)
+            .dataSet(dataArr),
+        AASeriesElement.new
+            .nameSet(@"Connect Nulls")
+            .lineWidthSet(@5)
+            .connectNullsSet(@true)
+            .dataSet(dataArr)
+    ]);
 }
 
 @end

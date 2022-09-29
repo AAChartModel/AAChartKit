@@ -88,7 +88,7 @@ AAPropSetFuncImplementation(AASeriesElement, id        , enableMouseTracking)
 AAPropSetFuncImplementation(AASeriesElement, AADataSorting *, dataSorting)
 AAPropSetFuncImplementation(AASeriesElement, id        , reversed) //Only useful for pyramid chart and funnel chart
 AAPropSetFuncImplementation(AASeriesElement, NSString *, id)
-
+AAPropSetFuncImplementation(AASeriesElement, id        , connectNulls)
 
 @end
 
