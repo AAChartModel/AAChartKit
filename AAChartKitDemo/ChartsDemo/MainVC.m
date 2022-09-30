@@ -61,6 +61,7 @@
 #import "DataLabelsOptionsVC.h"
 #import "XAxisYAxisLabelsOptionsVC.h"
 #import "XAxisYAxisTypeOptionsVC.h"
+#import "JSFunctionForAAAxisVC.h"
 #import "JSFunctionForAAChartEventsVC.h"
 #import "CustomTableViewCell.h"
 
@@ -423,7 +424,15 @@
         }
             break;
         case  26: {
-            /*通过 AAOptions 自定义 X 轴 Y 轴的轴类型*/
+            /*通过 AAOptions 自定义 X 轴 Y 轴的 Labels*/
+            JSFunctionForAAAxisVC *vc = JSFunctionForAAAxisVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case  27: {
+            /*通过 AAOptions 自定义 AAChartEvents*/
             JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
@@ -466,6 +475,7 @@
             @"DataLabels Options---通过 AAOptions 自定义 DataLabels 数据标签",
             @"X Axis Y Axis Labels Options---通过 AAOptions 自定义 X 轴 Y 轴的文字标签",
             @"X Axis Y Axis Type Options---通过 AAOptions 自定义 X 轴 Y 轴的轴类型",
+            @"JS Function For AAAxis Labels---通过 JSFunction 自定义 AAAxis 的 Labels",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
 
         ];
@@ -779,6 +789,19 @@
               @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
+            ],
+            /*通过 JSFunction 自定义 AAAxis 的 Labels*/
+            @[@"customYAxisLabels---自定义Y轴文字",
+              @"customYAxisLabels2---自定义Y轴文字2",
+              @"customAreaChartXAxisLabelsTextUnitSuffix1---自定义X轴文字单位后缀(通过 formatter 函数)",
+              @"customAreaChartXAxisLabelsTextUnitSuffix2---自定义X轴文字单位后缀(不通过 formatter 函数)",
+              @"configureTheAxesLabelsFormattersOfDoubleYAxesChart---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 1",
+              @"configureTheAxesLabelsFormattersOfDoubleYAxesChart2---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 2",
+              @"configureTheAxesLabelsFormattersOfDoubleYAxesChart3---配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 3",
+              @"customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters---通过截取前四个字符来自定义 X 轴 labels",
+              @"customSpiderChartStyle---自定义蜘蛛🕷🕸图样式",
+              @"customizeEveryDataLabelSinglelyByDataLabelsFormatter---通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义",
+              @"customXAxisLabelsBeImages---自定义 X轴 labels 为一组图片",
             ],
             /*通过 JSFunction 自定义 AAChartEvents 的事件*/
             @[@"setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart---图表加载完成后设置 crosshair 和 tooltip 到默认位置",
