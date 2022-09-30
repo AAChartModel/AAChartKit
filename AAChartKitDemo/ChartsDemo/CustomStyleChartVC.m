@@ -98,7 +98,8 @@
         case 47: return [self customLineChartWithColorfulMarkersAndLines2];
         case 48: return [self drawLineChartWithPointsCoordinates];
         case 49: return [self configureSpecialStyleColumnForNegativeDataMixedPositiveData];
-        case 50: return [self connectNullsForSingleAASeriesElement];
+        case 50: return [self configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart];
+        case 51: return [self connectNullsForSingleAASeriesElement];
 
         default:
             return nil;
@@ -1947,6 +1948,67 @@
                ]);
 }
 
+
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/389
+- (AAChartModel *)configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart {
+    NSMutableArray *randomNumArrA = [NSMutableArray array];
+    NSMutableArray *randomNumArrB = [NSMutableArray array];
+    double y1 = 0.0;
+    double y2 = 0.0;
+    int Q = arc4random() % 50;
+    int range = 129;
+    for (int x = 0; x < range; x++) {
+        y1 = sin(Q * (x * M_PI / 180)) + x * 2.0 * 0.01;
+        y2 = cos(Q * (x * M_PI / 180)) + x * 3.0 * 0.01;
+        [randomNumArrA addObject:@(y1)];
+        [randomNumArrB addObject:@(y2)];
+    }
+    
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@0.2, AARgbaColor(255, 0, 0, 0.2)],
+        @[@0.4, AARgbaColor(255, 0, 0, 0.1)],
+        @[@0.6, AARgbaColor(255, 0, 0, 0.05)],
+        @[@0.8, AARgbaColor(255, 0, 0, 0.01)],
+        @[@1.0, AAColor.clearColor]
+    ];
+    
+    NSDictionary *gradientRedColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                                                         stopsArray:redStopsArr];
+    
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeAreaspline)
+        .stackingSet(AAChartStackingTypeNormal)
+        .backgroundColorSet(AAColor.blackColor)
+        .colorsThemeSet(@[@"#1e90ff",@"#04d69f",@"#ef476f",@"#ffd066",])
+        .dataLabelsEnabledSet(false)
+        .markerSymbolSet(AAChartSymbolTypeCircle)
+        .markerRadiusSet(@5)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .xAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
+        .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0.5])
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"2017")
+                .typeSet(AAChartTypeSpline)
+                .lineWidthSet(@6)
+                .dataSet(randomNumArrA),
+            AASeriesElement.new
+                .nameSet(@"2018")
+                .typeSet(AAChartTypeSpline)
+                .lineWidthSet(@6)
+                .dataSet(randomNumArrB),
+            AASeriesElement.new
+                .nameSet(@"2020")
+                .fillColorSet((id)gradientRedColorDic)
+                .lineWidthSet(@6)
+                .thresholdSet(@(-4))
+                .dataSet(randomNumArrA),
+        ]);
+}
+
+
+
 //https://github.com/AAChartModel/AAChartKit/issues/1401
 - (AAChartModel *)connectNullsForSingleAASeriesElement {
     NSArray *dataArr = @[
@@ -1958,37 +2020,37 @@
     ];
     
     return AAChartModel.new
-    .chartTypeSet(AAChartTypeSpline)
-    .subtitleSet(@"虚拟数据")
-    .colorsThemeSet(@[@"#1e90ff", @"#ef476f", @"#ffd066", @"#04d69f"])
-    .yAxisTitleSet(@"摄氏度")
-    .dataLabelsEnabledSet(false)
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
-    .stackingSet(AAChartStackingTypeNormal)
-    .markerRadiusSet(@8)
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-    .seriesSet(@[
-        AASeriesElement.new
-            .nameSet(@"Do NOT Connect Nulls")
-            .lineWidthSet(@5)
-            .connectNullsSet(@false)
-            .dataSet(dataArr),
-        AASeriesElement.new
-            .nameSet(@"Connect Nulls")
-            .lineWidthSet(@5)
-            .connectNullsSet(@true)
-            .dataSet(dataArr),
-        AASeriesElement.new
-            .nameSet(@"Do NOT Connect Nulls")
-            .lineWidthSet(@5)
-            .connectNullsSet(@false)
-            .dataSet(dataArr),
-        AASeriesElement.new
-            .nameSet(@"Connect Nulls")
-            .lineWidthSet(@5)
-            .connectNullsSet(@true)
-            .dataSet(dataArr)
-    ]);
+        .chartTypeSet(AAChartTypeSpline)
+        .subtitleSet(@"虚拟数据")
+        .colorsThemeSet(@[@"#1e90ff", @"#ef476f", @"#ffd066", @"#04d69f"])
+        .yAxisTitleSet(@"摄氏度")
+        .dataLabelsEnabledSet(false)
+        .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+        .stackingSet(AAChartStackingTypeNormal)
+        .markerRadiusSet(@8)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Do NOT Connect Nulls")
+                .lineWidthSet(@5)
+                .connectNullsSet(@false)
+                .dataSet(dataArr),
+            AASeriesElement.new
+                .nameSet(@"Connect Nulls")
+                .lineWidthSet(@5)
+                .connectNullsSet(@true)
+                .dataSet(dataArr),
+            AASeriesElement.new
+                .nameSet(@"Do NOT Connect Nulls")
+                .lineWidthSet(@5)
+                .connectNullsSet(@false)
+                .dataSet(dataArr),
+            AASeriesElement.new
+                .nameSet(@"Connect Nulls")
+                .lineWidthSet(@5)
+                .connectNullsSet(@true)
+                .dataSet(dataArr)
+        ]);
 }
 
 @end
