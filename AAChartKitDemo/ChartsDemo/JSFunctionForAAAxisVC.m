@@ -45,19 +45,19 @@
     // Do any additional setup after loading the view.
 }
 
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (self.selectedIndex) {
+- (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
+    switch (selectedIndex) {
         case 0: return [self customYAxisLabels];//自定义Y轴文字
-        case 1: return [self customAreaChartXAxisLabelsTextUnitSuffix1];//自定义X轴文字单位后缀(通过 formatter 函数)
-        case 2: return [self customAreaChartXAxisLabelsTextUnitSuffix2];//自定义X轴文字单位后缀(不通过 formatter 函数)
-        case 3: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
-        case 4: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
-        case 5: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
-        case 6: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 1
-        case 7: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart2];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 2
-        case 8: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart3];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 3
-        case 9: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
-
+        case 1: return [self customYAxisLabels2];//自定义Y轴文字2
+        case 2: return [self customAreaChartXAxisLabelsTextUnitSuffix1];//自定义X轴文字单位后缀(通过 formatter 函数)
+        case 3: return [self customAreaChartXAxisLabelsTextUnitSuffix2];//自定义X轴文字单位后缀(不通过 formatter 函数)
+        case 4: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 1
+        case 5: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart2];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 2
+        case 6: return [self configureTheAxesLabelsFormattersOfDoubleYAxesChart3];//配置双 Y 轴图表的 Y 轴文字标签的 Formatter 函数 示例 3
+        case 7: return [self customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters];//通过截取前四个字符来自定义 X 轴 labels
+        case 8: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
+        case 9: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
+        case 10: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
         default:
             return nil;
     }
@@ -99,6 +99,113 @@
     ;
     return aaOptions;
 }
+
+- (AAOptions *)customYAxisLabels2 {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图表类型
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+    .dataLabelsEnabledSet(false)
+    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@8)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .lineWidthSet(@5.0)
+        .fillOpacitySet(@0.4)
+        .dataSet( @[@229.9, @771.5, @1106.4, @1129.2, @6644.0, @1176.0, @8835.6, @148.5, @8816.4, @6694.1, @7795.6, @9954.4]),
+    ]);
+
+    AALabels *aaYAxisLabels = AALabels.new
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.grayColor)
+              .fontSizeSet(@"10px")
+              .fontWeightSet(AAChartFontWeightTypeBold))
+    .formatterSet(@AAJSFunc(function () {
+        const yValue = this.value;
+        if (yValue == 0) {
+            return "0";
+        } else if (yValue == 2500) {
+            return "25%";
+        } else if (yValue == 5000) {
+            return "50%";
+        } else if (yValue == 7500) {
+            return "75%";
+        } else if (yValue == 10000) {
+            return "100%";
+        }
+    }));
+
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.yAxis
+    .oppositeSet(true)
+    .tickWidthSet(@2)
+    .lineWidthSet(@1.5)//Y轴轴线颜色
+    .lineColorSet(AAColor.lightGrayColor)//Y轴轴线颜色
+    .gridLineWidthSet(@0)//Y轴网格线
+    .tickPositionsSet(@[@0,@2500,@5000,@7500,@10000])
+    .labelsSet(aaYAxisLabels)
+    ;
+
+    return aaOptions;
+}
+
+//Stupid method
+- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix1 {
+    NSDictionary *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                 endColorString:@"#00b0ff"];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+        .chartTypeSet(AAChartTypeArea)//图表类型
+        .titleSet(@"Custom X Axis Labels Text")//图表主标题
+        .subtitleSet(@"By Using JavaScript Formatter Function")//图表副标题
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
+        .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
+        .seriesSet(@[
+            AASeriesElement.new
+                .lineWidthSet(@1.5)
+                .colorSet(@"#00b0ff")
+                .fillColorSet((id)gradientColorDic1)
+                .nameSet(@"2018")
+                .dataSet(@[
+                    @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
+                    @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
+                    @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
+                    @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
+                    @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
+                    @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
+                    @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
+        ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.xAxis.labels
+        .formatterSet(@AAJSFunc(function () {
+            const xValue = this.value;
+            if (xValue%10 == 0) {
+                return xValue + " sec"
+            } else {
+                return "";
+            }
+        }))
+    ;
+    
+    return aaOptions;
+}
+
+//Smart method
+- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix2 {
+    AAOptions *aaOptions = [self customAreaChartXAxisLabelsTextUnitSuffix1];
+    aaOptions.xAxis
+        .labelsSet(AALabels.new
+                   .stepSet(@10)
+                   .formatSet(@"{value} sec"))
+    ;
+    
+    return aaOptions;
+}
+
 
 //https://github.com/AAChartModel/AAChartKit/issues/901
 //https://github.com/AAChartModel/AAChartKit/issues/952
@@ -445,59 +552,63 @@
     return aaOptions;
 }
 
-//Stupid method
-- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix1 {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#00b0ff"];
-    
+//https://github.com/AAChartModel/AAChartKit/issues/1217
+- (AAOptions *)customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters {
     AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeArea)//图表类型
-    .titleSet(@"Custom X Axis Labels Text")//图表主标题
-    .subtitleSet(@"By Using JavaScript Formatter Function")//图表副标题
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
-    .seriesSet(@[
-        AASeriesElement.new
-        .lineWidthSet(@1.5)
-        .colorSet(@"#00b0ff")
-        .fillColorSet((id)gradientColorDic1)
-        .nameSet(@"2018")
-        .dataSet(@[
-            @1.51, @6.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
-            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @12.7, @0.94, @1.44,
-            @18.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46,
-            @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.33, @4.68, @1.31, @1.10, @13.9, @1.10, @1.16, @1.67,
-            @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05,
-            @2.18, @3.24,@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05,
-            @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.48])
-    ]);
-    
+            .chartTypeSet(AAChartTypeBar)//图表类型
+            .titleSet(@"春江花月夜")//图表主标题
+            .subtitleSet(@"张若虚")//图表副标题
+            .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
+            .xAxisReversedSet(true)
+            .xAxisLabelsStyleSet(AAStyleColor(AAColor.blackColor))
+            .legendEnabledSet(false)
+            .categoriesSet(@[
+                    @"春江潮水连海平", @"海上明月共潮生",
+                    @"滟滟随波千万里", @"何处春江无月明",
+                    @"江流宛转绕芳甸", @"月照花林皆似霰",
+                    @"空里流霜不觉飞", @"汀上白沙看不见",
+                    @"江天一色无纤尘", @"皎皎空中孤月轮",
+                    @"江畔何人初见月", @"江月何年初照人",
+                    @"人生代代无穷已", @"江月年年望相似",
+                    @"不知江月待何人", @"但见长江送流水",
+                    @"白云一片去悠悠", @"青枫浦上不胜愁",
+                    @"谁家今夜扁舟子", @"何处相思明月楼",
+                    @"可怜楼上月裴回", @"应照离人妆镜台",
+                    @"玉户帘中卷不去", @"捣衣砧上拂还来",
+                    @"此时相望不相闻", @"愿逐月华流照君",
+                    @"鸿雁长飞光不度", @"鱼龙潜跃水成文",
+                    @"昨夜闲潭梦落花", @"可怜春半不还家",
+                    @"江水流春去欲尽", @"江潭落月复西斜",
+                    @"斜月沉沉藏海雾", @"碣石潇湘无限路",
+                    @"不知乘月几人归", @"落月摇情满江树",
+            ])
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .lineWidthSet(@1.5)
+                            .colorSet((id)AAGradientColor.new
+                                    .directionSet(AALinearGradientDirectionToTop)
+                                    .startColorSet(@"#7052f4")
+                                    .endColorSet(@"#00b0ff"))
+                            .nameSet(@"2018")
+                            .dataSet(@[
+                                    @1.51, @3.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
+                                    @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @2.7, @0.94, @1.44,
+                                    @3.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90,
+                            ])
+            ]);
+
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.xAxis.labels
-    .formatterSet(@AAJSFunc(function () {
-        const xValue = this.value;
-        if (xValue%10 == 0) {
-            return xValue + " sec"
-        } else {
-            return "";
-        }
-    }))
-    ;
-    
-    return aaOptions;
-}
+            .formatterSet(@AAJSFunc(function () {
+                const xAxisCategory = this.value;
+                if (xAxisCategory.length > 4) {
+                    return xAxisCategory.substr(0, 4);
+                } else {
+                    return xAxisCategory;
+                }
+            }))
+            ;
 
-//Smart method
-- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix2 {
-    AAOptions *aaOptions = [self customAreaChartXAxisLabelsTextUnitSuffix1];
-    aaOptions.xAxis
-    .labelsSet(AALabels.new
-               .stepSet(@10)
-               .formatSet(@"{value} sec"))
-    ;
-    
     return aaOptions;
 }
 
@@ -581,66 +692,6 @@
     return aaOptions;
 }
 
-
-//https://github.com/AAChartModel/AAChartKit/issues/1217
-- (AAOptions *)customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeBar)//图表类型
-    .titleSet(@"春江花月夜")//图表主标题
-    .subtitleSet(@"张若虚")//图表副标题
-    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度(为0即是隐藏分割线)
-    .xAxisReversedSet(true)
-    .xAxisLabelsStyleSet(AAStyleColor(AAColor.blackColor))
-    .legendEnabledSet(false)
-    .categoriesSet(@[
-        @"春江潮水连海平", @"海上明月共潮生",
-        @"滟滟随波千万里", @"何处春江无月明",
-        @"江流宛转绕芳甸", @"月照花林皆似霰",
-        @"空里流霜不觉飞", @"汀上白沙看不见",
-        @"江天一色无纤尘", @"皎皎空中孤月轮",
-        @"江畔何人初见月", @"江月何年初照人",
-        @"人生代代无穷已", @"江月年年望相似",
-        @"不知江月待何人", @"但见长江送流水",
-        @"白云一片去悠悠", @"青枫浦上不胜愁",
-        @"谁家今夜扁舟子", @"何处相思明月楼",
-        @"可怜楼上月裴回", @"应照离人妆镜台",
-        @"玉户帘中卷不去", @"捣衣砧上拂还来",
-        @"此时相望不相闻", @"愿逐月华流照君",
-        @"鸿雁长飞光不度", @"鱼龙潜跃水成文",
-        @"昨夜闲潭梦落花", @"可怜春半不还家",
-        @"江水流春去欲尽", @"江潭落月复西斜",
-        @"斜月沉沉藏海雾", @"碣石潇湘无限路",
-        @"不知乘月几人归", @"落月摇情满江树",
-                   ])
-    .seriesSet(@[
-        AASeriesElement.new
-        .lineWidthSet(@1.5)
-        .colorSet((id)AAGradientColor.new
-                  .directionSet(AALinearGradientDirectionToTop)
-                  .startColorSet(@"#7052f4")
-                  .endColorSet(@"#00b0ff"))
-        .nameSet(@"2018")
-        .dataSet(@[
-            @1.51, @3.7, @0.94, @1.44, @1.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10,
-            @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28,@1.51, @2.7, @0.94, @1.44,
-            @3.6, @1.63, @1.56, @1.91, @2.45, @3.87, @3.24, @4.90,
-                 ])
-    ]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.xAxis.labels
-    .formatterSet(@AAJSFunc(function () {
-        const xAxisCategory = this.value;
-        if (xAxisCategory.length > 4) {
-            return xAxisCategory.substr(0, 4);
-        } else {
-            return xAxisCategory;
-        }
-    }))
-    ;
-    
-    return aaOptions;
-}
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
 - (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
