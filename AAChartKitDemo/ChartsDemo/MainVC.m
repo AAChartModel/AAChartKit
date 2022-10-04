@@ -62,6 +62,7 @@
 #import "XAxisYAxisLabelsOptionsVC.h"
 #import "XAxisYAxisTypeOptionsVC.h"
 #import "JSFunctionForAAAxisVC.h"
+#import "JSFunctionForAALegendVC.h"
 #import "JSFunctionForAAChartEventsVC.h"
 #import "CustomTableViewCell.h"
 
@@ -432,6 +433,14 @@
         }
             break;
         case  27: {
+            /*通过 AAOptions 自定义 AALegend*/
+            JSFunctionForAALegendVC *vc = JSFunctionForAALegendVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case  28: {
             /*通过 AAOptions 自定义 AAChartEvents*/
             JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
             vc.selectedIndex = row;
@@ -476,6 +485,7 @@
             @"X Axis Y Axis Labels Options---通过 AAOptions 自定义 X 轴 Y 轴的文字标签",
             @"X Axis Y Axis Type Options---通过 AAOptions 自定义 X 轴 Y 轴的轴类型",
             @"JS Function For AAAxis Labels---通过 JSFunction 自定义 AAAxis 的 Labels",
+            @"JS Function For AALegend Click Events---通过 JSFunction 自定义 Legend  图例的点击事件",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
 
         ];
@@ -790,6 +800,7 @@
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
             ],
+          
             /*通过 JSFunction 自定义 AAAxis 的 Labels*/
             @[@"customYAxisLabels---自定义Y轴文字",
               @"customYAxisLabels2---自定义Y轴文字2",
@@ -802,6 +813,11 @@
               @"customSpiderChartStyle---自定义蜘蛛🕷🕸图样式",
               @"customizeEveryDataLabelSinglelyByDataLabelsFormatter---通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义",
               @"customXAxisLabelsBeImages---自定义 X轴 labels 为一组图片",
+            ],
+            /*自定义 Legend 图例点击事件*/
+            @[@"disableLegendClickEventForNormalChart---禁用普通图表的图例点击事件",
+              @"disableLegendClickEventForPieChart---禁用饼图的图例点击事件",
+              @"customLegendItemClickEvent---自定义图例点击事件",
             ],
             /*通过 JSFunction 自定义 AAChartEvents 的事件*/
             @[@"setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart---图表加载完成后设置 crosshair 和 tooltip 到默认位置",
