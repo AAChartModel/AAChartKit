@@ -54,7 +54,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolWi
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, x) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, y)
 AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          floating)
-
+AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, labelFormat)//图例标签格式化字符串
 
 @end
 

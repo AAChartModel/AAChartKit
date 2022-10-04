@@ -52,6 +52,7 @@ AAPropSetFuncImplementation(AALegend, NSNumber    *, symbolWidth)//图标宽度
 AAPropSetFuncImplementation(AALegend, NSNumber    *, x) 
 AAPropSetFuncImplementation(AALegend, NSNumber    *, y)
 AAPropSetFuncImplementation(AALegend, BOOL,          floating)
+AAPropSetFuncImplementation(AALegend, NSString    *, labelFormat)//图例标签格式化字符串
 
 @end
 
