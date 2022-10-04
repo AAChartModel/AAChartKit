@@ -45,6 +45,109 @@
     // Do any additional setup after loading the view.
 }
 
+- (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
+    switch (selectedIndex) {
+        case 0: return [self disableLegendClickEventForNormalChart];//禁用普通图表的图例点击事件
+        case 1: return [self disableLegendClickEventForPieChart];//禁用饼图的图例点击事件
+        case 2: return [self customLegendItemClickEvent];//自定义图例点击事件
+
+        default:
+            return nil;
+    }
+}
+
+- (AAOptions *)disableLegendClickEventForNormalChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeAreaspline)
+    .stackingSet(AAChartStackingTypeNormal)
+    .markerRadiusSet(@0)
+    .zoomTypeSet(AAChartZoomTypeX)
+    .colorsThemeSet(@[
+        AAGradientColor.oceanBlueColor,
+        AAGradientColor.sanguineColor,
+        AAGradientColor.lusciousLimeColor,
+        AAGradientColor.mysticMauveColor
+                    ])
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Tokyo Hot")
+        .dataSet(@[@45000, @43000, @50000, @55000, @58000, @62000, @83000, @39000, @56000, @67000, @50000, @34000, @50000, @67000, @58000, @29000, @46000, @23000, @47000, @46000, @38000, @56000, @48000, @36000]),
+        AASeriesElement.new
+        .nameSet(@"Berlin Hot")
+        .dataSet(@[@38000, @31000, @32000, @32000, @64000, @66000, @86000, @47000, @52000, @75000, @52000, @56000, @54000, @60000, @46000, @63000, @54000, @51000, @58000, @64000, @60000, @45000, @36000, @67000]),
+        AASeriesElement.new
+        .nameSet(@"London Hot")
+        .dataSet(@[@46000, @32000, @53000, @58000, @86000, @68000, @85000, @73000, @69000, @71000, @91000, @74000, @60000, @50000, @39000, @67000, @55000, @49000, @65000, @45000, @64000, @47000, @63000, @64000]),
+        AASeriesElement.new
+        .nameSet(@"NewYork Hot")
+        .dataSet(@[@60000, @51000, @52000, @53000, @64000, @84000, @65000, @68000, @63000, @47000, @72000, @60000, @65000, @74000, @66000, @65000, @71000, @59000, @65000, @77000, @52000, @53000, @58000, @53000]),
+               ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+
+    aaOptions.legend
+    .enabledSet(true)
+    .alignSet(AAChartAlignTypeRight)//设置图例位于水平方向上的右侧
+    .layoutSet(AAChartLayoutTypeVertical)//设置图例排列方式为垂直排布
+    .verticalAlignSet(AAChartVerticalAlignTypeTop)//设置图例位于竖直方向上的顶部
+    ;
+
+    //禁用图例点击事件
+    aaOptions.plotOptions.series.events = AAEvents.new
+    .legendItemClickSet(@AAJSFunc(function() {
+        return false;
+    }));
+
+    return aaOptions;
+}
+
+
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/391
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/393
+- (AAOptions *)disableLegendClickEventForPieChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypePie)
+    .backgroundColorSet(AAColor.whiteColor)
+    .titleSet(@"LANGUAGE MARKET SHARES JANUARY,2020 TO MAY")
+    .subtitleSet(@"virtual data")
+    .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
+    .yAxisTitleSet(@"℃")
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Language market shares")
+        .innerSizeSet(@"20%")//内部圆环半径大小占比(内部圆环半径/扇形图半径),
+        .allowPointSelectSet(true)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .enabledSet(false)//禁用点击区块之后出现的半透明遮罩层
+                             )
+                   )
+        .dataSet(@[
+            @[@"Java"  ,@67],
+            @[@"Swift",@999],
+            @[@"Python",@83],
+            @[@"OC"    ,@11],
+            @[@"Go"    ,@30],
+        ])
+    ]);
+
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.legend.labelFormatSet(@"{name} {percentage:.2f}%");
+
+    //禁用饼图图例点击事件
+    aaOptions.plotOptions.series
+    .pointSet(AAPoint.new
+              .eventsSet(AAPointEvents.new
+                         .legendItemClickSet(@AAJSFunc(function() {
+                             return false;
+                         }))
+                         )
+              );
+
+    return aaOptions;
+}
+
+
 //https://bbs.hcharts.cn/article-109-1.html
 //图表自带的图例点击事件是：
 //点击某个显示/隐藏的图例，该图例对应的serie就隐藏/显示。
