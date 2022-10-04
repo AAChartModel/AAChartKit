@@ -98,6 +98,7 @@ AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, remove) //删�
 AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, select) //选中
 AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, unselect) //取消选中
 AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, update) //更新
+AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, legendItemClick) //图例点击事件
 
 - (void)setClick:(NSString *)click {
     _click = [click aa_toPureJSString];
@@ -125,6 +126,10 @@ AAJSFuncTypePropSetFuncImplementation(AAPointEvents, NSString *, update) //更�
 
 - (void)setUpdate:(NSString *)update {
     _update = [update aa_toPureJSString];
+}
+
+- (void)setLegendItemClick:(NSString *)legendItemClick {
+    _legendItemClick = [legendItemClick aa_toPureJSString];
 }
 
 @end

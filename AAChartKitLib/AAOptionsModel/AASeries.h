@@ -91,6 +91,7 @@ AAPropStatementAndPropSetFuncStatement(copy, AAPointEvents, NSString *, remove) 
 AAPropStatementAndPropSetFuncStatement(copy, AAPointEvents, NSString *, select) //选中
 AAPropStatementAndPropSetFuncStatement(copy, AAPointEvents, NSString *, unselect) //取消选中
 AAPropStatementAndPropSetFuncStatement(copy, AAPointEvents, NSString *, update) //更新
+AAPropStatementAndPropSetFuncStatement(copy, AAPointEvents, NSString *, legendItemClick) //图例点击事件
 
 @end
 
