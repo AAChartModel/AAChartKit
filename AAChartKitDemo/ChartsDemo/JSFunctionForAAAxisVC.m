@@ -58,6 +58,8 @@
         case 8: return [self customSpiderChartStyle];//自定义蜘蛛🕷🕸图样式
         case 9: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];//通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义
         case 10: return [self customXAxisLabelsBeImages];//自定义 X轴 labels 为一组图片
+        case 11: return [self loadImageForAATooltip];//为自定义 AATooltip 加载图片内容
+
         default:
             return nil;
     }
@@ -773,7 +775,6 @@
     .subtitleSet(@"use HTML")
     .categoriesSet(nameArr)
     .colorsThemeSet(colorArr)
-    .borderRadiusSet(@5)
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"AD 2020")
@@ -812,6 +813,75 @@
         +  this.y
         + " </b> Dollars ";
     })),imageLinkFlagJSArrStr];
+    
+    aaOptions.tooltip
+    .sharedSet(false)
+    .useHTMLSet(true)
+    .formatterSet(tooltipFormatter)
+    ;
+    
+    return aaOptions;
+}
+
+
+// Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
+// Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
+//https://github.com/AAChartModel/AAChartKit/issues/1404
+- (AAOptions *)loadImageForAATooltip {
+    NSArray *nameArr = @[
+        @"South Korea",
+        @"Japan",
+        @"Australia",
+        @"Germany",
+        @"Russia",
+        @"China",
+        @"Great Britain",
+        @"United States"
+    ];
+    
+    NSArray *colorArr = @[
+        AARgbColor(201, 36,  39 ),
+        AARgbColor(201, 36,  39 ),
+        AARgbColor(0,   82,  180),
+        AARgbColor(0,   0,   0  ),
+        AARgbColor(240, 240, 240),
+        AARgbColor(255, 217, 68 ),
+        AARgbColor(0,   82,  180),
+        AARgbColor(215, 0,   38 )
+    ];
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeColumn)
+    .categoriesSet(nameArr)
+    .colorsThemeSet(colorArr)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"AD 2020")
+        .dataSet(@[@9.0, @9.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5])
+        .colorByPointSet(@true)
+        .borderRadiusTopLeftSet((id)@"50%")
+        .borderRadiusTopRightSet((id)@"50%")
+               ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    aaOptions.plotOptions.column
+        .groupPaddingSet(@0.005);
+    
+    NSString *imgFilePath = @"https://www.highcharts.com/samples/graphics/sun.png";
+    //如果是加载本地图片, 使用如下👇🏻方法
+    //NSString *imgFilePath = [[NSBundle mainBundle] pathForResource:@"sun" ofType:@".png"];
+
+    /*Custom tooltip style*/
+    NSString *tooltipFormatter = [NSString stringWithFormat:(@AAJSFunc(function () {
+        const imageLink = "<span><img src=\"%@\" style=\"width: 30px; height: 30px;\"/></span><br/>";
+        return imageLink
+        + " Support JavaScript Function Just Right Now !!! <br/> "
+        + " The Gold Price For <b>2020 "
+        +  this.x
+        + " </b> Is <b> "
+        +  this.y
+        + " </b> Dollars ";
+    })), imgFilePath];
     
     aaOptions.tooltip
     .sharedSet(false)

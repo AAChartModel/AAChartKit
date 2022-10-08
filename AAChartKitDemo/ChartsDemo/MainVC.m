@@ -813,6 +813,7 @@
               @"customSpiderChartStyle---自定义蜘蛛🕷🕸图样式",
               @"customizeEveryDataLabelSinglelyByDataLabelsFormatter---通过 DataLabels 的 formatter 函数来实现单个数据标签🏷自定义",
               @"customXAxisLabelsBeImages---自定义 X轴 labels 为一组图片",
+              @"loadImageForAATooltip---为自定义 AATooltip 加载图片内容",
             ],
             /*自定义 Legend 图例点击事件*/
             @[@"disableLegendClickEventForNormalChart---禁用普通图表的图例点击事件",
