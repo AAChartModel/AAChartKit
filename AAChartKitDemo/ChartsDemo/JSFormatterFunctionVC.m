@@ -65,6 +65,7 @@
         case 17: return [self customAreasplineChartTooltipStyleByDivWithCSS];//通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
         case 18: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
         case 19: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
+        case 20: return [self configureColorfulDataLabelsForPieChart];//为饼图配置多彩 dataLabels
 
         default:
             return nil;
@@ -1299,8 +1300,6 @@ function () {
     return aaOptions;
 }
 
-
-
 //https://github.com/AAChartModel/AAChartKit/issues/1042
 - (AAOptions *)makePieChartShow0Data {
     return AAOptions.new
@@ -1328,9 +1327,6 @@ function () {
                ])
     ;
 }
-
-
-
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/365
 //https://api.highcharts.com/highcharts/tooltip.formatter
@@ -1378,7 +1374,52 @@ function () {
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit-Swift/issues/404
+- (AAOptions *)configureColorfulDataLabelsForPieChart {
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new
+              .marginLeftSet(@120)
+              .marginRightSet(@120))
+    .titleSet(AATitle.new
+              .textSet(@"Colorful DataLabels For Pie Chart"))
+    .colorsSet(@[@"#0c9674", @"#7dffc0", @"#ff3333", @"#facd32", @"#ffffa0",
+                 @"#EA007B", @"#fe117c", @"#ffc069", @"#06caf4", @"#7dffc0"])
+    .seriesSet(@[
+        AASeriesElement.new
+        .typeSet(AAChartTypePie)
+        .nameSet(@"语言热度值")
+        .innerSizeSet(@"20%")//内部圆环半径大小占比
+        .borderWidthSet(@0)//描边的宽度
+        .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+        .statesSet(AAStates.new
+                   .hoverSet(AAHover.new
+                             .enabledSet(false)))//禁用点击区块之后出现的半透明遮罩层
+        .dataLabelsSet(AADataLabels.new
+                       .allowOverlapSet(true)//允许字符重叠
+                       .useHTMLSet(true)
+                       .formatterSet(@AAJSFunc(
+        function () {
+            const point = this.point;
+            return '<span style=\"color: ' + point.color + '\">' +
+            point.name + ': ' + point.y + '%</span>';
+        })))
+        .dataSet(@[
+            @[@"Firefox",   @3336.2],
+            @[@"IE",          @26.8],
+            @[@"Chrome",      @666.8],
+            @[@"Safari",      @88.5],
+            @[@"Opera",       @46.0],
+            @[@"Others",     @223.0],
+            @[@"Firefox",   @3336.2],
+            @[@"IE",          @26.8],
+            @[@"Chrome",      @666.8],
+            @[@"Safari",      @88.5],
+            @[@"Opera",       @46.0],
+            @[@"Others",     @223.0],
+        ])
+    ]);
 
-
+    return aaOptions;
+}
 
 @end
