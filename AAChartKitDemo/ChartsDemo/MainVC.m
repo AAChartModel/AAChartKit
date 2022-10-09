@@ -467,7 +467,7 @@
             @"Draw Chart With AAOptions---通过Options绘图",
             @"Many ChartView simultaneously---同时显示多个AAChartView",
             @"Hide Or Show Chart Series---隐藏或显示内容",
-            @"Support JS Formatter Function---支持 JS 函数属性",
+            @"JS Formatter Function---支持 JS 函数属性",
             @"Evaluate JS String Function---注入并执行js函数",
             @"Scrolling Updating Data---图表滚动刷新",
             @"Drawable Chart---可拖拽的图表1📈",
@@ -670,6 +670,7 @@
               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
               @"makePieChartShow0Data---使饼图显示为 0 的数据",
               @"customColumnChartBorderStyleAndStatesHoverColor---自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果",
+              @"configureColorfulDataLabelsForPieChart---为饼图配置多彩🌈 dataLabels",
             ],
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[@"Custom Chart DataLabel Sample One---自定义 DataLabel 1",
