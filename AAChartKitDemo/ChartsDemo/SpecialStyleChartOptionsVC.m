@@ -19,6 +19,17 @@
     // Do any additional setup after loading the view.
 }
 
+- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    switch (self.selectedIndex) {
+        case  0: return [self everySingleColumnHasGrayBackground];//每根棱柱都有白色背景的柱形图
+        case  1: return [self everySingleColumnHasWhiteEmptyBorderLineBackground];//每根棱柱都有空心白色边缘线的柱形图
+        case  2: return [self colorfulSpecialStyleColumnChart];//温度计🌡风格的彩色棱柱图
+
+        default:
+            return nil;
+    }
+}
+
 - (AAOptions *)everySingleColumnHasGrayBackground {
     NSArray *stopsArr = @[@[@0.0, @"#00feff"],//颜色字符串设置支持十六进制类型和 rgba 类型
                           @[@0.5, @"#027eff"],
