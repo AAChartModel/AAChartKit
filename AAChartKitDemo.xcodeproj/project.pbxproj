@@ -61,7 +61,7 @@
 		449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */; };
 		449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 449D447921CFDF5D00E43D9C /* AAPlotBandsElement.m */; };
 		44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */; };
-		44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */; };
+		44C8C491226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */; };
 		44E4137323C339160097D0ED /* AAStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E4137223C339160097D0ED /* AAStates.m */; };
 		44EF0FA524F759FD00F5639A /* AALineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EF0FA424F759FD00F5639A /* AALineStyle.m */; };
 		44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F5F9A021D80BDB002A8D25 /* AALabel.m */; };
@@ -227,8 +227,8 @@
 		44AA41DE22CB0B3B00458C0E /* AAChartKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAChartKitDemo.entitlements; sourceTree = "<group>"; };
 		44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgorithmVC.h; sourceTree = "<group>"; };
 		44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlgorithmVC.m; sourceTree = "<group>"; };
-		44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFormatterFunctionVC.h; sourceTree = "<group>"; };
-		44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFormatterFunctionVC.m; sourceTree = "<group>"; };
+		44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipVC.h; sourceTree = "<group>"; };
+		44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipVC.m; sourceTree = "<group>"; };
 		44D36AC724CA70C300B15733 /* AAMarginConvenience.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAMarginConvenience.h; sourceTree = "<group>"; };
 		44E4137123C339150097D0ED /* AAStates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAStates.h; sourceTree = "<group>"; };
 		44E4137223C339160097D0ED /* AAStates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAStates.m; sourceTree = "<group>"; };
@@ -668,8 +668,8 @@
 		84B548D126F3310600D4CAFC /* AAOptionsWithJS */ = {
 			isa = PBXGroup;
 			children = (
-				44C8C48F226F4D4100AB9E50 /* JSFormatterFunctionVC.h */,
-				44C8C490226F4D4100AB9E50 /* JSFormatterFunctionVC.m */,
+				44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */,
+				44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */,
 				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */,
 				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */,
 				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
@@ -842,7 +842,7 @@
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
 				84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */,
 				44EF0FA524F759FD00F5639A /* AALineStyle.m in Sources */,
-				44C8C491226F4D4100AB9E50 /* JSFormatterFunctionVC.m in Sources */,
+				44C8C491226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m in Sources */,
 				27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,

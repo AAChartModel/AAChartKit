@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AABaseChartVC.h"
 
-@interface JSFormatterFunctionVC : AABaseChartVC
+@interface JSFunctionForAATooltipVC : AABaseChartVC
 
 @end
 

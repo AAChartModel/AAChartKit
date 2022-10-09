@@ -32,10 +32,10 @@
  
  */
 
-#import "JSFormatterFunctionVC.h"
+#import "JSFunctionForAATooltipVC.h"
 #import "AADateUTCTool.h"
 
-@implementation JSFormatterFunctionVC
+@implementation JSFunctionForAATooltipVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

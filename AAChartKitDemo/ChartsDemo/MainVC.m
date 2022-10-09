@@ -44,7 +44,7 @@
 #import "HideOrShowChartSeriesVC.h"
 #import "CustomStyleChartVC.h"
 #import "MonitorViewController.h"
-#import "JSFormatterFunctionVC.h"
+#import "JSFunctionForAATooltipVC.h"
 #import "EvaluateJSStringFunctionVC.h"
 #import "ScrollingUpdateDataVC.h"
 #import "DoubleChartsLinkedWorkVC.h"
@@ -274,7 +274,7 @@
             break;
             
         case 9: {
-            JSFormatterFunctionVC *vc = JSFormatterFunctionVC.new;
+            JSFunctionForAATooltipVC *vc = JSFunctionForAATooltipVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];
