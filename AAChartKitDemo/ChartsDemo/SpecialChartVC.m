@@ -41,28 +41,20 @@
 }
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    if (selectedIndex == 0) {
-        return [self configurePieChart];
-    } else if (selectedIndex == 1) {
-        return [self configureBubbleChart];
-    } else if (selectedIndex == 2) {
-        return [self configureScatterChart];
-    }  else if (selectedIndex == 3) {
-        return [self configureArearangeChart];
-    } else if (selectedIndex == 4) {
-        return [self configureAreaslinerangeChart];
-    } else if (selectedIndex == 5) {
-        return [self configureColumnrangeChart];
-    } else if (selectedIndex == 6) {
-        return [self configureBoxplotChart];
-    } else if (selectedIndex == 7) {
-        return [self confiureWaterfallChart];
-    } else if (selectedIndex == 8) {
-        return [self configurePyramidChart];
-    } else if (selectedIndex == 9) {
-        return [self configureFunnelChart];
-    } else if (selectedIndex == 10) {
-        return [self configureErrorBarChart];
+    switch (selectedIndex) {
+        case 0: return [self configurePieChart];
+        case 1: return [self configureBubbleChart];
+        case 2: return [self configureScatterChart];
+        case 3: return [self configureArearangeChart];
+        case 4: return [self configureAreaslinerangeChart];
+        case 5: return [self configureColumnrangeChart];
+        case 6: return [self configureBoxplotChart];
+        case 7: return [self configureWaterfallChart];
+        case 8: return [self configurePyramidChart];
+        case 9: return [self configureFunnelChart];
+        case 10:return [self configureErrorBarChart];
+        default:
+            break;
     }
     return nil;
 }
@@ -804,7 +796,7 @@
                ]);
 }
 
-- (AAChartModel *)confiureWaterfallChart {
+- (AAChartModel *)configureWaterfallChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeWaterfall)
     .titleSet(@"WATERFALL CHART")
