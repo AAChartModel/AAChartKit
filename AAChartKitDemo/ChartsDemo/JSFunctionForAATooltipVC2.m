@@ -27,6 +27,7 @@
         case 2: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Positioner 函数来实现一个位置固定的提示框
         case 3: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式
         case 4: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
+        case 5: return [self customizeTooltipShapeAndShadowBeSpecialStyle];
 
         default:
             return nil;
@@ -296,6 +297,65 @@
                return false;
         }));
     
+    return aaOptions;
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1406
+//https://www.highcharts.com/forum/viewtopic.php?f=9&t=49629
+- (AAOptions *)customizeTooltipShapeAndShadowBeSpecialStyle {
+  AAOptions *aaOptions = AAOptions.new
+    .chartSet(AAChart.new
+                .typeSet(AAChartTypeSpline)
+                .backgroundColorSet(@"#f4f8ff"))
+    .tooltipSet(AATooltip.new
+                  .useHTMLSet(true)
+                  .backgroundColorSet(@"transparent")
+                  .borderColorSet(@"transparent")
+                  .shadowSet(false)
+                  .paddingSet(@0)
+                  .sharedSet(true)
+                  .formatterSet(@AAJSFunc(function() {
+                      const points = this.points;
+
+                      let htmlPoints = ``;
+
+                      points.forEach(function(point) {
+                          htmlPoints += `
+                              <div>
+                                  <span style="color:${point.color}">\u25CF</span> ${point.y}
+                              </div>
+                          `;
+                      });
+                      
+                      return `
+                          <div style="
+                              border-radius: 0.5rem 0.5rem 0.5rem 0;
+                              background-color: white;
+                              box-shadow: #b1c7ff 0px 3px 10px 0px;
+                              padding: 0.5rem;
+                              line-height: 18px;
+                          ">
+                              ${htmlPoints}
+                          </div>
+                      `;
+                  }))
+                .positionerSet(@AAJSFunc((function(labelWidth, labelHeight) {
+                    const chart = this.chart,
+                    point = chart.hoverPoint,
+                    offset = 10,
+                    pointX = chart.plotLeft + point.plotX + offset,
+                    x = chart.chartWidth < pointX + labelWidth ? chart.chartWidth - labelWidth : pointX,
+                    y = chart.plotTop + point.plotY - labelHeight - offset;
+                    
+                    return {x, y};
+                }))))
+    .seriesSet(@[
+        AASeriesElement.new
+            .dataSet(@[@223.2, @312.1, @152.7, @161.9, @196.6]),
+        AASeriesElement.new
+            .dataSet(@[@122.2, @53.7, @300.0, @110.5, @320.4]),
+    ]);
+
     return aaOptions;
 }
 
