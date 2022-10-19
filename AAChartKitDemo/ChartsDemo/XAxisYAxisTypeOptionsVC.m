@@ -128,6 +128,7 @@
 }
 
 //X 轴时间不连续的折线图
+//https://github.com/AAChartModel/AAChartKit/issues/1220
 - (AAOptions *)timeDataWithIrregularIntervalsChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图形类型
