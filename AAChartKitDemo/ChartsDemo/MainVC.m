@@ -467,7 +467,7 @@
             @"Draw Chart With AAOptions---通过Options绘图",
             @"Many ChartView simultaneously---同时显示多个AAChartView",
             @"Hide Or Show Chart Series---隐藏或显示内容",
-            @"JS Formatter Function---支持 JS 函数属性",
+            @"JS Function For AATooltip---支持 JS 函数属性",
             @"Evaluate JS String Function---注入并执行js函数",
             @"Scrolling Updating Data---图表滚动刷新",
             @"Drawable Chart---可拖拽的图表1📈",
@@ -650,29 +650,19 @@
               @"Scatter Chart---散点图"
             ],
             
-            /*JS Formatter Function*/
+            /*JS Function For AATooltip*/
             @[@"customAreaChartTooltipStyleWithSimpleFormatString---简单字符串拼接",
               @"customAreaChartTooltipStyleWithDifferentUnitSuffix---自定义不同单位后缀",
               @"customAreaChartTooltipStyleWithColorfulHtmlLabels---自定义多彩颜色文字",
               @"customLineChartTooltipStyleWhenValueBeZeroDoNotShow---值为0时,在tooltip中不显示",
               @"customStackedAndGroupedColumnChartTooltip---自定义分组堆积柱状图tooltip内容",
-              @"everySingleColumnHasGrayBackground---每根棱柱都有白色背景的柱形图",
-              @"everySingleColumnHasWhiteEmptyBorderLineBackground---每根棱柱都有空心白色边缘线的柱形图",
-              @"colorfulSpecialStyleColumnChart---温度计🌡风格的彩色棱柱图",
               @"configureSpecialStyleTrianglePolarChart---外部显示六边形边框的三角形雷达图",
-              @"customDoubleXAxesChart---双 X 轴镜像条形图",
               @"customArearangeChartTooltip---自定义面积范围图的 tooltip",
               @"customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter---通过自定义X轴的 labels 的 Formatter 和 tooltip 的 Formatter 来调整折线图的 X 轴左边距",
               @"customTooltipWhichDataSourceComeFromOutSideRatherThanSeries---通过来自外部的数据源来自定义 tooltip (而非常规的来自图表的 series)",
-              @"customTooltipPostionerFunction---自定义浮动提示框 Positioner 函数",
-              @"fixedTooltipPositionByCustomPositionerFunction---通过 Positioner 函数来实现一个位置固定的提示框",
-              @"customPlotAreaOutsideComlicatedTooltipStyle---通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式",
-              @"disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction---通过 Series 的 Point 的选中事件函数来禁用条形图反选效果",
               @"customAreasplineChartTooltipStyleByDivWithCSS---通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框",
-              @"makePieChartShow0Data---使饼图显示为 0 的数据",
-              @"customColumnChartBorderStyleAndStatesHoverColor---自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果",
-              @"configureColorfulDataLabelsForPieChart---为饼图配置多彩🌈 dataLabels",
             ],
+
             /*执行由 JavaScript 字符串映射转换成的 js function 函数*/
             @[@"Custom Chart DataLabel Sample One---自定义 DataLabel 1",
               @"Custom Chart DataLabel Sample Two---自定义 DataLabel 2",
