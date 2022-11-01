@@ -61,6 +61,7 @@
         case 12: return [self disableSpineChartHoverAnimationEffect];//禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果
         case 13: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 14: return [self configureBoxplotChartWithSpecialStyle];//配置箱线图特殊样式
+        case 15: return [self toFixHighchartsWithAThickLineAt0ValuesTheLineIsHalfHidden];//修复 Highcharts 在数值为 0 的时候,线条会变粗,但是却被遮挡一半的问题
 
         default:
             break;
@@ -832,5 +833,60 @@
     
     return aaOptions;
 }
+
+//https://stackoverflow.com/questions/64397169/highcharts-with-a-thick-line-at-0-values-the-line-is-half-hidden
+//Highcharts.chart("chart", {
+//  chart: {
+//    type: "line",
+//    height: 300,
+//  },
+//  credits: {
+//    enabled: false
+//  },
+//  legend: {
+//    enabled: false
+//  },
+//  title: {
+//    text: "Chart"
+//  },
+//  yAxis: [{
+//    endOnTick: false,
+//    max: 0.1,
+//    title: {
+//      text: "Negative values make me sad"
+//    }
+//  }],
+//  series: [{
+//    data: [0, 0, 0, -2, -2, -1, 0, -2], // If you put a `1` value in and then everything renders nicely.
+//    lineWidth: 8
+//  }]
+//});
+
+//https://stackoverflow.com/questions/64397169/highcharts-with-a-thick-line-at-0-values-the-line-is-half-hidden
+- (AAOptions *)toFixHighchartsWithAThickLineAt0ValuesTheLineIsHalfHidden {
+    return AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeLine)
+              )
+    .creditsSet(AACredits.new
+                .enabledSet(false))
+    .legendSet(AALegend.new
+                .enabledSet(false))
+    .titleSet(AATitle.new
+                .textSet(@"Chart"))
+    .yAxisSet((id)@[
+        AAYAxis.new
+        .endOnTickSet(false)
+        .maxSet(@0.1)
+        .titleSet(AAAxisTitle .new
+                  .textSet(@"Negative values make me sad")),
+    ])
+    .seriesSet(@[
+        AASeriesElement.new
+        .dataSet(@[@0, @0, @0, @-2, @-2, @-1, @0, @-2])
+        .lineWidthSet(@8),
+    ]);
+}
+
 
 @end
