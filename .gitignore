@@ -60,9 +60,8 @@ fastlane/screenshots
 fastlane/test_output
 
 .DS_Store
-.idea/.name
-.idea/modules.xml
-.idea/SourceTreeGitHub.iml
-.idea/vcs.xml
-.idea/workspace.xml
-.idea/xcode.xml
+
+# JetBrains
+.idea
+.build
+*.xcscheme
