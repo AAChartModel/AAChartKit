@@ -866,21 +866,18 @@
 - (AAOptions *)toFixHighchartsWithAThickLineAt0ValuesTheLineIsHalfHidden {
     return AAOptions.new
     .chartSet(AAChart.new
-              .typeSet(AAChartTypeLine)
-              )
+              .typeSet(AAChartTypeLine))
     .creditsSet(AACredits.new
                 .enabledSet(false))
     .legendSet(AALegend.new
-                .enabledSet(false))
+               .enabledSet(false))
     .titleSet(AATitle.new
-                .textSet(@"Chart"))
-    .yAxisSet((id)@[
-        AAYAxis.new
-        .endOnTickSet(false)
-        .maxSet(@0.1)
-        .titleSet(AAAxisTitle .new
-                  .textSet(@"Negative values make me sad")),
-    ])
+              .textSet(@"Chart"))
+    .yAxisSet(AAYAxis.new
+              .endOnTickSet(false)
+              .maxSet(@0.1)
+              .titleSet(AAAxisTitle .new
+                        .textSet(@"Negative values make me sad")))
     .seriesSet(@[
         AASeriesElement.new
         .dataSet(@[@0, @0, @0, @-2, @-2, @-1, @0, @-2])
