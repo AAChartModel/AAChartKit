@@ -231,5 +231,41 @@
     return aaOptions;
 }
 
+- (AAOptions *)customizeCrosshairsStyle {
+    return AAOptions.new
+        .plotOptionsSet(AAPlotOptions.new
+                        .seriesSet(AASeries.new
+                                   .pointSet(AAPoint.new
+                                             .eventsSet(AAPointEvents.new
+                                                        .mouseOverSet(@AAJSFunc(function() {
+                                                            const chart = this.series.chart;
+                                                            const pointBox = this.graphic.getBBox();
+                                                            const left = pointBox.x + (pointBox.width / 2) + chart.plotLeft;
+                                                            const top = pointBox.y + chart.plotTop;
+                                                            const height = chart.plotHeight + chart.plotTop;
+                                                            
+                                                            if (this.series.options.enabledCrosshairs) {
+                                                                chart.crosshair = chart.renderer.path(['M', left, top, 'L', left, height])
+                                                                    .attr({
+                                                                        'stroke-width': 8,
+                                                                    stroke: 'red'
+                                                                    })
+                                                                    .add();
+                                                            }
+                                                        }
+                                                                                ))
+                                                        .mouseOutSet(@AAJSFunc(function() {
+                                                            const chart = this.series.chart;
+                                                            if (chart.crosshair) chart.crosshair.destroy();
+                                                        }))
+                                                        
+                                                        ))))//设置点击事件
+        .seriesSet(@[
+            AASeriesElement.new
+                .enableMouseTrackingSet(@true)
+                .dataSet(@[@2, @5, @2, @3, @6, @5]),
+        ]);
+}
+
 
 @end
