@@ -101,6 +101,7 @@
         case 50: return [self configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart];
         case 51: return [self connectNullsForSingleAASeriesElement];
         case 52: return [self lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement];
+        case 53: return [self customAreasplineChartWithColorfulGradientColorZones];
 
         default:
             return nil;
@@ -2109,6 +2110,93 @@
                 .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:600]),
         ]);
 }
+
+
+//https://github.com/AAChartModel/AAChartCore-Kotlin/issues/149
+- (AAChartModel *)customAreasplineChartWithColorfulGradientColorZones {
+    NSArray *redStopsArr = @[
+        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@1.0, AAColor.clearColor]
+    ];
+    
+    NSArray *greenStopsArr = @[
+        @[@0.0, AARgbaColor(0, 255, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@1.0, AAColor.clearColor]
+    ];
+    
+    NSArray *blueStopsArr = @[
+        @[@0.0, AARgbaColor(0, 0, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+        @[@1.0, AAColor.clearColor]
+    ];
+    
+    NSDictionary *redGradientColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom stopsArray:redStopsArr];
+    NSDictionary *greenGradientColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom stopsArray:greenStopsArr];
+    NSDictionary *blueGradientColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom stopsArray:blueStopsArr];
+    
+    AADataElement *singleSpecialData = AADataElement.new
+        .markerSet(AAMarker.new
+                   .radiusSet(@8)//曲线连接点半径
+                   .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+                   .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+                   .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+                   //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+                   .lineColorSet(@"#1E90FF")//道奇蓝
+                   )
+        .dataLabelsSet(AADataLabels.new
+                       .enabledSet(true)
+                       .allowOverlapSet(true)
+                       .useHTMLSet(true)
+                       .backgroundColorSet(AARgbaColor(65, 111, 166, 1.0))
+                       .borderRadiusSet(@10)
+                       .shapeSet(@"callout")
+                       .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
+                       .styleSet(AAStyleColorSizeWeight(AAColor.whiteColor, 12, AAChartFontWeightTypeBold))
+                       .xSet(@-80).ySet(@(5))
+                       .alignSet(AAChartAlignTypeCenter)
+                       .verticalAlignSet(AAChartVerticalAlignTypeTop)
+                       .overflowSet(@"none")
+                       .cropSet(false)
+                       )
+        .ySet(@85.3);
+    
+    AAStyle *axisLabelsStyle = AAStyleColorSizeWeight(AAColor.whiteColor, 12, AAChartFontWeightTypeBold);
+    
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeAreaspline)
+        .backgroundColorSet(AAColor.blackColor)
+        .categoriesSet(@[
+            @"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun",
+            @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"
+        ])
+        .dataLabelsEnabledSet(false)
+        .legendEnabledSet(false)
+        .markerRadiusSet(@0)
+        .xAxisLabelsStyleSet(axisLabelsStyle)
+        .yAxisLabelsStyleSet(axisLabelsStyle)
+        .xAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.whiteColor dashStyle:AAChartLineDashStyleTypeLongDashDotDot width:@0.5])
+        .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"空气湿度")
+                .lineWidthSet(@6)
+                .zoneAxisSet(@"x")
+                .zonesSet(@[
+                    AAZonesElement.new
+                        .valueSet(@2)
+                        .colorSet(AAColor.redColor)
+                        .fillColorSet((id)redGradientColorDic ),
+                    AAZonesElement.new
+                        .valueSet(@5)
+                        .colorSet(AAColor.greenColor)
+                        .fillColorSet((id)greenGradientColorDic),
+                    AAZonesElement.new
+                        .colorSet(AAColor.blueColor)
+                        .fillColorSet((id)blueGradientColorDic),
+                ])
+                .dataSet(@[@56.5, @33.3, @85.3, @23.9, @29.6, @34.5, @28.2, @26.5, @15.2, @56.5, @33.3, singleSpecialData]),
+        ]);
+}
+
 
 @end
 
