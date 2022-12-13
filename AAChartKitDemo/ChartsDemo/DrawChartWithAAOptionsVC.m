@@ -886,4 +886,99 @@
 }
 
 
+- (AAOptions *)configureDoubleYAxesAreasplineMixedColumnChart {
+    AAChart *aaChart = AAChart.new
+    .backgroundColorSet(@"#4b2b7f");
+    
+    AATitle *aaTitle = AATitle.new
+    .textSet(@"");
+    
+    AAXAxis *aaXAxis = AAXAxis.new
+    .visibleSet(true)
+    .minSet(@0)
+    .categoriesSet(@[
+        @"Java", @"Swift", @"Python", @"Ruby", @"PHP", @"Go",@"C",
+        @"C#", @"C++", @"Perl", @"R", @"MATLAB", @"SQL"]);
+    
+    AAStyle *aaYAxisTitleStyle = AAStyle.new
+    .colorSet(@"#1e90ff")//Title font color
+    .fontSizeSet(@"14px")//Title font size
+    .fontWeightSet(AAChartFontWeightTypeBold)//Title font weight
+    .textOutlineSet(@"0px 0px contrast");
+    
+    AALabels *aaYAxisLabels = AALabels.new
+    .enabledSet(true)//设置 y 轴是否显示数字
+    .formatSet(@"{value:.,0f}mm")//让y轴的值完整显示 而不是100000显示为100k,同时单位后缀为°C
+    .styleSet(AAStyle.new
+              .colorSet(AAColor.redColor)//yAxis Label font color
+              .fontSizeSet(@"15px")//yAxis Label font size
+              .fontWeightSet(AAChartFontWeightTypeBold)//yAxis Label font weight
+              );
+    
+    AAYAxis *yAxisOne = AAYAxis.new
+    .visibleSet(true)
+    .maxSet(@1200.0)
+    .minSet(@-1200.0)
+    .labelsSet(aaYAxisLabels)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"冬季降雨量")
+              .styleSet(aaYAxisTitleStyle))
+    .oppositeSet(true);
+    
+    
+    AAYAxis *yAxisTwo = AAYAxis.new
+    .visibleSet(true)
+    .maxSet(@1200.0)
+    .minSet(@-1200.0)
+    .labelsSet(aaYAxisLabels)
+    .titleSet(AAAxisTitle.new
+              .textSet(@"夏季降雨量")
+              .styleSet(aaYAxisTitleStyle));
+    
+    AATooltip *aaTooltip = AATooltip.new
+    .enabledSet(true)
+    .sharedSet(true);
+    
+    AAMarker *aaMarker = AAMarker.new
+    .radiusSet(@7)//曲线连接点半径，默认是4
+    .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
+    .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
+    .lineWidthSet(@3)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
+    .lineColorSet(@"");//外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
+    
+    AASeriesElement *element1 = AASeriesElement.new
+    .nameSet(@"2017")
+    .typeSet(AAChartTypeAreaspline)
+    .borderRadiusSet(@4)
+    .colorSet((id)AAGradientColor.new
+              .directionSet(AALinearGradientDirectionToTop)
+              .startColorSet(@"#f54ea2")
+              .endColorSet(@"#ff7676"))
+    .markerSet(aaMarker)
+    .yAxisSet(@1)
+    .dataSet(@[@1000.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]);
+    
+    AASeriesElement *element2 = AASeriesElement.new
+    .nameSet(@"2018")
+    .typeSet(AAChartTypeColumn)
+    .colorSet((id)AAGradientColor.new
+              .directionSet(AALinearGradientDirectionToTop)
+              .startColorSet(@"#17ead9")
+              .endColorSet(@"#6078ea"))
+    .yAxisSet(@0)
+    .dataSet(@[@-7.0, @-6.9, @-2.5, @-14.5, @-18.2, @-21.5, @-5.2, @-26.5, @-23.3, @-45.3, @-13.9, @-9.6]);
+
+    
+    AAOptions *aaOptions = AAOptions.new
+    .chartSet(aaChart)
+    .titleSet(aaTitle)
+    .xAxisSet(aaXAxis)
+    .yAxisSet((id)@[yAxisOne,yAxisTwo])
+    .tooltipSet(aaTooltip)
+    .seriesSet(@[element1,element2])
+    ;
+    return aaOptions;
+}
+
+
 @end
