@@ -54,6 +54,7 @@ AAPropSetFuncImplementation(AAXAxis, NSString *, lineColor) //x轴轴线线颜�
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, linkedTo)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, max)  //x轴最大值
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, min)  //x轴最小值（设置为0就不会有负数）
+AAPropSetFuncImplementation(AAXAxis, NSNumber *, minPadding)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minRange)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minTickInterval) //最小间隔
 AAPropSetFuncImplementation(AAXAxis, NSString *, minorGridLineColor) //次网格线颜色

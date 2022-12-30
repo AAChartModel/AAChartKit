@@ -52,6 +52,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, lineColor) /
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, linkedTo)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, max)  //x轴最大值
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴最小值
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minPadding)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minRange)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minTickInterval) //最小间隔
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineColor) //次网格线颜色

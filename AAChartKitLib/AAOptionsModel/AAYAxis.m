@@ -66,7 +66,7 @@ AAPropSetFuncImplementation(AAYAxis, NSNumber *, offset) // y 轴线水平偏移
 
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, max)  //y轴最大值
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, min)  //y轴最小值（设置为0就不会有负数）
-//AAPropSetFuncImplementation(AAYAxis, NSNumber *, minPadding)  //Padding of the min value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the lowest data value to appear on the edge of the plot area. 默认是：0.05.
+AAPropSetFuncImplementation(AAYAxis, NSNumber *, minPadding)  //Padding of the min value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the lowest data value to appear on the edge of the plot area. 默认是：0.05.
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, minRange)
 AAPropSetFuncImplementation(AAYAxis, NSNumber *, minTickInterval) //最小间隔
 AAPropSetFuncImplementation(AAYAxis, NSString *, minorGridLineColor) //次网格线颜色
