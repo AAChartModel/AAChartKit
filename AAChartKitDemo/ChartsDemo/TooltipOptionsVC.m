@@ -78,8 +78,10 @@
     aaOptions.chart
     .resetZoomButtonSet(AAResetZoomButton.new
                         .themeSet(@{
-                            @"display":@"none"//隐藏图表缩放后的默认显示的缩放按钮
-                                  }));
+                            @"style": @{
+                                @"display":@"none"//隐藏图表缩放后的默认显示的缩放按钮
+                            }
+                        }));
     
     /*Custom Tooltip Style --- 自定义图表浮动提示框样式及内容*/
     aaOptions.tooltip
