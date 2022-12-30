@@ -51,8 +51,4 @@ AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, x)//相对�
 AAPropStatementAndPropSetFuncStatement(strong, AALabels, NSNumber *, y)//相对于坐标轴刻度线的垂直平偏移。 默认是：null.
 AAPropStatementAndPropSetFuncStatement(assign, AALabels, BOOL      , useHTML)//HTML渲染
 
-
-
-
-
 @end
