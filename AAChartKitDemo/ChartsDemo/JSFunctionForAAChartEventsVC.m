@@ -122,6 +122,7 @@
                            
                 for (let i = 0; i < length; i++) {
                     const pointElement = series[i].data[%ld];
+                    pointElement.onMouseOver();
                     points.push(pointElement);
                 }
                 chart.xAxis[0].drawCrosshair(null, points[0]);
