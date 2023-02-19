@@ -58,6 +58,7 @@
         case 6: return [self automaticallyHideTooltipAfterItIsShown]; //图表加载完成后,自动隐藏浮动提示框
         case 7: return [self dynamicHeightGridLineAreaChart]; //动态高度网格线的区域填充图
         case 8: return [self customizeYAxisPlotLinesLabelBeSpecialStyle]; //自定义 Y 轴轴线上面的标签文字特殊样式
+        case 9: return [self configureECGStyleChart]; //配置心电图样式的图表
 
     }
     return nil;
@@ -1157,6 +1158,98 @@
         .dataSet(@[@2, @5, @2, @3, @6])
     ]);
 }
+
+//https://stackoverflow.com/questions/47392848/set-ecg-paper-like-grid-intervals-highcharts-js
+//var axesOptions = {
+//  tickInterval: 0.5,
+//  minorTicks: true,
+//  minorTickInterval: 0.1,
+//  gridLineWidth: 1,
+//  gridLineColor: 'red'
+//};
+//
+//
+//var chart = Highcharts.chart('container', {
+//
+//  chart: {
+//    events: {
+//      render: function() {
+//
+//        var axes = this.axes,
+//          showMinorTicks = true;
+//
+//        // find if minor ticks are present on both axes
+//        axes.forEach(function(a) {
+//          console.log(a.minorTicks);
+//
+//          if (Object.keys(a.minorTicks).length === 0) {
+//            showMinorTicks = false;
+//          }
+//        });
+//
+//        // hide/show ticks
+//        axes.forEach(function(a) {
+//          for (var key in a.minorTicks) {
+//            var mt = a.minorTicks[key].gridLine;
+//            showMinorTicks ? mt.show() : mt.hide();
+//          }
+//        });
+//      }
+//    }
+//  },
+//
+//  xAxis: axesOptions,
+//  yAxis: axesOptions,
+//
+//  series: [{
+//    data: [1, 3, 4, 6, 1, 2, 2, 6, 1, 1, 1, 4, 6]
+//  }]
+//});
+
+//https://stackoverflow.com/questions/47392848/set-ecg-paper-like-grid-intervals-highcharts-js
+- (AAOptions *)configureECGStyleChart {
+    AAXAxis *axesOptions = AAXAxis.new
+            .tickIntervalSet(@0.5)
+            .minorTicksSet(@true)
+            .minorTickIntervalSet(@0.1)
+            .gridLineWidthSet(@1)
+            .gridLineColorSet(@"red");
+
+    return AAOptions.new
+            .titleSet(AATitle.new
+                    .textSet(@"ECG Paper Style Chart"))
+            .chartSet(AAChart.new
+                    .eventsSet(AAChartEvents.new
+                            .renderSet(@AAJSFunc((function () {
+                                const chart = this;
+                                const axes = chart.axes;
+                                let showMinorTicks = true;
+
+                                // find if minor ticks are present on both axes
+                                axes.forEach((a) => {
+                                        if (Object.keys(a.minorTicks).length === 0) {
+                                            showMinorTicks = false;
+                                        }
+                                });
+
+                                // hide/show ticks
+                                axes.forEach((a) => {
+                                        for (var key in a.minorTicks) {
+                                            var mt = a.minorTicks[key].gridLine;
+                                            showMinorTicks ? mt.show() : mt.hide();
+                                        }
+                                });
+                            }))))
+            )
+            .xAxisSet(axesOptions)
+            .yAxisSet((id)axesOptions)
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .dataSet(@[@1, @3, @4, @6, @1, @2, @2, @6, @1, @1, @1, @4, @6])
+            ]);
+
+}
+
 
 
 

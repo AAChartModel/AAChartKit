@@ -55,6 +55,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minPadding)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minRange)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minTickInterval) //最小间隔
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber /*BOOL*/*, minorTicks) //是否显示次刻度线
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineColor) //次网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorGridLineWidth) //次网格线宽度

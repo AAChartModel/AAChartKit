@@ -57,6 +57,7 @@ AAPropSetFuncImplementation(AAXAxis, NSNumber *, min)  //x轴最小值（设置�
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minPadding)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minRange)
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minTickInterval) //最小间隔
+AAPropSetFuncImplementation(AAXAxis, NSNumber /*BOOL*/*, minorTicks) //是否显示次刻度线
 AAPropSetFuncImplementation(AAXAxis, NSString *, minorGridLineColor) //次网格线颜色
 AAPropSetFuncImplementation(AAXAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
 AAPropSetFuncImplementation(AAXAxis, NSNumber *, minorGridLineWidth) //次网格线宽度
