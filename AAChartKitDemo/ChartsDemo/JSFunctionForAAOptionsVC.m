@@ -262,7 +262,7 @@
                                                         ))))//设置点击事件
         .seriesSet(@[
             AASeriesElement.new
-                .enableMouseTrackingSet(@true)
+                .enabledCrosshairsSet(@true)
                 .dataSet(@[@2, @5, @2, @3, @6, @5]),
         ]);
 }

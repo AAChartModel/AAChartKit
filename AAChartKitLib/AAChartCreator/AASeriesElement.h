@@ -80,7 +80,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, AADataSorting *,
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , reversed) //Only useful for pyramid chart and funnel chart
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, id)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , connectNulls)
-AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL        , enabledCrosshairs)
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enabledCrosshairs)
 
 @end
 

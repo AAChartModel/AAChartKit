@@ -89,7 +89,7 @@ AAPropSetFuncImplementation(AASeriesElement, AADataSorting *, dataSorting)
 AAPropSetFuncImplementation(AASeriesElement, id        , reversed) //Only useful for pyramid chart and funnel chart
 AAPropSetFuncImplementation(AASeriesElement, NSString *, id)
 AAPropSetFuncImplementation(AASeriesElement, id        , connectNulls)
-AAPropSetFuncImplementation(AASeriesElement, BOOL        , enabledCrosshairs)
+AAPropSetFuncImplementation(AASeriesElement, id        , enabledCrosshairs)
 
 @end
 
