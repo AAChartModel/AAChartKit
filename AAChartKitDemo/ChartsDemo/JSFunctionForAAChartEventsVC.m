@@ -59,6 +59,7 @@
         case 7: return [self dynamicHeightGridLineAreaChart]; //动态高度网格线的区域填充图
         case 8: return [self customizeYAxisPlotLinesLabelBeSpecialStyle]; //自定义 Y 轴轴线上面的标签文字特殊样式
         case 9: return [self configureECGStyleChart]; //配置心电图样式的图表
+        case 10: return [self configureTheSizeOfTheSliceOfDonutAndPieChart]; //配置环形图和饼图的扇区大小
 
     }
     return nil;
@@ -1250,7 +1251,69 @@
 
 }
 
+//https://www.highcharts.com/forum/viewtopic.php?t=28267
+//    $(function () {
+//    $('#container').highcharts({
+//        chart: {
+//            events: {
+//                load: function (){
+//                    console.log( );
+//                    var graphic = this.series[0].data[0].graphic;
+//                    setTimeout(function() {
+//                        var prevR = graphic.r;
+//                        graphic.attr( {
+//                            r: prevR + 50
+//                        });
+//                }, 1001);
+//                }
+//            }
+//        },
+//        series: [{
+//            type: 'pie',
+//            name: 'Browser share',
+//            data: [
+//                ['Firefox',   45.0],
+//                ['IE',       26.8],
+//                ['Safari',    8.5],
+//                ['Opera',     6.2],
+//                ['Others',   0.7]
+//            ]
+//        }]
+//    });
+//});
 
+//https://github.com/AAChartModel/AAChartKit/issues/1449
+//https://www.highcharts.com/forum/viewtopic.php?t=28267
+- (AAOptions *)configureTheSizeOfTheSliceOfDonutAndPieChart {
+    return AAOptions.new
+            .titleSet(AATitle.new
+                    .textSet(@"Configure The Size Of The Slice Of Donut And Pie Chart"))
+            .chartSet(AAChart.new
+                    .eventsSet(AAChartEvents.new
+                            .loadSet(@AAJSFunc((function () {
+                                const chart = this;
+                                const graphic = chart.series[0].data[0].graphic;
+                                setTimeout(function () {
+                                    const prevR = graphic.r;
+                                    graphic.attr({
+                                        r: prevR + 50
+                                    });
+                                }, 1001);
+                            }))))
+            )
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .typeSet(AAChartTypePie)
+                            .nameSet(@"Browser share")
+                            .dataSet(@[
+                                    @[@"Firefox", @45.0],
+                                    @[@"IE", @26.8],
+                                    @[@"Safari", @8.5],
+                                    @[@"Opera", @6.2],
+                                    @[@"Others", @0.7]
+                            ])
+            ]);
+}
 
 
 @end
