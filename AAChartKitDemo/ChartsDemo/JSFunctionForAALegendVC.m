@@ -104,6 +104,7 @@
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/391
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/393
+//https://github.com/AAChartModel/AAChartKit/issues/1180
 - (AAOptions *)disableLegendClickEventForPieChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypePie)
@@ -136,6 +137,9 @@
 
     //禁用饼图图例点击事件
     aaOptions.plotOptions.series
+    .statesSet(AAStates.new
+               .inactiveSet(AAInactive.new
+                            .enabledSet(false)))//禁用点击图表时, 部分视图高亮, 部分视图变淡的交互效果,参考 https://github.com/AAChartModel/AAChartKit/issues/949
     .pointSet(AAPoint.new
               .eventsSet(AAPointEvents.new
                          .legendItemClickSet(@AAJSFunc(function() {
