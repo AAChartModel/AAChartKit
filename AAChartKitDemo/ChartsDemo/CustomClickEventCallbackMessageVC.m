@@ -7,10 +7,6 @@
 #import "AAChartKit.h"
 #import "AADOMRectModel.h"
 
-//let kUserContentMessageNameChartClicked = "click"
-//let kUserContentMessageNameChartMoveOver = "moveOver"
-//let kUserContentMessageNameChartDefaultSelected = "defaultSelected"
-
 static NSString *kUserContentMessageNameChartClicked = @"click";
 static NSString *kUserContentMessageNameChartMoveOver = @"moveOver";
 static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected";
@@ -56,14 +52,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 
 @interface CustomClickEventCallbackMessageVC ()
 
-//    private var aaChartView: AAChartView!
-//    lazy var lineView: UIView = {
-//        let lineView = UIView(frame: .zero)
-//        lineView.backgroundColor = .red
-//        self.view.addSubview(lineView)
-//        return lineView
-//    }()
-
 @property (nonatomic, strong) AAChartView *aaChartView;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) CustomWeakProxy *weakProxy;
@@ -71,18 +59,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 @end
 
 @implementation CustomClickEventCallbackMessageVC
-
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        view.backgroundColor = .white
-//
-//        configureChartView()
-//        configureChartViewCustomEventMessageHandler()
-//
-//        let aaOptions = xrangeChartWithCustomJSFunction()
-//        aaChartView.aa_drawChartWithChartOptions(aaOptions)
-//    }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,18 +72,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
     [self.aaChartView aa_drawChartWithOptions:aaOptions];
 }
 
-//    private func configureChartView() {
-//        aaChartView = AAChartView()
-//        let chartViewWidth = view.frame.size.width
-//        let chartViewHeight = view.frame.size.height
-//        aaChartView!.frame = CGRect(x: 0,
-//                                    y: 60,
-//                                    width: chartViewWidth,
-//                                    height: chartViewHeight)
-//        view.addSubview(aaChartView!)
-//        aaChartView!.isScrollEnabled = false//Disable chart content scrolling
-//    }
-
 - (void)configureChartView {
     self.aaChartView = [[AAChartView alloc]init];
     CGFloat chartViewWidth = self.view.frame.size.width;
@@ -119,15 +83,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
     [self.view addSubview:self.aaChartView];
     self.aaChartView.scrollEnabled = false;//Disable chart content scrolling
 }
-
-//    private func configureChartViewCustomEventMessageHandler() {
-//        let scriptMessageHandler = AALeakAvoider.init(delegate: self)
-//        let chartConfiguration = aaChartView!.configuration
-//
-//        chartConfiguration.userContentController.add(scriptMessageHandler, name: kUserContentMessageNameChartClicked)
-//        chartConfiguration.userContentController.add(scriptMessageHandler, name: kUserContentMessageNameChartMoveOver)
-//        chartConfiguration.userContentController.add(scriptMessageHandler, name: kUserContentMessageNameChartDefaultSelected)
-//    }
 
 - (void)configureChartViewCustomEventMessageHandler {
     id <WKScriptMessageHandler> scriptMessageHandler = (id<WKScriptMessageHandler>)self.weakProxy;
@@ -169,24 +124,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
             ]);
 }
 
-//        func configureClickOrMoveOverEventJSEvent(userContentMessageName: String) -> String {
-//            return """
-//     function() {
-//        let svgElement = aaGlobalChart.series[0].data[this.index].graphic.element;
-//        let rect = svgElement.getBoundingClientRect();
-//        let messageBody = {
-//            "name": this.series.name,
-//            "y": this.y,
-//            "x": this.x,
-//            "category": this.category,
-//            "index": this.index,
-//            "DOMRect": JSON.stringify(rect),
-//        };
-//        window.webkit.messageHandlers.\(userContentMessageName).postMessage(messageBody);
-//    }
-//"""
-//        }
-
 - (NSString *)configureClickOrMoveOverEventJSEventWithUserContentMessageName:(NSString *)userContentMessageName {
     return [NSString stringWithFormat:@AAJSFunc((function() {
         let svgElement = aaGlobalChart.series[0].data[this.index].graphic.element;
@@ -204,22 +141,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 }
 
 - (AAOptions *)columnChartWithCustomJSFunction {
-    //        let aaOptions = areasplineChart()
-    //
-    ////        获取用户点击位置的代码逻辑, 参考:
-    ////        * https://www.highcharts.com/forum/viewtopic.php?t=11983
-    ////        * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
-    //
-    ////        JSON.stringify(), 参考:
-    ////        * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
-    //        aaOptions.plotOptions?.series?
-    //            .point(AAPoint()
-    //                .events(AAPointEvents()
-    //                    .click(configureClickOrMoveOverEventJSEvent(userContentMessageName: kUserContentMessageNameClick))
-    //                    .mouseOver(configureClickOrMoveOverEventJSEvent(userContentMessageName: kUserContentMessageNameChartMoveOver))
-    //                ))
-
-    
     AAOptions *aaOptions = [self areasplineChart].aa_toAAOptions;
 
     ////        获取用户点击位置的代码逻辑, 参考:
@@ -234,42 +155,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
                                .clickSet([self configureClickOrMoveOverEventJSEventWithUserContentMessageName:kUserContentMessageNameChartClicked])
                             .mouseOverSet([self configureClickOrMoveOverEventJSEventWithUserContentMessageName:kUserContentMessageNameChartMoveOver])
                     ));
-
-    //        //默认选中的位置索引
-    //        let defaultSelectedIndex = 5
-    //
-    //        //https://api.highcharts.com/highcharts/chart.events.load
-    //        //https://www.highcharts.com/forum/viewtopic.php?t=36508
-    //        aaOptions.chart?.events(
-    //            AAChartEvents()
-    //                .load("""
-    //        function() {
-    //            let points = [],
-    //                chart = this,
-    //                series = chart.series,
-    //                length = series.length;
-    //
-    //            let defaultSelectedIndex = \(defaultSelectedIndex);
-    //
-    //            for (let i = 0; i < length; i++) {
-    //              let pointElement = series[i].data[defaultSelectedIndex];
-    //              points.push(pointElement);
-    //            }
-    //            chart.tooltip.refresh(points);
-    //
-    //            let selectedPointDataElement = chart.series[0].data[defaultSelectedIndex];
-    //            let svgElement = selectedPointDataElement.graphic.element;
-    //            let rect = svgElement.getBoundingClientRect();
-    //            let messageBody = {
-    //                "index": defaultSelectedIndex,
-    //                "DOMRect": JSON.stringify(rect),
-    //                "x": selectedPointDataElement.x,
-    //                "x2": selectedPointDataElement.x2,
-    //                "y": selectedPointDataElement.y,
-    //            };
-    //            window.webkit.messageHandlers.\(kUserContentMessageNameChartDefaultSelected).postMessage(messageBody);
-    //          }
-    //"""))
 
     //默认选中的位置索引
     NSInteger defaultSelectedIndex = 5;
@@ -308,33 +193,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
     return aaOptions;
 }
 
-//  func convertJSValueToFloat(jsValue: Any?) -> Float {
-//        var floatValue: Float = 0
-//        if jsValue is String {
-//            floatValue = Float(jsValue as! String)!
-//        } else if jsValue is Int {
-//            floatValue = Float(jsValue as! Int)
-//        } else if jsValue is Float {
-//            floatValue = (jsValue as! Float)
-//        } else if jsValue is Double {
-//            floatValue = Float(jsValue as! Double)
-//        }
-//        return floatValue
-//    }
-//
-//    private func getEventMessageModel(DOMRectDic: [String: Any]) -> DOMRectModel {
-//        let DOMRectModel = DOMRectModel()
-//        DOMRectModel.x = convertJSValueToFloat(jsValue: DOMRectDic["x"])
-//        DOMRectModel.y = convertJSValueToFloat(jsValue: DOMRectDic["y"])
-//        DOMRectModel.width = convertJSValueToFloat(jsValue: DOMRectDic["width"])
-//        DOMRectModel.height = convertJSValueToFloat(jsValue: DOMRectDic["height"])
-//        DOMRectModel.top = convertJSValueToFloat(jsValue: DOMRectDic["top"])
-//        DOMRectModel.right = convertJSValueToFloat(jsValue: DOMRectDic["right"])
-//        DOMRectModel.bottom = convertJSValueToFloat(jsValue: DOMRectDic["bottom"])
-//        DOMRectModel.left = convertJSValueToFloat(jsValue: DOMRectDic["left"])
-//        return DOMRectModel
-//    }
-
 - (NSNumber *)convertJSValueToFloat:(id)jsValue {
     float floatValue = 0;
     if ([jsValue isKindOfClass:[NSString class]]) {
@@ -347,7 +205,6 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 
 - (AADOMRectModel *)getEventMessageModelWithDOMRectDic:(NSDictionary *)DOMRectDic {
     AADOMRectModel *DOMRectModel = AADOMRectModel.new;
-//    DOMRectModel *DOMRectModel;
     DOMRectModel.x = [self convertJSValueToFloat:DOMRectDic[@"x"]];
     DOMRectModel.y = [self convertJSValueToFloat:DOMRectDic[@"y"]];
     DOMRectModel.width = [self convertJSValueToFloat:DOMRectDic[@"width"]];
@@ -360,27 +217,14 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 }
 
 
-// MARK: 字符串转字典
-//func stringValueDic(_ str: String) -> [String : Any]? {
-//    let data = str.data(using: String.Encoding.utf8)
-//    if let dict = try? JSONSerialization.jsonObject(with: data!,
-//            options: .mutableContainers) as? [String : Any] {
-//            return dict
-//    }
-//
-//    return nil
-//}
-//
-//func dicStringToPrettyString(dic: Any) -> String {
-//    return String(data: try! JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted), encoding: .utf8)!
-//}
-
+//字符串转字典
 - (NSDictionary *)stringValueDic:(NSString *)str {
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     return dict;
 }
 
+//格式化为打印效果的字符串
 - (NSString *)dicStringToPrettyString:(NSDictionary *)dic {
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -481,8 +325,7 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
     }
 }
 
-
-
+//MARK: - getter
 - (CustomWeakProxy *)weakProxy {
     if (!_weakProxy) {
         _weakProxy = [CustomWeakProxy proxyWithTarget:self];
@@ -499,7 +342,7 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
     return _lineView;
 }
 
-
+//MARK: - delloc
 - (void)dealloc {
     [self.aaChartView.configuration.userContentController removeAllUserScripts];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
