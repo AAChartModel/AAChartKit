@@ -85,7 +85,7 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 }
 
 - (void)configureChartViewCustomEventMessageHandler {
-    id <WKScriptMessageHandler> scriptMessageHandler = (id<WKScriptMessageHandler>)self.weakProxy;
+    id <WKScriptMessageHandler> scriptMessageHandler = (id<WKScriptMessageHandler>)self.weakProxy;//此处不直接设置为 self 是为了防止循环引用导致内存泄露
     WKWebViewConfiguration *chartConfiguration = self.aaChartView.configuration;
 
     [chartConfiguration.userContentController addScriptMessageHandler:scriptMessageHandler name:kUserContentMessageNameChartClicked];
@@ -231,87 +231,48 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
     return str;
 }
 
-//extension CustomClickEventCallbackMessageVC: WKScriptMessageHandler {
-//    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-//        if message.name == kUserContentMessageNameChartClicked {
-//            let clickEventMessage = message.body as! [String: Any]
-//            let DOMRectDic = stringValueDic(clickEventMessage["DOMRect"] as! String)!
-//            let DOMRectModel = getEventMessageModel(DOMRectDic: DOMRectDic )
-//
-//            let frameX = DOMRectModel.x! + (DOMRectModel.width! / 2)
-//            print("点击图表后, 获取的 SVG 元素的水平中心点的坐标为:\(frameX)")
-//            self.lineView.frame = CGRect(x: CGFloat(frameX), y: 0, width: 2, height: self.view.frame.size.height)
-//            self.lineView.backgroundColor = .red
-//
-//            print("""
-//                clicked point series element name: \(clickEventMessage["name"] ?? "")
-//                🖱🖱🖱WARNING!!!!!!!!!!!!!!!!!!!! Click Event Message !!!!!!!!!!!!!!!!!!!! WARNING🖱🖱🖱
-//                ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
-//                \(dicStringToPrettyString(dic: clickEventMessage))
-//                ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
-//                """
-//            )
-//
-//        } else if message.name == kUserContentMessageNameChartMoveOver {
-//            let clickEventMessage = message.body as! [String: Any]
-//            let DOMRectDic = stringValueDic(clickEventMessage["DOMRect"] as! String)!
-//            let DOMRectModel = getEventMessageModel(DOMRectDic: DOMRectDic )
-//
-//            let frameX = DOMRectModel.x! + (DOMRectModel.width! / 2)
-//            print("手指掠过图表后, 获取的 SVG 元素的水平中心点的坐标为:\(frameX)")
-//            self.lineView.frame = CGRect(x: CGFloat(frameX), y: 0, width: 2, height: self.view.frame.size.height)
-//            self.lineView.backgroundColor = .green
-//
-//            print("""
-//                Move Over  point series element name: \(clickEventMessage["name"] ?? "")
-//                ✈️✈️✈️WARNING!!!!!!!!!!!!!!!!!!!! Move Over Event Message !!!!!!!!!!!!!!!!!!!! WARNING✈️✈️✈️
-//                ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
-//                \(dicStringToPrettyString(dic: clickEventMessage))
-//                ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧
-//                """
-//            )
-//
-//        } else if message.name == kUserContentMessageNameChartDefaultSelected {
-//            let defaultSelectedEventMessage = message.body as! [String: Any]
-//            let DOMRectDic = stringValueDic(defaultSelectedEventMessage["DOMRect"] as! String)!
-//            let DOMRectModel = getEventMessageModel(DOMRectDic: DOMRectDic )
-//
-//            let frameX = DOMRectModel.x! + (DOMRectModel.width! / 2)
-//            print("默认选中图表后, 获取的 SVG 元素的水平中心点的坐标为:\(frameX)")
-//            self.lineView.frame = CGRect(x: CGFloat(frameX), y: 0, width: 3, height: self.view.frame.size.height)
-//            self.lineView.backgroundColor = .blue
-//
-//            print("""
-//                  🎉🎉🎉 !!!Got the custom event message!!! 🎉🎉🎉
-//                  ———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧
-//                  \(dicStringToPrettyString(dic: defaultSelectedEventMessage))
-//                  ———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧———‧
-//                  """)
-//        }
-//    }
-//}
-
 // MARK: - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.name isEqualToString:kUserContentMessageNameChartClicked]) {
         NSDictionary *clickEventMessage = message.body;
         NSDictionary *DOMRectDic = [self stringValueDic:clickEventMessage[@"DOMRect"]];
         AADOMRectModel *DOMRectModel = [self getEventMessageModelWithDOMRectDic:DOMRectDic];
-
+        
         CGFloat frameX = DOMRectModel.x.floatValue + (DOMRectModel.width.floatValue / 2);
         NSLog(@"点击图表后, 获取的 SVG 元素的水平中心点的坐标为:%f", frameX);
         self.lineView.frame = CGRectMake(frameX, 0, 2, self.view.frame.size.height);
         self.lineView.backgroundColor = [UIColor redColor];
-
+        
+        NSString *basicMessageInfo = @"                                                              \n\
+            Clicked point series element name: [%@]                                                  \n\
+            🖱🖱🖱WARNING!!!!!!!!!!!!!!!!!!!! Click Event Message !!!!!!!!!!!!!!!!!!!! WARNING🖱🖱🖱\n\
+            ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧\n\
+            %@\n\
+            ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧\n";
+        NSString *seriesElementName = clickEventMessage[@"name"];
+        NSString *clickMessageStr = [self dicStringToPrettyString:clickEventMessage];
+        NSLog(@"%@", [NSString stringWithFormat:basicMessageInfo, seriesElementName, clickMessageStr]);
+        
     } else if ([message.name isEqualToString:kUserContentMessageNameChartMoveOver]) {
-        NSDictionary *clickEventMessage = message.body;
-        NSDictionary *DOMRectDic = [self stringValueDic:clickEventMessage[@"DOMRect"]];
+        NSDictionary *moveOverEventMessage = message.body;
+        NSDictionary *DOMRectDic = [self stringValueDic:moveOverEventMessage[@"DOMRect"]];
         AADOMRectModel *DOMRectModel = [self getEventMessageModelWithDOMRectDic:DOMRectDic];
 
         CGFloat frameX = DOMRectModel.x.floatValue + (DOMRectModel.width.floatValue / 2);
         NSLog(@"手指掠过图表后, 获取的 SVG 元素的水平中心点的坐标为:%f", frameX);
         self.lineView.frame = CGRectMake(frameX, 0, 2, self.view.frame.size.height);
         self.lineView.backgroundColor = [UIColor greenColor];
+        
+        NSString *basicMessageInfo = @"                                                                  \n\
+            Move Over point series element name: [%@]                                                    \n\
+            ✈️✈️✈️WARNING!!!!!!!!!!!!!!!!!!!! Move Over Event Message !!!!!!!!!!!!!!!!!!!! WARNING✈️✈️✈️\n\
+            ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧\n\
+            %@\n\
+            ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧\n";
+        NSString *seriesElementName = moveOverEventMessage[@"name"];
+        NSString *moveOverMessageStr = [self dicStringToPrettyString:moveOverEventMessage];
+        NSLog(@"%@", [NSString stringWithFormat:basicMessageInfo, seriesElementName, moveOverMessageStr]);
+
 
     } else if ([message.name isEqualToString:kUserContentMessageNameChartDefaultSelected]) {
         NSDictionary *defaultSelectedEventMessage = message.body;
@@ -322,6 +283,16 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
         NSLog(@"默认选中图表后, 获取的 SVG 元素的水平中心点的坐标为:%f", frameX);
         self.lineView.frame = CGRectMake(frameX, 0, 3, self.view.frame.size.height);
         self.lineView.backgroundColor = [UIColor blueColor];
+        
+        NSString *basicMessageInfo = @"                        \n\
+            Default Selected point series element name: [%@]   \n\
+            🎉🎉🎉 !!!Default Selected Event Message!!! 🎉🎉🎉\n\
+            ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧\n\
+            %@\n\
+            ——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧——‧\n";
+        NSString *seriesElementName = defaultSelectedEventMessage[@"name"];
+        NSString *defaultSelectedMessageStr = [self dicStringToPrettyString:defaultSelectedEventMessage];
+        NSLog(@"%@", [NSString stringWithFormat:basicMessageInfo, seriesElementName, defaultSelectedMessageStr]);
     }
 }
 
