@@ -7,9 +7,9 @@
 #import "AAChartKit.h"
 #import "AADOMRectModel.h"
 
-static NSString *kUserContentMessageNameChartClicked = @"click";
-static NSString *kUserContentMessageNameChartMoveOver = @"moveOver";
-static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected";
+static NSString * const kUserContentMessageNameChartClicked = @"click";
+static NSString * const kUserContentMessageNameChartMoveOver = @"moveOver";
+static NSString * const kUserContentMessageNameChartDefaultSelected = @"defaultSelected";
 
 @interface CustomWeakProxy : NSProxy
 
@@ -143,18 +143,18 @@ static NSString *kUserContentMessageNameChartDefaultSelected = @"defaultSelected
 - (AAOptions *)columnChartWithCustomJSFunction {
     AAOptions *aaOptions = [self areasplineChart].aa_toAAOptions;
 
-    ////        获取用户点击位置的代码逻辑, 参考:
-    ////        * https://www.highcharts.com/forum/viewtopic.php?t=11983
-    ////        * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
+    //        获取用户点击位置的代码逻辑, 参考:
+    //        * https://www.highcharts.com/forum/viewtopic.php?t=11983
+    //        * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
     //
-    ////        JSON.stringify(), 参考:
-    ////        * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+    //        JSON.stringify(), 参考:
+    //        * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
     aaOptions.plotOptions.series
             .pointSet(AAPoint.new
-                    .eventsSet(AAPointEvents.new
-                               .clickSet([self configureClickOrMoveOverEventJSEventWithUserContentMessageName:kUserContentMessageNameChartClicked])
-                            .mouseOverSet([self configureClickOrMoveOverEventJSEventWithUserContentMessageName:kUserContentMessageNameChartMoveOver])
-                    ));
+                      .eventsSet(AAPointEvents.new
+                                 .clickSet([self configureClickOrMoveOverEventJSEventWithUserContentMessageName:kUserContentMessageNameChartClicked])
+                                 .mouseOverSet([self configureClickOrMoveOverEventJSEventWithUserContentMessageName:kUserContentMessageNameChartMoveOver])
+                                 ));
 
     //默认选中的位置索引
     NSInteger defaultSelectedIndex = 5;

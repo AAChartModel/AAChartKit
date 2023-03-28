@@ -228,9 +228,9 @@
             
         case 4: {
             /*图表数据动态刷新*/
-            CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
-//            vc.selectedIndex = row;
-//            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            OnlyRefreshChartDataVC *vc = OnlyRefreshChartDataVC.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -449,6 +449,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+                        
+        case 29: {
+            /*完全自定义图表交互事件回调的信息*/
+            CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
+            [self.navigationController  pushViewController:vc animated:YES];
+        }
+            break;
             
         default:
             break;
@@ -488,7 +495,7 @@
             @"JS Function For AAAxis Labels---通过 JSFunction 自定义 AAAxis 的 Labels",
             @"JS Function For AALegend Click Events---通过 JSFunction 自定义 Legend  图例的点击事件",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
-
+            @"Custom Event Callback Message---完全自定义图表交互事件回调的信息"
         ];
     }
     return _sectionTypeArr;
@@ -826,8 +833,11 @@
               @"customizeYAxisPlotLinesLabelBeSpecialStyle---自定义 Y 轴轴线上面的标签文字特殊样式",
               @"configureECGStyleChart---配置心电图样式图表📈",
               @"configureTheSizeOfTheSliceOfDonutAndPieChart---配置环形图和饼图的扇区大小",
+            ],
+            /*完全自定义图表交互事件回调的信息*/
+            @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息"
             ]
-
+            
         ];
     }
     return _chartTypeNameArr;
