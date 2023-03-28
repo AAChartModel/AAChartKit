@@ -65,6 +65,7 @@
 		44E4137323C339160097D0ED /* AAStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E4137223C339160097D0ED /* AAStates.m */; };
 		44EF0FA524F759FD00F5639A /* AALineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EF0FA424F759FD00F5639A /* AALineStyle.m */; };
 		44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F5F9A021D80BDB002A8D25 /* AALabel.m */; };
+		5860396EC5EB5FD8A6DD2EF4 /* CustomClickEventCallbackMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */; };
 		58603C61BAE9EEFFCAA78970 /* AABoxplot.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603EBF3B2F2C183F46663C /* AABoxplot.m */; };
 		64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */; };
 		713F543D1E7B71C000D506C7 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F54381E7B71C000D506C7 /* MainVC.m */; };
@@ -83,6 +84,7 @@
 		8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */; };
 		8463FDE128CB1F5F00392C50 /* JSFunctionForAALegendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */; };
 		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
+		8483CEC229D2F40D002E57AA /* AADOMRectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEC129D2F40D002E57AA /* AADOMRectModel.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
 		84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */; };
@@ -240,7 +242,9 @@
 		44F5F99F21D80BDB002A8D25 /* AALabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALabel.h; sourceTree = "<group>"; };
 		44F5F9A021D80BDB002A8D25 /* AALabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AALabel.m; sourceTree = "<group>"; };
 		58603EBF3B2F2C183F46663C /* AABoxplot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABoxplot.m; sourceTree = "<group>"; };
+		58603ED25E9A3CAC30317C26 /* CustomClickEventCallbackMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomClickEventCallbackMessageVC.h; sourceTree = "<group>"; };
 		58603F1D08A3368A46BC51CB /* AABoxplot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABoxplot.h; sourceTree = "<group>"; };
+		58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClickEventCallbackMessageVC.m; sourceTree = "<group>"; };
 		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyRefreshChartDataVC.h; sourceTree = "<group>"; };
 		64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyRefreshChartDataVC.m; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAALegendVC.m; sourceTree = "<group>"; };
 		846CB10B26A6B14100DE8D5A /* AAColumnrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAColumnrange.h; sourceTree = "<group>"; };
 		846CB10C26A6B14100DE8D5A /* AAColumnrange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAColumnrange.m; sourceTree = "<group>"; };
+		8483CEC029D2F40D002E57AA /* AADOMRectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADOMRectModel.h; sourceTree = "<group>"; };
+		8483CEC129D2F40D002E57AA /* AADOMRectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADOMRectModel.m; sourceTree = "<group>"; };
 		848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAAChartViewForXibVC.h; sourceTree = "<group>"; };
 		848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAAChartViewForXibVC.m; sourceTree = "<group>"; };
 		848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAAChartViewForXibVC.xib; sourceTree = "<group>"; };
@@ -512,6 +518,10 @@
 				27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */,
 				27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */,
 				84AE6B2026A58D73001F0755 /* AAChartSymbolConstant.h */,
+				58603ED25E9A3CAC30317C26 /* CustomClickEventCallbackMessageVC.h */,
+				58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */,
+				8483CEC029D2F40D002E57AA /* AADOMRectModel.h */,
+				8483CEC129D2F40D002E57AA /* AADOMRectModel.m */,
 			);
 			name = AdditionalContent1;
 			sourceTree = "<group>";
@@ -840,6 +850,7 @@
 				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
 				1E66D202210AF4ED007EAB8C /* AALine.m in Sources */,
 				848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */,
+				8483CEC229D2F40D002E57AA /* AADOMRectModel.m in Sources */,
 				1E66D206210AF4ED007EAB8C /* AACrosshair.m in Sources */,
 				447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */,
 				448330C124E2791400368A30 /* NSArray+toJSArray.m in Sources */,
@@ -917,6 +928,7 @@
 				92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */,
 				8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */,
 				58603C61BAE9EEFFCAA78970 /* AABoxplot.m in Sources */,
+				5860396EC5EB5FD8A6DD2EF4 /* CustomClickEventCallbackMessageVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

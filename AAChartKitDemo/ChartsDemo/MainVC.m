@@ -65,6 +65,7 @@
 #import "JSFunctionForAALegendVC.h"
 #import "JSFunctionForAAChartEventsVC.h"
 #import "CustomTableViewCell.h"
+#import "CustomClickEventCallbackMessageVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -227,9 +228,9 @@
             
         case 4: {
             /*图表数据动态刷新*/
-            OnlyRefreshChartDataVC *vc = OnlyRefreshChartDataVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
+//            vc.selectedIndex = row;
+//            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
