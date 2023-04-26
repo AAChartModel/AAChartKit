@@ -364,7 +364,10 @@ WKScriptMessageHandler
                                                       object:nil
                                                        queue:nil
                                                   usingBlock:^(NSNotification * _Nonnull note) {
-        [weakSelf handleDeviceOrientationChangeEventWithAnimation:animation];
+        //延迟 0.01 秒执行，防止屏幕旋转时，获取到的屏幕宽高不正确
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf handleDeviceOrientationChangeEventWithAnimation:animation];
+        });
     }];
 }
 
