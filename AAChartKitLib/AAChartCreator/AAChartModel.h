@@ -73,16 +73,16 @@ typedef NS_ENUM(NSInteger,AAChartAnimation) {
     AAChartAnimationEaseTo,
 };
 
-typedef NSString *AAChartType;
-typedef NSString *AAChartLayoutType;
-typedef NSString *AAChartAlignType;
-typedef NSString *AAChartVerticalAlignType;
-typedef NSString *AAChartZoomType;
-typedef NSString *AAChartStackingType;
-typedef NSString *AAChartSymbolType;
-typedef NSString *AAChartSymbolStyleType;
-typedef NSString *AAChartFontWeightType;
-typedef NSString *AAChartLineDashStyleType;
+typedef NSString * AAChartType;
+typedef NSString * AAChartLayoutType;
+typedef NSString * AAChartAlignType;
+typedef NSString * AAChartVerticalAlignType;
+typedef NSString * AAChartZoomType;
+typedef NSString * AAChartStackingType;
+typedef NSString * AAChartSymbolType;
+typedef NSString * AAChartSymbolStyleType;
+typedef NSString * AAChartFontWeightType;
+typedef NSString * AAChartLineDashStyleType;
 
 AACHARTKIT_EXTERN AAChartType const AAChartTypeColumn;          //柱形图
 AACHARTKIT_EXTERN AAChartType const AAChartTypeBar;             //条形图
