@@ -833,6 +833,7 @@
               @"customizeYAxisPlotLinesLabelBeSpecialStyle---自定义 Y 轴轴线上面的标签文字特殊样式",
               @"configureECGStyleChart---配置心电图样式图表📈",
               @"configureTheSizeOfTheSliceOfDonutAndPieChart---配置环形图和饼图的扇区大小",
+              @"configurePlotBackgroundClickEvent---配置绘图区的点击事件",
             ],
             /*完全自定义图表交互事件回调的信息*/
             @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息"
