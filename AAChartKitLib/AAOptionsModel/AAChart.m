@@ -84,10 +84,15 @@ AAPropSetFuncImplementation(AAResetZoomButton, NSDictionary *, theme)
 
 @implementation AAChartEvents : NSObject
 
+AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, click)
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, load)
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, redraw)
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, render)
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, selection)
+
+- (void)setClick:(NSString *)click {
+    _click = [click aa_toPureJSString];
+}
 
 - (void)setLoad:(NSString *)load {
     _load = [load aa_toPureJSString];

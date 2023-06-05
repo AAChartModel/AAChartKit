@@ -91,6 +91,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, NSDictionary *
 
 @interface AAChartEvents : NSObject
 
+AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, click)
 AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, load)
 AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, redraw)
 AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, render)
