@@ -231,6 +231,7 @@
     return aaOptions;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1427
 - (AAOptions *)customizeCrosshairsStyle {
     return AAOptions.new
         .plotOptionsSet(AAPlotOptions.new
