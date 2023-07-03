@@ -188,7 +188,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 
 /// A common chart update function
 /// (you can update any chart element) to open, close, delete, add, resize, reformat, etc. elements in the chart.
-/// Refer to https://api.highcharts.com.cn/highcharts#Chart.update
+/// Refer to https://api.highcharts.com/highcharts#Chart.update
 ///
 /// It should be noted that when updating the array configuration,
 /// for example, when updating configuration attributes including arrays such as xAxis, yAxis, series, etc., the updated data will find existing objects based on id and update them. If no id is configured or passed If the id does not find the corresponding object, the first element of the array is updated. Please refer to this example for details.
@@ -209,7 +209,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 
 /// Add a new point to the data column after the chart has been rendered.
 /// The new point can be the last point, or it can be placed in the corresponding position given the X value (first, middle position, depending on the x value)
-/// Refer to https://api.highcharts.com.cn/highcharts#Series.addPoint
+/// Refer to https://api.highcharts.com/highcharts#Series.addPoint
 ///
 /// @param elementIndex The specific series element
 /// @param options The configuration of the data point can be a single value, indicating the y value of the data point; it can also be an array containing x and y values; it can also be an object containing detailed data point configuration. For detailed configuration, see series.data.
@@ -232,13 +232,13 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
                                              animation:(BOOL)animation;
 
 /// Add a new series element to the chart after the chart has been rendered.
-/// Refer to https://api.highcharts.com.cn/highcharts#Chart.addSeries
+/// Refer to https://api.highcharts.com/highcharts#Chart.addSeries
 ///
 /// @param element Chart series element
 - (void)aa_addElementToChartSeriesWithElement:(AASeriesElement *)element;
 
 /// Remove a specific series element from the chart after the chart has been rendered.
-/// Refer to https://api.highcharts.com.cn/highcharts#Series.remove
+/// Refer to https://api.highcharts.com/highcharts#Series.remove
 ///
 /// @param elementIndex Chart series element index
 - (void)aa_removeElementFromChartSeriesWithElementIndex:(NSUInteger)elementIndex;
@@ -284,7 +284,7 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 - (void)aa_adaptiveScreenRotation;
 
 /// Set the chart view content be adaptive to screen rotation with custom animation effect
-/// Refer to https://api.highcharts.com.cn/highcharts#Chart.setSize
+/// Refer to https://api.highcharts.com/highcharts#Chart.setSize
 ///
 /// @param animation The instance object of AAAnimation
 - (void)aa_adaptiveScreenRotationWithAnimation:(AAAnimation *)animation;
