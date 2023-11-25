@@ -463,7 +463,7 @@
         .plotOptionsSet(AAPlotOptions.new
                         .seriesSet(AASeries.new
                                    .markerSet(AAMarker.new
-                                              .enabledSet(true)))
+                                              .enabledSet(false)))
                         .arearangeSet(AAArearange.new
                                       .enableMouseTrackingSet(@NO)
                                       .statesSet(AAStates.new
