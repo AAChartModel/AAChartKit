@@ -21,7 +21,7 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self configureComplicatedCustomAreasplineChart];//复杂自定义曲线填充图 1
+        case 0: return [self fanChart];//复杂自定义曲线填充图 1
         case 1: return [self configureComplicatedCustomAreasplineChart2];//复杂自定义曲线填充图 2
         case 2: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
 
@@ -415,6 +415,130 @@
 
     aaOptions.series = aaSeriesArr;
     
+    return aaOptions;
+}
+
+- (AAOptions *)fanChart {
+    AAOptions *aaOptions = AAOptions.new
+        .chartSet(AAChart.new
+                  .typeSet(AAChartTypeArearange)
+//                  .zoomTypeSet(AAChartZoomTypeX)
+                  )
+        .titleSet(AATitle.new.textSet(@"EU GDP"))
+        .subtitleSet(AASubtitle.new
+//                   .textSet(@"<a href=\"https://economy-finance.ec.europa.eu/system/files/2023-05/SF_2023_Statistical%20Annex.pdf\" target=\"_blank\">European Economic Forecast, Spring 2023</a>")
+                     )
+        .xAxisSet(AAXAxis.new
+                  .typeSet(AAChartAxisTypeCategory)
+//                  .accessibilitySet(AAAccessibility.new.rangeDescriptionSet(@"Range: 2022 to 2024."))
+                  .minSet(@1)
+                  .maxSet(@12)
+                  .endOnTickSet(@NO)
+                  .plotBandsSet(@[
+                       AAPlotBandsElement.new
+                           .colorSet(@"rgba(255, 75, 66, 0.07)")
+                           .fromSet(@5.5)
+                           .toSet(@99)
+                           .labelSet(AALabel.new.textSet(@"Forecast"))
+                   ])
+                   .plotLinesSet(@[
+                       AAPlotLinesElement.new
+                           .dashStyleSet(AAChartLineDashStyleTypeDash)
+                           .colorSet(AAColor.grayColor)
+                           .widthSet(@2)
+                           .valueSet(@5.5)
+                   ])
+                  )
+        .yAxisSet(AAYAxis.new
+                  .oppositeSet(@YES)
+//                  .titleSet(AAAxisTitle.new.textSet(@"GDP change<br/>on preceding year")
+//                            )
+                  .labelsSet(AALabels.new.formatSet(@"{value}%"))
+                  .maxSet(@30))
+        .tooltipSet(AATooltip.new
+//                    .crosshairsSet(@YES)
+                    .sharedSet(@YES)
+                    .valueSuffixSet(@"%")
+                    .valuePrefixSet(@"+"))
+//        .responsiveSet(AAResponsive.new
+//                       .rulesSet(@[@{@"chartOptions": @{ @"xAxis": @{@"labels": @{@"staggerLines": @2}} },
+//                                    @"condition": @{@"minWidth": @540}}]))
+        .plotOptionsSet(AAPlotOptions.new
+                        .seriesSet(AASeries.new
+                                   .markerSet(AAMarker.new.enabledSet(@NO)))
+//                        .arearangeSet(AAArearange.new
+//                                      .enableMouseTrackingSet(@NO)
+//                                      .statesSet(AAStates.new
+//                                                 .inactiveSet(AAInactive.new.enabledSet(@NO)))
+////                                      .colorSet(AAColor.redColor)
+//                                      .fillOpacitySet(@(1 / 3.0))
+//                                      .lineWidthSet(@0))
+                        )
+        .legendSet(AALegend.new.enabledSet(@NO))
+        .seriesSet(@[
+            AASeriesElement.new
+            .nameSet(@"EU GDP")
+            .typeSet(AAChartTypeLine)
+            .dataSet(@[
+                @[@"2021", @5.4],
+                @[@"Q1.2022", @5.7],
+                @[@"Q2.2022", @4.4],
+                @[@"Q3.2022", @2.6],
+                @[@"Q4.2022", @1.7],
+                @[@"Q1.2023", @1.3],
+                @[@"Q2.2023", @0.6],
+                @[@"Q3.2023", @0.6],
+                @[@"Q4.2023", @1.1],
+                @[@"Q1.2024", @1.3],
+                @[@"Q2.2024", @1.5],
+                @[@"Q3.2024", @1.6],
+                @[@"Q4.2024", @1.7],
+                @[@"2025", @1.7]
+            ])
+            .zIndexSet(@2)
+            .colorSet(AAColor.redColor)
+            .lineWidthSet(@4),
+            AASeriesElement.new
+            .nameSet(@"1σ")
+            .dataSet(@[
+                @[@"Q1.2023", @1.3, @1.3],
+                @[@"Q2.2023", @-3.4, @4.6],
+                @[@"Q3.2023", @-3.4, @4.6],
+                @[@"Q4.2023", @-2.9, @5.1],
+                @[@"Q1.2024", @-2.7, @5.3],
+                @[@"Q2.2024", @-2.5, @5.5],
+                @[@"Q3.2024", @-2.4, @5.6],
+                @[@"Q4.2024", @-2.3, @5.7],
+                @[@"2025", @-2.3, @5.7]
+            ]),
+            AASeriesElement.new
+            .nameSet(@"2σ")
+            .dataSet(@[
+                @[@"Q1.2023", @1.3, @1.3],
+                @[@"Q2.2023", @-7.4, @8.6],
+                @[@"Q3.2023", @-7.4, @8.6],
+                @[@"Q4.2023", @-6.9, @9.1],
+                @[@"Q1.2024", @-6.7, @9.3],
+                @[@"Q2.2024", @-6.5, @9.5],
+                @[@"Q3.2024", @-6.4, @9.6],
+                @[@"Q4.2024", @-6.3, @9.7],
+                @[@"2025", @-6.3, @9.7]
+            ]),
+            AASeriesElement.new
+            .nameSet(@"3σ")
+            .dataSet(@[
+                @[@"Q1.2023", @1.3, @1.3],
+                @[@"Q2.2023", @-11.4, @12.6],
+                @[@"Q3.2023", @-11.4, @12.6],
+                @[@"Q4.2023", @-10.9, @13.1],
+                @[@"Q1.2024", @-10.7, @13.3],
+                @[@"Q2.2024", @-10.5, @13.5],
+                @[@"Q3.2024", @-10.4, @13.6],
+                @[@"Q4.2024", @-10.3, @13.7],
+                @[@"2025", @-10.3, @13.7]
+            ])
+        ]);
+
     return aaOptions;
 }
 
