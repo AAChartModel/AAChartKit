@@ -419,18 +419,15 @@
 }
 
 - (AAOptions *)fanChart {
-    AAOptions *aaOptions = AAOptions.new
+    return AAOptions.new
         .chartSet(AAChart.new
                   .typeSet(AAChartTypeArearange)
-                  .pinchTypeSet(AAChartZoomTypeX)
-                  )
+                  .pinchTypeSet(AAChartZoomTypeX))
         .titleSet(AATitle.new.textSet(@"EU GDP"))
         .subtitleSet(AASubtitle.new
-                   .textSet(@"<a href=\"https://economy-finance.ec.europa.eu/system/files/2023-05/SF_2023_Statistical%20Annex.pdf\" target=\"_blank\">European Economic Forecast, Spring 2023</a>".aa_toPureJSString)
-                     )
+                   .textSet(@"<a href=\"https://economy-finance.ec.europa.eu/system/files/2023-05/SF_2023_Statistical%20Annex.pdf\" target=\"_blank\">European Economic Forecast, Spring 2023</a>".aa_toPureJSString))
         .xAxisSet(AAXAxis.new
                   .typeSet(AAChartAxisTypeCategory)
-//                  .accessibilitySet(AAAccessibility.new.rangeDescriptionSet(@"Range: 2022 to 2024."))
                   .minSet(@1)
                   .maxSet(@12)
                   .endOnTickSet(false)
@@ -459,13 +456,9 @@
                   .labelsSet(AALabels.new.formatSet(@"{value}%"))
                   .maxSet(@30))
         .tooltipSet(AATooltip.new
-//                    .crosshairsSet(@YES)
                     .sharedSet(true)
                     .valueSuffixSet(@"%")
                     .valuePrefixSet(@"+"))
-//        .responsiveSet(AAResponsive.new
-//                       .rulesSet(@[@{@"chartOptions": @{ @"xAxis": @{@"labels": @{@"staggerLines": @2}} },
-//                                    @"condition": @{@"minWidth": @540}}]))
         .plotOptionsSet(AAPlotOptions.new
                         .seriesSet(AASeries.new
                                    .markerSet(AAMarker.new
@@ -477,8 +470,7 @@
                                                               .enabledSet(true)))
                                       .colorSet(AAColor.redColor)
                                       .fillOpacitySet(@(1 / 3.0))
-                                      .lineWidthSet(@0))
-                        )
+                                      .lineWidthSet(@0)))
         .legendSet(AALegend.new
                    .enabledSet(false))
         .seriesSet(@[
@@ -544,8 +536,6 @@
                 @[@"2025", @-10.3, @13.7]
             ])
         ]);
-
-    return aaOptions;
 }
 
 @end
