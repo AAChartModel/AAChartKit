@@ -97,6 +97,7 @@
 		84B548C826F2EE2C00D4CAFC /* DataLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548C726F2EE2C00D4CAFC /* DataLabelsOptionsVC.m */; };
 		84B548CB26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */; };
 		84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */; };
+		84D01E712B1202B50017E90B /* AAArearange.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D01E702B1202B50017E90B /* AAArearange.m */; };
 		84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */; };
 		84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */; };
 		84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */; };
@@ -307,6 +308,8 @@
 		84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisLabelsOptionsVC.m; sourceTree = "<group>"; };
 		84B548CC26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisTypeOptionsVC.h; sourceTree = "<group>"; };
 		84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisTypeOptionsVC.m; sourceTree = "<group>"; };
+		84D01E6F2B1202B50017E90B /* AAArearange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAArearange.h; sourceTree = "<group>"; };
+		84D01E702B1202B50017E90B /* AAArearange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAArearange.m; sourceTree = "<group>"; };
 		84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsConfigurationGenerator.h; sourceTree = "<group>"; };
 		84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConfigurationGenerator.m; sourceTree = "<group>"; };
 		84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAOptionsVC.h; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 				1E66D1DF210AF4EC007EAB8C /* AAArea.m */,
 				1E66D1DE210AF4EC007EAB8C /* AAAreaspline.h */,
 				1E66D1BF210AF4EC007EAB8C /* AAAreaspline.m */,
+				84D01E6F2B1202B50017E90B /* AAArearange.h */,
+				84D01E702B1202B50017E90B /* AAArearange.m */,
 				1E66D1E4210AF4EC007EAB8C /* AALine.h */,
 				1E66D1C9210AF4EC007EAB8C /* AALine.m */,
 				1E66D1D3210AF4EC007EAB8C /* AASpline.h */,
@@ -922,6 +927,7 @@
 				1E66D20D210AF4ED007EAB8C /* AAArea.m in Sources */,
 				1E66D210210AF4ED007EAB8C /* AAMarker.m in Sources */,
 				1E66D214210AF4ED007EAB8C /* AAChart.m in Sources */,
+				84D01E712B1202B50017E90B /* AAArearange.m in Sources */,
 				84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */,
 				44143D3921A1950300D44657 /* AAGradientColor.m in Sources */,
 				1E66D217210AF4ED007EAB8C /* AAOptions.m in Sources */,

@@ -1,9 +1,9 @@
 //
-//  AAPlotOptions.m
+//  AAArearange.m
 //  AAChartKit
 //
-//  Created by An An on 17/1/5.
-//  Copyright © 2017年 An An. All rights reserved.
+//  Created by AnAn on 2023/11/25.
+//  Copyright © 2023 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -30,22 +30,20 @@
  
  */
 
-#import "AAPlotOptions.h"
 #import "AAArearange.h"
+#import "AAStates.h"
 
-@implementation AAPlotOptions
+@implementation AAArearange
+//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, enableMouseTracking)
+//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, AAStates *, states)
+//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSString *, color)
+//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, fillOpacity)
+//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, lineWidth)
 
-AAPropSetFuncImplementation(AAPlotOptions, AAColumn      *, column)
-AAPropSetFuncImplementation(AAPlotOptions, AALine        *, line)
-AAPropSetFuncImplementation(AAPlotOptions, AAPie         *, pie)
-AAPropSetFuncImplementation(AAPlotOptions, AABar         *, bar)
-AAPropSetFuncImplementation(AAPlotOptions, AASpline      *, spline)
-AAPropSetFuncImplementation(AAPlotOptions, AASeries      *, series)
-AAPropSetFuncImplementation(AAPlotOptions, AAArea        *, area)
-AAPropSetFuncImplementation(AAPlotOptions, AAAreaspline  *, areaspline)
-AAPropSetFuncImplementation(AAPlotOptions, AAColumnrange *, columnrange)
-AAPropSetFuncImplementation(AAPlotOptions, AAArearange   *, arearange)
-AAPropSetFuncImplementation(AAPlotOptions, AABoxplot     *, boxplot)
-AAPropSetFuncImplementation(AAPlotOptions, AAScatter     *, scatter)
+AAPropSetFuncImplementation(AAArearange, NSNumber *, enableMouseTracking);
+AAPropSetFuncImplementation(AAArearange, AAStates *, states);
+AAPropSetFuncImplementation(AAArearange, NSString *, color);
+AAPropSetFuncImplementation(AAArearange, NSNumber *, fillOpacity);
+AAPropSetFuncImplementation(AAArearange, NSNumber *, lineWidth);
 
 @end

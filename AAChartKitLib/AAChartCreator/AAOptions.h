@@ -48,6 +48,7 @@
 #import "AABar.h"
 #import "AAArea.h"
 #import "AAAreaspline.h"
+#import "AAArearange.h"
 #import "AALine.h"
 #import "AASpline.h"
 #import "AAPie.h"

@@ -32,6 +32,7 @@
 
 #import <WebKit/WebKit.h>
 #import "AAOptions.h"
+#import "NSString+toPureJSString.h"
 
 @interface AAEventMessageModel : NSObject
 
