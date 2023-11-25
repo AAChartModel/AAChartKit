@@ -774,6 +774,7 @@
             @[@"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
               @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
               @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
+              @"fanChart---折扇图",
             ],
             /*自定义 tooltip 浮动提示框*/
             @[@"customTooltipStyleByFormatProperties---通过 tooltip 的 format 属性自定义 tooltip 样式内容",

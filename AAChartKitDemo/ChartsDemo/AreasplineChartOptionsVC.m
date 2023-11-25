@@ -21,9 +21,10 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
-        case 0: return [self fanChart];//复杂自定义曲线填充图 1
+        case 0: return [self configureComplicatedCustomAreasplineChart];//复杂自定义曲线填充图 1
         case 1: return [self configureComplicatedCustomAreasplineChart2];//复杂自定义曲线填充图 2
         case 2: return [self configureComplicatedCustomAreasplineChart3];//复杂自定义曲线填充图 3
+        case 3: return [self fanChart];//折扇图
 
         default:
             break;
