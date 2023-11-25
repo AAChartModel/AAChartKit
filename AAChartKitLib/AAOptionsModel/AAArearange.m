@@ -34,11 +34,6 @@
 #import "AAStates.h"
 
 @implementation AAArearange
-//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, enableMouseTracking)
-//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, AAStates *, states)
-//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSString *, color)
-//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, fillOpacity)
-//AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, lineWidth)
 
 AAPropSetFuncImplementation(AAArearange, NSNumber *, enableMouseTracking);
 AAPropSetFuncImplementation(AAArearange, AAStates *, states);

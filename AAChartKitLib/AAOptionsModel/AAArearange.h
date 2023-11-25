@@ -33,23 +33,13 @@
 #import <Foundation/Foundation.h>
 
 @class AAStates;
-////                        .arearangeSet(AAArearange.new
-////                                      .enableMouseTrackingSet(@NO)
-////                                      .statesSet(AAStates.new
-////                                                 .inactiveSet(AAInactive.new.enabledSet(@NO)))
-//////                                      .colorSet(AAColor.redColor)
-////                                      .fillOpacitySet(@(1 / 3.0))
-////                                      .lineWidthSet(@0))
-NS_ASSUME_NONNULL_BEGIN
 
 @interface AAArearange : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, enableMouseTracking)
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, AAStates *, states)
-AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(copy,   AAArearange, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, fillOpacity)
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, lineWidth)
 
 @end
-
-NS_ASSUME_NONNULL_END
