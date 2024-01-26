@@ -48,7 +48,7 @@ AAPropSetFuncImplementation(AASeries, AAAnimation  *, animation)
 AAPropSetFuncImplementation(AASeries, NSArray      *, keys) 
 //AAPropSetFuncImplementation(AASeries, BOOL , colorByPoint) //设置为 true 则是给每个点分配颜色。
 AAPropSetFuncImplementation(AASeries, BOOL ,          connectNulls) 
-AAPropSetFuncImplementation(AASeries, AAEvents *, events)
+AAPropSetFuncImplementation(AASeries, AASeriesEvents *, events)
 AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
 AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AASeries, AAStates *, states)
@@ -61,11 +61,11 @@ AAPropSetFuncImplementation(AASeries, NSNumber *, minPointLength) //柱状图, �
 @end
 
 
-@implementation AAEvents
+@implementation AASeriesEvents
 
 //AAPropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
 
-AAJSFuncTypePropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
+AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, legendItemClick)
 
 - (void)setLegendItemClick:(NSString *)legendItemClick {
     _legendItemClick = [legendItemClick aa_toPureJSString];

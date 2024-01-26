@@ -139,7 +139,7 @@
 
     
     //禁用图例点击事件
-    aaOptions.plotOptions.series.events = AAEvents.new
+    aaOptions.plotOptions.series.events = AASeriesEvents.new
     .legendItemClickSet(@AAJSFunc(function() {
         return false;
     }));
