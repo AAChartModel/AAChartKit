@@ -45,8 +45,8 @@
 //zIndex
 
 #import <Foundation/Foundation.h>
-
 @class AALabel;
+
 @interface AAPlotBandsElement : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, borderColor)
