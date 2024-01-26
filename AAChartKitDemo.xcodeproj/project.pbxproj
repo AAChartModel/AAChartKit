@@ -78,6 +78,7 @@
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
 		8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */; };
+		844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */; };
 		845589C928C3B27C009D1BC3 /* AAScatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845589C828C3B27C009D1BC3 /* AAScatter.m */; };
 		8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDD228CADF5800392C50 /* CustomTableViewCell.m */; };
 		8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */; };
@@ -270,6 +271,8 @@
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsVC.h; sourceTree = "<group>"; };
 		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC.m; sourceTree = "<group>"; };
+		844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer2.h; sourceTree = "<group>"; };
+		844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer2.m; sourceTree = "<group>"; };
 		845589C728C3B27C009D1BC3 /* AAScatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAScatter.h; sourceTree = "<group>"; };
 		845589C828C3B27C009D1BC3 /* AAScatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAScatter.m; sourceTree = "<group>"; };
 		8463FDD128CADF5800392C50 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
@@ -706,6 +709,8 @@
 				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
 				84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */,
 				84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */,
+				844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */,
+				844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */,
 			);
 			name = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -923,6 +928,7 @@
 				44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */,
 				44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */,
 				84B548BC26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m in Sources */,
+				844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */,
 				713F543D1E7B71C000D506C7 /* MainVC.m in Sources */,
 				1E66D20D210AF4ED007EAB8C /* AAArea.m in Sources */,
 				1E66D210210AF4ED007EAB8C /* AAMarker.m in Sources */,
@@ -1113,7 +1119,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "AACharthuhu------";
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
@@ -1135,7 +1141,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "AACharthuhu------";
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
