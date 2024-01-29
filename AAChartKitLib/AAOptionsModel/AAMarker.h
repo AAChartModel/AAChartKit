@@ -34,7 +34,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarkerStates, AAMarkerHover;
+@class AAMarkerStates, AAMarkerHover, AAMarkerSelect;
 
 @interface AAMarker : NSObject
 
@@ -53,7 +53,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAMarker, NSNumber *,  height)
 
 @interface AAMarkerStates : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAMarkerStates, AAMarkerHover *, hover)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerStates, AAMarkerHover  *, hover)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerStates, AAMarkerSelect *, select)
 
 @end
 
@@ -71,7 +72,15 @@ AAPropStatementAndPropSetFuncStatement(strong, AAMarkerHover, NSNumber *, radius
 @end
 
 
+@interface AAMarkerSelect : NSObject
 
+AAPropStatementAndPropSetFuncStatement(assign, AAMarkerSelect, BOOL,       enabled)
+AAPropStatementAndPropSetFuncStatement(copy,   AAMarkerSelect, NSString *, fillColor)
+AAPropStatementAndPropSetFuncStatement(copy,   AAMarkerSelect, NSString *, lineColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerSelect, NSNumber *, lineWidth)
+AAPropStatementAndPropSetFuncStatement(strong, AAMarkerSelect, NSNumber *, radius)
+
+@end
 
 
 

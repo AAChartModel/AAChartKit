@@ -35,6 +35,7 @@
 #import "JSFunctionForAAChartEventsVC.h"
 #import "AAChartKit.h"
 #import "AADateUTCTool.h"
+#import "JSFunctionForAAChartEventsComposer2.h"
 
 @interface JSFunctionForAAChartEventsVC ()
 
@@ -60,7 +61,9 @@
         case 8: return [self customizeYAxisPlotLinesLabelBeSpecialStyle]; //自定义 Y 轴轴线上面的标签文字特殊样式
         case 9: return [self configureECGStyleChart]; //配置心电图样式的图表
         case 10: return [self configureTheSizeOfTheSliceOfDonutAndPieChart]; //配置环形图和饼图的扇区大小
-        case 11: return [self configurePlotBackgroundClickEvent]; //配置绘图区的点击事件
+//        case 11: return [self configurePlotBackgroundClickEvent]; //配置绘图区的点击事件
+        case 11: return [JSFunctionForAAChartEventsComposer2 defaultSelectedAPointForLineChart];
+
 
     }
     return nil;

@@ -102,6 +102,7 @@ AAPropSetFuncImplementation(AADataElement, AAMarker *, marker)
 AAPropSetFuncImplementation(AADataElement, NSString *, name)
 AAPropSetFuncImplementation(AADataElement, NSNumber *, x)
 AAPropSetFuncImplementation(AADataElement, NSNumber *, y)
+AAPropSetFuncImplementation(AADataElement, id,         selected)
 
 @end
 

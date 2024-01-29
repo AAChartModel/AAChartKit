@@ -58,6 +58,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, AASeriesEvents *, event
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, id        , allowPointSelect) //折线图的曲线宽度，默认是：0
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAPoint  *, point)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, pointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的宽度
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, maxPointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最大宽度
@@ -68,6 +69,9 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, minPointLen
 
 @interface AASeriesEvents : NSObject
 
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, click)
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, mouseOver)
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, mouseOut)
 AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, legendItemClick)
 
 @end

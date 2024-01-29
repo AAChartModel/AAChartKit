@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class AAOptions;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAAChartEventsComposer2 : NSObject
+
++ (AAOptions *)defaultSelectedAPointForLineChart;
 
 @end
 

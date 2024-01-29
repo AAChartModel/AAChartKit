@@ -59,7 +59,8 @@ AAPropSetFuncImplementation(AAMarker, NSNumber *,  height)
 
 @implementation AAMarkerStates
 
-AAPropSetFuncImplementation(AAMarkerStates, AAMarkerHover *, hover)
+AAPropSetFuncImplementation(AAMarkerStates, AAMarkerHover  *, hover)
+AAPropSetFuncImplementation(AAMarkerStates, AAMarkerSelect *, select)
 
 @end
 
@@ -80,6 +81,25 @@ AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, lineWidth)
 AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, lineWidthPlus)
 AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, radius)
 AAPropSetFuncImplementation(AAMarkerHover, NSNumber *, radiusPlus)
+
+@end
+
+
+@implementation AAMarkerSelect
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enabled = true;
+    }
+    return self;
+}
+
+AAPropSetFuncImplementation(AAMarkerSelect, BOOL,       enabled)
+AAPropSetFuncImplementation(AAMarkerSelect, NSString *, fillColor)
+AAPropSetFuncImplementation(AAMarkerSelect, NSString *, lineColor)
+AAPropSetFuncImplementation(AAMarkerSelect, NSNumber *, lineWidth)
+AAPropSetFuncImplementation(AAMarkerSelect, NSNumber *, radius)
 
 @end
 

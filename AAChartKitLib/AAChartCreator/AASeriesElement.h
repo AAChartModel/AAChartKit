@@ -93,6 +93,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AAMarker *, marker
 AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, name)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, x)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSNumber *, y)
+AAPropStatementAndPropSetFuncStatement(strong, AADataElement, id,         selected)
 
 @end
 
