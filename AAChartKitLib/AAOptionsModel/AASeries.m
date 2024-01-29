@@ -67,7 +67,7 @@ AAPropSetFuncImplementation(AASeries, NSNumber *, minPointLength) //柱状图, �
 //AAPropSetFuncImplementation(AASeriesEvents, NSString *, click)
 //AAPropSetFuncImplementation(AASeriesEvents, NSString *, mouseOver)
 //AAPropSetFuncImplementation(AASeriesEvents, NSString *, mouseOut)
-//AAPropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
+//AAPropSetFuncImplementation(AASeriesEvents, NSString *, legendItemClick)
 
 AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, click)
 AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, mouseOver)
