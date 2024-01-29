@@ -89,14 +89,14 @@
 
                         this.hasRun = true;
                     }), (long)defaultPointIndex]))
-                    .allowPointSelectSet(@true)
-                    .markerSet(AAMarker.new
-                        .statesSet(AAMarkerStates.new
-                            .selectSet(AAMarkerSelect.new
-                                .fillColorSet(@"red")
-                                .lineWidthSet(@10)
-                                .lineColorSet(@"yellow")
-                                .radiusSet(@20))))))
+                .allowPointSelectSet(@true)
+                .markerSet(AAMarker.new
+                    .statesSet(AAMarkerStates.new
+                        .selectSet(AAMarkerSelect.new
+                            .fillColorSet(@"red")
+                            .lineWidthSet(@10)
+                            .lineColorSet(@"yellow")
+                            .radiusSet(@20))))))
         .seriesSet(@[
             AASeriesElement.new
                 .dataSet(dataArr)
