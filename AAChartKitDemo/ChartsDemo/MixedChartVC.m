@@ -313,7 +313,7 @@
     .markerRadiusSet(@0)//隐藏连接点
     .seriesSet(@[
         AASeriesElement.new
-        .nameSet(@"Solid")
+        .nameSet(AAChartLineDashStyleTypeSolid)
         .lineWidthSet(@3)
         .dataSet(@[@50, @620, @230, @370, @130, @720, @230, @570, @230, @400,@100,]),
         AASeriesElement.new
