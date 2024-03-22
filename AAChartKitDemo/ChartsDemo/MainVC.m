@@ -48,6 +48,7 @@
 #import "EvaluateJSStringFunctionVC.h"
 #import "ScrollingUpdateDataVC.h"
 #import "DoubleChartsLinkedWorkVC.h"
+#import "DoubleChartsLinkedWorkVC2.h"
 #import "DrawableChartVC.h"
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
@@ -260,8 +261,11 @@
             } else if (row == 1) {
                 ChartListVC *listVC = ChartListVC.new;
                 [self.navigationController pushViewController:listVC animated:YES];
-            } else {
+            } else if (row == 2) {
                 DoubleChartsLinkedWorkVC *vc = DoubleChartsLinkedWorkVC.new;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else if (row == 3) {
+                DoubleChartsLinkedWorkVC2 *vc = DoubleChartsLinkedWorkVC2.new;
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }
@@ -646,6 +650,7 @@
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",
               @"Show Many AAChartView On UITableView---UITableView上显示多个 AAChartView",
               @"Double Charts Linked Working---双表联动",
+              @"Double Charts Linked Working2---双表联动2",
             ],
             /*隐藏或显示图表的Series*/
             @[@"Column Chart---柱形图",
