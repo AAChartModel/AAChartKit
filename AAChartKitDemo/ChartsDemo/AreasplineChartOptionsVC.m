@@ -121,7 +121,7 @@
                    .useHTMLSet(true)
                    .backgroundColorSet(@"#1e90ff")
                    .borderRadiusSet(@5)
-                   .shapeSet(@"callout")
+                   .shapeSet(AAChartDataLabelsShapeTypeCallout)
                    .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                    .styleSet(AAStyle.new
                              .fontWeightSet(AAChartFontWeightTypeBold)
@@ -131,7 +131,7 @@
                    .ySet(@(-75))
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                   .overflowSet(@"none")
+                   .overflowSet(AAChartDataLabelsOverflowTypeNone)
                    .cropSet(false)
                    )
     .ySet(@51.5);
@@ -150,7 +150,7 @@
                    .useHTMLSet(true)
                    .backgroundColorSet(AAColor.redColor)
                    .borderRadiusSet(@5)
-                   .shapeSet(@"callout")
+                   .shapeSet(AAChartDataLabelsShapeTypeCallout)
                    .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                    .styleSet(AAStyle.new
                              .fontWeightSet(AAChartFontWeightTypeBold)
@@ -160,7 +160,7 @@
                    .ySet(@(-75))
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                   .overflowSet(@"none")
+                   .overflowSet(AAChartDataLabelsOverflowTypeNone)
                    .cropSet(false)
                    )
     .ySet(@26.5);
@@ -231,13 +231,13 @@
                    .useHTMLSet(true)
                    .backgroundColorSet(AARgbaColor(219, 148, 111, 1.0))
                    .borderRadiusSet(@10)
-                   .shapeSet(@"callout")
+                   .shapeSet(AAChartDataLabelsShapeTypeCallout)
                    .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                    .styleSet(aaDataLabelsStyle)
                    .ySet(@(-75))
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                   .overflowSet(@"none")
+                   .overflowSet(AAChartDataLabelsOverflowTypeNone)
                    .cropSet(false)
                    )
     .ySet(@51.5);
@@ -257,13 +257,13 @@
                    .useHTMLSet(true)
                    .backgroundColorSet(AARgbaColor(65, 111, 166, 1.0))
                    .borderRadiusSet(@10)
-                   .shapeSet(@"callout")
+                   .shapeSet(AAChartDataLabelsShapeTypeCallout)
                    .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                    .styleSet(aaDataLabelsStyle)
                    .ySet(@(-75))
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                   .overflowSet(@"none")
+                   .overflowSet(AAChartDataLabelsOverflowTypeNone)
                    .cropSet(false)
                    )
     .ySet(@26.5);
@@ -272,7 +272,7 @@
         AASeriesElement.new
         .nameSet(@"空气湿度")
         .lineWidthSet(@3)
-        .zoneAxisSet(@"x")
+        .zoneAxisSet(AAChartZoneAxisTypeX)
         .zonesSet(@[
             AAZonesElement.new
             .valueSet(@5)
@@ -291,7 +291,7 @@
         AASeriesElement.new
         .nameSet(@"土壤湿度")
         .lineWidthSet(@3)
-        .zoneAxisSet(@"x")
+        .zoneAxisSet(AAChartZoneAxisTypeX)
         .zonesSet(@[
             AAZonesElement.new
             .valueSet(@5)
@@ -335,13 +335,13 @@
                    .useHTMLSet(true)
                    .backgroundColorSet(AARgbaColor(219, 148, 111, 1.0))
                    .borderRadiusSet(@10)
-                   .shapeSet(@"callout")
+                   .shapeSet(AAChartDataLabelsShapeTypeCallout)
                    .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                    .styleSet(aaDataLabelsStyle)
                    .ySet(@(-75))
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                   .overflowSet(@"none")
+                   .overflowSet(AAChartDataLabelsOverflowTypeNone)
                    .cropSet(false)
                    )
     .ySet(@34.5);
@@ -361,13 +361,13 @@
                    .useHTMLSet(true)
                    .backgroundColorSet(AARgbaColor(65, 111, 166, 1.0))
                    .borderRadiusSet(@10)
-                   .shapeSet(@"callout")
+                   .shapeSet(AAChartDataLabelsShapeTypeCallout)
                    .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                    .styleSet(aaDataLabelsStyle)
                    .ySet(@(-75))
                    .alignSet(AAChartAlignTypeCenter)
                    .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                   .overflowSet(@"none")
+                   .overflowSet(AAChartDataLabelsOverflowTypeNone)
                    .cropSet(false)
                    )
     .ySet(@14.5);
@@ -376,7 +376,7 @@
         AASeriesElement.new
         .nameSet(@"空气湿度")
         .lineWidthSet(@3)
-        .zoneAxisSet(@"x")
+        .zoneAxisSet(AAChartZoneAxisTypeX)
         .zonesSet(@[
             AAZonesElement.new
             .valueSet(@3)
@@ -395,7 +395,7 @@
         AASeriesElement.new
         .nameSet(@"土壤湿度")
         .lineWidthSet(@3)
-        .zoneAxisSet(@"x")
+        .zoneAxisSet(AAChartZoneAxisTypeX)
         .zonesSet(@[
             AAZonesElement.new
             .valueSet(@3)

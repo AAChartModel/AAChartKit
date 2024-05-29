@@ -255,7 +255,7 @@
             AASeriesElement.new
                 .nameSet(@"本专业")
                 .dataSet(@[@45, @88, @49, @43, @65, @56, @47, @28, @49, @44, @89, @55])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .colorSet((id)AAGradientColor.freshPapayaColor)
                 .lineWidthSet(@5)
                 .zonesSet(@[
@@ -364,7 +364,7 @@
                 .nameSet(@"2017")
                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
                 .lineWidthSet(@5)
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@5)
@@ -423,15 +423,15 @@
             AASeriesElement.new
                 .nameSet(@"Berlin")
                 .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
-                .stepSet(AAChartAlignTypeRight), //折线连接点靠右👉
+                .stepSet(AAChartLineStepTypeRight), //折线连接点靠右👉
             AASeriesElement.new
                 .nameSet(@"New York")
                 .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
-                .stepSet(AAChartAlignTypeCenter),//折线连接点居中
+                .stepSet(AAChartLineStepTypeCenter),//折线连接点居中
             AASeriesElement.new
                 .nameSet(@"Tokyo")
                 .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
-                .stepSet(AAChartAlignTypeLeft),//折线连接点靠左边👈
+                .stepSet(AAChartLineStepTypeLeft),//折线连接点靠左边👈
         ]);
 }
 
@@ -852,7 +852,7 @@
                             .ySet(@(-35))
                             .alignSet(AAChartAlignTypeCenter)
                             .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                            .overflowSet(@"none")
+                            .overflowSet(AAChartDataLabelsOverflowTypeNone)
                             .cropSet(false))
                         .ySet(@26.5),
                     @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
@@ -1008,7 +1008,7 @@
                     .ySet(@-10)
                     .formatSet(@"{total} mm")
                     .colorSet(AAColor.redColor)
-                    .shapeSet(@"callout")
+                    .shapeSet(AAChartDataLabelsShapeTypeCallout)
                     .backgroundColorSet(AAColor.whiteColor)
                     .borderColorSet(AAColor.redColor)
                     .borderRadiusSet(@1)
@@ -1405,7 +1405,7 @@
             AADataLabels *aaDataLabels = AADataLabels.new
                 .enabledSet(true)
                 .formatSet(@"{y} 美元")
-                .shapeSet(@"callout")
+                .shapeSet(AAChartDataLabelsShapeTypeCallout)
                 .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
                 .backgroundColorSet(AAColor.whiteColor)// white color
                 .borderColorSet(AAColor.redColor)// red color
@@ -1646,7 +1646,7 @@
                         .ySet(@256.0)
                         .colorSet(AAColor.redColor)
                 ])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@1)
@@ -1696,7 +1696,7 @@
                         .ySet(@2048)
                         .colorSet(AARgbaColor(30, 144, 255, 1.0)),
                 ])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@1)
@@ -1724,7 +1724,7 @@
                         .ySet(@2048)
                         .colorSet(AARgbaColor(255, 0, 0, 1.0)),
                 ])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@1)
@@ -1752,7 +1752,7 @@
                         .ySet(@2048)
                         .colorSet(AARgbaColor(255, 215, 0, 1.0)),
                 ])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@1)
@@ -1780,7 +1780,7 @@
                         .ySet(@2048)
                         .colorSet(AARgbaColor(50, 205, 50, 1.0)),
                 ])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@1)
@@ -1808,7 +1808,7 @@
                         .ySet(@2048)
                         .colorSet(AARgbaColor(138, 43, 226, 1.0)),
                 ])
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@1)
@@ -2103,7 +2103,7 @@
             AASeriesElement.new
                 .nameSet(@"空气湿度")
                 .lineWidthSet(@6)
-                .zoneAxisSet(@"x")
+                .zoneAxisSet(AAChartZoneAxisTypeX)
                 .zonesSet(@[
                     AAZonesElement.new
                         .valueSet(@2)
@@ -2144,13 +2144,13 @@
                             .useHTMLSet(true)
                             .backgroundColorSet(AARgbaColor(65, 111, 166, 1.0))
                             .borderRadiusSet(@10)
-                            .shapeSet(@"callout")
+                            .shapeSet(AAChartDataLabelsShapeTypeCallout)
                             .formatSet(@"{point.category}<br>{series.name}: {point.y} %")
                             .styleSet(AAStyleColorSizeWeight(AAColor.whiteColor, 12, AAChartFontWeightTypeBold))
                             .xSet(@-80).ySet(@(5))
                             .alignSet(AAChartAlignTypeCenter)
                             .verticalAlignSet(AAChartVerticalAlignTypeTop)
-                            .overflowSet(@"none")
+                            .overflowSet(AAChartDataLabelsOverflowTypeNone)
                             .cropSet(false))
                         .ySet(@85.3)]),
         ]);

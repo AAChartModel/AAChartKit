@@ -65,7 +65,7 @@
     .colorSet(AAColor.redColor)
     .backgroundColorSet(AAColor.whiteColor)
     .borderColorSet(AAColor.redColor)
-    .shapeSet(@"callout")
+    .shapeSet(AAChartDataLabelsShapeTypeCallout)
     .borderRadiusSet(@1)
     .borderWidthSet(@1);
     
@@ -143,7 +143,7 @@
     .verticalAlignSet(AAChartVerticalAlignTypeMiddle)
     .backgroundColorSet(AAColor.whiteColor)// white color
     .borderColorSet(AAColor.redColor)// red color
-    .shapeSet(@"callout")
+    .shapeSet(AAChartDataLabelsShapeTypeCallout)
     .borderRadiusSet(@1.5)
     .borderWidthSet(@1.3)
     .styleSet(AAStyleColorSizeWeight(AAColor.redColor, 15, AAChartFontWeightTypeBold))
@@ -181,7 +181,7 @@
     .enabledSet(YES)
     .allowOverlapSet(YES)
     .cropSet(false)
-    .overflowSet(@"none")
+    .overflowSet(AAChartDataLabelsOverflowTypeNone)
     .styleSet(AAStyle.new
               .colorSet(AAColor.blackColor)
               .fontSizeSet(@"11px")

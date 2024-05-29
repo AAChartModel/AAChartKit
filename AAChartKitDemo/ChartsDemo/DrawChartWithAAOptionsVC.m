@@ -285,7 +285,7 @@
     .ySet(@-10)
     .formatSet(@" {y} 美元 ")
     .backgroundColorSet(@"rgba(0, 0, 0, 0.75)")
-    .shapeSet(@"callout")
+    .shapeSet(AAChartDataLabelsShapeTypeCallout)
     .styleSet(AAStyle.new
               .colorSet(AAColor.whiteColor)
               .textOutlineSet(@"none"));
