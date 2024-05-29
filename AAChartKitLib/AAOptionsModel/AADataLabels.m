@@ -33,20 +33,6 @@
 #import "AADataLabels.h"
 #import "NSString+toPureJSString.h"
 
-//public enum AAChartDataLabelsShapeType: String {
-//    case square
-//    case callout
-//    case circle
-//    case diamond
-//    case triangle
-//}
-//
-//public enum AAChartDataLabelsOverflowType: String {
-//    case none = "none"
-//    case allow
-//    case justify
-//}
-
 AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeSquare   = @"square";
 AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeCallout  = @"callout";
 AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeCircle   = @"circle";
