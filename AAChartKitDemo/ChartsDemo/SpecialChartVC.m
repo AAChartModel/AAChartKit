@@ -59,6 +59,51 @@
     return nil;
 }
 
+- (AAOptions *)configurePieChartWithMargin {
+    AAChartModel *aaChartModel = AAChartModel.new
+//        .marginSet(@[@5,@5,@5,@150])
+        .chartTypeSet(AAChartTypePie)
+        .tooltipEnabledSet(false)
+        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#0c9674",@"#EA007B",@"#EA007B",@"#EA007B"])
+        .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
+        .legendEnabledSet(false)
+        .seriesSet(@[
+            AASeriesElement.new
+            .enableMouseTrackingSet(@true)
+            .sizeSet(@180)//尺寸大小
+            .innerSizeSet(@"70%")
+            .showInLegendSet(false)
+            .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+            .statesSet(AAStates.new
+                .hoverSet(AAHover.new
+                          .brightnessSet(@0)
+                          .haloSet(AAHalo.new
+                                   .opacitySet(@1)))
+                .inactiveSet(AAInactive
+                             .new.opacitySet(@100)))
+
+            .dataSet(@[
+                @[@"支付宝"  ,@67],
+                    @[@"微信",@10],
+                    @[@"银联",@999],
+                    @[@"现金余额"    ,@10],
+                    @[@"承兑余额"    ,@83],
+                    @[@"壹钱包"    ,@5],
+                    @[@"易付通"    ,@10],
+                    @[@"积分抵用"    ,@30],
+                ])]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    aaOptions.chart
+        .marginLeftSet(@180)//图表左边距👈🏻
+        .marginRightSet(@5)//图表右边距👉🏻
+        .marginTopSet(@5)//图表上边距👆🏻
+        .marginBottomSet(@5)//图表下边距👇🏻
+    ;
+
+    return aaOptions;
+}
 
 - (AAChartModel *)configurePieChart {
     return AAChartModel.new
