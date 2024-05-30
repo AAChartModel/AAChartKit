@@ -94,8 +94,8 @@ AAPropSetFuncImplementation(AAYAxis, NSArray  *, tickPositions) //自定义Y轴�
 AAPropSetFuncImplementation(AAYAxis, id        , top)
 AAPropSetFuncImplementation(AAYAxis, id        , height)
 
-
 @end
+
 
 @implementation AAAxisTitle
 

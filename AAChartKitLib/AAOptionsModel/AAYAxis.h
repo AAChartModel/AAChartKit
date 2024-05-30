@@ -91,8 +91,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, tickPosition
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, id        , top)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, id        , height)
 
-
 @end
+
 
 @interface AAAxisTitle : NSObject
 
