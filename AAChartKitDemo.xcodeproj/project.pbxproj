@@ -459,86 +459,6 @@
 			path = AAChartCreator;
 			sourceTree = "<group>";
 		};
-		27E475F624B2F74800690657 /* AdditionalContent2 */ = {
-			isa = PBXGroup;
-			children = (
-				272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */,
-				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
-				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
-				27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */,
-				278989B9204F8DBA003940CC /* ChartListVC.h */,
-				278989BA204F8DBA003940CC /* ChartListVC.m */,
-				44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */,
-				44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */,
-				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
-				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
-				27E475F324B2111400690657 /* AABaseChartVC.h */,
-				27E475F424B2111400690657 /* AABaseChartVC.m */,
-				27EB89D6248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.h */,
-				27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */,
-				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
-				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
-				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
-				44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */,
-				848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */,
-				848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */,
-				848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */,
-				84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */,
-				84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */,
-				8463FDD128CADF5800392C50 /* CustomTableViewCell.h */,
-				8463FDD228CADF5800392C50 /* CustomTableViewCell.m */,
-				8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */,
-			);
-			name = AdditionalContent2;
-			sourceTree = "<group>";
-		};
-		27F0CA7A21018C86004BD904 /* AATools */ = {
-			isa = PBXGroup;
-			children = (
-				27F0CA7721018998004BD904 /* AADateUTCTool.h */,
-				27F0CA7821018998004BD904 /* AADateUTCTool.m */,
-				447B4B3121C9E04E00FDA965 /* AAEasyTool.h */,
-				447B4B3221C9E04E00FDA965 /* AAEasyTool.m */,
-			);
-			name = AATools;
-			sourceTree = "<group>";
-		};
-		27F0CA7B21018CC7004BD904 /* MainContent */ = {
-			isa = PBXGroup;
-			children = (
-				713F54371E7B71C000D506C7 /* MainVC.h */,
-				713F54381E7B71C000D506C7 /* MainVC.m */,
-				84B548D026F3309C00D4CAFC /* AAChartModel */,
-				84B548CF26F32FC800D4CAFC /* AAOptions */,
-				84B548D126F3310600D4CAFC /* AAOptionsWithJS */,
-			);
-			name = MainContent;
-			sourceTree = "<group>";
-		};
-		27F5AD9D20A8159E0086CD33 /* AdditionalContent1 */ = {
-			isa = PBXGroup;
-			children = (
-				64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */,
-				64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */,
-				449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */,
-				449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */,
-				4486C50E23E9BAB300B54849 /* DrawableChartVC.h */,
-				4486C50F23E9BAB300B54849 /* DrawableChartVC.m */,
-				4486C50B23DE02A900B54849 /* DoubleChartsLinkedWorkVC.h */,
-				4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */,
-				8486A2282BAD830600AA343B /* DoubleChartsLinkedWorkVC2.h */,
-				8486A2292BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m */,
-				27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */,
-				27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */,
-				84AE6B2026A58D73001F0755 /* AAChartSymbolConstant.h */,
-				58603ED25E9A3CAC30317C26 /* CustomClickEventCallbackMessageVC.h */,
-				58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */,
-				8483CEC029D2F40D002E57AA /* AADOMRectModel.h */,
-				8483CEC129D2F40D002E57AA /* AADOMRectModel.m */,
-			);
-			name = AdditionalContent1;
-			sourceTree = "<group>";
-		};
 		441AF0B8233463A200F0D39D /* AATool */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,15 +500,18 @@
 			path = Convenience;
 			sourceTree = "<group>";
 		};
-		713F54341E7B71C000D506C7 /* ChartsDemo */ = {
+		713F54341E7B71C000D506C7 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				27F0CA7B21018CC7004BD904 /* MainContent */,
-				27F5AD9D20A8159E0086CD33 /* AdditionalContent1 */,
-				27E475F624B2F74800690657 /* AdditionalContent2 */,
-				27F0CA7A21018C86004BD904 /* AATools */,
+				844F4D3F2C0857670019F786 /* AAChartListVC */,
+				844F4D402C0857860019F786 /* AAChartModel */,
+				844F4D422C0857B20019F786 /* AAOptions */,
+				844F4D432C08580A0019F786 /* AAOptionsWithJS */,
+				844F4D442C0858A80019F786 /* AdditionalContent1 */,
+				844F4D452C0858BB0019F786 /* AdditionalContent2 */,
+				844F4D462C0859330019F786 /* AATools */,
 			);
-			path = ChartsDemo;
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		7172A3CA1E763EA6000D5B99 = {
@@ -616,7 +539,7 @@
 			isa = PBXGroup;
 			children = (
 				44AA41DE22CB0B3B00458C0E /* AAChartKitDemo.entitlements */,
-				713F54341E7B71C000D506C7 /* ChartsDemo */,
+				713F54341E7B71C000D506C7 /* Demo */,
 				7172A4581E763FDB000D5B99 /* PrefixHeader.pch */,
 				7172A3D91E763EA6000D5B99 /* AppDelegate.h */,
 				7172A3DA1E763EA6000D5B99 /* AppDelegate.m */,
@@ -655,7 +578,31 @@
 			path = AAChartKitDemoUITests;
 			sourceTree = "<group>";
 		};
-		84B548CF26F32FC800D4CAFC /* AAOptions */ = {
+		844F4D3F2C0857670019F786 /* AAChartListVC */ = {
+			isa = PBXGroup;
+			children = (
+				713F54371E7B71C000D506C7 /* MainVC.h */,
+				713F54381E7B71C000D506C7 /* MainVC.m */,
+			);
+			path = AAChartListVC;
+			sourceTree = "<group>";
+		};
+		844F4D402C0857860019F786 /* AAChartModel */ = {
+			isa = PBXGroup;
+			children = (
+				713F54391E7B71C000D506C7 /* BasicChartVC.h */,
+				713F543A1E7B71C000D506C7 /* BasicChartVC.m */,
+				645E59531E8403710039A0A1 /* SpecialChartVC.h */,
+				44711744217E2C87009D9FB0 /* SpecialChartVC.m */,
+				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
+				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
+				27F5AD9A20A740910086CD33 /* MixedChartVC.h */,
+				44711745217E2C87009D9FB0 /* MixedChartVC.m */,
+			);
+			path = AAChartModel;
+			sourceTree = "<group>";
+		};
+		844F4D422C0857B20019F786 /* AAOptions */ = {
 			isa = PBXGroup;
 			children = (
 				27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */,
@@ -681,25 +628,10 @@
 				84E0D36A28F2D9D3004031BE /* SpecialStyleChartOptionsVC.h */,
 				84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */,
 			);
-			name = AAOptions;
+			path = AAOptions;
 			sourceTree = "<group>";
 		};
-		84B548D026F3309C00D4CAFC /* AAChartModel */ = {
-			isa = PBXGroup;
-			children = (
-				713F54391E7B71C000D506C7 /* BasicChartVC.h */,
-				713F543A1E7B71C000D506C7 /* BasicChartVC.m */,
-				645E59531E8403710039A0A1 /* SpecialChartVC.h */,
-				44711744217E2C87009D9FB0 /* SpecialChartVC.m */,
-				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
-				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
-				27F5AD9A20A740910086CD33 /* MixedChartVC.h */,
-				44711745217E2C87009D9FB0 /* MixedChartVC.m */,
-			);
-			name = AAChartModel;
-			sourceTree = "<group>";
-		};
-		84B548D126F3310600D4CAFC /* AAOptionsWithJS */ = {
+		844F4D432C08580A0019F786 /* AAOptionsWithJS */ = {
 			isa = PBXGroup;
 			children = (
 				44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */,
@@ -717,7 +649,75 @@
 				844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */,
 				844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */,
 			);
-			name = AAOptionsWithJS;
+			path = AAOptionsWithJS;
+			sourceTree = "<group>";
+		};
+		844F4D442C0858A80019F786 /* AdditionalContent1 */ = {
+			isa = PBXGroup;
+			children = (
+				64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */,
+				64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */,
+				449A0ED223771436009F8FE1 /* ScrollingUpdateDataVC.h */,
+				449A0ED323771436009F8FE1 /* ScrollingUpdateDataVC.m */,
+				4486C50E23E9BAB300B54849 /* DrawableChartVC.h */,
+				4486C50F23E9BAB300B54849 /* DrawableChartVC.m */,
+				4486C50B23DE02A900B54849 /* DoubleChartsLinkedWorkVC.h */,
+				4486C50C23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m */,
+				8486A2282BAD830600AA343B /* DoubleChartsLinkedWorkVC2.h */,
+				8486A2292BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m */,
+				27EB8A8B24986DCE007E6A6B /* DataSortingWithAnimationChartVC.h */,
+				27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */,
+				84AE6B2026A58D73001F0755 /* AAChartSymbolConstant.h */,
+				58603ED25E9A3CAC30317C26 /* CustomClickEventCallbackMessageVC.h */,
+				58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */,
+				8483CEC029D2F40D002E57AA /* AADOMRectModel.h */,
+				8483CEC129D2F40D002E57AA /* AADOMRectModel.m */,
+			);
+			path = AdditionalContent1;
+			sourceTree = "<group>";
+		};
+		844F4D452C0858BB0019F786 /* AdditionalContent2 */ = {
+			isa = PBXGroup;
+			children = (
+				272D80B11F91EC9E008A2D20 /* ShowManyChartViewVC.h */,
+				272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */,
+				27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */,
+				27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */,
+				278989B9204F8DBA003940CC /* ChartListVC.h */,
+				278989BA204F8DBA003940CC /* ChartListVC.m */,
+				44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */,
+				44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */,
+				441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */,
+				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
+				27E475F324B2111400690657 /* AABaseChartVC.h */,
+				27E475F424B2111400690657 /* AABaseChartVC.m */,
+				27EB89D6248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.h */,
+				27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */,
+				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
+				92445D861FDE1F2A00B3E576 /* MonitorViewController.m */,
+				44C07B9822A4C6BB00FE7184 /* AlgorithmVC.h */,
+				44C07B9922A4C6BB00FE7184 /* AlgorithmVC.m */,
+				848FEAF9265E170C006E4F25 /* TestAAChartViewForXibVC.h */,
+				848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */,
+				848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */,
+				84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */,
+				84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */,
+				8463FDD128CADF5800392C50 /* CustomTableViewCell.h */,
+				8463FDD228CADF5800392C50 /* CustomTableViewCell.m */,
+				8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */,
+			);
+			path = AdditionalContent2;
+			sourceTree = "<group>";
+		};
+		844F4D462C0859330019F786 /* AATools */ = {
+			isa = PBXGroup;
+			children = (
+				27F0CA7721018998004BD904 /* AADateUTCTool.h */,
+				27F0CA7821018998004BD904 /* AADateUTCTool.m */,
+				447B4B3121C9E04E00FDA965 /* AAEasyTool.h */,
+				447B4B3221C9E04E00FDA965 /* AAEasyTool.m */,
+			);
+			path = AATools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
