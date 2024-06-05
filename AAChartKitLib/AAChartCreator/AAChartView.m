@@ -439,9 +439,13 @@ WKScriptMessageHandler
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
 #if TARGET_OS_IOS
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING" 
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okayAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *okayAction = [UIAlertAction actionWithTitle:@"Okay" 
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction *action) {
         completionHandler();
     }];
     [alertController addAction:okayAction];
@@ -453,7 +457,9 @@ WKScriptMessageHandler
         return;
     }
     
-    [presentingViewController presentViewController:alertController animated:YES completion:nil];
+    [presentingViewController presentViewController:alertController
+                                           animated:YES
+                                         completion:nil];
     
 #elif TARGET_OS_MAC
     NSAlert *alert = [[NSAlert alloc] init];
@@ -462,7 +468,8 @@ WKScriptMessageHandler
     alert.informativeText = message;
     [alert addButtonWithTitle:@"Okay"];
     
-    [alert beginSheetModalForWindow:[NSApplication sharedApplication].mainWindow completionHandler:^(NSModalResponse response) {
+    [alert beginSheetModalForWindow:[NSApplication sharedApplication].mainWindow 
+                  completionHandler:^(NSModalResponse response) {
         if (response == NSModalResponseOK) {
             completionHandler();
         }
