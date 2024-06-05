@@ -438,33 +438,50 @@ WKScriptMessageHandler
 
 #pragma mark - WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-#if TARGET_OS_IPHONE
-    UIAlertController *alertController =
-    [UIAlertController alertControllerWithTitle:@"JS WARNING"
-                                        message:message
-                                 preferredStyle:UIAlertControllerStyleAlert];
+#if TARGET_OS_IOS
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"JS WARNING" message:message preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *alertAction =
-    [UIAlertAction actionWithTitle:@"Okay"
-                             style:UIAlertActionStyleDefault
-                           handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okayAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         completionHandler();
     }];
-    [alertController addAction:alertAction];
+    [alertController addAction:okayAction];
     
-    UIViewController *alertHelperController = [[UIViewController alloc]init];
-    [self addSubview:alertHelperController.view];
+    UIViewController *presentingViewController = [self nextUIViewController];
+    if (!presentingViewController) {
+        AADetailLog(@"Unable to present UIAlertController from AAChartView. Completing JavaScript alert handler.");
+        completionHandler();
+        return;
+    }
     
-    [alertHelperController presentViewController:alertController animated:YES completion:nil];
+    [presentingViewController presentViewController:alertController animated:YES completion:nil];
+    
 #elif TARGET_OS_MAC
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
     alert.messageText = @"JS WARNING";
     alert.informativeText = message;
     [alert addButtonWithTitle:@"Okay"];
-    [alert beginSheetModalForWindow:[self window] completionHandler:nil];
+    
+    [alert beginSheetModalForWindow:[NSApplication sharedApplication].mainWindow completionHandler:^(NSModalResponse response) {
+        if (response == NSModalResponseOK) {
+            completionHandler();
+        }
+    }];
 #endif
 }
+
+#if TARGET_OS_IOS
+- (UIViewController *)nextUIViewController {
+    UIResponder *responder = self;
+    while (responder != nil) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = [responder nextResponder];
+    }
+    return nil;
+}
+#endif
 
 #pragma mark - AAChartView Event Handler
 - (void)didFinishLoadHandler:(AADidFinishLoadBlock)handler {

@@ -12,6 +12,52 @@
 
 @implementation JSFunctionForAAChartEventsComposer2
 
+//How to add click event to X-axis label and access data ?
+//https://www.highcharts.com/forum/viewtopic.php?t=40590
+//https://codepen.io/anon/pen/LmObxY?editors=1010
+//https://github.com/AAChartModel/AAChartKit/issues/1531
++ (AAOptions *)addClickEventToXAxisLabelAndAccessData {
+    AAOptions *options = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeColumn)
+              .eventsSet(AAChartEvents.new
+                         .loadSet(@AAJSFunc(function() {
+                             var axis = this.xAxis[0];
+                             var ticks = axis.ticks;
+                             var points = this.series[0].points;
+                             var tooltip = this.tooltip;
+
+                             points.forEach(function(point, i) {
+                                 if (ticks[i]) {
+                                     var label = ticks[i].label.element;
+
+                                     label.onclick = function() {
+                                         tooltip.getPosition(null, null, point);
+                                         tooltip.refresh(point);
+                                     };
+                                 }
+                             });
+                         }))))
+    .xAxisSet(AAXAxis.new
+              .categoriesSet(@[@"Africa", @"America", @"Asia", @"Europe", @"Oceania"]))
+    .yAxisSet(AAYAxis.new
+              .minSet(@0))
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" millions"))
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .dataLabelsSet(AADataLabels.new
+                                              .enabledSet(YES))))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Year 1800")
+        .dataSet(@[@107, @31, @635, @203, @2])
+    ]);
+
+    return options;
+}
+
+
 /*
  Highcharts.chart('container', {
      xAxis: {
@@ -104,5 +150,37 @@
 
     return options;
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/1531
+//https://stackoverflow.com/questions/42062016/in-high-chart-how-to-add-event-for-label-click
++ (AAOptions *)configureBlinkMarkerChart {
+    AAOptions *options = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeAreaspline)
+              .eventsSet(AAChartEvents.new
+                         .loadSet(@AAJSFunc(function() {
+                             const childNodes = this.xAxis[0].labelGroup.element.childNodes;
+                             childNodes
+                             .forEach(function(label, index) {
+                                 label.style.cursor = "pointer";
+                                 label.onclick = function() {
+                                     alert('You clicked on ' + this.textContent + ', index: ' + index);
+                                 }
+                             });
+                         }))))
+    .xAxisSet(AAXAxis.new
+              .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
+    .seriesSet(@[
+        AASeriesElement.new
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+        .markerSet(AAMarker.new
+                   .lineColorSet(AAColor.redColor)
+                   .lineWidthSet(@3)
+                   .radiusSet(@10))
+    ]);
+
+    return options;
+}
+
 
 @end
