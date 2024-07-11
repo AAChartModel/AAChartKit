@@ -156,6 +156,8 @@
     .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
     .yAxisLineWidthSet(@0)//Y轴轴线线宽为0即是隐藏Y轴轴线
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
+    .xAxisLabelsStyleSet(AAStyleColor(AAColor.lightGrayColor))
+    .yAxisLabelsStyleSet(AAStyleColor(AAColor.lightGrayColor))
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")
