@@ -157,12 +157,41 @@
                       .stepSet(@(true))
                       .dataSet(@[@3.23, @3.15, @2.90, @1.81, @2.11, @2.43, @5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
                       ];
+    } else if ([chartType isEqualToString:AAChartTypePie]) {
+        self.aaChartModel.chartType = AAChartTypePie;
+        self.aaChartModel.scrollablePlotAreaSet(nil);
+        seriesArr = @[
+            AASeriesElement.new
+            .nameSet(@"语言热度值")
+            .innerSizeSet(@"20%")//内部圆环半径大小占比
+//            .sizeSet(@200)//尺寸大小
+            .borderWidthSet(@0)//描边的宽度
+            .allowPointSelectSet(true)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
+            .statesSet(AAStates.new
+                       .hoverSet(AAHover.new
+                                 .enabledSet(false)//禁用点击区块之后出现的半透明遮罩层
+                                 ))
+            .dataSet(@[
+                @[@"Firefox",   @336.2],
+                @[@"IE",          @260.8],
+                @{@"sliced": @true,
+                  @"selected": @true,
+                  @"name": @"Chrome",
+                  @"y": @1666.8,        },
+                @[@"Safari",      @880.5],
+//                @[@"Opera",       @460.0],
+//                @[@"Others",     @223.0],
+            ])];
     }
     
     self.aaChartModel.series = seriesArr;
 }
 
 - (void)setupSlider {
+    AAChartType chartType = [self configureChartType];
+    if ([chartType isEqualToString:AAChartTypePie]) {
+        return;
+    }
     CGFloat sliderHeight = 40;
     for (int i = 0; i < 2; i++) {
         UISlider *slider = [[UISlider alloc]init];
@@ -234,7 +263,7 @@
                                             40 * i + (self.view.frame.size.height - 145),
                                             self.view.frame.size.width - 40,
                                             20);
-        segmentedControl.tintColor = [UIColor redColor];
+        segmentedControl.selectedSegmentTintColor = [UIColor redColor];
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
         [segmentedControl addTarget:self
@@ -255,12 +284,42 @@
 }
 
 - (void)customsegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
-    if (segmentedControl.tag == 0) {
-        [self.aaChartView aa_hideTheSeriesElementContentWithSeriesElementIndex:segmentedControl.selectedSegmentIndex];
+    AAChartType chartType = [self configureChartType];
+    NSInteger selectedSegmentIndex = segmentedControl.selectedSegmentIndex;
+    if ([chartType isEqualToString:AAChartTypePie]) {
+        if (segmentedControl.tag == 0) {
+            [self showOrHideDataPointOfSeriesElementWithDataPointIndex:selectedSegmentIndex isVisible:NO];
+        } else {
+            [self showOrHideDataPointOfSeriesElementWithDataPointIndex:selectedSegmentIndex isVisible:YES];
+        }
     } else {
-        [self.aaChartView aa_showTheSeriesElementContentWithSeriesElementIndex:segmentedControl.selectedSegmentIndex];
+        if (segmentedControl.tag == 0) {
+            [self.aaChartView aa_hideTheSeriesElementContentWithSeriesElementIndex:selectedSegmentIndex];
+        } else {
+            [self.aaChartView aa_showTheSeriesElementContentWithSeriesElementIndex:selectedSegmentIndex];
+        }
     }
+    
+    NSLog(@"点击了 segmentedControl.selectedSegmentIndex 值为 %tu", selectedSegmentIndex);
 }
+
+- (void)showOrHideDataPointOfSeriesElementWithDataPointIndex:(NSUInteger)dataPointIndex isVisible:(BOOL)isVisible {
+    NSString *jsStr = [NSString stringWithFormat:@AAJSFunc(function showDataPoint(pointIndex, visibility) {
+        let point = aaGlobalChart.series[0].data[pointIndex];
+        point.setVisible(visibility);
+    }
+
+    showDataPoint(%tu, %u)), dataPointIndex, isVisible];
+
+    [self.aaChartView evaluateJavaScript:jsStr completionHandler:^(id item, NSError * _Nullable error) {
+        NSLog(@"%@",error);
+    }];
+    
+    NSLog(@"隐藏或显示 dataPointIndex 值为 %tu", dataPointIndex);
+}
+
+
+
 
 - (void)setUpTheHideChartSeriesSwitch {
     NSInteger i = 0;
@@ -329,16 +388,18 @@
 }
 
 - (AAChartType)configureChartType {
-    NSArray *chartTypesArr = @[AAChartTypeColumn,
-                               AAChartTypeBar,
-                               AAChartTypeArea,
-                               AAChartTypeAreaspline,
-                               AAChartTypeLine,
-                               AAChartTypeSpline,
-                               @"StepLineChart",
-                               @"StepAreaChart",
-                               AAChartTypeScatter,
-                               ];
+    NSArray *chartTypesArr = @[
+        AAChartTypeColumn,
+        AAChartTypeBar,
+        AAChartTypeArea,
+        AAChartTypeAreaspline,
+        AAChartTypeLine,
+        AAChartTypeSpline,
+        @"StepLineChart",
+        @"StepAreaChart",
+        AAChartTypeScatter,
+        AAChartTypePie,
+    ];
     return  chartTypesArr[self.chartTypeIndex];
 }
 
