@@ -13,9 +13,9 @@
 @implementation JSFunctionForAAChartEventsComposer2
 
 //How to add click event to X-axis label and access data ?
+//https://github.com/AAChartModel/AAChartKit/issues/1531
 //https://www.highcharts.com/forum/viewtopic.php?t=40590
 //https://codepen.io/anon/pen/LmObxY?editors=1010
-//https://github.com/AAChartModel/AAChartKit/issues/1531
 + (AAOptions *)addClickEventToXAxisLabelAndAccessData {
     AAOptions *options = AAOptions.new
     .chartSet(AAChart.new
@@ -105,10 +105,10 @@
  });
  */
 
+//https://github.com/AAChartModel/AAChartKit/issues/1532
 //https://api.highcharts.com/highcharts/plotOptions.series.marker.states.hover
 //https://api.highcharts.com/highcharts/plotOptions.series.events.mouseOver
 //https://api.highcharts.com/class-reference/Highcharts.Point#select
-//https://github.com/AAChartModel/AAChartKit/issues/1532
 + (AAOptions *)defaultSelectedAPointForLineChart {
     AADataElement *defaultPointData = AADataElement.new
         .ySet(@29.9)
@@ -182,6 +182,7 @@
     return options;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1557
 //https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events/Using_Touch_Events
 //https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent
 /*
