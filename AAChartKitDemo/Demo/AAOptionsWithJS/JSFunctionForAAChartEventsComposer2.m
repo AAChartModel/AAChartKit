@@ -276,7 +276,7 @@ container.addEventListener('mouseup', function() {
     return options;
 }
 
-+ (AAOptions *)autoCrosshairAndTooltip {
+    //https://github.com/AAChartModel/AAChartKit/issues/1557
     /*
      🖱鼠标事件
      function () {
@@ -455,6 +455,7 @@ container.addEventListener('mouseup', function() {
          });
      }
      */
++ (AAOptions *)autoCrosshairAndTooltip {
     return AAOptions.new
         .titleSet(AATitle.new
             .textSet(@"Auto Crosshair And Tooltip"))
