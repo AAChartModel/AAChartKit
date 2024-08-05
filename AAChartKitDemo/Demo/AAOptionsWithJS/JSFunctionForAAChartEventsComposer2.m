@@ -277,49 +277,6 @@ container.addEventListener('mouseup', function() {
 }
 
 + (AAOptions *)autoCrosshairAndTooltip {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)//图表类型
-    .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
-    .stackingSet(AAChartStackingTypeNormal)
-    .yAxisVisibleSet(false)
-    .markerRadiusSet(@0)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"Tokyo Hot")
-        .lineWidthSet(@5.0)
-        .fillOpacitySet(@0.4)
-        .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
-        AASeriesElement.new
-        .nameSet(@"Berlin Hot")
-        .lineWidthSet(@5.0)
-        .fillOpacitySet(@0.4)
-        .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
-        AASeriesElement.new
-        .nameSet(@"London Hot")
-        .lineWidthSet(@5.0)
-        .fillOpacitySet(@0.4)
-        .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
-        AASeriesElement.new
-        .nameSet(@"NewYork Hot")
-        .lineWidthSet(@5.0)
-        .fillOpacitySet(@0.4)
-        .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-    ]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    
-    aaOptions.tooltip
-        .styleSet(AAStyleColor(AAColor.whiteColor))
-        .backgroundColorSet(@"#050505")
-        .borderColorSet(@"#050505");
-    
-    aaOptions.xAxis
-        .crosshairSet(AACrosshair.new
-            .colorSet(AAColor.darkGrayColor)
-            .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
-            .widthSet(@2));
-    
-     
     /*
      🖱鼠标事件
      function () {
@@ -501,6 +458,51 @@ container.addEventListener('mouseup', function() {
          });
      }
      */
+    
+    AAOptions *aaOptions = AAOptions.new
+        .chartSet(AAChart.new
+            .typeSet(AAChartTypeAreaspline))
+        .colorsSet(@[@"#04d69f", @"#1e90ff", @"#ef476f", @"#ffd066"])
+        .plotOptionsSet(AAPlotOptions.new
+            .seriesSet(AASeries.new
+                .stackingSet(AAChartStackingTypeNormal)
+                .markerSet(AAMarker.new
+                    .radiusSet(@0))))
+        .titleSet(AATitle.new
+            .textSet(@"Auto Crosshair And Tooltip"))
+        .yAxisSet(AAYAxis.new
+            .visibleSet(false))
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Tokyo Hot")
+                .lineWidthSet(@5.0)
+                .fillOpacitySet(@0.4)
+                .dataSet(@[@0.45, @0.43, @0.50, @0.55, @0.58, @0.62, @0.83, @0.39, @0.56, @0.67, @0.50, @0.34, @0.50, @0.67, @0.58, @0.29, @0.46, @0.23, @0.47, @0.46, @0.38, @0.56, @0.48, @0.36]),
+            AASeriesElement.new
+                .nameSet(@"Berlin Hot")
+                .lineWidthSet(@5.0)
+                .fillOpacitySet(@0.4)
+                .dataSet(@[@0.38, @0.31, @0.32, @0.32, @0.64, @0.66, @0.86, @0.47, @0.52, @0.75, @0.52, @0.56, @0.54, @0.60, @0.46, @0.63, @0.54, @0.51, @0.58, @0.64, @0.60, @0.45, @0.36, @0.67]),
+            AASeriesElement.new
+                .nameSet(@"London Hot")
+                .lineWidthSet(@5.0)
+                .fillOpacitySet(@0.4)
+                .dataSet(@[@0.46, @0.32, @0.53, @0.58, @0.86, @0.68, @0.85, @0.73, @0.69, @0.71, @0.91, @0.74, @0.60, @0.50, @0.39, @0.67, @0.55, @0.49, @0.65, @0.45, @0.64, @0.47, @0.63, @0.64]),
+            AASeriesElement.new
+                .nameSet(@"NewYork Hot")
+                .lineWidthSet(@5.0)
+                .fillOpacitySet(@0.4)
+                .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
+        ])
+        .tooltipSet(AATooltip.new
+            .styleSet(AAStyleColor(AAColor.whiteColor))
+            .backgroundColorSet(@"#050505")
+            .borderColorSet(@"#050505"))
+        .xAxisSet(AAXAxis.new
+            .crosshairSet(AACrosshair.new
+                .colorSet(AAColor.darkGrayColor)
+                .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+                .widthSet(@2)));
     
     //https://api.highcharts.com/highcharts/chart.events.load
     //https://www.highcharts.com/forum/viewtopic.php?t=36508
