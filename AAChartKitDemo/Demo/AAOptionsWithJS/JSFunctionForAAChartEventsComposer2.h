@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (AAOptions *)defaultSelectedAPointForLineChart;
 + (AAOptions *)configureBlinkMarkerChart;
 + (AAOptions *)toggleDataLabelsOnTouch;
++ (AAOptions *)autoCrosshairAndTooltip;
 
 @end
 
