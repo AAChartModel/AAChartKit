@@ -362,10 +362,7 @@ container.addEventListener('mouseup', function() {
          });
      }
      */
-    
-    
-    
-    
+
     /*
      👋手势事件
      function() {
@@ -458,18 +455,116 @@ container.addEventListener('mouseup', function() {
          });
      }
      */
-    
-    AAOptions *aaOptions = AAOptions.new
+    return AAOptions.new
+        .titleSet(AATitle.new
+            .textSet(@"Auto Crosshair And Tooltip"))
         .chartSet(AAChart.new
-            .typeSet(AAChartTypeAreaspline))
+            .typeSet(AAChartTypeAreaspline)
+            .eventsSet(AAChartEvents.new
+                .loadSet(@AAJSFunc(function() {
+                    const chart = this;
+                    let currentIndex = 0;
+                    let intervalId;
+                    let isTouched = false;
+
+                    function moveTooltip() {
+                        const pointsToShow = [];
+                        for (let i = 0; i < chart.series.length; i++) {
+                            const point = chart.series[i].points[currentIndex];
+                            if (point) {
+                                pointsToShow.push(point);
+                            }
+                        }
+
+                        if (pointsToShow.length > 0) {
+                            chart.tooltip.refresh(pointsToShow);
+                            chart.xAxis[0].drawCrosshair(null, pointsToShow[0]);
+
+                            currentIndex = (currentIndex + 1) % chart.series[0].points.length;
+                        }
+                    }
+
+                    function startInterval() {
+                        if (intervalId) {
+                            clearInterval(intervalId);
+                        }
+                        intervalId = setInterval(moveTooltip, 2000); // 每2秒切换一次
+                    }
+
+                    // 立即显示第一个点的 tooltip 和十字线
+                    moveTooltip();
+
+                    // 初始启动 interval
+                    startInterval();
+
+                    // 触摸开始
+                    chart.container.ontouchstart = function(e) {
+                        isTouched = true;
+                        if (intervalId) {
+                            clearInterval(intervalId);
+                            intervalId = null;
+                        }
+                        handleTouch(e);
+                    };
+
+                    // 触摸移动
+                    chart.container.ontouchmove = function(e) {
+                        if (isTouched) {
+                            handleTouch(e);
+                        }
+                    };
+
+                    function handleTouch(e) {
+                        e.preventDefault(); // 阻止默认的滚动行为
+                        const touch = e.touches[0];
+                        const event = chart.pointer.normalize(touch);
+                        const point = chart.series[0].searchPoint(event, true);
+                        if (point) {
+                            currentIndex = chart.series[0].points.indexOf(point);
+                            const pointsToShow = [];
+                            for (let i = 0; i < chart.series.length; i++) {
+                                const pointInSeries = chart.series[i].points[currentIndex];
+                                if (pointInSeries) {
+                                    pointsToShow.push(pointInSeries);
+                                }
+                            }
+                            chart.tooltip.refresh(pointsToShow);
+                            chart.xAxis[0].drawCrosshair(event, point);
+                        }
+                    }
+
+                    // 触摸结束
+                    chart.container.ontouchend = function() {
+                        isTouched = false;
+                        if (!intervalId) {
+                            // 立即移动到下一个点，然后开始 interval
+                            moveTooltip();
+                            startInterval();
+                        }
+                    };
+
+                    // 在图表销毁时清除 interval
+                    this.callbacks.push(function() {
+                        if (intervalId) {
+                            clearInterval(intervalId);
+                        }
+                    });
+                }))))
         .colorsSet(@[@"#04d69f", @"#1e90ff", @"#ef476f", @"#ffd066"])
         .plotOptionsSet(AAPlotOptions.new
             .seriesSet(AASeries.new
                 .stackingSet(AAChartStackingTypeNormal)
                 .markerSet(AAMarker.new
                     .radiusSet(@0))))
-        .titleSet(AATitle.new
-            .textSet(@"Auto Crosshair And Tooltip"))
+        .tooltipSet(AATooltip.new
+            .styleSet(AAStyleColor(AAColor.whiteColor))
+            .backgroundColorSet(@"#050505")
+            .borderColorSet(@"#050505"))
+        .xAxisSet(AAXAxis.new
+            .crosshairSet(AACrosshair.new
+                .colorSet(AAColor.darkGrayColor)
+                .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+                .widthSet(@2)))
         .yAxisSet(AAYAxis.new
             .visibleSet(false))
         .seriesSet(@[
@@ -493,113 +588,7 @@ container.addEventListener('mouseup', function() {
                 .lineWidthSet(@5.0)
                 .fillOpacitySet(@0.4)
                 .dataSet(@[@0.60, @0.51, @0.52, @0.53, @0.64, @0.84, @0.65, @0.68, @0.63, @0.47, @0.72, @0.60, @0.65, @0.74, @0.66, @0.65, @0.71, @0.59, @0.65, @0.77, @0.52, @0.53, @0.58, @0.53]),
-        ])
-        .tooltipSet(AATooltip.new
-            .styleSet(AAStyleColor(AAColor.whiteColor))
-            .backgroundColorSet(@"#050505")
-            .borderColorSet(@"#050505"))
-        .xAxisSet(AAXAxis.new
-            .crosshairSet(AACrosshair.new
-                .colorSet(AAColor.darkGrayColor)
-                .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
-                .widthSet(@2)));
-    
-    //https://api.highcharts.com/highcharts/chart.events.load
-    //https://www.highcharts.com/forum/viewtopic.php?t=36508
-    aaOptions.chart
-        .eventsSet(AAChartEvents.new
-                   .loadSet(@AAJSFunc(function() {
-                       const chart = this;
-                       let currentIndex = 0;
-                       let intervalId;
-                       let isTouched = false;
-
-                       function moveTooltip() {
-                           const pointsToShow = [];
-                           for (let i = 0; i < chart.series.length; i++) {
-                               const point = chart.series[i].points[currentIndex];
-                               if (point) {
-                                   pointsToShow.push(point);
-                               }
-                           }
-
-                           if (pointsToShow.length > 0) {
-                               chart.tooltip.refresh(pointsToShow);
-                               chart.xAxis[0].drawCrosshair(null, pointsToShow[0]);
-
-                               currentIndex = (currentIndex + 1) % chart.series[0].points.length;
-                           }
-                       }
-
-                       function startInterval() {
-                           if (intervalId) {
-                               clearInterval(intervalId);
-                           }
-                           intervalId = setInterval(moveTooltip, 2000); // 每2秒切换一次
-                       }
-
-                       // 立即显示第一个点的 tooltip 和十字线
-                       moveTooltip();
-
-                       // 初始启动 interval
-                       startInterval();
-
-                       // 触摸开始
-                       chart.container.ontouchstart = function(e) {
-                           isTouched = true;
-                           if (intervalId) {
-                               clearInterval(intervalId);
-                               intervalId = null;
-                           }
-                           handleTouch(e);
-                       };
-
-                       // 触摸移动
-                       chart.container.ontouchmove = function(e) {
-                           if (isTouched) {
-                               handleTouch(e);
-                           }
-                       };
-
-                       function handleTouch(e) {
-                           e.preventDefault(); // 阻止默认的滚动行为
-                           const touch = e.touches[0];
-                           const event = chart.pointer.normalize(touch);
-                           const point = chart.series[0].searchPoint(event, true);
-                           if (point) {
-                               currentIndex = chart.series[0].points.indexOf(point);
-                               const pointsToShow = [];
-                               for (let i = 0; i < chart.series.length; i++) {
-                                   const pointInSeries = chart.series[i].points[currentIndex];
-                                   if (pointInSeries) {
-                                       pointsToShow.push(pointInSeries);
-                                   }
-                               }
-                               chart.tooltip.refresh(pointsToShow);
-                               chart.xAxis[0].drawCrosshair(event, point);
-                           }
-                       }
-
-                       // 触摸结束
-                       chart.container.ontouchend = function() {
-                           isTouched = false;
-                           if (!intervalId) {
-                               // 立即移动到下一个点，然后开始 interval
-                               moveTooltip();
-                               startInterval();
-                           }
-                       };
-
-                       // 在图表销毁时清除 interval
-                       this.callbacks.push(function() {
-                           if (intervalId) {
-                               clearInterval(intervalId);
-                           }
-                       });
-                   })));
-    
-    
-    return aaOptions;
+        ]);
 }
 
 
