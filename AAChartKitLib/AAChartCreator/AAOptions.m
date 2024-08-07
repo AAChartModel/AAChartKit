@@ -60,7 +60,6 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
 
 @end
 
-#define AAFontSizeFormat(fontSize) [self configureFontSize:fontSize]
 
 @implementation AAOptionsConstructor
 
@@ -291,14 +290,6 @@ AAPropSetFuncImplementation(AAOptions, AALang        *, defaultOptions)
         aaOptions.yAxis = aaYAxis;
     }
 }
-
-+ (NSString *)configureFontSize:(NSNumber *)fontSize {
-    if (fontSize != nil) {
-        return [NSString stringWithFormat:@"%@px", fontSize];
-    }
-    return nil;
-}
-
 
 @end
 
