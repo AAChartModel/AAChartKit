@@ -63,7 +63,7 @@
         case 10: return [self configureTheSizeOfTheSliceOfDonutAndPieChart]; //配置环形图和饼图的扇区大小
 //        case 11: return [self configurePlotBackgroundClickEvent]; //配置绘图区的点击事件
 //        case 11: return [JSFunctionForAAChartEventsComposer2 defaultSelectedAPointForLineChart];
-        case 11: return [JSFunctionForAAChartEventsComposer2 toggleDataLabelsOnTouch];
+        case 11: return [JSFunctionForAAChartEventsComposer2 addClickEventToHighlightXAxisLabel];
 
 
 
@@ -1213,6 +1213,7 @@
 //  }]
 //});
 
+//https://github.com/AAChartModel/AAChartKit/issues/1445
 //https://stackoverflow.com/questions/47392848/set-ecg-paper-like-grid-intervals-highcharts-js
 - (AAOptions *)configureECGStyleChart {
     AAXAxis *axesOptions = AAXAxis.new
@@ -1227,7 +1228,7 @@
                     .textSet(@"ECG Paper Style Chart"))
             .chartSet(AAChart.new
                     .eventsSet(AAChartEvents.new
-                            .renderSet(@AAJSFunc((function () {
+                            .renderSet(@AAJSFunc(function () {
                                 const chart = this;
                                 const axes = chart.axes;
                                 let showMinorTicks = true;
@@ -1246,7 +1247,7 @@
                                             showMinorTicks ? mt.show() : mt.hide();
                                         }
                                 });
-                            }))))
+                            })))
             )
             .xAxisSet(axesOptions)
             .yAxisSet((id)axesOptions)
@@ -1296,7 +1297,7 @@
                     .textSet(@"Configure The Size Of The Slice Of Donut And Pie Chart"))
             .chartSet(AAChart.new
                     .eventsSet(AAChartEvents.new
-                            .loadSet(@AAJSFunc((function () {
+                            .loadSet(@AAJSFunc(function () {
                                 const chart = this;
                                 const graphic = chart.series[0].data[0].graphic;
                                 setTimeout(function () {
@@ -1305,7 +1306,7 @@
                                         r: prevR + 50
                                     });
                                 }, 1001);
-                            }))))
+                            })))
             )
             .seriesSet(@[
                     AASeriesElement.new
@@ -1354,6 +1355,7 @@
 //    }]
 //});
 
+//https://github.com/AAChartModel/AAChartKit/issues/1480
 //https://api.highcharts.com/highcharts/chart.events.click
 - (AAOptions *)configurePlotBackgroundClickEvent {
     return AAOptions.new
@@ -1361,7 +1363,7 @@
                     .textSet(@"configure Plot Background Click Event"))
             .chartSet(AAChart.new
                     .eventsSet(AAChartEvents.new
-                            .clickSet(@AAJSFunc((function () {
+                            .clickSet(@AAJSFunc(function () {
                                 const label = this.renderer.label(
                                         'x: ' + Highcharts.numberFormat(event.xAxis[0].value, 2) + ', y: ' + Highcharts.numberFormat(event.yAxis[0].value, 2),
                                         event.xAxis[0].axis.toPixels(event.xAxis[0].value),
@@ -1381,7 +1383,7 @@
                                 setTimeout(function () {
                                     label.fadeOut();
                                 }, 1000);
-                            }))))
+                            })))
             )
             .seriesSet(@[
                     AASeriesElement.new
