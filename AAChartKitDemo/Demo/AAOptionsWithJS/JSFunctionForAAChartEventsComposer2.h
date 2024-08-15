@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JSFunctionForAAChartEventsComposer2 : NSObject
 
 + (AAOptions *)addClickEventToXAxisLabelAndAccessData;
++ (AAOptions *)addClickEventToHighlightXAxisLabel;
 + (AAOptions *)defaultSelectedAPointForLineChart;
 + (AAOptions *)configureBlinkMarkerChart;
 + (AAOptions *)toggleDataLabelsOnTouch;

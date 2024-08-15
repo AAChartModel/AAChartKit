@@ -57,6 +57,59 @@
     return options;
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1562
+//https://blog.jianshukeji.com/highcharts/highlight-label-by-click.html
++ (AAOptions *)addClickEventToHighlightXAxisLabel {
+    AAOptions *options = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeColumn)
+              .eventsSet(AAChartEvents.new
+                         .loadSet(@AAJSFunc(function() {
+                             const style = document.createElement('style');
+                             style.innerHTML = `
+                                 .highcharts-xaxis-labels text {
+                                     cursor: pointer !important;
+                                 }
+                                 .highcharts-xaxis-labels .active {
+                                     fill: red !important;
+                                 }
+                             `;
+                             document.head.appendChild(style);
+                             
+                             const chart = this;
+                             Highcharts.addEvent(chart.xAxis[0].labelGroup.element, 'click', e => {
+                                 if(e.target.tagName === 'text') {
+                                     let category = e.target.innerHTML;
+                                     let texts = e.target.parentNode.childNodes;
+                                     for(let i = 0; i < texts.length; i++) {
+                                         if(texts[i].classList.contains('active')) {
+                                             texts[i].classList.remove('active');
+                                             break;
+                                         }
+                                     }
+                                     e.target.classList.add('active')
+                                 }
+                             });
+                         }))))
+    .xAxisSet(AAXAxis.new
+              .categoriesSet(@[@"Africa", @"America", @"Asia", @"Europe", @"Oceania"]))
+    .yAxisSet(AAYAxis.new
+              .minSet(@0))
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" millions"))
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .dataLabelsSet(AADataLabels.new
+                                              .enabledSet(YES))))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Year 1800")
+        .dataSet(@[@107, @31, @635, @203, @2])
+    ]);
+
+    return options;
+}
+
 
 /*
  Highcharts.chart('container', {
