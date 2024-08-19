@@ -29,7 +29,7 @@
 
                              points.forEach(function(point, i) {
                                  if (ticks[i]) {
-                                     var label = ticks[i].label.element;
+                                     const label = ticks[i].label.element;
 
                                      label.onclick = function() {
                                          tooltip.getPosition(null, null, point);
@@ -78,11 +78,11 @@
                              
                              const chart = this;
                              Highcharts.addEvent(chart.xAxis[0].labelGroup.element, 'click', e => {
-                                 if(e.target.tagName === 'text') {
+                                 if (e.target.tagName === 'text') {
                                      let category = e.target.innerHTML;
                                      let texts = e.target.parentNode.childNodes;
-                                     for(let i = 0; i < texts.length; i++) {
-                                         if(texts[i].classList.contains('active')) {
+                                     for (let i = 0; i < texts.length; i++) {
+                                         if (texts[i].classList.contains('active')) {
                                              texts[i].classList.remove('active');
                                              break;
                                          }
