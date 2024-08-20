@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAAChartEventsComposer2 : NSObject
 
++ (AAOptions *)disableHoverEventEffect;
 + (AAOptions *)addClickEventToXAxisLabelAndAccessData;
 + (AAOptions *)addClickEventToHighlightXAxisLabel;
 + (AAOptions *)addClickEventToXAxisLabelAndAccessDataAndHighlightXAxisLabel;
