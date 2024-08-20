@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (AAOptions *)addClickEventToXAxisLabelAndAccessData;
 + (AAOptions *)addClickEventToHighlightXAxisLabel;
++ (AAOptions *)addClickEventToXAxisLabelAndAccessDataAndHighlightXAxisLabel;
 + (AAOptions *)defaultSelectedAPointForLineChart;
 + (AAOptions *)configureBlinkMarkerChart;
 + (AAOptions *)toggleDataLabelsOnTouch;

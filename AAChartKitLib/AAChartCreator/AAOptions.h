@@ -85,6 +85,10 @@ AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSArray       *, color
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AACredits     *, credits)
 AAPropStatementAndPropSetFuncStatement(strong, AAOptions, AALang        *, defaultOptions)
 
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSString      *, beforeDrawChartJavaScript)
+AAPropStatementAndPropSetFuncStatement(strong, AAOptions, NSString      *, afterDrawChartJavaScript)
+
+
 @property (nonatomic, assign) BOOL clickEventEnabled;//Please DO NOT use this property
 @property (nonatomic, assign) BOOL touchEventEnabled;//Please DO NOT use this property
 

@@ -12,6 +12,8 @@
 
 @implementation JSFunctionForAAChartEventsComposer2
 
+
+
 //How to add click event to X-axis label and access data ?
 //https://github.com/AAChartModel/AAChartKit/issues/1531
 //https://www.highcharts.com/forum/viewtopic.php?t=40590
@@ -106,6 +108,74 @@
         .nameSet(@"Year 1800")
         .dataSet(@[@107, @31, @635, @203, @2])
     ]);
+
+    return options;
+}
+
++ (AAOptions *)addClickEventToXAxisLabelAndAccessDataAndHighlightXAxisLabel {
+    AAOptions *options = AAOptions.new
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeColumn)
+              .eventsSet(AAChartEvents.new
+                         .loadSet(@AAJSFunc(function() {
+                             const axis = this.xAxis[0];
+                             const ticks = axis.ticks;
+                             const points = this.series[0].points;
+                             const tooltip = this.tooltip;
+
+                             points.forEach(function(point, i) {
+                                 if (ticks[i]) {
+                                     const label = ticks[i].label.element;
+
+                                     label.onclick = function() {
+                                         tooltip.getPosition(null, null, point);
+                                         tooltip.refresh(point);
+                                     };
+                                 }
+                             });
+                         }))))
+    .xAxisSet(AAXAxis.new
+              .categoriesSet(@[@"Africa", @"America", @"Asia", @"Europe", @"Oceania"]))
+    .yAxisSet(AAYAxis.new
+              .minSet(@0))
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" millions"))
+    .plotOptionsSet(AAPlotOptions.new
+                    .seriesSet(AASeries.new
+                               .dataLabelsSet(AADataLabels.new
+                                              .enabledSet(YES))))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Year 1800")
+        .dataSet(@[@107, @31, @635, @203, @2])
+    ])
+    .afterDrawChartJavaScriptSet(@AAJSFunc(
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .highcharts-xaxis-labels text {
+                cursor: pointer !important;
+            }
+            .highcharts-xaxis-labels .active {
+                fill: red !important;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        const chart = aaGlobalChart;
+        Highcharts.addEvent(chart.xAxis[0].labelGroup.element, 'click', e => {
+            if (e.target.tagName === 'text') {
+                let category = e.target.innerHTML;
+                let texts = e.target.parentNode.childNodes;
+                for (let i = 0; i < texts.length; i++) {
+                    if (texts[i].classList.contains('active')) {
+                        texts[i].classList.remove('active');
+                        break;
+                    }
+                }
+                e.target.classList.add('active')
+            }
+        });
+    ));
 
     return options;
 }

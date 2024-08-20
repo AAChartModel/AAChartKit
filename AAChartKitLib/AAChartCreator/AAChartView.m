@@ -105,6 +105,8 @@ WKScriptMessageHandler
 }
 
 @property (nonatomic, strong) AAWeakProxy *weakProxy;
+@property (nonatomic, strong) NSString *beforeDrawChartJavaScript;
+@property (nonatomic, strong) NSString *afterDrawChartJavaScript;
 
 @end
 
@@ -163,6 +165,14 @@ WKScriptMessageHandler
 #pragma mark - Configure Chart View Content With AAOptions
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     if (!_optionJson) {
+        if (options.beforeDrawChartJavaScript) {
+            self.beforeDrawChartJavaScript = options.beforeDrawChartJavaScript;
+            options.beforeDrawChartJavaScript = nil;
+        }
+        if (options.afterDrawChartJavaScript) {
+            self.afterDrawChartJavaScript = options.afterDrawChartJavaScript;
+            options.afterDrawChartJavaScript = nil;
+        }
         [self configureTheOptionsJsonStringWithAAOptions:options];
         NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
         [self loadRequest:URLRequest];
@@ -419,7 +429,7 @@ WKScriptMessageHandler
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
     if (_isClearBackgroundColor) {
-        aaOptions.chart.backgroundColor = @"rgba(0,0,0,0)";
+        aaOptions.chart.backgroundColor = AAColor.clearColor;
     }
     
     if (_clickEventEnabled == true) {
@@ -509,15 +519,26 @@ WKScriptMessageHandler
 
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    if (self.beforeDrawChartJavaScript) {
+        [self safeEvaluateJavaScriptString:self.beforeDrawChartJavaScript];
+    }
+    
     [self drawChart];
     if (self.didFinishLoadBlock) {
         self.didFinishLoadBlock(self);
+        if (self.afterDrawChartJavaScript) {
+            [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
+        }
         return;
     }
     if (self.delegate) {
         if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
             [self.delegate aaChartViewDidFinishLoad:self];
         }
+    }
+    
+    if (self.afterDrawChartJavaScript) {
+        [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
     }
 }
 
@@ -585,11 +606,11 @@ WKScriptMessageHandler
         [errorDic setValue:error.userInfo forKey:@"userInfo"];
         
         NSString *basicErrorInfo = @"                                                     \n\
-☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️ \
-⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩  \
+☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️\n\
+⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩\n\
 ------------------------------------------------------------------------------------------\n\
-%@                                                                                          \
-------------------------------------------------------------------------------------------  \
+%@                                                                                         \n\
+------------------------------------------------------------------------------------------ \n\
 ⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧\n\
 ☠️☠️💀☠️☠️WARNING!!!!!!!!!!!!!!!!!! JS ERROR WARNING !!!!!!!!!!!!!!!!!!WARNING☠️☠️💀☠️☠️";
         
