@@ -40,26 +40,26 @@
 #define AACHARTKIT_EXTERN     extern __attribute__((visibility ("default")))
 #define AAChartKitUnavailable(DESCRIPTION) __attribute__((unavailable(DESCRIPTION)))
 
+#define AAPropStatementAndPropSetFuncStatement(propertyModifier, className, propertyPointerType, propertyName) \
+@property(nonatomic, propertyModifier) propertyPointerType propertyName;                                       \
+- (className * (^)(propertyPointerType propertyName))propertyName##Set;
 
-#define AAPropStatementAndPropSetFuncStatement(propertyModifier,className, propertyPointerType, propertyName)           \
-@property(nonatomic,propertyModifier)propertyPointerType  propertyName;                                                 \
-- (className * (^) (propertyPointerType propertyName)) propertyName##Set;
-
-#define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
-- (className * (^) (propertyPointerType propertyName))propertyName##Set {                                               \
-return ^(propertyPointerType propertyName) {                                                                            \
-self->_##propertyName = propertyName;                                                                                   \
-return self;                                                                                                            \
-};                                                                                                                      \
+#define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)    \
+- (className * (^)(propertyPointerType propertyName))propertyName##Set {             \
+    return ^(propertyPointerType propertyName) {                                     \
+        self->_##propertyName = propertyName;                                        \
+        return self;                                                                 \
+    };                                                                               \
 }
 
-#define AAJSFuncTypePropSetFuncImplementation(className, propertyPointerType, propertyName)                             \
-- (className * (^) (propertyPointerType propertyName))propertyName##Set {                                               \
-return ^(propertyPointerType propertyName) {                                                                            \
-self->_##propertyName = [propertyName aa_toPureJSString];                                                               \
-return self;                                                                                                            \
-};                                                                                                                      \
+#define AAJSFuncTypePropSetFuncImplementation(className, propertyPointerType, propertyName) \
+- (className * (^)(propertyPointerType propertyName))propertyName##Set {                    \
+    return ^(propertyPointerType propertyName) {                                            \
+        self->_##propertyName = [propertyName aa_toPureJSString];                           \
+        return self;                                                                        \
+    };                                                                                      \
 }
+
 
 #endif /* AAGlobalMacro_h */
 
