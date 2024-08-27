@@ -84,17 +84,47 @@
         }
             
         function configureChartClickEvent(aaPlotOptions) {
+            var additionalFunc = aaPlotOptions.series.point.events.click;
+            
             var clickEventFunc = function() {
                 var message = configureEventMessageBody(this);
                 window.webkit.messageHandlers.click.postMessage(message);
+                
+                // 检查 additionalFunc 是否存在且不为 null
+                if (additionalFunc != null) {
+                    if (typeof additionalFunc === 'function') {
+                        additionalFunc.call(this);
+                    } else if (typeof additionalFunc === 'string') {
+                        try {
+                            new Function('this', additionalFunc).call(this);
+                        } catch (e) {
+                            console.error('Error executing additional function:', e);
+                        }
+                    }
+                }
             };
             aaPlotOptions.series.point.events.click = clickEventFunc;
         }
             
         function configureChartTouchEvent(aaPlotOptions) {
+            var additionalFunc = aaPlotOptions.series.point.events.mouseOver;
+
             var mouseOverEventFunc = function() {
                 var message = configureEventMessageBody(this);
                 window.webkit.messageHandlers.mouseover.postMessage(message);
+                
+                // 检查 additionalFunc 是否存在且不为 null
+                if (additionalFunc != null) {
+                    if (typeof additionalFunc === 'function') {
+                        additionalFunc.call(this);
+                    } else if (typeof additionalFunc === 'string') {
+                        try {
+                            new Function('this', additionalFunc).call(this);
+                        } catch (e) {
+                            console.error('Error executing additional function:', e);
+                        }
+                    }
+                }
             };
             aaPlotOptions.series.point.events.mouseOver = mouseOverEventFunc;
         }
