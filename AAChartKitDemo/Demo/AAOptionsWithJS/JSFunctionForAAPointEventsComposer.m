@@ -48,16 +48,16 @@
                                              .eventsSet(AAPointEvents.new
                                                         .clickSet(@AAJSFunc(function() {
                                                             this.series.chart.update({
-                                                            tooltip: {
-                                                            enabled: true
-                                                            }
+                                                                tooltip: {
+                                                                    enabled: true
+                                                                }
                                                             });
                                                         }))
                                                         .mouseOutSet(@AAJSFunc(function() {
                                                             this.series.chart.update({
-                                                            tooltip: {
-                                                            enabled: false
-                                                            }
+                                                                tooltip: {
+                                                                    enabled: false
+                                                                }
                                                             });
                                                         }))
                                                         ))))//设置点击事件
