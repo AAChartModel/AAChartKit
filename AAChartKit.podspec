@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.social_media_url = 'https://github.com/AAChartModel'
     s.source_files = 'AAChartKit/**/*.{h,m}'
-    s.resource_bundles    = { 'AAChartKit' => 'AAChartKitLib/AAJSFiles.bundle' }
+    s.resource_bundles    = { 'AAChartKit' => 'AAChartKit/AAJSFiles.bundle' }
     s.prefix_header_contents = '#import "AAGlobalMacro.h"'
     s.requires_arc = true
     s.ios.frameworks = 'UIKit'
