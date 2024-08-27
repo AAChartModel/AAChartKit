@@ -60,11 +60,13 @@
             }
             
             if (aaOptions.clickEventEnabled == true) {
-                configureChartClickEvent(aaPlotOptions);
+                // Configure the click event
+                configureChartEvent(aaPlotOptions, 'click', 'click');
             }
             
             if (aaOptions.touchEventEnabled == true) {
-                configureChartTouchEvent(aaPlotOptions);
+                // Configure the mouseOver event
+                configureChartEvent(aaPlotOptions, 'mouseOver', 'mouseover');
             }
         }
             
@@ -83,14 +85,16 @@
             return messageBody;
         }
             
-        function configureChartClickEvent(aaPlotOptions) {
-            var additionalFunc = aaPlotOptions.series.point.events.click;
+        function configureChartEvent(aaPlotOptions, eventName, handlerName) {
+            // Extract the additional function based on the event name
+            var additionalFunc = aaPlotOptions.series.point.events[eventName];
             
-            var clickEventFunc = function() {
+            // Define the event handler function
+            var eventHandlerFunc = function() {
                 var message = configureEventMessageBody(this);
-                window.webkit.messageHandlers.click.postMessage(message);
+                window.webkit.messageHandlers[handlerName].postMessage(message);
                 
-                // 检查 additionalFunc 是否存在且不为 null
+                // Check if additionalFunc exists and is not null
                 if (additionalFunc != null) {
                     if (typeof additionalFunc === 'function') {
                         additionalFunc.call(this);
@@ -103,30 +107,9 @@
                     }
                 }
             };
-            aaPlotOptions.series.point.events.click = clickEventFunc;
-        }
             
-        function configureChartTouchEvent(aaPlotOptions) {
-            var additionalFunc = aaPlotOptions.series.point.events.mouseOver;
-
-            var mouseOverEventFunc = function() {
-                var message = configureEventMessageBody(this);
-                window.webkit.messageHandlers.mouseover.postMessage(message);
-                
-                // 检查 additionalFunc 是否存在且不为 null
-                if (additionalFunc != null) {
-                    if (typeof additionalFunc === 'function') {
-                        additionalFunc.call(this);
-                    } else if (typeof additionalFunc === 'string') {
-                        try {
-                            new Function('this', additionalFunc).call(this);
-                        } catch (e) {
-                            console.error('Error executing additional function:', e);
-                        }
-                    }
-                }
-            };
-            aaPlotOptions.series.point.events.mouseOver = mouseOverEventFunc;
+            // Assign the event handler function to the corresponding event
+            aaPlotOptions.series.point.events[eventName] = eventHandlerFunc;
         }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries, animation) {
