@@ -13,8 +13,7 @@
 
 
 + (AAOptions *)showTooltipOnlyOnClick {
-    // 创建 AAOptions 配置对象
-    AAOptions *aaOptions = AAOptions.new
+    return AAOptions.new
         .chartSet(AAChart.new
                   .typeSet(AAChartTypeLine)) // 设置图表类型为折线图
         .tooltipSet(AATooltip.new
@@ -63,13 +62,9 @@
                                                         ))))//设置点击事件
         .seriesSet(@[
             AASeriesElement.new
-                .enabledCrosshairsSet(@true)
                 .colorByPointSet(@YES) // 每个点的颜色独立
                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6]) // 数据数组
         ]);
-
-    
-    return aaOptions;
 }
 
 + (AAOptions *)customizeCrosshairsStyle {
