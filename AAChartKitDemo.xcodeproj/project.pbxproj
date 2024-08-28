@@ -90,6 +90,7 @@
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
 		8492D9A52C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */; };
+		8492D9AC2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */; };
 		84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */; };
 		84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B526F1CD4E00D4CAFC /* PieChartOptionsVC.m */; };
 		84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B826F1F08300D4CAFC /* PolarChartOptionsVC.m */; };
@@ -295,6 +296,8 @@
 		848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAAChartViewForXibVC.xib; sourceTree = "<group>"; };
 		8492D9A32C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAPointEventsComposer.h; sourceTree = "<group>"; };
 		8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAPointEventsComposer.m; sourceTree = "<group>"; };
+		8492D9AA2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAASeriesEventsComposer.h; sourceTree = "<group>"; };
+		8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAASeriesEventsComposer.m; sourceTree = "<group>"; };
 		84AE6B1A26A1775A001F0755 /* AADateTimeLabelFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateTimeLabelFormats.h; sourceTree = "<group>"; };
 		84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADateTimeLabelFormats.m; sourceTree = "<group>"; };
 		84AE6B1D26A19E1E001F0755 /* AAChartAxisType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartAxisType.h; sourceTree = "<group>"; };
@@ -639,6 +642,8 @@
 				844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */,
 				8492D9A32C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.h */,
 				8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */,
+				8492D9AA2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.h */,
+				8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */,
 			);
 			path = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -990,6 +995,7 @@
 				2750145224C03372005A5D73 /* AAShadow.m in Sources */,
 				8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */,
 				8492D9A52C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m in Sources */,
+				8492D9AC2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m in Sources */,
 				84B548CB26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m in Sources */,
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
 				84B548C526F2E74800D4CAFC /* TooltipOptionsVC.m in Sources */,
