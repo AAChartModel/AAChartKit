@@ -177,8 +177,8 @@
         var s = '第' + '<b>' +  this.x + '</b>' + '年' + '<br/>';
         const colorDot1 = '<span style=\"' + 'color:#1e90ff; font-size:13px\"' + '>◉</span> ';
         const colorDot2 = '<span style=\"' + 'color:#ef476f; font-size:13px\"' + '>◉</span> ';
-        const s1 = colorDot1  + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
-        const s2 =  colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
+        const s1 = colorDot1 + this.points[0].series.name + ': ' + this.points[0].y + '只' + '<br/>';
+        const s2 = colorDot2 + this.points[1].series.name + ': ' + this.points[1].y + '棵';
         s += s1 + s2;
         return s;
     }))
@@ -731,22 +731,23 @@ function () {
     .paddingSet(@0)
     .borderWidthSet(@0)
     .formatterSet(@AAJSFunc(function () {
-        var box1Text = "&nbsp 2021-" + this.x + this.points[0].series.name + this.y;
-        var box2Text = "&nbsp 2021-" + this.x + this.points[1].series.name + this.y;
-        
-        return '<style>\
-        div{margin:0;padding:0}\
-        #container{width:300px;height:40px;border:80px;}\
-        #container .box1{width:150px;height:40px;float:left;background:red;line-height:40px;color:#fff}\
-        #container .box2{width:150px;height:40px;float:right;background:green;line-height:40px;color:#fff}\
-        </style>\
-        <div id=\"container\">'
-        +
-        '<div class=\"box1\">' + box1Text + '</div>'
-        +
-        '<div class=\"box2\">' + box2Text + '</div>'
-        +
-        '</div>';
+        // 获取每个点的信息
+        const series1Point = this.points[0];
+        const series2Point = this.points[1];
+
+        // 自定义的 HTML 结构
+        const tooltipHTML = `
+            <div style="display: flex; width: 100%; height: 100%;">
+                <div style="flex: 1; background-color: red; padding: 5px; text-align: right; color: white; margin: 0;">
+                    <strong>${series1Point.series.name}:</strong> ${series1Point.y}
+                </div>
+                <div style="flex: 1; background-color: green; padding: 5px; text-align: left; color: white; margin: 0;">
+                    <strong>${series2Point.series.name}:</strong> ${series2Point.y}
+                </div>
+            </div>
+        `;
+
+        return tooltipHTML;
     }));
     
     //禁用图例点击事件
