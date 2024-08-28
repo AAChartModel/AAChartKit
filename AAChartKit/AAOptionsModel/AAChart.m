@@ -82,6 +82,7 @@ AAPropSetFuncImplementation(AAResetZoomButton, NSDictionary *, theme)
 @end
 
 
+//https://api.highcharts.com/highcharts/chart.events
 @implementation AAChartEvents : NSObject
 
 AAJSFuncTypePropSetFuncImplementation(AAChartEvents, NSString *, click)

@@ -89,6 +89,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAResetZoomButton, NSDictionary *
 @end
 
 
+//https://api.highcharts.com/highcharts/chart.events
 @interface AAChartEvents : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy  , AAChartEvents, NSString     *, click)
