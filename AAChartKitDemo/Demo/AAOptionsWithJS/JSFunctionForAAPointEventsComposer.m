@@ -11,7 +11,7 @@
 
 @implementation JSFunctionForAAPointEventsComposer
 
-
+//https://github.com/AAChartModel/AAChartKit/issues/1567
 + (AAOptions *)showTooltipOnlyOnClick {
     return AAOptions.new
         .chartSet(AAChart.new
@@ -41,8 +41,7 @@
                                               .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                                               .lineWidthSet(@8)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                                               //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                                              .lineColorSet(AARgbaColor(204, 150, 103, 1.0))
-                                              )
+                                              .lineColorSet(AARgbaColor(204, 150, 103, 1.0)))
                                    .pointSet(AAPoint.new
                                              .eventsSet(AAPointEvents.new
                                                         .clickSet(@AAJSFunc(function() {
@@ -67,6 +66,7 @@
         ]);
 }
 
+//https://github.com/AAChartModel/AAChartKit/issues/1427
 + (AAOptions *)customizeCrosshairsStyle {
     return AAOptions.new
         .plotOptionsSet(AAPlotOptions.new
@@ -88,13 +88,11 @@
                                                                     })
                                                                     .add();
                                                             }
-                                                        }
-                                                                                ))
+                                                        }))
                                                         .mouseOutSet(@AAJSFunc(function() {
                                                             const chart = this.series.chart;
                                                             if (chart.crosshair) chart.crosshair.destroy();
                                                         }))
-                                                        
                                                         ))))//设置点击事件
         .seriesSet(@[
             AASeriesElement.new
