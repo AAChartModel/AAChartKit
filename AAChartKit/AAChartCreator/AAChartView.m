@@ -401,7 +401,7 @@ WKScriptMessageHandler
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSString *resourcePath = [[NSBundle bundleForClass:[self class]] resourcePath];
-    NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKitLib.bundle"];
+    NSString *bundlePath = [resourcePath stringByAppendingPathComponent:@"/AAChartKit.bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     if (!bundle) { //installed manually
         bundle = [NSBundle mainBundle];
