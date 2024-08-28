@@ -99,7 +99,7 @@
     _aaChartView = [[AAChartView alloc]init];
     _aaChartView.frame = CGRectMake(0, aaChartViewOriginY, chartViewWidth, chartViewHeight);
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
-    _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明
+    _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明(注意设置为透明后, 再设置 AAChartModel 或者 AAOptions 实例的 backgroundColor 是无效的)
 //        _aaChartView.delegate = self;//解开注释(同时需要注释掉 block 方法), 可以测试一下获取交互事件回调的 delegate 方法
     [self.view addSubview:_aaChartView];
     [self setupChartViewEventHandlers];
