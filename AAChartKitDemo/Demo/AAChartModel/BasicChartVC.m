@@ -31,6 +31,7 @@
  */
 
 #import "BasicChartVC.h"
+#import "AAChartViewManager.h"
 
 @interface BasicChartVC ()<AAChartViewEventDelegate>
 
@@ -102,6 +103,15 @@
     _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明(注意设置为透明后, 再设置 AAChartModel 或者 AAOptions 实例的 backgroundColor 是无效的)
 //        _aaChartView.delegate = self;//解开注释(同时需要注释掉 block 方法), 可以测试一下获取交互事件回调的 delegate 方法
     [self.view addSubview:_aaChartView];
+    
+    if (@available(macCatalyst 16.4, *)) {
+        _aaChartView.inspectable = YES;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+
+
     [self setupChartViewEventHandlers];
 }
 

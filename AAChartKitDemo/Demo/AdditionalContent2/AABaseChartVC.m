@@ -31,6 +31,8 @@
  */
 
 #import "AABaseChartVC.h"
+#import "AAChartView+shareInstance.h"
+#import "AAChartViewManager.h"
 
 @interface AABaseChartVC ()
 
@@ -84,14 +86,14 @@
 
 
 - (void)setupChartView {
-    self.aaChartView = [[AAChartView alloc]init];
+    self.aaChartView = [self configureEasyInspectableChartView];
     self.aaChartView.scrollEnabled = NO;
     if (@available(iOS 11.0, *)) {
         self.aaChartView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         // Fallback on earlier versions
     }
-    [self setupAAChartViewEventBlockHandler];
+//    [self setupAAChartViewEventBlockHandler];
     [self.view addSubview:self.aaChartView];
     
     AAAnimation *aaAnimation = AAAnimation.new
@@ -107,6 +109,37 @@
     
     [self drawChartWithChartConfiguration];
     
+}
+
+- (AAChartView *)configureEasyInspectableChartView {
+    /*
+
+    //问:怎么设置 Safari 的网页检查器不关闭? 现在的问题是只要 WKWebView 实例被销毁之后, Safari 的网页检查器就直接关闭了
+    //答:在使用 Safari 调试 WKWebView 时，确实会遇到 WKWebView 实例被销毁后，网页检查器（Web Inspector）自动关闭的情况。这是因为网页检查器会与 WKWebView 实例直接绑定，当 WKWebView 被销毁时，Safari 也会相应地关闭检查器窗口。
+    
+    //目前，Safari 的 Web Inspector 没有内置的设置来防止这种行为。
+    //但可以尝试使用单例方法，以延长调试会话的时间：
+    //1. 保持 WKWebView 实例存活
+    self.aaChartView = [AAChartView sharedInstance];
+     //    if (@available(macCatalyst 16.4, *)) {
+             self.aaChartView.inspectable = YES;
+     //    } else {
+     //        // Fallback on earlier versions
+     //    }
+     
+    */
+    
+//
+    AAChartViewManager *chartViewManager = [AAChartViewManager sharedInstance]; //想要避免网页检查器被频繁关闭, 就使用这个单例方法
+//    AAChartViewManager *chartViewManager = [[AAChartViewManager alloc]init];
+
+    AAChartView *aaChartView = chartViewManager.aaChartView;
+    if (@available(macCatalyst 16.4, *)) {
+        aaChartView.inspectable = YES;
+    } else {
+        // Fallback on earlier versions
+    }
+    return aaChartView;
 }
 
 - (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
@@ -165,47 +198,47 @@
     ];
 }
 
-- (void)setupAAChartViewEventBlockHandler {
-    __weak __typeof__(self) weakSelf = self;
-
-    //获取图表加载完成事件
-    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
-        NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
-
-//        NSString *jsStr = [ weakSelf configureAddEventForXAxisLabelsGroupElementJSFunctionString];
-//        [weakSelf.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
-    }];
-
-    //获取图表上的手指点击事件
-    [_aaChartView clickEventHandler:^(AAChartView *aaChartView,
-                                      AAClickEventMessageModel *message) {
-        NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
-        [weakSelf printPrettyPrintedClickEventMessageJsonStringWithJsonObject:messageDic];
-    }];
-    
-    //获取图表上的手指点击及滑动事件
-    [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
-                                         AAMoveOverEventMessageModel *message) {
-        NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
-        [weakSelf printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:messageDic];
-    }];
-    
-    //在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调
-    [_aaChartView didReceiveScriptMessageHandler:^(AAChartView *aaChartView, WKScriptMessage *message) {
-        NSLog(@"Clicked X axis label,  name is %@", message.body);
-    }];
-}
-
-- (NSMutableDictionary *)eventMessageModelWithMessageBody:(AAEventMessageModel *)eventMessageModel {
-    NSMutableDictionary *messageBody = [NSMutableDictionary dictionary];
-    messageBody[@"name"] = eventMessageModel.name;
-    messageBody[@"x"] = eventMessageModel.x;
-    messageBody[@"y"] = eventMessageModel.y;
-    messageBody[@"category"] = eventMessageModel.category;
-    messageBody[@"offset"] = eventMessageModel.offset;
-    messageBody[@"index"] = @(eventMessageModel.index);
-    return messageBody;
-}
+//- (void)setupAAChartViewEventBlockHandler {
+//    __weak __typeof__(self) weakSelf = self;
+//
+//    //获取图表加载完成事件
+//    [_aaChartView didFinishLoadHandler:^(AAChartView *aaChartView) {
+//        NSLog(@"🚀🚀🚀🚀 AAChartView content did finish load!!!");
+//
+////        NSString *jsStr = [ weakSelf configureAddEventForXAxisLabelsGroupElementJSFunctionString];
+////        [weakSelf.aaChartView aa_evaluateJavaScriptStringFunction:jsStr];
+//    }];
+//
+//    //获取图表上的手指点击事件
+//    [_aaChartView clickEventHandler:^(AAChartView *aaChartView,
+//                                      AAClickEventMessageModel *message) {
+//        NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
+//        [weakSelf printPrettyPrintedClickEventMessageJsonStringWithJsonObject:messageDic];
+//    }];
+//    
+//    //获取图表上的手指点击及滑动事件
+//    [_aaChartView moveOverEventHandler:^(AAChartView *aaChartView,
+//                                         AAMoveOverEventMessageModel *message) {
+//        NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
+//        [weakSelf printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:messageDic];
+//    }];
+//    
+//    //在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调
+//    [_aaChartView didReceiveScriptMessageHandler:^(AAChartView *aaChartView, WKScriptMessage *message) {
+//        NSLog(@"Clicked X axis label,  name is %@", message.body);
+//    }];
+//}
+//
+//- (NSMutableDictionary *)eventMessageModelWithMessageBody:(AAEventMessageModel *)eventMessageModel {
+//    NSMutableDictionary *messageBody = [NSMutableDictionary dictionary];
+//    messageBody[@"name"] = eventMessageModel.name;
+//    messageBody[@"x"] = eventMessageModel.x;
+//    messageBody[@"y"] = eventMessageModel.y;
+//    messageBody[@"category"] = eventMessageModel.category;
+//    messageBody[@"offset"] = eventMessageModel.offset;
+//    messageBody[@"index"] = @(eventMessageModel.index);
+//    return messageBody;
+//}
 
 //【案例分享】Highcharts 坐标轴标签点击高亮: https://blog.jianshukeji.com/highcharts/highlight-label-by-click.html
 // 实现方法是找到轴标签 DOM，然后手动添加点击事件并处理。其中 x 轴标签的 DOM 是 axis.labelGroup.element, 添加事件我们用 Highcharts.addEvent，
@@ -296,58 +329,58 @@
 
 }
 
-- (NSString*)printPrettyPrintedClickEventMessageJsonStringWithJsonObject:(id)jsonObject {
-    NSError *error = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSString *logPrefix = @"🖱🖱🖱🖱  user finger clicked!!!,get the clicked event series element message:";
-    NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
-                              logPrefix,
-                              jsonStr];
-    NSLog(@"%@",eventMessage);
-    
-    if (error) {
-        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
-        return nil;
-    }
-    return jsonStr;
-}
-
-- (NSString*)printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:(id)jsonObject {
-    NSError *error = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
-    NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
-                              logPrefix,
-                              jsonStr];
-    NSLog(@"%@",eventMessage);
-    
-    if (error) {
-        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
-        return nil;
-    }
-    return jsonStr;
-}
-
-- (id)jsonObjectWithJsonString:(NSString *)string {
-    if (string && 0 != string.length) {
-        NSError *error;
-        NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
-        id jsonObjet = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                       options:NSJSONReadingMutableContainers
-                                                         error:&error];
-        if (error) {
-            NSLog(@"❌❌❌ JSONObject with JSONString serialization failed：%@", error);
-            return nil;
-        }
-        return jsonObjet;
-    }
-    return nil;
-}
+//- (NSString*)printPrettyPrintedClickEventMessageJsonStringWithJsonObject:(id)jsonObject {
+//    NSError *error = nil;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+//                                                       options:NSJSONWritingPrettyPrinted
+//                                                         error:&error];
+//    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    NSString *logPrefix = @"🖱🖱🖱🖱  user finger clicked!!!,get the clicked event series element message:";
+//    NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
+//                              logPrefix,
+//                              jsonStr];
+//    NSLog(@"%@",eventMessage);
+//    
+//    if (error) {
+//        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
+//        return nil;
+//    }
+//    return jsonStr;
+//}
+//
+//- (NSString*)printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:(id)jsonObject {
+//    NSError *error = nil;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
+//                                                       options:NSJSONWritingPrettyPrinted
+//                                                         error:&error];
+//    NSString *jsonStr =[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    NSString *logPrefix = @"👌👌👌👌  user finger moved over!!!,get the move over event series element message:";
+//    NSString *eventMessage = [NSString stringWithFormat:@"%@ \n %@",
+//                              logPrefix,
+//                              jsonStr];
+//    NSLog(@"%@",eventMessage);
+//    
+//    if (error) {
+//        NSLog(@"❌❌❌ pretty printed JSONString with JSONObject serialization failed：%@", error);
+//        return nil;
+//    }
+//    return jsonStr;
+//}
+//
+//- (id)jsonObjectWithJsonString:(NSString *)string {
+//    if (string && 0 != string.length) {
+//        NSError *error;
+//        NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+//        id jsonObjet = [NSJSONSerialization JSONObjectWithData:jsonData
+//                                                       options:NSJSONReadingMutableContainers
+//                                                         error:&error];
+//        if (error) {
+//            NSLog(@"❌❌❌ JSONObject with JSONString serialization failed：%@", error);
+//            return nil;
+//        }
+//        return jsonObjet;
+//    }
+//    return nil;
+//}
 
 @end

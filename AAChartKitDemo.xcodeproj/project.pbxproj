@@ -91,6 +91,8 @@
 		848FEAFD265E170C006E4F25 /* TestAAChartViewForXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848FEAFB265E170C006E4F25 /* TestAAChartViewForXibVC.xib */; };
 		8492D9A52C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */; };
 		8492D9AC2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */; };
+		8492D9B22C819CEC007EB8D0 /* AAChartView+shareInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9B12C819CEC007EB8D0 /* AAChartView+shareInstance.m */; };
+		8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9B42C81A321007EB8D0 /* AAChartViewManager.m */; };
 		84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */; };
 		84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B526F1CD4E00D4CAFC /* PieChartOptionsVC.m */; };
 		84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B826F1F08300D4CAFC /* PolarChartOptionsVC.m */; };
@@ -298,6 +300,10 @@
 		8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAPointEventsComposer.m; sourceTree = "<group>"; };
 		8492D9AA2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAASeriesEventsComposer.h; sourceTree = "<group>"; };
 		8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAASeriesEventsComposer.m; sourceTree = "<group>"; };
+		8492D9B02C819CEC007EB8D0 /* AAChartView+shareInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AAChartView+shareInstance.h"; sourceTree = "<group>"; };
+		8492D9B12C819CEC007EB8D0 /* AAChartView+shareInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AAChartView+shareInstance.m"; sourceTree = "<group>"; };
+		8492D9B32C81A321007EB8D0 /* AAChartViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartViewManager.h; sourceTree = "<group>"; };
+		8492D9B42C81A321007EB8D0 /* AAChartViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartViewManager.m; sourceTree = "<group>"; };
 		84AE6B1A26A1775A001F0755 /* AADateTimeLabelFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateTimeLabelFormats.h; sourceTree = "<group>"; };
 		84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADateTimeLabelFormats.m; sourceTree = "<group>"; };
 		84AE6B1D26A19E1E001F0755 /* AAChartAxisType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartAxisType.h; sourceTree = "<group>"; };
@@ -701,6 +707,10 @@
 				8463FDD128CADF5800392C50 /* CustomTableViewCell.h */,
 				8463FDD228CADF5800392C50 /* CustomTableViewCell.m */,
 				8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */,
+				8492D9B02C819CEC007EB8D0 /* AAChartView+shareInstance.h */,
+				8492D9B12C819CEC007EB8D0 /* AAChartView+shareInstance.m */,
+				8492D9B32C81A321007EB8D0 /* AAChartViewManager.h */,
+				8492D9B42C81A321007EB8D0 /* AAChartViewManager.m */,
 			);
 			path = AdditionalContent2;
 			sourceTree = "<group>";
@@ -963,6 +973,7 @@
 				44E4137323C339160097D0ED /* AAStates.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,
+				8492D9B22C819CEC007EB8D0 /* AAChartView+shareInstance.m in Sources */,
 				1E66D215210AF4ED007EAB8C /* AAChartView.m in Sources */,
 				8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m in Sources */,
 				84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */,
@@ -981,6 +992,7 @@
 				1E66D208210AF4ED007EAB8C /* AAPlotLinesElement.m in Sources */,
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
+				8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */,
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
 				84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */,
