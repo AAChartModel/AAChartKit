@@ -37,7 +37,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JSFunctionForAAChartEventsVC : AABaseChartVC
+@interface JSFunctionForAAChartEventsComposer : AABaseChartVC
 
 @end
 

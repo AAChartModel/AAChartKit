@@ -274,7 +274,7 @@
 		7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAChartKitUITests.m; sourceTree = "<group>"; };
 		7172A3FD1E763EA6000D5B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsVC.h; sourceTree = "<group>"; };
+		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer.h; sourceTree = "<group>"; };
 		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC.m; sourceTree = "<group>"; };
 		844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer2.h; sourceTree = "<group>"; };
 		844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer2.m; sourceTree = "<group>"; };
@@ -722,7 +722,7 @@
 		846141F12C8599800032FBD3 /* AAOptionsWithJSForChartEvents */ = {
 			isa = PBXGroup;
 			children = (
-				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */,
+				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.h */,
 				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */,
 				844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */,
 				844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */,
