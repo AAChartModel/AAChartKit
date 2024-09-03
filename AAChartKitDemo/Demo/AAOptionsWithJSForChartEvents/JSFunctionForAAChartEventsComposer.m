@@ -32,16 +32,16 @@
 
  */
 
-#import "JSFunctionForAAChartEventsVC.h"
+#import "JSFunctionForAAChartEventsComposer.h"
 #import "AAChartKit.h"
 #import "AADateUTCTool.h"
 #import "JSFunctionForAAChartEventsComposer2.h"
 
-@interface JSFunctionForAAChartEventsVC ()
+@interface JSFunctionForAAChartEventsComposer ()
 
 @end
 
-@implementation JSFunctionForAAChartEventsVC
+@implementation JSFunctionForAAChartEventsComposer
 
 - (void)viewDidLoad {
     [super viewDidLoad];
