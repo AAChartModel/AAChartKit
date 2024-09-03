@@ -465,6 +465,7 @@
 				844F4D402C0857860019F786 /* AAChartModel */,
 				844F4D422C0857B20019F786 /* AAOptions */,
 				844F4D432C08580A0019F786 /* AAOptionsWithJS */,
+				846141F12C8599800032FBD3 /* AAOptionsWithJSForChartEvents */,
 				844F4D442C0858A80019F786 /* AdditionalContent1 */,
 				844F4D452C0858BB0019F786 /* AdditionalContent2 */,
 				844F4D462C0859330019F786 /* AATools */,
@@ -636,20 +637,12 @@
 				44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */,
 				84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */,
 				84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */,
-				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */,
-				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */,
 				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
 				8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */,
 				8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */,
 				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
 				84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */,
 				84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */,
-				844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */,
-				844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */,
-				8492D9A32C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.h */,
-				8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */,
-				8492D9AA2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.h */,
-				8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */,
 			);
 			path = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -724,6 +717,21 @@
 				447B4B3221C9E04E00FDA965 /* AAEasyTool.m */,
 			);
 			path = AATools;
+			sourceTree = "<group>";
+		};
+		846141F12C8599800032FBD3 /* AAOptionsWithJSForChartEvents */ = {
+			isa = PBXGroup;
+			children = (
+				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsVC.h */,
+				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsVC.m */,
+				844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */,
+				844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */,
+				8492D9A32C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.h */,
+				8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */,
+				8492D9AA2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.h */,
+				8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */,
+			);
+			path = AAOptionsWithJSForChartEvents;
 			sourceTree = "<group>";
 		};
 		8492D9A62C7DD481007EB8D0 /* AAPlotOptions */ = {
