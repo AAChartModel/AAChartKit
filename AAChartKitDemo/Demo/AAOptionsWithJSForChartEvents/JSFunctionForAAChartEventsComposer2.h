@@ -14,9 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAAChartEventsComposer2 : NSObject
 
++ (AAOptions *)configureTheSizeOfTheSliceOfDonutAndPieChart;
++ (AAOptions *)configurePlotBackgroundClickEvent;
 + (AAOptions *)disableHoverEventEffect;
 + (AAOptions *)addClickEventToXAxisLabelAndAccessData;
 + (AAOptions *)addClickEventToHighlightXAxisLabel;
+
 + (AAOptions *)addClickEventToXAxisLabelAndAccessDataAndHighlightXAxisLabel;
 + (AAOptions *)defaultSelectedAPointForLineChart;
 + (AAOptions *)configureBlinkMarkerChart;

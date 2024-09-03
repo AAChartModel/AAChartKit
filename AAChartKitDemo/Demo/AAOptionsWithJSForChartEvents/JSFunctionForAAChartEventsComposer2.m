@@ -12,6 +12,140 @@
 
 @implementation JSFunctionForAAChartEventsComposer2
 
+/*
+https://www.highcharts.com/forum/viewtopic.php?t=28267
+    $(function () {
+    $('#container').highcharts({
+        chart: {
+            events: {
+                load: function (){
+                    console.log( );
+                    var graphic = this.series[0].data[0].graphic;
+                    setTimeout(function() {
+                        var prevR = graphic.r;
+                        graphic.attr( {
+                            r: prevR + 50
+                        });
+                }, 1001);
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['Others',   0.7]
+            ]
+        }]
+    });
+});
+*/
+//https://github.com/AAChartModel/AAChartKit/issues/1449
+//https://www.highcharts.com/forum/viewtopic.php?t=28267
++ (AAOptions *)configureTheSizeOfTheSliceOfDonutAndPieChart {
+    return AAOptions.new
+            .titleSet(AATitle.new
+                    .textSet(@"Configure The Size Of The Slice Of Donut And Pie Chart"))
+            .chartSet(AAChart.new
+                    .eventsSet(AAChartEvents.new
+                            .loadSet(@AAJSFunc(function () {
+                                const chart = this;
+                                const graphic = chart.series[0].data[0].graphic;
+                                setTimeout(function () {
+                                    const prevR = graphic.r;
+                                    graphic.attr({
+                                        r: prevR + 50
+                                    });
+                                }, 1001);
+                            })))
+            )
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .typeSet(AAChartTypePie)
+                            .nameSet(@"Browser share")
+                            .dataSet(@[
+                                    @[@"Firefox", @45.0],
+                                    @[@"IE", @26.8],
+                                    @[@"Safari", @8.5],
+                                    @[@"Opera", @6.2],
+                                    @[@"Others", @0.7]
+                            ])
+            ]);
+}
+
+/*
+Highcharts.chart('container', {
+    chart: {
+        events: {
+            click: function (event) {
+                var label = this.renderer.label(
+                    'x: ' + Highcharts.numberFormat(event.xAxis[0].value, 2) + ', y: ' + Highcharts.numberFormat(event.yAxis[0].value, 2),
+                    event.xAxis[0].axis.toPixels(event.xAxis[0].value),
+                    event.yAxis[0].axis.toPixels(event.yAxis[0].value)
+                )
+                    .attr({
+                        fill: Highcharts.getOptions().colors[0],
+                        padding: 10,
+                        r: 5,
+                        zIndex: 8
+                    })
+                    .css({
+                        color: '#FFFFFF'
+                    })
+                    .add();
+
+                setTimeout(function () {
+                    label.fadeOut();
+                }, 1000);
+            }
+        }
+    },
+
+    series: [{
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }]
+});
+ */
+//https://github.com/AAChartModel/AAChartKit/issues/1480
+//https://api.highcharts.com/highcharts/chart.events.click
++ (AAOptions *)configurePlotBackgroundClickEvent {
+    return AAOptions.new
+            .titleSet(AATitle.new
+                    .textSet(@"configure Plot Background Click Event"))
+            .chartSet(AAChart.new
+                    .eventsSet(AAChartEvents.new
+                            .clickSet(@AAJSFunc(function () {
+                                const label = this.renderer.label(
+                                        'x: ' + Highcharts.numberFormat(event.xAxis[0].value, 2) + ', y: ' + Highcharts.numberFormat(event.yAxis[0].value, 2),
+                                        event.xAxis[0].axis.toPixels(event.xAxis[0].value),
+                                        event.yAxis[0].axis.toPixels(event.yAxis[0].value)
+                                )
+                                        .attr({
+                                            fill: Highcharts.getOptions().colors[0],
+                                            padding: 10,
+                                            r: 5,
+                                            zIndex: 8
+                                        })
+                                        .css({
+                                            color: '#FFFFFF'
+                                        })
+                                        .add();
+
+                                setTimeout(function () {
+                                    label.fadeOut();
+                                }, 1000);
+                            })))
+            )
+            .seriesSet(@[
+                    AASeriesElement.new
+                            .dataSet(@[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
+            ]);
+}
+
 //https://github.com/AAChartModel/AAChartCore/issues/203
 + (AAOptions *)disableHoverEventEffect {
     AAOptions *aaOptions = AAOptions.new
