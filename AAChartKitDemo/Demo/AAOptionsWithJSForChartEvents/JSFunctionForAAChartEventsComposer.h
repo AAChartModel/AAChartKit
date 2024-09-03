@@ -39,6 +39,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAAChartEventsComposer : AABaseChartVC
 
++ (AAOptions *)setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart; //图表加载完成后,自动设置默认的十字准星和浮动提示框的位置
++ (AAOptions *)generalDrawingChart; //自由绘图
++ (AAOptions *)advancedTimeLineChart; //高级时间线图
++ (AAOptions *)configureBlinkMarkerChart; //配置闪烁的标记点
++ (AAOptions *)configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect; //配置单个数据元素的特殊样式标记点即闪烁特效
++ (AAOptions *)configureScatterChartWithBlinkEffect; //配置散点图的闪烁特效
++ (AAOptions *)automaticallyHideTooltipAfterItIsShown; //图表加载完成后,自动隐藏浮动提示框
++ (AAOptions *)dynamicHeightGridLineAreaChart; //动态高度网格线的区域填充图
++ (AAOptions *)customizeYAxisPlotLinesLabelBeSpecialStyle; //自定义 Y 轴轴线上面的标签文字特殊样式
++ (AAOptions *)configureECGStyleChart; //配置心电图样式的图表
+
 @end
 
 NS_ASSUME_NONNULL_END
