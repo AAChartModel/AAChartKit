@@ -8,8 +8,6 @@
 
 #import "JSFunctionForAAChartEventsVC.h"
 #import "JSFunctionForAAChartEventsComposer.h"
-#import "AAChartKit.h"
-#import "AADateUTCTool.h"
 
 @interface JSFunctionForAAChartEventsVC ()
 
