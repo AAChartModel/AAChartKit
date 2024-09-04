@@ -731,10 +731,26 @@
 		846141F12C8599800032FBD3 /* AAOptionsWithJSForChartEvents */ = {
 			isa = PBXGroup;
 			children = (
+				846142022C87FE610032FBD3 /* ViewController */,
+				846142032C87FE700032FBD3 /* Composer */,
+			);
+			path = AAOptionsWithJSForChartEvents;
+			sourceTree = "<group>";
+		};
+		846142022C87FE610032FBD3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
 				846141F52C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.h */,
 				846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */,
 				846141F82C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.h */,
 				846141F92C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		846142032C87FE700032FBD3 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
 				8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.h */,
 				8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */,
 				844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */,
@@ -746,7 +762,7 @@
 				846141FD2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.h */,
 				846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */,
 			);
-			path = AAOptionsWithJSForChartEvents;
+			path = Composer;
 			sourceTree = "<group>";
 		};
 		8492D9A62C7DD481007EB8D0 /* AAPlotOptions */ = {
