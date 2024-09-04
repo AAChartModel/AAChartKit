@@ -21,10 +21,20 @@ static const NSString * kTouchMove = @"touchmove";
             .eventsSet(AAChartEvents.new
                 .loadSet(@AAJSFunc(function() {
                     const chart = this;
-                    Highcharts.addEvent(chart.container, kTouchMove, function (e) {
+
+#if TARGET_OS_IOS || TARGET_OS_MACCATALYST
+                    // iOS 和 macCatalyst 使用 touchmove 事件
+                    Highcharts.addEvent(chart.container, 'touchmove', function (e) {
                         e.preventDefault();
                         chart.tooltip.hide(0);
                     });
+#elif TARGET_OS_OSX
+                    // macOS 使用 mousemove 事件
+                    Highcharts.addEvent(chart.container, 'mousemove', function (e) {
+                        e.preventDefault();
+                        chart.tooltip.hide(0);
+                    });
+#endif
                 }))
             )
         )
@@ -60,8 +70,9 @@ static const NSString * kTouchMove = @"touchmove";
             AASeriesElement.new
             .dataSet(@[@1, @3, @2, @4, @5])
         ]);
-    
+
     return aaOptions;
 }
+
 
 @end
