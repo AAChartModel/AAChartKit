@@ -88,6 +88,7 @@
 		8461420C2C883D810032FBD3 /* JSFunctionForAAPointEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461420B2C883D810032FBD3 /* JSFunctionForAAPointEventsVC.m */; };
 		8461420F2C883D940032FBD3 /* JSFunctionForAASeriesEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461420E2C883D940032FBD3 /* JSFunctionForAASeriesEventsVC.m */; };
 		846142122C883DB20032FBD3 /* JSFunctionForMixedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846142112C883DB20032FBD3 /* JSFunctionForMixedEventsVC.m */; };
+		846142152C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m in Sources */ = {isa = PBXBuildFile; fileRef = 846142142C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m */; };
 		8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDD228CADF5800392C50 /* CustomTableViewCell.m */; };
 		8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */; };
 		8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */; };
@@ -304,6 +305,8 @@
 		8461420E2C883D940032FBD3 /* JSFunctionForAASeriesEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAASeriesEventsVC.m; sourceTree = "<group>"; };
 		846142102C883DB20032FBD3 /* JSFunctionForMixedEventsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForMixedEventsVC.h; sourceTree = "<group>"; };
 		846142112C883DB20032FBD3 /* JSFunctionForMixedEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForMixedEventsVC.m; sourceTree = "<group>"; };
+		846142132C88609D0032FBD3 /* AAGradientColor+DefaultThemes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AAGradientColor+DefaultThemes.h"; sourceTree = "<group>"; };
+		846142142C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AAGradientColor+DefaultThemes.m"; sourceTree = "<group>"; };
 		8463FDD128CADF5800392C50 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		8463FDD228CADF5800392C50 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				272BBE7A21A28D0C00DBE69D /* AAColor.m */,
 				44143D3721A1950300D44657 /* AAGradientColor.h */,
 				44143D3821A1950300D44657 /* AAGradientColor.m */,
+				846142132C88609D0032FBD3 /* AAGradientColor+DefaultThemes.h */,
+				846142142C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -1032,6 +1037,7 @@
 				8486A22A2BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m in Sources */,
 				84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */,
 				8461420F2C883D940032FBD3 /* JSFunctionForAASeriesEventsVC.m in Sources */,
+				846142152C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m in Sources */,
 				27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,
@@ -1278,7 +1284,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
@@ -1301,7 +1307,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
