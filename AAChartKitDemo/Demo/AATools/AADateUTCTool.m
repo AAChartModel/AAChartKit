@@ -43,8 +43,8 @@
     JSValue *timeIntervalValue = [context[@"getDateUTC"] callWithArguments:@[@(year), @(month),@(day)]];
     NSTimeInterval timeInterval = [timeIntervalValue toDouble];
     NSNumber *timeIntervalNum = [NSNumber numberWithDouble:timeInterval];
-//    return timeIntervalNum;
-    NSNumber *timeIntervalNum2 = [self getOCDateUTCWithYear:year month:month day:day];
+    //Test OC native code
+    //NSNumber *timeIntervalNum2 = [self getOCDateUTCWithYear:year month:month day:day];
     return timeIntervalNum;
 }
 
