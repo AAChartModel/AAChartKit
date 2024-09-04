@@ -256,7 +256,7 @@
     aaOptions.credits
         .enabledSet(true)
         .textSet(@"https://github.com/AAChartModel/AAChartKit")
-        .hrefSet(@"https://github.com/AAChartModel/AAChartKit")
+//        .hrefSet(@"https://github.com/AAChartModel/AAChartKit")
         .styleSet(AAStyle.new
                   .colorSet(AAColor.redColor)
                   .fontSizeSet(@"9px"));
@@ -268,7 +268,7 @@
         [self.aaChartView aa_drawChartWithChartModel:chartConfiguration];
     } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
         [self configureChartCredits:chartConfiguration];
-        self.aaChartView.scrollEnabled = true;
+        self.aaChartView.scrollEnabled = NO;
         [self.aaChartView aa_drawChartWithOptions:chartConfiguration];
     }
 }
@@ -279,7 +279,7 @@
         [self.aaChartView aa_refreshChartWithChartModel:chartConfiguration];
     } else if ([chartConfiguration isKindOfClass:AAOptions.class]) {
         [self configureChartCredits:chartConfiguration];
-        self.aaChartView.scrollEnabled = true;
+        self.aaChartView.scrollEnabled = NO;
         [self.aaChartView aa_refreshChartWithOptions:chartConfiguration];
     }
 }
