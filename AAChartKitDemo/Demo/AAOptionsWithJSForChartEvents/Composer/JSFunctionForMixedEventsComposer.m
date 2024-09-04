@@ -21,15 +21,14 @@ static const NSString * kTouchMove = @"touchmove";
             .eventsSet(AAChartEvents.new
                 .loadSet(@AAJSFunc(function() {
                     const chart = this;
-
-#if TARGET_OS_IOS || TARGET_OS_MACCATALYST
-                    // iOS 和 macCatalyst 使用 touchmove 事件
+#if TARGET_OS_IOS
+                    // iOS 使用 touchmove 事件
                     Highcharts.addEvent(chart.container, 'touchmove', function (e) {
                         e.preventDefault();
                         chart.tooltip.hide(0);
                     });
-#elif TARGET_OS_OSX
-                    // macOS 使用 mousemove 事件
+#elif TARGET_OS_OSX || TARGET_OS_MACCATALYST
+                    // macOS 和 macCatalyst 使用 mousemove 事件
                     Highcharts.addEvent(chart.container, 'mousemove', function (e) {
                         e.preventDefault();
                         chart.tooltip.hide(0);
