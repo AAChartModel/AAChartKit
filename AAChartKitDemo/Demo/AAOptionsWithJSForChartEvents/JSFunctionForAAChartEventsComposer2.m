@@ -147,7 +147,7 @@ Highcharts.chart('container', {
 }
 
 //https://github.com/AAChartModel/AAChartCore/issues/203
-+ (AAOptions *)disableHoverEventEffect {
++ (AAOptions *)disableHoverEventTooltipEffect {
     AAOptions *aaOptions = AAOptions.new
         .chartSet(AAChart.new
             .typeSet(AAChartTypeLine)

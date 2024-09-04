@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (AAOptions *)configureTheSizeOfTheSliceOfDonutAndPieChart;
 + (AAOptions *)configurePlotBackgroundClickEvent;
-+ (AAOptions *)disableHoverEventEffect;
++ (AAOptions *)disableHoverEventTooltipEffect;
 + (AAOptions *)addClickEventToXAxisLabelAndAccessData;
 + (AAOptions *)addClickEventToHighlightXAxisLabel;
 

@@ -24,7 +24,7 @@
     switch (selectedIndex) {
         case 0: return [JSFunctionForAAChartEventsComposer2 configureTheSizeOfTheSliceOfDonutAndPieChart];
         case 1: return [JSFunctionForAAChartEventsComposer2 configurePlotBackgroundClickEvent];
-        case 2: return [JSFunctionForAAChartEventsComposer2 disableHoverEventEffect];
+        case 2: return [JSFunctionForAAChartEventsComposer2 disableHoverEventTooltipEffect];
         case 3: return [JSFunctionForAAChartEventsComposer2 addClickEventToXAxisLabelAndAccessData];
         case 4: return [JSFunctionForAAChartEventsComposer2 addClickEventToHighlightXAxisLabel];
             
