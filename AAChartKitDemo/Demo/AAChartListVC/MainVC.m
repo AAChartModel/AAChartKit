@@ -196,6 +196,7 @@
             /*基础类型图表*/
             BasicChartVC *vc = BasicChartVC.new;
             vc.chartType = row;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -205,6 +206,7 @@
             SpecialChartVC *vc = SpecialChartVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -214,6 +216,7 @@
             CustomStyleChartVC *vc = CustomStyleChartVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -223,6 +226,7 @@
             MixedChartVC *vc = MixedChartVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -232,6 +236,7 @@
             OnlyRefreshChartDataVC *vc = OnlyRefreshChartDataVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController  pushViewController:vc animated:YES];
         }
             break;
@@ -240,6 +245,7 @@
             /*JQuery动画样式类型演示*/
             ChartAnimationTypeVC *vc = ChartAnimationTypeVC.new;
             vc.chartType = row;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -249,6 +255,7 @@
             DrawChartWithAAOptionsVC *vc = DrawChartWithAAOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -257,15 +264,19 @@
             /*同时显示多个 AAChartView*/
             if (row == 0) {
                 ShowManyChartViewVC *vc = ShowManyChartViewVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             } else if (row == 1) {
-                ChartListVC *listVC = ChartListVC.new;
-                [self.navigationController pushViewController:listVC animated:YES];
+                ChartListVC *vc = ChartListVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             } else if (row == 2) {
                 DoubleChartsLinkedWorkVC *vc = DoubleChartsLinkedWorkVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             } else if (row == 3) {
                 DoubleChartsLinkedWorkVC2 *vc = DoubleChartsLinkedWorkVC2.new;
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }
@@ -274,6 +285,7 @@
         case 8: {
             HideOrShowChartSeriesVC *vc = HideOrShowChartSeriesVC.new;
             vc.chartTypeIndex = row;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -282,6 +294,7 @@
             JSFunctionForAATooltipVC *vc = JSFunctionForAATooltipVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -290,6 +303,7 @@
             /*基础类型图表*/
             EvaluateJSStringFunctionVC *vc = EvaluateJSStringFunctionVC.new;
             vc.sampleChartTypeIndex = row;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -299,6 +313,7 @@
             ScrollingUpdateDataVC *vc = ScrollingUpdateDataVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -310,6 +325,7 @@
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.chartType = row;
             vc.type = DrawableChartVCTypeUpdateXAxsiExtremes;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -321,6 +337,7 @@
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.chartType = row;
             vc.type = DrawableChartVCTypeChangeChartViewContentSize;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -330,6 +347,7 @@
             DataSortingWithAnimationChartVC *vc = DataSortingWithAnimationChartVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -338,6 +356,7 @@
             /*基础类型图表*/
             ChartAdvancedUpdatingFeatureVC *vc = ChartAdvancedUpdatingFeatureVC.new;
             vc.chartType = row;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -345,6 +364,7 @@
         case 16: {
             /*在 XIB 中创建 AAChartView*/
             TestAAChartViewForXibVC *vc = TestAAChartViewForXibVC.new;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -354,6 +374,7 @@
             PieChartOptionsVC *vc = PieChartOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -363,6 +384,7 @@
             PolarChartOptionsVC *vc = PolarChartOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -372,6 +394,7 @@
             MultiYAxesChartOptionsVC *vc = MultiYAxesChartOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -381,6 +404,7 @@
             PlotLinesBandsZonesOptionsVC *vc = PlotLinesBandsZonesOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -390,6 +414,7 @@
             AreasplineChartOptionsVC *vc = AreasplineChartOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -399,6 +424,7 @@
             TooltipOptionsVC *vc = TooltipOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -408,6 +434,7 @@
             DataLabelsOptionsVC *vc = DataLabelsOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -417,6 +444,7 @@
             XAxisYAxisLabelsOptionsVC *vc = XAxisYAxisLabelsOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -426,6 +454,7 @@
             XAxisYAxisTypeOptionsVC *vc = XAxisYAxisTypeOptionsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -434,6 +463,7 @@
             JSFunctionForAAAxisVC *vc = JSFunctionForAAAxisVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -442,6 +472,7 @@
             JSFunctionForAALegendVC *vc = JSFunctionForAALegendVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -450,6 +481,7 @@
             JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -457,7 +489,8 @@
         case 29: {
             /*完全自定义图表交互事件回调的信息*/
             CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
-            [self.navigationController  pushViewController:vc animated:YES];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
