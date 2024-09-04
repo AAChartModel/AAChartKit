@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAAPointEventsComposer : NSObject
 
-+ (AAOptions *)showTooltipOnlyOnClick;
++ (AAOptions *)disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction;
 + (AAOptions *)customizeCrosshairsStyle;
++ (AAOptions *)showTooltipOnlyOnClick;
 
 @end
 

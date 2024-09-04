@@ -9,6 +9,8 @@
 #import "JSFunctionForMixedEventsComposer.h"
 #import "AAChartKit.h"
 
+static const NSString * kTouchMove = @"touchmove";
+
 @implementation JSFunctionForMixedEventsComposer
 
 //https://github.com/AAChartModel/AAChartCore/issues/203
@@ -19,7 +21,7 @@
             .eventsSet(AAChartEvents.new
                 .loadSet(@AAJSFunc(function() {
                     const chart = this;
-                    Highcharts.addEvent(chart.container, 'touchmove', function (e) {
+                    Highcharts.addEvent(chart.container, kTouchMove, function (e) {
                         e.preventDefault();
                         chart.tooltip.hide(0);
                     });

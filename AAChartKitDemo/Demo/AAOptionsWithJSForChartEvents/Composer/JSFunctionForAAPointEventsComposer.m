@@ -12,7 +12,7 @@
 @implementation JSFunctionForAAPointEventsComposer
 
 //https://github.com/AAChartModel/AAChartKit/issues/967
-- (AAOptions *)disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction {
++ (AAOptions *)disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction {
     AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Custom Bar Chart select color")

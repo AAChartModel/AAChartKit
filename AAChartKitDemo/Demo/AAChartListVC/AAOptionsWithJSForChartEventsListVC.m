@@ -9,6 +9,9 @@
 #import "AAOptionsWithJSForChartEventsListVC.h"
 #import "JSFunctionForAAChartEventsVC.h"
 #import "JSFunctionForAAChartEventsVC2.h"
+#import "JSFunctionForAAPointEventsVC.h"
+#import "JSFunctionForAASeriesEventsVC.h"
+#import "JSFunctionForMixedEventsVC.h"
 
 @interface AAOptionsWithJSForChartEventsListVC ()
 
@@ -21,14 +24,14 @@
     // Do any additional setup after loading the view.
     
     self.sectionTitleArr = @[
-        @"Draw Chart With AAOptions | 通过Options绘图",
-        
-        @"LineChartOptions--- 通过 Options 绘制折线📈图",
- 
+        @"JSFunctionForAAChartEventsVC",
+        @"JSFunctionForAAChartEventsVC2",
+        @"JSFunctionForAAPointEventsVC",
+        @"JSFunctionForAASeriesEventsVC",
+        @"JSFunctionForMixedEventsVC"
     ];
     
     self.chartTypeTitleArr = @[
-        /*基础类型图表*/
         @[
             @"generalDrawingChart]; //自由绘图",
             @"advancedTimeLineChart]; //高级时间线图",
@@ -53,7 +56,21 @@
             @"configureBlinkMarkerChart",
             @"toggleDataLabelsOnTouch",
             @"autoCrosshairAndTooltip",
-            
+        ],
+        
+
+        @[
+            @"disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction",
+            @"customizeCrosshairsStyle",
+            @"showTooltipOnlyOnClick",
+        ],
+        
+        @[
+            @"defaultSelectedAPointForLineChart",
+        ],
+        
+        @[
+            @"disableHoverEventTooltipEffect",
         ],
     ];
     
@@ -83,6 +100,35 @@
              [self.navigationController pushViewController:vc animated:YES];
          }
              break;
+             
+         case 2: {
+             JSFunctionForAAPointEventsVC *vc = JSFunctionForAAPointEventsVC.new;
+             vc.selectedIndex = row;
+             vc.navigationItemTitleArr = self.chartTypeTitleArr[indexPath.section];
+             vc.hidesBottomBarWhenPushed = YES;
+             [self.navigationController pushViewController:vc animated:YES];
+         }
+             break;
+         
+         case 3: {
+             JSFunctionForAASeriesEventsVC *vc = JSFunctionForAASeriesEventsVC.new;
+             vc.selectedIndex = row;
+             vc.navigationItemTitleArr = self.chartTypeTitleArr[indexPath.section];
+             vc.hidesBottomBarWhenPushed = YES;
+             [self.navigationController pushViewController:vc animated:YES];
+         }
+             break;
+             
+         case 4: {
+             JSFunctionForMixedEventsVC *vc = JSFunctionForMixedEventsVC.new;
+             vc.selectedIndex = row;
+             vc.navigationItemTitleArr = self.chartTypeTitleArr[indexPath.section];
+             vc.hidesBottomBarWhenPushed = YES;
+             [self.navigationController pushViewController:vc animated:YES];
+         }
+             break;
+         
+
          
              
          default:
