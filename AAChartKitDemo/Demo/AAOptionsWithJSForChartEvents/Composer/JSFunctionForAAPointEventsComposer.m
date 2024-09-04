@@ -21,7 +21,7 @@
         .seriesSet(@[
             AASeriesElement.new
             .nameSet(@"ElementOne")
-            .dataSet(@[@211,@183,@157,@133,@111,@91,@73,@57,@43,@31,@21,@13,@7,@3])
+            .dataSet(@[@211, @183, @157, @133, @111, @91, @73, @57, @43, @31, @21, @13, @7, @3])
             .allowPointSelectSet(YES)
             .statesSet(AAStates.new
                        .hoverSet(AAHover.new
@@ -33,17 +33,15 @@
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     
-    AAPoint *point = AAPoint.new
-        .eventsSet(AAPointEvents.new
-                   .clickSet(@AAJSFunc(function () {
-                       if (this.selected == true) {
-                           this.selected = false;
-                       }
-                       return;
-                   })));
-    
     aaOptions.plotOptions.series
-        .pointSet(point);
+        .pointSet(AAPoint.new
+                  .eventsSet(AAPointEvents.new
+                             .clickSet(@AAJSFunc(function () {
+                                 if (this.selected == true) {
+                                     this.selected = false;
+                                 }
+                                 return;
+                             }))));
     
     return aaOptions;
 }
