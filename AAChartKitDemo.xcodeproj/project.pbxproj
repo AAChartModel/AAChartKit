@@ -83,6 +83,8 @@
 		846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */; };
 		846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F92C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m */; };
 		846141FF2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */; };
+		846142062C8831FA0032FBD3 /* AABaseListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846142052C8831FA0032FBD3 /* AABaseListVC.m */; };
+		846142092C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846142082C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m */; };
 		8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDD228CADF5800392C50 /* CustomTableViewCell.m */; };
 		8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */; };
 		8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */; };
@@ -289,6 +291,10 @@
 		846141F92C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC2.m; sourceTree = "<group>"; };
 		846141FD2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForMixedEventsComposer.h; sourceTree = "<group>"; };
 		846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForMixedEventsComposer.m; sourceTree = "<group>"; };
+		846142042C8831FA0032FBD3 /* AABaseListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABaseListVC.h; sourceTree = "<group>"; };
+		846142052C8831FA0032FBD3 /* AABaseListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AABaseListVC.m; sourceTree = "<group>"; };
+		846142072C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsWithJSForChartEventsListVC.h; sourceTree = "<group>"; };
+		846142082C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsWithJSForChartEventsListVC.m; sourceTree = "<group>"; };
 		8463FDD128CADF5800392C50 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		8463FDD228CADF5800392C50 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -591,6 +597,8 @@
 			children = (
 				713F54371E7B71C000D506C7 /* MainVC.h */,
 				713F54381E7B71C000D506C7 /* MainVC.m */,
+				846142072C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.h */,
+				846142082C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m */,
 			);
 			path = AAChartListVC;
 			sourceTree = "<group>";
@@ -695,6 +703,8 @@
 				441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */,
 				27E475F324B2111400690657 /* AABaseChartVC.h */,
 				27E475F424B2111400690657 /* AABaseChartVC.m */,
+				846142042C8831FA0032FBD3 /* AABaseListVC.h */,
+				846142052C8831FA0032FBD3 /* AABaseListVC.m */,
 				27EB89D6248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.h */,
 				27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */,
 				92445D851FDE1F2A00B3E576 /* MonitorViewController.h */,
@@ -999,6 +1009,7 @@
 				846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */,
 				84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */,
 				84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */,
+				846142062C8831FA0032FBD3 /* AABaseListVC.m in Sources */,
 				84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */,
 				44EF0FA524F759FD00F5639A /* AALineStyle.m in Sources */,
 				44C8C491226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m in Sources */,
@@ -1022,6 +1033,7 @@
 				1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */,
 				1E66D201210AF4ED007EAB8C /* AADataLabels.m in Sources */,
 				1E66D211210AF4ED007EAB8C /* AASpline.m in Sources */,
+				846142092C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m in Sources */,
 				846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */,
 				44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */,
 				1E66D1FF210AF4ED007EAB8C /* AAXAxis.m in Sources */,

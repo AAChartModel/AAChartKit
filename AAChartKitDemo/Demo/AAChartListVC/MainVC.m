@@ -64,7 +64,7 @@
 #import "XAxisYAxisTypeOptionsVC.h"
 #import "JSFunctionForAAAxisVC.h"
 #import "JSFunctionForAALegendVC.h"
-#import "JSFunctionForAAChartEventsComposer.h"
+#import "JSFunctionForAAChartEventsVC.h"
 #import "CustomTableViewCell.h"
 #import "CustomClickEventCallbackMessageVC.h"
 
@@ -447,7 +447,7 @@
             break;
         case  28: {
             /*通过 AAOptions 自定义 AAChartEvents*/
-            JSFunctionForAAChartEventsComposer *vc = JSFunctionForAAChartEventsComposer.new;
+            JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             [self.navigationController pushViewController:vc animated:YES];

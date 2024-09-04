@@ -43,36 +43,36 @@
 
 @implementation JSFunctionForAAChartEventsComposer
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (selectedIndex) {
-        case 0: return [self setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart]; //图表加载完成后,自动设置默认的十字准星和浮动提示框的位置
-        case 1: return [self generalDrawingChart]; //自由绘图
-        case 2: return [self advancedTimeLineChart]; //高级时间线图
-        case 3: return [self configureBlinkMarkerChart]; //配置闪烁的标记点
-        case 4: return [self configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect]; //配置单个数据元素的特殊样式标记点即闪烁特效
-        case 5: return [self configureScatterChartWithBlinkEffect]; //配置散点图的闪烁特效
-        case 6: return [self automaticallyHideTooltipAfterItIsShown]; //图表加载完成后,自动隐藏浮动提示框
-        case 7: return [self dynamicHeightGridLineAreaChart]; //动态高度网格线的区域填充图
-        case 8: return [self customizeYAxisPlotLinesLabelBeSpecialStyle]; //自定义 Y 轴轴线上面的标签文字特殊样式
-        case 9: return [self configureECGStyleChart]; //配置心电图样式的图表
-        case 10: return [self configureTheSizeOfTheSliceOfDonutAndPieChart]; //配置环形图和饼图的扇区大小
-//        case 11: return [self configurePlotBackgroundClickEvent]; //配置绘图区的点击事件
-//        case 11: return [JSFunctionForAAChartEventsComposer2 defaultSelectedAPointForLineChart];
-        case 11: return [JSFunctionForAAChartEventsComposer2 addClickEventToHighlightXAxisLabel];
-
-
-
-    }
-    return nil;
-}
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    // Do any additional setup after loading the view.
+//}
+//
+//- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+//    switch (selectedIndex) {
+//        case 0: return [self setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart]; //图表加载完成后,自动设置默认的十字准星和浮动提示框的位置
+//        case 1: return [self generalDrawingChart]; //自由绘图
+//        case 2: return [self advancedTimeLineChart]; //高级时间线图
+//        case 3: return [self configureBlinkMarkerChart]; //配置闪烁的标记点
+//        case 4: return [self configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect]; //配置单个数据元素的特殊样式标记点即闪烁特效
+//        case 5: return [self configureScatterChartWithBlinkEffect]; //配置散点图的闪烁特效
+//        case 6: return [self automaticallyHideTooltipAfterItIsShown]; //图表加载完成后,自动隐藏浮动提示框
+//        case 7: return [self dynamicHeightGridLineAreaChart]; //动态高度网格线的区域填充图
+//        case 8: return [self customizeYAxisPlotLinesLabelBeSpecialStyle]; //自定义 Y 轴轴线上面的标签文字特殊样式
+//        case 9: return [self configureECGStyleChart]; //配置心电图样式的图表
+//        case 10: return [self configureTheSizeOfTheSliceOfDonutAndPieChart]; //配置环形图和饼图的扇区大小
+////        case 11: return [self configurePlotBackgroundClickEvent]; //配置绘图区的点击事件
+////        case 11: return [JSFunctionForAAChartEventsComposer2 defaultSelectedAPointForLineChart];
+//        case 11: return [JSFunctionForAAChartEventsComposer2 addClickEventToHighlightXAxisLabel];
+//
+//
+//
+//    }
+//    return nil;
+//}
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/345
-- (AAOptions *)setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart {
++ (AAOptions *)setCrosshairAndTooltipToTheDefaultPositionAfterLoadingChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
@@ -141,7 +141,7 @@
     return aaOptions;
 }
 
-- (AAOptions *)generalDrawingChart {
++ (AAOptions *)generalDrawingChart {
     return AAOptions.new
     .chartSet(AAChart.new
               .backgroundColorSet(AAColor.whiteColor)
@@ -387,7 +387,7 @@
 }
 
 
-- (AAOptions *)advancedTimeLineChart {
++ (AAOptions *)advancedTimeLineChart {
     return AAOptions.new
         .chartSet(AAChart.new
             .eventsSet(AAChartEvents.new
@@ -811,7 +811,7 @@
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
 //https://www.highcharts.com/forum/viewtopic.php?t=44985
-- (AAOptions *)configureBlinkMarkerChart {
++ (AAOptions *)configureBlinkMarkerChart {
     NSArray *dataArr = @[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6];
     NSInteger selectedIndex = dataArr.count - 1;
     return AAOptions.new
@@ -843,7 +843,7 @@
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
 //https://www.highcharts.com/forum/viewtopic.php?t=44985
-- (AAOptions *)configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect {
++ (AAOptions *)configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect {
     NSArray *stopsArr = @[
             @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
             @[@0.25, @"#FF14d4"],
@@ -908,7 +908,7 @@
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
 //https://echarts.apache.org/examples/zh/editor.html?c=scatter-effect
-- (AAOptions *)configureScatterChartWithBlinkEffect {
++ (AAOptions *)configureScatterChartWithBlinkEffect {
     AAChartModel *aaChartModel = AAChartModel.new
             .chartTypeSet(AAChartTypeScatter)
             .titleSet(@"按性别划分的身高体重分布图")
@@ -1012,7 +1012,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1093
 //https://github.com/highcharts/highcharts-ios/issues/97
-- (AAOptions *)automaticallyHideTooltipAfterItIsShown {
++ (AAOptions *)automaticallyHideTooltipAfterItIsShown {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .colorsThemeSet(@[@"#04d69f", @"#1e90ff", @"#ef476f", @"#ffd066",])
@@ -1069,7 +1069,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1383
 //https://www.highcharts.com/forum/viewtopic.php?t=49409
-- (AAOptions *)dynamicHeightGridLineAreaChart {
++ (AAOptions *)dynamicHeightGridLineAreaChart {
     return AAOptions.new
     .titleSet(AATitle.new
               .textSet(@"dynamicHeightGridLineAreaChart"))
@@ -1117,7 +1117,7 @@
 
 //https://github.com/AAChartModel/AAChartKit-Swift-Pro/issues/3
 //https://www.highcharts.com/forum/viewtopic.php?f=9&t=49492
-- (AAOptions *)customizeYAxisPlotLinesLabelBeSpecialStyle {
++ (AAOptions *)customizeYAxisPlotLinesLabelBeSpecialStyle {
     return AAOptions.new
     .chartSet(AAChart.new
             .eventsSet(AAChartEvents.new
@@ -1215,7 +1215,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1445
 //https://stackoverflow.com/questions/47392848/set-ecg-paper-like-grid-intervals-highcharts-js
-- (AAOptions *)configureECGStyleChart {
++ (AAOptions *)configureECGStyleChart {
     AAXAxis *axesOptions = AAXAxis.new
             .tickIntervalSet(@0.5)
             .minorTicksSet(@true)
@@ -1291,7 +1291,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1449
 //https://www.highcharts.com/forum/viewtopic.php?t=28267
-- (AAOptions *)configureTheSizeOfTheSliceOfDonutAndPieChart {
++ (AAOptions *)configureTheSizeOfTheSliceOfDonutAndPieChart {
     return AAOptions.new
             .titleSet(AATitle.new
                     .textSet(@"Configure The Size Of The Slice Of Donut And Pie Chart"))
@@ -1357,7 +1357,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1480
 //https://api.highcharts.com/highcharts/chart.events.click
-- (AAOptions *)configurePlotBackgroundClickEvent {
++ (AAOptions *)configurePlotBackgroundClickEvent {
     return AAOptions.new
             .titleSet(AATitle.new
                     .textSet(@"configure Plot Background Click Event"))
