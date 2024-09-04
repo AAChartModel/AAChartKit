@@ -82,6 +82,7 @@
 		845589C928C3B27C009D1BC3 /* AAScatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845589C828C3B27C009D1BC3 /* AAScatter.m */; };
 		846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */; };
 		846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F92C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m */; };
+		846141FF2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */; };
 		8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDD228CADF5800392C50 /* CustomTableViewCell.m */; };
 		8463FDD528CADF5800392C50 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */; };
 		8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */; };
@@ -286,6 +287,8 @@
 		846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC.m; sourceTree = "<group>"; };
 		846141F82C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsVC2.h; sourceTree = "<group>"; };
 		846141F92C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC2.m; sourceTree = "<group>"; };
+		846141FD2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForMixedEventsComposer.h; sourceTree = "<group>"; };
+		846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForMixedEventsComposer.m; sourceTree = "<group>"; };
 		8463FDD128CADF5800392C50 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		8463FDD228CADF5800392C50 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		8463FDD328CADF5800392C50 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -740,6 +743,8 @@
 				8492D9A42C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m */,
 				8492D9AA2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.h */,
 				8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */,
+				846141FD2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.h */,
+				846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */,
 			);
 			path = AAOptionsWithJSForChartEvents;
 			sourceTree = "<group>";
@@ -981,6 +986,7 @@
 				84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */,
 				44EF0FA524F759FD00F5639A /* AALineStyle.m in Sources */,
 				44C8C491226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m in Sources */,
+				846141FF2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m in Sources */,
 				8486A22A2BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m in Sources */,
 				84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */,
 				27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */,
