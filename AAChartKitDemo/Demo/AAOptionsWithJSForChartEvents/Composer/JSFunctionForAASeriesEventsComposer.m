@@ -23,14 +23,14 @@
     NSArray *dataArr = @[@29.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, defaultPointData];
     NSInteger defaultPointIndex = dataArr.count - 1;
 
-    AAOptions *options = AAOptions.new
+    return AAOptions.new
         .xAxisSet(AAXAxis.new
             .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]))
         .plotOptionsSet(AAPlotOptions.new
             .seriesSet(AASeries.new
                 .eventsSet(AASeriesEvents.new
                     .mouseOverSet([NSString stringWithFormat:@AAJSFunc(function () {
-                        if(this.hasRun) return;
+                        if (this.hasRun) return;
 
                         const series = this;
                         const defaultPointIndex = %ld;
@@ -53,8 +53,6 @@
             AASeriesElement.new
                 .dataSet(dataArr)
         ]);
-
-    return options;
 }
 
 @end
