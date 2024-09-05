@@ -31,6 +31,7 @@
  */
 #import "AAChartView.h"
 #import "AAGradientColor.h"
+#import "AAGradientColor+DefaultThemes.h"
 #import "NSArray+toJSArray.h"
 #import "AAStyleConvenience.h"
 #import "AAMarginConvenience.h"
