@@ -8,6 +8,8 @@
 
 #import "CustomStyleForBubbleChartComposer.h"
 #import "AAChartKit.h"
+#import "AAGradientColor+RadialGradient.h"
+#import "AAChartModel.h"
 
 @implementation CustomStyleForBubbleChartComposer
 
@@ -53,6 +55,48 @@
                 .negativeColorSet((id)[AAGradientColor pinkSugarColor])
                 .thresholdSet(@5)//default:0
             ,
+        ]);
+}
+
++ (AAChartModel *)showAARadialGradientPositionAllEnumValuesWithBubbleChart {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeBubble)
+        .titleSet(@"AACHARTKIT BUBBLES")
+        .subtitleSet(@"JUST FOR SHOW AARadialGradientPosition")
+        .yAxisTitleSet(@"℃")
+        .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+        .colorsThemeSet(@[
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopLeft startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopCenter startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopRight startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleLeft startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleCenter startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleRight startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomLeft startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomCenter startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomRight startColor:@"#FF0000" endColor:@"#FFFF00"],
+        ])
+        .yAxisReversedSet(true)
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"BubbleOne")
+                .colorByPointSet(@true)
+                .markerSet(AAMarker.new
+                    .lineColorSet(AAColor.redColor)
+                    .lineWidthSet(@3))
+                .dataSet(@[
+                    @[@25, @25, @250],
+                    @[@50, @25, @250],
+                    @[@75, @25, @250],
+
+                    @[@25, @50, @250],
+                    @[@50, @50, @250],
+                    @[@75, @50, @250],
+
+                    @[@25, @75, @250],
+                    @[@50, @75, @250],
+                    @[@75, @75, @250],
+                ])
         ]);
 }
 
