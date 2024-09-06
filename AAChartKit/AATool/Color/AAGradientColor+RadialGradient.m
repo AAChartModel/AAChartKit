@@ -10,10 +10,6 @@
 
 @implementation AAGradientColor (RadialGradient)
 
-
-
-@implementation AAGradientColor (RadialGradient)
-
 + (AAGradientColor *)radialGradientWithStartColor:(NSString *)startColor
                                          endColor:(NSString *)endColor {
     return [self radialGradientWithPosition:AARadialGradientPositionMiddleCenter
@@ -43,6 +39,38 @@
     return gradientColor;
 }
 
+/**
+     (0,0) ----------- (1,0)
+     |                   |
+     |                   |
+     |                   |
+     |                   |
+     |                   |
+     (0,1) ----------- (1,1)
+     */
+/**
+ ( topLeft ) -----------  ( topCenter ) ----------- (  topRight )
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+ (middleLeft) ----------- (middleCenter) ----------- (middleRight)
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+      |                          |                          |
+ (bottomLeft) ----------- (bottomCenter) ----------- (bottomRight)
+ */
 + (AARadialGradient *)radialGradientPositionDictionaryWithPosition:(AARadialGradientPosition)position {
     switch (position) {
 //        case AARadialGradientPositionTopLeft:

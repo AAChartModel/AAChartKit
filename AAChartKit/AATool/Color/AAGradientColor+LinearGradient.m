@@ -66,15 +66,15 @@
 
 
 + (AAGradientColor *)gradientColorWithStartColorString:(NSString *)startColorStr
-                                     endColorString:(NSString *)endColorStr {
+                                        endColorString:(NSString *)endColorStr {
     return [self gradientColorWithDirection:AALinearGradientDirectionToTop
                            startColorString:startColorStr
                              endColorString:endColorStr];
 }
-    
+
 + (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
-                            startColorString:(NSString *)startColorStr
-                              endColorString:(NSString *)endColorStr {
+                               startColorString:(NSString *)startColorStr
+                                 endColorString:(NSString *)endColorStr {
     NSArray *stopsArr = @[
         @[@(0),startColorStr],
         @[@(1),endColorStr]
@@ -83,7 +83,7 @@
 }
 
 + (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
-                                  stopsArray:(NSArray *)stopsArray {
+                                     stopsArray:(NSArray *)stopsArray {
 //    return @{
 //        @"linearGradient":[self linearGradientDictionaryWithDirection:direction],
 //        @"stops":stopsArray

@@ -32,6 +32,17 @@
 
 #import "AAGradientColor.h"
 
+//https://api.highcharts.com/class-reference/Highcharts.LinearGradientColorObject
+/// - vertical  : ⇧ top,  ⇩ bottom
+/// - horizontal: ⇦ left, ⇨ right
+/**
+ —————————————————————————————————————————
+    V\H     | ⇦ left       | ⇨ right
+ -----------|--------------|--------------
+ ⇧ top      | ⇖ topLeft    | ⇗ topRight
+ ⇩ bottom   | ⇙ bottomLeft | ⇘ bottomRight
+ —————————————————————————————————————————
+ */
 typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
     AALinearGradientDirectionToTop = 0,     //⇧⇧⇧⇧⇧⇧
     AALinearGradientDirectionToBottom,      //⇩⇩⇩⇩⇩⇩
@@ -52,14 +63,14 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 
 
 + (AAGradientColor *)gradientColorWithStartColorString:(NSString *)startColorStr
-                                     endColorString:(NSString *)endColorStr;
-    
-+ (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
-                            startColorString:(NSString *)startColorStr
-                              endColorString:(NSString *)endColorStr;
+                                        endColorString:(NSString *)endColorStr;
 
 + (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
-                                  stopsArray:(NSArray *)stopsArray;
+                               startColorString:(NSString *)startColorStr
+                                 endColorString:(NSString *)endColorStr;
+
++ (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
+                                     stopsArray:(NSArray *)stopsArray;
 
 @end
 

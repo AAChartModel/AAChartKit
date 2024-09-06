@@ -10,6 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//https://api.highcharts.com/class-reference/Highcharts.RadialGradientColorObject
+/// - vertical  : top,  middle, bottom
+/// - horizontal: left, center, right
+/**
+ ----------------------------------------------------
+    V\H   | left       | center       | right
+ ---------|---------------------------|--------------
+ top      | topLeft    | topCenter    | topRight
+ middle   | middleLeft | middleCenter | middleRight
+ bottom   | bottomLeft | bottomCenter | bottomRight
+ ----------------------------------------------------
+ */
 typedef NS_ENUM(NSInteger, AARadialGradientPosition) {
     AARadialGradientPositionTopLeft,
     AARadialGradientPositionTopCenter,
