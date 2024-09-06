@@ -26,9 +26,11 @@ typedef NS_ENUM(NSInteger, AARadialGradientPosition) {
     AARadialGradientPositionTopLeft,
     AARadialGradientPositionTopCenter,
     AARadialGradientPositionTopRight,
+
     AARadialGradientPositionMiddleLeft,
     AARadialGradientPositionMiddleCenter,
     AARadialGradientPositionMiddleRight,
+
     AARadialGradientPositionBottomLeft,
     AARadialGradientPositionBottomCenter,
     AARadialGradientPositionBottomRight

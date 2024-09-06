@@ -29,10 +29,6 @@
 
 + (AAGradientColor *)radialGradientWithPosition:(AARadialGradientPosition)position
                                           stops:(NSArray *)stops {
-//    return @{
-//        @"radialGradient": [self radialGradientPositionDictionaryWithPosition:position],
-//        @"stops": stops
-//    };
     AAGradientColor *gradientColor = AAGradientColor.new;
     gradientColor.radialGradient = [self radialGradientPositionDictionaryWithPosition:position];
     gradientColor.stops = stops.mutableCopy;
@@ -73,25 +69,6 @@
  */
 + (AARadialGradient *)radialGradientPositionDictionaryWithPosition:(AARadialGradientPosition)position {
     switch (position) {
-//        case AARadialGradientPositionTopLeft:
-//            return @{@"cx": @"25%", @"cy": @"25%", @"r": @"50%"};
-//        case AARadialGradientPositionTopCenter:
-//            return @{@"cx": @"50%", @"cy": @"25%", @"r": @"50%"};
-//        case AARadialGradientPositionTopRight:
-//            return @{@"cx": @"75%", @"cy": @"25%", @"r": @"50%"};
-//        case AARadialGradientPositionMiddleLeft:
-//            return @{@"cx": @"25%", @"cy": @"50%", @"r": @"50%"};
-//        case AARadialGradientPositionMiddleCenter:
-//            return @{@"cx": @"50%", @"cy": @"50%", @"r": @"50%"};
-//        case AARadialGradientPositionMiddleRight:
-//            return @{@"cx": @"75%", @"cy": @"50%", @"r": @"50%"};
-//        case AARadialGradientPositionBottomLeft:
-//            return @{@"cx": @"25%", @"cy": @"75%", @"r": @"50%"};
-//        case AARadialGradientPositionBottomCenter:
-//            return @{@"cx": @"50%", @"cy": @"75%", @"r": @"50%"};
-//        case AARadialGradientPositionBottomRight:
-//            return @{@"cx": @"75%", @"cy": @"75%", @"r": @"50%"};
-
         case AARadialGradientPositionTopLeft:
             return [AARadialGradient radialGradientWithCx:@(25) cy:@(25) r:@(50)];
         case AARadialGradientPositionTopCenter:

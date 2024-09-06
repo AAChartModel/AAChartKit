@@ -84,10 +84,6 @@
 
 + (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
                                      stopsArray:(NSArray *)stopsArray {
-//    return @{
-//        @"linearGradient":[self linearGradientDictionaryWithDirection:direction],
-//        @"stops":stopsArray
-//    };
     AAGradientColor *gradientColor = AAGradientColor.new;
     gradientColor.linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
     gradientColor.stops = (NSMutableArray *)stopsArray;
@@ -105,23 +101,6 @@
  */
 + (AALinearGradient *)linearGradientDictionaryWithDirection:(AALinearGradientDirection)direction {
     switch (direction) {
-//        case AALinearGradientDirectionToTop:
-//            return @{@"x1":@(0), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
-//        case AALinearGradientDirectionToBottom:
-//            return @{@"x1":@(0), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
-//        case AALinearGradientDirectionToLeft:
-//            return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(0)};
-//        case AALinearGradientDirectionToRight:
-//            return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(0)};
-//        case AALinearGradientDirectionToTopLeft:
-//            return @{@"x1":@(1), @"y1":@(1), @"x2":@(0), @"y2":@(0)};
-//        case AALinearGradientDirectionToTopRight:
-//            return @{@"x1":@(0), @"y1":@(1), @"x2":@(1), @"y2":@(0)};
-//        case AALinearGradientDirectionToBottomLeft:
-//            return @{@"x1":@(1), @"y1":@(0), @"x2":@(0), @"y2":@(1)};
-//        case AALinearGradientDirectionToBottomRight:
-//            return @{@"x1":@(0), @"y1":@(0), @"x2":@(1), @"y2":@(1)};
-
         case AALinearGradientDirectionToTop:
             return [AALinearGradient linearGradientWithX1:@(0) y1:@(1) x2:@(0) y2:@(0)];
         case AALinearGradientDirectionToBottom:
