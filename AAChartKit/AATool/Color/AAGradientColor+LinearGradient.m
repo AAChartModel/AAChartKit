@@ -32,34 +32,34 @@
 
 #import "AAGradientColor+LinearGradient.h"
 
-@implementation AAGradientColor
+@implementation AAGradientColor (LinearGradient)
 
 - (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet {
     return ^(AALinearGradientDirection direction) {
-        self->_linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
+        self.linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
         return self;
     };
 }
 
 - (AAGradientColor * (^) (NSString *startColor))startColorSet {
     return ^(NSString *startColor) {
-        self->_stops = [NSMutableArray arrayWithCapacity:2];
-        [self->_stops addObject:@[@(0),startColor]];
+        self.stops = [NSMutableArray arrayWithCapacity:2];
+        [self.stops addObject:@[@(0),startColor]];
         return self;
     };
 }
 
 - (AAGradientColor * (^) (NSString *endColor))endColorSet {
     return ^(NSString *endColor) {
-        NSAssert(self->_stops != nil, @"You should set startColor before setting endColor");
-        [self->_stops addObject:@[@(1),endColor]];
+        NSAssert(self.stops != nil, @"You should set startColor before setting endColor");
+        [self.stops addObject:@[@(1),endColor]];
         return self;
     };
 }
 
 - (AAGradientColor * (^) (NSArray *stopsArray))stopsArraySet {
     return ^(NSArray *stopsArray) {
-        self->_stops = (NSMutableArray *)stopsArray;
+        self.stops = (NSMutableArray *)stopsArray;
         return self;
     };
 }
