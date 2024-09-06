@@ -7,61 +7,62 @@
 //
 
 #import "AAGradientColor.h"
+#import "AAGradientColor+LinearGradient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AAGradientColor (DefaultThemes)
 
 // Some convenience methods to create gradient colors.
-@property (class, nonatomic, readonly) NSDictionary *oceanBlueColor;
-@property (class, nonatomic, readonly) NSDictionary *sanguineColor;
-@property (class, nonatomic, readonly) NSDictionary *lusciousLimeColor;
-@property (class, nonatomic, readonly) NSDictionary *purpleLakeColor;
-@property (class, nonatomic, readonly) NSDictionary *freshPapayaColor;
-@property (class, nonatomic, readonly) NSDictionary *ultramarineColor;
-@property (class, nonatomic, readonly) NSDictionary *pinkSugarColor;
-@property (class, nonatomic, readonly) NSDictionary *lemonDrizzleColor;
-@property (class, nonatomic, readonly) NSDictionary *victoriaPurpleColor;
-@property (class, nonatomic, readonly) NSDictionary *springGreensColor;
-@property (class, nonatomic, readonly) NSDictionary *mysticMauveColor;
-@property (class, nonatomic, readonly) NSDictionary *reflexSilverColor;
-@property (class, nonatomic, readonly) NSDictionary *neonGlowColor;
-@property (class, nonatomic, readonly) NSDictionary *berrySmoothieColor;
-@property (class, nonatomic, readonly) NSDictionary *newLeafColor;
-@property (class, nonatomic, readonly) NSDictionary *cottonCandyColor;
-@property (class, nonatomic, readonly) NSDictionary *pixieDustColor;
-@property (class, nonatomic, readonly) NSDictionary *fizzyPeachColor;
-@property (class, nonatomic, readonly) NSDictionary *sweetDreamColor;
-@property (class, nonatomic, readonly) NSDictionary *firebrickColor;
-@property (class, nonatomic, readonly) NSDictionary *wroughtIronColor;
-@property (class, nonatomic, readonly) NSDictionary *deepSeaColor;
-@property (class, nonatomic, readonly) NSDictionary *coastalBreezeColor;
-@property (class, nonatomic, readonly) NSDictionary *eveningDelightColor;
+@property (class, nonatomic, readonly) AAGradientColor *oceanBlueColor;
+@property (class, nonatomic, readonly) AAGradientColor *sanguineColor;
+@property (class, nonatomic, readonly) AAGradientColor *lusciousLimeColor;
+@property (class, nonatomic, readonly) AAGradientColor *purpleLakeColor;
+@property (class, nonatomic, readonly) AAGradientColor *freshPapayaColor;
+@property (class, nonatomic, readonly) AAGradientColor *ultramarineColor;
+@property (class, nonatomic, readonly) AAGradientColor *pinkSugarColor;
+@property (class, nonatomic, readonly) AAGradientColor *lemonDrizzleColor;
+@property (class, nonatomic, readonly) AAGradientColor *victoriaPurpleColor;
+@property (class, nonatomic, readonly) AAGradientColor *springGreensColor;
+@property (class, nonatomic, readonly) AAGradientColor *mysticMauveColor;
+@property (class, nonatomic, readonly) AAGradientColor *reflexSilverColor;
+@property (class, nonatomic, readonly) AAGradientColor *neonGlowColor;
+@property (class, nonatomic, readonly) AAGradientColor *berrySmoothieColor;
+@property (class, nonatomic, readonly) AAGradientColor *newLeafColor;
+@property (class, nonatomic, readonly) AAGradientColor *cottonCandyColor;
+@property (class, nonatomic, readonly) AAGradientColor *pixieDustColor;
+@property (class, nonatomic, readonly) AAGradientColor *fizzyPeachColor;
+@property (class, nonatomic, readonly) AAGradientColor *sweetDreamColor;
+@property (class, nonatomic, readonly) AAGradientColor *firebrickColor;
+@property (class, nonatomic, readonly) AAGradientColor *wroughtIronColor;
+@property (class, nonatomic, readonly) AAGradientColor *deepSeaColor;
+@property (class, nonatomic, readonly) AAGradientColor *coastalBreezeColor;
+@property (class, nonatomic, readonly) AAGradientColor *eveningDelightColor;
 
-+ (NSDictionary *)oceanBlueColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)sanguineColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)lusciousLimeColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)purpleLakeColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)freshPapayaColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)ultramarineColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)pinkSugarColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)lemonDrizzleColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)victoriaPurpleColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)springGreensColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)mysticMauveColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)reflexSilverColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)neonGlowColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)berrySmoothieColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)newLeafColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)cottonCandyColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)pixieDustColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)fizzyPeachColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)sweetDreamColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)firebrickColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)wroughtIronColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)deepSeaColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)coastalBreezeColorWithDirection:(AALinearGradientDirection)direction;
-+ (NSDictionary *)eveningDelightColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)oceanBlueColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)sanguineColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)lusciousLimeColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)purpleLakeColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)freshPapayaColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)ultramarineColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)pinkSugarColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)lemonDrizzleColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)victoriaPurpleColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)springGreensColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)mysticMauveColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)reflexSilverColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)neonGlowColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)berrySmoothieColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)newLeafColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)cottonCandyColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)pixieDustColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)fizzyPeachColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)sweetDreamColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)firebrickColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)wroughtIronColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)deepSeaColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)coastalBreezeColorWithDirection:(AALinearGradientDirection)direction;
++ (AAGradientColor *)eveningDelightColorWithDirection:(AALinearGradientDirection)direction;
 
 @end
 

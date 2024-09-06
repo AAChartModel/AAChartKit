@@ -11,242 +11,242 @@
 @implementation AAGradientColor (DefaultThemes)
 
 
-+ (NSDictionary *)oceanBlueColor {
++ (AAGradientColor *)oceanBlueColor {
     return [self oceanBlueColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)sanguineColor {
++ (AAGradientColor *)sanguineColor {
     return [self sanguineColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)lusciousLimeColor {
++ (AAGradientColor *)lusciousLimeColor {
     return [self lusciousLimeColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)purpleLakeColor {
++ (AAGradientColor *)purpleLakeColor {
     return [self purpleLakeColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)freshPapayaColor {
++ (AAGradientColor *)freshPapayaColor {
     return [self freshPapayaColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)ultramarineColor {
++ (AAGradientColor *)ultramarineColor {
     return [self ultramarineColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)pinkSugarColor {
++ (AAGradientColor *)pinkSugarColor {
     return [self pinkSugarColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)lemonDrizzleColor {
++ (AAGradientColor *)lemonDrizzleColor {
     return [self lemonDrizzleColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)victoriaPurpleColor {
++ (AAGradientColor *)victoriaPurpleColor {
     return [self victoriaPurpleColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)springGreensColor {
++ (AAGradientColor *)springGreensColor {
     return [self springGreensColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)mysticMauveColor {
++ (AAGradientColor *)mysticMauveColor {
     return [self mysticMauveColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)reflexSilverColor {
++ (AAGradientColor *)reflexSilverColor {
     return [self reflexSilverColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)neonGlowColor {
++ (AAGradientColor *)neonGlowColor {
     return [self neonGlowColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)berrySmoothieColor {
++ (AAGradientColor *)berrySmoothieColor {
     return [self berrySmoothieColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)newLeafColor {
++ (AAGradientColor *)newLeafColor {
     return [self newLeafColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)cottonCandyColor {
++ (AAGradientColor *)cottonCandyColor {
     return [self cottonCandyColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)pixieDustColor {
++ (AAGradientColor *)pixieDustColor {
     return [self pixieDustColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)fizzyPeachColor {
++ (AAGradientColor *)fizzyPeachColor {
     return [self fizzyPeachColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)sweetDreamColor {
++ (AAGradientColor *)sweetDreamColor {
     return [self sweetDreamColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)firebrickColor {
++ (AAGradientColor *)firebrickColor {
     return [self firebrickColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)wroughtIronColor {
++ (AAGradientColor *)wroughtIronColor {
     return [self wroughtIronColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)deepSeaColor {
++ (AAGradientColor *)deepSeaColor {
     return [self deepSeaColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)coastalBreezeColor {
++ (AAGradientColor *)coastalBreezeColor {
     return [self coastalBreezeColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)eveningDelightColor {
++ (AAGradientColor *)eveningDelightColor {
     return [self eveningDelightColorWithDirection:AALinearGradientDirectionToTop];
 }
 
-+ (NSDictionary *)oceanBlueColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)oceanBlueColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#2E3192"
                              endColorString:@"#1BFFFF"];
 }
 
-+ (NSDictionary *)sanguineColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)sanguineColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#D4145A"
                              endColorString:@"#FBB03B"];
 }
 
 
-+ (NSDictionary *)lusciousLimeColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)lusciousLimeColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#009245"
                              endColorString:@"#FCEE21"];
 }
 
-+ (NSDictionary *)purpleLakeColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)purpleLakeColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#662D8C"
                              endColorString:@"#ED1E79"];
 }
 
-+ (NSDictionary *)freshPapayaColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)freshPapayaColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#ED1C24"
                              endColorString:@"#FCEE21"];
 }
 
-+ (NSDictionary *)ultramarineColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)ultramarineColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#00A8C5"
                              endColorString:@"#FFFF7E"];
 }
 
-+ (NSDictionary *)pinkSugarColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)pinkSugarColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#D74177"
                              endColorString:@"#FFE98A"];
 }
 
-+ (NSDictionary *)lemonDrizzleColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)lemonDrizzleColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#FB872B"
                              endColorString:@"#D9E021"];
 }
 
-+ (NSDictionary *)victoriaPurpleColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)victoriaPurpleColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#312A6C"
                              endColorString:@"#852D91"];
 }
 
-+ (NSDictionary *)springGreensColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)springGreensColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#009E00"
                              endColorString:@"#FFFF96"];
 }
 
-+ (NSDictionary *)mysticMauveColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)mysticMauveColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#B066FE"
                              endColorString:@"#63E2FF"];
 }
 
-+ (NSDictionary *)reflexSilverColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)reflexSilverColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#808080"
                              endColorString:@"#E6E6E6"];
 }
 
-+ (NSDictionary *)neonGlowColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)neonGlowColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#00FFA1"
                              endColorString:@"#00FFFF"];
 }
 
-+ (NSDictionary *)berrySmoothieColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)berrySmoothieColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#8E78FF"
                              endColorString:@"#FC7D7B"];
 }
 
-+ (NSDictionary *)newLeafColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)newLeafColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#00537E"
                              endColorString:@"#3AA17E"];
 }
 
-+ (NSDictionary *)cottonCandyColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)cottonCandyColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#FCA5F1"
                              endColorString:@"#B5FFFF"];
 }
 
-+ (NSDictionary *)pixieDustColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)pixieDustColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#D585FF"
                              endColorString:@"#00FFEE"];
 }
 
-+ (NSDictionary *)fizzyPeachColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)fizzyPeachColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#F24645"
                              endColorString:@"#EBC08D"];
 }
 
-+ (NSDictionary *)sweetDreamColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)sweetDreamColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#3A3897"
                              endColorString:@"#A3A1FF"];
 }
 
-+ (NSDictionary *)firebrickColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)firebrickColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#45145A"
                              endColorString:@"#FF5300"];
 }
 
-+ (NSDictionary *)wroughtIronColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)wroughtIronColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#333333"
                              endColorString:@"#5A5454"];
 }
 
-+ (NSDictionary *)deepSeaColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)deepSeaColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#4F00BC"
                              endColorString:@"#29ABE2"];
 }
 
-+ (NSDictionary *)coastalBreezeColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)coastalBreezeColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#00B7FF"
                              endColorString:@"#FFFFC7"];
 }
 
-+ (NSDictionary *)eveningDelightColorWithDirection:(AALinearGradientDirection)direction {
++ (AAGradientColor *)eveningDelightColorWithDirection:(AALinearGradientDirection)direction {
     return [self gradientColorWithDirection:direction
                            startColorString:@"#93278F"
                              endColorString:@"#00A99D"];
