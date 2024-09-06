@@ -10,8 +10,6 @@
 
 @class AALinearGradient, AARadialGradient;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AAGradientColor : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAGradientColor, AALinearGradient *, linearGradient)
@@ -39,4 +37,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AARadialGradient, NSNumber *, r)
 
 @end
 
-NS_ASSUME_NONNULL_END
