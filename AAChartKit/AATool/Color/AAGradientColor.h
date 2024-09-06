@@ -15,7 +15,7 @@
 
 AAPropStatementAndPropSetFuncStatement(strong, AAGradientColor, AALinearGradient *, linearGradient)
 AAPropStatementAndPropSetFuncStatement(strong, AAGradientColor, AARadialGradient *, radialGradient)
-AAPropStatementAndPropSetFuncStatement(strong, AAGradientColor, NSMutableArray *, stops)
+AAPropStatementAndPropSetFuncStatement(strong, AAGradientColor, NSArray *, stops)
 
 @end
 

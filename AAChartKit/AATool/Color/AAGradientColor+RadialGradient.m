@@ -31,7 +31,7 @@
                                                stops:(NSArray *)stops {
     AAGradientColor *gradientColor = AAGradientColor.new;
     gradientColor.radialGradient = [self radialGradientWithPosition:position];
-    gradientColor.stops = stops.mutableCopy;
+    gradientColor.stops = stops;
     return gradientColor;
 }
 

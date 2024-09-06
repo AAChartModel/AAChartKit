@@ -43,8 +43,9 @@
 
 - (AAGradientColor * (^) (NSString *startColor))startColorSet {
     return ^(NSString *startColor) {
-        self.stops = [NSMutableArray arrayWithCapacity:2];
-        [self.stops addObject:@[@(0),startColor]];
+        self.stops = @[
+            @[@(0), startColor]
+        ];
         return self;
     };
 }
@@ -52,7 +53,11 @@
 - (AAGradientColor * (^) (NSString *endColor))endColorSet {
     return ^(NSString *endColor) {
         NSAssert(self.stops != nil, @"You should set startColor before setting endColor");
-        [self.stops addObject:@[@(1),endColor]];
+        NSMutableArray *mutableArray = self.stops.mutableCopy;
+        [mutableArray addObject:@[
+            @[@(1), endColor]
+        ]];
+        self.stops = mutableArray;
         return self;
     };
 }
@@ -86,7 +91,7 @@
                                      stopsArray:(NSArray *)stopsArray {
     AAGradientColor *gradientColor = AAGradientColor.new;
     gradientColor.linearGradient = [AAGradientColor linearGradientWithDirection:direction];
-    gradientColor.stops = (NSMutableArray *)stopsArray;
+    gradientColor.stops = stopsArray;
     return gradientColor;
 }
 

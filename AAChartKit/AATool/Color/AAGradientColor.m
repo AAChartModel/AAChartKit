@@ -12,7 +12,7 @@
 
 AAPropSetFuncImplementation(AAGradientColor, AALinearGradient *, linearGradient)
 AAPropSetFuncImplementation(AAGradientColor, AARadialGradient *, radialGradient)
-AAPropSetFuncImplementation(AAGradientColor, NSMutableArray *, stops)
+AAPropSetFuncImplementation(AAGradientColor, NSArray *, stops)
 
 @end
 
