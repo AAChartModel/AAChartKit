@@ -36,7 +36,7 @@
 
 - (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet {
     return ^(AALinearGradientDirection direction) {
-        self.linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
+        self.linearGradient = [AAGradientColor linearGradientWithDirection:direction];
         return self;
     };
 }
@@ -85,7 +85,7 @@
 + (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
                                      stopsArray:(NSArray *)stopsArray {
     AAGradientColor *gradientColor = AAGradientColor.new;
-    gradientColor.linearGradient = [AAGradientColor linearGradientDictionaryWithDirection:direction];
+    gradientColor.linearGradient = [AAGradientColor linearGradientWithDirection:direction];
     gradientColor.stops = (NSMutableArray *)stopsArray;
     return gradientColor;
 }
@@ -99,7 +99,7 @@
    |                   |
   (0,1) ----------- (1,1)
  */
-+ (AALinearGradient *)linearGradientDictionaryWithDirection:(AALinearGradientDirection)direction {
++ (AALinearGradient *)linearGradientWithDirection:(AALinearGradientDirection)direction {
     switch (direction) {
         case AALinearGradientDirectionToTop:
             return [AALinearGradient linearGradientWithX1:@(0) y1:@(1) x2:@(0) y2:@(0)];
