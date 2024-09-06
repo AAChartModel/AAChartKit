@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class AAChartModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomStyleForBubbleChartComposer : NSObject
+
++ (AAChartModel *)configureNegativeColorMixedBubbleChart;
++ (AAChartModel *)showAARadialGradientPositionAllEnumValuesWithBubbleChart;
 
 @end
 
