@@ -30,12 +30,11 @@
  
  */
 
-#import "AAGradientColor.h"
+#import "AAGradientColor+LinearGradient.h"
 
 @interface AAGradientColor()
 
-@property (nonatomic, strong) NSDictionary *linearGradient;
-@property (nonatomic, strong) NSMutableArray *stops;
+
 
 @end
 

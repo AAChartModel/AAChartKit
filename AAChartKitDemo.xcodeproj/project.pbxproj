@@ -46,7 +46,7 @@
 		27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F0CA7821018998004BD904 /* AADateUTCTool.m */; };
 		440B098024C189950056CE08 /* AACredits.m in Sources */ = {isa = PBXBuildFile; fileRef = 440B097F24C189950056CE08 /* AACredits.m */; };
 		440B098324C190F60056CE08 /* AALang.m in Sources */ = {isa = PBXBuildFile; fileRef = 440B098224C190F60056CE08 /* AALang.m */; };
-		44143D3921A1950300D44657 /* AAGradientColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44143D3821A1950300D44657 /* AAGradientColor.m */; };
+		44143D3921A1950300D44657 /* AAGradientColor+LinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 44143D3821A1950300D44657 /* AAGradientColor+LinearGradient.m */; };
 		441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */; };
 		44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */; };
 		44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartVC.m */; };
@@ -219,8 +219,8 @@
 		440B097F24C189950056CE08 /* AACredits.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AACredits.m; sourceTree = "<group>"; };
 		440B098124C190F60056CE08 /* AALang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALang.h; sourceTree = "<group>"; };
 		440B098224C190F60056CE08 /* AALang.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AALang.m; sourceTree = "<group>"; };
-		44143D3721A1950300D44657 /* AAGradientColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAGradientColor.h; sourceTree = "<group>"; };
-		44143D3821A1950300D44657 /* AAGradientColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAGradientColor.m; sourceTree = "<group>"; };
+		44143D3721A1950300D44657 /* AAGradientColor+LinearGradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AAGradientColor+LinearGradient.h"; sourceTree = "<group>"; };
+		44143D3821A1950300D44657 /* AAGradientColor+LinearGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AAGradientColor+LinearGradient.m"; sourceTree = "<group>"; };
 		441AF0BB233746DC00F0D39D /* EvaluateJSStringFunctionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateJSStringFunctionVC.h; sourceTree = "<group>"; };
 		441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateJSStringFunctionVC.m; sourceTree = "<group>"; };
 		44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HideOrShowChartSeriesVC.h; sourceTree = "<group>"; };
@@ -459,8 +459,8 @@
 			children = (
 				272BBE7921A28D0C00DBE69D /* AAColor.h */,
 				272BBE7A21A28D0C00DBE69D /* AAColor.m */,
-				44143D3721A1950300D44657 /* AAGradientColor.h */,
-				44143D3821A1950300D44657 /* AAGradientColor.m */,
+				44143D3721A1950300D44657 /* AAGradientColor+LinearGradient.h */,
+				44143D3821A1950300D44657 /* AAGradientColor+LinearGradient.m */,
 				846142132C88609D0032FBD3 /* AAGradientColor+DefaultThemes.h */,
 				846142142C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m */,
 			);
@@ -1099,7 +1099,7 @@
 				1E66D214210AF4ED007EAB8C /* AAChart.m in Sources */,
 				84D01E712B1202B50017E90B /* AAArearange.m in Sources */,
 				84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */,
-				44143D3921A1950300D44657 /* AAGradientColor.m in Sources */,
+				44143D3921A1950300D44657 /* AAGradientColor+LinearGradient.m in Sources */,
 				1E66D217210AF4ED007EAB8C /* AAOptions.m in Sources */,
 				92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */,
 				8463FDD428CADF5800392C50 /* CustomTableViewCell.m in Sources */,

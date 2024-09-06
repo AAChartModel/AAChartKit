@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
     AALinearGradientDirectionToBottomRight, //⇘⇘⇘⇘⇘⇘
 };
 
-@interface AAGradientColor : NSObject
+@interface AAGradientColor (LinearGradient)
 
 - (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet;
 - (AAGradientColor * (^) (NSString *startColor))startColorSet;
