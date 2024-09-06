@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class AAChartModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomStyleForScatterChartComposer : NSObject
+
++ (AAChartModel *)customScatterChartMarkerSymbolContent;
++ (AAChartModel *)drawLineMixedScatterChartWithPointsCoordinates2;
 
 @end
 
