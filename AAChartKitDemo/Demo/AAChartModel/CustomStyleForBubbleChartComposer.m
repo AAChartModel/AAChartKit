@@ -66,15 +66,15 @@
         .yAxisTitleSet(@"℃")
         .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
         .colorsThemeSet(@[
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopLeft startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopCenter startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopRight startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleLeft startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleCenter startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleRight startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomLeft startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomCenter startColor:@"#FF0000" endColor:@"#FFFF00"],
-            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomRight startColor:@"#FF0000" endColor:@"#FFFF00"],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopLeft startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopCenter startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionTopRight startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleLeft startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleCenter startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionMiddleRight startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomLeft startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomCenter startColor:AAColor.redColor endColor:AAColor.yellowColor],
+            [AAGradientColor radialGradientWithPosition:AARadialGradientPositionBottomRight startColor:AAColor.redColor endColor:AAColor.yellowColor],
         ])
         .yAxisReversedSet(true)
         .seriesSet(@[

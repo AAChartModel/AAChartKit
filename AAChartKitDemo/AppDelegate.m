@@ -59,6 +59,7 @@
 //#import "AdvancedFeaturesListVC.h"
 #import "MainVC.h"
 #import "AAOptionsWithJSForChartEventsListVC.h"
+#import "AAChartModelListVC.h"
 
 @interface AppDelegate ()
 
@@ -99,9 +100,9 @@
     UINavigationController *secondVC = [self createSecondNavigationController];
     [viewControllers addObject:secondVC];
     
-//    UINavigationController *thirdVC = [self createThirdNavigationController];
-//    [viewControllers addObject:thirdVC];
-//    
+    UINavigationController *thirdVC = [self createThirdNavigationController];
+    [viewControllers addObject:thirdVC];
+    
 //    UINavigationController *fourthVC = [self createFourthNavigationController];
 //    [viewControllers addObject:fourthVC];
 //    
@@ -135,10 +136,10 @@
     return secondVC;
 }
 
-/*
+
 - (UIViewController *)createThirdViewController {
     // 创建第三个视图控制器
-    AAOptionsWithJSListVC *thirdVC = [[AAOptionsWithJSListVC alloc] init];
+    AAChartModelListVC *thirdVC = [[AAChartModelListVC alloc] init];
     thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2];
     
     // 在这里添加第三个视图控制器的其他配置
@@ -146,6 +147,7 @@
     return thirdVC;
 }
 
+/*
 - (UIViewController *)createFourthViewController {
     // 创建第四个视图控制器
     OfficialSamplesListVC *fourthVC = [[OfficialSamplesListVC alloc] init];
@@ -181,14 +183,15 @@
     return navigationController;
 }
 
-/*
+
 // 创建导航控制器，并将第三个视图控制器设置为根视图控制器
 - (UINavigationController *)createThirdNavigationController {
-    AAOptionsWithJSListVC *thirdViewController = [self createThirdViewController];
+    UIViewController *thirdViewController = [self createThirdViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:thirdViewController];
     return navigationController;
 }
 
+/*
 // 创建导航控制器，并将第四个视图控制器设置为根视图控制器
 - (UINavigationController *)createFourthNavigationController {
     OfficialSamplesListVC *fourthViewController = [self createFourthViewController];
