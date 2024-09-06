@@ -57,7 +57,6 @@ AAPropSetFuncImplementation(AALegend, NSString    *, labelFormat)//图例标签�
 @end
 
 
-
 @implementation AAItemStyle
 
 AAPropSetFuncImplementation(AAItemStyle, NSString *, color)

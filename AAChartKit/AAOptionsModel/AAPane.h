@@ -33,6 +33,7 @@
  */
 
 #import <Foundation/Foundation.h>
+
 @class AABackground;
 
 @interface AAPane : NSObject

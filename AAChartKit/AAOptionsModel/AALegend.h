@@ -34,6 +34,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AAChartModel.h"
+
 @class AAItemStyle;
 
 @interface AALegend : NSObject
@@ -57,7 +58,6 @@ AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          floating
 AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, labelFormat)//图例标签格式化字符串
 
 @end
-
 
 
 @interface AAItemStyle : NSObject
