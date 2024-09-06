@@ -10,27 +10,27 @@
 
 @implementation AAGradientColor (RadialGradient)
 
-+ (AAGradientColor *)radialGradientWithStartColor:(NSString *)startColor
-                                         endColor:(NSString *)endColor {
-    return [self radialGradientWithPosition:AARadialGradientPositionMiddleCenter
-                                 startColor:startColor
-                                   endColor:endColor];
++ (AAGradientColor *)radialGradientColorWithStartColor:(NSString *)startColor
+                                              endColor:(NSString *)endColor {
+    return [self radialGradientColorWithPosition:AARadialGradientPositionMiddleCenter
+                                      startColor:startColor
+                                        endColor:endColor];
 }
 
-+ (AAGradientColor *)radialGradientWithPosition:(AARadialGradientPosition)position
-                                     startColor:(NSString *)startColor
-                                       endColor:(NSString *)endColor {
-    return [self radialGradientWithPosition:position
-                                      stops:@[
-                                          @[@0, startColor],
-                                          @[@1, endColor]
-                                      ]];
++ (AAGradientColor *)radialGradientColorWithPosition:(AARadialGradientPosition)position
+                                          startColor:(NSString *)startColor
+                                            endColor:(NSString *)endColor {
+    return [self radialGradientColorWithPosition:position
+                                           stops:@[
+                                               @[@0, startColor],
+                                               @[@1, endColor]
+                                           ]];
 }
 
-+ (AAGradientColor *)radialGradientWithPosition:(AARadialGradientPosition)position
-                                          stops:(NSArray *)stops {
++ (AAGradientColor *)radialGradientColorWithPosition:(AARadialGradientPosition)position
+                                               stops:(NSArray *)stops {
     AAGradientColor *gradientColor = AAGradientColor.new;
-    gradientColor.radialGradient = [self radialGradientPositionDictionaryWithPosition:position];
+    gradientColor.radialGradient = [self radialGradientWithPosition:position];
     gradientColor.stops = stops.mutableCopy;
     return gradientColor;
 }
@@ -67,7 +67,7 @@
       |                          |                          |
  (bottomLeft) ----------- (bottomCenter) ----------- (bottomRight)
  */
-+ (AARadialGradient *)radialGradientPositionDictionaryWithPosition:(AARadialGradientPosition)position {
++ (AARadialGradient *)radialGradientWithPosition:(AARadialGradientPosition)position {
     switch (position) {
         case AARadialGradientPositionTopLeft: return [AARadialGradient radialGradientWithCx:(id)@"25%" cy:(id)@"25%" r:(id)@"50%"];
         case AARadialGradientPositionTopCenter: return [AARadialGradient radialGradientWithCx:(id)@"50%" cy:(id)@"25%" r:(id)@"50%"];

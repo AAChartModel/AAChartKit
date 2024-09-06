@@ -38,15 +38,15 @@ typedef NS_ENUM(NSInteger, AARadialGradientPosition) {
 
 @interface AAGradientColor (RadialGradient)
 
-+ (AAGradientColor *)radialGradientWithStartColor:(NSString *)startColor
-                                         endColor:(NSString *)endColor;
++ (AAGradientColor *)radialGradientColorWithStartColor:(NSString *)startColor
+                                              endColor:(NSString *)endColor;
 
-+ (AAGradientColor *)radialGradientWithPosition:(AARadialGradientPosition)position
-                                     startColor:(NSString *)startColor
-                                       endColor:(NSString *)endColor;
++ (AAGradientColor *)radialGradientColorWithPosition:(AARadialGradientPosition)position
+                                          startColor:(NSString *)startColor
+                                            endColor:(NSString *)endColor;
 
-+ (AAGradientColor *)radialGradientWithPosition:(AARadialGradientPosition)position
-                                          stops:(NSArray *)stops;
++ (AAGradientColor *)radialGradientColorWithPosition:(AARadialGradientPosition)position
+                                               stops:(NSArray *)stops;
 
 @end
 
