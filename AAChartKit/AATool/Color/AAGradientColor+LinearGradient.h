@@ -51,14 +51,14 @@ typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
 - (AAGradientColor * (^) (NSArray *stopsArray))stopsArraySet;
 
 
-+ (NSDictionary *)gradientColorWithStartColorString:(NSString *)startColorStr
++ (AAGradientColor *)gradientColorWithStartColorString:(NSString *)startColorStr
                                      endColorString:(NSString *)endColorStr;
     
-+ (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
++ (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
                             startColorString:(NSString *)startColorStr
                               endColorString:(NSString *)endColorStr;
 
-+ (NSDictionary *)gradientColorWithDirection:(AALinearGradientDirection)direction
++ (AAGradientColor *)gradientColorWithDirection:(AALinearGradientDirection)direction
                                   stopsArray:(NSArray *)stopsArray;
 
 @end
