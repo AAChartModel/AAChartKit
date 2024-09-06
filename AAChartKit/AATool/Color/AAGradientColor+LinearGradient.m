@@ -32,13 +32,6 @@
 
 #import "AAGradientColor+LinearGradient.h"
 
-@interface AAGradientColor()
-
-
-
-@end
-
-
 @implementation AAGradientColor
 
 - (AAGradientColor * (^) (AALinearGradientDirection direction))directionSet {

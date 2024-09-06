@@ -30,7 +30,7 @@
  
  */
 
-#import <Foundation/Foundation.h>
+#import "AAGradientColor.h"
 
 typedef NS_ENUM(NSInteger, AALinearGradientDirection) {
     AALinearGradientDirectionToTop = 0,     //⇧⇧⇧⇧⇧⇧
