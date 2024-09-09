@@ -106,23 +106,15 @@
  */
 + (AALinearGradient *)linearGradientWithDirection:(AALinearGradientDirection)direction {
     switch (direction) {
-        case AALinearGradientDirectionToTop:
-            return [AALinearGradient linearGradientWithX1:@(0) y1:@(1) x2:@(0) y2:@(0)];
-        case AALinearGradientDirectionToBottom:
-            return [AALinearGradient linearGradientWithX1:@(0) y1:@(0) x2:@(0) y2:@(1)];
-        case AALinearGradientDirectionToLeft:
-            return [AALinearGradient linearGradientWithX1:@(1) y1:@(0) x2:@(0) y2:@(0)];
-        case AALinearGradientDirectionToRight:
-            return [AALinearGradient linearGradientWithX1:@(0) y1:@(0) x2:@(1) y2:@(0)];
+        case AALinearGradientDirectionToTop:         return [AALinearGradient linearGradientWithX1:@(0) y1:@(1) x2:@(0) y2:@(0)];
+        case AALinearGradientDirectionToBottom:      return [AALinearGradient linearGradientWithX1:@(0) y1:@(0) x2:@(0) y2:@(1)];
+        case AALinearGradientDirectionToLeft:        return [AALinearGradient linearGradientWithX1:@(1) y1:@(0) x2:@(0) y2:@(0)];
+        case AALinearGradientDirectionToRight:       return [AALinearGradient linearGradientWithX1:@(0) y1:@(0) x2:@(1) y2:@(0)];
 
-        case AALinearGradientDirectionToTopLeft:
-            return [AALinearGradient linearGradientWithX1:@(1) y1:@(1) x2:@(0) y2:@(0)];
-        case AALinearGradientDirectionToTopRight:
-            return [AALinearGradient linearGradientWithX1:@(0) y1:@(1) x2:@(1) y2:@(0)];
-        case AALinearGradientDirectionToBottomLeft:
-            return [AALinearGradient linearGradientWithX1:@(1) y1:@(0) x2:@(0) y2:@(1)];
-        case AALinearGradientDirectionToBottomRight:
-            return [AALinearGradient linearGradientWithX1:@(0) y1:@(0) x2:@(1) y2:@(1)];
+        case AALinearGradientDirectionToTopLeft:     return [AALinearGradient linearGradientWithX1:@(1) y1:@(1) x2:@(0) y2:@(0)];
+        case AALinearGradientDirectionToTopRight:    return [AALinearGradient linearGradientWithX1:@(0) y1:@(1) x2:@(1) y2:@(0)];
+        case AALinearGradientDirectionToBottomLeft:  return [AALinearGradient linearGradientWithX1:@(1) y1:@(0) x2:@(0) y2:@(1)];
+        case AALinearGradientDirectionToBottomRight: return [AALinearGradient linearGradientWithX1:@(0) y1:@(0) x2:@(1) y2:@(1)];
     }
     return nil;
 }
