@@ -12,8 +12,8 @@
 
 @implementation CustomStyleForScatterChartComposer
 
-//refer to online sample https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
 //https://github.com/AAChartModel/AAChartKit/issues/703
+//https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
 + (AAChartModel *)customScatterChartMarkerSymbolContent {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
@@ -67,7 +67,7 @@
             @[
                 AASeriesElement.new
                     .typeSet(AAChartTypeLine)
-                    .enableMouseTrackingSet((id) false)
+                    .enableMouseTrackingSet((id)false)
                     .showInLegendSet(false)
                     .markerSet(AAMarker.new
                         .enabledSet(false))
