@@ -69,9 +69,11 @@
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionTopLeft      startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionTopCenter    startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionTopRight     startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
+            
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionMiddleLeft   startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionMiddleCenter startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionMiddleRight  startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
+            
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionBottomLeft   startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionBottomCenter startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
             [AAGradientColor radialGradientColorWithPosition:AARadialGradientPositionBottomRight  startColor:[AAColor redColor] endColor:[AAColor yellowColor]],
