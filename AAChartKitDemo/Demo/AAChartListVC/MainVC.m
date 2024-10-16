@@ -685,6 +685,7 @@
               @"yAxisOnTheRightSideChart---y轴在右侧的图表",
               @"configureBoxplotChartWithSpecialStyle---配置盒须图特殊样式",
               @"toFixHighchartsWithAThickLineAt0ValuesTheLineIsHalfHidden---修复 Highcharts 在数值为 0 的时候,线条会变粗,但是却被遮挡一半的问题",
+              @"clipForAASeriesElement---修复线条贴边时,但是却被遮挡一半的问题"
         ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",

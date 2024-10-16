@@ -62,7 +62,8 @@
         case 13: return [self yAxisOnTheRightSideChart];//y轴在右侧的图表
         case 14: return [self configureBoxplotChartWithSpecialStyle];//配置箱线图特殊样式
         case 15: return [self toFixHighchartsWithAThickLineAt0ValuesTheLineIsHalfHidden];//修复 Highcharts 在数值为 0 的时候,线条会变粗,但是却被遮挡一半的问题
-
+        case 16: return [self clipForAASeriesElement];//修复线条贴边时,但是却被遮挡一半的问题
+            
         default:
             break;
     }
@@ -883,6 +884,56 @@
         .dataSet(@[@0, @0, @0, @-2, @-2, @-1, @0, @-2])
         .lineWidthSet(@8),
     ]);
+}
+
+////Highcharts.chart('container', {
+//
+//title: {
+//    text: 'Clipping Series'
+//},
+//
+//yAxis: {
+//    endOnTick: false,
+//    maxPadding: 0,
+//    gridLineWidth: 0
+//},
+//
+//series: [{
+//    name: 'Non clipped series',
+//    lineWidth: 15,
+//    type: "area",
+//    clip: false,
+//    data: [100, 100, 50, 50, 0, 0]
+//}, {
+//    name: 'Clipped series',
+//    lineWidth: 15,
+//
+//    data: [0, 0, 50, 50, 100, 100]
+//}]
+//});
+//https://github.com/AAChartModel/AAChartKit/issues/1571#issuecomment-2416086350
+- (AAOptions *)clipForAASeriesElement {
+    AAOptions *aaOptions = AAOptions.new
+        .chartSet(AAChart.new
+            .typeSet(AAChartTypeLine))
+        .titleSet(AATitle.new
+            .textSet(@"Clipping Series"))
+        .yAxisSet(AAYAxis.new
+            .endOnTickSet(false)
+//            .maxPaddingSet(@0)
+            .gridLineWidthSet(@0))
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Non clipped series")
+                .lineWidthSet(@15)
+                .clipSet(false)
+                .dataSet(@[@100, @100, @50, @50, @0, @0]),
+            AASeriesElement.new
+                .nameSet(@"Clipped series")
+                .lineWidthSet(@15)
+                .dataSet(@[@0, @0, @50, @50, @100, @100])
+        ]);
+    return aaOptions;
 }
 
 

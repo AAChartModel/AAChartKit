@@ -48,6 +48,7 @@ AAChartLineStepType const AAChartLineStepTypeRight  = @"right";
         _allowPointSelect = false;
         _showInLegend = true;
         _visible = true;
+        _clip = true;
     }
     return self;
 }
@@ -97,6 +98,7 @@ AAPropSetFuncImplementation(AASeriesElement, id        , reversed) //Only useful
 AAPropSetFuncImplementation(AASeriesElement, NSString *, id)
 AAPropSetFuncImplementation(AASeriesElement, id        , connectNulls)
 AAPropSetFuncImplementation(AASeriesElement, id        , enabledCrosshairs)
+AAPropSetFuncImplementation(AASeriesElement, BOOL      , clip)
 
 @end
 

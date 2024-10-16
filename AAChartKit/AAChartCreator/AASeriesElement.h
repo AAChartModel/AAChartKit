@@ -91,6 +91,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , reve
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, id)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , connectNulls)
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, id        , enabledCrosshairs)
+AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , clip)
 
 @end
 
