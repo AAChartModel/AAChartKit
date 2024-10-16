@@ -7,56 +7,14 @@
 //
 
 #import "CustomTooltipClickEventCallbackVC.h"
-
 #import "AAChartKit.h"
 
 static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipClicked";
 
-
-@interface CustomNewWeakProxy : NSProxy
-
-@property (nonatomic, weak, readonly, nullable) id target;
-
-+ (nonnull instancetype)proxyWithTarget:(nonnull id)target;
-
-@end
-
-@implementation CustomNewWeakProxy
-
-- (instancetype)initWithTarget:(id)target {
-    _target = target;
-    return self;
-}
-
-+ (instancetype)proxyWithTarget:(id)target {
-    return [[CustomNewWeakProxy alloc] initWithTarget:target];
-}
-
-- (id)forwardingTargetForSelector:(SEL)selector {
-    return _target;
-}
-
-- (void)forwardInvocation:(NSInvocation *)invocation {
-    void *null = NULL;
-    [invocation setReturnValue:&null];
-}
-
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
-    return [NSObject instanceMethodSignatureForSelector:@selector(init)];
-}
-
-- (BOOL)respondsToSelector:(SEL)aSelector {
-    return [_target respondsToSelector:aSelector];
-}
-
-@end
-
-
-
 @interface CustomTooltipClickEventCallbackVC ()
 
 @property (nonatomic, strong) AAChartView *aaChartView;
-@property (nonatomic, strong) CustomNewWeakProxy *weakProxy;
+@property (nonatomic, strong) AAWeakProxy *weakProxy;
 
 @end
 
@@ -190,9 +148,9 @@ static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipCl
 }
 
 //MARK: - getter
-- (CustomNewWeakProxy *)weakProxy {
+- (AAWeakProxy *)weakProxy {
     if (!_weakProxy) {
-        _weakProxy = [CustomNewWeakProxy proxyWithTarget:self];
+        _weakProxy = [AAWeakProxy proxyWithTarget:self];
     }
     return _weakProxy;
 }

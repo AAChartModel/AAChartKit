@@ -32,14 +32,6 @@
 
 #import "AAChartView.h"
 
-@interface AAWeakProxy : NSProxy
-
-@property (nonatomic, weak, readonly, nullable) id target;
-
-+ (nonnull instancetype)proxyWithTarget:(nonnull id)target;
-
-@end
-
 @implementation AAWeakProxy
 
 - (instancetype)initWithTarget:(id)target {

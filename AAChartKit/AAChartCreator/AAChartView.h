@@ -34,6 +34,15 @@
 #import "AAOptions.h"
 #import "NSString+toPureJSString.h"
 
+@interface AAWeakProxy : NSProxy
+
+@property (nonatomic, weak, readonly) id target;
+
++ (instancetype)proxyWithTarget:(id)target;
+
+@end
+
+
 @interface AAEventMessageModel : NSObject
 
 @property (nonatomic, copy)   NSString *name;

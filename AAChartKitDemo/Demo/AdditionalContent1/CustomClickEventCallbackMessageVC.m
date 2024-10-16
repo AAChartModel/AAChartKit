@@ -11,50 +11,11 @@ static NSString * const kUserContentMessageNameChartClicked = @"click";
 static NSString * const kUserContentMessageNameChartMoveOver = @"moveOver";
 static NSString * const kUserContentMessageNameChartDefaultSelected = @"defaultSelected";
 
-@interface CustomWeakProxy : NSProxy
-
-@property (nonatomic, weak, readonly, nullable) id target;
-
-+ (nonnull instancetype)proxyWithTarget:(nonnull id)target;
-
-@end
-
-@implementation CustomWeakProxy
-
-- (instancetype)initWithTarget:(id)target {
-    _target = target;
-    return self;
-}
-
-+ (instancetype)proxyWithTarget:(id)target {
-    return [[CustomWeakProxy alloc] initWithTarget:target];
-}
-
-- (id)forwardingTargetForSelector:(SEL)selector {
-    return _target;
-}
-
-- (void)forwardInvocation:(NSInvocation *)invocation {
-    void *null = NULL;
-    [invocation setReturnValue:&null];
-}
-
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
-    return [NSObject instanceMethodSignatureForSelector:@selector(init)];
-}
-
-- (BOOL)respondsToSelector:(SEL)aSelector {
-    return [_target respondsToSelector:aSelector];
-}
-
-@end
-
-
 @interface CustomClickEventCallbackMessageVC ()
 
 @property (nonatomic, strong) AAChartView *aaChartView;
 @property (nonatomic, strong) UIView *lineView;
-@property (nonatomic, strong) CustomWeakProxy *weakProxy;
+@property (nonatomic, strong) AAWeakProxy *weakProxy;
 
 @end
 
@@ -297,9 +258,9 @@ static NSString * const kUserContentMessageNameChartDefaultSelected = @"defaultS
 }
 
 //MARK: - getter
-- (CustomWeakProxy *)weakProxy {
+- (AAWeakProxy *)weakProxy {
     if (!_weakProxy) {
-        _weakProxy = [CustomWeakProxy proxyWithTarget:self];
+        _weakProxy = [AAWeakProxy proxyWithTarget:self];
     }
     return _weakProxy;
 }
