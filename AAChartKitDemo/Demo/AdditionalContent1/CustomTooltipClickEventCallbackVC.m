@@ -42,6 +42,11 @@ static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipCl
                                         chartViewWidth,
                                         chartViewHeight);
     [self.view addSubview:self.aaChartView];
+    if (@available(macCatalyst 16.4, *)) {
+        self.aaChartView.inspectable = true;
+    } else {
+        // Fallback on earlier versions
+    }
     self.aaChartView.scrollEnabled = false;//Disable chart content scrolling
 }
 
@@ -50,92 +55,138 @@ static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipCl
     WKWebViewConfiguration *chartConfiguration = self.aaChartView.configuration;
 
     [chartConfiguration.userContentController addScriptMessageHandler:scriptMessageHandler name:kUserContentMessageNameChartTooltipClicked];
-
 }
 
-- (AAChartModel *)areasplineChart {
-    return AAChartModel.new
-            .chartTypeSet(AAChartTypeAreaspline)
-            .stackingSet(AAChartStackingTypeNormal)
-            .titleSet(@"Free-Style Rounded Corners Stacking Column Chart")
-            .colorsThemeSet(@[
-                    [AAGradientColor gradientColorWithStartColorString:AARgbColor(128, 255, 165) endColorString:AARgbColor(1  , 191, 236)],
-                    [AAGradientColor gradientColorWithStartColorString:AARgbColor(0  , 221, 255) endColorString:AARgbColor(77 , 119, 255)],
-                    [AAGradientColor gradientColorWithStartColorString:AARgbColor(55 , 162, 255) endColorString:AARgbColor(116, 21 , 219)],
-                    [AAGradientColor gradientColorWithStartColorString:AARgbColor(255, 0  , 135) endColorString:AARgbColor(135, 0  , 157)],
-                    [AAGradientColor gradientColorWithStartColorString:AARgbColor(255, 191, 0  ) endColorString:AARgbColor(224, 62 , 76 )],
-            ])
-            .seriesSet(@[
-                    AASeriesElement.new
-                            .nameSet(@"Tokyo Hot")
-                            .dataSet(@[@2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
+/*
+ ChatGPT 推荐的方法
+ Highcharts.wrap(Highcharts.Tooltip.prototype, 'refresh', function (proceed, point, mouseEvent) {
+     // 调用原始的 refresh 方法，确保 tooltip 正常显示
+     proceed.apply(this, Array.prototype.slice.call(arguments, 1));
 
-            ]);
-}
+     const tooltip = this;
+     const chart = tooltip.chart;
 
+     // 缓存当前的 point 或 points 数据
+     tooltip.currentPoints = point;
+
+     // 检查是否已绑定 click 事件
+     if (!chart.hasTooltipClickEvent) {
+         chart.hasTooltipClickEvent = true;
+
+         // 绑定 chart 的 container 的 click 事件
+         Highcharts.addEvent(chart.container, 'click', function (e) {
+             const tooltipBox = tooltip.label && tooltip.label.getBBox();
+             if (tooltipBox) {
+                 const { left, top } = chart.container.getBoundingClientRect();
+                 const clickX = e.clientX - left;
+                 const clickY = e.clientY - top;
+
+                 // 检查点击是否在 tooltip 的范围内
+                 if (
+                     clickX >= tooltipBox.x &&
+                     clickX <= tooltipBox.x + tooltipBox.width &&
+                     clickY >= tooltipBox.y &&
+                     clickY <= tooltipBox.y + tooltipBox.height
+                 ) {
+                     // 处理点击事件，并使用缓存的 points 数据
+                     if (tooltip.currentPoints) {
+                         const points = Array.isArray(tooltip.currentPoints) ? tooltip.currentPoints : [tooltip.currentPoints];
+                         const tooltipContent = points.map(point => `Series: ${point.series.name}, X: ${point.x}, Y: ${point.y}`).join('\n');
+
+                         // 发送消息或执行自定义逻辑
+                         if (
+                             window.webkit &&
+                             window.webkit.messageHandlers &&
+                             window.webkit.messageHandlers.tooltipClicked
+                         ) {
+                             window.webkit.messageHandlers.tooltipClicked.postMessage(tooltipContent);
+                         }
+
+                         console.log('Tooltip clicked:', tooltipContent);
+                     }
+                 }
+             }
+         });
+     }
+ });
+
+ */
+
+
+//https://api.highcharts.com/highcharts/chart.events.load
+//https://www.highcharts.com/forum/viewtopic.php?t=36508
 - (AAOptions *)columnChartWithCustomJSFunction {
-    AAOptions *aaOptions = [self areasplineChart].aa_toAAOptions;
-
-    //https://api.highcharts.com/highcharts/chart.events.load
-    //https://www.highcharts.com/forum/viewtopic.php?t=36508
-    aaOptions.chart
-        .eventsSet(AAChartEvents.new
-                   .loadSet([NSString stringWithFormat:@AAJSFunc((function() {
-                       Highcharts.wrap(Highcharts.Tooltip.prototype, 'refresh', function (proceed, point, mouseEvent) {
-                           // 调用原始的 refresh 方法，确保 tooltip 正常显示
-                           proceed.apply(this, Array.prototype.slice.call(arguments, 1));
-
-                           const tooltip = this;
-                           const chart = tooltip.chart;
-
-                           // 缓存当前的 point 或 points 数据
-                           tooltip.currentPoints = point;
-
-                           // 检查是否已绑定 click 事件
-                           if (!chart.hasTooltipClickEvent) {
-                               chart.hasTooltipClickEvent = true;
-
-                               // 绑定 chart 的 container 的 click 事件
-                               Highcharts.addEvent(chart.container, 'click', function (e) {
-                                   const tooltipBox = tooltip.label && tooltip.label.getBBox();
-                                   if (tooltipBox) {
-                                       const { left, top } = chart.container.getBoundingClientRect();
-                                       const clickX = e.clientX - left;
-                                       const clickY = e.clientY - top;
-
-                                       // 检查点击是否在 tooltip 的范围内
-                                       if (
-                                           clickX >= tooltipBox.x &&
-                                           clickX <= tooltipBox.x + tooltipBox.width &&
-                                           clickY >= tooltipBox.y &&
-                                           clickY <= tooltipBox.y + tooltipBox.height
-                                       ) {
-                                           // 处理点击事件，并使用缓存的 points 数据
-                                           if (tooltip.currentPoints) {
-                                               const points = Array.isArray(tooltip.currentPoints) ? tooltip.currentPoints : [tooltip.currentPoints];
-                                               const tooltipContent = points.map(point => `Series: ${point.series.name}, X: ${point.x}, Y: ${point.y}`).join('\n');
-
-                                               // 发送消息或执行自定义逻辑
-                                               if (
-                                                   window.webkit &&
-                                                   window.webkit.messageHandlers &&
-                                                   window.webkit.messageHandlers.tooltipClicked
-                                               ) {
-                                                   window.webkit.messageHandlers.%@.postMessage(tooltipContent);
-
-                                               }
-
-                                               console.log('Tooltip clicked:', tooltipContent);
-                                           }
-                                       }
-                                   }
-                               });
-                           }
-                       });
-
-                   })),kUserContentMessageNameChartTooltipClicked]));
-
-    return aaOptions;
+    return AAOptions.new
+        .chartSet(AAChart.new
+                  .typeSet(AAChartTypeAreaspline)
+                  .eventsSet(AAChartEvents.new
+                             .loadSet([NSString stringWithFormat:@AAJSFunc((function() {
+                                 Highcharts.wrap(Highcharts.Tooltip.prototype, 'refresh', function (proceed, point, mouseEvent) {
+                                     // 调用原始的 refresh 方法，确保 tooltip 正常显示
+                                     proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+                                     
+                                     const tooltip = this;
+                                     const chart = tooltip.chart;
+                                     
+                                     // 缓存当前的 point 或 points 数据
+                                     tooltip.currentPoints = point;
+                                     
+                                     // 检查是否已绑定 click 事件
+                                     if (!chart.hasTooltipClickEvent) {
+                                         chart.hasTooltipClickEvent = true;
+                                         
+                                         // 绑定 chart 的 container 的 click 事件
+                                         Highcharts.addEvent(chart.container, 'click', function (e) {
+                                             const tooltipBox = tooltip.label && tooltip.label.getBBox();
+                                             if (tooltipBox) {
+                                                 const { left, top } = chart.container.getBoundingClientRect();
+                                                 const clickX = e.clientX - left;
+                                                 const clickY = e.clientY - top;
+                                                 
+                                                 // 检查点击是否在 tooltip 的范围内
+                                                 if (
+                                                     clickX >= tooltipBox.x &&
+                                                     clickX <= tooltipBox.x + tooltipBox.width &&
+                                                     clickY >= tooltipBox.y &&
+                                                     clickY <= tooltipBox.y + tooltipBox.height
+                                                     ) {
+                                                         // 处理点击事件，并使用缓存的 points 数据
+                                                         if (tooltip.currentPoints) {
+                                                             const points = Array.isArray(tooltip.currentPoints) ? tooltip.currentPoints : [tooltip.currentPoints];
+                                                             const tooltipContent = points.map(point => `Series: ${point.series.name}, X: ${point.x}, Y: ${point.y}`).join('\n');
+                                                             
+                                                             // 发送消息或执行自定义逻辑
+                                                             if (
+                                                                 window.webkit &&
+                                                                 window.webkit.messageHandlers &&
+                                                                 window.webkit.messageHandlers.tooltipClicked
+                                                                 ) {
+                                                                     window.webkit.messageHandlers.%@.postMessage(tooltipContent);
+                                                                     
+                                                                 }
+                                                             
+                                                             //⚠️此行代码仅供测试专用, 正式环境需要移除这段代码
+                                                             console.log('Tooltip clicked:', tooltipContent);
+                                                         }
+                                                     }
+                                             }
+                                         });
+                                     }
+                                 });
+                                 
+                             })),kUserContentMessageNameChartTooltipClicked]))
+                  )
+        .xAxisSet(AAXAxis.new
+                  .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]))
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Tokyo Hot")
+                .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+                .markerSet(AAMarker.new
+                    .lineColorSet(AAColor.yellowColor)
+                    .lineWidthSet(@3)
+                    .radiusSet(@10)),
+        ]);
 }
 
 
