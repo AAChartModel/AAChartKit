@@ -204,9 +204,9 @@ static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipCl
                                      // 工具函数：发送消息
                                      const sendMessage = content => {
                                          const { webkit } = window;
-                                         if (webkit?.messageHandlers?.%@) {
-                                             webkit.messageHandlers.%@.postMessage(content);
-                                         }
+                                         const handlerName = '%@';
+                                         const handler = window.webkit?.messageHandlers?.[handlerName];
+                                         handler?.postMessage(content);
                                          
                                          //⚠️此行代码仅供测试专用, 正式环境需要移除这段代码
                                          console.log('Tooltip clicked:', content);
@@ -248,7 +248,7 @@ static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipCl
                                          Highcharts.addEvent(chart.container, 'click', tooltip.clickHandler);
                                      });
                                  
-                             })),kUserContentMessageNameChartTooltipClicked, kUserContentMessageNameChartTooltipClicked]))
+                             })),kUserContentMessageNameChartTooltipClicked]))
                   )
         .xAxisSet(AAXAxis.new
                   .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]))
