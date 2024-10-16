@@ -67,6 +67,7 @@
 #import "JSFunctionForAAChartEventsVC.h"
 #import "CustomTableViewCell.h"
 #import "CustomClickEventCallbackMessageVC.h"
+#import "CustomTooltipClickEventCallbackVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -488,9 +489,15 @@
                         
         case 29: {
             /*完全自定义图表交互事件回调的信息*/
-            CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+            if (row == 0) {
+                CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else if (row == 1) {
+                CustomTooltipClickEventCallbackVC *vc = CustomTooltipClickEventCallbackVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
             break;
             
@@ -876,7 +883,8 @@
               @"configurePlotBackgroundClickEvent---配置绘图区的点击事件",
             ],
             /*完全自定义图表交互事件回调的信息*/
-            @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息"
+            @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息",
+              @"CustomTooltipClickEventCallbackVC---自定义 tooltip 点击事件"
             ]
             
         ];

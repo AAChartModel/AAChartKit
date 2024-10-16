@@ -101,6 +101,7 @@
 		8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */; };
 		8463FDE128CB1F5F00392C50 /* JSFunctionForAALegendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */; };
 		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
+		84790F422CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */; };
 		8483CEC229D2F40D002E57AA /* AADOMRectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEC129D2F40D002E57AA /* AADOMRectModel.m */; };
 		8486A22A2BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486A2292BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
@@ -337,6 +338,8 @@
 		8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAALegendVC.m; sourceTree = "<group>"; };
 		846CB10B26A6B14100DE8D5A /* AAColumnrange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAColumnrange.h; sourceTree = "<group>"; };
 		846CB10C26A6B14100DE8D5A /* AAColumnrange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAColumnrange.m; sourceTree = "<group>"; };
+		84790F402CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTooltipClickEventCallbackVC.h; sourceTree = "<group>"; };
+		84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTooltipClickEventCallbackVC.m; sourceTree = "<group>"; };
 		8483CEC029D2F40D002E57AA /* AADOMRectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADOMRectModel.h; sourceTree = "<group>"; };
 		8483CEC129D2F40D002E57AA /* AADOMRectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADOMRectModel.m; sourceTree = "<group>"; };
 		8486A2282BAD830600AA343B /* DoubleChartsLinkedWorkVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleChartsLinkedWorkVC2.h; sourceTree = "<group>"; };
@@ -733,6 +736,8 @@
 				58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */,
 				8483CEC029D2F40D002E57AA /* AADOMRectModel.h */,
 				8483CEC129D2F40D002E57AA /* AADOMRectModel.m */,
+				84790F402CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.h */,
+				84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */,
 			);
 			path = AdditionalContent1;
 			sourceTree = "<group>";
@@ -1065,6 +1070,7 @@
 				846142242C8AEB340032FBD3 /* CustomStyleForScatterChartComposer.m in Sources */,
 				846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */,
 				84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */,
+				84790F422CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m in Sources */,
 				84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */,
 				846142062C8831FA0032FBD3 /* AABaseListVC.m in Sources */,
 				84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */,
