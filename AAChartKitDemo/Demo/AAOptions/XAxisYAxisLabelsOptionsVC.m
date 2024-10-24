@@ -134,7 +134,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1208
 - (AAOptions *)configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart {
-    NSDictionary *gradientColorDic1 =
+    AAGradientColor *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                startColorString:@"#FC354C"
                                  endColorString:@"#0ABFBC"];

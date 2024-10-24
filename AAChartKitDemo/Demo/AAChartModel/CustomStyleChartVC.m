@@ -1294,7 +1294,7 @@
                 @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
                 @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
             ];
-            NSDictionary *gradientBlueColorDic =
+            AAGradientColor *gradientBlueColorDic =
                 [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                  stopsArray:blueStopsArr];
 
@@ -1304,7 +1304,7 @@
                 @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
                 @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
             ];
-            NSDictionary *gradientRedColorDic =
+            AAGradientColor *gradientRedColorDic =
                 [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                  stopsArray:redStopsArr];
 
@@ -1314,7 +1314,7 @@
                 @[@0.6, AARgbaColor(255, 215, 0, 0.2)],
                 @[@1.0, AARgbaColor(255, 215, 0, 0.0)]
             ];
-            NSDictionary *gradientGoldColorDic =
+            AAGradientColor *gradientGoldColorDic =
                 [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                  stopsArray:goldStopsArr];
 
@@ -1324,7 +1324,7 @@
                 @[@0.6, AARgbaColor(50, 205, 50, 0.2)],
                 @[@1.0, AARgbaColor(50, 205, 50, 0.0)]
             ];
-            NSDictionary *gradientGreenColorDic =
+            AAGradientColor *gradientGreenColorDic =
                 [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                  stopsArray:greenStopsArr];
 
@@ -1947,18 +1947,6 @@
                 [randomNumArrB addObject:@(y2)];
             }
 
-            NSArray *redStopsArr = @[
-                @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
-                @[@0.2, AARgbaColor(255, 0, 0, 0.2)],
-                @[@0.4, AARgbaColor(255, 0, 0, 0.1)],
-                @[@0.6, AARgbaColor(255, 0, 0, 0.05)],
-                @[@0.8, AARgbaColor(255, 0, 0, 0.01)],
-                @[@1.0, AAColor.clearColor]
-            ];
-
-            NSDictionary *gradientRedColorDic = [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                                                                                 stopsArray:redStopsArr];
-
             @[
                 AASeriesElement.new
                     .nameSet(@"2017")
@@ -1972,7 +1960,15 @@
                     .dataSet(randomNumArrB),
                 AASeriesElement.new
                     .nameSet(@"2020")
-                    .fillColorSet((id)gradientRedColorDic)
+                    .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                                                       stopsArray:@[
+                        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                        @[@0.2, AARgbaColor(255, 0, 0, 0.2)],
+                        @[@0.4, AARgbaColor(255, 0, 0, 0.1)],
+                        @[@0.6, AARgbaColor(255, 0, 0, 0.05)],
+                        @[@0.8, AARgbaColor(255, 0, 0, 0.01)],
+                        @[@1.0, AAColor.clearColor]
+                    ]])
                     .lineWidthSet(@6)
                     .thresholdSet(@(-4))
                     .dataSet(randomNumArrA),

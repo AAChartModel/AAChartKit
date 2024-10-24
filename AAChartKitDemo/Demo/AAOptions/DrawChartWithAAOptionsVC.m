@@ -582,12 +582,12 @@
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/696
 - (AAOptions *)configure_DataLabels_XAXis_YAxis_Legend_Style {
-    NSDictionary *fillColorGradientColor =
+    AAGradientColor *fillColorGradientColor =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop//渐变色方向向上🔼
                                startColorString:@"rgba(256,256,256,0.3)"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"rgba(256,256,256,1.0)"];
     
-    NSDictionary *backgroundColorGradientColor =
+    AAGradientColor *backgroundColorGradientColor =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTopLeft//渐变色方向向左上↖️
                                startColorString:@"#4F00BC"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"#29ABE2"];

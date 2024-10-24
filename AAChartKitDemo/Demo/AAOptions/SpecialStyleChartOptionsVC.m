@@ -34,7 +34,7 @@
     NSArray *stopsArr = @[@[@0.0, @"#00feff"],//颜色字符串设置支持十六进制类型和 rgba 类型
                           @[@0.5, @"#027eff"],
                           @[@1.0, @"#0286ff"]];
-    NSDictionary *gradientColorDic1 =
+    AAGradientColor *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:stopsArr];
     
@@ -108,7 +108,7 @@
     NSArray *stopsArr = @[@[@0.0, @"#00feff"],//颜色字符串设置支持十六进制类型和 rgba 类型
                           @[@0.5, @"#027eff"],
                           @[@1.0, @"#0286ff"]];
-    NSDictionary *gradientColorDic1 =
+    AAGradientColor *gradientColorDic1 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:stopsArr];
     

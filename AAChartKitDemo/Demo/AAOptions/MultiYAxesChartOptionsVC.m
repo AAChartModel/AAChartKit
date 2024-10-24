@@ -241,16 +241,15 @@
 
 // https://github.com/AAChartModel/AAChartKit/issues/771
 - (AAOptions *)configureDoubleYAxesColumnMixedSplineChart {
-    NSArray *stopsArr = @[
+    AAGradientColor *gradientColorDic1 =
+    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                     stopsArray:@[
         @[@0.0, @"rgba(156,107,211,0.5)"],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.2, @"rgba(156,107,211,0.3)"],
         @[@1.0, @"rgba(156,107,211,0)"]
-    ];
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                                     stopsArray:stopsArr];
+    ]];
     
-    NSDictionary *gradientColorDic2 =
+    AAGradientColor *gradientColorDic2 =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                startColorString:@"#956FD4"//颜色字符串设置支持十六进制类型和 rgba 类型
                                  endColorString:@"#3EACE5"];

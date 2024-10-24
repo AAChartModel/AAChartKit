@@ -72,20 +72,13 @@
             aaOptions.plotOptions.column.borderRadius = @10;
             aaOptions.tooltip.followTouchMove = false;
             aaOptions.xAxis.minRange = @2;
-            
-            NSDictionary *gradientColorDic1 =
-            [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                                       startColorString:@"rgba(138,43,226,1)"
-                                         endColorString:@"rgba(30,144,255,1)"];
-            
-            NSDictionary *gradientColorDic2 =
-            [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                                       startColorString:@"#00BFFF"
-                                         endColorString:@"#00FA9A"];
-            
             aaOptions.colors = @[
-                gradientColorDic1,
-                gradientColorDic2,
+                [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                           startColorString:@"rgba(138,43,226,1)"
+                                             endColorString:@"rgba(30,144,255,1)"],
+                [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                           startColorString:@"#00BFFF"
+                                             endColorString:@"#00FA9A"],
                 AAGradientColor.sanguineColor,
             ];
         }

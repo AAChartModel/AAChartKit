@@ -83,16 +83,6 @@
 
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                               startColorString:@"rgba(138,43,226,1)"
-                                 endColorString:@"rgba(30,144,255,1)"];
-    
-    NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                               startColorString:@"#00BFFF"
-                                 endColorString:@"#00FA9A"];
-    
      AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet([self configureTheChartType])//图表类型随机
     .xAxisVisibleSet(true)
@@ -100,8 +90,12 @@
     .yAxisTitleSet(@"摄氏度")
     .stackingSet(AAChartStackingTypeNormal)
     .colorsThemeSet(@[
-        gradientColorDic1,
-        gradientColorDic2,
+        [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                   startColorString:@"rgba(138,43,226,1)"
+                                     endColorString:@"rgba(30,144,255,1)"],
+        [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                   startColorString:@"#00BFFF"
+                                     endColorString:@"#00FA9A"],
         AAGradientColor.sanguineColor,
         AAGradientColor.wroughtIronColor
     ])
@@ -109,11 +103,11 @@
     ;
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-      if (aaChartModel.chartType == AAChartTypeColumn) {
-          aaOptions.plotOptions.column.groupPadding = @0;
-      } else if (aaChartModel.chartType == AAChartTypeBar) {
-          aaOptions.plotOptions.bar.groupPadding = @0;
-      }
+    if (aaChartModel.chartType == AAChartTypeColumn) {
+        aaOptions.plotOptions.column.groupPadding = @0;
+    } else if (aaChartModel.chartType == AAChartTypeBar) {
+        aaOptions.plotOptions.bar.groupPadding = @0;
+    }
     return aaOptions;
 }
 

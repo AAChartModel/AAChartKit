@@ -95,16 +95,6 @@
 }
 
 - (AAOptions *)setupChartOtionsWithChartType:(AAChartType)chartType {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                               startColorString:@"rgba(138,43,226,1)"
-                                 endColorString:@"rgba(30,144,255,1)"];
-    
-    NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                               startColorString:@"#00BFFF"
-                                 endColorString:@"#00FA9A"];
-    
     AAChartModel *aaChartModel =  AAChartModel.new
     .chartTypeSet(chartType)//图表类型随机
     .xAxisVisibleSet(true)
@@ -115,8 +105,12 @@
         .minWidthSet(@6000)
         .scrollPositionXSet(@0))
     .colorsThemeSet(@[
-        gradientColorDic1,
-        gradientColorDic2,
+        [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                   startColorString:@"rgba(138,43,226,1)"
+                                     endColorString:@"rgba(30,144,255,1)"],
+        [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                   startColorString:@"#00BFFF"
+                                     endColorString:@"#00FA9A"],
         AAGradientColor.sanguineColor,
         AAGradientColor.wroughtIronColor
     ])

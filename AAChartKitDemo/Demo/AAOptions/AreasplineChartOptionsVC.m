@@ -92,7 +92,7 @@
         @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
     ];
-    NSDictionary *gradientBlueColorDic =
+    AAGradientColor *gradientBlueColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:blueStopsArr];
     
@@ -102,7 +102,7 @@
         @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
     ];
-    NSDictionary *gradientRedColorDic =
+    AAGradientColor *gradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:redStopsArr];
     

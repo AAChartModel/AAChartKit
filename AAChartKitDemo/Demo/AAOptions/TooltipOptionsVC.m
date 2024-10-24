@@ -206,7 +206,7 @@
         @[@0.6, AARgbaColor(255, 215, 0, 0.2)],
         @[@1.0, AARgbaColor(255, 215, 0, 0.0)]
     ];
-    NSDictionary *gradientGoldColorDic =
+    AAGradientColor *gradientGoldColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:goldStopsArr];
     
@@ -216,7 +216,7 @@
         @[@0.6, AARgbaColor(50, 205, 50, 0.2)],
         @[@1.0, AARgbaColor(50, 205, 50, 0.0)]
     ];
-    NSDictionary *gradientGreenColorDic =
+    AAGradientColor *gradientGreenColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:greenStopsArr];
     

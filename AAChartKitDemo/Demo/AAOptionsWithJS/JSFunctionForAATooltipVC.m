@@ -128,26 +128,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/647
 //https://github.com/AAChartModel/AAChartKit/issues/891
-- (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {
-    NSArray *blueStopsArr = @[
-        @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
-        @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
-        @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
-    ];
-    NSDictionary *gradientBlueColorDic =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                                     stopsArray:blueStopsArr];
-    
-    
-    NSArray *redStopsArr = @[
-        @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
-        @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
-        @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
-    ];
-    NSDictionary *gradientRedColorDic =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
-                                     stopsArray:redStopsArr];
-    
+- (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"2014 ~ 2020 汪星人生存指数")//图表主标题
@@ -160,12 +141,22 @@
     .seriesSet(@[
         AASeriesElement.new
         .lineWidthSet(@6)
-        .fillColorSet((id)gradientBlueColorDic)
+        .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                                           stopsArray:@[
+                              @[@0.0, AARgbaColor(30, 144, 255, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                              @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
+                              @[@1.0, AARgbaColor(30, 144, 255, 0.0)]
+                          ]])
         .nameSet(@"🐶狗子")
         .dataSet(@[@43934, @52503, @57177, @69658, @97031, @119931, @137133, @154175]),
         AASeriesElement.new
         .lineWidthSet(@6)
-        .fillColorSet((id)gradientRedColorDic)
+        .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                                                           stopsArray:@[
+                              @[@0.0, AARgbaColor(255, 0, 0, 1.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
+                              @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
+                              @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
+                          ]])
         .nameSet(@"🌲树木")
         .dataSet(@[@24916, @24064, @29742, @29851, @32490, @30282, @38121, @40434]),
     ]);

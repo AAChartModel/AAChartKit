@@ -844,18 +844,6 @@
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/394
 //https://www.highcharts.com/forum/viewtopic.php?t=44985
 + (AAOptions *)configureSpecialStyleMarkerOfSingleDataElementChartWithBlinkEffect {
-    NSArray *stopsArr = @[
-            @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
-            @[@0.25, @"#FF14d4"],
-            @[@0.50, @"#0bf8f5"],
-            @[@0.75, @"#F33c52"],
-            @[@1.00, @"#1904dd"],
-    ];
-
-    NSDictionary *gradientColorDic1 =
-            [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
-                                             stopsArray:stopsArr];
-
     AADataElement *singleSpecialData = AADataElement.new
             .markerSet(AAMarker.new
                     .radiusSet(@8)//曲线连接点半径
@@ -863,8 +851,7 @@
                     .fillColorSet(AAColor.whiteColor)//点的填充色(用来设置折线连接点的填充色)
                     .lineWidthSet(@5)//外沿线的宽度(用来设置折线连接点的轮廓描边的宽度)
                             //外沿线的颜色(用来设置折线连接点的轮廓描边颜色，当值为空字符串时，默认取数据点或数据列的颜色)
-                    .lineColorSet(AAColor.redColor)
-            )
+                    .lineColorSet(AAColor.redColor))
             .ySet(@26.5);
 
     AAChartModel *aaChartModel = AAChartModel.new
@@ -880,7 +867,14 @@
                             .nameSet(@"Virtual Data")
                             .lineWidthSet(@6)
                             .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, singleSpecialData, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
-                            .colorSet((id)gradientColorDic1)
+                            .colorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
+                                                                           stopsArray:@[
+                                @[@0.00, @"#febc0f"],//颜色字符串设置支持十六进制类型和 rgba 类型
+                                @[@0.25, @"#FF14d4"],
+                                @[@0.50, @"#0bf8f5"],
+                                @[@0.75, @"#F33c52"],
+                                @[@1.00, @"#1904dd"],
+                            ]])
             ]);
     NSInteger selectedIndex = 11;
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;

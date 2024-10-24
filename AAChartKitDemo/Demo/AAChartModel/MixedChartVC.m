@@ -817,7 +817,7 @@
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
     ];
-    NSDictionary *gradientBlueColorDic =
+    AAGradientColor *gradientBlueColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:blueStopsArr];
     
@@ -827,7 +827,7 @@
         @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.0)]
     ];
-    NSDictionary *gradientRedColorDic =
+    AAGradientColor *gradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:redStopsArr];
     
@@ -863,7 +863,7 @@
         @[@0.8, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
     ];
-    NSDictionary *gradientBlueColorDic =
+    AAGradientColor *gradientBlueColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:blueStopsArr];
     
@@ -873,7 +873,7 @@
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
         @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
     ];
-    NSDictionary *toBottomGradientBlueColorDic =
+    AAGradientColor *toBottomGradientBlueColorDic =
        [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                         stopsArray:toBottomBlueStopsArr];
     
@@ -883,7 +883,7 @@
         @[@0.85, AARgbaColor(255, 0, 0, 0.0)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.6)]
     ];
-    NSDictionary *gradientRedColorDic =
+    AAGradientColor *gradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                      stopsArray:redStopsArr];
     
@@ -893,7 +893,7 @@
         @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
         @[@1.0, AARgbaColor(255, 0, 0, 0.6)]
     ];
-    NSDictionary *toBottomGradientRedColorDic =
+    AAGradientColor *toBottomGradientRedColorDic =
     [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                      stopsArray:toBottomRedStopsArr];
     
