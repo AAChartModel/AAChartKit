@@ -20,46 +20,38 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/780
-- (AAOptions *)customDoubleXAxesChart {
-    NSDictionary *gradientColorDic1 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#00b0ff"];
-    
-    NSDictionary *gradientColorDic2 =
-    [AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
-                               startColorString:@"#EF71FF"//颜色字符串设置支持十六进制类型和 rgba 类型
-                                 endColorString:@"#4740C8"];
-    
-    NSArray *categories = @[
-        @"0-4", @"5-9", @"10-14", @"15-19",
-        @"20-24", @"25-29", @"30-34", @"35-39", @"40-44",
-        @"45-49", @"50-54", @"55-59", @"60-64", @"65-69",
-        @"70-74", @"75-79", @"80-84", @"85-89", @"90-94",
-        @"95-99", @"100 + ",];
-    
+- (AAOptions *)customDoubleXAxesChart {    
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeColumn)
               )
     .titleSet(AATitle.new
               .textSet(@"Population pyramid for Germany, 2015"))
-    .xAxisSet((id)@[
-        AAXAxis.new
-        .reversedSet(true)
-        .categoriesSet(categories)
-        .labelsSet(AALabels.new
-                   .enabledSet(true)
-                   .stepSet(@1)),
-        AAXAxis.new
-        .reversedSet(true)
-        .oppositeSet(true)
-        .categoriesSet(categories)
-        .linkedToSet(@0)
-        .labelsSet(AALabels.new
-                   .enabledSet(true)
-                   .stepSet(@1)),
-    ])
+    .xAxisSet((id)({
+        NSArray *categories = @[
+            @"0-4", @"5-9", @"10-14", @"15-19",
+            @"20-24", @"25-29", @"30-34", @"35-39", @"40-44",
+            @"45-49", @"50-54", @"55-59", @"60-64", @"65-69",
+            @"70-74", @"75-79", @"80-84", @"85-89", @"90-94",
+            @"95-99", @"100 + ",];
+        
+        @[
+            AAXAxis.new
+            .reversedSet(true)
+            .categoriesSet(categories)
+            .labelsSet(AALabels.new
+                       .enabledSet(true)
+                       .stepSet(@1)),
+            AAXAxis.new
+            .reversedSet(true)
+            .oppositeSet(true)
+            .categoriesSet(categories)
+            .linkedToSet(@0)
+            .labelsSet(AALabels.new
+                       .enabledSet(true)
+                       .stepSet(@1)),
+        ];
+    }))
     .yAxisSet(AAYAxis.new
               .visibleSet(true)
               .gridLineWidthSet(@0)
@@ -90,14 +82,18 @@
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"Men")
-        .colorSet((id)gradientColorDic1)
+        .colorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                                 startColorString:@"#7052f4"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                                   endColorString:@"#00b0ff"])
         .dataSet(@[
             @-1746181, @-1884428, @-2089758, @-2222362, @-2537431, @-2507081, @-2443179,
             @-2664537, @-3556505, @-3680231, @-3143062, @-2721122, @-2229181, @-2227768,
             @-2176300, @-1329968, @-836804, @-354784, @-90569, @-28367, @-3878]),
         AASeriesElement.new
         .nameSet(@"Women")
-        .colorSet((id)gradientColorDic2)
+        .colorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                                                 startColorString:@"#EF71FF"//颜色字符串设置支持十六进制类型和 rgba 类型
+                                                   endColorString:@"#4740C8"])
         .dataSet(@[
             @1656154, @1787564, @1981671, @2108575, @2403438, @2366003, @2301402, @2519874,
             @3360596, @3493473, @3050775, @2759560, @2304444, @2426504, @2568938, @1785638,
