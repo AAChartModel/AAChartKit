@@ -264,11 +264,6 @@
 
     AATitle *title = AATitle.new
         .textSet(@"The Highcharts clock");
-    
-    AARadialGradient.new
-        .cxSet(@0.5)
-    .cySet(@-0.4)
-    .rSet(@1.9);
 
     AAGradientColor *backgroundGradient = AAGradientColor.new
         .radialGradientSet(AARadialGradient.new
@@ -324,72 +319,50 @@
         .formatSet(@"{series.chart.tooltipText}")
     ;
     
-    // 获取当前时间
-    NSDate *now = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:now];
-
-    // 计算小时、分钟和秒针的位置
-    double hours = components.hour + components.minute / 60.0;
-    double minutes = components.minute * 12.0 / 60.0 + components.second * 12.0 / 3600.0;
-    double seconds = components.second * 12.0 / 60.0;
-
-    // 构造数据字典
-    NSArray *dataArr = @[
-        @{@"id": @"hour",
-          @"y": @(hours),
-          @"dial": @{
-              @"radius": @"60%",
-              @"baseWidth": @4,
-              @"baseLength": @"95%",
-              @"rearLength": @0}
-        },
-        @{@"id": @"minute",
-          @"y": @(minutes),
-          @"dial": @{
-              @"baseLength": @"95%",
-              @"rearLength": @0}
-        },
-        @{@"id": @"second",
-          @"y": @(seconds),
-          @"dial": @{
-              @"radius": @"100%",
-              @"baseWidth": @1,
-              @"rearLength": @"20%"}
-        }
-    ];
-
-    // 打印结果
-    NSLog(@"Series: %@", dataArr);
-
     AASeriesElement *hourSeries = AASeriesElement.new
-//        .dataSet(@[
-//            AASingleDataElement.new
-//                .idSet(@"hour")
-//                .ySet(@(now.hours))  // 假设 `now.hours` 是一个数值
-//                .dialSet(AADial.new
-//                    .radiusSet(@"60%")
-//                    .baseWidthSet(@4)
-//                    .baseLengthSet(@"95%")
-//                    .rearLengthSet(@0)
-//                ),
-//            AASingleDataElement.new
-//                .idSet(@"minute")
-//                .ySet(@(now.minutes))
-//                .dialSet(AADial.new
-//                    .baseLengthSet(@"95%")
-//                    .rearLengthSet(@0)
-//                ),
-//            AASingleDataElement.new
-//                .idSet(@"second")
-//                .ySet(@(now.seconds))
-//                .dialSet(AADial.new
-//                    .radiusSet(@"100%")
-//                    .baseWidthSet(@1)
-//                    .rearLengthSet(@"20%")
-//                )
-//        ])
-        .dataSet(dataArr)
+        .dataSet(({
+            // 获取当前时间
+            NSDate *now = [NSDate date];
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:now];
+
+            // 计算小时、分钟和秒针的位置
+            double hours = components.hour + components.minute / 60.0;
+            double minutes = components.minute * 12.0 / 60.0 + components.second * 12.0 / 3600.0;
+            double seconds = components.second * 12.0 / 60.0;
+
+            // 构造数据字典
+            NSArray *dataArr = @[
+                @{@"id"  : @"hour",
+                  @"y"   : @(hours),
+                  @"dial": @{
+                      @"radius"    : @"60%",
+                      @"baseWidth" : @4,
+                      @"baseLength": @"95%",
+                      @"rearLength": @0}
+                },
+                
+                @{@"id"  : @"minute",
+                  @"y"   : @(minutes),
+                  @"dial": @{
+                      @"baseLength": @"95%",
+                      @"rearLength": @0}
+                },
+                
+                @{@"id"  : @"second",
+                  @"y"   : @(seconds),
+                  @"dial": @{
+                      @"radius"    : @"100%",
+                      @"baseWidth" : @1,
+                      @"rearLength": @"20%"}
+                }
+            ];
+
+            // 打印结果
+            NSLog(@"Series: %@", dataArr);
+            
+            dataArr;
+        }))
     //        .animationSet(NO)
         .dataLabelsSet(AADataLabels.new
                        .enabledSet(NO));
