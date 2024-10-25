@@ -43,8 +43,9 @@ AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderRadi
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderWidth) //边框宽度
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, AAStyle  *, style) //为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":@"#333333",@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       enabled)
-AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       useHTML) 
-AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, formatter) 
+AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       useHTML)
+AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, format)
+AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, formatter)
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, headerFormat) 
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, pointFormat)
 AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, pointFormatter)
