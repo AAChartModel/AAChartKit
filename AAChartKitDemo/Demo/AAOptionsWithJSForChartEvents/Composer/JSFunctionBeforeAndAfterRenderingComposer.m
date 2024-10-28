@@ -276,9 +276,9 @@
         ]);
 
     AAPane *pane = AAPane.new
-        .backgroundSet((id)@[
-            AABackground.new,
-            AABackground.new
+        .backgroundSet(@[
+            AABackgroundElement.new,
+            AABackgroundElement.new
                 .backgroundColorSet((id)backgroundGradient)
         ]);
 

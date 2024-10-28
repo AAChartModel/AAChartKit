@@ -36,7 +36,7 @@
 
 @implementation AAPane
 
-AAPropSetFuncImplementation(AAPane, AABackground *, background)
+AAPropSetFuncImplementation(AAPane, NSArray<AABackgroundElement *> *, background)
 AAPropSetFuncImplementation(AAPane, NSArray  *, center)
 AAPropSetFuncImplementation(AAPane, NSNumber *, endAngle)
 AAPropSetFuncImplementation(AAPane, NSNumber *, size)
@@ -45,14 +45,14 @@ AAPropSetFuncImplementation(AAPane, NSNumber *, startAngle)
 @end
 
 
-@implementation AABackground
+@implementation AABackgroundElement
 
-AAPropSetFuncImplementation(AABackground, NSString *, backgroundColor)
-AAPropSetFuncImplementation(AABackground, NSString *, borderColor)
-AAPropSetFuncImplementation(AABackground, NSNumber *, borderWidth)
-AAPropSetFuncImplementation(AABackground, NSString *, className)
-AAPropSetFuncImplementation(AABackground, NSNumber *, innerRadius)
-AAPropSetFuncImplementation(AABackground, NSNumber *, outerRadius)
-AAPropSetFuncImplementation(AABackground, NSString *, shape)
+AAPropSetFuncImplementation(AABackgroundElement, NSString *, backgroundColor)
+AAPropSetFuncImplementation(AABackgroundElement, NSString *, borderColor)
+AAPropSetFuncImplementation(AABackgroundElement, NSNumber *, borderWidth)
+AAPropSetFuncImplementation(AABackgroundElement, NSString *, className)
+AAPropSetFuncImplementation(AABackgroundElement, NSNumber *, innerRadius)
+AAPropSetFuncImplementation(AABackgroundElement, NSNumber *, outerRadius)
+AAPropSetFuncImplementation(AABackgroundElement, NSString *, shape)
 
 @end

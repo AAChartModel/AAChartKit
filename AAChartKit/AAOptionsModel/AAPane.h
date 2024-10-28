@@ -34,11 +34,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class AABackground;
+@class AABackgroundElement;
 
 @interface AAPane : NSObject
 
-AAPropStatementAndPropSetFuncStatement(strong, AAPane, AABackground *, background)
+AAPropStatementAndPropSetFuncStatement(strong, AAPane, NSArray<AABackgroundElement *> *, background)
 AAPropStatementAndPropSetFuncStatement(strong, AAPane, NSArray  *, center)
 AAPropStatementAndPropSetFuncStatement(strong, AAPane, NSNumber *, endAngle)
 AAPropStatementAndPropSetFuncStatement(strong, AAPane, NSNumber *, size)
@@ -47,14 +47,14 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPane, NSNumber *, startAngle)
 @end
 
 
-@interface AABackground : NSObject
+@interface AABackgroundElement : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy  , AABackground, NSString *, backgroundColor)
-AAPropStatementAndPropSetFuncStatement(copy  , AABackground, NSString *, borderColor)
-AAPropStatementAndPropSetFuncStatement(strong, AABackground, NSNumber *, borderWidth)
-AAPropStatementAndPropSetFuncStatement(copy  , AABackground, NSString *, className)
-AAPropStatementAndPropSetFuncStatement(strong, AABackground, NSNumber *, innerRadius)
-AAPropStatementAndPropSetFuncStatement(strong, AABackground, NSNumber *, outerRadius)
-AAPropStatementAndPropSetFuncStatement(copy  , AABackground, NSString *, shape)
+AAPropStatementAndPropSetFuncStatement(copy  , AABackgroundElement, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(copy  , AABackgroundElement, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AABackgroundElement, NSNumber *, borderWidth)
+AAPropStatementAndPropSetFuncStatement(copy  , AABackgroundElement, NSString *, className)
+AAPropStatementAndPropSetFuncStatement(strong, AABackgroundElement, NSNumber *, innerRadius)
+AAPropStatementAndPropSetFuncStatement(strong, AABackgroundElement, NSNumber *, outerRadius)
+AAPropStatementAndPropSetFuncStatement(copy  , AABackgroundElement, NSString *, shape)
 
 @end
