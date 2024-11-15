@@ -35,7 +35,7 @@
 #import <Foundation/Foundation.h>
 #import "AAChartModel.h"
 
-@class AAItemStyle;
+@class AAStyle;
 
 @interface AALegend : NSObject
 
@@ -47,7 +47,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, borderCo
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, borderWidth) 
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, itemMarginTop) //图例的每一项的顶部外边距，单位px。 默认是：0.
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, itemMarginBottom)//图例项底边距 默认是：0.
-AAPropStatementAndPropSetFuncStatement(strong, AALegend, AAItemStyle *, itemStyle)
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, AAStyle     *, itemStyle)
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolHeight)//标志高度
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolPadding)//标志后距
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, symbolRadius)//图标圆角
@@ -60,6 +60,10 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, labelFor
 @end
 
 
+//添加 AAItemStyle 废弃警告⚠️
+//NS_CLASS_DEPRECATED_IOS(2_0, 3_0, "Please use AAStyle instead.")
+
+DEPRECATED_MSG_ATTRIBUTE("Please use AAStyle instead")
 @interface AAItemStyle : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, color)
