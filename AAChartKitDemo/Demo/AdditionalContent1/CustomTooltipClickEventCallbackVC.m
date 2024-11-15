@@ -42,8 +42,8 @@ static NSString * const kUserContentMessageNameChartTooltipClicked = @"tooltipCl
                                         chartViewWidth,
                                         chartViewHeight);
     [self.view addSubview:self.aaChartView];
-    if (@available(macCatalyst 16.4, *)) {
-        self.aaChartView.inspectable = true;
+    if (@available(iOS 16.4, macCatalyst 16.4, *)) {
+        self.aaChartView.inspectable = YES;
     } else {
         // Fallback on earlier versions
     }
