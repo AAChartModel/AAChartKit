@@ -61,8 +61,6 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, labelFor
 
 
 //添加 AAItemStyle 废弃警告⚠️
-//NS_CLASS_DEPRECATED_IOS(2_0, 3_0, "Please use AAStyle instead.")
-
 DEPRECATED_MSG_ATTRIBUTE("Please use AAStyle instead")
 @interface AAItemStyle : NSObject
 
