@@ -112,7 +112,8 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, afterDrawChartJavaScript
     [self configureTheAAPlotOptionsWithPlotOptions:aaPlotOptions chartModel:aaChartModel];
     
     AALegend *aaLegend = AALegend.new
-    .enabledSet(aaChartModel.legendEnabled);//是否显示 legend
+    .enabledSet(aaChartModel.legendEnabled)//是否显示 legend
+    .itemStyleSet(aaChartModel.legendItemStyle);
     
     AAOptions *aaOptions = AAOptions.new
     .chartSet(aaChart)

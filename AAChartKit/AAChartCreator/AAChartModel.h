@@ -33,6 +33,7 @@
 #import <Foundation/Foundation.h>
 #import "AASeriesElement.h"
 #import "AAPlotLinesElement.h"
+
 @class AAStyle, AALineStyle, AACrosshair, AAScrollablePlotArea;
 
 typedef NS_ENUM(NSInteger,AAChartAnimation) {
@@ -207,6 +208,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, tooltip
 
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       connectNulls) //设置折线是否断点重连(是否连接空值点)
 AAPropStatementAndPropSetFuncStatement(assign, AAChartModel, BOOL,       legendEnabled) //是否显示图例 lengend(图表底部可点按的圆点和文字)
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle *,  legendItemStyle) //图例各项的文字样式
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, borderRadius) //柱状图长条图头部圆角半径(可用于设置头部的形状,仅对条形图,柱状图有效)
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSNumber *, markerRadius) //折线连接点的半径长度
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAScrollablePlotArea *, scrollablePlotArea)

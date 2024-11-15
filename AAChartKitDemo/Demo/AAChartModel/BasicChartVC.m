@@ -168,6 +168,7 @@
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])//y轴横向分割线宽度为0(即是隐藏分割线)
     .xAxisLabelsStyleSet(AAStyleColor(AAColor.lightGrayColor))
     .yAxisLabelsStyleSet(AAStyleColor(AAColor.lightGrayColor))
+    .legendItemStyleSet(AAStyleColorSizeWeight(AAColor.lightGrayColor, 15, AAChartFontWeightTypeBold))
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2017")
