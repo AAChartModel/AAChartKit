@@ -57,6 +57,9 @@ AAPropSetFuncImplementation(AALegend, NSString    *, labelFormat)//图例标签�
 @end
 
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation AAItemStyle
 
 AAPropSetFuncImplementation(AAItemStyle, NSString *, color)
@@ -65,3 +68,6 @@ AAPropSetFuncImplementation(AAItemStyle, NSString *, fontSize)
 AAPropSetFuncImplementation(AAItemStyle, NSString *, fontWeight)
 
 @end
+
+#pragma clang diagnostic pop
+
