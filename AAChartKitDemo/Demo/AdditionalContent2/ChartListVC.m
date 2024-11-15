@@ -280,7 +280,7 @@
               .colorSet(AAColor.whiteColor));//X轴文字颜色
 
     aaOptions.legend
-    .itemStyleSet(AAItemStyle.new
+    .itemStyleSet(AAStyle.new
                   .colorSet(AAColor.whiteColor)//字体颜色
                   .fontSizeSet(@"13px")//字体大小
                   .fontWeightSet(AAChartFontWeightTypeThin)//字体为细体字

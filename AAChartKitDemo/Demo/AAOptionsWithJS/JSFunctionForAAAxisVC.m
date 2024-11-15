@@ -673,7 +673,7 @@
      "fontWeight": "bold"
      }
      */
-    AAItemStyle *aaItemStyle = AAItemStyle.new
+    AAStyle *aaItemStyle = AAStyle.new
     .colorSet(AAColor.grayColor)//字体颜色
     .cursorSet(@"pointer")//(在移动端这个属性没什么意义,其实不用设置)指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
     .fontSizeSet(@"14px")//字体大小

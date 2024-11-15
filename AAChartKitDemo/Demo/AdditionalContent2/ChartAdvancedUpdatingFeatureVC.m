@@ -246,7 +246,7 @@
                 )
     .legendSet(AALegend.new
                .enabledSet(true)
-               .itemStyleSet(AAItemStyle.new
+               .itemStyleSet(AAStyle.new
                              .colorSet(AAColor.whiteColor)
                              .fontSizeSet(@"12px")))
     ;

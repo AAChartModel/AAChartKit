@@ -80,7 +80,7 @@
     
     AALegend *aaLegend = AALegend.new
     .enabledSet(true)
-    .itemStyleSet(AAItemStyle.new
+    .itemStyleSet(AAStyle.new
                   .colorSet(AAColor.whiteColor))
     .alignSet(AAChartAlignTypeLeft)//设置图例位于水平方向上的右侧
     .layoutSet(AAChartLayoutTypeHorizontal)//设置图例排列方式为垂直排布

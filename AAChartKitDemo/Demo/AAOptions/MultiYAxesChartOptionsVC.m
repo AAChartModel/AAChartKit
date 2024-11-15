@@ -349,7 +349,7 @@
     
     AALegend *aaLegend = AALegend.new
     .enabledSet(true)
-    .itemStyleSet(AAItemStyle.new
+    .itemStyleSet(AAStyle.new
                   .colorSet(AAColor.lightGrayColor))
     .floatingSet(true)
     .layoutSet(AAChartLayoutTypeHorizontal)
