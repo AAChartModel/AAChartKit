@@ -134,12 +134,8 @@
 //    AAChartViewManager *chartViewManager = [[AAChartViewManager alloc]init];
 
     AAChartView *aaChartView = chartViewManager.aaChartView;
-    if (@available(macCatalyst 16.4, *)) {
-        if (@available(iOS 16.4, *)) {
-            aaChartView.inspectable = YES;
-        } else {
-            // Fallback on earlier versions
-        }
+    if (@available(iOS 16.4, macCatalyst 16.4, *)) {
+        aaChartView.inspectable = YES;
     } else {
         // Fallback on earlier versions
     }
