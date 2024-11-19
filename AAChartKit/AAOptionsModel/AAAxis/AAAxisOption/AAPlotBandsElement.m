@@ -35,12 +35,16 @@
 @implementation AAPlotBandsElement
 
 AAPropSetFuncImplementation(AAPlotBandsElement, NSString *, borderColor)
+AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, borderRadius)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, borderWidth)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSString *, className)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSString *, color)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, from)
+AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, innerRadius)
 AAPropSetFuncImplementation(AAPlotBandsElement, AALabel  *, label)
+AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, outerRadius)
+AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, thickness)
 AAPropSetFuncImplementation(AAPlotBandsElement, NSNumber *, to)
-AAPropSetFuncImplementation(AAPlotBandsElement, NSUInteger , zIndex)
+AAPropSetFuncImplementation(AAPlotBandsElement, NSUInteger, zIndex)
 
 @end

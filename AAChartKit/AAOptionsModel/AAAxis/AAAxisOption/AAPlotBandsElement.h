@@ -44,18 +44,43 @@
 //to: 结束值
 //zIndex
 
+
+/**
+ plotBands:[{
+ borderColor:undefined
+ borderRadius:undefined
+ borderWidth:0
+ className:undefined
+ color:#e6e9ff
+ events:{...}
+ from:undefined
+ id:undefined
+ innerRadius:undefined
+ label:{...}
+ outerRadius:100%
+ thickness:10
+ to:undefined
+ zIndex:undefined
+ }]
+ */
+
 #import <Foundation/Foundation.h>
+
 @class AALabel;
 
 @interface AAPlotBandsElement : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, borderRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, className)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, from)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, innerRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, AALabel  *, label)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, outerRadius)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, thickness)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, to)
-AAPropStatementAndPropSetFuncStatement(assign, AAPlotBandsElement, NSUInteger , zIndex)
+AAPropStatementAndPropSetFuncStatement(assign, AAPlotBandsElement, NSUInteger, zIndex)
 
 @end

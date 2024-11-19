@@ -545,9 +545,9 @@
     AAPane *pane = AAPane.new
         .startAngleSet(@(-90))
         .endAngleSet(@89.9)
-        .backgroundSet(@"null")
+        .backgroundSet((id)NSNull.null)
         .centerSet(@[@"50%", @"75%"])
-        .sizeSet(@"110%");
+        .sizeSet((id)@"110%");
     
     AAYAxis *yAxis = AAYAxis.new
         .minSet(@0)
@@ -557,7 +557,7 @@
         .tickColorSet(@"#FFFFFF")
         .tickLengthSet(@20)
         .tickWidthSet(@2)
-        .minorTickIntervalSet(@"null")
+        .minorTickIntervalSet((id)NSNull.null)
         .labelsSet(AALabels.new
                    .distanceSet(@20)
                    .styleSet(AAStyle.new
@@ -570,35 +570,33 @@
                 .fromSet(@0)
                 .toSet(@130)
                 .colorSet(@"#55BF3B")
-            //            .thicknessSet(@20)
-            //            .borderRadiusSet(@"50%")
+                .thicknessSet(@20)
+                .borderRadiusSet((id)@"50%")
             ,
-            
             AAPlotBandsElement.new
                 .fromSet(@150)
                 .toSet(@200)
                 .colorSet(@"#DF5353")
-            //            .thicknessSet(@20)
-            //            .borderRadiusSet(@"50%")
+                .thicknessSet(@20)
+                .borderRadiusSet((id)@"50%")
             ,
-            
             AAPlotBandsElement.new
                 .fromSet(@120)
                 .toSet(@160)
                 .colorSet(@"#DDDF0D")
-            //            .thicknessSet(@20)
+                .thicknessSet(@20)
         ]);
     
     AAPlotOptions *aaPlotOptions = AAPlotOptions.new
         .gaugeSet(AAGauge.new
                   .dialSet(AADial.new
                            .radiusSet(@"80%")
-                           .backgroundColorSet(@"gray")
+                           .backgroundColorSet(AAColor.grayColor)
                            .baseWidthSet(@12)
                            .baseLengthSet(@"0%")
                            .rearLengthSet(@"0%"))
                   .pivotSet(AAPivot.new
-                            .backgroundColorSet(@"gray")
+                            .backgroundColorSet(AAColor.grayColor)
                             .radiusSet(@6))
                   );
     
@@ -633,6 +631,26 @@
         .yAxisSet(yAxis)
         .plotOptionsSet(aaPlotOptions)
         .seriesSet(@[series]);
+    
+    aaOptions
+        .afterDrawChartJavaScriptSet(@AAJSFunc(
+                                               // Add some life
+                                               setInterval(() => {
+                                                   const chart = Highcharts.charts[0];
+                                                   if (chart && !chart.renderer.forExport) {
+                                                       const point = chart.series[0].points[0],
+                                                       inc = Math.round((Math.random() - 0.5) * 60);
+                                                       
+                                                       let newVal = point.y + inc;
+                                                       if (newVal < 0 || newVal > 200) {
+                                                           newVal = point.y - inc;
+                                                       }
+                                                       
+                                                       point.update(newVal);
+                                                   }
+                                                   
+                                               }, 500);
+                                               ));
     
     return aaOptions;
 }
