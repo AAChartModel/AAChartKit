@@ -54,7 +54,7 @@ AAPropSetFuncImplementation(AAGauge, AAPivot *, pivot)
 
 AAPropSetFuncImplementation(AADial, NSString *, backgroundColor)
 AAPropSetFuncImplementation(AADial, NSString *, baseLength)
-AAPropSetFuncImplementation(AADial, NSString *, baseWidth)
+AAPropSetFuncImplementation(AADial, NSNumber *, baseWidth)
 AAPropSetFuncImplementation(AADial, NSString *, borderColor)
 AAPropSetFuncImplementation(AADial, NSNumber *, borderWidth)
 AAPropSetFuncImplementation(AADial, NSString *, path)
@@ -70,6 +70,6 @@ AAPropSetFuncImplementation(AADial, NSString *, topWidth)
 AAPropSetFuncImplementation(AAPivot, NSString *, backgroundColor)
 AAPropSetFuncImplementation(AAPivot, NSString *, borderColor)
 AAPropSetFuncImplementation(AAPivot, NSNumber *, borderWidth)
-AAPropSetFuncImplementation(AAPivot, NSString *, radius)
+AAPropSetFuncImplementation(AAPivot, NSNumber *, radius)
 
 @end
