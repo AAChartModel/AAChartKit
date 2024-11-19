@@ -533,10 +533,10 @@
     AAChart *chart = AAChart.new
         .typeSet(AAChartTypeGauge)
     //        .plotBackgroundColorSet(@"null")
-    //        .plotBackgroundImageSet(@"null")
-    //        .plotBorderWidthSet(@0)
+            .plotBackgroundImageSet((id)NSNull.null)
+//            .plotBorderWidthSet(@0)
     //        .plotShadowSet(NO)
-    //        .heightSet(@"80%")
+//            .heightSet(@"80%")
     ;
     
     AATitle *title = AATitle.new
@@ -630,6 +630,209 @@
         .paneSet(pane)
         .yAxisSet(yAxis)
         .plotOptionsSet(aaPlotOptions)
+        .seriesSet(@[series]);
+    
+    aaOptions
+        .afterDrawChartJavaScriptSet(@AAJSFunc(
+                                               // Add some life
+                                               setInterval(() => {
+                                                   const chart = Highcharts.charts[0];
+                                                   if (chart && !chart.renderer.forExport) {
+                                                       const point = chart.series[0].points[0],
+                                                       inc = Math.round((Math.random() - 0.5) * 60);
+                                                       
+                                                       let newVal = point.y + inc;
+                                                       if (newVal < 0 || newVal > 200) {
+                                                           newVal = point.y - inc;
+                                                       }
+                                                       
+                                                       point.update(newVal);
+                                                   }
+                                                   
+                                               }, 500);
+                                               ));
+    
+    return aaOptions;
+}
+
+
+/**
+ Highcharts.chart('container', {
+
+     chart: {
+         type: 'gauge',
+         alignTicks: false,
+         plotBackgroundColor: null,
+         plotBackgroundImage: null,
+         plotBorderWidth: 0,
+         plotShadow: false
+     },
+
+     title: {
+         text: 'Speedometer with dual axes'
+     },
+
+     pane: {
+         startAngle: -150,
+         endAngle: 150
+     },
+
+     yAxis: [{
+         min: 0,
+         max: 200,
+         lineColor: '#339',
+         tickColor: '#339',
+         minorTickColor: '#339',
+         offset: -25,
+         lineWidth: 2,
+         labels: {
+             distance: -20,
+             rotation: 'auto'
+         },
+         tickLength: 5,
+         minorTickLength: 5,
+         endOnTick: false
+     }, {
+         min: 0,
+         max: 124,
+         tickPosition: 'outside',
+         lineColor: '#933',
+         lineWidth: 2,
+         minorTickPosition: 'outside',
+         tickColor: '#933',
+         minorTickColor: '#933',
+         tickLength: 5,
+         minorTickLength: 5,
+         labels: {
+             distance: 12,
+             rotation: 'auto'
+         },
+         offset: -20,
+         endOnTick: false
+     }],
+
+     series: [{
+         name: 'Speed',
+         data: [80],
+         dataLabels: {
+             format: '<span style="color:#339">{y} km/h</span><br/>' +
+                 '<span style="color:#933">{(multiply y 0.621):.0f} mph</span>',
+             backgroundColor: {
+                 linearGradient: {
+                     x1: 0,
+                     y1: 0,
+                     x2: 0,
+                     y2: 1
+                 },
+                 stops: [
+                     [0, '#DDD'],
+                     [1, '#FFF']
+                 ]
+             }
+         },
+         tooltip: {
+             valueSuffix: ' km/h'
+         }
+     }]
+
+ },
+ // Add some life
+ function (chart) {
+     setInterval(function () {
+         if (chart.axes) { // not destroyed
+             const point = chart.series[0].points[0],
+                 inc = Math.round((Math.random() - 0.5) * 20);
+             let newVal;
+
+             newVal = point.y + inc;
+             if (newVal < 0 || newVal > 200) {
+                 newVal = point.y - inc;
+             }
+
+             point.update(newVal);
+         }
+     }, 3000);
+
+ });
+
+ */
++ (AAOptions *)speedometerWithDualAxesChart {
+    AAChart *chart = AAChart.new
+        .typeSet(AAChartTypeGauge)
+    //        .alignTicksSet(NO)
+    //        .plotBackgroundColorSet((id)NSNull.null)
+        .plotBackgroundImageSet((id)NSNull.null)
+    //        .plotBorderWidthSet(@0)
+    //        .plotShadowSet(NO)
+    ;
+    
+    AATitle *title = AATitle.new
+        .textSet(@"Speedometer with dual axes");
+    
+    AAPane *pane = AAPane.new
+        .startAngleSet(@(-150))
+        .endAngleSet(@150);
+    
+    AAYAxis *yAxis1 = AAYAxis.new
+        .minSet(@0)
+        .maxSet(@200)
+        .lineColorSet(@"#339")
+        .tickColorSet(@"#339")
+        .minorTickColorSet(@"#339")
+        .offsetSet(@(-25))
+        .lineWidthSet(@2)
+        .labelsSet(AALabels.new
+                   .distanceSet(@(-20))
+                   .rotationSet((id)@"auto"))
+        .tickLengthSet(@5)
+        .minorTickLengthSet(@5)
+        .endOnTickSet(NO);
+    
+    AAYAxis *yAxis2 = AAYAxis.new
+        .minSet(@0)
+        .maxSet(@124)
+        .tickPositionSet(@"outside")
+        .lineColorSet(@"#933")
+        .lineWidthSet(@2)
+        .minorTickPositionSet(@"outside")
+        .tickColorSet(@"#933")
+        .minorTickColorSet(@"#933")
+        .tickLengthSet(@5)
+        .minorTickLengthSet(@5)
+        .labelsSet(AALabels.new
+                   .distanceSet(@12)
+                   .rotationSet((id)@"auto"))
+        .offsetSet(@(-20))
+        .endOnTickSet(NO);
+    
+    AASeriesElement *series = AASeriesElement.new
+        .nameSet(@"Speed")
+        .dataSet(@[@80])
+        .dataLabelsSet(AADataLabels.new
+                       .formatSet(@"<span style=\"color:#339\">{y} km/h</span><br/>\
+                                <span style=\"color:#933\">{(multiply y 0.621):.0f} mph</span>".aa_toPureJSString)
+                       .backgroundColorSet((id)@{
+                        @"linearGradient": @{
+                            @"x1": @0,
+                            @"y1": @0,
+                            @"x2": @0,
+                            @"y2": @1
+                        },
+                        @"stops": @[
+                            @[@0, @"#DDD"],
+                            @[@1, @"#FFF"]
+                        ]
+                       })
+                       )
+        .tooltipSet(AATooltip.new
+                    .valueSuffixSet(@" km/h")
+                    );
+    
+    AAOptions *aaOptions = AAOptions.new
+        .chartSet(chart)
+        .titleSet(title)
+        .paneSet(pane)
+        .yAxisSet((id)@[yAxis1, yAxis2])
         .seriesSet(@[series]);
     
     aaOptions
