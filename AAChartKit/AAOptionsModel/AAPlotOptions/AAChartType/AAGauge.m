@@ -44,6 +44,7 @@
  */
 @implementation AAGauge
 
+AAPropSetFuncImplementation(AAGauge, AADataLabels  *, dataLabels)
 AAPropSetFuncImplementation(AAGauge, AADial  *, dial)
 AAPropSetFuncImplementation(AAGauge, AAPivot *, pivot)
 

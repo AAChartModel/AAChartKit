@@ -1,8 +1,8 @@
 //
-//  JSFunctionBeforeAndAfterRenderingComposer.h
+//  JSFunctionBeforeAndAfterRenderingComposer2.h
 //  AAChartKitDemo
 //
-//  Created by AnAn on 2024/10/25.
+//  Created by AnAn on 2024/11/19.
 //  Copyright © 2024 An An. All rights reserved.
 //
 
@@ -12,11 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JSFunctionBeforeAndAfterRenderingComposer : NSObject
+@interface JSFunctionBeforeAndAfterRenderingComposer2 : NSObject
 
-+ (AAOptions *)clockChart;
 + (AAOptions *)speedometerChart;
-+ (AAOptions *)speedometerWithDualAxesChart;
 
 @end
 

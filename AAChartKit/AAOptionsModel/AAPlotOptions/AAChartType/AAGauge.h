@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AADial, AAPivot;
+@class AADataLabels, AADial, AAPivot;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  radius:5
  }
  */
+AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AADataLabels  *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AADial  *, dial)
 AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AAPivot *, pivot)
 

@@ -93,6 +93,7 @@ AAPropSetFuncImplementation(AAYAxis, NSString *, tickPosition) //刻度线相对
 AAPropSetFuncImplementation(AAYAxis, NSArray  *, tickPositions) //自定义Y轴坐标（如：[@(0), @(25), @(50), @(75) , (100)]）
 AAPropSetFuncImplementation(AAYAxis, id        , top)
 AAPropSetFuncImplementation(AAYAxis, id        , height)
+AAPropSetFuncImplementation(AAYAxis, NSNumber *, pane)
 
 @end
 
