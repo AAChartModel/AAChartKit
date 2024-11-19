@@ -811,22 +811,21 @@
         .dataLabelsSet(AADataLabels.new
                        .formatSet(@"<span style=\"color:#339\">{y} km/h</span><br/>\
                                 <span style=\"color:#933\">{(multiply y 0.621):.0f} mph</span>".aa_toPureJSString)
-                       .backgroundColorSet((id)@{
-                        @"linearGradient": @{
-                            @"x1": @0,
-                            @"y1": @0,
-                            @"x2": @0,
-                            @"y2": @1
-                        },
-                        @"stops": @[
-                            @[@0, @"#DDD"],
-                            @[@1, @"#FFF"]
-                        ]
-                       })
-                       )
+                       
+                       .backgroundColorSet((id)AAGradientColor.new
+                                           .linearGradientSet(AALinearGradient.new
+                                                              .x1Set(@0)
+                                                              .y1Set(@0)
+                                                              .x2Set(@0)
+                                                              .y2Set(@1))
+                                           .stopsSet(@[
+                                            @[@0, @"#DDD"],
+                                            @[@1, @"#FFF"]
+                                           ])))
         .tooltipSet(AATooltip.new
                     .valueSuffixSet(@" km/h")
-                    );
+                    )
+                       ;
     
     AAOptions *aaOptions = AAOptions.new
         .chartSet(chart)
