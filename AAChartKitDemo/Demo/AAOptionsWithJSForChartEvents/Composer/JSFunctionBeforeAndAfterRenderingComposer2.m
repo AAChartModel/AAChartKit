@@ -259,14 +259,17 @@
         AASeriesElement.new
         .nameSet(@"Channel A")
         .dataSet(@[@-20])
+        .showInLegendSet(false)
         .yAxisSet(@0),
         AASeriesElement.new
         .nameSet(@"Channel B")
         .dataSet(@[@-20])
+        .showInLegendSet(false)
         .yAxisSet(@1),
     ])
     .afterDrawChartJavaScriptSet(@AAJSFunc(
     setInterval(function () {
+        const chart = aaGlobalChart;
         if (chart.series) { // the chart may be destroyed
 
             const left = chart.series[0].points[0],
