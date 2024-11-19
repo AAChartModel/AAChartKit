@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (AAOptions *)clockChart;
 + (AAOptions *)speedometerChart;
++ (AAOptions *)speedometerWithDualAxesChart;
 
 @end
 
