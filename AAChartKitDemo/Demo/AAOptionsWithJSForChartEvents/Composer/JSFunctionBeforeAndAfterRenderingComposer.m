@@ -589,6 +589,20 @@
             //            .thicknessSet(@20)
         ]);
     
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
+        .gaugeSet(AAGauge.new
+                  .dialSet(AADial.new
+                           .radiusSet(@"80%")
+                           .backgroundColorSet(@"gray")
+                           .baseWidthSet(@12)
+                           .baseLengthSet(@"0%")
+                           .rearLengthSet(@"0%"))
+                  .pivotSet(AAPivot.new
+                            .backgroundColorSet(@"gray")
+                            .radiusSet(@6))
+                  );
+    
+    
     AASeriesElement *series = AASeriesElement.new
         .nameSet(@"Speed")
         .dataSet(@[@80])
@@ -617,6 +631,7 @@
         .titleSet(title)
         .paneSet(pane)
         .yAxisSet(yAxis)
+        .plotOptionsSet(aaPlotOptions)
         .seriesSet(@[series]);
     
     return aaOptions;
