@@ -64,6 +64,7 @@
 #import "AAColor.h"
 #import "AAStates.h"
 #import "AAPane.h"
+#import "AAGauge.h"
 #import "AACredits.h"
 #import "AALang.h"
 #import "AADateTimeLabelFormats.h"
