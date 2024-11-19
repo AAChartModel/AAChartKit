@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JSFunctionBeforeAndAfterRenderingComposer : NSObject
 
 + (AAOptions *)clockChart;
++ (AAOptions *)speedometerChart;
 
 @end
 

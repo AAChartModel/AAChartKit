@@ -32,7 +32,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AAColumnrange, AAArearange, AASeries, AABoxplot, AAScatter;
+@class AAColumn, AABar, AALine, AASpline, AAArea, AAAreaspline, AAPie, AAColumnrange, AAArearange, AASeries, AABoxplot, AAScatter, AAGauge;
 
 @interface AAPlotOptions : NSObject
 
@@ -48,5 +48,6 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAColumnrange *, c
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAArearange   *, arearange)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AABoxplot     *, boxplot)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAScatter     *, scatter)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotOptions, AAGauge       *, gauge)
 
 @end
