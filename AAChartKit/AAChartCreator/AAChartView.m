@@ -94,11 +94,11 @@ WKScriptMessageHandler
     BOOL _clickEventEnabled;
     BOOL _mouseOverEventEnabled;
     BOOL _customEventEnabled;
+    NSString *_beforeDrawChartJavaScript;
+    NSString *_afterDrawChartJavaScript;
 }
 
 @property (nonatomic, strong) AAWeakProxy *weakProxy;
-@property (nonatomic, strong) NSString *beforeDrawChartJavaScript;
-@property (nonatomic, strong) NSString *afterDrawChartJavaScript;
 
 @end
 
@@ -413,11 +413,11 @@ WKScriptMessageHandler
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
     if (aaOptions.beforeDrawChartJavaScript) {
-        self.beforeDrawChartJavaScript = aaOptions.beforeDrawChartJavaScript;
+        _beforeDrawChartJavaScript = aaOptions.beforeDrawChartJavaScript;
         aaOptions.beforeDrawChartJavaScript = nil;
     }
     if (aaOptions.afterDrawChartJavaScript) {
-        self.afterDrawChartJavaScript = aaOptions.afterDrawChartJavaScript;
+        _afterDrawChartJavaScript = aaOptions.afterDrawChartJavaScript;
         aaOptions.afterDrawChartJavaScript = nil;
     }
     
@@ -536,8 +536,8 @@ WKScriptMessageHandler
 }
 
 - (void)drawChart {
-    if (self.beforeDrawChartJavaScript) {
-        [self safeEvaluateJavaScriptString:self.beforeDrawChartJavaScript];
+    if (_beforeDrawChartJavaScript) {
+        [self safeEvaluateJavaScriptString:_beforeDrawChartJavaScript];
     }
     
     NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
@@ -546,8 +546,8 @@ WKScriptMessageHandler
                        self.contentHeight ];
     [self safeEvaluateJavaScriptString:jsStr];
     
-    if (self.afterDrawChartJavaScript) {
-        [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
+    if (_afterDrawChartJavaScript) {
+        [self safeEvaluateJavaScriptString:_afterDrawChartJavaScript];
     }
 }
 
