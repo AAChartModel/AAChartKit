@@ -48,7 +48,13 @@
                 configurePlotOptions(aaOptions);
             }
             
+            if (aaOptions.beforeDrawChartJavaScript && aaOptions.beforeDrawChartJavaScript.length > 0) {
+                eval(aaOptions.beforeDrawChartJavaScript);
+            }
             aaGlobalChart = Highcharts.chart('container', aaOptions);
+            if (aaOptions.afterDrawChartJavaScript && aaOptions.afterDrawChartJavaScript.length > 0) {
+                eval(aaOptions.afterDrawChartJavaScript);
+            }
         }
         
         function configurePlotOptions(aaOptions) {
