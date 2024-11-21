@@ -298,14 +298,14 @@
 //                                            .descriptionSet(@"")
 //                                            )
                             )
-//                .stackLabelsSet(AAStackLabels.new
-//                                .enabledSet(true)
+                .stackLabelsSet(AALabels.new
+                                .enabledSet(true)
 //                                .verticalAlignSet(AAChartVerticalAlignTypeTop)
-//                                .styleSet(AAStyle.new
-//                                            .fontSizeSet(@"1.2em")
-//                                            )
-//                                .formatSet(@"{#if isNegative}Min{else}Max{/if}: {total}")
-//                                )
+                                .styleSet(AAStyle.new
+                                            .fontSizeSet(@"1.2em")
+                                            )
+                                .formatSet(@"{#if isNegative}Min{else}Max{/if}: {total}")
+                                )
                 .startOnTickSet(false)
                 .endOnTickSet(false)
                 )
