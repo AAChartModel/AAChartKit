@@ -156,16 +156,17 @@
 
 
 - (void)setupChartViewHandler {
+    __weak typeof(self) weakSelf = self;
     [_aaChartView1 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        self->_selectedColor = self->_gradientColorsArr[message.index];
+        weakSelf.selectedColor = weakSelf.gradientColorsArr[message.index];
         
         NSArray *seriesArr = @[
             AASeriesElement.new
-            .dataSet([self configureSeriesDataArray])
+                .dataSet([weakSelf configureSeriesDataArray])
         ];
         
-        [self->_aaChartView2 aa_onlyRefreshTheChartDataWithOptionsSeries:seriesArr];
+        [weakSelf.aaChartView2 aa_onlyRefreshTheChartDataWithOptionsSeries:seriesArr];
     }];
 }
 
