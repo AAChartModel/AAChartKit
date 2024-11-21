@@ -49,6 +49,7 @@
 #import "ScrollingUpdateDataVC.h"
 #import "DoubleChartsLinkedWorkVC.h"
 #import "DoubleChartsLinkedWorkVC2.h"
+#import "DoubleChartsLinkedWorkVC3.h"
 #import "DrawableChartVC.h"
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
@@ -277,6 +278,10 @@
                 [self.navigationController pushViewController:vc animated:YES];
             } else if (row == 3) {
                 DoubleChartsLinkedWorkVC2 *vc = DoubleChartsLinkedWorkVC2.new;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }  else if (row == 4) {
+                DoubleChartsLinkedWorkVC3 *vc = DoubleChartsLinkedWorkVC3.new;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
@@ -692,6 +697,7 @@
               @"Show Many AAChartView On UITableView---UITableView上显示多个 AAChartView",
               @"Double Charts Linked Working---双表联动",
               @"Double Charts Linked Working2---双表联动2",
+              @"Triple Charts Linked Working---三表联动"
             ],
             /*隐藏或显示图表的Series*/
             @[@"Column Chart---柱形图",
