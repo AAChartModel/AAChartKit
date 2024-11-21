@@ -244,7 +244,7 @@
       [AAGradientColor purpleLakeColorWithDirection:AALinearGradientDirectionToTopLeft],
       ];
     
-    NSDictionary *gradientColor = gradientColorArr[index];
+    AAGradientColor *gradientColor = gradientColorArr[index];
     
     chartModel.colorsTheme = @[
         @"rgba(255,255,255,0.4)",
@@ -253,7 +253,7 @@
         @"rgba(255,255,255,1.0)",
     ];//设置主体颜色数组
 
-    chartModel.backgroundColor = (id)gradientColor;
+    chartModel.backgroundColor = (id)[AAJsonConverter dictionaryWithObjectInstance:gradientColor];
 
     AAOptions *aaOptions = chartModel.aa_toAAOptions;
     
