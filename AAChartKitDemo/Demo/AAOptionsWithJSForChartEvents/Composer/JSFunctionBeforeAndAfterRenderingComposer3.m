@@ -27,7 +27,7 @@
     }
 }
 
-+ (NSArray *)configureData {
++ (NSArray *)configureSeriesArray {
     // Get the data
     NSDictionary *activityDic = [self getJsonDataWithJsonFileName:@"SynchronizedChartActivityData"];
     NSArray *datasets = activityDic[@"datasets"];
@@ -117,7 +117,7 @@
 //                                             };
 //                                             )))
 
-    .seriesSet([self configureData])
+    .seriesSet([self configureSeriesArray])
     .plotOptionsSet(AAPlotOptions.new
               .seriesSet(AASeries.new
                          .stackingSet(AAChartStackingTypePercent)))

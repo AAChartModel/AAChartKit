@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionBeforeAndAfterRenderingComposer3 : NSObject
 
++ (NSArray *)configureSeriesArray;
 + (AAOptions *)synchronizedChart;
 
 @end

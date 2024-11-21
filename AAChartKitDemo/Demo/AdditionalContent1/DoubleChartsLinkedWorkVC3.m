@@ -32,6 +32,7 @@
 
 #import "DoubleChartsLinkedWorkVC3.h"
 #import "AAChartKit.h"
+#import "JSFunctionBeforeAndAfterRenderingComposer3.h"
 
 @interface DoubleChartsLinkedWorkVC3 ()
 
@@ -57,7 +58,7 @@
     [self setUpTheAAChartView3];
 }
 
-//配置第一个 AAChartView
+//配置第 1 个 AAChartView
 - (void)setUpTheAAChartViewOne {
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
@@ -68,85 +69,18 @@
     _aaChartView1 = aaChartView;
     [self setupChartViewHandler];
     
-    AAChartModel *aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeColumn)
-    .categoriesSet(@[
-        @"oceanBlue",
-        @"sanguine",
-        @"lusciousLime",
-        @"purpleLake",
-        @"freshPapaya",
-        @"ultramarine",
-        @"pinkSugar",
-        @"lemonDrizzle",
-        @"victoriaPurple",
-        @"springGreens",
-        @"mysticMauve",
-        @"reflexSilver",
-        @"neonGlowColor",
-        @"berrySmoothieColor",
-        @"newLeaf",
-        @"cottonCandy",
-        @"pixieDust",
-        @"fizzyPeach",
-        @"sweetDream",
-        @"firebrick",
-        @"wroughtIron",
-        @"deepSea",
-        @"coastalBreeze",
-        @"eveningDelight",
-    ])
-    .tooltipEnabledSet(false)
-    .borderRadiusSet(@3)
-    .legendEnabledSet(false)
-    .colorsThemeSet(@[
-        AAGradientColor.oceanBlueColor,
-        AAGradientColor.sanguineColor,
-        AAGradientColor.lusciousLimeColor,
-        AAGradientColor.purpleLakeColor,
-        AAGradientColor.freshPapayaColor,
-        AAGradientColor.ultramarineColor,
-        AAGradientColor.pinkSugarColor,
-        AAGradientColor.lemonDrizzleColor,
-        AAGradientColor.victoriaPurpleColor,
-        AAGradientColor.springGreensColor,
-        AAGradientColor.mysticMauveColor,
-        AAGradientColor.reflexSilverColor,
-        AAGradientColor.neonGlowColor,
-        AAGradientColor.berrySmoothieColor,
-        AAGradientColor.newLeafColor,
-        AAGradientColor.cottonCandyColor,
-        AAGradientColor.pixieDustColor,
-        AAGradientColor.fizzyPeachColor,
-        AAGradientColor.sweetDreamColor,
-        AAGradientColor.firebrickColor,
-        AAGradientColor.wroughtIronColor,
-        AAGradientColor.deepSeaColor,
-        AAGradientColor.coastalBreezeColor,
-        AAGradientColor.eveningDelightColor,
-    ])
-
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"2018")
-        .zIndexSet(@0)
-        .borderRadiusBottomLeftSet((id)@"50%")
-        .borderRadiusBottomRightSet((id)@"50%")
-        .dataSet([self generateRandomNumberArrayWithLength:35.0 randomRange:100 minNum:200])
-        .colorByPointSet(@true),//When using automatic point colors pulled from the options.colors collection, this option determines whether the chart should receive one color per series or one color per point. Default Value：false.
-               ]);
-    
-    _gradientColorsArr = aaChartModel.colorsTheme;
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    aaOptions.plotOptions.column.groupPadding = @0;
-    aaOptions.yAxis.gridLineWidth = @0;
-    aaOptions.xAxis
-    .crosshairSet(AACrosshair.new
-                  .colorSet(AAColor.redColor)
-                  .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
-                  .zIndexSet(@5)
-                  );
+    AAOptions *aaOptions = AAOptions.new
+        .xAxisSet(AAXAxis.new
+                  .crosshairSet(AACrosshair.new
+                                .colorSet(AAColor.redColor)
+                                .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                                .zIndexSet(@5)
+                                )
+                  )
+        .seriesSet(@[
+            JSFunctionBeforeAndAfterRenderingComposer3.configureSeriesArray[0]
+        ])
+    ;
     
     [aaChartView aa_drawChartWithOptions:aaOptions];
 }
@@ -227,7 +161,7 @@
     return randomNumArrA;
 }
 
-//配置第二个 AAChartView
+//配置第 2 个 AAChartView
 - (void)setUpTheAAChartViewTwo {
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
@@ -239,36 +173,22 @@
     [self setupChartViewHandler2];
 
     
-    AAChartModel *aaChartModel2 = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-    .markerRadiusSet(@6)
-    .stackingSet(AAChartStackingTypeNormal)
-    .xAxisCrosshairSet([AACrosshair crosshairWithColor:AAColor.redColor dashStyle:AAChartLineDashStyleTypeDashDot])
-    .legendEnabledSet(false)
-    .seriesSet(@[
-        AASeriesElement.new
-            .nameSet(@"2019")
-            .lineWidthSet(@6)
-            .dataSet([self generateRandomNumberArrayWithLength:35.0 randomRange:150 minNum:400]),
+    AAOptions *aaOptions = AAOptions.new
+        .xAxisSet(AAXAxis.new
+                  .crosshairSet(AACrosshair.new
+                                .colorSet(AAColor.redColor)
+                                .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                                .zIndexSet(@5)
+                                )
+                  )
+        .seriesSet(@[
+            JSFunctionBeforeAndAfterRenderingComposer3.configureSeriesArray[1]
+        ]);
 
-               ]);
-    
-    AAOptions *aaOptions2 = aaChartModel2.aa_toAAOptions;
-    aaOptions2.plotOptions.column.groupPadding = @0;
-    aaOptions2.yAxis.gridLineWidth = @0;
-    aaOptions2.xAxis
-    .crosshairSet(AACrosshair.new
-                  .colorSet(AAColor.greenColor)
-                  .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
-                  .zIndexSet(@5)
-                  );
-    
-    [aaChartView2 aa_drawChartWithOptions:aaOptions2];
-    
+    [aaChartView2 aa_drawChartWithOptions:aaOptions];
 }
 
-//配置第3个 AAChartView
+//配置第 3 个 AAChartView
 - (void)setUpTheAAChartView3 {
     CGFloat chartViewWidth  = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
@@ -278,34 +198,20 @@
     [self.view addSubview:aaChartView3];
     _aaChartView3 = aaChartView3;
     [self setupChartViewHandler3];
-
     
-    AAChartModel *aaChartModel2 = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline)
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)
-    .markerRadiusSet(@6)
-    .stackingSet(AAChartStackingTypeNormal)
-    .xAxisCrosshairSet([AACrosshair crosshairWithColor:AAColor.redColor dashStyle:AAChartLineDashStyleTypeDashDot])
-    .legendEnabledSet(false)
-    .seriesSet(@[
-        AASeriesElement.new
-            .nameSet(@"2020")
-            .lineWidthSet(@6)
-            .dataSet([self generateRandomNumberArrayWithLength:35.0  randomRange:100 minNum:200]),
-               ]);
+    AAOptions *aaOptions = AAOptions.new
+        .xAxisSet(AAXAxis.new
+                  .crosshairSet(AACrosshair.new
+                                .colorSet(AAColor.redColor)
+                                .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                                .zIndexSet(@5)
+                                )
+                  )
+        .seriesSet(@[
+            JSFunctionBeforeAndAfterRenderingComposer3.configureSeriesArray[2]
+        ]);
     
-    AAOptions *aaOptions2 = aaChartModel2.aa_toAAOptions;
-    aaOptions2.plotOptions.column.groupPadding = @0;
-    aaOptions2.yAxis.gridLineWidth = @0;
-    aaOptions2.xAxis
-    .crosshairSet(AACrosshair.new
-                  .colorSet(AAColor.blueColor)
-                  .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
-                  .zIndexSet(@5)
-                  );
-    
-    [aaChartView3 aa_drawChartWithOptions:aaOptions2];
-    
+    [aaChartView3 aa_drawChartWithOptions:aaOptions];
 }
 
 
