@@ -157,14 +157,6 @@ WKScriptMessageHandler
 #pragma mark - Configure Chart View Content With AAOptions
 - (void)aa_drawChartWithOptions:(AAOptions *)options {
     if (!_optionJson) {
-        if (options.beforeDrawChartJavaScript) {
-            self.beforeDrawChartJavaScript = options.beforeDrawChartJavaScript;
-            options.beforeDrawChartJavaScript = nil;
-        }
-        if (options.afterDrawChartJavaScript) {
-            self.afterDrawChartJavaScript = options.afterDrawChartJavaScript;
-            options.afterDrawChartJavaScript = nil;
-        }
         [self configureTheOptionsJsonStringWithAAOptions:options];
         NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
         [self loadRequest:URLRequest];
@@ -174,14 +166,6 @@ WKScriptMessageHandler
 }
 
 - (void)aa_refreshChartWithOptions:(AAOptions *)options {
-    if (options.beforeDrawChartJavaScript) {
-        self.beforeDrawChartJavaScript = options.beforeDrawChartJavaScript;
-        options.beforeDrawChartJavaScript = nil;
-    }
-    if (options.afterDrawChartJavaScript) {
-        self.afterDrawChartJavaScript = options.afterDrawChartJavaScript;
-        options.afterDrawChartJavaScript = nil;
-    }
     [self configureTheOptionsJsonStringWithAAOptions:options];
     [self drawChart];
 }
@@ -428,6 +412,15 @@ WKScriptMessageHandler
 }
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)aaOptions {
+    if (aaOptions.beforeDrawChartJavaScript) {
+        self.beforeDrawChartJavaScript = aaOptions.beforeDrawChartJavaScript;
+        aaOptions.beforeDrawChartJavaScript = nil;
+    }
+    if (aaOptions.afterDrawChartJavaScript) {
+        self.afterDrawChartJavaScript = aaOptions.afterDrawChartJavaScript;
+        aaOptions.afterDrawChartJavaScript = nil;
+    }
+    
     if (_isClearBackgroundColor) {
         aaOptions.chart.backgroundColor = AAColor.clearColor;
     }
