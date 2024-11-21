@@ -32,6 +32,7 @@
 
 #import "DoubleChartsLinkedWorkVC3.h"
 #import "AAChartKit.h"
+
 @interface DoubleChartsLinkedWorkVC3 ()
 
 @property (nonatomic, strong) AAChartView *aaChartView1;
@@ -48,7 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Double Charts Linked Working---双表联动";
+    self.title = @"Triple Charts Linked Work---3表联动";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setUpTheAAChartViewOne];
@@ -168,7 +169,7 @@
                       
            for (let i = 0; i < length; i++) {
                const pointElement = series[i].data[%ld];
-               pointElement.onMouseOver();
+//               pointElement.onMouseOver(); //⚠️加上这一行代码会导致其他图表的moveOver事件回调也会触发, 可能会引起不可预料的问题
                points.push(pointElement);
            }
            chart.xAxis[0].drawCrosshair(null, points[0]);
@@ -177,11 +178,12 @@
     syncRefreshTooltip();
         )), defaultSelectedIndex]);
         
+        NSLog(@"chart view 111 mouse over event message: %@", message);
+        
         __weak typeof(self) weakSelf = self;
-        if ([message.name isEqualToString:@"2018"]) {
-            [self.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
-            [self.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
-        }
+        [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
+        [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
+        
     }];
 }
 
@@ -202,7 +204,7 @@
                        
             for (let i = 0; i < length; i++) {
                 const pointElement = series[i].data[%ld];
-                pointElement.onMouseOver();
+//                pointElement.onMouseOver();
                 points.push(pointElement);
             }
             chart.xAxis[0].drawCrosshair(null, points[0]);
@@ -212,14 +214,10 @@
          )), defaultSelectedIndex]);
          
         
-        NSLog(@"chart view 2 mouse over event message: %@", message);
+        NSLog(@"chart view 222 mouse over event message: %@", message);
         __weak typeof(self) weakSelf = self;
-        if ([message.name isEqualToString:@"2019"]) {
-                    [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
-                    [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
-        }
-        
-
+        [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
+        [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
     }];
 }
 
@@ -241,7 +239,7 @@
                       
            for (let i = 0; i < length; i++) {
                const pointElement = series[i].data[%ld];
-               pointElement.onMouseOver();
+//               pointElement.onMouseOver();
                points.push(pointElement);
            }
            chart.xAxis[0].drawCrosshair(null, points[0]);
@@ -252,12 +250,9 @@
         
         NSLog(@"chart view 3 mouse over event message: %@", message);
 
-        
         __weak typeof(self) weakSelf = self;
-        if ([message.name isEqualToString:@"2020"]) {
-                    [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
-                    [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
-        }
+        [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
+        [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
     }];
 }
 
@@ -302,6 +297,12 @@
     AAOptions *aaOptions2 = aaChartModel2.aa_toAAOptions;
     aaOptions2.plotOptions.column.groupPadding = @0;
     aaOptions2.yAxis.gridLineWidth = @0;
+    aaOptions2.xAxis
+    .crosshairSet(AACrosshair.new
+                  .colorSet(AAColor.greenColor)
+                  .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                  .zIndexSet(@5)
+                  );
     
     [aaChartView2 aa_drawChartWithOptions:aaOptions2];
     
@@ -336,6 +337,12 @@
     AAOptions *aaOptions2 = aaChartModel2.aa_toAAOptions;
     aaOptions2.plotOptions.column.groupPadding = @0;
     aaOptions2.yAxis.gridLineWidth = @0;
+    aaOptions2.xAxis
+    .crosshairSet(AACrosshair.new
+                  .colorSet(AAColor.blueColor)
+                  .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                  .zIndexSet(@5)
+                  );
     
     [aaChartView3 aa_drawChartWithOptions:aaOptions2];
     
