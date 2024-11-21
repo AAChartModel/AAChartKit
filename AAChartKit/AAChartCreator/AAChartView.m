@@ -754,7 +754,7 @@ WKScriptMessageHandler
 - (void)dealloc {
     [self.configuration.userContentController removeAllUserScripts];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    AADetailLog("👻👻👻 AAChartView was destroyed!!!");
+    AADetailLog("👻👻👻 AAChartView instance %p has been destroyed!", self);
 }
 
 @end
