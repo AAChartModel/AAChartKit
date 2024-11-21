@@ -8,6 +8,7 @@
 
 #import "JSFunctionBeforeAndAfterRenderingComposer3.h"
 #import "AAChartKit.h"
+#import "NSString+toPureJSString.h"
 
 @implementation JSFunctionBeforeAndAfterRenderingComposer3
 
@@ -58,83 +59,83 @@
 }
 
 + (AAOptions *)synchronizedChart {
+    NSString *jsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:[self singleChartOptions]];
+    
     return AAOptions.new
-    .beforeDrawChartJavaScriptSet(@AAJSFunc((/**
-                                             The purpose of this demo is to demonstrate how multiple charts on the same page
-                                             can be linked through DOM and Highcharts events and API methods. It takes a
-                                             standard Highcharts config with a small variation for each data set, and a
-                                             mouse/touch event handler to bind the charts together.
-                                             */
+//    .beforeDrawChartJavaScriptSet(@AAJSFunc((/**
+//                                             The purpose of this demo is to demonstrate how multiple charts on the same page
+//                                             can be linked through DOM and Highcharts events and API methods. It takes a
+//                                             standard Highcharts config with a small variation for each data set, and a
+//                                             mouse/touch event handler to bind the charts together.
+//                                             */
+//
+//
+//                                             /**
+//                                              * In order to synchronize tooltips and crosshairs, override the
+//                                              * built-in events with handlers defined on the parent element.
+//                                              */
+//                                             ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
+//                                                 document.getElementById('container').addEventListener(
+//                                                     eventType,
+//                                                     function (e) {
+//                                                         let chart,
+//                                                             point,
+//                                                             i,
+//                                                             event;
+//
+//                                                         for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+//                                                             chart = Highcharts.charts[i];
+//                                                             // Find coordinates within the chart
+//                                                             event = chart.pointer.normalize(e);
+//                                                             // Get the hovered point
+//                                                             point = chart.series[0].searchPoint(event, true);
+//
+//                                                             if (point) {
+//                                                                 point.highlight(e);
+//                                                             }
+//                                                         }
+//                                                     }
+//                                                 );
+//                                             });
+//
+//                                             /**
+//                                              * Override the reset function, we don't need to hide the tooltips and
+//                                              * crosshairs.
+//                                              */
+//                                             Highcharts.Pointer.prototype.reset = function () {
+//                                                 return undefined;
+//                                             };
+//
+//                                             /**
+//                                              * Highlight a point by showing tooltip, setting hover state and draw crosshair
+//                                              */
+//                                             Highcharts.Point.prototype.highlight = function (event) {
+//                                                 event = this.series.chart.pointer.normalize(event);
+//                                                 this.onMouseOver(); // Show the hover marker
+//                                                 this.series.chart.tooltip.refresh(this); // Show the tooltip
+//                                                 this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
+//                                             };
+//                                             )))
 
-
-                                             /**
-                                              * In order to synchronize tooltips and crosshairs, override the
-                                              * built-in events with handlers defined on the parent element.
-                                              */
-                                             ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
-                                                 document.getElementById('container').addEventListener(
-                                                     eventType,
-                                                     function (e) {
-                                                         let chart,
-                                                             point,
-                                                             i,
-                                                             event;
-
-                                                         for (i = 0; i < Highcharts.charts.length; i = i + 1) {
-                                                             chart = Highcharts.charts[i];
-                                                             // Find coordinates within the chart
-                                                             event = chart.pointer.normalize(e);
-                                                             // Get the hovered point
-                                                             point = chart.series[0].searchPoint(event, true);
-
-                                                             if (point) {
-                                                                 point.highlight(e);
-                                                             }
-                                                         }
-                                                     }
-                                                 );
-                                             });
-
-                                             /**
-                                              * Override the reset function, we don't need to hide the tooltips and
-                                              * crosshairs.
-                                              */
-                                             Highcharts.Pointer.prototype.reset = function () {
-                                                 return undefined;
-                                             };
-
-                                             /**
-                                              * Highlight a point by showing tooltip, setting hover state and draw crosshair
-                                              */
-                                             Highcharts.Point.prototype.highlight = function (event) {
-                                                 event = this.series.chart.pointer.normalize(event);
-                                                 this.onMouseOver(); // Show the hover marker
-                                                 this.series.chart.tooltip.refresh(this); // Show the tooltip
-                                                 this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
-                                             };
-                                             )))
-
-//    .seriesSet([self configureData])
-    .seriesSet(@[
-        AASeriesElement.new
-            .nameSet(@"Tokyo")
-            .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-            .colorByPointSet(@true)
-    ])
-    .afterDrawChartJavaScriptSet([NSString stringWithFormat:(@AAJSFunc(
-        // Loop the data sets and create one chart each
-        activity.datasets.forEach(function (dataset, i) {
-            // Add X values
-            dataset.data = dataset.data.map((val, j) => [activity.xData[j], val]);
-            
-            const chartDiv = document.createElement('div');
-            chartDiv.className = 'chart';
-            document.getElementById('container').appendChild(chartDiv);
-            
-            Highcharts.chart(chartDiv, %@);
-        })
-                                                                       
-                                                                       )), [self singleChartOptions]])
+    .seriesSet([self configureData])
+    .plotOptionsSet(AAPlotOptions.new
+              .seriesSet(AASeries.new
+                         .stackingSet(AAChartStackingTypePercent)))
+//    .seriesSet(@[
+//        AASeriesElement.new
+//            .nameSet(@"Tokyo")
+//            .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+//            .colorByPointSet(@true)
+//    ])
+//    .afterDrawChartJavaScriptSet([NSString stringWithFormat:@AAJSFunc(
+//        for (var i = 0; i < 3; i++) {
+//            var chartDiv = document.createElement('div');
+//            chartDiv.className = 'chart';
+//            document.getElementById('container').appendChild(chartDiv);
+//            
+//            Highcharts.chart(chartDiv, %@);
+//        }
+//    ), jsonStr])
     ;
 }
 
@@ -147,22 +148,22 @@
               .spacingBottomSet(@20)
 //              .zoomTypeSet(AAZoomTypeX)
               .eventsSet(AAChartEvents.new
-                         .selectionSet(@AAJSFunc(/**
-                                                  * Resets chart zoom on selection event.
-                                                  */
-                                                 function resetZoom(e) {
-                                                     // Prevent feedback loop
-                                                     if (e.resetSelection) {
-                                                         return;
-                                                     }
-
-                                                     // Zoom out all other charts on selection
-                                                     Highcharts.charts.forEach(chart => {
-                                                         if (chart !== e.target) {
-                                                             chart.zoomOut();
-                                                         }
-                                                     });
-                                                 }))
+//                         .selectionSet(@AAJSFunc(/**
+//                                                  * Resets chart zoom on selection event.
+//                                                  */
+//                                                 function resetZoom(e) {
+//                                                     // Prevent feedback loop
+//                                                     if (e.resetSelection) {
+//                                                         return;
+//                                                     }
+//
+//                                                     // Zoom out all other charts on selection
+//                                                     Highcharts.charts.forEach(chart => {
+//                                                         if (chart !== e.target) {
+//                                                             chart.zoomOut();
+//                                                         }
+//                                                     });
+//                                                 }))
                          )
               )
     .titleSet(AATitle.new
@@ -195,13 +196,13 @@
                             )
                 )
     .tooltipSet(AATooltip.new
-                .positionerSet(@"function () {\
-                                return {\
-                                // right aligned\
-                                x: this.chart.chartWidth - this.label.width,\
-                                y: 10 // align to title\
-                                };\
-                                }")
+//                .positionerSet(@"function () {\
+//                                return {\
+//                                // right aligned\
+//                                x: this.chart.chartWidth - this.label.width,\
+//                                y: 10 // align to title\
+//                                };\
+//                                }")
                 .borderWidthSet(@0)
                 .backgroundColorSet(@"none")
                 .pointFormatSet(@"{point.y}")
@@ -212,7 +213,12 @@
                           )
                 .valueDecimalsSet(@2)
                 )
-    .seriesSet([self configureData]);
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Tokyo")
+            .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+            .colorByPointSet(@true)
+    ])
     ;
 }
 
