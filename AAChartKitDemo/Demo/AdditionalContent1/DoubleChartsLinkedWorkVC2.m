@@ -150,6 +150,7 @@
 
 
 - (void)setupChartViewHandler {
+    __weak typeof(self) weakSelf = self;
     [_aaChartView1 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
         //默认选中的位置索引
@@ -177,7 +178,7 @@
         
         
         
-        [self.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
+        [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
     }];
 }
 
