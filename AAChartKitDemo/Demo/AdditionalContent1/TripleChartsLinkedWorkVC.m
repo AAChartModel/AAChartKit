@@ -152,7 +152,7 @@
                                           AAMoveOverEventMessageModel *message) {
         NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
         
-        NSLog(@"chart view 111 mouse over event message: %@", message.name);
+        NSLog(@"📊chart view 1 mouse over event message: %@", message.name);
         
         __weak typeof(self) weakSelf = self;
         [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
@@ -166,7 +166,7 @@
                                           AAMoveOverEventMessageModel *message) {
         NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
         
-        NSLog(@"chart view 222 mouse over event message: %@", message.name);
+        NSLog(@"📊chart view 2 mouse over event message: %@", message.name);
         __weak typeof(self) weakSelf = self;
         [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
@@ -178,7 +178,7 @@
                                           AAMoveOverEventMessageModel *message) {
         NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
         
-        NSLog(@"chart view 3 mouse over event message: %@", message.name);
+        NSLog(@"📊chart view 3 mouse over event message: %@", message.name);
         __weak typeof(self) weakSelf = self;
         [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
