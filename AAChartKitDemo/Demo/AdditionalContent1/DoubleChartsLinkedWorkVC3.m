@@ -158,32 +158,32 @@
     //https://api.highcharts.com/highcharts/chart.events.load
     //https://www.highcharts.com/forum/viewtopic.php?t=36508
     NSString *jsFunc = ([NSString stringWithFormat:@AAJSFunc((
-                                                              function syncRefreshTooltip() {
-                                                                  const points = [];
-                                                                  const chart = aaGlobalChart;
-                                                                  const series = chart.series;
-                                                                  const length = series.length;
-                                                                  
-                                                                  for (let i = 0; i < length; i++) {
-                                                                      const pointElement = series[i].data[%ld];
-                                                                      //               pointElement.onMouseOver(); //⚠️加上这一行代码会导致其他图表的moveOver事件回调也会触发, 可能会引起不可预料的问题
-                                                                      points.push(pointElement);
-                                                                  }
-                                                                  chart.xAxis[0].drawCrosshair(null, points[0]);
-                                                                  chart.tooltip.refresh(points);
-                                                              }
-                                                              syncRefreshTooltip();
-                                                              )), defaultSelectedIndex]);
+    function syncRefreshTooltip() {
+        const points = [];
+        const chart = aaGlobalChart;
+        const series = chart.series;
+        const length = series.length;
+                   
+        for (let i = 0; i < length; i++) {
+            const pointElement = series[i].data[%ld];
+//                pointElement.onMouseOver(); //⚠️加上这一行代码会导致其他图表的moveOver事件回调也会触发, 可能会引起不可预料的问题
+            points.push(pointElement);
+        }
+        chart.xAxis[0].drawCrosshair(null, points[0]);
+        chart.tooltip.refresh(points);
+    }
+    syncRefreshTooltip();
+     )), defaultSelectedIndex]);
+     
     return jsFunc;
 }
 
 - (void)setupChartViewHandler {
     [_aaChartView1 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        //默认选中的位置索引
         NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
         
-        NSLog(@"chart view 111 mouse over event message: %@", message);
+        NSLog(@"chart view 111 mouse over event message: %@", message.name);
         
         __weak typeof(self) weakSelf = self;
         [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
@@ -195,31 +195,9 @@
 - (void)setupChartViewHandler2 {
     [_aaChartView2 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        //默认选中的位置索引
-        NSUInteger defaultSelectedIndex = message.index;
+        NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
         
-        //https://api.highcharts.com/highcharts/chart.events.load
-        //https://www.highcharts.com/forum/viewtopic.php?t=36508
-        NSString *jsFunc = ([NSString stringWithFormat:@AAJSFunc((
-     function syncRefreshTooltip() {
-            const points = [];
-            const chart = aaGlobalChart;
-            const series = chart.series;
-            const length = series.length;
-                       
-            for (let i = 0; i < length; i++) {
-                const pointElement = series[i].data[%ld];
-//                pointElement.onMouseOver();
-                points.push(pointElement);
-            }
-            chart.xAxis[0].drawCrosshair(null, points[0]);
-            chart.tooltip.refresh(points);
-     }
-     syncRefreshTooltip();
-         )), defaultSelectedIndex]);
-         
-        
-        NSLog(@"chart view 222 mouse over event message: %@", message);
+        NSLog(@"chart view 222 mouse over event message: %@", message.name);
         __weak typeof(self) weakSelf = self;
         [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
@@ -229,32 +207,9 @@
 - (void)setupChartViewHandler3 {
     [_aaChartView3 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        //默认选中的位置索引
-        NSUInteger defaultSelectedIndex = message.index;
+        NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
         
-        //https://api.highcharts.com/highcharts/chart.events.load
-        //https://www.highcharts.com/forum/viewtopic.php?t=36508
-       NSString *jsFunc = ([NSString stringWithFormat:@AAJSFunc((
-    function syncRefreshTooltip() {
-           const points = [];
-        const chart = aaGlobalChart;
-
-        const series = chart.series;
-           const length = series.length;
-                      
-           for (let i = 0; i < length; i++) {
-               const pointElement = series[i].data[%ld];
-//               pointElement.onMouseOver();
-               points.push(pointElement);
-           }
-           chart.xAxis[0].drawCrosshair(null, points[0]);
-           chart.tooltip.refresh(points);
-    }
-    syncRefreshTooltip();
-        )), defaultSelectedIndex]);
-        
-        NSLog(@"chart view 3 mouse over event message: %@", message);
-
+        NSLog(@"chart view 3 mouse over event message: %@", message.name);
         __weak typeof(self) weakSelf = self;
         [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
