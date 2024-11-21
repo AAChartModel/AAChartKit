@@ -726,16 +726,19 @@ WKScriptMessageHandler
 }
 
 - (void)addClickEventMessageHandler {
+    [self.configuration.userContentController removeScriptMessageHandlerForName:kUserContentMessageNameClick];
     [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)self.weakProxy
                                                                  name:kUserContentMessageNameClick];
 }
 
 - (void)addMouseOverEventMessageHandler {
+    [self.configuration.userContentController removeScriptMessageHandlerForName:kUserContentMessageNameMouseOver];
     [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)self.weakProxy
                                                                  name:kUserContentMessageNameMouseOver];
 }
 
 - (void)addCustomEventMessageHandler {
+    [self.configuration.userContentController removeScriptMessageHandlerForName:kUserContentMessageNameCustomEvent];
     [self.configuration.userContentController addScriptMessageHandler:(id<WKScriptMessageHandler>)self.weakProxy
                                                                  name:kUserContentMessageNameCustomEvent];
 }
