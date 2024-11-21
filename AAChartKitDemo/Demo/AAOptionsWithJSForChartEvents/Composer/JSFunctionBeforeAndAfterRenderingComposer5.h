@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionBeforeAndAfterRenderingComposer5 : NSObject
 
-+ (AAOptions *)colorAxisBubbleChart;
++ (AAOptions *)categoryGroupedColumnChart;
 
 @end
 
