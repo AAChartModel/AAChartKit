@@ -174,6 +174,14 @@ WKScriptMessageHandler
 }
 
 - (void)aa_refreshChartWithOptions:(AAOptions *)options {
+    if (options.beforeDrawChartJavaScript) {
+        self.beforeDrawChartJavaScript = options.beforeDrawChartJavaScript;
+        options.beforeDrawChartJavaScript = nil;
+    }
+    if (options.afterDrawChartJavaScript) {
+        self.afterDrawChartJavaScript = options.afterDrawChartJavaScript;
+        options.afterDrawChartJavaScript = nil;
+    }
     [self configureTheOptionsJsonStringWithAAOptions:options];
     [self drawChart];
 }
@@ -511,16 +519,16 @@ WKScriptMessageHandler
 
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    if (self.beforeDrawChartJavaScript) {
-        [self safeEvaluateJavaScriptString:self.beforeDrawChartJavaScript];
-    }
+//    if (self.beforeDrawChartJavaScript) {
+//        [self safeEvaluateJavaScriptString:self.beforeDrawChartJavaScript];
+//    }
     
     [self drawChart];
     if (self.didFinishLoadBlock) {
         self.didFinishLoadBlock(self);
-        if (self.afterDrawChartJavaScript) {
-            [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
-        }
+//        if (self.afterDrawChartJavaScript) {
+//            [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
+//        }
         return;
     }
     if (self.delegate) {
@@ -529,17 +537,25 @@ WKScriptMessageHandler
         }
     }
     
-    if (self.afterDrawChartJavaScript) {
-        [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
-    }
+//    if (self.afterDrawChartJavaScript) {
+//        [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
+//    }
 }
 
 - (void)drawChart {
+    if (self.beforeDrawChartJavaScript) {
+        [self safeEvaluateJavaScriptString:self.beforeDrawChartJavaScript];
+    }
+    
     NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
                        _optionJson,
                        self.contentWidth,
                        self.contentHeight ];
     [self safeEvaluateJavaScriptString:jsStr];
+    
+    if (self.afterDrawChartJavaScript) {
+        [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
+    }
 }
 
 #pragma mark - WKScriptMessageHandler
