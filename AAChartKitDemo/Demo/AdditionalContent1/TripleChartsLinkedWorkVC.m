@@ -148,38 +148,39 @@
 
 
 - (void)setupChartViewHandler {
+    __weak typeof(self) weakSelf = self;
     [_aaChartView1 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
-        
+        NSString * jsFunc = [weakSelf configureSyncRefreshTooltipJSString:message];
+
         NSLog(@"📊chart view 1 mouse over event message: %@", message.name);
-        
-        __weak typeof(self) weakSelf = self;
+
         [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
-        
     }];
 }
 
 - (void)setupChartViewHandler2 {
+    __weak typeof(self) weakSelf = self;
     [_aaChartView2 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
-        
+        NSString * jsFunc = [weakSelf configureSyncRefreshTooltipJSString:message];
+
         NSLog(@"📊chart view 2 mouse over event message: %@", message.name);
-        __weak typeof(self) weakSelf = self;
+
         [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView3 aa_evaluateJavaScriptStringFunction:jsFunc];
     }];
 }
 
 - (void)setupChartViewHandler3 {
+    __weak typeof(self) weakSelf = self;
     [_aaChartView3 moveOverEventHandler:^(AAChartView *aaChartView,
                                           AAMoveOverEventMessageModel *message) {
-        NSString * jsFunc = [self configureSyncRefreshTooltipJSString:message];
-        
+        NSString * jsFunc = [weakSelf configureSyncRefreshTooltipJSString:message];
+
         NSLog(@"📊chart view 3 mouse over event message: %@", message.name);
-        __weak typeof(self) weakSelf = self;
+
         [weakSelf.aaChartView1 aa_evaluateJavaScriptStringFunction:jsFunc];
         [weakSelf.aaChartView2 aa_evaluateJavaScriptStringFunction:jsFunc];
     }];
