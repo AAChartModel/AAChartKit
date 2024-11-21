@@ -32,7 +32,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoubleChartsLinkedWorkVC3 : UIViewController
+@interface TripleChartsLinkedWorkVC : UIViewController
 
 @end
 

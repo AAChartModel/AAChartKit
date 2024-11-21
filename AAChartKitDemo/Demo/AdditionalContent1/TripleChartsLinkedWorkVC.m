@@ -30,11 +30,11 @@
  
  */
 
-#import "DoubleChartsLinkedWorkVC3.h"
+#import "TripleChartsLinkedWorkVC.h"
 #import "AAChartKit.h"
 #import "JSFunctionBeforeAndAfterRenderingComposer3.h"
 
-@interface DoubleChartsLinkedWorkVC3 ()
+@interface TripleChartsLinkedWorkVC ()
 
 @property (nonatomic, strong) AAChartView *aaChartView1;
 @property (nonatomic, strong) AAChartView *aaChartView2;
@@ -42,7 +42,7 @@
 
 @end
 
-@implementation DoubleChartsLinkedWorkVC3
+@implementation TripleChartsLinkedWorkVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

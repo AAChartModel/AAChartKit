@@ -49,7 +49,7 @@
 #import "ScrollingUpdateDataVC.h"
 #import "DoubleChartsLinkedWorkVC.h"
 #import "DoubleChartsLinkedWorkVC2.h"
-#import "DoubleChartsLinkedWorkVC3.h"
+#import "TripleChartsLinkedWorkVC.h"
 #import "DrawableChartVC.h"
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
@@ -281,7 +281,7 @@
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }  else if (row == 4) {
-                DoubleChartsLinkedWorkVC3 *vc = DoubleChartsLinkedWorkVC3.new;
+                TripleChartsLinkedWorkVC *vc = TripleChartsLinkedWorkVC.new;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
