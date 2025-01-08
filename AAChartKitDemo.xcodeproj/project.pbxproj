@@ -131,6 +131,7 @@
 		84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */; };
 		84D01E712B1202B50017E90B /* AAArearange.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D01E702B1202B50017E90B /* AAArearange.m */; };
 		84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */; };
+		84DC910C2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DC910B2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m */; };
 		84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */; };
 		84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */; };
 		84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */; };
@@ -407,6 +408,8 @@
 		84D01E702B1202B50017E90B /* AAArearange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAArearange.m; sourceTree = "<group>"; };
 		84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsConfigurationGenerator.h; sourceTree = "<group>"; };
 		84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsConfigurationGenerator.m; sourceTree = "<group>"; };
+		84DC910A2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionBeforeAndAfterRenderingVC.h; sourceTree = "<group>"; };
+		84DC910B2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionBeforeAndAfterRenderingVC.m; sourceTree = "<group>"; };
 		84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAOptionsVC.h; sourceTree = "<group>"; };
 		84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAOptionsVC.m; sourceTree = "<group>"; };
 		84E0D36A28F2D9D3004031BE /* SpecialStyleChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialStyleChartOptionsVC.h; sourceTree = "<group>"; };
@@ -549,6 +552,7 @@
 				844F4D422C0857B20019F786 /* AAOptions */,
 				844F4D432C08580A0019F786 /* AAOptionsWithJS */,
 				846141F12C8599800032FBD3 /* AAOptionsWithJSForChartEvents */,
+				84DC91072D2E1B67002EDC1F /* AAOptionsWithBeforeAndAfterJS */,
 				844F4D442C0858A80019F786 /* AdditionalContent1 */,
 				844F4D452C0858BB0019F786 /* AdditionalContent2 */,
 				844F4D462C0859330019F786 /* AATools */,
@@ -859,19 +863,6 @@
 				8492D9AB2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m */,
 				846141FD2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.h */,
 				846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */,
-				84790F482CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.h */,
-				84790F492CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m */,
-				84526E0F2CECA0D300EB2563 /* JSFunctionBeforeAndAfterRenderingComposer2.h */,
-				84526E102CECA0D300EB2563 /* JSFunctionBeforeAndAfterRenderingComposer2.m */,
-				84526E122CEDBDCB00EB2563 /* JSFunctionBeforeAndAfterRenderingComposer3.h */,
-				84526E132CEDBDCB00EB2563 /* JSFunctionBeforeAndAfterRenderingComposer3.m */,
-				84526E162CEDC13400EB2563 /* SynchronizedChartActivityData.json */,
-				84526E182CEEC44700EB2563 /* JSFunctionBeforeAndAfterRenderingComposer4.h */,
-				84526E192CEEC44700EB2563 /* JSFunctionBeforeAndAfterRenderingComposer4.m */,
-				84526E1B2CEECBC200EB2563 /* JSFunctionBeforeAndAfterRenderingComposer5.h */,
-				84526E1C2CEECBC200EB2563 /* JSFunctionBeforeAndAfterRenderingComposer5.m */,
-				84526E1E2CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.h */,
-				84526E1F2CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.m */,
 			);
 			path = Composer;
 			sourceTree = "<group>";
@@ -946,6 +937,44 @@
 				44EF0FA424F759FD00F5639A /* AALineStyle.m */,
 			);
 			path = AAAxisOption;
+			sourceTree = "<group>";
+		};
+		84DC91072D2E1B67002EDC1F /* AAOptionsWithBeforeAndAfterJS */ = {
+			isa = PBXGroup;
+			children = (
+				84DC91082D2E1BAD002EDC1F /* ViewController */,
+				84DC91092D2E1BB8002EDC1F /* Composer */,
+			);
+			path = AAOptionsWithBeforeAndAfterJS;
+			sourceTree = "<group>";
+		};
+		84DC91082D2E1BAD002EDC1F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84DC910A2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.h */,
+				84DC910B2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84DC91092D2E1BB8002EDC1F /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				84790F482CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.h */,
+				84790F492CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m */,
+				84526E0F2CECA0D300EB2563 /* JSFunctionBeforeAndAfterRenderingComposer2.h */,
+				84526E102CECA0D300EB2563 /* JSFunctionBeforeAndAfterRenderingComposer2.m */,
+				84526E122CEDBDCB00EB2563 /* JSFunctionBeforeAndAfterRenderingComposer3.h */,
+				84526E132CEDBDCB00EB2563 /* JSFunctionBeforeAndAfterRenderingComposer3.m */,
+				84526E162CEDC13400EB2563 /* SynchronizedChartActivityData.json */,
+				84526E182CEEC44700EB2563 /* JSFunctionBeforeAndAfterRenderingComposer4.h */,
+				84526E192CEEC44700EB2563 /* JSFunctionBeforeAndAfterRenderingComposer4.m */,
+				84526E1B2CEECBC200EB2563 /* JSFunctionBeforeAndAfterRenderingComposer5.h */,
+				84526E1C2CEECBC200EB2563 /* JSFunctionBeforeAndAfterRenderingComposer5.m */,
+				84526E1E2CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.h */,
+				84526E1F2CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.m */,
+			);
+			path = Composer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1128,6 +1157,7 @@
 				8461421E2C8AD95D0032FBD3 /* AAGradientColor.m in Sources */,
 				846142152C88609D0032FBD3 /* AAGradientColor+DefaultThemes.m in Sources */,
 				27EB8A8D24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m in Sources */,
+				84DC910C2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m in Sources */,
 				1E66D1FC210AF4ED007EAB8C /* AAAreaspline.m in Sources */,
 				441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */,
 				84526E1A2CEEC44700EB2563 /* JSFunctionBeforeAndAfterRenderingComposer4.m in Sources */,

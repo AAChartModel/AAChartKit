@@ -12,6 +12,7 @@
 #import "JSFunctionForAAPointEventsVC.h"
 #import "JSFunctionForAASeriesEventsVC.h"
 #import "JSFunctionForMixedEventsVC.h"
+#import "JSFunctionBeforeAndAfterRenderingVC.h"
 
 @interface AAOptionsWithJSForChartEventsListVC ()
 
@@ -28,7 +29,8 @@
         @"JSFunctionForAAChartEventsVC2",
         @"JSFunctionForAAPointEventsVC",
         @"JSFunctionForAASeriesEventsVC",
-        @"JSFunctionForMixedEventsVC"
+        @"JSFunctionForMixedEventsVC",
+        @"JSFunctionBeforeAndAfterRenderingVC",
     ];
     
     self.chartTypeTitleArr = @[
@@ -71,6 +73,16 @@
         
         @[
             @"disableHoverEventTooltipEffect",
+        ],
+        
+        @[
+            @"speedometerChart",
+            @"speedometerWithDualAxesChart",
+            @"speedometerChart",
+            @"synchronizedChart",
+            @"customPointerStyleGaugeChart",
+            @"categoryGroupedColumnChart",
+            @"forceStackedBarChart",
         ],
     ];
     
@@ -129,6 +141,14 @@
              break;
          
 
+         case 5: {
+             JSFunctionBeforeAndAfterRenderingVC *vc = JSFunctionBeforeAndAfterRenderingVC.new;
+             vc.selectedIndex = row;
+             vc.navigationItemTitleArr = self.chartTypeTitleArr[indexPath.section];
+             vc.hidesBottomBarWhenPushed = YES;
+             [self.navigationController pushViewController:vc animated:YES];
+         }
+             break;
          
              
          default:
