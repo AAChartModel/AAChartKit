@@ -53,6 +53,15 @@
                                          AAMoveOverEventMessageModel *message) {
         NSDictionary *messageDic = [weakSelf eventMessageModelWithMessageBody:message];
         [weakSelf printPrettyPrintedMoveOverEventMessageJsonStringWithJsonObject:messageDic];
+        //测试查看 weakSelf 是不是为空
+        NSLog(@"weakSelf is %@",weakSelf);
+        
+        //测试查看 self 是不是为空
+        NSLog(@"self is %@",self);
+        
+        //测试查看 weakSelf 是不是为空
+        NSLog(@"再次查看 weakSelf is %@",weakSelf);
+
     }];
     
     //在 didReceiveScriptMessage 代理方法中获得点击 X轴的文字🏷标签的回调
