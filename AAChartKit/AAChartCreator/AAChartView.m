@@ -512,27 +512,18 @@ WKScriptMessageHandler
 
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-//    if (self.beforeDrawChartJavaScript) {
-//        [self safeEvaluateJavaScriptString:self.beforeDrawChartJavaScript];
-//    }
-    
     [self drawChart];
+    
     if (self.didFinishLoadBlock) {
         self.didFinishLoadBlock(self);
-//        if (self.afterDrawChartJavaScript) {
-//            [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
-//        }
         return;
     }
+    
     if (self.delegate) {
         if ([self.delegate respondsToSelector:@selector(aaChartViewDidFinishLoad:)]) {
             [self.delegate aaChartViewDidFinishLoad:self];
         }
     }
-    
-//    if (self.afterDrawChartJavaScript) {
-//        [self safeEvaluateJavaScriptString:self.afterDrawChartJavaScript];
-//    }
 }
 
 - (void)drawChart {
