@@ -28,6 +28,7 @@
         case 4: return [self configurePentagonRadarChart];//带有颜色标志带的五角形雷达图
         case 5: return [self configureHexagonRadarChart];//带有颜色标志带的六角形雷达图
         case 6: return [self configureSpiderWebRadarChart];//带有颜色标志带的🕸蜘蛛网状雷达图
+        case 7: return [self radarChartWithCategories];//五边形雷达图示例(带有类别文字)
 
         default:
             break;
@@ -304,5 +305,54 @@
     return aaOptions;
 }
 
+/**
+ Highcharts.chart('container', {
+     chart: {
+         polar: true,
+         type: 'line' // 或 'column'
+     },
+     title: {
+         text: '五边形雷达图示例'
+     },
+     xAxis: {
+         categories: ['指标1', '指标2', '指标3', '指标4', '指标5'],
+         tickmarkPlacement: 'on',
+         lineWidth: 0
+     },
+     yAxis: {
+         gridLineInterpolation: 'polygon',
+         lineWidth: 0,
+         min: 0
+     },
+     series: [{
+         name: '数据系列1',
+         data: [5, 3, 4, 7, 2],
+         pointPlacement: 'on'
+     }]
+ });
+ */
+
+- (AAOptions *)radarChartWithCategories {
+    return AAOptions.new
+    .chartSet(AAChart.new
+              .polarSet(true)
+              .typeSet(AAChartTypeLine))
+    .titleSet(AATitle.new
+              .textSet(@"五边形雷达图示例"))
+    .xAxisSet(AAXAxis.new
+              .categoriesSet(@[@"指标1", @"指标2", @"指标3", @"指标4", @"指标5"])
+              .tickmarkPlacementSet(@"on")
+              .lineWidthSet(@0))
+    .yAxisSet(AAYAxis.new
+              .gridLineInterpolationSet(@"polygon")
+              .lineWidthSet(@0)
+              .minSet(@0))
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"数据系列1")
+        .dataSet(@[@5, @3, @4, @7, @2])
+        .pointPlacementSet(@"on")
+    ]);
+}
 
 @end

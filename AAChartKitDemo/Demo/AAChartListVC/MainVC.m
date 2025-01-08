@@ -803,6 +803,8 @@
               @"configurePentagonRadarChart---带有颜色标志带的五角形雷达图",
               @"configureHexagonRadarChart---带有颜色标志带的六角形雷达图",
               @"configureSpiderWebRadarChart---带有颜色标志带的🕸蜘蛛网状雷达图",
+//                      case 7: return [self radarChartWithCategories];//五边形雷达图示例(带有类别文字)
+              @"radarChartWithCategories---五边形雷达图示例(带有类别文字)",
             ],
             /*多 Y 轴图表*/
             @[@"configureDoubleYAxesAreasplineMixedColumnChart---双Y轴曲线面积-柱形混合图",
