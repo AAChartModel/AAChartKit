@@ -39,7 +39,7 @@
 
 @interface AAXAxis : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AAAxisTitle  *, title)
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, AAChartAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
@@ -48,7 +48,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray<AAPlotLinesEleme
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSArray  *, categories) 
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL,       reversed) 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, lineWidth) //x轴轴线宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, lineColor) //x轴轴线线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, lineColor) //x轴轴线线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, linkedTo)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, max)  //x轴最大值
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, min)  //x轴最小值
@@ -56,17 +56,17 @@ AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minPadding)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minRange)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minTickInterval) //最小间隔
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber /*BOOL*/*, minorTicks) //是否显示次刻度线
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineColor) //次网格线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, minorGridLineColor) //次网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorGridLineWidth) //次网格线宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorTickColor) //次刻度线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, minorTickColor) //次刻度线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorTickInterval)
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorTickLength) //次刻度线长度
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, minorTickPosition) //次刻度线位置
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, minorTickWidth) // 次刻度线宽度
 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, gridLineWidth) //x轴网格线宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, gridLineColor) //x轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, gridLineDashStyle) //x轴网格线样式
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, gridZIndex) //网格线的层叠值（zIndex） 默认是：1.
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, offset) //x轴垂直偏移
@@ -76,7 +76,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL,       opposite) //
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL ,      startOnTick) //Whether to force the axis to start on a tick. Use this option with the minPadding option to control the axis start. 默认是：false.
 AAPropStatementAndPropSetFuncStatement(assign, AAXAxis, BOOL ,      endOnTick) //是否强制将坐标轴结束于刻度线，可以通过本属性及 maxPadding 来控制坐标轴的结束位置。 默认是：false.
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, AACrosshair *, crosshair)  //准星线样式设置
-AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickColor) //x轴轴线下方刻度线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, tickColor) //x轴轴线下方刻度线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickInterval) //x轴刻度点间隔数(设置每隔几个点显示一个 X轴的内容)
 AAPropStatementAndPropSetFuncStatement(copy,   AAXAxis, NSString *, tickmarkPlacement) //本参数只对分类轴有效。 当值为 on 时刻度线将在分类上方显示；当值为 between 时，刻度线将在两个分类中间显示。当 tickInterval 为 1 时，默认是 between，其他情况默认是 on。 默认是：null.
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSNumber *, tickWidth) //坐标轴刻度线的宽度，设置为 0 时则不显示刻度线

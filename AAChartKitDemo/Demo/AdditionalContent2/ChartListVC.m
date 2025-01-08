@@ -253,7 +253,7 @@
         @"rgba(255,255,255,1.0)",
     ];//设置主体颜色数组
 
-    chartModel.backgroundColor = (id)[AAJsonConverter dictionaryWithObjectInstance:gradientColor];
+    chartModel.backgroundColor = (id)gradientColor;
 
     AAOptions *aaOptions = chartModel.aa_toAAOptions;
     

@@ -43,8 +43,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AAChartLayoutType,  lay
 AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AAChartAlignType,   align) //设定图例在图表区中的水平对齐方式，合法值有left，center 和 right。
 AAPropStatementAndPropSetFuncStatement(copy,   AALegend, AAChartVerticalAlignType, verticalAlign) //设定图例在图表区中的垂直对齐方式，合法值有 top，middle 和 bottom。垂直位置可以通过 y 选项做进一步设定。
 AAPropStatementAndPropSetFuncStatement(assign, AALegend, BOOL,          enabled) 
-AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, borderColor) 
-AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, borderWidth) 
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSString    *, borderColor) 
+AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, itemMarginTop) //图例的每一项的顶部外边距，单位px。 默认是：0.
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, NSNumber    *, itemMarginBottom)//图例项底边距 默认是：0.
 AAPropStatementAndPropSetFuncStatement(strong, AALegend, AAStyle     *, itemStyle)
@@ -64,9 +64,9 @@ AAPropStatementAndPropSetFuncStatement(copy,   AALegend, NSString    *, labelFor
 DEPRECATED_MSG_ATTRIBUTE("Please use AAStyle instead")
 @interface AAItemStyle : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, color)
-AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, cursor)
-AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontSize)
-AAPropStatementAndPropSetFuncStatement(copy, AAItemStyle, NSString *, fontWeight)
+AAPropStatementAndPropSetFuncStatement(strong, AAItemStyle, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(copy,   AAItemStyle, NSString *, cursor)
+AAPropStatementAndPropSetFuncStatement(copy,   AAItemStyle, NSString *, fontSize)
+AAPropStatementAndPropSetFuncStatement(copy,   AAItemStyle, NSString *, fontWeight)
 
 @end

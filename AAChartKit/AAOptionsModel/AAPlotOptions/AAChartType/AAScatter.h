@@ -37,7 +37,7 @@
 @interface AAScatter : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAScatter, NSNumber *, lineWidth)
-AAPropStatementAndPropSetFuncStatement(copy,   AAScatter, NSString *, lineColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAScatter, NSString *, lineColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AAScatter, NSString *, dashStyle)
 AAPropStatementAndPropSetFuncStatement(copy,   AAScatter, id        , enableMouseTracking)
 AAPropStatementAndPropSetFuncStatement(copy,   AAScatter, NSString *, linkedTo)

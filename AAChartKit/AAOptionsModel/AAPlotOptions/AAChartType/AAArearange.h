@@ -38,7 +38,7 @@
 
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, enableMouseTracking)
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, AAStates *, states)
-AAPropStatementAndPropSetFuncStatement(copy,   AAArearange, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, fillOpacity)
 AAPropStatementAndPropSetFuncStatement(strong, AAArearange, NSNumber *, lineWidth)
 

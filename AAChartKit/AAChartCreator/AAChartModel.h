@@ -160,7 +160,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, subtitl
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, AAStyle  *, subtitleStyle) //副标题文字样式
 AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, AAChartAlignType, subtitleAlign) //图表副标题文本水平对齐方式。可选的值有 “left”，”center“和“right”。 默认是：center.
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAChartModel, NSString *, backgroundColor) //图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
+AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSString *, backgroundColor) //图表背景色(必须为十六进制的颜色色值如红色"#FF0000")
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, colorsTheme) //图表主题颜色数组
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray<NSString *>*, categories) //如果图表的 X 轴上有分类（categories），那么在这个轴上，会使用这些分类的名称来表示数据点，而不是使用数字
 AAPropStatementAndPropSetFuncStatement(strong, AAChartModel, NSArray  *, series) //图表的数据列内容

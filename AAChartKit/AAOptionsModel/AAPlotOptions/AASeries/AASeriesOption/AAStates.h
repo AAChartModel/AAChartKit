@@ -23,9 +23,9 @@ AAPropStatementAndPropSetFuncStatement(strong, AAStates, AAInactive *, inactive)
 @interface AAHover : NSObject
 
 AAPropStatementAndPropSetFuncStatement(assign, AAHover, BOOL,       enabled)
-AAPropStatementAndPropSetFuncStatement(copy,   AAHover, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSString *, borderColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, brightness)
-AAPropStatementAndPropSetFuncStatement(copy,   AAHover, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, AAHalo   *, halo)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, lineWidth)
 AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, lineWidthPlus)
@@ -36,8 +36,8 @@ AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, lineWidthPlu
 @interface AASelect : NSObject
 
 AAPropStatementAndPropSetFuncStatement(assign, AASelect, BOOL,       enabled)
-AAPropStatementAndPropSetFuncStatement(copy,   AASelect, NSString *, borderColor)
-AAPropStatementAndPropSetFuncStatement(copy,   AASelect, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AASelect, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AASelect, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AASelect, AAHalo   *, halo)
 
 @end

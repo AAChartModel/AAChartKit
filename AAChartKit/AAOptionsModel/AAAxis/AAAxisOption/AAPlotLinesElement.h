@@ -35,7 +35,7 @@
 
 @interface AAPlotLinesElement : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAPlotLinesElement, NSString *, color) //基线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSString *, color) //基线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotLinesElement, NSString *, dashStyle) //基线样式Dash,Dot,Solid,默认Solid
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, width) //基线宽度
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotLinesElement, NSNumber *, value) //显示位置

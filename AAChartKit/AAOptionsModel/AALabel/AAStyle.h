@@ -38,10 +38,10 @@
 //Styles for the label. 默认是：{"color": "contrast", "fontSize": "11px", "fontWeight": "bold", "textOutline": "1px 1px contrast" }.
 //https://api.highcharts.com/class-reference/Highcharts.CSSObject#background
 AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, background)
-AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAStyle, NSString *, backgroundColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, border)
 AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, borderRadius)
-AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, color)//设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
+AAPropStatementAndPropSetFuncStatement(strong, AAStyle, NSString *, color)//设置文字的颜色,可修改为 #ff00ff 任意的这种十六进制字符串
 AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, cursor)
 AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, fontFamily)
 AAPropStatementAndPropSetFuncStatement(copy,   AAStyle, NSString *, fontSize)//文字大小

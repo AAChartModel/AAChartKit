@@ -58,7 +58,7 @@ AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, stac
 AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, dashStyle) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, threshold) 
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, lineWidth) //折线图、曲线图、直方折线图、折线填充图、曲线填充图、直方折线填充图的线条宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AASeriesElement, NSString *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
+AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSString *, borderColor) //The border color, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderWidth) //The border width, It is only valid for column, bar, pie, columnrange, pyramid and funnel chart types
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadius) //The corner radius of the border surrounding each column or bar.
 AAPropStatementAndPropSetFuncStatement(strong, AASeriesElement, NSNumber *, borderRadiusTopLeft)
@@ -98,7 +98,7 @@ AAPropStatementAndPropSetFuncStatement(assign, AASeriesElement, BOOL      , clip
 
 @interface AADataElement : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AADataElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AADataElement, AAMarker *, marker)
 AAPropStatementAndPropSetFuncStatement(copy  , AADataElement, NSString *, name)
@@ -112,7 +112,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AADataElement, id,         select
 @interface AAZonesElement : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSNumber *, value)
-AAPropStatementAndPropSetFuncStatement(copy,   AAZonesElement, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAZonesElement, NSString *, fillColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AAZonesElement, NSString *, dashStyle)
 

@@ -34,7 +34,7 @@
 
 @interface AAShadow : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAShadow, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, offsetX)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, offsetY)
 AAPropStatementAndPropSetFuncStatement(strong, AAShadow, NSNumber *, opacity)

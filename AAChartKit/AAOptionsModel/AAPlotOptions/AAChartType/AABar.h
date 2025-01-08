@@ -38,7 +38,7 @@
 
 AAPropStatementAndPropSetFuncStatement(copy,   AABar, NSString *,     name)
 AAPropStatementAndPropSetFuncStatement(strong, AABar, NSArray  *,     data)
-AAPropStatementAndPropSetFuncStatement(copy,   AABar, NSString *,     color)
+AAPropStatementAndPropSetFuncStatement(strong, AABar, NSString *,     color)
 AAPropStatementAndPropSetFuncStatement(assign, AABar, BOOL,           grouping) //Whether to group non-stacked columns or to let them render independent of each other. Non-grouped columns will be laid out individually and overlap each other. default：true.
 AAPropStatementAndPropSetFuncStatement(strong, AABar, NSNumber *,     pointPadding) //Padding between each column or bar, in x axis units. default：0.1.
 AAPropStatementAndPropSetFuncStatement(strong, AABar, NSNumber *,     pointPlacement) //Padding between each column or bar, in x axis units. default：0.1.

@@ -43,7 +43,7 @@ AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLi
 @interface AAYAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       allowDecimals)  //y轴是否允许显示小数
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AAAxisTitle  *, title)
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAChartAxisType, type)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AADateTimeLabelFormats  *, dateTimeLabelFormats)
@@ -52,13 +52,13 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray<AAPlotLinesEleme
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSArray  *, categories)
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       reversed)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridLineWidth) // y 轴网格线宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineColor) // y 轴网格线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSString *, gridLineColor) // y 轴网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, gridLineDashStyle) //网格线线条样式，所有可用的线条样式参考：Highcharts线条样式
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, gridZIndex) //网格线的层叠值（zIndex） 默认是：1.
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, AAChartYAxisGridLineInterpolationType, gridLineInterpolation) //Polar charts only. Whether the grid lines should draw as a polygon with straight lines between categories, or as circles. Can be either circle or polygon. 默认是：null.
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, labels) //用于设置 y 轴文字相关的
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, lineWidth) // y 轴线宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, lineColor) // y 轴线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSString *, lineColor) // y 轴线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, offset) // y 轴线水平偏移
 
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, max)  //y轴最大值
@@ -66,10 +66,10 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, min)  //y轴
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minPadding)  //Padding of the min value relative to the length of the axis. A padding of 0.05 will make a 100px axis 5px longer. This is useful when you don't want the lowest data value to appear on the edge of the plot area. 默认是：0.05.
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minRange)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minTickInterval) //最小间隔
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorGridLineColor) //次网格线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSString *, minorGridLineColor) //次网格线颜色
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorGridLineDashStyle) //次网格线条样式
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorGridLineWidth) //次网格线宽度
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorTickColor) //次刻度线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSString *, minorTickColor) //次刻度线颜色
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorTickInterval)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, minorTickLength) //次刻度线长度
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, minorTickPosition) //次刻度线位置
@@ -82,8 +82,8 @@ AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL ,      endOnTick) /
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AACrosshair*, crosshair)  //准星线样式设置
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, AALabels *, stackLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, tickAmount)//刻度总数
-AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, tickColor) // 刻度线颜色
-AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, tickInterval) 
+AAPropStatementAndPropSetFuncStatement(strong,   AAYAxis, NSString *, tickColor) // 刻度线颜色
+AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, tickInterval)
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, tickWidth) //坐标轴刻度线的宽度，设置为 0 时则不显示刻度线
 AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, tickLength)//坐标轴刻度线的长度。 默认是：10.
 AAPropStatementAndPropSetFuncStatement(copy,   AAYAxis, NSString *, tickPosition) //刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.

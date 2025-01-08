@@ -37,8 +37,8 @@
 @interface AATooltip : NSObject
 
 AAPropStatementAndPropSetFuncStatement(assign, AATooltip, BOOL,       animation) //是否启用动画是否启用动画(设置 animation == false,禁用 tooltip 动画能够在一定程度上节省程序的计算资源,提高运行效率)
-AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, backgroundColor) //背景色
-AAPropStatementAndPropSetFuncStatement(copy,   AATooltip, NSString *, borderColor) //边框颜色
+AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSString *, backgroundColor) //背景色
+AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSString *, borderColor) //边框颜色
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderRadius) //边框的圆角半径
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, NSNumber *, borderWidth) //边框宽度
 AAPropStatementAndPropSetFuncStatement(strong, AATooltip, AAStyle  *, style) //为提示框添加CSS样式。提示框同样能够通过 CSS 类 .highcharts-tooltip 来设定样式。 默认是：@{@"color":@"#333333",@"cursor":@"default",@"fontSize":@"12px",@"pointerEvents":@"none",@"whiteSpace":@"nowrap" }

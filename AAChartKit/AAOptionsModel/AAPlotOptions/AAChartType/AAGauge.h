@@ -21,10 +21,10 @@ AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AAPivot *, pivot)
 
 @interface AADial : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(strong, AADial, NSString *, backgroundColor)
 AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSString *, baseLength)
 AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSNumber *, baseWidth)
-AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AADial, NSString *, borderColor)
 AAPropStatementAndPropSetFuncStatement(strong, AADial, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSString *, path)
 AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSString *, radius)
@@ -36,8 +36,8 @@ AAPropStatementAndPropSetFuncStatement(copy,   AADial, NSString *, topWidth)
 
 @interface AAPivot : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAPivot, NSString *, backgroundColor)
-AAPropStatementAndPropSetFuncStatement(copy,   AAPivot, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAPivot, NSString *, backgroundColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAPivot, NSString *, borderColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAPivot, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPivot, NSNumber *, radius)
 

@@ -70,11 +70,11 @@
 
 @interface AAPlotBandsElement : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSString *, borderColor)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, borderRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, className)
-AAPropStatementAndPropSetFuncStatement(copy,   AAPlotBandsElement, NSString *, color)
+AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, from)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, NSNumber *, innerRadius)
 AAPropStatementAndPropSetFuncStatement(strong, AAPlotBandsElement, AALabel  *, label)
