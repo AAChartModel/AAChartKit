@@ -8,40 +8,6 @@
 
 #import "AAGauge.h"
 
-/**
- @interface AAGauge : NSObject
-
-
- AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AADial *, dial)
- AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AAPivot *, pivot)
-
- @end
-
-
- @interface AADial : NSObject
-
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, backgroundColor)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, baseLength)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, baseWidth)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, borderColor)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSNumber *, borderWidth)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, path)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, radius)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, rearLength)
- AAPropStatementAndPropSetFuncStatement(copy, AADial, NSString *, topWidth)
-
- @end
-
-
- @interface AAPivot : NSObject
-
- AAPropStatementAndPropSetFuncStatement(copy, AAPivot, NSString *, backgroundColor)
- AAPropStatementAndPropSetFuncStatement(copy, AAPivot, NSString *, borderColor)
- AAPropStatementAndPropSetFuncStatement(copy, AAPivot, NSNumber *, borderWidth)
- AAPropStatementAndPropSetFuncStatement(copy, AAPivot, NSString *, radius)
-
- @end
- */
 @implementation AAGauge
 
 AAPropSetFuncImplementation(AAGauge, AADataLabels  *, dataLabels)
