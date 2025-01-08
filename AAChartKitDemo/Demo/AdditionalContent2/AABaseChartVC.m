@@ -130,8 +130,8 @@
     */
     
 //
-    AAChartViewManager *chartViewManager = [AAChartViewManager sharedInstance]; //想要避免网页检查器被频繁关闭, 就使用这个单例方法
-//    AAChartViewManager *chartViewManager = [[AAChartViewManager alloc]init];
+//    AAChartViewManager *chartViewManager = [AAChartViewManager sharedInstance]; //想要避免网页检查器被频繁关闭, 就使用这个单例方法
+    AAChartViewManager *chartViewManager = [[AAChartViewManager alloc]init];
 
     AAChartView *aaChartView = chartViewManager.aaChartView;
     if (@available(iOS 16.4, macCatalyst 16.4, *)) {
