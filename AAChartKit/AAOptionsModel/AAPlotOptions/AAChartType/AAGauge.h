@@ -10,30 +10,8 @@
 
 @class AADataLabels, AADial, AAPivot;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AAGauge : NSObject
 
-/**
- dial:{
- backgroundColor:#000000
- baseLength:70%
- baseWidth:3
- borderColor:#cccccc
- borderWidth:0
- path:undefined
- radius:80%
- rearLength:10%
- topWidth:1
- }
- 
- pivot:{
- backgroundColor:#000000
- borderColor:#cccccc
- borderWidth:0
- radius:5
- }
- */
 AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AADataLabels  *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AADial  *, dial)
 AAPropStatementAndPropSetFuncStatement(strong, AAGauge, AAPivot *, pivot)
@@ -64,5 +42,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AAPivot, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(copy,   AAPivot, NSNumber *, radius)
 
 @end
-
-NS_ASSUME_NONNULL_END
