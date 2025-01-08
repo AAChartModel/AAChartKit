@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"AAInfographics";
+    self.title = @"Charts List";
     
     _chartTypeArr =
     @[
