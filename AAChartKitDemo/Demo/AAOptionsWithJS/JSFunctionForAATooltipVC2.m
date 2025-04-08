@@ -28,6 +28,7 @@
         case 3: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式
         case 4: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
         case 5: return [self customizeTooltipShapeAndShadowBeSpecialStyle];
+        case 6: return [self specialStyleForAreaChart];//特殊样式的区域图
 
         default:
             return nil;
@@ -358,5 +359,153 @@
 
     return aaOptions;
 }
+
+
+
+// Helper function to create Date UTC timestamps for data
+NSDate *getDateUTC(NSInteger hour, NSInteger minute) {
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:now];
+    [components setHour:hour];
+    [components setMinute:minute];
+    [components setSecond:0];
+    return [calendar dateFromComponents:components];
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1586
+- (AAOptions *)specialStyleForAreaChart {
+    AAOptions *aaOptions = AAOptions.new
+        .chartSet(AAChart.new
+            .typeSet(AAChartTypeArea) // Chart type: area
+            .backgroundColorSet(@"#333333") // Dark background for the chart area
+        )
+        .titleSet(AATitle.new
+            .textSet(@"Speed(km\/h)") // Title with HTML
+            .alignSet(AAChartAlignTypeLeft) // Align title to the left
+            .styleSet(AAStyle.new
+                .colorSet(@"#E0E0E3") // Light text color
+                .fontSizeSet(@"16px")
+            )
+        )
+        .creditsSet(AACredits.new
+            .enabledSet(false) // Disable credits
+        )
+        .legendSet(AALegend.new
+            .enabledSet(false) // Disable legend
+        )
+        .xAxisSet(AAXAxis.new
+            .typeSet(@"datetime") // X-axis type: datetime
+            .tickIntervalSet(@(2 * 3600 * 1000)) // Every 2 hours
+            .labelsSet(AALabels.new
+                .formatSet(@"{value:%H:%M}") // Time format HH:MM
+                .styleSet(AAStyle.new
+                    .colorSet(@"#E0E0E3")
+                )
+            )
+            .lineColorSet(@"#707073") // Axis line color
+            .tickColorSet(@"#707073")
+            .gridLineWidthSet(@0) // Hide vertical grid lines
+        )
+        .yAxisSet(AAYAxis.new
+            .oppositeSet(true) // Move y-axis to the right
+            .labelsSet(AALabels.new
+                .alignSet(@"left") // Labels aligned left (relative to axis)
+                .xSet(@-20) // Adjust position slightly left
+                .ySet(@-10) // Offset upward by 10px
+                .styleSet(AAStyle.new
+                    .colorSet(@"#E0E0E3")
+                    .fontSizeSet(@"15")
+                    .textOverflowSet(@"none") // Prevent text truncation
+                )
+            )
+            .minSet(@0)
+            .maxSet(@50)
+            .tickIntervalSet(@10)
+            .titleSet(AAAxisTitle.new
+                .textSet(nil) // No Y-axis title
+            )
+            .gridLineColorSet(@"#505053") // Lighter gray grid lines
+            .gridLineDashStyleSet(AAChartLineDashStyleTypeSolid)
+            .plotLinesSet(@[
+                AAPlotLinesElement.new
+                    .valueSet(@23.5) // Approximate value for the dashed line
+                    .colorSet(@"#707073")
+                    .dashStyleSet(@"Dash")
+                    .widthSet(@1.5)
+                    .zIndexSet(@3) // Above grid lines
+            ])
+        )
+        .tooltipSet(AATooltip.new
+            .backgroundColorSet(@"rgba(50, 50, 50, 0.85)")
+            .styleSet(AAStyle.new
+                .colorSet(@"#F0F0F0")
+            )
+            .formatterSet(@AAJSFunc(function () {
+                return `<b>${Highcharts.dateFormat('%H:%M', this.x)}</b><br/>Speed: ${this.y} km/h`;
+            })) // Custom formatter as a JS string
+        )
+      
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"Speed")
+                .dataSet(@[
+                    @[[NSNumber numberWithDouble:[getDateUTC(12, 0) timeIntervalSince1970] * 1000], @5],
+                    @[[NSNumber numberWithDouble:[getDateUTC(12, 30) timeIntervalSince1970] * 1000], @21],
+                    @[[NSNumber numberWithDouble:[getDateUTC(13, 0) timeIntervalSince1970] * 1000], @8],
+                    @[[NSNumber numberWithDouble:[getDateUTC(13, 30) timeIntervalSince1970] * 1000], @33],
+                    @[[NSNumber numberWithDouble:[getDateUTC(14, 0) timeIntervalSince1970] * 1000], @9],
+                    @[[NSNumber numberWithDouble:[getDateUTC(14, 30) timeIntervalSince1970] * 1000], @18],
+                    @[[NSNumber numberWithDouble:[getDateUTC(15, 0) timeIntervalSince1970] * 1000], @7],
+                    @[[NSNumber numberWithDouble:[getDateUTC(15, 30) timeIntervalSince1970] * 1000], @28],
+                    @[[NSNumber numberWithDouble:[getDateUTC(16, 0) timeIntervalSince1970] * 1000], @8],
+                    @[[NSNumber numberWithDouble:[getDateUTC(16, 30) timeIntervalSince1970] * 1000], @15],
+                    @[[NSNumber numberWithDouble:[getDateUTC(16, 45) timeIntervalSince1970] * 1000], @8],
+                    @[[NSNumber numberWithDouble:[getDateUTC(17, 15) timeIntervalSince1970] * 1000], @48], // Highest peak
+                    @[[NSNumber numberWithDouble:[getDateUTC(17, 40) timeIntervalSince1970] * 1000], @8],
+                    @[[NSNumber numberWithDouble:[getDateUTC(17, 50) timeIntervalSince1970] * 1000], @18],
+                    @[[NSNumber numberWithDouble:[getDateUTC(18, 0) timeIntervalSince1970] * 1000], @7],
+                    @[[NSNumber numberWithDouble:[getDateUTC(18, 50) timeIntervalSince1970] * 1000], [NSNull null]], // Null value
+                ])
+                .lineWidthSet(@2)
+                .colorSet((id)AAGradientColor.new
+                    .linearGradientSet(AALinearGradient.new
+                        .x1Set(@0)
+                        .y1Set(@0)
+                        .x2Set(@0)
+                        .y2Set(@1))
+                    .stopsSet(@[
+                        @[@0, @"red"], // Start color (orange/yellow) with opacity
+                        @[@1, @"rgba(51, 51, 51, 0)"] // End color (transparent towards background)
+                    ])
+                )
+                .markerSet(AAMarker.new
+                    .enabledSet(false) // No markers by default
+                    .statesSet(AAMarkerStates.new
+                        .hoverSet(AAMarkerHover.new
+                            .enabledSet(false)
+                            .radiusSet(@4)
+                        )
+                    )
+                )
+                .fillColorSet((id)AAGradientColor.new
+                    .linearGradientSet(AALinearGradient.new
+                        .x1Set(@0)
+                        .y1Set(@0)
+                        .x2Set(@0)
+                        .y2Set(@1))
+                    .stopsSet(@[
+                        @[@0, @"rgba(255, 191, 0, 0.6)"], // Start color (orange/yellow) with opacity
+                        @[@1, @"rgba(51, 51, 51, 0)"] // End color (transparent towards background)
+                    ])
+                )
+                .thresholdSet(nil) // Needed for area chart fill to start from bottom
+        ]);
+
+    return aaOptions;
+}
+
+
 
 @end
