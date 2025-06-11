@@ -30,8 +30,25 @@
  
  */
 
-#import <UIKit/UIKit.h>
-#import "AABaseChartVC.h"
-@interface MixedChartComposer : AABaseChartVC
+#import <Foundation/Foundation.h>
+
+@class AAChartModel;
+
+@interface MixedChartComposer : NSObject
+
++ (AAChartModel *)configureArearangeMixedLineChart;
++ (AAChartModel *)configureColumnrangeMixedLineChart;
++ (AAChartModel *)configureStackingColumnMixedLineChart;
++ (AAChartModel *)configureDashStyleTypeMixedChart;
++ (AAChartModel *)configureAllLineDashStyleTypesMixedChart;
++ (AAChartModel *)configureNegativeColorMixedColumnChart;
++ (AAChartModel *)configureScatterMixedLineChart;
++ (AAChartModel *)configureNegativeColorMixedBubbleChart;
++ (AAChartModel *)configurePolygonMixedScatterChart;
++ (AAChartModel *)configurePolarMixedChart;
++ (AAChartModel *)configureColumnMixedScatterChart;
++ (AAChartModel *)configureNegativeColorMixedAreasplineChart;
++ (AAChartModel *)configureNegativeColorMixedAreasChart;
++ (AAChartModel *)configureAreaChartMixedStepAreaChart;
 
 @end

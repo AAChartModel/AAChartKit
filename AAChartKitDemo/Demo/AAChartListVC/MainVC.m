@@ -40,7 +40,7 @@
 #import "DrawChartWithAAOptionsVC.h"
 #import "ShowManyChartViewVC.h"
 #import "ChartListVC.h"
-#import "MixedChartComposer.h"
+#import "MixedChartVC.h"
 #import "HideOrShowChartSeriesVC.h"
 #import "CustomStyleChartVC.h"
 #import "MonitorViewController.h"
@@ -225,7 +225,7 @@
             
         case 3: {
             /*图表数据动态刷新*/
-            MixedChartComposer *vc = MixedChartComposer.new;
+            MixedChartVC *vc = MixedChartVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.hidesBottomBarWhenPushed = YES;

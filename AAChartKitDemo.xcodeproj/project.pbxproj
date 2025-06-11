@@ -112,6 +112,7 @@
 		84790F422CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */; };
 		84790F4A2CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84790F492CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m */; };
 		8481C2DD2DF978A4006EFC41 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */; };
+		8481C2E02DF97B4E006EFC41 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481C2DF2DF97B4E006EFC41 /* MixedChartVC.m */; };
 		8483CEC229D2F40D002E57AA /* AADOMRectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEC129D2F40D002E57AA /* AADOMRectModel.m */; };
 		8486A22A2BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486A2292BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m */; };
 		848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FEAFA265E170C006E4F25 /* TestAAChartViewForXibVC.m */; };
@@ -370,6 +371,8 @@
 		84790F492CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionBeforeAndAfterRenderingComposer.m; sourceTree = "<group>"; };
 		8481C2DB2DF978A4006EFC41 /* SpecialChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
+		8481C2DE2DF97B4E006EFC41 /* MixedChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartVC.h; sourceTree = "<group>"; };
+		8481C2DF2DF97B4E006EFC41 /* MixedChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixedChartVC.m; sourceTree = "<group>"; };
 		8483CEC029D2F40D002E57AA /* AADOMRectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADOMRectModel.h; sourceTree = "<group>"; };
 		8483CEC129D2F40D002E57AA /* AADOMRectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADOMRectModel.m; sourceTree = "<group>"; };
 		8486A2282BAD830600AA343B /* DoubleChartsLinkedWorkVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleChartsLinkedWorkVC2.h; sourceTree = "<group>"; };
@@ -865,6 +868,8 @@
 			children = (
 				8481C2DB2DF978A4006EFC41 /* SpecialChartVC.h */,
 				8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */,
+				8481C2DE2DF97B4E006EFC41 /* MixedChartVC.h */,
+				8481C2DF2DF97B4E006EFC41 /* MixedChartVC.m */,
 				846142282C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.h */,
 				846142292C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.m */,
 				8461422B2C8AEED90032FBD3 /* CustomStyleForBubbleChartVC.h */,
@@ -1213,6 +1218,7 @@
 				27E475F524B2111400690657 /* AABaseChartVC.m in Sources */,
 				1E66D207210AF4ED007EAB8C /* AAColumn.m in Sources */,
 				846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */,
+				8481C2E02DF97B4E006EFC41 /* MixedChartVC.m in Sources */,
 				1E66D208210AF4ED007EAB8C /* AAPlotLinesElement.m in Sources */,
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
