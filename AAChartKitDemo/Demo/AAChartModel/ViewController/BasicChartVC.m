@@ -36,6 +36,10 @@
 
 @interface BasicChartVC ()<AAChartViewEventDelegate>
 
+@property (nonatomic, strong) UIStackView *mainStackView;
+@property (nonatomic, strong) UIStackView *segmentedControlsStackView;
+@property (nonatomic, strong) UIStackView *switchesStackView;
+
 @end
 
 @implementation BasicChartVC
@@ -58,15 +62,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
 
-    [self setUpTheSegmentedControls];
-    [self setUpTheSwitches];
-    
     AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
     [self setUpTheNextTypeChartButton];
     
     [self drawChart];
-    
 }
 
 - (AAChartType)configureTheChartType {
@@ -86,7 +86,7 @@
         aaChartViewOriginY = 88;
     }
     CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat chartViewHeight = self.view.frame.size.height - 160 - aaChartViewOriginY;
+    CGFloat chartViewHeight = self.view.frame.size.height - 200 - aaChartViewOriginY; // 为StackView预留更多空间
     _aaChartView = [[AAChartView alloc]init];
     _aaChartView.frame = CGRectMake(0, aaChartViewOriginY, chartViewWidth, chartViewHeight);
     _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
@@ -100,10 +100,189 @@
         // Fallback on earlier versions
     }
     
-
-
     [self setupChartViewEventHandlers];
+    [self setupMainStackView];
 }
+
+- (void)setupMainStackView {
+    // 创建主 StackView
+    _mainStackView = [[UIStackView alloc] init];
+    _mainStackView.axis = UILayoutConstraintAxisVertical;
+    _mainStackView.distribution = UIStackViewDistributionFill;
+    _mainStackView.alignment = UIStackViewAlignmentFill;
+    _mainStackView.spacing = 10;
+    _mainStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:_mainStackView];
+    
+    // 设置主 StackView 约束
+    [NSLayoutConstraint activateConstraints:@[
+        [_mainStackView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [_mainStackView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-20],
+        [_mainStackView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-20],
+        [_mainStackView.heightAnchor constraintEqualToConstant:180]
+    ]];
+    
+    // 创建分段控制器 StackView
+    [self setupSegmentedControlsStackView];
+    
+    // 创建开关控件 StackView
+    [self setupSwitchesStackView];
+    
+    // 将子 StackView 添加到主 StackView
+    [_mainStackView addArrangedSubview:_segmentedControlsStackView];
+    [_mainStackView addArrangedSubview:_switchesStackView];
+}
+
+- (void)setupSegmentedControlsStackView {
+    _segmentedControlsStackView = [[UIStackView alloc] init];
+    _segmentedControlsStackView.axis = UILayoutConstraintAxisVertical;
+    _segmentedControlsStackView.distribution = UIStackViewDistributionFillEqually;
+    _segmentedControlsStackView.alignment = UIStackViewAlignmentFill;
+    _segmentedControlsStackView.spacing = 8;
+    
+    NSArray *segmentedNamesArr;
+    NSArray *typeLabelNameArr;
+    
+    if (_chartType == BasicChartVCChartTypeColumn
+        ||_chartType == BasicChartVCChartTypeBar) {
+        segmentedNamesArr = @[
+            @[@"No stacking",
+              @"Normal stacking",
+              @"Percent stacking"],
+            @[@"Square corners",
+              @"Rounded corners",
+              @"Wedge"],
+        ];
+        typeLabelNameArr = @[
+            @"Stacking type selection",
+            @"Corners Style type selection"
+        ];
+    } else {
+        segmentedNamesArr = @[
+            @[@"No stacking",
+              @"Normal stacking",
+              @"Percent stacking"],
+            @[@"◉ ◉ ◉",
+              @"■ ■ ■",
+              @"◆ ◆ ◆",
+              @"▲ ▲ ▲",
+              @"▼ ▼ ▼"]
+        ];
+        typeLabelNameArr = @[
+            @"Stacking type selection",
+            @"Maker symbols type selection"
+        ];
+    }
+    
+    for (NSUInteger i = 0; i < segmentedNamesArr.count; i++) {
+        // 创建容器视图
+        UIView *containerView = [[UIView alloc] init];
+        
+        // 创建标签
+        UILabel *typeLabel = [[UILabel alloc] init];
+        typeLabel.textColor = [UIColor lightGrayColor];
+        typeLabel.text = typeLabelNameArr[i];
+        typeLabel.font = [UIFont systemFontOfSize:11.0f];
+        typeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [containerView addSubview:typeLabel];
+        
+        // 创建分段控制器
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentedNamesArr[i]];
+        segmentedControl.tintColor = [UIColor redColor];
+        segmentedControl.selectedSegmentIndex = 0;
+        segmentedControl.tag = i;
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
+        [segmentedControl addTarget:self
+                             action:@selector(customSegmentedControlCellValueBeChanged:)
+                   forControlEvents:UIControlEventValueChanged];
+        [containerView addSubview:segmentedControl];
+        
+        // 设置约束
+        [NSLayoutConstraint activateConstraints:@[
+            [typeLabel.topAnchor constraintEqualToAnchor:containerView.topAnchor],
+            [typeLabel.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor],
+            [typeLabel.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor],
+            [typeLabel.heightAnchor constraintEqualToConstant:20],
+            
+            [segmentedControl.topAnchor constraintEqualToAnchor:typeLabel.bottomAnchor constant:4],
+            [segmentedControl.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor],
+            [segmentedControl.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor],
+            [segmentedControl.bottomAnchor constraintEqualToAnchor:containerView.bottomAnchor],
+            [segmentedControl.heightAnchor constraintEqualToConstant:32]
+        ]];
+        
+        [_segmentedControlsStackView addArrangedSubview:containerView];
+    }
+}
+
+- (void)setupSwitchesStackView {
+    _switchesStackView = [[UIStackView alloc] init];
+    _switchesStackView.axis = UILayoutConstraintAxisVertical;
+    _switchesStackView.distribution = UIStackViewDistributionFill;
+    _switchesStackView.alignment = UIStackViewAlignmentFill;
+    _switchesStackView.spacing = 8;
+    
+    NSArray *nameArr;
+    if (_chartType == BasicChartVCChartTypeColumn || _chartType == BasicChartVCChartTypeBar) {
+        nameArr = @[
+            @"xAxisReversed",
+            @"yAxisReversed",
+            @"xAxisInverted",
+            @"Polarization",
+            @"DataLabelShow",
+        ];
+    } else {
+        nameArr = @[
+            @"xReversed",
+            @"yReversed",
+            @"xAxisInverted",
+            @"Polarization",
+            @"DataShow",
+            @"HideMarker"
+        ];
+    }
+    
+    // 创建水平 StackView 来容纳开关控件
+    UIStackView *horizontalStackView = [[UIStackView alloc] init];
+    horizontalStackView.axis = UILayoutConstraintAxisHorizontal;
+    horizontalStackView.distribution = UIStackViewDistributionFillEqually;
+    horizontalStackView.alignment = UIStackViewAlignmentTop;
+    horizontalStackView.spacing = 8;
+    
+    for (NSUInteger i = 0; i < nameArr.count; i++) {
+        // 创建垂直容器用于放置开关和标签
+        UIStackView *verticalContainer = [[UIStackView alloc] init];
+        verticalContainer.axis = UILayoutConstraintAxisVertical;
+        verticalContainer.distribution = UIStackViewDistributionFill;
+        verticalContainer.alignment = UIStackViewAlignmentCenter;
+        verticalContainer.spacing = 4;
+        
+        // 创建开关
+        UISwitch *switchView = [[UISwitch alloc] init];
+        switchView.onTintColor = [AAEasyTool colorWithHexString:@"#FFDEAD"];
+        switchView.thumbTintColor = [UIColor whiteColor];
+        switchView.on = NO;
+        switchView.tag = i;
+        [switchView addTarget:self
+                       action:@selector(switchViewClicked:)
+             forControlEvents:UIControlEventValueChanged];
+        
+        // 创建标签
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = [UIColor lightGrayColor];
+        label.numberOfLines = 0;
+        label.text = nameArr[i];
+        label.font = [UIFont systemFontOfSize:8.0f];
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        [verticalContainer addArrangedSubview:switchView];
+        [verticalContainer addArrangedSubview:label];
+        [horizontalStackView addArrangedSubview:verticalContainer];
+    }
+    
+    [_switchesStackView addArrangedSubview:horizontalStackView];
+}
+
 
 - (void)setupChartViewEventHandlers {
     //获取图表加载完成事件
@@ -202,70 +381,6 @@
     NSLog(@"%@%@",str1, str2);
 }
 
-
-- (void)setUpTheSegmentedControls {
-    NSArray *segmentedNamesArr;
-    NSArray *typeLabelNameArr;
-    
-    if (_chartType == BasicChartVCChartTypeColumn
-        ||_chartType == BasicChartVCChartTypeBar) {
-        segmentedNamesArr = @[
-            @[@"No stacking",
-              @"Normal stacking",
-              @"Percent stacking"],
-            @[@"Square corners",
-              @"Rounded corners",
-              @"Wedge"],
-        ];
-        typeLabelNameArr = @[
-            @"Stacking type selection",
-            @"Corners Style type selection"
-        ];
-    } else {
-        segmentedNamesArr = @[
-            @[@"No stacking",
-              @"Normal stacking",
-              @"Percent stacking"],
-            @[@"◉ ◉ ◉",
-              @"■ ■ ■",
-              @"◆ ◆ ◆",
-              @"▲ ▲ ▲",
-              @"▼ ▼ ▼"]
-        ];
-        typeLabelNameArr = @[
-            @"Stacking type selection",
-            @"Maker symbols type selection"
-        ];
-    }
-    
-    for (NSUInteger i = 0; i < segmentedNamesArr.count; i++) {
-        UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedNamesArr[i]];
-        segmentedControl.frame = CGRectMake(20,
-                                            40 * i + (self.view.frame.size.height - 145),
-                                            self.view.frame.size.width - 40,
-                                            20);
-        segmentedControl.tintColor = [UIColor redColor];
-        //        segmentedControl.tintColor = [UIColor lightGrayColor];
-        segmentedControl.selectedSegmentIndex = 0;
-        segmentedControl.tag = i;
-        [segmentedControl addTarget:self
-                             action:@selector(customSegmentedControlCellValueBeChanged:)
-                   forControlEvents:UIControlEventValueChanged];
-        [self.view addSubview:segmentedControl];
-        
-        UILabel *typeLabel = [[UILabel alloc]init];
-        typeLabel.textColor = [UIColor lightGrayColor];
-        typeLabel.frame =CGRectMake(20,
-                                    40 * i + (self.view.frame.size.height - 165),
-                                    self.view.frame.size.width - 40,
-                                    20);
-        typeLabel.text = typeLabelNameArr[i];
-        typeLabel.font = [UIFont systemFontOfSize:11.0f];
-        [self.view addSubview:typeLabel];
-        
-    }
-}
-
 - (void)customSegmentedControlCellValueBeChanged:(UISegmentedControl *)segmentedControl {
     NSUInteger selectedSegmentIndex = (NSUInteger) segmentedControl.selectedSegmentIndex;
     
@@ -304,56 +419,6 @@
     [self refreshTheChartView];
 }
 
-- (void)setUpTheSwitches {
-    NSArray *nameArr;
-    if (_chartType == BasicChartVCChartTypeColumn || _chartType == BasicChartVCChartTypeBar) {
-        nameArr = @[
-            @"xAxisReversed",
-            @"yAxisReversed",
-            @"xAxisInverted",
-            @"Polarization",
-            @"DataLabelShow",
-        ];
-    } else {
-        nameArr = @[
-            @"xReversed",
-            @"yReversed",
-            @"xAxisInverted",
-            @"Polarization",
-            @"DataShow",
-            @"HideMarker"
-        ];
-    }
-    
-    CGFloat switchWidth = (self.view.frame.size.width - 40) / nameArr.count;
-    
-    for (NSUInteger i = 0; i < nameArr.count; i++) {
-        UISwitch * switchView = [[UISwitch alloc]init];
-        switchView.frame = CGRectMake(switchWidth * i + 20,
-                                      self.view.frame.size.height - 70,
-                                      switchWidth,
-                                      20);
-        switchView.onTintColor = [AAEasyTool colorWithHexString:@"#FFDEAD"];
-        switchView.thumbTintColor = [UIColor whiteColor];
-        switchView.on = NO;
-        switchView.tag = i;
-        [switchView addTarget:self
-                       action:@selector(switchViewClicked:)
-             forControlEvents:UIControlEventValueChanged];
-        [self.view addSubview:switchView];
-        
-        UILabel *label = [[UILabel alloc]init];
-        label.textColor = [UIColor lightGrayColor];
-        label.numberOfLines = 0;
-        label.frame = CGRectMake(switchWidth * i + 20,
-                                 self.view.frame.size.height - 40,
-                                 switchWidth,
-                                 40);
-        label.text = nameArr[i];
-        label.font = [UIFont systemFontOfSize:8.0f];
-        [self.view addSubview:label];
-    }
-}
 
 - (void)switchViewClicked:(UISwitch *)switchView {
     BOOL isOn = switchView.isOn;
