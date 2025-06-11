@@ -32,6 +32,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AABaseChartVC.h"
-@interface MixedChartVC : AABaseChartVC
+@interface MixedChartComposer : AABaseChartVC
 
 @end

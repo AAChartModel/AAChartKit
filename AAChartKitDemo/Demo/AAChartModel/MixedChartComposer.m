@@ -30,14 +30,14 @@
  
  */
 
-#import "MixedChartVC.h"
+#import "MixedChartComposer.h"
 #import "AAEasyTool.h"
 
-@interface MixedChartVC ()
+@interface MixedChartComposer ()
 
 @end
 
-@implementation MixedChartVC
+@implementation MixedChartComposer
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,27 +46,27 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (selectedIndex) {
-        case 0:  return [self configureArearangeMixedLineChart];
-        case 1:  return [self configureColumnrangeMixedLineChart];
-        case 2:  return [self configureStackingColumnMixedLineChart];
-        case 3:  return [self configureDashStyleTypeMixedChart];
-        case 4:  return [self configureAllLineDashStyleTypesMixedChart];
-        case 5:  return [self configureNegativeColorMixedColumnChart];
-        case 6:  return [self configureScatterMixedLineChart];
-        case 7:  return [self configureNegativeColorMixedBubbleChart];
-        case 8:  return [self configurePolygonMixedScatterChart];
-        case 9:  return [self configurePolarMixedChart];
-        case 10: return [self configureColumnMixedScatterChart];//柱形图混合散点图
-        case 11: return [self configureNegativeColorMixedAreasplineChart];
-        case 12: return [self configureNegativeColorMixedAreasChart];
-        case 13: return [self configureAreaChartMixedStepAreaChart];
+        case 0:  return [MixedChartComposer configureArearangeMixedLineChart];
+        case 1:  return [MixedChartComposer configureColumnrangeMixedLineChart];
+        case 2:  return [MixedChartComposer configureStackingColumnMixedLineChart];
+        case 3:  return [MixedChartComposer configureDashStyleTypeMixedChart];
+        case 4:  return [MixedChartComposer configureAllLineDashStyleTypesMixedChart];
+        case 5:  return [MixedChartComposer configureNegativeColorMixedColumnChart];
+        case 6:  return [MixedChartComposer configureScatterMixedLineChart];
+        case 7:  return [MixedChartComposer configureNegativeColorMixedBubbleChart];
+        case 8:  return [MixedChartComposer configurePolygonMixedScatterChart];
+        case 9:  return [MixedChartComposer configurePolarMixedChart];
+        case 10: return [MixedChartComposer configureColumnMixedScatterChart];//柱形图混合散点图
+        case 11: return [MixedChartComposer configureNegativeColorMixedAreasplineChart];
+        case 12: return [MixedChartComposer configureNegativeColorMixedAreasChart];
+        case 13: return [MixedChartComposer configureAreaChartMixedStepAreaChart];
         default:
             break;
     }
     return nil;
 }
 
-- (AAChartModel *)configureArearangeMixedLineChart {
++ (AAChartModel *)configureArearangeMixedLineChart {
     return AAChartModel.new
     .titleSet(@"面积范围均线图")
     .subtitleSet(@"混合图的一种")
@@ -159,7 +159,7 @@
     ]);
 }
 
-- (AAChartModel *)configureColumnrangeMixedLineChart {
++ (AAChartModel *)configureColumnrangeMixedLineChart {
     return AAChartModel.new
     .titleSet(@"城市气温指数")
     .subtitleSet(@"虚拟数据")
@@ -212,7 +212,7 @@
     ]);
 }
 
-- (AAChartModel *)configureStackingColumnMixedLineChart {
++ (AAChartModel *)configureStackingColumnMixedLineChart {
     AAMarker *aaMarker = AAMarker.new
     .radiusSet(@7)//曲线连接点半径，默认是4
     .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -255,7 +255,7 @@
     
 }
 
-- (AAChartModel *)configureDashStyleTypeMixedChart {
++ (AAChartModel *)configureDashStyleTypeMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
@@ -302,7 +302,7 @@
     ]);
 }
 
-- (AAChartModel *)configureAllLineDashStyleTypesMixedChart {
++ (AAChartModel *)configureAllLineDashStyleTypesMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
@@ -369,7 +369,7 @@
     ]);
 }
 
-- (AAChartModel *)configureNegativeColorMixedColumnChart {
++ (AAChartModel *)configureNegativeColorMixedColumnChart {
     return AAChartModel.new
     .legendEnabledSet(false)
     .chartTypeSet(AAChartTypeColumn)
@@ -390,7 +390,7 @@
     ]);
 }
 
-- (AAChartModel *)configureScatterMixedLineChart {
++ (AAChartModel *)configureScatterMixedLineChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
@@ -613,7 +613,7 @@
     ]);
 }
 
-- (AAChartModel *)configureNegativeColorMixedBubbleChart {
++ (AAChartModel *)configureNegativeColorMixedBubbleChart {
     NSArray *dataArr = @[
         @[@0,@0,@5],@[@0,@1,@1],@[@0,@2,@0],@[@0,@3,@0],@[@0,@4,@0],@[@0,@5,@0],@[@0,@6,@0],
         @[@0,@7,@0],@[@0,@8,@0],@[@0,@9,@0],@[@0,@10,@0],@[@0,@11,@2],@[@0,@12,@4],@[@0,@13,@1],
@@ -660,7 +660,7 @@
     ]);
 }
 
-- (AAChartModel *)configurePolygonMixedScatterChart {
++ (AAChartModel *)configurePolygonMixedScatterChart {
     NSArray *polygonDataArr = @[
         @[@153, @42], @[@149, @46],
         @[@149, @55], @[@152, @60],
@@ -751,7 +751,7 @@
     ]);
 }
 
-- (AAChartModel *)configurePolarMixedChart {
++ (AAChartModel *)configurePolarMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .polarSet(true)
@@ -771,7 +771,7 @@
     ]);
 }
 
-- (AAChartModel *)configureColumnMixedScatterChart {
++ (AAChartModel *)configureColumnMixedScatterChart {
     return AAChartModel.new
     .xAxisReversedSet(true)
     .chartTypeSet(AAChartTypeColumn)
@@ -811,7 +811,7 @@
 }
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
-- (AAChartModel *)configureNegativeColorMixedAreasplineChart {
++ (AAChartModel *)configureNegativeColorMixedAreasplineChart {
     NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
@@ -857,7 +857,7 @@
 }
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/953
-- (AAChartModel *)configureNegativeColorMixedAreasChart {
++ (AAChartModel *)configureNegativeColorMixedAreasChart {
     NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.8, AARgbaColor(30, 144, 255, 0.0)],
@@ -938,7 +938,7 @@
                ]);
 }
 
-- (AAChartModel *)configureAreaChartMixedStepAreaChart {
++ (AAChartModel *)configureAreaChartMixedStepAreaChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .markerRadiusSet(@0)

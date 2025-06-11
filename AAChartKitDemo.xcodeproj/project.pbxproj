@@ -50,7 +50,7 @@
 		441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */; };
 		44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */; };
 		44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartComposer.m */; };
-		44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartVC.m */; };
+		44711748217E2C88009D9FB0 /* MixedChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartComposer.m */; };
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		448330BB24E272FB00368A30 /* NSString+toPureJSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 448330BA24E272FA00368A30 /* NSString+toPureJSString.m */; };
@@ -232,7 +232,7 @@
 		27EB8A8C24986DCE007E6A6B /* DataSortingWithAnimationChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSortingWithAnimationChartVC.m; sourceTree = "<group>"; };
 		27F0CA7721018998004BD904 /* AADateUTCTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AADateUTCTool.h; sourceTree = "<group>"; };
 		27F0CA7821018998004BD904 /* AADateUTCTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADateUTCTool.m; sourceTree = "<group>"; };
-		27F5AD9A20A740910086CD33 /* MixedChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartVC.h; sourceTree = "<group>"; };
+		27F5AD9A20A740910086CD33 /* MixedChartComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartComposer.h; sourceTree = "<group>"; };
 		440B097E24C189950056CE08 /* AACredits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AACredits.h; sourceTree = "<group>"; };
 		440B097F24C189950056CE08 /* AACredits.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AACredits.m; sourceTree = "<group>"; };
 		440B098124C190F60056CE08 /* AALang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AALang.h; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HideOrShowChartSeriesVC.h; sourceTree = "<group>"; };
 		44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HideOrShowChartSeriesVC.m; sourceTree = "<group>"; };
 		44711744217E2C87009D9FB0 /* SpecialChartComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartComposer.m; sourceTree = "<group>"; };
-		44711745217E2C87009D9FB0 /* MixedChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixedChartVC.m; sourceTree = "<group>"; };
+		44711745217E2C87009D9FB0 /* MixedChartComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixedChartComposer.m; sourceTree = "<group>"; };
 		44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
 		447B4B3121C9E04E00FDA965 /* AAEasyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAEasyTool.h; sourceTree = "<group>"; };
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
@@ -686,8 +686,8 @@
 				44711744217E2C87009D9FB0 /* SpecialChartComposer.m */,
 				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
 				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
-				27F5AD9A20A740910086CD33 /* MixedChartVC.h */,
-				44711745217E2C87009D9FB0 /* MixedChartVC.m */,
+				27F5AD9A20A740910086CD33 /* MixedChartComposer.h */,
+				44711745217E2C87009D9FB0 /* MixedChartComposer.m */,
 				846142282C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.h */,
 				846142292C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.m */,
 				8461422B2C8AEED90032FBD3 /* CustomStyleForBubbleChartVC.h */,
@@ -1184,7 +1184,7 @@
 				1E66D211210AF4ED007EAB8C /* AASpline.m in Sources */,
 				846142092C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m in Sources */,
 				846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */,
-				44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */,
+				44711748217E2C88009D9FB0 /* MixedChartComposer.m in Sources */,
 				1E66D1FF210AF4ED007EAB8C /* AAXAxis.m in Sources */,
 				4486D0A62466AFE5000D7FDA /* AAPane.m in Sources */,
 				84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */,
