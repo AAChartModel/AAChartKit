@@ -49,7 +49,7 @@
 		44143D3921A1950300D44657 /* AAGradientColor+LinearGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 44143D3821A1950300D44657 /* AAGradientColor+LinearGradient.m */; };
 		441AF0BD233746DD00F0D39D /* EvaluateJSStringFunctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */; };
 		44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */; };
-		44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartVC.m */; };
+		44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartComposer.m */; };
 		44711748217E2C88009D9FB0 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartVC.m */; };
 		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
@@ -243,7 +243,7 @@
 		441AF0BC233746DC00F0D39D /* EvaluateJSStringFunctionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateJSStringFunctionVC.m; sourceTree = "<group>"; };
 		44209B0721B0D2DD004EC321 /* HideOrShowChartSeriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HideOrShowChartSeriesVC.h; sourceTree = "<group>"; };
 		44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HideOrShowChartSeriesVC.m; sourceTree = "<group>"; };
-		44711744217E2C87009D9FB0 /* SpecialChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
+		44711744217E2C87009D9FB0 /* SpecialChartComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartComposer.m; sourceTree = "<group>"; };
 		44711745217E2C87009D9FB0 /* MixedChartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixedChartVC.m; sourceTree = "<group>"; };
 		44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
 		447B4B3121C9E04E00FDA965 /* AAEasyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAEasyTool.h; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 		58603ED25E9A3CAC30317C26 /* CustomClickEventCallbackMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomClickEventCallbackMessageVC.h; sourceTree = "<group>"; };
 		58603F1D08A3368A46BC51CB /* AABoxplot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABoxplot.h; sourceTree = "<group>"; };
 		58603F3C6D25CFF0EAF49286 /* CustomClickEventCallbackMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClickEventCallbackMessageVC.m; sourceTree = "<group>"; };
-		645E59531E8403710039A0A1 /* SpecialChartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
+		645E59531E8403710039A0A1 /* SpecialChartComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialChartComposer.h; sourceTree = "<group>"; };
 		64AF875E1F0A981400A801C4 /* OnlyRefreshChartDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyRefreshChartDataVC.h; sourceTree = "<group>"; };
 		64AF875F1F0A981400A801C4 /* OnlyRefreshChartDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyRefreshChartDataVC.m; sourceTree = "<group>"; };
 		713F54371E7B71C000D506C7 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
@@ -682,8 +682,8 @@
 			children = (
 				713F54391E7B71C000D506C7 /* BasicChartVC.h */,
 				713F543A1E7B71C000D506C7 /* BasicChartVC.m */,
-				645E59531E8403710039A0A1 /* SpecialChartVC.h */,
-				44711744217E2C87009D9FB0 /* SpecialChartVC.m */,
+				645E59531E8403710039A0A1 /* SpecialChartComposer.h */,
+				44711744217E2C87009D9FB0 /* SpecialChartComposer.m */,
 				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
 				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
 				27F5AD9A20A740910086CD33 /* MixedChartVC.h */,
@@ -1115,7 +1115,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44711747217E2C88009D9FB0 /* SpecialChartVC.m in Sources */,
+				44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */,
 				84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */,
 				1E66D213210AF4ED007EAB8C /* AAPie.m in Sources */,
 				449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */,

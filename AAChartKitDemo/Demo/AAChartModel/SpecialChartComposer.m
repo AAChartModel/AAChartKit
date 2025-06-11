@@ -30,9 +30,9 @@
  
  */
 
-#import "SpecialChartVC.h"
+#import "SpecialChartComposer.h"
 
-@implementation SpecialChartVC
+@implementation SpecialChartComposer
 
 
 - (void)viewDidLoad {
@@ -42,72 +42,28 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (selectedIndex) {
-        case 0: return [self configurePieChart];
-        case 1: return [self configureBubbleChart];
-        case 2: return [self packedbubbleChart];
-        case 3: return [self configureScatterChart];
-        case 4: return [self configureArearangeChart];
-        case 5: return [self configureAreaslinerangeChart];
-        case 6: return [self configureColumnpyramidChart];
-        case 7: return [self configureColumnrangeChart];
-        case 8: return [self configureBoxplotChart];
-        case 9: return [self configureWaterfallChart];
-        case 10: return [self configurePyramidChart];
-        case 11: return [self configureFunnelChart];
-        case 12: return [self configureErrorBarChart];
+        case 0: return [SpecialChartComposer pieChart];
+        case 1: return [SpecialChartComposer bubbleChart];
+        case 2: return [SpecialChartComposer bubbleChart];
+
+        case 3: return [SpecialChartComposer scatterChart];
+        case 4: return [SpecialChartComposer arearangeChart];
+        case 5: return [SpecialChartComposer areaslinerangeChart];
+        case 6: return [SpecialChartComposer columnpyramidChart];
+
+        case 7: return [SpecialChartComposer columnrangeChart];
+        case 8: return [SpecialChartComposer boxplotChart];
+        case 9: return [SpecialChartComposer waterfallChart];
+        case 10: return [SpecialChartComposer pyramidChart];
+        case 11: return [SpecialChartComposer funnelChart];
+        case 12: return [SpecialChartComposer errorBarChart];
         default:
             break;
     }
     return nil;
 }
 
-- (AAOptions *)configurePieChartWithMargin {
-    AAChartModel *aaChartModel = AAChartModel.new
-//        .marginSet(@[@5,@5,@5,@150])
-        .chartTypeSet(AAChartTypePie)
-        .tooltipEnabledSet(false)
-        .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#0c9674",@"#EA007B",@"#EA007B",@"#EA007B"])
-        .dataLabelsEnabledSet(true)//是否直接显示扇形图数据
-        .legendEnabledSet(false)
-        .seriesSet(@[
-            AASeriesElement.new
-            .enableMouseTrackingSet(@true)
-            .sizeSet(@180)//尺寸大小
-            .innerSizeSet(@"70%")
-            .showInLegendSet(false)
-            .allowPointSelectSet(false)//是否允许在点击数据点标记(扇形图点击选中的块发生位移)
-            .statesSet(AAStates.new
-                .hoverSet(AAHover.new
-                          .brightnessSet(@0)
-                          .haloSet(AAHalo.new
-                                   .opacitySet(@1)))
-                .inactiveSet(AAInactive
-                             .new.opacitySet(@100)))
-
-            .dataSet(@[
-                @[@"支付宝"  ,@67],
-                    @[@"微信",@10],
-                    @[@"银联",@999],
-                    @[@"现金余额"    ,@10],
-                    @[@"承兑余额"    ,@83],
-                    @[@"壹钱包"    ,@5],
-                    @[@"易付通"    ,@10],
-                    @[@"积分抵用"    ,@30],
-                ])]);
-    
-    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
-    
-    aaOptions.chart
-        .marginLeftSet(@180)//图表左边距👈🏻
-        .marginRightSet(@5)//图表右边距👉🏻
-        .marginTopSet(@5)//图表上边距👆🏻
-        .marginBottomSet(@5)//图表下边距👇🏻
-    ;
-
-    return aaOptions;
-}
-
-- (AAChartModel *)configurePieChart {
++ (AAChartModel *)pieChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypePie)
     .colorsThemeSet(@[@"#0c9674",@"#7dffc0",@"#ff3333",@"#facd32",@"#ffffa0",@"#EA007B"])
@@ -137,7 +93,7 @@
                  ])]);
 }
 
-- (AAChartModel *)configureBubbleChart {
++ (AAChartModel *)bubbleChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBubble)
     .titleSet(@"Bubble")
@@ -192,12 +148,12 @@
     
 }
 
-- (AAChartModel *)packedbubbleChart {
-    return [self configureBubbleChart]
++ (AAChartModel *)packedbubbleChart {
+    return [self bubbleChart]
         .chartTypeSet(AAChartTypePackedbubble);
 }
 
-- (AAChartModel *)configureScatterChart {
++ (AAChartModel *)scatterChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
     .titleSet(@"按性别划分的身高体重分布图")
@@ -323,7 +279,7 @@
                ]);
 }
 
-- (AAChartModel *)configureArearangeChart {
++ (AAChartModel *)arearangeChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArearange)
     .titleSet(@"黄昏别馆日气温起伏图")
@@ -726,7 +682,7 @@
                ]);
 }
 
-- (AAChartModel *)configureAreaslinerangeChart {
++ (AAChartModel *)areaslinerangeChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeAreasplinerange)
     .titleSet(@"黄昏别馆日气温起伏图")
@@ -791,14 +747,14 @@
                ]);
 }
 
-- (AAChartModel *)configureColumnpyramidChart {
-    return [self configureColumnrangeChart]
++ (AAChartModel *)columnpyramidChart {
+    return [self columnrangeChart]
     .chartTypeSet(AAChartTypeColumnpyramid)
     .titleSet(@"COLUMN PYRAMID CHART")
     .subtitleSet(@"virtual data");
 }
 
-- (AAChartModel *)configureColumnrangeChart {
++ (AAChartModel *)columnrangeChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumnrange)
     .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
@@ -833,7 +789,7 @@
                ]);
 }
 
-- (AAChartModel *)configureBoxplotChart {
++ (AAChartModel *)boxplotChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeBoxplot)
     .titleSet(@"BOXPLOT CHART")
@@ -855,7 +811,7 @@
                ]);
 }
 
-- (AAChartModel *)configureWaterfallChart {
++ (AAChartModel *)waterfallChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeWaterfall)
     .titleSet(@"WATERFALL CHART")
@@ -878,7 +834,7 @@
                ]);
 }
 
-- (AAChartModel *)configurePyramidChart {
++ (AAChartModel *)pyramidChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypePyramid)
     .titleSet(@"编程语言热度")
@@ -897,7 +853,7 @@
                ]);
 }
 
-- (AAChartModel *)configureFunnelChart {
++ (AAChartModel *)funnelChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeFunnel)
     .titleSet(@"编程语言热度")
@@ -923,7 +879,7 @@
                ]);
 }
 
-- (AAChartModel *)configureErrorBarChart {
++ (AAChartModel *)errorBarChart {
     return AAChartModel.new
     .categoriesSet(@[
         @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
