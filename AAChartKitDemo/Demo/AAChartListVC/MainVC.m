@@ -42,7 +42,7 @@
 #import "ChartListVC.h"
 #import "MixedChartVC.h"
 #import "HideOrShowChartSeriesVC.h"
-#import "CustomStyleChartVC.h"
+#import "CustomStyleChartComposer.h"
 #import "MonitorViewController.h"
 #import "JSFunctionForAATooltipVC.h"
 #import "EvaluateJSStringFunctionVC.h"
@@ -215,7 +215,7 @@
             
         case 2: {
             /*一些自定义样式图表*/
-            CustomStyleChartVC *vc = CustomStyleChartVC.new;
+            CustomStyleChartComposer *vc = CustomStyleChartComposer.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.hidesBottomBarWhenPushed = YES;

@@ -38,7 +38,7 @@
 		272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */; };
 		2750145224C03372005A5D73 /* AAShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2750145124C03372005A5D73 /* AAShadow.m */; };
 		278989BB204F8DBA003940CC /* ChartListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 278989BA204F8DBA003940CC /* ChartListVC.m */; };
-		27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */; };
+		27D874F6219AB55E0092A461 /* CustomStyleChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D874F5219AB55E0092A461 /* CustomStyleChartComposer.m */; };
 		27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */; };
 		27E475F524B2111400690657 /* AABaseChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E475F424B2111400690657 /* AABaseChartVC.m */; };
 		27EB89D8248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EB89D7248BB38B007E6A6B /* ChartAdvancedUpdatingFeatureVC.m */; };
@@ -223,8 +223,8 @@
 		27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsVC.h; sourceTree = "<group>"; };
 		278989B9204F8DBA003940CC /* ChartListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartListVC.h; sourceTree = "<group>"; };
 		278989BA204F8DBA003940CC /* ChartListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartListVC.m; sourceTree = "<group>"; };
-		27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleChartVC.h; sourceTree = "<group>"; };
-		27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleChartVC.m; sourceTree = "<group>"; };
+		27D874F4219AB55E0092A461 /* CustomStyleChartComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleChartComposer.h; sourceTree = "<group>"; };
+		27D874F5219AB55E0092A461 /* CustomStyleChartComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleChartComposer.m; sourceTree = "<group>"; };
 		27E38C631F0E47BA00FB52E1 /* ChartAnimationTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartAnimationTypeVC.h; sourceTree = "<group>"; };
 		27E38C641F0E47BA00FB52E1 /* ChartAnimationTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartAnimationTypeVC.m; sourceTree = "<group>"; };
 		27E475F324B2111400690657 /* AABaseChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AABaseChartVC.h; sourceTree = "<group>"; };
@@ -871,8 +871,8 @@
 				8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */,
 				8481C2DE2DF97B4E006EFC41 /* MixedChartVC.h */,
 				8481C2DF2DF97B4E006EFC41 /* MixedChartVC.m */,
-				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
-				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
+				27D874F4219AB55E0092A461 /* CustomStyleChartComposer.h */,
+				27D874F5219AB55E0092A461 /* CustomStyleChartComposer.m */,
 				846142282C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.h */,
 				846142292C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.m */,
 				8461422B2C8AEED90032FBD3 /* CustomStyleForBubbleChartVC.h */,
@@ -1169,7 +1169,7 @@
 				27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */,
 				1E66D20E210AF4ED007EAB8C /* AAAnimation.m in Sources */,
 				8461422A2C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.m in Sources */,
-				27D874F6219AB55E0092A461 /* CustomStyleChartVC.m in Sources */,
+				27D874F6219AB55E0092A461 /* CustomStyleChartComposer.m in Sources */,
 				84B548BF26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
 				846142242C8AEB340032FBD3 /* CustomStyleForScatterChartComposer.m in Sources */,
