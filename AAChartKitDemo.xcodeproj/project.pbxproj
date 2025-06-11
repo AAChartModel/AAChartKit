@@ -688,10 +688,6 @@
 			children = (
 				8481C2D92DF97839006EFC41 /* ViewController */,
 				8481C2DA2DF97844006EFC41 /* Composer */,
-				713F54391E7B71C000D506C7 /* BasicChartVC.h */,
-				713F543A1E7B71C000D506C7 /* BasicChartVC.m */,
-				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
-				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
 			);
 			path = AAChartModel;
 			sourceTree = "<group>";
@@ -866,10 +862,14 @@
 		8481C2D92DF97839006EFC41 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				713F54391E7B71C000D506C7 /* BasicChartVC.h */,
+				713F543A1E7B71C000D506C7 /* BasicChartVC.m */,
 				8481C2DB2DF978A4006EFC41 /* SpecialChartVC.h */,
 				8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */,
 				8481C2DE2DF97B4E006EFC41 /* MixedChartVC.h */,
 				8481C2DF2DF97B4E006EFC41 /* MixedChartVC.m */,
+				27D874F4219AB55E0092A461 /* CustomStyleChartVC.h */,
+				27D874F5219AB55E0092A461 /* CustomStyleChartVC.m */,
 				846142282C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.h */,
 				846142292C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.m */,
 				8461422B2C8AEED90032FBD3 /* CustomStyleForBubbleChartVC.h */,
