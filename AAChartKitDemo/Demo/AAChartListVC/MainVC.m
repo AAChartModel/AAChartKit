@@ -34,7 +34,7 @@
 
 #import "MainVC.h"
 #import "BasicChartVC.h"
-#import "SpecialChartComposer.h"
+#import "SpecialChartVC.h"
 #import "OnlyRefreshChartDataVC.h"
 #import "ChartAnimationTypeVC.h"
 #import "DrawChartWithAAOptionsVC.h"
@@ -205,7 +205,7 @@
         
         case 1: {
             /*特殊类型图表*/
-            SpecialChartComposer *vc = SpecialChartComposer.new;
+            SpecialChartVC *vc = SpecialChartVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
             vc.hidesBottomBarWhenPushed = YES;

@@ -30,9 +30,24 @@
  
  */
 
-#import <UIKit/UIKit.h>
-#import "AABaseChartVC.h"
+#import <Foundation/Foundation.h>
 
-@interface SpecialChartComposer : AABaseChartVC
+@class AAChartModel;
+
+@interface SpecialChartComposer : NSObject
+
++ (AAChartModel *)pieChart;
++ (AAChartModel *)bubbleChart;
++ (AAChartModel *)packedbubbleChart;
++ (AAChartModel *)scatterChart;
++ (AAChartModel *)arearangeChart;
++ (AAChartModel *)areaslinerangeChart;
++ (AAChartModel *)columnpyramidChart;
++ (AAChartModel *)columnrangeChart;
++ (AAChartModel *)boxplotChart;
++ (AAChartModel *)waterfallChart;
++ (AAChartModel *)pyramidChart;
++ (AAChartModel *)funnelChart;
++ (AAChartModel *)errorBarChart;
 
 @end

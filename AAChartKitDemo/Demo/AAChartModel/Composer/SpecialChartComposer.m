@@ -31,37 +31,9 @@
  */
 
 #import "SpecialChartComposer.h"
+#import "AAChartKit.h"
 
 @implementation SpecialChartComposer
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (selectedIndex) {
-        case 0: return [SpecialChartComposer pieChart];
-        case 1: return [SpecialChartComposer bubbleChart];
-        case 2: return [SpecialChartComposer bubbleChart];
-
-        case 3: return [SpecialChartComposer scatterChart];
-        case 4: return [SpecialChartComposer arearangeChart];
-        case 5: return [SpecialChartComposer areaslinerangeChart];
-        case 6: return [SpecialChartComposer columnpyramidChart];
-
-        case 7: return [SpecialChartComposer columnrangeChart];
-        case 8: return [SpecialChartComposer boxplotChart];
-        case 9: return [SpecialChartComposer waterfallChart];
-        case 10: return [SpecialChartComposer pyramidChart];
-        case 11: return [SpecialChartComposer funnelChart];
-        case 12: return [SpecialChartComposer errorBarChart];
-        default:
-            break;
-    }
-    return nil;
-}
 
 + (AAChartModel *)pieChart {
     return AAChartModel.new
