@@ -44,15 +44,17 @@
     switch (selectedIndex) {
         case 0: return [self configurePieChart];
         case 1: return [self configureBubbleChart];
-        case 2: return [self configureScatterChart];
-        case 3: return [self configureArearangeChart];
-        case 4: return [self configureAreaslinerangeChart];
-        case 5: return [self configureColumnrangeChart];
-        case 6: return [self configureBoxplotChart];
-        case 7: return [self configureWaterfallChart];
-        case 8: return [self configurePyramidChart];
-        case 9: return [self configureFunnelChart];
-        case 10:return [self configureErrorBarChart];
+        case 2: return [self packedbubbleChart];
+        case 3: return [self configureScatterChart];
+        case 4: return [self configureArearangeChart];
+        case 5: return [self configureAreaslinerangeChart];
+        case 6: return [self configureColumnpyramidChart];
+        case 7: return [self configureColumnrangeChart];
+        case 8: return [self configureBoxplotChart];
+        case 9: return [self configureWaterfallChart];
+        case 10: return [self configurePyramidChart];
+        case 11: return [self configureFunnelChart];
+        case 12: return [self configureErrorBarChart];
         default:
             break;
     }
@@ -188,6 +190,11 @@
                  ]),
                ]);
     
+}
+
+- (AAChartModel *)packedbubbleChart {
+    return [self configureBubbleChart]
+        .chartTypeSet(AAChartTypePackedbubble);
 }
 
 - (AAChartModel *)configureScatterChart {
@@ -782,6 +789,13 @@
             @[@1397952000000, @1.7, @15.6],
                  ]),
                ]);
+}
+
+- (AAChartModel *)configureColumnpyramidChart {
+    return [self configureColumnrangeChart]
+    .chartTypeSet(AAChartTypeColumnpyramid)
+    .titleSet(@"COLUMN PYRAMID CHART")
+    .subtitleSet(@"virtual data");
 }
 
 - (AAChartModel *)configureColumnrangeChart {

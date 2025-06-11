@@ -567,9 +567,11 @@
             /*特殊类型图表*/
             @[@"Pie Chart---扇形图",
               @"Bubble Chart---气泡图",
+              @"Packed Bubble Chart---紧凑气泡图",
               @"Scatter Chart---散点图",
               @"Area Range Chart---折线区域面积图",
               @"Area Spline range Chart---曲线区域面积图",
+              @"Column Pyramid Chart---柱形金字塔图",
               @"Column Range Chart---柱形范围图",
               @"Box Plot Chart---箱线图",
               @"Water Fall---瀑布图",
