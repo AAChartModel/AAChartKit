@@ -32,19 +32,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AAEasyTool.h"
-#import "AAChartKit.h"
-
-typedef NS_ENUM(NSInteger,BasicChartVCChartType) {
-    BasicChartVCChartTypeColumn = 0,
-    BasicChartVCChartTypeBar,
-    BasicChartVCChartTypeArea,
-    BasicChartVCChartTypeAreaspline,
-    BasicChartVCChartTypeLine,
-    BasicChartVCChartTypeSpline,
-    BasicChartVCChartTypeStepLine,
-    BasicChartVCChartTypeStepArea,
-    BasicChartVCChartTypeScatter,
-};
+#import "BasicChartComposer.h"
 
 @interface BasicChartVC : UIViewController
 
