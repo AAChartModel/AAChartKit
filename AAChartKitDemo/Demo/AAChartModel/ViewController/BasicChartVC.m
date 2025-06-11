@@ -81,18 +81,22 @@
 }
 
 - (void)setupAAChartView {
-    CGFloat aaChartViewOriginY = 64;
-    if ([self isHairPhone]) {
-        aaChartViewOriginY = 88;
-    }
-    CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat chartViewHeight = self.view.frame.size.height - 200 - aaChartViewOriginY; // 为StackView预留更多空间
-    _aaChartView = [[AAChartView alloc]init];
-    _aaChartView.frame = CGRectMake(0, aaChartViewOriginY, chartViewWidth, chartViewHeight);
-    _aaChartView.scrollEnabled = NO;//禁用 AAChartView 滚动效果
-    _aaChartView.isClearBackgroundColor = YES;//设置 AAChartView 的背景色是否为透明(注意设置为透明后, 再设置 AAChartModel 或者 AAOptions 实例的 backgroundColor 是无效的)
-//        _aaChartView.delegate = self;//解开注释(同时需要注释掉 block 方法), 可以测试一下获取交互事件回调的 delegate 方法
+    // 创建 AAChartView
+    _aaChartView = [[AAChartView alloc] init];
+    _aaChartView.scrollEnabled = NO; // 禁用 AAChartView 滚动效果
+    _aaChartView.isClearBackgroundColor = YES; // 设置 AAChartView 的背景色是否为透明
+    _aaChartView.translatesAutoresizingMaskIntoConstraints = NO; // 启用 Auto Layout
+    
+    // 将 AAChartView 添加到视图
     [self.view addSubview:_aaChartView];
+    
+    // 设置 AAChartView 的 Auto Layout 约束
+    [NSLayoutConstraint activateConstraints:@[
+        [_aaChartView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+        [_aaChartView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [_aaChartView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [_aaChartView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-200] // 为底部控件预留空间
+    ]];
     
     if (@available(iOS 16.4, macCatalyst 16.4, *)) {
         _aaChartView.inspectable = YES;
