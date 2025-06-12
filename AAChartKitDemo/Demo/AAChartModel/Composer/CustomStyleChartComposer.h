@@ -30,10 +30,11 @@
  
  */
 
-#import <UIKit/UIKit.h>
-#import "AABaseChartVC.h"
+#import <Foundation/Foundation.h>
 
-@interface CustomStyleChartComposer : AABaseChartVC
+@class AAChartModel;
+
+@interface CustomStyleChartComposer : NSObject
 
 + (AAChartModel *)setUpColorfulBarChart;
 + (AAChartModel *)setUpColorfulGradientColorChart;
