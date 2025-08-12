@@ -226,23 +226,23 @@
 
 // 点击事件回调
 - (void)aaChartView:(AAChartView *)aaChartView clickEventWithMessage:(AAClickEventMessageModel *)message {
-        NSLog(@"🎯 点击事件: %@ - %@ (值: %@, index:%lu)", message.name, message.category, message.y, (unsigned long)message.index);
-        self.lastClickedPointIndex = message.index; // 记录被点击点索引
+    NSLog(@"🎯 点击事件: %@ - %@ (值: %@, index:%lu)", message.name, message.category, message.y, (unsigned long)message.index);
+    self.lastClickedPointIndex = message.index; // 记录被点击点索引
     
-        // 若已有请求进行中, 允许新的点击中断前一个(简单策略: 覆盖, 旧请求返回时比对索引)
-        self.isRequesting = YES;
+    // 若已有请求进行中, 允许新的点击中断前一个(简单策略: 覆盖, 旧请求返回时比对索引)
+    self.isRequesting = YES;
     
-        // UI Loading HUD
-        [self showLoadingHUDWithText:@"正在加载详情..."];   
+    // UI Loading HUD
+    [self showLoadingHUDWithText:@"正在加载详情..."];
     
-        // 先立即把该点 tooltip 置为 "加载中" 状态
-        [self showLoadingStateForPointAtIndex:message.index];
+    // 先立即把该点 tooltip 置为 "加载中" 状态
+    [self showLoadingStateForPointAtIndex:message.index];
     
-        // 模拟网络请求
-        [self simulateNetworkRequestForSeries:message.name
-                                                                 category:message.category
-                                                                        value:message.y
-                                                                    pIndex:message.index];
+    // 模拟网络请求
+    [self simulateNetworkRequestForSeries:message.name
+                                 category:message.category
+                                    value:message.y
+                                   pIndex:message.index];
 }
 
 #pragma mark - Network Simulation
@@ -251,7 +251,7 @@
 - (void)simulateNetworkRequestForSeries:(NSString *)seriesName
                                category:(NSString *)categoryName
                                   value:(NSNumber *)value
-                                pIndex:(NSUInteger)pointIndex {
+                                 pIndex:(NSUInteger)pointIndex {
     // 模拟网络延迟 1.2 秒
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSDictionary *mockData = [self generateMockDataForSeries:seriesName category:categoryName value:value];
@@ -268,8 +268,8 @@
     });
 }
 
-- (NSDictionary *)generateMockDataForSeries:(NSString *)seriesName 
-                                   category:(NSString *)categoryName 
+- (NSDictionary *)generateMockDataForSeries:(NSString *)seriesName
+                                   category:(NSString *)categoryName
                                       value:(NSNumber *)value {
     
     // 模拟服务器返回的不同数据
