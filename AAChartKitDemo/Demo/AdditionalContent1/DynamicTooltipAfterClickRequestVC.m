@@ -147,24 +147,39 @@
 
 // 创建图表配置
 - (AAOptions *)createChartOptions {
-    // Tooltip JS formatter: 根据 point.dynamicDetail 动态展示; 未加载时显示“加载中”
-    NSString *tooltipFormatter = @AAJSFunc(function () {
-        var p = this.point;
-        var d = p.dynamicDetail; // runtime 注入的后端数据
-        var html = '<span style=\"font-size:13px;font-weight:600;\">' + p.category + '</span><br/>';
-        html += '销售额: <b>' + p.y + '</b> 万元';
-        if (d === null) {
-            html += '<br/><span style=\"color:#999;\">加载中...</span>';
-        } else if (typeof d === 'object') {
-            html += '<br/>完成率: <b>' + d.completionRate + '</b>'
-                 + '<br/>客户数: <b>' + d.customerCount + '</b>'
-                 + '<br/>客单价: <b>' + d.avgPrice + '</b>'
-                 + '<br/><span style=\"color:#999;font-size:10px;\">更新: ' + d.updateTime + '</span>';
+    // Tooltip 自定义 formatter
+    // 逻辑说明:
+    //  1. 普通状态 (尚未点击)   : point.dynamicDetail 未定义 -> 显示“点击加载详情”引导
+    //  2. 点击后加载中          : point.dynamicDetail === null  -> 显示“加载中...” 占位
+    //  3. 加载完成(有对象数据)  : point.dynamicDetail 为对象   -> 展示接口返回的详细字段
+    NSString *tooltipFormatter = @AAJSFunc(
+    function () {
+        // 当前点引用
+        var point = this.point;
+        // 运行时由原生注入的扩展数据(dynamicDetail)
+        var detail = point.dynamicDetail;
+
+        // 标题 + 基础数值
+        var html = '<span style="font-size:13px;font-weight:600;">' + point.category + '</span><br/>';
+        html += '销售额: <b>' + point.y + '</b> 万元';
+
+        // 分支判断动态状态
+        if (detail === null) {
+            // 正在加载(原生通过 showPointLoading 设置为 null)
+            html += '<br/><span style="color:#999;">加载中...</span>';
+        } else if (typeof detail === 'object') {
+            // 加载完成, 展示细节
+            html += '<br/>完成率: <b>' + detail.completionRate + '</b>'
+                 + '<br/>客户数: <b>' + detail.customerCount + '</b>'
+                 + '<br/>客单价: <b>' + detail.avgPrice + '</b>'
+                 + '<br/><span style="color:#999;font-size:10px;">更新: ' + detail.updateTime + '</span>';
         } else {
-            html += '<br/><span style=\"color:#f39c12;\">点击加载详情</span>';
+            // 未点击过
+            html += '<br/><span style="color:#f39c12;">点击加载详情</span>';
         }
         return html;
-    });
+    }
+    );
     return AAOptions.new
         .chartSet(AAChart.new
                   .typeSet(AAChartTypeColumn))
@@ -283,9 +298,15 @@
 - (void)showLoadingStateForPointAtIndex:(NSUInteger)pointIndex {
     NSString *js = [NSString stringWithFormat:@AAJSFunc((
     function showPointLoading() {
-        var chart = aaGlobalChart; if(!chart) return;
-        var s = chart.series[0]; if(!s) return; var p = s.data[%lu]; if(!p) return;
-        p.dynamicDetail = null; // 标记加载中
+        // 获取全局图表实例
+        var chart = aaGlobalChart; if (!chart) return;
+        // 假设当前示例只有一个系列, 直接取 series[0]
+        var s = chart.series[0]; if (!s) return;
+        // 获取被点击的点
+        var p = s.data[%lu]; if (!p) return;
+        // 设置占位(tooltip 内部通过 === null 判定显示“加载中...”) 
+        p.dynamicDetail = null;
+        // 主动刷新 tooltip 展示 loading 状态
         chart.tooltip.refresh(p);
     }
     showPointLoading();
@@ -297,21 +318,26 @@
 - (void)updateTooltipWithData:(NSDictionary *)data forPointIndex:(NSUInteger)pointIndex {
     if (!data) return;
     // 构造 JS 对象字面量，避免 JSON.parse 字符串嵌套转义问题
+    // 1. 将 NSDictionary 转为 JS 对象字面量, 并进行必要转义
     NSMutableArray *pairs = [NSMutableArray array];
     [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *k = [key description];
         NSString *v = [obj description];
-        // 转义单引号与反斜杠
+        // 仅简单转义(若将来包含换行或双引号可继续扩展)
         v = [v stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
         v = [v stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
         [pairs addObject:[NSString stringWithFormat:@"%@:'%@'", k, v]];
     }];
     NSString *objectLiteral = [pairs componentsJoinedByString:@", "];
+    // 2. 注入 JS: 给对应点附加 dynamicDetail 并刷新 tooltip
     NSString *js = [NSString stringWithFormat:@AAJSFunc((
     function updatePointTooltip() {
-        var chart = aaGlobalChart; if(!chart) return;
-        var s = chart.series[0]; if(!s) return; var p = s.data[%lu]; if(!p) return;
+        var chart = aaGlobalChart; if (!chart) return;
+        var s = chart.series[0]; if (!s) return;
+        var p = s.data[%lu]; if (!p) return;
+        // 写入后端(模拟)返回的数据
         p.dynamicDetail = { %@ };
+        // 手动刷新 tooltip 展示最新数据
         chart.tooltip.refresh(p);
     }
     updatePointTooltip();
@@ -325,9 +351,17 @@
     NSUInteger defaultSelectedIndex = index;
     NSString *jsFunc = ([NSString stringWithFormat:@AAJSFunc((
     function syncRefreshTooltip() {
-        const chart = aaGlobalChart; if(!chart) return; const series = chart.series; const len = series.length; const pts = [];
-        for (let i=0;i<len;i++){ const pt = series[i].data[%lu]; if(pt) pts.push(pt); }
-        if(pts.length>0){ chart.xAxis[0].drawCrosshair(null, pts[0]); chart.tooltip.refresh(pts[0]); }
+        // 用于多图联动或多序列统一刷新 tooltip 的参考示例
+        const chart = aaGlobalChart; if (!chart) return;
+        const series = chart.series; const len = series.length; const pts = [];
+        for (let i = 0; i < len; i++) {
+            const pt = series[i].data[%lu];
+            if (pt) pts.push(pt);
+        }
+        if (pts.length > 0) {
+            chart.xAxis[0].drawCrosshair(null, pts[0]);
+            chart.tooltip.refresh(pts[0]);
+        }
     }
     syncRefreshTooltip();
     )), (unsigned long)defaultSelectedIndex]);
