@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UIActivityIndicatorView *loadingIndicator;
 @property (nonatomic, assign) NSUInteger lastClickedPointIndex; // 记录最近一次点击的点索引
 @property (nonatomic, assign) BOOL isRequesting; // 是否正在请求中
+@property (nonatomic, strong) UIView *loadingHUD; // 自定义HUD容器
+@property (nonatomic, strong) UILabel *loadingHUDLabel; // HUD描述文字
 
 @end
 
@@ -53,16 +55,94 @@
     self.aaChartView.scrollEnabled = NO;
     [self.view addSubview:self.aaChartView];
     
-    // 设置加载指示器
-    self.loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.loadingIndicator.center = CGPointMake(self.view.center.x, self.view.center.y + 50);
-    self.loadingIndicator.hidesWhenStopped = YES;
-    [self.view addSubview:self.loadingIndicator];
+    // 设置加载指示器(HUD)
+    [self setupLoadingHUD];
 }
 
 - (void)setupChart {
     AAOptions *aaOptions = [self createChartOptions];
     [self.aaChartView aa_drawChartWithOptions:aaOptions];
+}
+
+#pragma mark - Loading HUD
+
+- (void)setupLoadingHUD {
+    // 容器
+    UIView *hud = [[UIView alloc] initWithFrame:CGRectZero];
+    hud.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.65];
+    hud.layer.cornerRadius = 12;
+    hud.layer.masksToBounds = YES;
+    hud.alpha = 0;
+    hud.userInteractionEnabled = NO; // 不阻挡点击
+    [self.view addSubview:hud];
+    self.loadingHUD = hud;
+    
+    // 指示器
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    indicator.color = [UIColor whiteColor];
+    [hud addSubview:indicator];
+    self.loadingIndicator = indicator; // 复用旧属性
+    
+    // 文字
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.text = @"加载中...";
+    label.font = [UIFont boldSystemFontOfSize:14];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [hud addSubview:label];
+    self.loadingHUDLabel = label;
+    
+    // 自动布局
+    hud.translatesAutoresizingMaskIntoConstraints = NO;
+    indicator.translatesAutoresizingMaskIntoConstraints = NO;
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // HUD 位置：放在图表区域中央略靠上
+    [NSLayoutConstraint activateConstraints:@[
+        [hud.centerXAnchor constraintEqualToAnchor:self.aaChartView.centerXAnchor],
+        [hud.centerYAnchor constraintEqualToAnchor:self.aaChartView.centerYAnchor constant:-40],
+        [hud.widthAnchor constraintGreaterThanOrEqualToConstant:140],
+        [hud.heightAnchor constraintEqualToConstant:110]
+    ]];
+    
+    // 指示器 & 文本布局
+    [NSLayoutConstraint activateConstraints:@[
+        [indicator.topAnchor constraintEqualToAnchor:hud.topAnchor constant:18],
+        [indicator.centerXAnchor constraintEqualToAnchor:hud.centerXAnchor],
+        [label.topAnchor constraintEqualToAnchor:indicator.bottomAnchor constant:12],
+        [label.leadingAnchor constraintEqualToAnchor:hud.leadingAnchor constant:12],
+        [label.trailingAnchor constraintEqualToAnchor:hud.trailingAnchor constant:-12],
+        [label.bottomAnchor constraintEqualToAnchor:hud.bottomAnchor constant:-14]
+    ]];
+}
+
+- (void)showLoadingHUDWithText:(NSString *)text {
+    if (text.length > 0) {
+        self.loadingHUDLabel.text = text;
+    } else {
+        self.loadingHUDLabel.text = @"加载中...";
+    }
+    if (self.loadingHUD.alpha > 0.01) { // 已显示
+        [self.loadingIndicator startAnimating];
+        return;
+    }
+    self.loadingHUD.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.8, 0.8);
+    [self.loadingIndicator startAnimating];
+    [UIView animateWithDuration:0.22 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.loadingHUD.alpha = 1;
+        self.loadingHUD.transform = CGAffineTransformIdentity;
+    } completion:nil];
+}
+
+- (void)hideLoadingHUD {
+    if (self.loadingHUD.alpha < 0.01) return;
+    [UIView animateWithDuration:0.18 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.loadingHUD.alpha = 0;
+        self.loadingHUD.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+    } completion:^(BOOL finished) {
+        self.loadingHUD.transform = CGAffineTransformIdentity;
+        [self.loadingIndicator stopAnimating];
+    }];
 }
 
 // 创建图表配置
@@ -137,8 +217,8 @@
         // 若已有请求进行中, 允许新的点击中断前一个(简单策略: 覆盖, 旧请求返回时比对索引)
         self.isRequesting = YES;
     
-        // UI Loading
-        [self.loadingIndicator startAnimating];
+        // UI Loading HUD
+        [self showLoadingHUDWithText:@"正在加载详情..."];   
     
         // 先立即把该点 tooltip 置为 "加载中" 状态
         [self showLoadingStateForPointAtIndex:message.index];
@@ -163,7 +243,7 @@
         BOOL isLatestClick = (pointIndex == self.lastClickedPointIndex); // 防止过期请求覆盖最新点击
         
         if (isLatestClick) {
-            [self.loadingIndicator stopAnimating];
+            [self hideLoadingHUD];
             self.isRequesting = NO;
             [self updateTooltipWithData:mockData forPointIndex:pointIndex];
             NSLog(@"✅ 模拟接口请求完成(已应用): %@", mockData);
