@@ -69,6 +69,7 @@
 #import "CustomTableViewCell.h"
 #import "CustomClickEventCallbackMessageVC.h"
 #import "CustomTooltipClickEventCallbackVC.h"
+#import "DynamicTooltipAfterClickRequestVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -502,6 +503,10 @@
                 CustomTooltipClickEventCallbackVC *vc = CustomTooltipClickEventCallbackVC.new;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
+            } else if (row == 2) {
+                DynamicTooltipAfterClickRequestVC *vc = DynamicTooltipAfterClickRequestVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
             break;
@@ -895,7 +900,8 @@
             ],
             /*完全自定义图表交互事件回调的信息*/
             @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息",
-              @"CustomTooltipClickEventCallbackVC---自定义 tooltip 点击事件"
+              @"CustomTooltipClickEventCallbackVC---自定义 tooltip 点击事件",
+              @"DynamicTooltipAfterClickRequestVC---点击图表📊后请求数据动态更新 tooltip 内容",
             ]
             
         ];
