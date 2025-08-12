@@ -160,22 +160,22 @@
         var detail = point.dynamicDetail;
 
         // 标题 + 基础数值
-        var html = '<span style="font-size:13px;font-weight:600;">' + point.category + '</span><br/>';
+        var html = '<span style=\"font-size:13px;font-weight:600;\">' + point.category + '</span><br/>';
         html += '销售额: <b>' + point.y + '</b> 万元';
 
         // 分支判断动态状态
         if (detail === null) {
             // 正在加载(原生通过 showPointLoading 设置为 null)
-            html += '<br/><span style="color:#999;">加载中...</span>';
+            html += '<br/><span style=\"color:#999;\">加载中...</span>';
         } else if (typeof detail === 'object') {
             // 加载完成, 展示细节
             html += '<br/>完成率: <b>' + detail.completionRate + '</b>'
                  + '<br/>客户数: <b>' + detail.customerCount + '</b>'
                  + '<br/>客单价: <b>' + detail.avgPrice + '</b>'
-                 + '<br/><span style="color:#999;font-size:10px;">更新: ' + detail.updateTime + '</span>';
+                 + '<br/><span style=\"color:#999;font-size:10px;\">更新: ' + detail.updateTime + '</span>';
         } else {
             // 未点击过
-            html += '<br/><span style="color:#f39c12;">点击加载详情</span>';
+            html += '<br/><span style=\"color:#f39c12;\">点击加载详情</span>';
         }
         return html;
     }
@@ -188,7 +188,7 @@
                   .styleSet(AAStyle.new
                             .colorSet(@"#333333")
                             .fontSizeSet(@"18px")))
-        .subtitleSet(AATitle.new
+        .subtitleSet(AASubtitle.new
                      .textSet(@"点击数据列查看详细信息"))
         .xAxisSet(AAXAxis.new
                   .categoriesSet(@[@"1月", @"2月", @"3月", @"4月", @"5月", @"6月"]))
@@ -196,9 +196,9 @@
                   .titleSet(AAAxisTitle.new
                             .textSet(@"销售额 (万元)")))
         .tooltipSet(AATooltip.new
-                    .enabledSet(@YES)
-                    .useHTMLSet(@YES)
-                    .sharedSet(@NO)
+                    .enabledSet(true)
+                    .useHTMLSet(true)
+                    .sharedSet(false)
                     .borderRadiusSet(@8)
                     .borderWidthSet(@1)
                     .formatterSet(tooltipFormatter)
@@ -343,29 +343,6 @@
     updatePointTooltip();
     )), (unsigned long)pointIndex, objectLiteral];
     [self.aaChartView aa_evaluateJavaScriptStringFunction:js];
-}
-
-
-// (保留示例方法, 但当前逻辑未再使用; 可用于多序列同步刷新参考)
-- (NSString *)configureSyncRefreshTooltipJSString:(NSUInteger )index {
-    NSUInteger defaultSelectedIndex = index;
-    NSString *jsFunc = ([NSString stringWithFormat:@AAJSFunc((
-    function syncRefreshTooltip() {
-        // 用于多图联动或多序列统一刷新 tooltip 的参考示例
-        const chart = aaGlobalChart; if (!chart) return;
-        const series = chart.series; const len = series.length; const pts = [];
-        for (let i = 0; i < len; i++) {
-            const pt = series[i].data[%lu];
-            if (pt) pts.push(pt);
-        }
-        if (pts.length > 0) {
-            chart.xAxis[0].drawCrosshair(null, pts[0]);
-            chart.tooltip.refresh(pts[0]);
-        }
-    }
-    syncRefreshTooltip();
-    )), (unsigned long)defaultSelectedIndex]);
-    return jsFunc;
 }
 
 @end
