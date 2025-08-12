@@ -111,6 +111,7 @@
 		846CB10D26A6B14100DE8D5A /* AAColumnrange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846CB10C26A6B14100DE8D5A /* AAColumnrange.m */; };
 		84790F422CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */; };
 		84790F4A2CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84790F492CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m */; };
+		84811E1F2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84811E1E2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.m */; };
 		8481C2DD2DF978A4006EFC41 /* SpecialChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */; };
 		8481C2E02DF97B4E006EFC41 /* MixedChartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481C2DF2DF97B4E006EFC41 /* MixedChartVC.m */; };
 		8481C2E32DF98039006EFC41 /* BasicChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481C2E22DF98039006EFC41 /* BasicChartComposer.m */; };
@@ -371,6 +372,8 @@
 		84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTooltipClickEventCallbackVC.m; sourceTree = "<group>"; };
 		84790F482CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionBeforeAndAfterRenderingComposer.h; sourceTree = "<group>"; };
 		84790F492CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionBeforeAndAfterRenderingComposer.m; sourceTree = "<group>"; };
+		84811E1D2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicTooltipAfterClickRequestVC.h; sourceTree = "<group>"; };
+		84811E1E2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicTooltipAfterClickRequestVC.m; sourceTree = "<group>"; };
 		8481C2DB2DF978A4006EFC41 /* SpecialChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialChartVC.h; sourceTree = "<group>"; };
 		8481C2DC2DF978A4006EFC41 /* SpecialChartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialChartVC.m; sourceTree = "<group>"; };
 		8481C2DE2DF97B4E006EFC41 /* MixedChartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartVC.h; sourceTree = "<group>"; };
@@ -768,6 +771,8 @@
 				8483CEC129D2F40D002E57AA /* AADOMRectModel.m */,
 				84790F402CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.h */,
 				84790F412CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m */,
+				84811E1D2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.h */,
+				84811E1E2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.m */,
 			);
 			path = AdditionalContent1;
 			sourceTree = "<group>";
@@ -1259,6 +1264,7 @@
 				84B548C526F2E74800D4CAFC /* TooltipOptionsVC.m in Sources */,
 				44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */,
 				44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */,
+				84811E1F2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.m in Sources */,
 				84B548BC26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m in Sources */,
 				844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */,
 				713F543D1E7B71C000D506C7 /* MainVC.m in Sources */,
