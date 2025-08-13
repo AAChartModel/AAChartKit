@@ -206,9 +206,6 @@
                     .styleSet(AAStyleColorSize(@"#333", 12))
                     )
         .plotOptionsSet(AAPlotOptions.new
-                        .seriesSet(AASeries.new
-                                   .pointSet(AAPoint.new
-                                             .eventsSet(AAPointEvents.new)))
                         .columnSet(AAColumn.new
                                    .pointPaddingSet(@0.1)
                                    .groupPaddingSet(@0.1)
