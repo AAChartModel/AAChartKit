@@ -77,6 +77,8 @@
         case 51: return [CustomStyleChartComposer connectNullsForSingleAASeriesElement];
         case 52: return [CustomStyleChartComposer lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement];
         case 53: return [CustomStyleChartComposer customAreasplineChartWithColorfulGradientColorZones];
+        case 54: return [CustomStyleChartComposer noMoreGroupingAndNestedColumnClickedChangeColorChart];
+
 
         default:
             return nil;

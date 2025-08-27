@@ -2082,5 +2082,45 @@
 }
 
 
+//https://github.com/AAChartModel/AAChartKit/issues/1598
++ (AAChartModel *)noMoreGroupingAndNestedColumnClickedChangeColorChart {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
+        .yAxisTickPositionsSet(@[@0, @10, @20, @30, @40, @50])
+        .yAxisMaxSet(@50)
+        .yAxisMinSet(@0)
+        .borderRadiusSet(@5)
+        .tooltipSharedSet(false) //必须关闭浮动提示框共享
+        .seriesSet(@[
+            AAColumn.new
+                .nameSet(@"总目标")
+                .colorSet(@"DeepSkyBlue")
+                .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
+                .statesSet(AAStates.new
+                    .selectSet(AASelect.new
+                .colorSet(AAColor.yellowColor) //选中颜色
+
+                .borderColorSet((id)AAGradientColor.wroughtIronColor)
+                        .borderWidthSet(@5)))
+                .allowPointSelectSet(true) //必须启用点选功能
+                .groupingSet(false)
+                .pointPaddingSet(@0.05)
+            ,
+            AAColumn.new
+                .nameSet(@"完成度")
+                .colorSet(@"#FF3030") //Firebrick1 color
+                .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
+                .statesSet(AAStates.new
+                    .selectSet(AASelect.new
+                .colorSet(AAColor.greenColor) //选中颜色
+                .borderColorSet((id)AAGradientColor.wroughtIronColor)
+                        .borderWidthSet(@5)))
+                .allowPointSelectSet(true) //必须启用点选功能
+                .groupingSet(false)
+                .pointPaddingSet(@0.2)
+        ]);
+}
+
 @end
 

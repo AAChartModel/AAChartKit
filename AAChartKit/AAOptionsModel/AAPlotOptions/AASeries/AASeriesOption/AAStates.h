@@ -37,6 +37,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAHover, NSNumber *, lineWidthPlu
 
 AAPropStatementAndPropSetFuncStatement(assign, AASelect, BOOL,       enabled)
 AAPropStatementAndPropSetFuncStatement(strong, AASelect, NSString *, borderColor)
+AAPropStatementAndPropSetFuncStatement(strong, AASelect, NSNumber *, borderWidth)
 AAPropStatementAndPropSetFuncStatement(strong, AASelect, NSString *, color)
 AAPropStatementAndPropSetFuncStatement(strong, AASelect, AAHalo   *, halo)
 

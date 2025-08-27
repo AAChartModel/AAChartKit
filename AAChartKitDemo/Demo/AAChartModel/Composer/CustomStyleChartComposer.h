@@ -91,6 +91,7 @@
 + (AAChartModel *)connectNullsForSingleAASeriesElement;
 + (AAChartModel *)lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement;
 + (AAChartModel *)customAreasplineChartWithColorfulGradientColorZones;
++ (AAChartModel *)noMoreGroupingAndNestedColumnClickedChangeColorChart;
 
 @end
 
