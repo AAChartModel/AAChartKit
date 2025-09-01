@@ -70,6 +70,7 @@
 #import "CustomClickEventCallbackMessageVC.h"
 #import "CustomTooltipClickEventCallbackVC.h"
 #import "DynamicTooltipAfterClickRequestVC.h"
+#import "LineChartViewController.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -492,8 +493,18 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
+        case  29: {
+            /*通过 AAOptions 自定义折线图*/
+            LineChartViewController *vc = LineChartViewController.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
                         
-        case 29: {
+        case 30: {
             /*完全自定义图表交互事件回调的信息*/
             if (row == 0) {
                 CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
@@ -549,6 +560,7 @@
             @"JS Function For AAAxis Labels---通过 JSFunction 自定义 AAAxis 的 Labels",
             @"JS Function For AALegend Click Events---通过 JSFunction 自定义 Legend  图例的点击事件",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
+            @"Line Chart Options---通过 AAOptions 自定义折线图",
             @"Custom Event Callback Message---完全自定义图表交互事件回调的信息"
         ];
     }
@@ -899,6 +911,9 @@
               @"configureECGStyleChart---配置心电图样式图表📈",
               @"configureTheSizeOfTheSliceOfDonutAndPieChart---配置环形图和饼图的扇区大小",
               @"configurePlotBackgroundClickEvent---配置绘图区的点击事件",
+            ],
+            /*自定义折线图*/
+            @[@"customconnectNullsWithZonesForLineChart---自定义 connectNulls + zones 实现同一个 line chart 局部断开和局部重连",
             ],
             /*完全自定义图表交互事件回调的信息*/
             @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息",

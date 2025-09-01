@@ -140,6 +140,7 @@
 		84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */; };
 		84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */; };
 		84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */; };
+		84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E41D592E65707A00AA6D19 /* LineChartViewController.m */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -431,6 +432,8 @@
 		84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialStyleChartOptionsVC.m; sourceTree = "<group>"; };
 		84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipVC2.h; sourceTree = "<group>"; };
 		84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipVC2.m; sourceTree = "<group>"; };
+		84E41D582E65707A00AA6D19 /* LineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
+		84E41D592E65707A00AA6D19 /* LineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartViewController.m; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -726,6 +729,8 @@
 				84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */,
 				84E0D36A28F2D9D3004031BE /* SpecialStyleChartOptionsVC.h */,
 				84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */,
+				84E41D582E65707A00AA6D19 /* LineChartViewController.h */,
+				84E41D592E65707A00AA6D19 /* LineChartViewController.m */,
 			);
 			path = AAOptions;
 			sourceTree = "<group>";
@@ -1239,6 +1244,7 @@
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
 				8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */,
+				84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */,
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
 				84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */,
