@@ -2099,9 +2099,8 @@
                 .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
                 .statesSet(AAStates.new
                     .selectSet(AASelect.new
-                .colorSet(AAColor.yellowColor) //选中颜色
-
-                .borderColorSet((id)AAGradientColor.wroughtIronColor)
+                        .colorSet(AAColor.yellowColor) //选中颜色
+                        .borderColorSet((id)AAGradientColor.wroughtIronColor)
                         .borderWidthSet(@5)))
                 .allowPointSelectSet(true) //必须启用点选功能
                 .groupingSet(false)
@@ -2113,14 +2112,57 @@
                 .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
                 .statesSet(AAStates.new
                     .selectSet(AASelect.new
-                .colorSet(AAColor.greenColor) //选中颜色
-                .borderColorSet((id)AAGradientColor.wroughtIronColor)
+                        .colorSet(AAColor.greenColor) //选中颜色
+                        .borderColorSet((id)AAGradientColor.wroughtIronColor)
                         .borderWidthSet(@5)))
                 .allowPointSelectSet(true) //必须启用点选功能
                 .groupingSet(false)
                 .pointPaddingSet(@0.2)
         ]);
 }
+
+//https://github.com/AAChartModel/AAChartKit/issues/838
+//https://github.com/AAChartModel/AAChartKit/issues/949
+//https://github.com/AAChartModel/AAChartKit/issues/1598
++ (AAChartModel *)noMoreGroupingAndNestedColumnClickedChangeColorChart2 {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
+        .yAxisTickPositionsSet(@[@0, @10, @20, @30, @40, @50])
+        .yAxisMaxSet(@50)
+        .yAxisMinSet(@0)
+        .borderRadiusSet((id)@"50%")
+        .tooltipSharedSet(false) //必须关闭浮动提示框共享
+        .seriesSet(@[
+            AAColumn.new
+                .nameSet(@"总目标")
+                .colorSet(AAColor.lightGrayColor)
+                .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
+                .statesSet(AAStates.new
+                    .inactiveSet(AAInactive.new
+                        .enabledSet(false))) //禁用点击图表时, 部分视图高亮, 部分视图变淡的交互效果,参考 https://github.com/AAChartModel/AAChartKit/issues/949
+                .enableMouseTrackingSet(@false) //禁用鼠标跟踪
+                .groupingSet(false)
+                .pointPaddingSet(@0.05)
+            ,
+            AAColumn.new
+                .nameSet(@"完成度")
+                .colorSet(AAColor.greenColor)
+                .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
+                .allowPointSelectSet(YES)
+                .statesSet(AAStates.new
+                    .inactiveSet(AAInactive.new
+                        .enabledSet(false)) //禁用点击图表时, 部分视图高亮, 部分视图变淡的交互效果,参考 https://github.com/AAChartModel/AAChartKit/issues/949
+                    .hoverSet(AAHover.new
+                        .colorSet(AAColor.redColor)) //悬停颜色
+                    .selectSet(AASelect.new
+                        .colorSet(@"#1E90FF"))) //选中颜色道奇蓝
+                .enableMouseTrackingSet(@true) //允许鼠标跟踪
+                .groupingSet(false)
+                .pointPaddingSet(@0.2)
+        ]);
+}
+
 
 @end
 
