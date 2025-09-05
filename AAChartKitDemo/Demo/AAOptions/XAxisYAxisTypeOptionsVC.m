@@ -26,7 +26,7 @@
         case 1: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
         case 2: return [self logarithmicAxisLineChart];//对数轴折线图📈
 //        case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
-        case 3: return [self dashedAxisLineChart];//虚线轴 + 标题位置自定义折线图
+        case 3: return [self dashedAxisAndCustomAxisTitlePositionLineChart];//虚线轴 + 自定义轴标题位置折线图
             
         default:
             break;
@@ -423,8 +423,8 @@
 
  */
 //https://github.com/AAChartModel/AAChartKit/issues/1600
-//虚线轴 + 标题位置自定义折线图
-- (AAOptions *)dashedAxisLineChart {
+//虚线轴 + 自定义轴标题位置折线图
+- (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart {
     return AAOptions.new
     .titleSet(AATitle.new
               .textSet(@"虚线轴 + 标题位置自定义折线图"))
@@ -437,11 +437,11 @@
               .plotLinesSet(@[
                 AAPlotLinesElement.new
                 // 对于 category 轴，value= -0.5 表示最左侧边界，长度会自动画到右边界
-                .valueSet(@-0.5)
-                .colorSet(AAColor.greenColor)
-                .widthSet(@2)
-                .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
-                .zIndexSet(@5)
+                    .valueSet(@-0.5)
+                    .colorSet(AAColor.greenColor)
+                    .widthSet(@2)
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+                    .zIndexSet(@5)
               ])
               .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月"])
               .titleSet(AAAxisTitle.new
@@ -460,11 +460,11 @@
               // 模拟虚线轴线
               .plotLinesSet(@[
                 AAPlotLinesElement.new
-                .valueSet(@0)
-                .colorSet(AAColor.redColor)
-                .widthSet(@2)
-                .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
-                .zIndexSet(@5)
+                    .valueSet(@0)
+                    .colorSet(AAColor.redColor)
+                    .widthSet(@2)
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                    .zIndexSet(@5)
               ])
               .titleSet(AAAxisTitle.new
                         .textSet(@"Y轴标题")
