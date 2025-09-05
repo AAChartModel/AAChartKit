@@ -879,6 +879,8 @@
               @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
+              @"dashedAxisAndCustomAxisTitlePositionLineChart---虚线轴 + 自定义轴标题位置折线图",
+
             ],
           
             /*通过 JSFunction 自定义 AAAxis 的 Labels*/

@@ -36,16 +36,16 @@
 @class AAAxisTitle, AALabels, AACrosshair, AAStyle, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
 typedef NSString *AAChartYAxisGridLineInterpolationType;
-typedef NSString *AAAxisTitleAlignValueType;
+typedef NSString *AAChartAxisTitleAlignValueType;
 
 //https://api.highcharts.com/highcharts/yAxis.gridLineInterpolation
 AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle;
 AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon;
 
 //https://api.highcharts.com/highcharts/yAxis.title.align
-AACHARTKIT_EXTERN AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeHigh;
-AACHARTKIT_EXTERN AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeLow;
-AACHARTKIT_EXTERN AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeMiddle;
+AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeHigh;
+AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeLow;
+AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeMiddle;
 
 //https://api.highcharts.com/highcharts/yAxis
 @interface AAYAxis : NSObject

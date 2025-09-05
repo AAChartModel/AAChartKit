@@ -35,9 +35,9 @@
 AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle  = @"circle";//圆形
 AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon = @"polygon";//多边形
 
-AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeHigh = @"high";
-AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeLow  = @"low";
-AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeMiddle = @"middle";
+AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeHigh   = @"high";
+AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeLow    = @"low";
+AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeMiddle = @"middle";
 
 @implementation AAYAxis
 

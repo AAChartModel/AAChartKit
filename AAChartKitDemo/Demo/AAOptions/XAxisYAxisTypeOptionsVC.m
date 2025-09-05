@@ -25,8 +25,8 @@
         case 0: return [self dateTimeTypeStepLineChart];//时间轴类型的阶梯型折线图📈
         case 1: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
         case 2: return [self logarithmicAxisLineChart];//对数轴折线图📈
-//        case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
-        case 3: return [self dashedAxisAndCustomAxisTitlePositionLineChart];//虚线轴 + 自定义轴标题位置折线图
+        case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
+        case 4: return [self dashedAxisAndCustomAxisTitlePositionLineChart];//虚线轴 + 自定义轴标题位置折线图
             
         default:
             break;
@@ -447,7 +447,7 @@
               .titleSet(AAAxisTitle.new
                         .textSet(@"X轴标题")
                         .styleSet(AAStyleColor(AAColor.greenColor))
-                        .alignSet(AAAxisTitleAlignValueTypeMiddle) // 居中
+                        .alignSet(AAChartAxisTitleAlignValueTypeMiddle) // 居中
                         .offsetSet(@0)
                         .xSet(@0)
                         .ySet(@30) // 调整下方距离
@@ -469,7 +469,7 @@
               .titleSet(AAAxisTitle.new
                         .textSet(@"Y轴标题")
                         .styleSet(AAStyleColor(AAColor.redColor))
-                        .alignSet(AAAxisTitleAlignValueTypeHigh)  // 顶部
+                        .alignSet(AAChartAxisTitleAlignValueTypeHigh)  // 顶部
                         .rotationSet(@0)    // 横着显示
                         .offsetSet(@0)
                         .xSet(@25) //微调
