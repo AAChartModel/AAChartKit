@@ -27,7 +27,8 @@
         case 2: return [self logarithmicAxisLineChart];//对数轴折线图📈
         case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
         case 4: return [self dashedAxisAndCustomAxisTitlePositionLineChart];//虚线轴 + 自定义轴标题位置折线图
-            
+        case 5: return [self dashedAxisAndCustomAxisTitlePositionLineChart2];//虚线轴 + 自定义轴标题位置折线图2
+
         default:
             break;
     }
@@ -481,6 +482,90 @@
         .nameSet(@"数据列")
         .dataSet(@[@1, @3, @2, @4, @5])
                ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/1600
+//https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/chart/scrollable-plotarea
+//虚线轴 + 自定义轴标题位置折线图
+- (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart2 {
+    return AAOptions.new
+    .beforeDrawChartJavaScriptSet(@AAJSFunc(
+        (function (H) {
+            H.wrap(H.Axis.prototype, 'render', function (proceed) {
+            // 先调用原始 render
+            proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+
+            // 你的自定义虚线逻辑
+            const axis = this;
+            if (axis.axisLine) {
+                axis.axisLine.attr({
+                'stroke-dasharray': '4,2' // 虚线样式
+                });
+            }
+            });
+        }(Highcharts));
+        )
+    )
+    .titleSet(AATitle.new
+              .textSet(@"虚线轴 + 标题位置自定义折线图"))
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeSpline)
+              .marginLeftSet(@100) // 给Y轴和标题多留一点空间
+              .marginTopSet(@80)   // 图表整体下移
+              .scrollablePlotAreaSet(AAScrollablePlotArea.new
+                                      .minWidthSet(@2100)
+                                      .scrollPositionXSet(@1)
+                                      )
+              )
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" m/s")
+                .sharedSet(true)
+                )
+    .xAxisSet(AAXAxis.new
+              // 隐藏原本的轴线
+              .lineWidthSet(@2)
+              .lineColorSet(AAColor.greenColor)
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"X轴标题")
+                        .styleSet(AAStyleColor(AAColor.greenColor))
+                        .alignSet(AAChartAxisTitleAlignValueTypeMiddle) // 居中
+                        .offsetSet(@0)
+                        .xSet(@0)
+                        .ySet(@30) // 调整下方距离
+                        )
+              )
+    .yAxisSet(AAYAxis.new
+              .lineWidthSet(@2)
+              .lineColorSet(AAColor.redColor)
+              .startOnTickSet(true)
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"Y轴标题")
+                        .styleSet(AAStyleColor(AAColor.redColor))
+                        .alignSet(AAChartAxisTitleAlignValueTypeHigh)  // 顶部
+                        .rotationSet(@0)    // 横着显示
+                        .offsetSet(@0)
+                        .xSet(@25) //微调
+                        .ySet(@-30) // 微调
+                        )
+              )
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Hestavollane")
+            .dataSet(@[
+                @0.2, @0.8, @0.8, @0.8, @1, @1.3, @1.5, @2.9, @1.9, @2.6, @1.6, @3, @4, @3.6,
+                @5.5, @6.2, @5.5, @4.5, @4, @3.1, @2.7, @4, @2.7, @2.3, @2.3, @4.1, @7.7, @7.1,
+                @5.6, @6.1, @5.8, @8.6, @7.2, @9, @10.9, @11.5, @11.6, @11.1, @12, @12.3, @10.7,
+                @9.4, @9.8, @9.6, @9.8, @9.5, @8.5, @7.4, @7.6])
+        ,
+        AASeriesElement.new
+            .nameSet(@"Vik")
+            .dataSet(@[
+                @0, @0, @0.6, @0.9, @0.8, @0.2, @0, @0, @0, @0.1, @0.6, @0.7, @0.8, @0.6, @0.2,
+                @0, @0.1, @0.3, @0.3, @0, @0.1, @0, @0, @0, @0.2, @0.1, @0, @0.3, @0, @0.1, @0.2,
+                @0.1, @0.3, @0.3, @0, @3.1, @3.1, @2.5, @1.5, @1.9, @2.1, @1, @2.3, @1.9, @1.2,
+                @0.7, @1.3, @0.4, @0.3
+            ])
+    ]);
 }
 
 @end

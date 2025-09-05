@@ -880,6 +880,7 @@
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
               @"dashedAxisAndCustomAxisTitlePositionLineChart---虚线轴 + 自定义轴标题位置折线图",
+              @"dashedAxisAndCustomAxisTitlePositionLineChart2---虚线轴 + 自定义轴标题位置折线图2",
 
             ],
           
