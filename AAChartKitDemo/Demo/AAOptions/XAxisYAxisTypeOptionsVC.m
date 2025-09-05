@@ -25,7 +25,8 @@
         case 0: return [self dateTimeTypeStepLineChart];//时间轴类型的阶梯型折线图📈
         case 1: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
         case 2: return [self logarithmicAxisLineChart];//对数轴折线图📈
-        case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
+//        case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
+        case 3: return [self dashedAxisLineChart];//虚线轴 + 标题位置自定义折线图
             
         default:
             break;
@@ -345,6 +346,140 @@
         AASeriesElement.new
         .markerSet(aaMarker)
         .dataSet(scatterData)
+               ]);
+}
+
+
+/**
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta charset="utf-8">
+   <title>Highcharts 虚线轴示例</title>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+ </head>
+ <body>
+
+ <div id="container" style="height:400px;min-width:600px"></div>
+
+ <script>
+ Highcharts.chart('container', {
+   title: {
+     text: 'Highcharts 虚线轴 + 标题位置示例'
+   },
+
+   xAxis: {
+     // 隐藏原本的轴线
+     lineWidth: 0,
+     // 模拟虚线轴线
+     plotLines: [{
+       // 对于 category 轴，value= -0.5 表示最左侧边界，长度会自动画到右边界
+       value: -0.5,
+       color: '#000',
+       width: 1,
+       dashStyle: 'Dash',
+       zIndex: 5
+     }],
+     categories: ['一月', '二月', '三月', '四月', '五月'],
+     title: {
+       text: 'X轴标题',
+       align: 'middle', // 居中
+       offset: 0,
+       x: 0,
+       y: 30 // 调整下方距离
+     }
+   },
+
+   yAxis: {
+     // 隐藏原本的轴线
+     lineWidth: 0,
+     // 模拟虚线轴线
+     plotLines: [{
+       value: 0,
+       color: '#000',
+       width: 1,
+       dashStyle: 'Dash',
+       zIndex: 5
+     }],
+     title: {
+       text: 'Y轴标题',
+       align: 'high',  // 顶部
+       rotation: 0,    // 横着显示
+       offset: 0,
+       x: 0,
+       y: -10          // 微调
+     }
+   },
+
+   series: [{
+     name: '数据列',
+     data: [1, 3, 2, 4, 5]
+   }]
+ });
+ </script>
+
+ </body>
+ </html>
+
+ */
+//https://github.com/AAChartModel/AAChartKit/issues/1600
+//虚线轴 + 标题位置自定义折线图
+- (AAOptions *)dashedAxisLineChart {
+    return AAOptions.new
+    .titleSet(AATitle.new
+              .textSet(@"虚线轴 + 标题位置自定义折线图"))
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeLine))
+    .xAxisSet(AAXAxis.new
+              // 隐藏原本的轴线
+              .lineWidthSet(@0)
+              // 模拟虚线轴线
+              .plotLinesSet(@[
+                AAPlotLinesElement.new
+                // 对于 category 轴，value= -0.5 表示最左侧边界，长度会自动画到右边界
+                .valueSet(@-0.5)
+                .colorSet(AAColor.greenColor)
+                .widthSet(@2)
+                .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+                .zIndexSet(@5)
+              ])
+              .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月"])
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"X轴标题")
+                        .styleSet(AAStyleColor(AAColor.greenColor))
+                        .alignSet(@"middle") // 居中
+                        .offsetSet(@0)
+                        .xSet(@0)
+                        .ySet(@30) // 调整下方距离
+                        )
+              )
+    .yAxisSet(AAYAxis.new
+              // 隐藏原本的轴线
+              .lineWidthSet(@0)
+              .startOnTickSet(true)
+              // 模拟虚线轴线
+              .plotLinesSet(@[
+                AAPlotLinesElement.new
+                .valueSet(@0)
+                .colorSet(AAColor.redColor)
+                .widthSet(@2)
+                .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                .zIndexSet(@5)
+              ])
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"Y轴标题")
+                        .styleSet(AAStyleColor(AAColor.redColor))
+                        .alignSet(@"high")  // 顶部
+                        .rotationSet(@0)    // 横着显示
+                        .offsetSet(@0)
+                        .xSet(@25) //微调
+                        .ySet(@-10) // 微调
+                        )
+              )
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"数据列")
+        .dataSet(@[@1, @3, @2, @4, @5])
                ]);
 }
 
