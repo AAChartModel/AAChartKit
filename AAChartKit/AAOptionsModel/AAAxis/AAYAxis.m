@@ -35,6 +35,10 @@
 AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle  = @"circle";//圆形
 AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon = @"polygon";//多边形
 
+AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeHigh = @"high";
+AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeLow  = @"low";
+AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeMiddle = @"middle";
+
 @implementation AAYAxis
 
 - (instancetype)init {

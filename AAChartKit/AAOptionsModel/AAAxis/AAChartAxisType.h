@@ -33,6 +33,8 @@
 #ifndef AAChartAxisType_h
 #define AAChartAxisType_h
 
+//https://api.highcharts.com/highcharts/xAxis.type
+//https://api.highcharts.com/highcharts/yAxis.type
 typedef NSString *AAChartAxisType;
 
 static AAChartAxisType const AAChartAxisTypeLinear      = @"linear";//线性轴

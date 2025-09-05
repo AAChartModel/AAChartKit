@@ -447,7 +447,7 @@
               .titleSet(AAAxisTitle.new
                         .textSet(@"X轴标题")
                         .styleSet(AAStyleColor(AAColor.greenColor))
-                        .alignSet(@"middle") // 居中
+                        .alignSet(AAAxisTitleAlignValueTypeMiddle) // 居中
                         .offsetSet(@0)
                         .xSet(@0)
                         .ySet(@30) // 调整下方距离
@@ -469,7 +469,7 @@
               .titleSet(AAAxisTitle.new
                         .textSet(@"Y轴标题")
                         .styleSet(AAStyleColor(AAColor.redColor))
-                        .alignSet(@"high")  // 顶部
+                        .alignSet(AAAxisTitleAlignValueTypeHigh)  // 顶部
                         .rotationSet(@0)    // 横着显示
                         .offsetSet(@0)
                         .xSet(@25) //微调

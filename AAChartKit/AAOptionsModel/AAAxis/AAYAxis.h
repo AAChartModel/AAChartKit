@@ -36,10 +36,18 @@
 @class AAAxisTitle, AALabels, AACrosshair, AAStyle, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
 typedef NSString *AAChartYAxisGridLineInterpolationType;
+typedef NSString *AAAxisTitleAlignValueType;
 
+//https://api.highcharts.com/highcharts/yAxis.gridLineInterpolation
 AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle;
 AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon;
 
+//https://api.highcharts.com/highcharts/yAxis.title.align
+AACHARTKIT_EXTERN AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeHigh;
+AACHARTKIT_EXTERN AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeLow;
+AACHARTKIT_EXTERN AAAxisTitleAlignValueType const AAAxisTitleAlignValueTypeMiddle;
+
+//https://api.highcharts.com/highcharts/yAxis
 @interface AAYAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(assign, AAYAxis, BOOL,       allowDecimals)  //y轴是否允许显示小数
@@ -95,6 +103,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, pane)
 @end
 
 
+//https://api.highcharts.com/highcharts/yAxis.title
 @interface AAAxisTitle : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAAxisTitle, NSString *, align)

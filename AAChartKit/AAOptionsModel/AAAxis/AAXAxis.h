@@ -37,6 +37,7 @@
 
 @class AAAxisTitle, AALabels, AACrosshair, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
+//https://api.highcharts.com/highcharts/xAxis
 @interface AAXAxis : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAXAxis, NSString *, alternateGridColor) //间隔网格背景, 当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带.
