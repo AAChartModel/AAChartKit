@@ -484,9 +484,9 @@
                ]);
 }
 
-//https://github.com/AAChartModel/AAChartKit/issues/1600
-//https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/chart/scrollable-plotarea
-//虚线轴 + 自定义轴标题位置折线图
+// https://github.com/AAChartModel/AAChartKit/issues/1600
+// https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/chart/scrollable-plotarea
+// 虚线轴 + 自定义轴标题位置折线图
 - (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart2 {
     return AAOptions.new
     .beforeDrawChartJavaScriptSet(@AAJSFunc(
@@ -511,7 +511,7 @@
     .chartSet(AAChart.new
               .typeSet(AAChartTypeSpline)
               .marginLeftSet(@100) // 给Y轴和标题多留一点空间
-              .marginTopSet(@80)   // 图表整体下移
+              .marginTopSet(@80) // 图表整体下移
               .scrollablePlotAreaSet(AAScrollablePlotArea.new
                                       .minWidthSet(@2100)
                                       .scrollPositionXSet(@1)
@@ -522,7 +522,6 @@
                 .sharedSet(true)
                 )
     .xAxisSet(AAXAxis.new
-              // 隐藏原本的轴线
               .lineWidthSet(@2)
               .lineColorSet(AAColor.greenColor)
               .titleSet(AAAxisTitle.new
@@ -542,9 +541,9 @@
                         .textSet(@"Y轴标题")
                         .styleSet(AAStyleColor(AAColor.redColor))
                         .alignSet(AAChartAxisTitleAlignValueTypeHigh)  // 顶部
-                        .rotationSet(@0)    // 横着显示
+                        .rotationSet(@0) // 横着显示
                         .offsetSet(@0)
-                        .xSet(@25) //微调
+                        .xSet(@25) // 微调
                         .ySet(@-30) // 微调
                         )
               )
