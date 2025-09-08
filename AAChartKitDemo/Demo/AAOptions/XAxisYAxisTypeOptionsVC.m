@@ -489,21 +489,36 @@
 // 虚线轴 + 自定义轴标题位置折线图
 - (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart2 {
     return AAOptions.new
-    .beforeDrawChartJavaScriptSet(@AAJSFunc(
-        (function (H) {
+    .beforeDrawChartJavaScriptSet(
+  @AAJSFunc((function (H) {
             H.wrap(H.Axis.prototype, 'render', function (proceed) {
-            // 先调用原始 render
-            proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+              // 先调用原始 render
+              proceed.apply(this, Array.prototype.slice.call(arguments, 1));
 
-            // 你的自定义虚线逻辑
-            const axis = this;
-            if (axis.axisLine) {
-                axis.axisLine.attr({
-                'stroke-dasharray': '4,2' // 虚线样式
-                });
-            }
+              const axis = this;
+
+              // X 轴：dashDot
+              if (axis.horiz) {
+                if (axis.axisLine) {
+                  axis.axisLine.attr({
+                    // dashDot 的等价 stroke-dasharray
+                    'stroke-dasharray': '3,2,1,2',
+                    'stroke': '#FF0000'
+                  });
+                }
+              }
+              // Y 轴：longDashDotDot
+              else {
+                if (axis.axisLine) {
+                  axis.axisLine.attr({
+                    // longDashDotDot 的等价 stroke-dasharray
+                    'stroke-dasharray': '8,3,1,3,1,3',
+                    'stroke': '#00FF00'
+                  });
+                }
+              }
             });
-        }(Highcharts));
+          }(Highcharts));
         )
     )
     .titleSet(AATitle.new
@@ -528,9 +543,9 @@
                         .textSet(@"X轴标题")
                         .styleSet(AAStyleColor(AAColor.greenColor))
                         .alignSet(AAChartAxisTitleAlignValueTypeMiddle) // 居中
-                        .offsetSet(@0)
+                        .offsetSet(@60)
                         .xSet(@0)
-                        .ySet(@30) // 调整下方距离
+                        .ySet(@-30) // 调整下方距离
                         )
               )
     .yAxisSet(AAYAxis.new
