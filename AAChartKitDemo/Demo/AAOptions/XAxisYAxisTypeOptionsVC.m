@@ -488,36 +488,28 @@
 // https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/chart/scrollable-plotarea
 // 虚线轴 + 自定义轴标题位置折线图
 - (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart2 {
-    NSString *jsFunctionStr = @AAJSFunc((function (H) {
-        H.wrap(H.Axis.prototype, 'render', function (proceed) {
-            // 先调用原始 render
-            proceed.apply(this, Array.prototype.slice.call(arguments, 1));
-            
-            const axis = this;
-            
-            // X 轴：dashDot
-            if (axis.horiz) {
-                if (axis.axisLine) {
-                    axis.axisLine.attr({
-                        // dashDot 的等价 stroke-dasharray
-                        'stroke-dasharray': '3,2,1,2',
-                        'stroke': '#xAxisColorString#'
-                    });
-                }
-            }
-            // Y 轴：longDashDotDot
-            else {
-                if (axis.axisLine) {
-                    axis.axisLine.attr({
-                        // longDashDotDot 的等价 stroke-dasharray
-                        'stroke-dasharray': '8,3,1,3,1,3',
-                        'stroke': '#yAxisColorString#'
-                    });
-                }
-            }
-        });
-    }(Highcharts)));
-    
+    NSString *jsFunctionStr = @"(function (H) {"
+        @"H.wrap(H.Axis.prototype, 'render', function (proceed) {"
+        @"    proceed.apply(this, Array.prototype.slice.call(arguments, 1));"
+        @"    const axis = this;"
+        @"    if (axis.horiz) {"
+        @"        if (axis.axisLine) {"
+        @"            axis.axisLine.attr({"
+        @"                'stroke-dasharray': '3,2,1,2',"
+        @"                'stroke': '#xAxisColorString#'"
+        @"            });"
+        @"        }"
+        @"    } else {"
+        @"        if (axis.axisLine) {"
+        @"            axis.axisLine.attr({"
+        @"                'stroke-dasharray': '8,3,1,3,1,3',"
+        @"                'stroke': '#yAxisColorString#'"
+        @"            });"
+        @"        }"
+        @"    }"
+        @"});"
+        @"}(Highcharts));";
+
     // 定义要替换的颜色
     NSString *xAxisColor = @"#ff0000"; // 红色
     NSString *yAxisColor = @"#00ff00"; // 绿色
@@ -525,7 +517,7 @@
     // 替换占位符
     jsFunctionStr = [jsFunctionStr stringByReplacingOccurrencesOfString:@"'#xAxisColorString#'" withString:[NSString stringWithFormat:@"'%@'", xAxisColor]];
     jsFunctionStr = [jsFunctionStr stringByReplacingOccurrencesOfString:@"'#yAxisColorString#'" withString:[NSString stringWithFormat:@"'%@'", yAxisColor]];
-    
+
     return AAOptions.new
     .beforeDrawChartJavaScriptSet(jsFunctionStr)
     .titleSet(AATitle.new
