@@ -519,18 +519,12 @@
     }(Highcharts)));
     
     // 定义要替换的颜色
-    NSString *xAxisColor = @"#000000"; // 黑色 for X axis
-    NSString *yAxisColor = @"#000000"; // 黑色 for Y axis
+    NSString *xAxisColor = @"#ff0000"; // 红色
+    NSString *yAxisColor = @"#00ff00"; // 绿色
 
     // 替换占位符
     jsFunctionStr = [jsFunctionStr stringByReplacingOccurrencesOfString:@"'#xAxisColorString#'" withString:[NSString stringWithFormat:@"'%@'", xAxisColor]];
     jsFunctionStr = [jsFunctionStr stringByReplacingOccurrencesOfString:@"'#yAxisColorString#'" withString:[NSString stringWithFormat:@"'%@'", yAxisColor]];
-
-    // 异步执行 JavaScript 代码
-    // 使用 dispatch_after 确保图表已经渲染完成
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.aaChartView aa_evaluateJavaScriptStringFunction:jsFunctionStr];
-    });
     
     return AAOptions.new
     .beforeDrawChartJavaScriptSet(jsFunctionStr)
