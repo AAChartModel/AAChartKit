@@ -36,16 +36,10 @@
 @class AAAxisTitle, AALabels, AACrosshair, AAStyle, AAPlotBandsElement, AAPlotLinesElement, AADateTimeLabelFormats;
 
 typedef NSString *AAChartYAxisGridLineInterpolationType;
-typedef NSString *AAChartAxisTitleAlignValueType;
 
 //https://api.highcharts.com/highcharts/yAxis.gridLineInterpolation
 AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypeCircle;
 AACHARTKIT_EXTERN AAChartYAxisGridLineInterpolationType const AAChartYAxisGridLineInterpolationTypePolygon;
-
-//https://api.highcharts.com/highcharts/yAxis.title.align
-AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeHigh;
-AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeLow;
-AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeMiddle;
 
 //https://api.highcharts.com/highcharts/yAxis
 @interface AAYAxis : NSObject
@@ -103,16 +97,3 @@ AAPropStatementAndPropSetFuncStatement(strong, AAYAxis, NSNumber *, pane)
 @end
 
 
-//https://api.highcharts.com/highcharts/yAxis.title
-@interface AAAxisTitle : NSObject
-
-AAPropStatementAndPropSetFuncStatement(copy,   AAAxisTitle, NSString *, align)
-AAPropStatementAndPropSetFuncStatement(copy,   AAAxisTitle, NSString *, margin)
-AAPropStatementAndPropSetFuncStatement(strong, AAAxisTitle, NSNumber *, offset)
-AAPropStatementAndPropSetFuncStatement(strong, AAAxisTitle, NSNumber *, rotation)
-AAPropStatementAndPropSetFuncStatement(strong, AAAxisTitle, AAStyle  *, style)
-AAPropStatementAndPropSetFuncStatement(copy,   AAAxisTitle, NSString *, text)
-AAPropStatementAndPropSetFuncStatement(strong, AAAxisTitle, NSNumber *, x) //标题相对于水平对齐的偏移量，取值范围为：图表左边距到图表右边距，可以是负值，单位px。 默认是：0.
-AAPropStatementAndPropSetFuncStatement(strong, AAAxisTitle, NSNumber *, y) //标题相对于垂直对齐的偏移量，取值范围：图表的上边距（chart.spacingTop ）到图表的下边距（chart.spacingBottom），可以是负值，单位是px。默认值和字体大小有关。
-
-@end

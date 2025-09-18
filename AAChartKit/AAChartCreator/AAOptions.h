@@ -36,6 +36,7 @@
 #import "AAChart.h"
 #import "AAAnimation.h"
 #import "AATitle.h"
+#import "AAAxisTitle.h"
 #import "AAXAxis.h"
 #import "AAYAxis.h"
 #import "AAPlotBandsElement.h"

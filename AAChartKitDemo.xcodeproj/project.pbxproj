@@ -78,6 +78,7 @@
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
 		8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */; };
+		843E5E162E7B9F230030D36E /* AAAxisTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E5E152E7B9F230030D36E /* AAAxisTitle.m */; };
 		844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */; };
 		84526E0E2CEC733600EB2563 /* AAGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E0D2CEC733600EB2563 /* AAGauge.m */; };
 		84526E112CECA0D300EB2563 /* JSFunctionBeforeAndAfterRenderingComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E102CECA0D300EB2563 /* JSFunctionBeforeAndAfterRenderingComposer2.m */; };
@@ -309,6 +310,8 @@
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer.h; sourceTree = "<group>"; };
 		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer.m; sourceTree = "<group>"; };
+		843E5E142E7B9F230030D36E /* AAAxisTitle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAxisTitle.h; sourceTree = "<group>"; };
+		843E5E152E7B9F230030D36E /* AAAxisTitle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAxisTitle.m; sourceTree = "<group>"; };
 		844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer2.h; sourceTree = "<group>"; };
 		844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer2.m; sourceTree = "<group>"; };
 		84526E0C2CEC733600EB2563 /* AAGauge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAGauge.h; sourceTree = "<group>"; };
@@ -973,6 +976,8 @@
 		8492D9A92C7DD7E7007EB8D0 /* AAAxisOption */ = {
 			isa = PBXGroup;
 			children = (
+				843E5E142E7B9F230030D36E /* AAAxisTitle.h */,
+				843E5E152E7B9F230030D36E /* AAAxisTitle.m */,
 				1E66D1EA210AF4EC007EAB8C /* AACrosshair.h */,
 				1E66D1D0210AF4EC007EAB8C /* AACrosshair.m */,
 				449D447821CFDF5D00E43D9C /* AAPlotBandsElement.h */,
@@ -1233,6 +1238,7 @@
 				846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */,
 				44711748217E2C88009D9FB0 /* MixedChartComposer.m in Sources */,
 				1E66D1FF210AF4ED007EAB8C /* AAXAxis.m in Sources */,
+				843E5E162E7B9F230030D36E /* AAAxisTitle.m in Sources */,
 				4486D0A62466AFE5000D7FDA /* AAPane.m in Sources */,
 				84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */,
 				1E66D216210AF4ED007EAB8C /* AAChartModel.m in Sources */,
@@ -1466,7 +1472,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love3;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
@@ -1489,7 +1495,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love3;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
