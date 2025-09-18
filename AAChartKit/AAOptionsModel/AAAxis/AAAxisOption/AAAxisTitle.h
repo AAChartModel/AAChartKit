@@ -12,6 +12,7 @@
 
 typedef NSString *AAChartAxisTitleAlignValueType;
 
+//https://api.highcharts.com/highcharts/xAxis.title.align
 //https://api.highcharts.com/highcharts/yAxis.title.align
 AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeHigh;
 AACHARTKIT_EXTERN AAChartAxisTitleAlignValueType const AAChartAxisTitleAlignValueTypeLow;
