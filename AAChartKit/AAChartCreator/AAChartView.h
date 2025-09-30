@@ -311,20 +311,4 @@ typedef void(^AADidReceiveScriptMessageBlock)(AAChartView *aaChartView, WKScript
 @end
 
 
-@interface AAJsonConverter : NSObject
-
-/// Convert Object to be Dictionary
-/// @param objc  object instance
-+ (NSDictionary*)dictionaryWithObjectInstance:(id)objc;
-
-/// Get pure options Json string from option instance
-/// @param optionsObject Instance object of AAOptions
-+ (NSString *)pureOptionsJsonStringWithOptionsInstance:(id)optionsObject;
-
-/// Get pure Json string from Json object
-/// @param jsonObjc Instance object of Json object
-+ (NSString *)pureJsonStringWithJsonObject:(id)jsonObjc;
-
-
-@end
 

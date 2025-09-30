@@ -89,6 +89,7 @@
 		84526E202CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E1F2CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.m */; };
 		84526E232CEF256C00EB2563 /* TripleChartsLinkedWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E212CEF256C00EB2563 /* TripleChartsLinkedWorkVC.m */; };
 		845589C928C3B27C009D1BC3 /* AAScatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845589C828C3B27C009D1BC3 /* AAScatter.m */; };
+		845F42912E8BE1BA00CE65AB /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845F42902E8BE1BA00CE65AB /* AAJsonConverter.m */; };
 		846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */; };
 		846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F92C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m */; };
 		846141FF2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141FE2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m */; };
@@ -331,6 +332,8 @@
 		84526E222CEF256C00EB2563 /* TripleChartsLinkedWorkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripleChartsLinkedWorkVC.h; sourceTree = "<group>"; };
 		845589C728C3B27C009D1BC3 /* AAScatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAScatter.h; sourceTree = "<group>"; };
 		845589C828C3B27C009D1BC3 /* AAScatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAScatter.m; sourceTree = "<group>"; };
+		845F428F2E8BE1BA00CE65AB /* AAJsonConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAJsonConverter.h; sourceTree = "<group>"; };
+		845F42902E8BE1BA00CE65AB /* AAJsonConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAJsonConverter.m; sourceTree = "<group>"; };
 		846141F52C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsVC.h; sourceTree = "<group>"; };
 		846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsVC.m; sourceTree = "<group>"; };
 		846141F82C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsVC2.h; sourceTree = "<group>"; };
@@ -514,6 +517,8 @@
 				1E66D1F8210AF4EC007EAB8C /* AASeriesElement.m */,
 				1E66D1F1210AF4EC007EAB8C /* AAOptions.h */,
 				1E66D1F7210AF4EC007EAB8C /* AAOptions.m */,
+				845F428F2E8BE1BA00CE65AB /* AAJsonConverter.h */,
+				845F42902E8BE1BA00CE65AB /* AAJsonConverter.m */,
 			);
 			path = AAChartCreator;
 			sourceTree = "<group>";
@@ -1166,6 +1171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845F42912E8BE1BA00CE65AB /* AAJsonConverter.m in Sources */,
 				8481C2E32DF98039006EFC41 /* BasicChartComposer.m in Sources */,
 				44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */,
 				84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */,
