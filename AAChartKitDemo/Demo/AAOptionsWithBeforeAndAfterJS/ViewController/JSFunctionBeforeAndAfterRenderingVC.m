@@ -13,6 +13,7 @@
 #import "JSFunctionBeforeAndAfterRenderingComposer4.h"
 #import "JSFunctionBeforeAndAfterRenderingComposer5.h"
 #import "JSFunctionBeforeAndAfterRenderingComposer6.h"
+#import "JSFunctionBeforeAndAfterRenderingComposer7.h"
 
 @interface JSFunctionBeforeAndAfterRenderingVC ()
 
@@ -27,8 +28,8 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (selectedIndex) {
-        case 0: return [JSFunctionBeforeAndAfterRenderingComposer speedometerChart];
-        case 1: return [JSFunctionBeforeAndAfterRenderingComposer speedometerWithDualAxesChart];
+        case 0: return [JSFunctionBeforeAndAfterRenderingComposer6 forceStackedBarChart];
+        case 1: return [JSFunctionBeforeAndAfterRenderingComposer7 customScrollablePlotAreaMask];
         case 2: return [JSFunctionBeforeAndAfterRenderingComposer2 speedometerChart];
         case 3: return [JSFunctionBeforeAndAfterRenderingComposer3 synchronizedChart];
         case 4: return [JSFunctionBeforeAndAfterRenderingComposer4 customPointerStyleGaugeChart];
