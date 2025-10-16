@@ -530,6 +530,12 @@ WKScriptMessageHandler
 - (void)drawChart {
     if (_beforeDrawChartJavaScript) {
         [self safeEvaluateJavaScriptString:_beforeDrawChartJavaScript];
+        
+        //console 输出一下_beforeDrawChartJavaScript，方便调试
+        AADetailLog(@"Before Drawing Chart JavaScript String: %@",_beforeDrawChartJavaScript);
+        
+        //beforeDrawChartJavaScript 执行完毕后置空，防止重复调用
+        _beforeDrawChartJavaScript = nil;
     }
     
     NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
@@ -540,6 +546,12 @@ WKScriptMessageHandler
     
     if (_afterDrawChartJavaScript) {
         [self safeEvaluateJavaScriptString:_afterDrawChartJavaScript];
+        
+        //console 输出一下_afterDrawChartJavaScript，方便调试
+        AADetailLog(@"After Drawing Chart JavaScript String: %@",_afterDrawChartJavaScript);
+        
+        //afterDrawChartJavaScript 执行完毕后置空，防止重复调用
+        _afterDrawChartJavaScript = nil;
     }
 }
 
