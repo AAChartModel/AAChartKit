@@ -26,7 +26,9 @@
         case 1: return [self timeDataWithIrregularIntervalsChart];//X 轴时间不连续的折线图
         case 2: return [self logarithmicAxisLineChart];//对数轴折线图📈
         case 3: return [self logarithmicAxisScatterChart];//对数轴散点图
-            
+        case 4: return [self dashedAxisAndCustomAxisTitlePositionLineChart];//虚线轴 + 自定义轴标题位置折线图
+        case 5: return [self dashedAxisAndCustomAxisTitlePositionLineChart2];//虚线轴 + 自定义轴标题位置折线图2
+
         default:
             break;
     }
@@ -346,6 +348,247 @@
         .markerSet(aaMarker)
         .dataSet(scatterData)
                ]);
+}
+
+
+/**
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta charset="utf-8">
+   <title>Highcharts 虚线轴示例</title>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+ </head>
+ <body>
+
+ <div id="container" style="height:400px;min-width:600px"></div>
+
+ <script>
+ Highcharts.chart('container', {
+   title: {
+     text: 'Highcharts 虚线轴 + 标题位置示例'
+   },
+
+   xAxis: {
+     // 隐藏原本的轴线
+     lineWidth: 0,
+     // 模拟虚线轴线
+     plotLines: [{
+       // 对于 category 轴，value= -0.5 表示最左侧边界，长度会自动画到右边界
+       value: -0.5,
+       color: '#000',
+       width: 1,
+       dashStyle: 'Dash',
+       zIndex: 5
+     }],
+     categories: ['一月', '二月', '三月', '四月', '五月'],
+     title: {
+       text: 'X轴标题',
+       align: 'middle', // 居中
+       offset: 0,
+       x: 0,
+       y: 30 // 调整下方距离
+     }
+   },
+
+   yAxis: {
+     // 隐藏原本的轴线
+     lineWidth: 0,
+     // 模拟虚线轴线
+     plotLines: [{
+       value: 0,
+       color: '#000',
+       width: 1,
+       dashStyle: 'Dash',
+       zIndex: 5
+     }],
+     title: {
+       text: 'Y轴标题',
+       align: 'high',  // 顶部
+       rotation: 0,    // 横着显示
+       offset: 0,
+       x: 0,
+       y: -10          // 微调
+     }
+   },
+
+   series: [{
+     name: '数据列',
+     data: [1, 3, 2, 4, 5]
+   }]
+ });
+ </script>
+
+ </body>
+ </html>
+
+ */
+//https://github.com/AAChartModel/AAChartKit/issues/1600
+//虚线轴 + 自定义轴标题位置折线图
+- (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart {
+    return AAOptions.new
+    .titleSet(AATitle.new
+              .textSet(@"虚线轴 + 标题位置自定义折线图"))
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeLine))
+    .xAxisSet(AAXAxis.new
+              // 隐藏原本的轴线
+              .lineWidthSet(@0)
+              // 模拟虚线轴线
+              .plotLinesSet(@[
+                AAPlotLinesElement.new
+                // 对于 category 轴，value= -0.5 表示最左侧边界，长度会自动画到右边界
+                    .valueSet(@-0.5)
+                    .colorSet(AAColor.greenColor)
+                    .widthSet(@2)
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)
+                    .zIndexSet(@5)
+              ])
+              .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月"])
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"X轴标题")
+                        .styleSet(AAStyleColor(AAColor.greenColor))
+                        .alignSet(AAChartAxisTitleAlignValueTypeMiddle) // 居中
+                        .offsetSet(@0)
+                        .xSet(@0)
+                        .ySet(@30) // 调整下方距离
+                        )
+              )
+    .yAxisSet(AAYAxis.new
+              // 隐藏原本的轴线
+              .lineWidthSet(@0)
+              .startOnTickSet(true)
+              // 模拟虚线轴线
+              .plotLinesSet(@[
+                AAPlotLinesElement.new
+                    .valueSet(@0)
+                    .colorSet(AAColor.redColor)
+                    .widthSet(@2)
+                    .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                    .zIndexSet(@5)
+              ])
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"Y轴标题")
+                        .styleSet(AAStyleColor(AAColor.redColor))
+                        .alignSet(AAChartAxisTitleAlignValueTypeHigh)  // 顶部
+                        .rotationSet(@0)    // 横着显示
+                        .offsetSet(@0)
+                        .xSet(@25) //微调
+                        .ySet(@-10) // 微调
+                        )
+              )
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"数据列")
+        .dataSet(@[@1, @3, @2, @4, @5])
+               ]);
+}
+
+// https://github.com/AAChartModel/AAChartKit/issues/1600
+// https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/chart/scrollable-plotarea
+// 虚线轴 + 自定义轴标题位置折线图
+- (AAOptions *)dashedAxisAndCustomAxisTitlePositionLineChart2 {
+    NSString *jsFunctionOriginStr = @AAJSFunc((function (H) {
+        H.wrap(H.Axis.prototype, 'render', function (proceed) {
+            // 先调用原始 render
+            proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+            
+            const axis = this;
+            
+            // X 轴：dashDot
+            if (axis.horiz) {
+                if (axis.axisLine) {
+                    axis.axisLine.attr({
+                        // dashDot 的等价 stroke-dasharray
+                        'stroke-dasharray': '3,2,1,2',
+                        'stroke': '%@'
+                    });
+                }
+            }
+            // Y 轴：longDashDotDot
+            else {
+                if (axis.axisLine) {
+                    axis.axisLine.attr({
+                        // longDashDotDot 的等价 stroke-dasharray
+                        'stroke-dasharray': '8,3,1,3,1,3',
+                        'stroke': '%@'
+                    });
+                }
+            }
+        });
+    }(Highcharts)));
+    
+    // 定义要替换的颜色
+    NSString *xAxisColor = @"#ff0000"; // 红色
+    NSString *yAxisColor = @"#00ff00"; // 绿色
+    
+    NSString *jsFunctionStr = [NSString stringWithFormat:jsFunctionOriginStr,
+                               xAxisColor,
+                               yAxisColor];
+
+    return AAOptions.new
+    .beforeDrawChartJavaScriptSet(jsFunctionStr)
+    .titleSet(AATitle.new
+              .textSet(@"虚线轴 + 标题位置自定义折线图"))
+    .chartSet(AAChart.new
+              .typeSet(AAChartTypeSpline)
+              .marginLeftSet(@100) // 给Y轴和标题多留一点空间
+              .marginTopSet(@80) // 图表整体下移
+              .scrollablePlotAreaSet(AAScrollablePlotArea.new
+                                      .minWidthSet(@2100)
+                                      .scrollPositionXSet(@1)
+                                      )
+              )
+    .tooltipSet(AATooltip.new
+                .valueSuffixSet(@" m/s")
+                .sharedSet(true)
+                )
+    .xAxisSet(AAXAxis.new
+              .lineWidthSet(@2)
+              .lineColorSet(AAColor.greenColor)
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"X轴标题")
+                        .styleSet(AAStyleColor(AAColor.greenColor))
+                        .alignSet(AAChartAxisTitleAlignValueTypeMiddle) // 居中
+                        .offsetSet(@60)
+                        .xSet(@0)
+                        .ySet(@-30) // 调整下方距离
+                        )
+              )
+    .yAxisSet(AAYAxis.new
+              .lineWidthSet(@2)
+              .lineColorSet(AAColor.redColor)
+              .startOnTickSet(true)
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"Y轴标题")
+                        .styleSet(AAStyleColor(AAColor.redColor))
+                        .alignSet(AAChartAxisTitleAlignValueTypeHigh)  // 顶部
+                        .rotationSet(@0) // 横着显示
+                        .offsetSet(@0)
+                        .xSet(@25) // 微调
+                        .ySet(@-30) // 微调
+                        )
+              )
+    .seriesSet(@[
+        AASeriesElement.new
+            .nameSet(@"Hestavollane")
+            .dataSet(@[
+                @0.2, @0.8, @0.8, @0.8, @1, @1.3, @1.5, @2.9, @1.9, @2.6, @1.6, @3, @4, @3.6,
+                @5.5, @6.2, @5.5, @4.5, @4, @3.1, @2.7, @4, @2.7, @2.3, @2.3, @4.1, @7.7, @7.1,
+                @5.6, @6.1, @5.8, @8.6, @7.2, @9, @10.9, @11.5, @11.6, @11.1, @12, @12.3, @10.7,
+                @9.4, @9.8, @9.6, @9.8, @9.5, @8.5, @7.4, @7.6])
+            .clipSet(false)
+        ,
+        AASeriesElement.new
+            .nameSet(@"Vik")
+            .dataSet(@[
+                @0, @0, @0.6, @0.9, @0.8, @0.2, @0, @0, @0, @0.1, @0.6, @0.7, @0.8, @0.6, @0.2,
+                @0, @0.1, @0.3, @0.3, @0, @0.1, @0, @0, @0, @0.2, @0.1, @0, @0.3, @0, @0.1, @0.2,
+                @0.1, @0.3, @0.3, @0, @3.1, @3.1, @2.5, @1.5, @1.9, @2.1, @1, @2.3, @1.9, @1.2,
+                @0.7, @1.3, @0.4, @0.3
+            ])
+            .clipSet(false)
+    ]);
 }
 
 @end

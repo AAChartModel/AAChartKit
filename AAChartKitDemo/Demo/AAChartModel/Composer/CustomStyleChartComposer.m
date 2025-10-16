@@ -30,86 +30,15 @@
  
  */
 
-#import "CustomStyleChartVC.h"
-#import "AAEasyTool.h"
+#import "CustomStyleChartComposer.h"
+#import "AAChartKit.h"
 #import "AAChartSymbolConstant.h"
+#import "AAEasyTool.h"
 
-@interface CustomStyleChartVC ()
-
-@end
-
-@implementation CustomStyleChartVC
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (selectedIndex) {
-        case 0:  return [self setUpColorfulBarChart];
-        case 1:  return [self setUpColorfulGradientColorChart];
-        case 2:  return [self setUpDiscontinuousDataChart];
-        case 3:  return [self configureMixedLineChart];
-        case 4:  return [self configureColorfulColumnChart];
-        case 5:  return [self configureGradientColorBarChart];
-        case 6:  return [self configureXAxisHaveAAZonesElementChart];
-        case 7:  return [self configureYAxisHaveAAZonesElementChart];
-        case 8:  return [self configureStepLineChart];
-        case 9:  return [self configureStepAreaChart];
-        case 10: return [self configureNightingaleRoseChart];
-        case 11: return [self configureCustomSingleDataLabelsElementChart];
-        case 12: return [self configureChartWithShadowStyle];
-        case 13: return [self configureColorfulGradientAreaChart];
-        case 14: return [self configureColorfulGradientSplineChart];
-        case 15: return [self configureGradientColorAreasplineChart];
-        case 16: return [self configureSpecialStyleMarkerOfSingleDataElementChart];
-        case 17: return [self configureSpecialStyleColumnOfSingleDataElementChart];
-        case 18: return [self configureAreaChartThreshold];
-        case 19: return [self customScatterChartMarkerSymbolContent];
-        case 20: return [self customLineChartMarkerSymbolContent];
-        case 21: return [self configureWithMinusNumberChart];
-        case 22: return [self splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle];
-        case 23: return [self configurePentagonRadarChart];
-        case 24: return [self configureHexagonRadarChart];
-        case 25: return [self adjustYAxisMaxAndMinValues];
-        case 26: return [self customSpecialStyleDataLabelOfSingleDataElementChart];
-        case 27: return [self customBarChartHoverColorAndSelectColor];
-        case 28: return [self customChartHoverAndSelectHaloStyle];
-        case 29: return [self customSplineChartMarkerStatesHoverStyle];
-        case 30: return [self customNormalStackingChartDataLabelsContentAndStyle];
-        case 31: return [self upsideDownPyramidChart];
-        case 32: return [self doubleLayerPieChart];
-        case 33: return [self doubleLayerDoubleColorsPieChart];
-        case 34: return [self disableSomeOfLinesMouseTrackingEffect];
-        case 35: return [self configureColorfulShadowSplineChart];
-        case 36: return [self configureColorfulDataLabelsStepLineChart];
-        case 37: return [self configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart];
-        case 38: return [self disableSplineChartMarkerHoverEffect];
-        case 39: return [self configureMaxAndMinDataLabelsForChart];
-        case 40: return [self customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag];
-        case 41: return [self noMoreGroupingAndOverlapEachOtherColumnChart];
-        case 42: return [self noMoreGroupingAndNestedColumnChart];
-        case 43: return [self topRoundedCornersStackingColumnChart];
-        case 44: return [self freeStyleRoundedCornersStackingColumnChart];
-        case 45: return [self customColumnChartBorderStyleAndStatesHoverColor];
-
-        case 46: return [self customLineChartWithColorfulMarkersAndLines];
-        case 47: return [self customLineChartWithColorfulMarkersAndLines2];
-        case 48: return [self drawLineChartWithPointsCoordinates];
-        case 49: return [self configureSpecialStyleColumnForNegativeDataMixedPositiveData];
-        case 50: return [self configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart];
-        case 51: return [self connectNullsForSingleAASeriesElement];
-        case 52: return [self lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement];
-        case 53: return [self customAreasplineChartWithColorfulGradientColorZones];
-
-        default:
-            return nil;
-    }
-}
+@implementation CustomStyleChartComposer
 
 //https://github.com/AAChartModel/AAChartKit/issues/692
-- (AAChartModel *)setUpColorfulBarChart {
++ (AAChartModel *)setUpColorfulBarChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeBar)
         .animationTypeSet(AAChartAnimationBounce)
@@ -157,7 +86,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/692
-- (AAChartModel *)setUpColorfulGradientColorChart {
++ (AAChartModel *)setUpColorfulGradientColorChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Colorful Column Chart")
@@ -226,7 +155,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1265
-- (AAChartModel *)setUpDiscontinuousDataChart {
++ (AAChartModel *)setUpDiscontinuousDataChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .dataLabelsEnabledSet(true)//是否显示值
@@ -239,7 +168,7 @@
         ]);
 }
 
-- (AAChartModel *)configureMixedLineChart {
++ (AAChartModel *)configureMixedLineChart {
     return AAChartModel.new
             //        .connectNullsSet(true)//设置折线是否断点重连
         .chartTypeSet(AAChartTypeLine)
@@ -274,7 +203,7 @@
         ]);
 }
 
-- (AAChartModel *)configureColorfulColumnChart {
++ (AAChartModel *)configureColorfulColumnChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .titleSet(@"Colorful Column Chart")
@@ -289,7 +218,7 @@
 }
 
 
-- (AAChartModel *)configureGradientColorBarChart {
++ (AAChartModel *)configureGradientColorBarChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Bar Chart")
@@ -308,7 +237,7 @@
         ]);
 }
 
-- (AAChartModel *)configureYAxisHaveAAZonesElementChart {
++ (AAChartModel *)configureYAxisHaveAAZonesElementChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .markerSymbolSet(AAChartSymbolTypeCircle)
@@ -356,7 +285,7 @@
         ]);
 }
 
-- (AAChartModel *)configureXAxisHaveAAZonesElementChart {
++ (AAChartModel *)configureXAxisHaveAAZonesElementChart {
     AAChartModel *aaChartModel = [self configureYAxisHaveAAZonesElementChart];
     aaChartModel.chartTypeSet(AAChartTypeAreaspline)
         .seriesSet(@[
@@ -379,7 +308,7 @@
     return aaChartModel;
 }
 
-- (AAChartModel *)configureWithMinusNumberChart {
++ (AAChartModel *)configureWithMinusNumberChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .titleSet(@"带有负数的区域填充图")
@@ -410,7 +339,7 @@
         ]);
 }
 
-- (AAChartModel *)configureStepLineChart {
++ (AAChartModel *)configureStepLineChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
@@ -435,7 +364,7 @@
         ]);
 }
 
-- (AAChartModel *)configureStepAreaChart {
++ (AAChartModel *)configureStepAreaChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)//图形类型
         .animationTypeSet(AAChartAnimationBounce)//图形渲染动画类型为"bounce"
@@ -463,7 +392,7 @@
         ]);
 }
 
-- (AAChartModel *)configureNightingaleRoseChart {
++ (AAChartModel *)configureNightingaleRoseChart {
     return AAChartModel.new
         .titleSet(@"南丁格尔玫瑰图")
         .subtitleSet(@"极地图中的一种")
@@ -485,7 +414,7 @@
         ]);
 }
 
-- (AAChartModel*)configureCustomSingleDataLabelsElementChart {
++ (AAChartModel *)configureCustomSingleDataLabelsElementChart {
     return AAChartModel.new
         .titleSet(@"单独自定义某个指定数据元素的DataLabel")
         .colorsThemeSet(@[AAGradientColor.mysticMauveColor])
@@ -507,7 +436,7 @@
         ]);
 }
 
-- (AAChartModel *)configureChartWithShadowStyle {
++ (AAChartModel *)configureChartWithShadowStyle {
     return AAChartModel.new
         .yAxisVisibleSet(false)
         .chartTypeSet(AAChartTypeSpline)
@@ -532,7 +461,7 @@
         ]);
 }
 
-- (AAChartModel *)configureColorfulGradientAreaChart {
++ (AAChartModel *)configureColorfulGradientAreaChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .categoriesSet(@[
@@ -560,7 +489,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/751#issuecomment-543019799
-- (AAChartModel *)configureColorfulGradientSplineChart {
++ (AAChartModel *)configureColorfulGradientSplineChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .categoriesSet(@[
@@ -588,7 +517,7 @@
 }
 
 
-- (AAChartModel *)configureGradientColorAreasplineChart {
++ (AAChartModel *)configureGradientColorAreasplineChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .categoriesSet(@[
@@ -614,7 +543,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/695
-- (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
++ (AAChartModel *)configureSpecialStyleMarkerOfSingleDataElementChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .backgroundColorSet(@"#4b2b7f")
@@ -652,7 +581,7 @@
         ]);
 }
 
-- (AAChartModel *)configureSpecialStyleColumnOfSingleDataElementChart {
++ (AAChartModel *)configureSpecialStyleColumnOfSingleDataElementChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .dataLabelsEnabledSet(false)//是否显示值
@@ -671,7 +600,7 @@
         ]);
 }
 
-- (AAChartModel *)configureAreaChartThreshold {
++ (AAChartModel *)configureAreaChartThreshold {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
@@ -697,7 +626,7 @@
 }
 
 //refer to online sample https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
-- (AAChartModel *)customScatterChartMarkerSymbolContent {
++ (AAChartModel *)customScatterChartMarkerSymbolContent {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
         .yAxisMaxSet(@3.5)
@@ -734,14 +663,14 @@
 }
 
 //refer to online sample https://jshare.com.cn/github/highcharts/highcharts/tree/master/samples/highcharts/plotoptions/series-marker-symbol/
-- (AAChartModel *)customLineChartMarkerSymbolContent {
++ (AAChartModel *)customLineChartMarkerSymbolContent {
     AAChartModel *aaChartModel = [self customScatterChartMarkerSymbolContent];
     aaChartModel.chartType = AAChartTypeLine;
     return aaChartModel;
 }
 
 //五边形雷达图
-- (AAChartModel *)configurePentagonRadarChart {
++ (AAChartModel *)configurePentagonRadarChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .yAxisMaxSet(@15.0)
@@ -762,7 +691,7 @@
 }
 
 //六边形雷达图
-- (AAChartModel *)configureHexagonRadarChart {
++ (AAChartModel *)configureHexagonRadarChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .yAxisMaxSet(@15.0)
@@ -782,7 +711,7 @@
         ]);
 }
 
-- (AAChartModel *)adjustYAxisMaxAndMinValues {
++ (AAChartModel *)adjustYAxisMaxAndMinValues {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .legendEnabledSet(false)
@@ -818,7 +747,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/747
-- (AAChartModel *)customSpecialStyleDataLabelOfSingleDataElementChart {
++ (AAChartModel *)customSpecialStyleDataLabelOfSingleDataElementChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .backgroundColorSet(@"#4b2b7f")
@@ -860,7 +789,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/838
-- (AAChartModel *)customBarChartHoverColorAndSelectColor {
++ (AAChartModel *)customBarChartHoverColorAndSelectColor {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeBar)
         .titleSet(@"Custom Bar Chart Hover Color And Select Color")
@@ -879,7 +808,7 @@
         ]);
 }
 
-- (AAChartModel *)customChartHoverAndSelectHaloStyle {
++ (AAChartModel *)customChartHoverAndSelectHaloStyle {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)
         .titleSet(@"Custom Chart Hover And Select Halo Style")
@@ -913,7 +842,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1345
-- (AAChartModel *)customSplineChartMarkerStatesHoverStyle {
++ (AAChartModel *)customSplineChartMarkerStatesHoverStyle {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .titleSet(@"Custom Spline Chart Marker States Hover Style")
@@ -942,7 +871,7 @@
 }
 
 //Issue: https://github.com/AAChartModel/AAChartKit/issues/948
-- (AAChartModel *)splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle {
++ (AAChartModel *)splineChartHoverLineWithNoChangeAndCustomMarkerStatesHoverStyle {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .titleSet(@"Spline Chart Hover Line Width No Change && Custom Marker States Hover Style")
@@ -975,7 +904,7 @@
 }
 
 //Issue: https://github.com/AAChartModel/AAChartKit/issues/827
-- (AAChartModel *)customNormalStackingChartDataLabelsContentAndStyle {
++ (AAChartModel *)customNormalStackingChartDataLabelsContentAndStyle {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .stackingSet(AAChartStackingTypeNormal)
@@ -1034,7 +963,7 @@
 
 //Issue: https://github.com/AAChartModel/AAChartKit-Swift/issues/190
 //API Doc: https://api.highcharts.com.cn/highcharts#series%3Cpyramid%3E.reversed
-- (AAChartModel *)upsideDownPyramidChart {
++ (AAChartModel *)upsideDownPyramidChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypePyramid)
         .yAxisTitleSet(@"摄氏度")
@@ -1055,7 +984,7 @@
 }
 
 //Issue: https://github.com/AAChartModel/AAChartKit/issues/888
-- (AAChartModel *)doubleLayerPieChart {
++ (AAChartModel *)doubleLayerPieChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypePie)
         .titleSet(@"浏览器市场占比历史对比")
@@ -1094,7 +1023,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1234
-- (AAChartModel *)doubleLayerDoubleColorsPieChart {
++ (AAChartModel *)doubleLayerDoubleColorsPieChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypePie)
         .titleSet(@"浏览器市场占比历史对比")
@@ -1157,7 +1086,7 @@
 
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/903
-- (AAChartModel *)disableSomeOfLinesMouseTrackingEffect {
++ (AAChartModel *)disableSomeOfLinesMouseTrackingEffect {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)//图表类型
         .tooltipValueSuffixSet(@"万元")//设置浮动提示框单位后缀
@@ -1186,7 +1115,7 @@
 }
 
 // GitHub issue https://github.com/AAChartModel/AAChartKit/issues/904
-- (AAChartModel *)configureColorfulShadowSplineChart {
++ (AAChartModel *)configureColorfulShadowSplineChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .yAxisVisibleSet(false)
@@ -1240,7 +1169,7 @@
 }
 
 // GitHub issue https://github.com/AAChartModel/AAChartKit/issues/905
-- (AAChartModel *)configureColorfulDataLabelsStepLineChart {
++ (AAChartModel *)configureColorfulDataLabelsStepLineChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)
         .yAxisVisibleSet(false)
@@ -1278,7 +1207,7 @@
 }
 
 // GitHub issue https://github.com/AAChartModel/AAChartKit-Swift/issues/223
-- (AAChartModel *)configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart {
++ (AAChartModel *)configureColorfulGradientColorAndColorfulDataLabelsStepAreaChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .yAxisVisibleSet(false)
@@ -1367,7 +1296,7 @@
 
 // https://github.com/AAChartModel/AAChartKit/issues/1318
 // Refer to https://api.highcharts.com.cn/highcharts#plotOptions.spline.marker.states.hover.enabled
-- (AAChartModel *)disableSplineChartMarkerHoverEffect {
++ (AAChartModel *)disableSplineChartMarkerHoverEffect {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .titleSet(@"Disable Spline Chart Marker Hover Effect")
@@ -1393,7 +1322,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1203
-- (AAChartModel *)configureMaxAndMinDataLabelsForChart {
++ (AAChartModel *)configureMaxAndMinDataLabelsForChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .dataLabelsEnabledSet(false)//是否显示值
@@ -1430,7 +1359,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1201
-- (AAChartModel *)customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag {
++ (AAChartModel *)customVerticalXAxisCategoriesLabelsByHTMLBreakLineTag {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeArea)
         .categoriesSet(@[
@@ -1467,7 +1396,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1269
-- (AAChartModel *)noMoreGroupingAndOverlapEachOtherColumnChart {
++ (AAChartModel *)noMoreGroupingAndOverlapEachOtherColumnChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
@@ -1490,7 +1419,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1271
-- (AAChartModel *)noMoreGroupingAndNestedColumnChart {
++ (AAChartModel *)noMoreGroupingAndNestedColumnChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
@@ -1516,7 +1445,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/842
-- (AAChartModel *)topRoundedCornersStackingColumnChart {
++ (AAChartModel *)topRoundedCornersStackingColumnChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .stackingSet(AAChartStackingTypeNormal)
@@ -1543,7 +1472,7 @@
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/323
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/346
 //https://github.com/highcharts/rounded-corners
-- (AAChartModel *)freeStyleRoundedCornersStackingColumnChart {
++ (AAChartModel *)freeStyleRoundedCornersStackingColumnChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .stackingSet(AAChartStackingTypePercent)
@@ -1589,7 +1518,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/365
-- (AAChartModel *)customColumnChartBorderStyleAndStatesHoverColor {
++ (AAChartModel *)customColumnChartBorderStyleAndStatesHoverColor {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .stackingSet(AAChartStackingTypeNormal)
@@ -1623,7 +1552,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/1291
-- (AAChartModel *)customLineChartWithColorfulMarkersAndLines {
++ (AAChartModel *)customLineChartWithColorfulMarkersAndLines {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)
         .titleSet(@"Custom Line Chart With Colorful Markers And Lines")
@@ -1676,7 +1605,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1291
 //https://github.com/AAChartModel/AAChartKit/issues/1293
-- (AAChartModel *)customLineChartWithColorfulMarkersAndLines2 {
++ (AAChartModel *)customLineChartWithColorfulMarkersAndLines2 {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)
         .titleSet(@"Custom Line Chart With Colorful Markers And Lines")
@@ -1831,7 +1760,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1294
-- (AAChartModel *)drawLineChartWithPointsCoordinates {
++ (AAChartModel *)drawLineChartWithPointsCoordinates {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeScatter)
         .titleSet(@"Draw Line Chart With Points Coordinates")
@@ -1869,7 +1798,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1351
-- (AAChartModel *)configureSpecialStyleColumnForNegativeDataMixedPositiveData {
++ (AAChartModel *)configureSpecialStyleColumnForNegativeDataMixedPositiveData {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .categoriesSet(@[
@@ -1921,7 +1850,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/389
-- (AAChartModel *)configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart {
++ (AAChartModel *)configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .stackingSet(AAChartStackingTypeNormal)
@@ -1978,7 +1907,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/1401
-- (AAChartModel *)connectNullsForSingleAASeriesElement {
++ (AAChartModel *)connectNullsForSingleAASeriesElement {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeSpline)
         .subtitleSet(@"虚拟数据")
@@ -2023,7 +1952,7 @@
 }
 
 
-- (NSArray *)generateRandomNumberArrayWithLength:(NSUInteger)length
++ (NSArray *)generateRandomNumberArrayWithLength:(NSUInteger)length
                                      randomRange:(NSUInteger)randomRange
                                           minNum:(NSUInteger)minNum {
     NSMutableArray *randomNumArrA = [NSMutableArray array];
@@ -2035,7 +1964,7 @@
 }
 
 
-- (NSArray *)generateRandomNumberMixedNullArrayWithLength:(NSUInteger)length
++ (NSArray *)generateRandomNumberMixedNullArrayWithLength:(NSUInteger)length
                                               randomRange:(NSUInteger)randomRange
                                                    minNum:(NSUInteger)minNum {
     NSMutableArray *randomNumArrA = [NSMutableArray array];
@@ -2051,7 +1980,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1419
-- (AAChartModel *)lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement {
++ (AAChartModel *)lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeLine)
         .backgroundColorSet(AAColor.blackColor)
@@ -2062,25 +1991,25 @@
             AASeriesElement.new
                 .nameSet(@"2017")
                 .lineWidthSet(@6)
-                .dataSet([self generateRandomNumberMixedNullArrayWithLength:3550 randomRange:5 minNum:100]),
+                .dataSet([CustomStyleChartComposer generateRandomNumberMixedNullArrayWithLength:3550 randomRange:5 minNum:100]),
             AASeriesElement.new
                 .nameSet(@"2018")
                 .lineWidthSet(@6)
-                .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:100 minNum:200]),
+                .dataSet([CustomStyleChartComposer generateRandomNumberArrayWithLength:3550 randomRange:100 minNum:200]),
             AASeriesElement.new
                 .nameSet(@"2019")
                 .lineWidthSet(@6)
-                .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:400]),
+                .dataSet([CustomStyleChartComposer generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:400]),
             AASeriesElement.new
                 .nameSet(@"2020")
                 .lineWidthSet(@6)
-                .dataSet([self generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:600]),
+                .dataSet([CustomStyleChartComposer generateRandomNumberArrayWithLength:3550 randomRange:150 minNum:600]),
         ]);
 }
 
 
 //https://github.com/AAChartModel/AAChartCore-Kotlin/issues/149
-- (AAChartModel *)customAreasplineChartWithColorfulGradientColorZones {
++ (AAChartModel *)customAreasplineChartWithColorfulGradientColorZones {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeAreaspline)
         .backgroundColorSet(AAColor.blackColor)
@@ -2149,6 +2078,88 @@
                             .overflowSet(AAChartDataLabelsOverflowTypeNone)
                             .cropSet(false))
                         .ySet(@85.3)]),
+        ]);
+}
+
+
+//https://github.com/AAChartModel/AAChartKit/issues/1598
++ (AAChartModel *)noMoreGroupingAndNestedColumnClickedChangeColorChart {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
+        .yAxisTickPositionsSet(@[@0, @10, @20, @30, @40, @50])
+        .yAxisMaxSet(@50)
+        .yAxisMinSet(@0)
+        .borderRadiusSet(@5)
+        .tooltipSharedSet(false) //必须关闭浮动提示框共享
+        .seriesSet(@[
+            AAColumn.new
+                .nameSet(@"总目标")
+                .colorSet(@"DeepSkyBlue")
+                .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
+                .statesSet(AAStates.new
+                    .selectSet(AASelect.new
+                        .colorSet(AAColor.yellowColor) //选中颜色
+                        .borderColorSet((id)AAGradientColor.wroughtIronColor)
+                        .borderWidthSet(@5)))
+                .allowPointSelectSet(true) //必须启用点选功能
+                .groupingSet(false)
+                .pointPaddingSet(@0.05)
+            ,
+            AAColumn.new
+                .nameSet(@"完成度")
+                .colorSet(@"#FF3030") //Firebrick1 color
+                .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
+                .statesSet(AAStates.new
+                    .selectSet(AASelect.new
+                        .colorSet(AAColor.greenColor) //选中颜色
+                        .borderColorSet((id)AAGradientColor.wroughtIronColor)
+                        .borderWidthSet(@5)))
+                .allowPointSelectSet(true) //必须启用点选功能
+                .groupingSet(false)
+                .pointPaddingSet(@0.2)
+        ]);
+}
+
+//https://github.com/AAChartModel/AAChartKit/issues/838
+//https://github.com/AAChartModel/AAChartKit/issues/949
+//https://github.com/AAChartModel/AAChartKit/issues/1598
++ (AAChartModel *)noMoreGroupingAndNestedColumnClickedChangeColorChart2 {
+    return AAChartModel.new
+        .chartTypeSet(AAChartTypeColumn)
+        .categoriesSet(@[@"11/23",@"11/24", @"11/25",@"11/26",@"11/27",@"11/28",@"11/29"])
+        .yAxisTickPositionsSet(@[@0, @10, @20, @30, @40, @50])
+        .yAxisMaxSet(@50)
+        .yAxisMinSet(@0)
+        .borderRadiusSet((id)@"50%")
+        .tooltipSharedSet(false) //必须关闭浮动提示框共享
+        .seriesSet(@[
+            AAColumn.new
+                .nameSet(@"总目标")
+                .colorSet(AAColor.lightGrayColor)
+                .dataSet(@[@30, @20, @28, @40, @42 ,@48, @50])
+                .statesSet(AAStates.new
+                    .inactiveSet(AAInactive.new
+                        .enabledSet(false))) //禁用点击图表时, 部分视图高亮, 部分视图变淡的交互效果,参考 https://github.com/AAChartModel/AAChartKit/issues/949
+                .enableMouseTrackingSet(@false) //禁用鼠标跟踪
+                .groupingSet(false)
+                .pointPaddingSet(@0.05)
+            ,
+            AAColumn.new
+                .nameSet(@"完成度")
+                .colorSet(AAColor.greenColor)
+                .dataSet(@[@28, @18, @26, @40, @40, @46, @39])
+                .allowPointSelectSet(YES)
+                .statesSet(AAStates.new
+                    .inactiveSet(AAInactive.new
+                        .enabledSet(false)) //禁用点击图表时, 部分视图高亮, 部分视图变淡的交互效果,参考 https://github.com/AAChartModel/AAChartKit/issues/949
+                    .hoverSet(AAHover.new
+                        .colorSet(AAColor.redColor)) //悬停颜色
+                    .selectSet(AASelect.new
+                        .colorSet(@"#1E90FF"))) //选中颜色道奇蓝
+                .enableMouseTrackingSet(@true) //允许鼠标跟踪
+                .groupingSet(false)
+                .pointPaddingSet(@0.2)
         ]);
 }
 

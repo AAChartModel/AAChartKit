@@ -37,6 +37,7 @@
 
 @class AAAnimation, AAScrollablePlotArea, AAResetZoomButton, AAChartEvents;
 
+//https://api.highcharts.com/highcharts/chart
 @interface AAChart : NSObject
 
 AAPropStatementAndPropSetFuncStatement(copy,   AAChart, NSString    *, type)
@@ -66,7 +67,7 @@ AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAChartEvents *, events)
 @end
 
 
-//Refer to online API document: https://api.highcharts.com/highcharts/chart.scrollablePlotArea
+//https://api.highcharts.com/highcharts/chart.scrollablePlotArea
 @interface AAScrollablePlotArea : NSObject
 
 AAPropStatementAndPropSetFuncStatement(strong, AAScrollablePlotArea, NSNumber *, minHeight)

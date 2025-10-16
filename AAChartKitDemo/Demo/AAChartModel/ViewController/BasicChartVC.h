@@ -1,9 +1,9 @@
 //
-//  CustomStyleChartVC.h
-//  AAChartKitDemo
+//  ViewController.h
+//  AAChartKit
 //
-//  Created by AnAn on 2018/11/13.
-//  Copyright © 2018 An An. All rights reserved.
+//  Created by An An on 17/3/13.
+//  Copyright © 2017年 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -31,10 +31,15 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "AABaseChartVC.h"
+#import "AAEasyTool.h"
+#import "BasicChartComposer.h"
 
-@interface CustomStyleChartVC : AABaseChartVC
+@interface BasicChartVC : UIViewController
+
+@property (nonatomic, strong) AAChartModel *aaChartModel;
+@property (nonatomic, strong) AAChartView  *aaChartView;
+@property (nonatomic, assign) BasicChartVCChartType chartType;
+@property (nonatomic, copy  ) NSString  *receivedChartType;
 
 @end
-
 

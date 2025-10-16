@@ -587,18 +587,19 @@
                 .thicknessSet(@20)
         ]);
     
-    AAPlotOptions *aaPlotOptions = AAPlotOptions.new
-        .gaugeSet(AAGauge.new
-                  .dialSet(AADial.new
-                           .radiusSet(@"80%")
-                           .backgroundColorSet(AAColor.grayColor)
-                           .baseWidthSet(@12)
-                           .baseLengthSet(@"0%")
-                           .rearLengthSet(@"0%"))
-                  .pivotSet(AAPivot.new
-                            .backgroundColorSet(AAColor.grayColor)
-                            .radiusSet(@6))
-                  );
+    //https://github.com/AAChartModel/AAChartKit/issues/1589
+    AAPlotOptions *aaPlotOptions = AAPlotOptions.new  // 创建图表配置对象
+        .gaugeSet(AAGauge.new                         // 配置仪表盘类型
+            .dialSet(AADial.new                       // 设置指针样式
+                .radiusSet(@"80%")                    // 指针长度（容器宽度的80%）
+                .backgroundColorSet(AAColor.grayColor)// 指针颜色（灰色）
+                .baseWidthSet(@12)                    // 指针基部宽度（12像素）
+                .baseLengthSet(@"0%")                 // 指针基部长度（0%不显示）
+                .rearLengthSet(@"0%"))                // 指针尾部长度（0%不显示）
+            .pivotSet(AAPivot.new                     // 设置中心轴点样式
+                .backgroundColorSet(AAColor.grayColor)// 轴点颜色（灰色）
+                .radiusSet(@6))                       // 轴点半径（6像素）
+        );
     
     
     AASeriesElement *series = AASeriesElement.new

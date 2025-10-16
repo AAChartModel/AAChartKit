@@ -1,9 +1,9 @@
 //
-//  MixedChartVC.h
-//  AAChartKitDemo
+//  SpecialChartVC.h
+//  AAChartKit
 //
-//  Created by AnAn on 2018/5/12.
-//  Copyright © 2018年 An An. All rights reserved.
+//  Created by An An on 17/3/23.
+//  Copyright © 2017年 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -30,8 +30,24 @@
  
  */
 
-#import <UIKit/UIKit.h>
-#import "AABaseChartVC.h"
-@interface MixedChartVC : AABaseChartVC
+#import <Foundation/Foundation.h>
+
+@class AAChartModel;
+
+@interface SpecialChartComposer : NSObject
+
++ (AAChartModel *)pieChart;
++ (AAChartModel *)bubbleChart;
++ (AAChartModel *)packedbubbleChart;
++ (AAChartModel *)scatterChart;
++ (AAChartModel *)arearangeChart;
++ (AAChartModel *)areaslinerangeChart;
++ (AAChartModel *)columnpyramidChart;
++ (AAChartModel *)columnrangeChart;
++ (AAChartModel *)boxplotChart;
++ (AAChartModel *)waterfallChart;
++ (AAChartModel *)pyramidChart;
++ (AAChartModel *)funnelChart;
++ (AAChartModel *)errorBarChart;
 
 @end

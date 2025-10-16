@@ -69,6 +69,8 @@
 #import "CustomTableViewCell.h"
 #import "CustomClickEventCallbackMessageVC.h"
 #import "CustomTooltipClickEventCallbackVC.h"
+#import "DynamicTooltipAfterClickRequestVC.h"
+#import "LineChartViewController.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -491,8 +493,18 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+            
+        case  29: {
+            /*通过 AAOptions 自定义折线图*/
+            LineChartViewController *vc = LineChartViewController.new;
+            vc.selectedIndex = row;
+            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
                         
-        case 29: {
+        case 30: {
             /*完全自定义图表交互事件回调的信息*/
             if (row == 0) {
                 CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
@@ -500,6 +512,10 @@
                 [self.navigationController pushViewController:vc animated:YES];
             } else if (row == 1) {
                 CustomTooltipClickEventCallbackVC *vc = CustomTooltipClickEventCallbackVC.new;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else if (row == 2) {
+                DynamicTooltipAfterClickRequestVC *vc = DynamicTooltipAfterClickRequestVC.new;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
@@ -544,6 +560,7 @@
             @"JS Function For AAAxis Labels---通过 JSFunction 自定义 AAAxis 的 Labels",
             @"JS Function For AALegend Click Events---通过 JSFunction 自定义 Legend  图例的点击事件",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
+            @"Line Chart Options---通过 AAOptions 自定义折线图",
             @"Custom Event Callback Message---完全自定义图表交互事件回调的信息"
         ];
     }
@@ -567,9 +584,11 @@
             /*特殊类型图表*/
             @[@"Pie Chart---扇形图",
               @"Bubble Chart---气泡图",
+              @"Packed Bubble Chart---紧凑气泡图",
               @"Scatter Chart---散点图",
               @"Area Range Chart---折线区域面积图",
               @"Area Spline range Chart---曲线区域面积图",
+              @"Column Pyramid Chart---柱形金字塔图",
               @"Column Range Chart---柱形范围图",
               @"Box Plot Chart---箱线图",
               @"Water Fall---瀑布图",
@@ -631,7 +650,11 @@
               @"configureSpecialStyleColumnForNegativeDataMixedPositiveData---为正负数混合的柱形图自定义特殊样式效果",
               @"configureMultiLevelStopsArrGradientColorAreasplineMixedLineChart---多层次半透明渐变效果的曲线填充图混合折线图📈",
               @"connectNullsForSingleAASeriesElement---为单个 AASeriesElement 单独设置是否断点重连",
-              @"lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement---测试有多组数据时, 数据量较大时, 不同组数据量差距较大时的折线图📈"
+              @"lineChartsWithLargeDifferencesInTheNumberOfDataInDifferentSeriesElement---测试有多组数据时, 数据量较大时, 不同组数据量差距较大时的折线图📈",
+              @"customAreasplineChartWithColorfulGradientColorZones---彩色渐变区域填充图📈",
+              @"noMoreGroupingAndNestedColumnClickedChangeColorChart---不分组的嵌套柱状图,点击后变色📊",
+              @"noMoreGroupingAndNestedColumnClickedChangeColorChart2---不分组的嵌套柱状图,点击后变色📊2"
+
             ],
             /*混合类型图表*/
             @[@"Arearange Mixed Line---面积范围均线图",
@@ -856,6 +879,9 @@
               @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
               @"logarithmicAxisLineChart---对数轴折线图📈",
               @"logarithmicAxisScatterChart---对数轴散点图",
+              @"dashedAxisAndCustomAxisTitlePositionLineChart---虚线轴 + 自定义轴标题位置折线图",
+              @"dashedAxisAndCustomAxisTitlePositionLineChart2---虚线轴 + 自定义轴标题位置折线图2",
+
             ],
           
             /*通过 JSFunction 自定义 AAAxis 的 Labels*/
@@ -891,9 +917,13 @@
               @"configureTheSizeOfTheSliceOfDonutAndPieChart---配置环形图和饼图的扇区大小",
               @"configurePlotBackgroundClickEvent---配置绘图区的点击事件",
             ],
+            /*自定义折线图*/
+            @[@"customconnectNullsWithZonesForLineChart---自定义 connectNulls + zones 实现同一个 line chart 局部断开和局部重连",
+            ],
             /*完全自定义图表交互事件回调的信息*/
             @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息",
-              @"CustomTooltipClickEventCallbackVC---自定义 tooltip 点击事件"
+              @"CustomTooltipClickEventCallbackVC---自定义 tooltip 点击事件",
+              @"DynamicTooltipAfterClickRequestVC---点击图表📊后请求数据动态更新 tooltip 内容",
             ]
             
         ];

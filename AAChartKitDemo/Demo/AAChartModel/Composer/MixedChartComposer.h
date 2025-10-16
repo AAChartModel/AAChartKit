@@ -1,9 +1,9 @@
 //
-//  ViewController.h
-//  AAChartKit
+//  MixedChartVC.h
+//  AAChartKitDemo
 //
-//  Created by An An on 17/3/13.
-//  Copyright © 2017年 An An. All rights reserved.
+//  Created by AnAn on 2018/5/12.
+//  Copyright © 2018年 An An. All rights reserved.
 //*************** ...... SOURCE CODE ...... ***************
 //***...................................................***
 //*** https://github.com/AAChartModel/AAChartKit        ***
@@ -30,28 +30,25 @@
  
  */
 
-#import <UIKit/UIKit.h>
-#import "AAEasyTool.h"
-#import "AAChartKit.h"
+#import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger,BasicChartVCChartType) {
-    BasicChartVCChartTypeColumn = 0,
-    BasicChartVCChartTypeBar,
-    BasicChartVCChartTypeArea,
-    BasicChartVCChartTypeAreaspline,
-    BasicChartVCChartTypeLine,
-    BasicChartVCChartTypeSpline,
-    BasicChartVCChartTypeStepLine,
-    BasicChartVCChartTypeStepArea,
-    BasicChartVCChartTypeScatter,
-};
+@class AAChartModel;
 
-@interface BasicChartVC : UIViewController
+@interface MixedChartComposer : NSObject
 
-@property (nonatomic, strong) AAChartModel *aaChartModel;
-@property (nonatomic, strong) AAChartView  *aaChartView;
-@property (nonatomic, assign) BasicChartVCChartType chartType;
-@property (nonatomic, copy  ) NSString  *receivedChartType;
++ (AAChartModel *)configureArearangeMixedLineChart;
++ (AAChartModel *)configureColumnrangeMixedLineChart;
++ (AAChartModel *)configureStackingColumnMixedLineChart;
++ (AAChartModel *)configureDashStyleTypeMixedChart;
++ (AAChartModel *)configureAllLineDashStyleTypesMixedChart;
++ (AAChartModel *)configureNegativeColorMixedColumnChart;
++ (AAChartModel *)configureScatterMixedLineChart;
++ (AAChartModel *)configureNegativeColorMixedBubbleChart;
++ (AAChartModel *)configurePolygonMixedScatterChart;
++ (AAChartModel *)configurePolarMixedChart;
++ (AAChartModel *)configureColumnMixedScatterChart;
++ (AAChartModel *)configureNegativeColorMixedAreasplineChart;
++ (AAChartModel *)configureNegativeColorMixedAreasChart;
++ (AAChartModel *)configureAreaChartMixedStepAreaChart;
 
 @end
-

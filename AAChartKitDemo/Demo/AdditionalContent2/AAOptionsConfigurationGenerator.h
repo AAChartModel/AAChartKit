@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AAOptionsConfigurationGenerator : AAJsonConverter
+@interface AAOptionsConfigurationGenerator : NSObject
 
 @end
 

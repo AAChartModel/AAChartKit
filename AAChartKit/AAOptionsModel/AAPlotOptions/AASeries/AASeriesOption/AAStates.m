@@ -52,6 +52,7 @@ AAPropSetFuncImplementation(AAHover, NSNumber *, lineWidthPlus)
 
 AAPropSetFuncImplementation(AASelect, BOOL,       enabled)
 AAPropSetFuncImplementation(AASelect, NSString *, borderColor)
+AAPropSetFuncImplementation(AASelect, NSNumber *, borderWidth)
 AAPropSetFuncImplementation(AASelect, NSString *, color)
 AAPropSetFuncImplementation(AASelect, AAHalo   *, halo)
 
