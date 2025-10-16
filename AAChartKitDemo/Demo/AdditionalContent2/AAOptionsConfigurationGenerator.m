@@ -130,7 +130,9 @@
         return dic;
     }
     
-    return [self dictionaryWithObjectInstance:objc];
+    return nil;
+    
+//    return [self dictionaryWithObjectInstance:objc];
 }
 
 //+ (void)pureOptionsJsonStringWithOptionsInstance:(id)optionsObject {
