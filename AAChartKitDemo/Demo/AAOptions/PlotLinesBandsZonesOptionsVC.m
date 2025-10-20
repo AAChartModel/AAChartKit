@@ -30,6 +30,7 @@
         case 6: return [self configureXAxisPlotBandAreaMixedColumnChart];//X轴有 plotBand 的区域面积与柱形混合图
         case 7: return [self configureXAxisPlotLinesForChart];//X 轴有 plotLines 的图表
         case 8: return [self configureXAxisPlotLinesForChart2];//X 轴有 plotLines 的图表2
+        case 9: return [self configureGradientPlotBandForChart];//渐变色的 plotBand
 
         default:
             break;
@@ -575,5 +576,68 @@
     return aaOptions;
 }
 
+
+// 带渐变色的 plotBand 示例
+- (AAOptions *)configureGradientPlotBandForChart {
+    // --- 1. 将配置参数化 ---
+    CGFloat value = 15;         // 标志线的中心位置
+    CGFloat lineWidth = 0.2;      // 标志线的视觉宽度
+    NSArray *colors = @[@"#ff0000", @"#0000ff"]; // 渐变颜色
+    NSString *bandId = @"my-gradient-line-1"; // 为动态更新提供一个ID
+    
+    AAChartModel *aaChartModel = AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)
+    .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep"])
+    .markerRadiusSet(@0)
+    .yAxisGridLineStyleSet([AALineStyle styleWithWidth:@0])
+    .legendEnabledSet(false)
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Data")
+        .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6])
+    ]);
+    
+    AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
+    
+    // --- 2. 通过计算得出 from 和 to ---
+    CGFloat fromValue = value - (lineWidth / 2);
+    CGFloat toValue = value + (lineWidth / 2);
+    
+    // --- 3. 应用渐变颜色 ---
+    AALinearGradient *linearGradient = AALinearGradient.new
+    .x1Set(@0)
+    .y1Set(@0)
+    .x2Set(@1)
+    .y2Set(@0); // 从左到右
+    
+    AAGradientColor *gradientColor = AAGradientColor.new
+    .linearGradientSet(linearGradient)
+    .stopsSet(@[
+        @[@0, colors[0]],
+        @[@1, colors[1]]
+    ]);
+    
+    // --- 4. 添加其他增强配置 ---
+    AAPlotBandsElement *plotBand = AAPlotBandsElement.new
+    .fromSet(@(fromValue))
+    .toSet(@(toValue))
+    .colorSet((id)gradientColor)
+//    .idSet(bandId)              // 设置ID，方便之后通过代码查找和操作
+    .zIndexSet(5)              // 提高层级，确保在数据系列之上
+    .labelSet(AALabel.new
+              .textSet([NSString stringWithFormat:@"目标线: %.0f", value])
+              .alignSet(AAChartAlignTypeRight)
+              .xSet(@-10)
+              .ySet(@-20)
+              .styleSet(AAStyle.new
+                        .fontSizeSet(@"15px")
+                        .fontWeightSet(AAChartFontWeightTypeBold)
+                        .colorSet(@"#606060")));
+    
+    AAYAxis *aaYAxis = aaOptions.yAxis;
+    aaYAxis.plotBands = @[plotBand];
+    
+    return aaOptions;
+}
 
 @end
