@@ -146,6 +146,9 @@
 		84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E41D592E65707A00AA6D19 /* LineChartViewController.m */; };
 		84F998022EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998012EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m */; };
 		84F998252EB365E300D41382 /* MixedChartComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998242EB365E300D41382 /* MixedChartComposer2.m */; };
+		84F998312EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9982B2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m */; };
+		84F998332EB37DCA00D41382 /* PieChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9982E2EB37DCA00D41382 /* PieChartOptionsComposer.m */; };
+		84F998342EB37DCA00D41382 /* AreaChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998282EB37DCA00D41382 /* AreaChartOptionsComposer.m */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -449,6 +452,12 @@
 		84F998012EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer3.m; sourceTree = "<group>"; };
 		84F998232EB365BC00D41382 /* MixedChartComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartComposer2.h; sourceTree = "<group>"; };
 		84F998242EB365E300D41382 /* MixedChartComposer2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixedChartComposer2.m; sourceTree = "<group>"; };
+		84F998272EB37DCA00D41382 /* AreaChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaChartOptionsComposer.h; sourceTree = "<group>"; };
+		84F998282EB37DCA00D41382 /* AreaChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaChartOptionsComposer.m; sourceTree = "<group>"; };
+		84F9982A2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarOrColumnChartOptionsComposer.h; sourceTree = "<group>"; };
+		84F9982B2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarOrColumnChartOptionsComposer.m; sourceTree = "<group>"; };
+		84F9982D2EB37DCA00D41382 /* PieChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieChartOptionsComposer.h; sourceTree = "<group>"; };
+		84F9982E2EB37DCA00D41382 /* PieChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieChartOptionsComposer.m; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -591,6 +600,7 @@
 				844F4D442C0858A80019F786 /* AdditionalContent1 */,
 				844F4D452C0858BB0019F786 /* AdditionalContent2 */,
 				844F4D462C0859330019F786 /* AATools */,
+				84F998262EB37DA300D41382 /* OfficialSamples */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -1048,6 +1058,19 @@
 			path = Composer;
 			sourceTree = "<group>";
 		};
+		84F998262EB37DA300D41382 /* OfficialSamples */ = {
+			isa = PBXGroup;
+			children = (
+				84F998272EB37DCA00D41382 /* AreaChartOptionsComposer.h */,
+				84F998282EB37DCA00D41382 /* AreaChartOptionsComposer.m */,
+				84F9982A2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.h */,
+				84F9982B2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m */,
+				84F9982D2EB37DCA00D41382 /* PieChartOptionsComposer.h */,
+				84F9982E2EB37DCA00D41382 /* PieChartOptionsComposer.m */,
+			);
+			path = OfficialSamples;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1116,6 +1139,7 @@
 					7172A3D21E763EA6000D5B99 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BPAYP34L8N;
+						LastSwiftMigration = 2600;
 						ProvisioningStyle = Automatic;
 					};
 					7172A3EB1E763EA6000D5B99 = {
@@ -1226,6 +1250,9 @@
 				44C8C491226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m in Sources */,
 				846141FF2C87F7760032FBD3 /* JSFunctionForMixedEventsComposer.m in Sources */,
 				8486A22A2BAD830600AA343B /* DoubleChartsLinkedWorkVC2.m in Sources */,
+				84F998312EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m in Sources */,
+				84F998332EB37DCA00D41382 /* PieChartOptionsComposer.m in Sources */,
+				84F998342EB37DCA00D41382 /* AreaChartOptionsComposer.m in Sources */,
 				84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */,
 				8461420F2C883D940032FBD3 /* JSFunctionForAASeriesEventsVC.m in Sources */,
 				8461421E2C8AD95D0032FBD3 /* AAGradientColor.m in Sources */,
@@ -1485,6 +1512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AAChartKitDemo/AAChartKitDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1500,6 +1528,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1508,6 +1538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AAChartKitDemo/AAChartKitDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1523,6 +1554,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
