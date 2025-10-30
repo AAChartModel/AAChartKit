@@ -877,4 +877,53 @@
 }
 
 
++ (AAChartModel *)gaugeChart {
+    return AAChartModel.new
+        .titleSet(@"速度仪")
+        .yAxisTitleSet(@"km/h")
+        .yAxisMinSet(@0)
+        .yAxisMaxSet(@1000)
+//        .yAxisGridLineWidthSet([AALineStyle styleWithWidth:@0])
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"速度")
+                .typeSet(AAChartTypeGauge)
+                .dataSet(@[@888])
+                .colorSet(AAColor.redColor)
+                .tooltipSet(AATooltip.new
+                .valueSuffixSet(@"km/h"))
+        ]);
+}
+
++ (AAChartModel *)polygonChart {
+    return AAChartModel.new
+        .titleSet(@"多边形图")
+        .dataLabelsEnabledSet(false)
+        .markerRadiusSet(@7)
+        .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+        .seriesSet(@[
+            AASeriesElement.new
+                .nameSet(@"目标")
+                .typeSet(AAChartTypePolygon)
+                .dataSet(@[
+                    @[@153, @42], @[@149, @46], @[@149, @55],
+                    @[@152, @60], @[@159, @70], @[@170, @77],
+                    @[@180, @70], @[@180, @60], @[@173, @52],
+                    @[@166, @45]
+                ])
+                .lineWidthSet(@6),
+            AASeriesElement.new
+                .nameSet(@"实际完成")
+                .typeSet(AAChartTypePolygon)
+                .dataSet(@[
+                    @[@(153 * 1.6), @(42 * 1.6)], @[@(149 * 1.6), @(46 * 1.6)], @[@(149 * 1.6), @(55 * 1.6)],
+                    @[@(152 * 1.6), @(60 * 1.6)], @[@(159 * 1.6), @(70 * 1.6)], @[@(170 * 1.6), @(77 * 1.6)],
+                    @[@(180 * 1.6), @(70 * 1.6)], @[@(180 * 1.6), @(60 * 1.6)], @[@(173 * 1.6), @(52 * 1.6)],
+                    @[@(166 * 1.6), @(45 * 1.6)]
+                ])
+                .lineWidthSet(@6)
+        ]);
+}
+
+
 @end

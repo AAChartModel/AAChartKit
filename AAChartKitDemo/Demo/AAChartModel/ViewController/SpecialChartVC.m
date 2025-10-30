@@ -36,7 +36,9 @@
         case 10: return [SpecialChartComposer pyramidChart];
         case 11: return [SpecialChartComposer funnelChart];
         case 12: return [SpecialChartComposer errorBarChart];
-            
+        case 13: return [SpecialChartComposer gaugeChart];
+        case 14: return [SpecialChartComposer polygonChart];
+
         default:
             break;
     }

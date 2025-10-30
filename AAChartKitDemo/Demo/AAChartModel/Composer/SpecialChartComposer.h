@@ -49,5 +49,7 @@
 + (AAChartModel *)pyramidChart;
 + (AAChartModel *)funnelChart;
 + (AAChartModel *)errorBarChart;
++ (AAChartModel *)gaugeChart;
++ (AAChartModel *)polygonChart;
 
 @end

@@ -595,6 +595,9 @@
               @"Pyramid Chart---金字塔图",
               @"Funnel Chart---漏斗图",
               @"Error Bar Chart---误差图",
+
+              @"Gauge Chart---仪表盘图",
+              @"Polygon Chart---多边形图",
             ],
             /*自定义风格样式图表*/
             @[@"Colorful Column Chart---多彩条形图",
