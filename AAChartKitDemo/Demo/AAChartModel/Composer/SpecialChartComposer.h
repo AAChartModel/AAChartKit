@@ -36,6 +36,12 @@
 
 @interface SpecialChartComposer : NSObject
 
++ (AAChartModel *)polarColumnChart;
++ (AAChartModel *)polarBarChart;
++ (AAChartModel *)polarLineChart;
++ (AAChartModel *)polarAreaChart;
++ (AAChartModel *)stepLineChart;
++ (AAChartModel *)stepAreaChart;
 + (AAChartModel *)pieChart;
 + (AAChartModel *)bubbleChart;
 + (AAChartModel *)packedbubbleChart;
@@ -51,5 +57,9 @@
 + (AAChartModel *)errorBarChart;
 + (AAChartModel *)gaugeChart;
 + (AAChartModel *)polygonChart;
-
+//        [SpecialChartComposer areasplinerangeChart],
+   
+//        [SpecialChartComposer errorbarChart],  再实现这两个方法就行了, 其他的不用管了
++ (AAChartModel *)areasplinerangeChart;
++ (AAChartModel *)errorbarChart;
 @end
