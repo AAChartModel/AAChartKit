@@ -100,14 +100,17 @@
         [MixedChartComposer arearangeMixedLineChart],
         [MixedChartComposer columnrangeMixedLineChart],
         [MixedChartComposer stackingColumnMixedLineChart],
+        [MixedChartComposer dashStyleTypeMixedChart],
+        [MixedChartComposer allLineDashStyleTypesMixedChart],
+        [MixedChartComposer negativeColorMixedColumnChart],
         [MixedChartComposer scatterMixedLineChart],
+        [MixedChartComposer negativeColorMixedBubbleChart],
         [MixedChartComposer polygonMixedScatterChart],
-//        [MixedChartComposer polarChartMixedChart],
+        [MixedChartComposer polarMixedChart],
         [MixedChartComposer columnMixedScatterChart],
-//        [MixedChartComposer areasplinerangeMixedColumnrangeMixedLineChart],
-//        [MixedChartComposer boxplotMixedScatterChartWithJitter],
-//        [MixedChartComposer multiLevelStopsArrGradientColorAreasplineMixedLineChart],
-        [MixedChartComposer arearangeMixedLineChart],
+        [MixedChartComposer negativeColorMixedAreasplineChart],
+        [MixedChartComposer negativeColorMixedAreasChart],
+        [MixedChartComposer areaChartMixedStepAreaChart],
     ];
 }
 
@@ -294,7 +297,7 @@
 
 + (NSArray<AAChartModel *> *)customStyleForBubbleChartItems {
     return @[
-//        [CustomStyleForBubbleChartComposer negativeColorMixedBubbleChart],
+        [CustomStyleForBubbleChartComposer negativeColorMixedBubbleChart],
         [CustomStyleForBubbleChartComposer showAARadialGradientPositionAllEnumValuesWithBubbleChart],
     ];
 }
