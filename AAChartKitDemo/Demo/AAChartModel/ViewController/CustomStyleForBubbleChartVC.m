@@ -22,7 +22,7 @@
 
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (selectedIndex) {
-        case 0:  return [CustomStyleForBubbleChartComposer configureNegativeColorMixedBubbleChart];
+        case 0:  return [CustomStyleForBubbleChartComposer negativeColorMixedBubbleChart];
         case 1:  return [CustomStyleForBubbleChartComposer showAARadialGradientPositionAllEnumValuesWithBubbleChart];
             
         default:

@@ -41,7 +41,7 @@
 
 
 
-+ (AAChartModel *)configureArearangeMixedLineChart {
++ (AAChartModel *)arearangeMixedLineChart {
     return AAChartModel.new
     .titleSet(@"面积范围均线图")
     .subtitleSet(@"混合图的一种")
@@ -134,7 +134,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureColumnrangeMixedLineChart {
++ (AAChartModel *)columnrangeMixedLineChart {
     return AAChartModel.new
     .titleSet(@"城市气温指数")
     .subtitleSet(@"虚拟数据")
@@ -187,7 +187,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureStackingColumnMixedLineChart {
++ (AAChartModel *)stackingColumnMixedLineChart {
     AAMarker *aaMarker = AAMarker.new
     .radiusSet(@7)//曲线连接点半径，默认是4
     .symbolSet(AAChartSymbolTypeCircle)//曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"
@@ -230,7 +230,7 @@
     
 }
 
-+ (AAChartModel *)configureDashStyleTypeMixedChart {
++ (AAChartModel *)dashStyleTypeMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
@@ -277,7 +277,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureAllLineDashStyleTypesMixedChart {
++ (AAChartModel *)allLineDashStyleTypesMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeSpline)//图表类型
     .yAxisVisibleSet(true)//设置 Y 轴是否可见
@@ -344,7 +344,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureNegativeColorMixedColumnChart {
++ (AAChartModel *)negativeColorMixedColumnChart {
     return AAChartModel.new
     .legendEnabledSet(false)
     .chartTypeSet(AAChartTypeColumn)
@@ -365,7 +365,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureScatterMixedLineChart {
++ (AAChartModel *)scatterMixedLineChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeScatter)
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
@@ -588,7 +588,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureNegativeColorMixedBubbleChart {
++ (AAChartModel *)negativeColorMixedBubbleChart {
     NSArray *dataArr = @[
         @[@0,@0,@5],@[@0,@1,@1],@[@0,@2,@0],@[@0,@3,@0],@[@0,@4,@0],@[@0,@5,@0],@[@0,@6,@0],
         @[@0,@7,@0],@[@0,@8,@0],@[@0,@9,@0],@[@0,@10,@0],@[@0,@11,@2],@[@0,@12,@4],@[@0,@13,@1],
@@ -635,7 +635,7 @@
     ]);
 }
 
-+ (AAChartModel *)configurePolygonMixedScatterChart {
++ (AAChartModel *)polygonMixedScatterChart {
     NSArray *polygonDataArr = @[
         @[@153, @42], @[@149, @46],
         @[@149, @55], @[@152, @60],
@@ -726,7 +726,7 @@
     ]);
 }
 
-+ (AAChartModel *)configurePolarMixedChart {
++ (AAChartModel *)polarMixedChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .polarSet(true)
@@ -746,7 +746,7 @@
     ]);
 }
 
-+ (AAChartModel *)configureColumnMixedScatterChart {
++ (AAChartModel *)columnMixedScatterChart {
     return AAChartModel.new
     .xAxisReversedSet(true)
     .chartTypeSet(AAChartTypeColumn)
@@ -786,7 +786,7 @@
 }
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/921
-+ (AAChartModel *)configureNegativeColorMixedAreasplineChart {
++ (AAChartModel *)negativeColorMixedAreasplineChart {
     NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
@@ -832,7 +832,7 @@
 }
 
 //GitHub issue https://github.com/AAChartModel/AAChartKit/issues/953
-+ (AAChartModel *)configureNegativeColorMixedAreasChart {
++ (AAChartModel *)negativeColorMixedAreasChart {
     NSArray *blueStopsArr = @[
         @[@0.0, AARgbaColor(30, 144, 255, 0.0)],//颜色字符串设置支持十六进制类型和 rgba 类型
         @[@0.8, AARgbaColor(30, 144, 255, 0.0)],
@@ -913,7 +913,7 @@
                ]);
 }
 
-+ (AAChartModel *)configureAreaChartMixedStepAreaChart {
++ (AAChartModel *)areaChartMixedStepAreaChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .markerRadiusSet(@0)
