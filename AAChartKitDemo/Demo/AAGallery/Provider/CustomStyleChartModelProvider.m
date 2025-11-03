@@ -97,17 +97,17 @@
 
 + (NSArray<AAChartModel *> *)mixedChartItems {
     return @[
-//        [MixedChartComposer arearangeMixedLineChart],
-//        [MixedChartComposer columnrangeMixedLineChart],
-//        [MixedChartComposer stackingColumnMixedLineChart],
-//        [MixedChartComposer scatterMixedLineChart],
-//        [MixedChartComposer polygonMixedScatterChart],
+        [MixedChartComposer arearangeMixedLineChart],
+        [MixedChartComposer columnrangeMixedLineChart],
+        [MixedChartComposer stackingColumnMixedLineChart],
+        [MixedChartComposer scatterMixedLineChart],
+        [MixedChartComposer polygonMixedScatterChart],
 //        [MixedChartComposer polarChartMixedChart],
-//        [MixedChartComposer columnMixedScatterChart],
+        [MixedChartComposer columnMixedScatterChart],
 //        [MixedChartComposer areasplinerangeMixedColumnrangeMixedLineChart],
 //        [MixedChartComposer boxplotMixedScatterChartWithJitter],
 //        [MixedChartComposer multiLevelStopsArrGradientColorAreasplineMixedLineChart],
-//        [MixedChartComposer arearangeMixedLineChart],
+        [MixedChartComposer arearangeMixedLineChart],
     ];
 }
 
