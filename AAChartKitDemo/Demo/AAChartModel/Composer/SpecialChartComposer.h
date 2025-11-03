@@ -47,19 +47,15 @@
 + (AAChartModel *)packedbubbleChart;
 + (AAChartModel *)scatterChart;
 + (AAChartModel *)arearangeChart;
-+ (AAChartModel *)areaslinerangeChart;
++ (AAChartModel *)areasplinerangeChart;
 + (AAChartModel *)columnpyramidChart;
 + (AAChartModel *)columnrangeChart;
 + (AAChartModel *)boxplotChart;
 + (AAChartModel *)waterfallChart;
 + (AAChartModel *)pyramidChart;
 + (AAChartModel *)funnelChart;
-+ (AAChartModel *)errorBarChart;
++ (AAChartModel *)errorbarChart;
 + (AAChartModel *)gaugeChart;
 + (AAChartModel *)polygonChart;
-//        [SpecialChartComposer areasplinerangeChart],
-   
-//        [SpecialChartComposer errorbarChart],  再实现这两个方法就行了, 其他的不用管了
-+ (AAChartModel *)areasplinerangeChart;
-+ (AAChartModel *)errorbarChart;
+
 @end

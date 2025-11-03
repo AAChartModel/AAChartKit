@@ -27,7 +27,7 @@
         case 2: return [SpecialChartComposer bubbleChart];
         case 3: return [SpecialChartComposer scatterChart];
         case 4: return [SpecialChartComposer arearangeChart];
-        case 5: return [SpecialChartComposer areaslinerangeChart];
+        case 5: return [SpecialChartComposer areasplinerangeChart];
         case 6: return [SpecialChartComposer columnpyramidChart];
 
         case 7: return [SpecialChartComposer columnrangeChart];
@@ -35,7 +35,7 @@
         case 9: return [SpecialChartComposer waterfallChart];
         case 10: return [SpecialChartComposer pyramidChart];
         case 11: return [SpecialChartComposer funnelChart];
-        case 12: return [SpecialChartComposer errorBarChart];
+        case 12: return [SpecialChartComposer errorbarChart];
         case 13: return [SpecialChartComposer gaugeChart];
         case 14: return [SpecialChartComposer polygonChart];
 

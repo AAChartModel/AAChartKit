@@ -757,11 +757,7 @@
         AASeriesElement.new
         .nameSet(@"2020")
         .colorSet(AAColor.redColor)
-//        .fillColorSet(AAGradientColor.linearGradientWithDirection(AAGradientDirectionToBottom, stops:@[
-//            @[ @0.0, AARgba(255, 0, 0, 1.0) ], //颜色字符串设置支持十六进制类型和 rgba 类型
-//            @[ @0.6, AARgba(255, 0, 0, 0.2) ],
-//            @[ @1.0, AARgba(255, 0, 0, 0.0) ]
-//        ]))
+        .fillColorSet((id)AAGradientColor.pixieDustColor)
         .dataSet(@[
             /* 2014-03-01 */
             @[ @13936356, @2.1, @8.9 ],
@@ -830,108 +826,6 @@
     ]);
     
     return aaChartModel;
-}
-
-+ (AAChartModel *)errorbarChart {
-    AAChartModel *aaChartModel = AAChartModel.new
-    .categoriesSet(@[
-        @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
-        @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"
-    ])
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"降水")
-        .typeSet(AAChartTypeColumn)
-        .dataSet(@[@49.9, @71.5, @106.4, @129.2, @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4]),
-        AASeriesElement.new
-        .nameSet(@"降雨误差")
-        .typeSet(AAChartTypeErrorbar)
-        .lineWidthSet(@2.5)
-        .colorSet(AAColor.redColor)
-        .dataSet(@[
-            @[@48, @51],
-            @[@68, @73],
-            @[@92, @110],
-            @[@128, @136],
-            @[@140, @150],
-            @[@171, @179],
-            @[@135, @143],
-            @[@142, @149],
-            @[@204, @220],
-            @[@189, @199],
-            @[@95, @110],
-            @[@52, @56]
-        ])
-        .tooltipSet(AATooltip.new
-            .pointFormatSet(@"(误差范围: {point.low}-{point.high} mm)<br/>"))
-    ]);
-    
-    return aaChartModel;
-}
-
-+ (AAChartModel *)areaslinerangeChart {
-    return AAChartModel.new
-    .chartTypeSet(AAChartTypeAreasplinerange)
-    .titleSet(@"黄昏别馆日气温起伏图")
-    .subtitleSet(@"实时监测")
-    .yAxisTitleSet(@"摄氏度")
-    .xAxisVisibleSet(false)
-    .dataLabelsEnabledSet(false)
-    .markerRadiusSet(@5)
-    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
-    .seriesSet(@[
-        AASeriesElement.new
-        .nameSet(@"2020")
-        .typeSet(AAChartTypeAreasplinerange)
-        .colorSet((id)AAGradientColor.pixieDustColor)
-        .dataSet(@[
-            /* 2014-03-01 */
-            @[@1393635600000, @2.1,  @8.9],
-            @[@1393722000000, @0.6,  @6.1],
-            @[@1393808400000, @1.2,  @9.4],
-            @[@1393894800000, @2.6,  @7.3],
-            @[@1393981200000, @3.9,  @9.5],
-            @[@1394067600000, @5.3,  @9.9],
-            @[@1394154000000, @2.7,  @7.1],
-            @[@1394240400000, @4.0,  @8.6],
-            @[@1394326800000, @6.1, @10.7],
-            @[@1394413200000, @4.2,  @7.6],
-            @[@1394499600000, @2.5,  @9.0],
-            @[@1394586000000, @0.2,  @7.0],
-            @[@1394672400000, @-1.2, @6.9],
-            @[@1394758800000, @0.4,  @6.7],
-            @[@1394845200000, @0.2,  @5.1],
-            @[@1394931600000, @-0.1, @6.0],
-            @[@1395018000000, @1.0,  @5.6],
-            @[@1395104400000, @-1.1, @6.3],
-            @[@1395190800000, @-1.9, @0.3],
-            @[@1395277200000, @0.3,  @4.5],
-            @[@1395363600000, @2.4,  @6.7],
-            @[@1395450000000, @3.2,  @9.2],
-            @[@1395536400000, @1.7,  @3.6],
-            /* 2014-04-01 */
-            @[@1396310400000, @-1.2, @8.8],
-            @[@1396396800000, @2.2,  @7.6],
-            @[@1396483200000, @-1.0,@10.1],
-            @[@1396569600000, @-1.8, @9.5],
-            @[@1396656000000, @0.2,  @7.7],
-            @[@1396742400000, @3.7,  @6.4],
-            @[@1396828800000, @5.8, @11.4],
-            @[@1396915200000, @5.4,  @8.7],
-            @[@1397001600000, @4.5, @12.2],
-            @[@1397088000000, @3.9,  @8.4],
-            @[@1397174400000, @4.5,  @8.0],
-            @[@1397260800000, @6.6,  @8.4],
-            @[@1397347200000, @3.7,  @7.3],
-            @[@1397433600000, @3.6,  @6.7],
-            @[@1397520000000, @3.5,  @8.3],
-            @[@1397606400000, @1.5, @10.2],
-            @[@1397692800000, @4.9,  @9.4],
-            @[@1397779200000, @3.5, @12.0],
-            @[@1397865600000, @1.5, @13.1],
-            @[@1397952000000, @1.7, @15.6],
-                 ]),
-               ]);
 }
 
 + (AAChartModel *)columnpyramidChart {
@@ -1066,7 +960,7 @@
                ]);
 }
 
-+ (AAChartModel *)errorBarChart {
++ (AAChartModel *)errorbarChart {
     return AAChartModel.new
     .categoriesSet(@[
         @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",
