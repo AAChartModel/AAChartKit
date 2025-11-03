@@ -157,6 +157,7 @@
 		84F998622EB38C8F00D41382 /* CustomStyleForSplineChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998522EB38C8F00D41382 /* CustomStyleForSplineChartComposer.m */; };
 		84F998632EB38C8F00D41382 /* CustomStyleForAreaChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998372EB38C8F00D41382 /* CustomStyleForAreaChartComposer.m */; };
 		84F998662EB38C8F00D41382 /* CustomStyleForLineChartComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998492EB38C8F00D41382 /* CustomStyleForLineChartComposer2.m */; };
+		84F9986D2EB8A83000D41382 /* OfficalSamplesChartProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9986C2EB8A83000D41382 /* OfficalSamplesChartProvider.m */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -482,6 +483,8 @@
 		84F9984C2EB38C8F00D41382 /* CustomStyleForPieChartComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleForPieChartComposer.m; sourceTree = "<group>"; };
 		84F998512EB38C8F00D41382 /* CustomStyleForSplineChartComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleForSplineChartComposer.h; sourceTree = "<group>"; };
 		84F998522EB38C8F00D41382 /* CustomStyleForSplineChartComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleForSplineChartComposer.m; sourceTree = "<group>"; };
+		84F9986B2EB8A83000D41382 /* OfficalSamplesChartProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfficalSamplesChartProvider.h; sourceTree = "<group>"; };
+		84F9986C2EB8A83000D41382 /* OfficalSamplesChartProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfficalSamplesChartProvider.m; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -615,6 +618,7 @@
 		713F54341E7B71C000D506C7 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				84F998692EB8A7F100D41382 /* AAGallery */,
 				844F4D3F2C0857670019F786 /* AAChartListVC */,
 				844F4D402C0857860019F786 /* AAChartModel */,
 				844F4D422C0857B20019F786 /* AAOptions */,
@@ -1119,6 +1123,23 @@
 			path = Composer;
 			sourceTree = "<group>";
 		};
+		84F998692EB8A7F100D41382 /* AAGallery */ = {
+			isa = PBXGroup;
+			children = (
+				84F9986A2EB8A7F700D41382 /* Provider */,
+			);
+			path = AAGallery;
+			sourceTree = "<group>";
+		};
+		84F9986A2EB8A7F700D41382 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				84F9986B2EB8A83000D41382 /* OfficalSamplesChartProvider.h */,
+				84F9986C2EB8A83000D41382 /* OfficalSamplesChartProvider.m */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1266,6 +1287,7 @@
 				449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */,
 				1E66D200210AF4ED007EAB8C /* AAPlotOptions.m in Sources */,
 				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
+				84F9986D2EB8A83000D41382 /* OfficalSamplesChartProvider.m in Sources */,
 				845FC2392EA0CF67002FC670 /* JSFunctionBeforeAndAfterRenderingComposer7.m in Sources */,
 				1E66D202210AF4ED007EAB8C /* AALine.m in Sources */,
 				848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */,
