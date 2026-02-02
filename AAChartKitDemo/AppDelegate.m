@@ -61,7 +61,54 @@
 #import "AAOptionsWithJSForChartEventsListVC.h"
 #import "AAChartModelListVC.h"
 
-@interface AppDelegate ()
+@interface AASidebarListController : UITableViewController
+
+@property (nonatomic, copy) NSArray<UINavigationController *> *viewControllers;
+@property (nonatomic, copy) void (^onSelectViewController)(UINavigationController *viewController);
+
+- (instancetype)initWithViewControllers:(NSArray<UINavigationController *> *)viewControllers;
+
+@end
+
+@implementation AASidebarListController
+
+- (instancetype)initWithViewControllers:(NSArray<UINavigationController *> *)viewControllers {
+    self = [super initWithStyle:UITableViewStyleInsetGrouped];
+    if (self) {
+        _viewControllers = [viewControllers copy];
+        self.title = @"AAChartKit";
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SidebarCell"];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.viewControllers.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell" forIndexPath:indexPath];
+    UINavigationController *nav = self.viewControllers[indexPath.row];
+    NSString *title = nav.tabBarItem.title ?: nav.topViewController.title ?: @"";
+    cell.textLabel.text = title;
+    cell.imageView.image = nav.tabBarItem.image;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UINavigationController *nav = self.viewControllers[indexPath.row];
+    if (self.onSelectViewController) {
+        self.onSelectViewController(nav);
+    }
+}
+
+@end
+
+@interface AppDelegate ()<UISplitViewControllerDelegate>
 
 @end
 
@@ -74,16 +121,24 @@
     // 创建 UIWindow 实例
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 使用 createTabBarController 方法创建 UITabBarController
-    UITabBarController *tabBarController = [self createTabBarController];
+    // 创建根视图控制器
+    UIViewController *rootViewController = [self createRootViewController];
     
-    // 将 UITabBarController 设置为根视图控制器
-    self.window.rootViewController = tabBarController;
+    // 将根视图控制器设置为窗口
+    self.window.rootViewController = rootViewController;
     
     // 设置窗口可见
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (UIViewController *)createRootViewController {
+#if TARGET_OS_MACCATALYST
+    return [self createSidebarSplitViewController];
+#else
+    return [self createTabBarController];
+#endif
 }
 
 // 创建一个 UITabBarController
@@ -114,6 +169,59 @@
     
     // 返回 UITabBarController
     return tabBarController;
+}
+
+// 创建一个 macOS 左侧侧边栏风格的 SplitViewController
+- (UISplitViewController *)createSidebarSplitViewController {
+    UISplitViewController *splitViewController = [[UISplitViewController alloc] initWithStyle:UISplitViewControllerStyleDoubleColumn];
+    splitViewController.delegate = self;
+    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeOneBesideSecondary;
+    splitViewController.preferredSplitBehavior = UISplitViewControllerSplitBehaviorTile;
+    splitViewController.presentsWithGesture = YES;
+    splitViewController.displayModeButtonVisibility = UISplitViewControllerDisplayModeButtonVisibilityNever;
+    splitViewController.minimumPrimaryColumnWidth = 220;
+    splitViewController.maximumPrimaryColumnWidth = 320;
+    splitViewController.preferredPrimaryColumnWidthFraction = 0.25;
+    splitViewController.primaryBackgroundStyle = UISplitViewControllerBackgroundStyleSidebar;
+    
+    NSMutableArray<UINavigationController *> *viewControllers = [NSMutableArray array];
+    UINavigationController *firstVC = [self createFirstNavigationController];
+    [viewControllers addObject:firstVC];
+    
+    UINavigationController *secondVC = [self createSecondNavigationController];
+    [viewControllers addObject:secondVC];
+    
+    UINavigationController *thirdVC = [self createThirdNavigationController];
+    [viewControllers addObject:thirdVC];
+    
+    AASidebarListController *sidebarController = [[AASidebarListController alloc] initWithViewControllers:viewControllers];
+    UINavigationController *sidebarNav = [[UINavigationController alloc] initWithRootViewController:sidebarController];
+    
+    __weak UISplitViewController *weakSplitVC = splitViewController;
+    sidebarController.onSelectViewController = ^(UINavigationController *viewController) {
+        if (!weakSplitVC) { return; }
+        [weakSplitVC setViewController:sidebarNav forColumn:UISplitViewControllerColumnPrimary];
+        [weakSplitVC setViewController:viewController forColumn:UISplitViewControllerColumnSecondary];
+        weakSplitVC.preferredDisplayMode = UISplitViewControllerDisplayModeOneBesideSecondary;
+    };
+    
+    splitViewController.viewControllers = @[sidebarNav, firstVC];
+    [sidebarController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                             animated:NO
+                                       scrollPosition:UITableViewScrollPositionNone];
+    return splitViewController;
+}
+
+#pragma mark - UISplitViewControllerDelegate
+
+- (UISplitViewControllerDisplayMode)splitViewControllerPreferredDisplayMode:(UISplitViewController *)svc {
+    return UISplitViewControllerDisplayModeOneBesideSecondary;
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)svc
+ collapseSecondaryViewController:(UIViewController *)secondaryViewController
+       ontoPrimaryViewController:(UIViewController *)primaryViewController {
+    return NO;
 }
 
 - (UIViewController *)createFirstViewController {
@@ -173,6 +281,7 @@
 - (UINavigationController *)createFirstNavigationController {
     UIViewController *firstViewController = [self createFirstViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:firstViewController];
+    navigationController.tabBarItem = firstViewController.tabBarItem;
     return navigationController;
 }
 
@@ -180,6 +289,7 @@
 - (UINavigationController *)createSecondNavigationController {
     UIViewController *secondViewController = [self createSecondViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:secondViewController];
+    navigationController.tabBarItem = secondViewController.tabBarItem;
     return navigationController;
 }
 
@@ -188,6 +298,7 @@
 - (UINavigationController *)createThirdNavigationController {
     UIViewController *thirdViewController = [self createThirdViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:thirdViewController];
+    navigationController.tabBarItem = thirdViewController.tabBarItem;
     return navigationController;
 }
 
