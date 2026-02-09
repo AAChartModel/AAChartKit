@@ -79,6 +79,7 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
                 .dataSet(mainSeriesData)
                 .lineWidthSet(@2.5)
                 .colorSet(@"#1f78ff")
+                .zIndexSet(@3)
                 .clipSet(NO),
             AASeriesElement.new
                 .nameSet(@"单点右侧补线")
@@ -86,6 +87,7 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
                 .dataSet(extensionSeriesData)
                 .lineWidthSet(@2.5)
                 .colorSet(@"#1f78ff")
+                .zIndexSet(@1)
                 .clipSet(NO)
                 .showInLegendSet(NO)
                 .enableMouseTrackingSet(@NO)
@@ -148,4 +150,3 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
 }
 
 @end
-
