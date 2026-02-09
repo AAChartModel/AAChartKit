@@ -71,6 +71,7 @@
 #import "CustomTooltipClickEventCallbackVC.h"
 #import "DynamicTooltipAfterClickRequestVC.h"
 #import "LineChartViewController.h"
+#import "AAOptionsComposerChartListVC.h"
 
 #define AAGrayColor            [UIColor colorWithRed:245/255.0 green:246/255.0 blue:247/255.0 alpha:1.0]
 
@@ -521,6 +522,14 @@
             }
         }
             break;
+
+        case 31: {
+            /*AAOptions Composer Provider 测试入口*/
+            AAOptionsComposerChartListVC *vc = AAOptionsComposerChartListVC.new;
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
             
         default:
             break;
@@ -561,7 +570,8 @@
             @"JS Function For AALegend Click Events---通过 JSFunction 自定义 Legend  图例的点击事件",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
             @"Line Chart Options---通过 AAOptions 自定义折线图",
-            @"Custom Event Callback Message---完全自定义图表交互事件回调的信息"
+            @"Custom Event Callback Message---完全自定义图表交互事件回调的信息",
+            @"AAOptions Composer Provider---AAOptions 统一预览测试入口",
         ];
     }
     return _sectionTypeArr;
@@ -933,6 +943,9 @@
             @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息",
               @"CustomTooltipClickEventCallbackVC---自定义 tooltip 点击事件",
               @"DynamicTooltipAfterClickRequestVC---点击图表📊后请求数据动态更新 tooltip 内容",
+            ],
+            /*AAOptions Composer Provider 测试*/
+            @[@"Open AAOptions Composer ChartListVC---统一预览全部 AAOptions 样例",
             ]
             
         ];
