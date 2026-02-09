@@ -22,10 +22,11 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
     NSArray<NSNumber *> *sourceValues = values.count > 0 ? values : self.defaultValues;
     NSInteger xMax = kAAFixedWidthSlotCount - 1;
 
-    // 主线数据：负责真实 marker 与主体连线。
-    NSArray<AADataElement *> *mainSeriesData = [self mainSeriesDataWithValues:sourceValues slotCount:kAAFixedWidthSlotCount];
-    // 辅助线数据：仅用于“1 个点时向右补线”，避免把虚拟点混入主 series。
-    NSArray<NSArray<NSNumber *> *> *extensionSeriesData = [self singlePointExtensionDataWithValues:sourceValues slotCount:kAAFixedWidthSlotCount];
+    // 真实点数据：仅用于 scatter（marker 与交互）。
+    NSArray<AADataElement *> *distributedData = [self distributedDataWithValues:sourceValues slotCount:kAAFixedWidthSlotCount];
+    // 连线数据：仅用于 line（单点时负责向右补线）。
+    NSArray<NSArray<NSNumber *> *> *lineSeriesData = [self lineSeriesDataWithDistributedData:distributedData
+                                                                                    slotCount:kAAFixedWidthSlotCount];
 
     return AAOptions.new
         .chartSet(AAChart.new
@@ -33,7 +34,7 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
             .spacingSet(@[@20, @18, @20, @18])
                   )
         .titleSet(AATitle.new
-            .textSet(@"固定宽度排点示例"))
+            .textSet(@"固定宽度排点示例（line + scatter）"))
         .subtitleSet(AASubtitle.new
             .textSet(@"x 轴固定 10 个槽位（0~9）"))
         .legendSet(AALegend.new
@@ -53,6 +54,23 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
             .pointFormatSet(@"槽位 x: <b>{point.x}</b><br/>值 y: <b>{point.y}</b>"))
         .plotOptionsSet(AAPlotOptions.new
             .seriesSet(AASeries.new
+                .animationSet(AAAnimation.new
+                    .durationSet(@380))
+                .statesSet(AAStates.new
+                    .inactiveSet(AAInactive.new
+                        .opacitySet(@1))))
+            .lineSet(AALine.new
+                .lineWidthSet(@2.5)
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .enabledSet(NO)
+                        .lineWidthPlusSet(@0))))
+            .scatterSet(AAScatter.new
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .haloSet(AAHalo.new
+                            .sizeSet(@14)
+                            .opacitySet(@0.4))))
                 .markerSet(AAMarker.new
                     .enabledSet(YES)
                     .radiusSet(@7)
@@ -65,38 +83,34 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
                             .radiusPlusSet(@4)
                             .fillColorSet(@"#ff2f71")
                             .lineColorSet(@"#ffffff")
-                            .lineWidthSet(@3))))
-                .statesSet(AAStates.new
-                    .hoverSet(AAHover.new
-                        .haloSet(AAHalo.new
-                            .sizeSet(@14)
-                            .opacitySet(@0.4))
-                        .lineWidthPlusSet(@1))
-                    .inactiveSet(AAInactive.new
-                        .opacitySet(@1)))))
+                            .lineWidthSet(@3)))))
+        )
         .seriesSet(@[
             AASeriesElement.new
-                .nameSet(@"均匀分布线")
+                .nameSet(@"均匀分布连线")
                 .typeSet(AAChartTypeLine)
-                .dataSet(mainSeriesData)
+                .dataSet(lineSeriesData)
                 .lineWidthSet(@2.5)
                 .colorSet(@"#1f78ff")
-                // 主 series 层级更高，确保 marker 不被补线覆盖。
-                .zIndexSet(@3)
-                .clipSet(NO),
-            AASeriesElement.new
-                .nameSet(@"单点右侧补线")
-                .typeSet(AAChartTypeLine)
-                .dataSet(extensionSeriesData)
-                .lineWidthSet(@2.5)
-                .colorSet(@"#1f78ff")
-                // 补线层级更低，避免压住主 series 的 marker。
+                // line 只负责连线，不参与交互，避免出现“隐藏点 hover”。
+                .enableMouseTrackingSet(@NO)
+                .markerSet(AAMarker.new.enabledSet(NO))
+                .statesSet(AAStates.new
+                    .hoverSet(AAHover.new
+                        .enabledSet(NO)
+                        .lineWidthPlusSet(@0)))
                 .zIndexSet(@1)
                 .clipSet(NO)
+                .showInLegendSet(NO),
+            AASeriesElement.new
+                .nameSet(@"真实数据点")
+                .typeSet(AAChartTypeScatter)
+                .dataSet(distributedData)
+                .colorSet(@"#1f78ff")
+                // scatter 层级更高，确保 marker 始终显示在折线上方。
+                .zIndexSet(@4)
+                .clipSet(NO)
                 .showInLegendSet(NO)
-                // 辅助线不参与交互（无 tooltip / hover / click）。
-                .enableMouseTrackingSet(@NO)
-                .markerSet(AAMarker.new.enabledSet(NO)),
         ]);
 }
 
@@ -109,8 +123,8 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
     return tickPositions;
 }
 
-+ (NSArray<AADataElement *> *)mainSeriesDataWithValues:(NSArray<NSNumber *> *)values
-                                             slotCount:(NSInteger)slotCount {
++ (NSArray<AADataElement *> *)distributedDataWithValues:(NSArray<NSNumber *> *)values
+                                               slotCount:(NSInteger)slotCount {
     NSUInteger count = values.count;
     if (count == 0 || slotCount <= 1) {
         return @[];
@@ -124,7 +138,6 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
             AADataElement.new
                 .xSet(@0)
                 .ySet(values.firstObject)
-                .markerSet(AAMarker.new.enabledSet(YES))
         ];
     }
 
@@ -137,26 +150,37 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
         [data addObject:AADataElement.new
             .xSet(@(xValue))
             .ySet(values[i])
-            .markerSet(AAMarker.new.enabledSet(YES))
         ];
     }
 
     return data;
 }
 
-+ (NSArray<NSArray<NSNumber *> *> *)singlePointExtensionDataWithValues:(NSArray<NSNumber *> *)values
++ (NSArray<NSArray<NSNumber *> *> *)lineSeriesDataWithDistributedData:(NSArray<AADataElement *> *)distributedData
                                                               slotCount:(NSInteger)slotCount {
-    if (values.count != 1 || slotCount <= 1) {
+    if (distributedData.count == 0 || slotCount <= 1) {
         return @[];
     }
 
-    // 仅在“1 个点”时生成补线：从 (0, y) 延伸到最右槽位 (maxX, y)。
-    NSNumber *yValue = values.firstObject;
-    NSInteger maxX = slotCount - 1;
-    return @[
-        @[@0, yValue],
-        @[@(maxX), yValue],
-    ];
+    if (distributedData.count == 1) {
+        // 仅在“1 个点”时生成补线：从 (0, y) 延伸到最右槽位 (maxX, y)。
+        NSNumber *yValue = distributedData.firstObject.y;
+        NSInteger maxX = slotCount - 1;
+        return @[
+            @[@0, yValue],
+            @[@(maxX), yValue],
+        ];
+    }
+
+    NSMutableArray<NSArray<NSNumber *> *> *lineData = [NSMutableArray arrayWithCapacity:distributedData.count];
+    for (AADataElement *point in distributedData) {
+        if (point.x == nil || point.y == nil) {
+            continue;
+        }
+        [lineData addObject:@[point.x, point.y]];
+    }
+
+    return lineData;
 }
 
 @end
