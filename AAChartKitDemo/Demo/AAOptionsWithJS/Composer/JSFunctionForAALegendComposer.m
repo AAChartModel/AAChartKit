@@ -41,17 +41,6 @@
 
 @implementation JSFunctionForAALegendComposer
 
-+ (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
-    switch (selectedIndex) {
-        case 0: return [self disableLegendClickEventForNormalChart];//禁用普通图表的图例点击事件
-        case 1: return [self disableLegendClickEventForPieChart];//禁用饼图的图例点击事件
-        case 2: return [self customLegendItemClickEvent];//自定义图例点击事件
-
-        default:
-            return nil;
-    }
-}
-
 + (AAOptions *)disableLegendClickEventForNormalChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)

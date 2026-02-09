@@ -6,8 +6,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAAAxisComposer : NSObject
 
-+ (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex;
-
 + (AAOptions *)customYAxisLabels;
 + (AAOptions *)customYAxisLabels2;
 + (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix1;

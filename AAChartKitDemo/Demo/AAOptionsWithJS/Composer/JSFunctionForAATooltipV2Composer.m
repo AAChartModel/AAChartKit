@@ -15,22 +15,6 @@
 
 @implementation JSFunctionForAATooltipV2Composer
 
-
-+ (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (selectedIndex) {
-        case 0: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
-        case 1: return [self customTooltipPostionerFunction];//自定义浮动提示框 Positioner 函数
-        case 2: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Positioner 函数来实现一个位置固定的提示框
-        case 3: return [self customPlotAreaOutsideComlicatedTooltipStyle];//通过 Positioner 函数来实现绘图区外的复杂浮动提示框样式
-        case 4: return [self makePieChartShow0Data];//使饼图显示为 0 的数据
-        case 5: return [self customizeTooltipShapeAndShadowBeSpecialStyle];
-        case 6: return [self specialStyleForAreaChart];//特殊样式的区域图
-
-        default:
-            return nil;
-    }
-}
-
 //https://github.com/AAChartModel/AAChartKit/issues/966
 + (AAOptions *)customTooltipPostionerFunction {
     NSArray *categoriesArr = @[
@@ -194,7 +178,7 @@
     .heightSet(@"70%")//https://api.highcharts.com/highcharts/yAxis.height
     ;
     
-    CGFloat screenWidth = self.view.frame.size.width;
+    CGFloat screenWidth = UIScreen.mainScreen.bounds.size.width;
     
     NSString *positionerStr = [NSString stringWithFormat:@AAJSFunc(function (labelWidth, labelHeight, point) {
         const xPosition = point.plotX;

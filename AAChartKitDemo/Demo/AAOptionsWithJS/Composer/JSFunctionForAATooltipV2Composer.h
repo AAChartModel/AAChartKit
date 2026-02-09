@@ -6,8 +6,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JSFunctionForAATooltipV2Composer : NSObject
 
-+ (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex;
-
 + (AAOptions *)customTooltipPostionerFunction;
 + (AAOptions *)fixedTooltipPositionByCustomPositionerFunction;
 + (AAOptions *)customPlotAreaOutsideComlicatedTooltipStyle;
