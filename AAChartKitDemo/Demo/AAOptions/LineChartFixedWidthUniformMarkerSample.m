@@ -8,6 +8,7 @@
 #import "LineChartFixedWidthUniformMarkerSample.h"
 #import <math.h>
 
+// 固定宽度槽位总数：x 轴按 0~9 共 10 个槽位分布。
 static const NSInteger kAAFixedWidthSlotCount = 10;
 
 @implementation LineChartFixedWidthUniformMarkerSample
@@ -17,18 +18,19 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
 }
 
 + (AAOptions *)fixedWidthUniformMarkerLineChartOptionsWithValues:(NSArray<NSNumber *> * _Nullable)values {
+    // 允许调用方传入任意长度数据；为空时回退默认数据。
     NSArray<NSNumber *> *sourceValues = values.count > 0 ? values : self.defaultValues;
     NSInteger xMax = kAAFixedWidthSlotCount - 1;
 
+    // 主线数据：负责真实 marker 与主体连线。
     NSArray<AADataElement *> *mainSeriesData = [self mainSeriesDataWithValues:sourceValues slotCount:kAAFixedWidthSlotCount];
+    // 辅助线数据：仅用于“1 个点时向右补线”，避免把虚拟点混入主 series。
     NSArray<NSArray<NSNumber *> *> *extensionSeriesData = [self singlePointExtensionDataWithValues:sourceValues slotCount:kAAFixedWidthSlotCount];
 
     return AAOptions.new
         .chartSet(AAChart.new
             .typeSet(AAChartTypeLine)
             .spacingSet(@[@20, @18, @20, @18])
-//            .scrollablePlotAreaSet(AAScrollablePlotArea.new
-//                .minWidthSet(@760))
                   )
         .titleSet(AATitle.new
             .textSet(@"固定宽度排点示例"))
@@ -79,6 +81,7 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
                 .dataSet(mainSeriesData)
                 .lineWidthSet(@2.5)
                 .colorSet(@"#1f78ff")
+                // 主 series 层级更高，确保 marker 不被补线覆盖。
                 .zIndexSet(@3)
                 .clipSet(NO),
             AASeriesElement.new
@@ -87,15 +90,18 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
                 .dataSet(extensionSeriesData)
                 .lineWidthSet(@2.5)
                 .colorSet(@"#1f78ff")
+                // 补线层级更低，避免压住主 series 的 marker。
                 .zIndexSet(@1)
                 .clipSet(NO)
                 .showInLegendSet(NO)
+                // 辅助线不参与交互（无 tooltip / hover / click）。
                 .enableMouseTrackingSet(@NO)
                 .markerSet(AAMarker.new.enabledSet(NO)),
         ]);
 }
 
 + (NSArray<NSNumber *> *)tickPositionsWithSlotCount:(NSInteger)slotCount {
+    // 固定刻度：0,1,2...9，对应固定槽位语义。
     NSMutableArray<NSNumber *> *tickPositions = [NSMutableArray arrayWithCapacity:(NSUInteger)slotCount];
     for (NSInteger i = 0; i < slotCount; i++) {
         [tickPositions addObject:@(i)];
@@ -112,6 +118,8 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
 
     NSInteger maxX = slotCount - 1;
     if (count == 1) {
+        // 单点场景：主 series 只放真实点（x=0）。
+        // 右侧延长线由辅助 series 绘制，避免虚拟点参与 hover。
         return @[
             AADataElement.new
                 .xSet(@0)
@@ -124,6 +132,7 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
     NSMutableArray<AADataElement *> *data = [NSMutableArray arrayWithCapacity:count];
     for (NSUInteger i = 0; i < count; i++) {
         double rawX = step * (double)i;
+        // 保留 6 位小数，避免浮点误差造成 tooltip/x 轴显示抖动。
         double xValue = round(rawX * 1000000.0) / 1000000.0;
         [data addObject:AADataElement.new
             .xSet(@(xValue))
@@ -141,6 +150,7 @@ static const NSInteger kAAFixedWidthSlotCount = 10;
         return @[];
     }
 
+    // 仅在“1 个点”时生成补线：从 (0, y) 延伸到最右槽位 (maxX, y)。
     NSNumber *yValue = values.firstObject;
     NSInteger maxX = slotCount - 1;
     return @[
