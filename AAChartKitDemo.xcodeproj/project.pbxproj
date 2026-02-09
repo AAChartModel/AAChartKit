@@ -144,6 +144,7 @@
 		84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */; };
 		84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */; };
 		84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E41D592E65707A00AA6D19 /* LineChartViewController.m */; };
+		84F2E1012F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2E1032F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.m */; };
 		84F998022EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998012EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m */; };
 		84F998252EB365E300D41382 /* MixedChartComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998242EB365E300D41382 /* MixedChartComposer2.m */; };
 		84F998312EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9982B2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m */; };
@@ -458,6 +459,8 @@
 		84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipVC2.m; sourceTree = "<group>"; };
 		84E41D582E65707A00AA6D19 /* LineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
 		84E41D592E65707A00AA6D19 /* LineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartViewController.m; sourceTree = "<group>"; };
+		84F2E1022F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartFixedWidthUniformMarkerSample.h; sourceTree = "<group>"; };
+		84F2E1032F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartFixedWidthUniformMarkerSample.m; sourceTree = "<group>"; };
 		84F998002EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer3.h; sourceTree = "<group>"; };
 		84F998012EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer3.m; sourceTree = "<group>"; };
 		84F998232EB365BC00D41382 /* MixedChartComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartComposer2.h; sourceTree = "<group>"; };
@@ -789,6 +792,8 @@
 				84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */,
 				84E41D582E65707A00AA6D19 /* LineChartViewController.h */,
 				84E41D592E65707A00AA6D19 /* LineChartViewController.m */,
+				84F2E1022F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.h */,
+				84F2E1032F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.m */,
 			);
 			path = AAOptions;
 			sourceTree = "<group>";
@@ -1385,6 +1390,7 @@
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
 				8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */,
 				84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */,
+				84F2E1012F03A0C700A0B112 /* LineChartFixedWidthUniformMarkerSample.m in Sources */,
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
 				84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */,

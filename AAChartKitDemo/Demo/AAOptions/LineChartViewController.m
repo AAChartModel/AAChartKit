@@ -7,6 +7,7 @@
 //
 
 #import "LineChartViewController.h"
+#import "LineChartFixedWidthUniformMarkerSample.h"
 
 @interface LineChartViewController ()
 
@@ -23,11 +24,31 @@
 - (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
     switch (self.selectedIndex) {
         case 0: return [self customconnectNullsWithZonesForLineChart];//自定义 connectNulls + zones 实现同一个 line chart 局部断开和局部重连
+        case 1: return [self fixedWidthSlotsLineChartWithOnePointAndRightExtension];//固定宽度槽位: 1 个点 + 右侧补线
+        case 2: return [self fixedWidthSlotsLineChartWithTwoPoints];//固定宽度槽位: 2 个点
+        case 3: return [self fixedWidthSlotsLineChartWithThreePoints];//固定宽度槽位: 3 个点
+        case 4: return [self fixedWidthSlotsLineChartWithTenPoints];//固定宽度槽位: 10 个点
 
         default:
             break;
     }
     return nil;
+}
+
+- (AAOptions *)fixedWidthSlotsLineChartWithOnePointAndRightExtension {
+    return [LineChartFixedWidthUniformMarkerSample fixedWidthUniformMarkerLineChartOptionsWithValues:@[@12]];
+}
+
+- (AAOptions *)fixedWidthSlotsLineChartWithTwoPoints {
+    return [LineChartFixedWidthUniformMarkerSample fixedWidthUniformMarkerLineChartOptionsWithValues:@[@12, @18]];
+}
+
+- (AAOptions *)fixedWidthSlotsLineChartWithThreePoints {
+    return [LineChartFixedWidthUniformMarkerSample fixedWidthUniformMarkerLineChartOptionsWithValues:@[@12, @18, @9]];
+}
+
+- (AAOptions *)fixedWidthSlotsLineChartWithTenPoints {
+    return [LineChartFixedWidthUniformMarkerSample fixedWidthUniformMarkerLineChartOptionsWithValues:[LineChartFixedWidthUniformMarkerSample defaultValues]];
 }
 
 //// --- 1. 初始配置 ---

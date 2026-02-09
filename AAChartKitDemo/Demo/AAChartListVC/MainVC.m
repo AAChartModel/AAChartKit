@@ -924,6 +924,10 @@
             ],
             /*自定义折线图*/
             @[@"customconnectNullsWithZonesForLineChart---自定义 connectNulls + zones 实现同一个 line chart 局部断开和局部重连",
+              @"fixedWidthSlotsLineChartWithOnePointAndRightExtension---固定 10 槽位: 1 点显示 + 向右补线",
+              @"fixedWidthSlotsLineChartWithTwoPoints---固定 10 槽位: 2 点显示在左右两端",
+              @"fixedWidthSlotsLineChartWithThreePoints---固定 10 槽位: 3 点显示在左/中/右",
+              @"fixedWidthSlotsLineChartWithTenPoints---固定 10 槽位: 10 点等距填满 + 强化 Marker",
             ],
             /*完全自定义图表交互事件回调的信息*/
             @[@"Custom Click Event Callback Message---自定义点击及滑动事件回调的信息",
