@@ -2,9 +2,6 @@
 //  JSFunctionForAATooltipVC2.h
 //  AAChartKitDemo
 //
-//  Created by AnAn on 2022/10/9.
-//  Copyright © 2022 An An. All rights reserved.
-//
 
 #import "AABaseChartVC.h"
 

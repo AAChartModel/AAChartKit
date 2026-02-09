@@ -32,20 +32,16 @@
  
  */
 
-#import "JSFunctionForAALegendVC.h"
+#import "JSFunctionForAALegendComposer.h"
+#import "AAChartKit.h"
 
-@interface JSFunctionForAALegendVC ()
+@interface JSFunctionForAALegendComposer ()
 
 @end
 
-@implementation JSFunctionForAALegendVC
+@implementation JSFunctionForAALegendComposer
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
++ (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
     switch (selectedIndex) {
         case 0: return [self disableLegendClickEventForNormalChart];//禁用普通图表的图例点击事件
         case 1: return [self disableLegendClickEventForPieChart];//禁用饼图的图例点击事件
@@ -56,7 +52,7 @@
     }
 }
 
-- (AAOptions *)disableLegendClickEventForNormalChart {
++ (AAOptions *)disableLegendClickEventForNormalChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)
     .stackingSet(AAChartStackingTypeNormal)
@@ -105,7 +101,7 @@
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/391
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/393
 //https://github.com/AAChartModel/AAChartKit/issues/1180
-- (AAOptions *)disableLegendClickEventForPieChart {
++ (AAOptions *)disableLegendClickEventForPieChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypePie)
     .backgroundColorSet(AAColor.whiteColor)
@@ -166,7 +162,7 @@
 //显示 --> 隐藏；
 //隐藏 --> 显示；
 //Customized legengItemClick Event online: http://code.hcharts.cn/rencht/hhhhLv/share
-- (AAOptions *)customLegendItemClickEvent {
++ (AAOptions *)customLegendItemClickEvent {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)
     .stackingSet(AAChartStackingTypeNormal)

@@ -6,22 +6,18 @@
 //  Copyright © 2022 An An. All rights reserved.
 //
 
-#import "JSFunctionForAATooltipVC2.h"
+#import "JSFunctionForAATooltipV2Composer.h"
+#import "AAChartKit.h"
 
-@interface JSFunctionForAATooltipVC2 ()
+@interface JSFunctionForAATooltipV2Composer ()
 
 @end
 
-@implementation JSFunctionForAATooltipVC2
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+@implementation JSFunctionForAATooltipV2Composer
 
 
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (self.selectedIndex) {
++ (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    switch (selectedIndex) {
         case 0: return [self customColumnChartBorderStyleAndStatesHoverColor];//自定义📊柱状图的 border 样式和手指或鼠标 hover 时的显示效果
         case 1: return [self customTooltipPostionerFunction];//自定义浮动提示框 Positioner 函数
         case 2: return [self fixedTooltipPositionByCustomPositionerFunction];//通过 Positioner 函数来实现一个位置固定的提示框
@@ -36,7 +32,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/966
-- (AAOptions *)customTooltipPostionerFunction {
++ (AAOptions *)customTooltipPostionerFunction {
     NSArray *categoriesArr = @[
         @"孤岛危机",
         @"使命召唤",
@@ -76,7 +72,7 @@
     return aaOptions;
 }
 
-- (AAOptions *)fixedTooltipPositionByCustomPositionerFunction {
++ (AAOptions *)fixedTooltipPositionByCustomPositionerFunction {
     AAOptions *aaOptions = [self customTooltipPostionerFunction];
     aaOptions.tooltip
     .positionerSet(@AAJSFunc(function () {
@@ -90,7 +86,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1033
-- (AAOptions *)customPlotAreaOutsideComlicatedTooltipStyle {
++ (AAOptions *)customPlotAreaOutsideComlicatedTooltipStyle {
     NSArray *categoriesArr = @[
         @"11 月 01 日",
         @"11 月 02 日",
@@ -228,7 +224,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1042
-- (AAOptions *)makePieChartShow0Data {
++ (AAOptions *)makePieChartShow0Data {
     return AAOptions.new
     .titleSet((id)NSNull.null)
     .chartSet(AAChart.new
@@ -261,7 +257,7 @@
 //a string should be returned. In case of split tooltips, it should return an array where the first item
 //is the header, and subsequent items are mapped to the points. Return `false` to disable tooltip for a
 //specific point on series.
-- (AAOptions *)customColumnChartBorderStyleAndStatesHoverColor {
++ (AAOptions *)customColumnChartBorderStyleAndStatesHoverColor {
     AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeColumn)
         .stackingSet(AAChartStackingTypeNormal)
@@ -303,7 +299,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1406
 //https://www.highcharts.com/forum/viewtopic.php?f=9&t=49629
-- (AAOptions *)customizeTooltipShapeAndShadowBeSpecialStyle {
++ (AAOptions *)customizeTooltipShapeAndShadowBeSpecialStyle {
   AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
                 .typeSet(AAChartTypeSpline)
@@ -375,7 +371,7 @@ NSDate *getDateUTC(NSInteger hour, NSInteger minute) {
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1586
-- (AAOptions *)specialStyleForAreaChart {
++ (AAOptions *)specialStyleForAreaChart {
     AAOptions *aaOptions = AAOptions.new
         .chartSet(AAChart.new
             .typeSet(AAChartTypeArea) // Chart type: area

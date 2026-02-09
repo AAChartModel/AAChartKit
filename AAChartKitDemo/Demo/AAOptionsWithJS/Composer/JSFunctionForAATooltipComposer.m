@@ -32,19 +32,14 @@
  
  */
 
-#import "JSFunctionForAATooltipVC.h"
+#import "JSFunctionForAATooltipComposer.h"
+#import "AAChartKit.h"
 #import "AADateUTCTool.h"
 
-@implementation JSFunctionForAATooltipVC
+@implementation JSFunctionForAATooltipComposer
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // highcharts default colors ["#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1"]
-    // rainbow colors 🌈 [@"#eb2100", @"#eb3600", @"#d0570e", @"#d0a00e", @"#34da62", @"#00e9db", @"#00c0e9", @"#0096f3", @"#33CCFF", @"#33FFCC'];
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
-    switch (self.selectedIndex) {
++ (id)chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex {
+    switch (selectedIndex) {
         case 0: return [self customAreaChartTooltipStyleWithSimpleFormatString];//简单字符串拼接
         case 1: return [self customAreaChartTooltipStyleWithDifferentUnitSuffix];//自定义不同单位后缀
         case 2: return [self customAreaChartTooltipStyleWithColorfulHtmlLabels];//自定义多彩颜色文字
@@ -64,7 +59,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/569
-- (AAOptions *)customAreaChartTooltipStyleWithSimpleFormatString {
++ (AAOptions *)customAreaChartTooltipStyleWithSimpleFormatString {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"近三个月金价起伏周期图")//图表主标题
@@ -128,7 +123,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/647
 //https://github.com/AAChartModel/AAChartKit/issues/891
-- (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {    
++ (AAOptions *)customAreaChartTooltipStyleWithDifferentUnitSuffix {    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
     .titleSet(@"2014 ~ 2020 汪星人生存指数")//图表主标题
@@ -186,7 +181,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/653
-- (AAOptions *)customAreaChartTooltipStyleWithColorfulHtmlLabels {
++ (AAOptions *)customAreaChartTooltipStyleWithColorfulHtmlLabels {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
@@ -247,7 +242,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/651
-- (AAOptions *)customLineChartTooltipStyleWhenValueBeZeroDoNotShow {
++ (AAOptions *)customLineChartTooltipStyleWhenValueBeZeroDoNotShow {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .colorsThemeSet(@[@"red",@"mediumspringgreen",@"deepskyblue",@"sandybrown"])//设置主体颜色数组
@@ -305,7 +300,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/685
-- (AAOptions *)customStackedAndGroupedColumnChartTooltip {
++ (AAOptions *)customStackedAndGroupedColumnChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .titleSet(@"Total fruit consumtion, grouped by gender")
     .subtitleSet(@"stacked and grouped")
@@ -360,7 +355,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/704
-- (AAOptions *)configureSpecialStyleTrianglePolarChart {
++ (AAOptions *)configureSpecialStyleTrianglePolarChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)
     .connectNullsSet(true)
@@ -422,7 +417,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/781
-- (AAOptions *)customArearangeChartTooltip {
++ (AAOptions *)customArearangeChartTooltip {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumnrange)
     .titleSet(@"面积范围图")
@@ -496,7 +491,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/577
 //https://github.com/AAChartModel/AAChartKit/issues/937
-- (AAOptions *)customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter {
++ (AAOptions *)customLineChartOriginalPointPositionByConfiguringXAxisFormatterAndTooltipFormatter {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .titleSet((@"Custom Line Chart Original Point Position"))//图表主标题
@@ -552,7 +547,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/826
-- (AAOptions *)customTooltipWhichDataSourceComeFromOutSideRatherThanSeries {
++ (AAOptions *)customTooltipWhichDataSourceComeFromOutSideRatherThanSeries {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeColumn)//图表类型
     .yAxisLineWidthSet(@1)//Y轴轴线线宽为0即是隐藏Y轴轴线
@@ -663,7 +658,7 @@ function () {
 
 //https://github.com/AAChartModel/AAChartKit/issues/970
 //通过自定义 div 的 css 样式来自定义复杂效果的 tooltip 浮动提示框
-- (AAOptions *)customAreasplineChartTooltipStyleByDivWithCSS {
++ (AAOptions *)customAreasplineChartTooltipStyleByDivWithCSS {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .colorsThemeSet(@[@"#FFD700"/*(纯金色)*/,@"#ffc069",])//设置主体颜色数组

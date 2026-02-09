@@ -78,6 +78,11 @@
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
 		8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */; };
+		841F495B2F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49562F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m */; };
+		841F495C2F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49542F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m */; };
+		841F495D2F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49522F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m */; };
+		841F495E2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F495A2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m */; };
+		841F495F2F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49582F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m */; };
 		843E5E162E7B9F230030D36E /* AAAxisTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E5E152E7B9F230030D36E /* AAAxisTitle.m */; };
 		844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */; };
 		84526E0E2CEC733600EB2563 /* AAGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E0D2CEC733600EB2563 /* AAGauge.m */; };
@@ -328,6 +333,16 @@
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer.h; sourceTree = "<group>"; };
 		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer.m; sourceTree = "<group>"; };
+		841F49512F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAAxisComposer.h; sourceTree = "<group>"; };
+		841F49522F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAAxisComposer.m; sourceTree = "<group>"; };
+		841F49532F39CE0E007B01F0 /* JSFunctionForAALegendComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAALegendComposer.h; sourceTree = "<group>"; };
+		841F49542F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAALegendComposer.m; sourceTree = "<group>"; };
+		841F49552F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAOptionsComposer.h; sourceTree = "<group>"; };
+		841F49562F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAOptionsComposer.m; sourceTree = "<group>"; };
+		841F49572F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipComposer.h; sourceTree = "<group>"; };
+		841F49582F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipComposer.m; sourceTree = "<group>"; };
+		841F49592F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipV2Composer.h; sourceTree = "<group>"; };
+		841F495A2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipV2Composer.m; sourceTree = "<group>"; };
 		843E5E142E7B9F230030D36E /* AAAxisTitle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAxisTitle.h; sourceTree = "<group>"; };
 		843E5E152E7B9F230030D36E /* AAAxisTitle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAxisTitle.m; sourceTree = "<group>"; };
 		844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer2.h; sourceTree = "<group>"; };
@@ -703,6 +718,40 @@
 			path = AAChartKitDemoUITests;
 			sourceTree = "<group>";
 		};
+		841F494F2F39CDD8007B01F0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */,
+				44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */,
+				84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */,
+				84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */,
+				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
+				8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */,
+				8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */,
+				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
+				84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */,
+				84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		841F49502F39CDE5007B01F0 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				841F49512F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.h */,
+				841F49522F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m */,
+				841F49532F39CE0E007B01F0 /* JSFunctionForAALegendComposer.h */,
+				841F49542F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m */,
+				841F49552F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.h */,
+				841F49562F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m */,
+				841F49572F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.h */,
+				841F49582F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m */,
+				841F49592F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.h */,
+				841F495A2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m */,
+			);
+			path = Composer;
+			sourceTree = "<group>";
+		};
 		8441C0AD2C733A0300A6F784 /* AAAxis */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,16 +850,8 @@
 		844F4D432C08580A0019F786 /* AAOptionsWithJS */ = {
 			isa = PBXGroup;
 			children = (
-				44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */,
-				44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */,
-				84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */,
-				84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */,
-				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
-				8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */,
-				8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */,
-				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
-				84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */,
-				84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */,
+				841F494F2F39CDD8007B01F0 /* ViewController */,
+				841F49502F39CDE5007B01F0 /* Composer */,
 			);
 			path = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -1293,6 +1334,11 @@
 				8481C2E32DF98039006EFC41 /* BasicChartComposer.m in Sources */,
 				44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */,
 				84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */,
+				841F495B2F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m in Sources */,
+				841F495C2F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m in Sources */,
+				841F495D2F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m in Sources */,
+				841F495E2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m in Sources */,
+				841F495F2F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m in Sources */,
 				1E66D213210AF4ED007EAB8C /* AAPie.m in Sources */,
 				449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */,
 				1E66D200210AF4ED007EAB8C /* AAPlotOptions.m in Sources */,

@@ -32,20 +32,16 @@
  
  */
 
-#import "JSFunctionForAAAxisVC.h"
+#import "JSFunctionForAAAxisComposer.h"
+#import "AAChartKit.h"
 
-@interface JSFunctionForAAAxisVC ()
+@interface JSFunctionForAAAxisComposer ()
 
 @end
 
-@implementation JSFunctionForAAAxisVC
+@implementation JSFunctionForAAAxisComposer
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
++ (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
     switch (selectedIndex) {
         case 0: return [self customYAxisLabels];//自定义Y轴文字
         case 1: return [self customYAxisLabels2];//自定义Y轴文字2
@@ -67,7 +63,7 @@
 
 
 //https://github.com/AAChartModel/AAChartKit/issues/675
-- (AAOptions *)customYAxisLabels {
++ (AAOptions *)customYAxisLabels {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .colorsThemeSet(@[@"#04d69f",@"#1e90ff",@"#ef476f",@"#ffd066",])
@@ -102,7 +98,7 @@
     return aaOptions;
 }
 
-- (AAOptions *)customYAxisLabels2 {
++ (AAOptions *)customYAxisLabels2 {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)//图表类型
     .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式为外边缘空白
@@ -153,7 +149,7 @@
 }
 
 //Stupid method
-- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix1 {
++ (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix1 {
     AAChartModel *aaChartModel = AAChartModel.new
         .chartTypeSet(AAChartTypeArea)//图表类型
         .titleSet(@"Custom X Axis Labels Text")//图表主标题
@@ -194,7 +190,7 @@
 }
 
 //Smart method
-- (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix2 {
++ (AAOptions *)customAreaChartXAxisLabelsTextUnitSuffix2 {
     AAOptions *aaOptions = [self customAreaChartXAxisLabelsTextUnitSuffix1];
     aaOptions.xAxis
         .labelsSet(AALabels.new
@@ -208,7 +204,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/901
 //https://github.com/AAChartModel/AAChartKit/issues/952
-- (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart {
++ (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart {
     AAChart *aaChart = AAChart.new
     .backgroundColorSet(AAColor.whiteColor);
     
@@ -329,7 +325,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1324
-- (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart2 {
++ (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart2 {
     AAChart *aaChart = AAChart.new
     .backgroundColorSet(AAColor.whiteColor);
     
@@ -437,7 +433,7 @@
 
 //https://github.com/AAChartModel/AAChartKit/issues/1324
 //https://github.com/AAChartModel/AAChartKit/issues/1330
-- (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart3 {
++ (AAOptions *)configureTheAxesLabelsFormattersOfDoubleYAxesChart3 {
     AAChart *aaChart = AAChart.new
     .backgroundColorSet(AAColor.whiteColor);
     
@@ -552,7 +548,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1217
-- (AAOptions *)customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters {
++ (AAOptions *)customColumnChartXAxisLabelsTextByInterceptTheFirstFourCharacters {
     AAChartModel *aaChartModel = AAChartModel.new
             .chartTypeSet(AAChartTypeBar)//图表类型
             .titleSet(@"春江花月夜")//图表主标题
@@ -612,7 +608,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/852 自定义蜘蛛🕷图样式
-- (AAOptions *)customSpiderChartStyle {
++ (AAOptions *)customSpiderChartStyle {
     NSArray *categoryArr = @[
         @"周转天数(天)",
         @"订单满足率",
@@ -693,7 +689,7 @@
 
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
-- (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
++ (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .dataLabelsEnabledSet(true)
@@ -732,7 +728,7 @@
 
 // Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
 // Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
-- (AAOptions *)customXAxisLabelsBeImages {
++ (AAOptions *)customXAxisLabelsBeImages {
     NSArray *nameArr = @[
         @"South Korea",
         @"Japan",
@@ -824,7 +820,7 @@
 // Refer to GitHub issue: https://github.com/AAChartModel/AAChartKit/issues/938
 // Refer to online chart sample: https://www.highcharts.com/demo/column-comparison
 //https://github.com/AAChartModel/AAChartKit/issues/1404
-- (AAOptions *)loadImageForAATooltip {
++ (AAOptions *)loadImageForAATooltip {
     NSArray *nameArr = @[
         @"South Korea",
         @"Japan",

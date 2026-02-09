@@ -6,21 +6,17 @@
 //  Copyright © 2022 An An. All rights reserved.
 //
 
-#import "JSFunctionForAAOptionsVC.h"
+#import "JSFunctionForAAOptionsComposer.h"
+#import "AAChartKit.h"
 
-@interface JSFunctionForAAOptionsVC ()
+@interface JSFunctionForAAOptionsComposer ()
 
 @end
 
-@implementation JSFunctionForAAOptionsVC
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+@implementation JSFunctionForAAOptionsComposer
 
 //https://github.com/AAChartModel/AAChartKit/issues/780
-- (AAOptions *)customDoubleXAxesChart {    
++ (AAOptions *)customDoubleXAxesChart {    
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeColumn)
@@ -105,7 +101,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/967
-- (AAOptions *)disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction {
++ (AAOptions *)disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeBar)
     .titleSet(@"Custom Bar Chart select color")
@@ -142,7 +138,7 @@
 }
 
 // Refer to the issue https://github.com/AAChartModel/AAChartKit/issues/589
-- (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
++ (AAOptions *)customizeEveryDataLabelSinglelyByDataLabelsFormatter {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreaspline)//图表类型
     .dataLabelsEnabledSet(true)
@@ -180,7 +176,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit-Swift/issues/404
-- (AAOptions *)configureColorfulDataLabelsForPieChart {
++ (AAOptions *)configureColorfulDataLabelsForPieChart {
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .marginLeftSet(@120)
@@ -228,7 +224,7 @@
 }
 
 //https://github.com/AAChartModel/AAChartKit/issues/1427
-- (AAOptions *)customizeCrosshairsStyle {
++ (AAOptions *)customizeCrosshairsStyle {
     return AAOptions.new
         .plotOptionsSet(AAPlotOptions.new
                         .seriesSet(AASeries.new
