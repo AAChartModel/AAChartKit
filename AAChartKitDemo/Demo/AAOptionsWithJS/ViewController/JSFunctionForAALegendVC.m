@@ -4,6 +4,7 @@
 //
 
 #import "JSFunctionForAALegendVC.h"
+#import "JSFunctionForAALegendComposer.h"
 
 @interface JSFunctionForAALegendVC ()
 
@@ -17,7 +18,7 @@
 }
 
 - (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
-    return nil;
+    return [JSFunctionForAALegendComposer chartConfigurationWithSelectedIndex:selectedIndex];
 }
 
 @end

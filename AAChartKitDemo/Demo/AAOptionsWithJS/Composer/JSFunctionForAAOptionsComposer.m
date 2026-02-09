@@ -15,6 +15,18 @@
 
 @implementation JSFunctionForAAOptionsComposer
 
++ (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
+    switch (selectedIndex) {
+        case 0: return [self customDoubleXAxesChart];
+        case 1: return [self disableColumnChartUnselectEventEffectBySeriesPointEventClickFunction];
+        case 2: return [self customizeEveryDataLabelSinglelyByDataLabelsFormatter];
+        case 3: return [self configureColorfulDataLabelsForPieChart];
+        case 4: return [self customizeCrosshairsStyle];
+        default:
+            return nil;
+    }
+}
+
 //https://github.com/AAChartModel/AAChartKit/issues/780
 + (AAOptions *)customDoubleXAxesChart {    
     AAOptions *aaOptions = AAOptions.new

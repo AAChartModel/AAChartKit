@@ -4,6 +4,7 @@
 //
 
 #import "JSFunctionForAATooltipVC.h"
+#import "JSFunctionForAATooltipComposer.h"
 
 @interface JSFunctionForAATooltipVC ()
 
@@ -17,7 +18,7 @@
 }
 
 - (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
-    return nil;
+    return [JSFunctionForAATooltipComposer chartConfigurationWithSelectedIndex:(NSUInteger)selectedIndex];
 }
 
 @end

@@ -4,6 +4,7 @@
 //
 
 #import "JSFunctionForAAOptionsVC.h"
+#import "JSFunctionForAAOptionsComposer.h"
 
 @interface JSFunctionForAAOptionsVC ()
 
@@ -17,7 +18,7 @@
 }
 
 - (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
-    return nil;
+    return [JSFunctionForAAOptionsComposer chartConfigurationWithSelectedIndex:selectedIndex];
 }
 
 @end

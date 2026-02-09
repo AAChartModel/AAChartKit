@@ -4,6 +4,7 @@
 //
 
 #import "JSFunctionForAAAxisVC.h"
+#import "JSFunctionForAAAxisComposer.h"
 
 @interface JSFunctionForAAAxisVC ()
 
@@ -17,7 +18,7 @@
 }
 
 - (id)chartConfigurationWithSelectedIndex:(NSInteger)selectedIndex {
-    return nil;
+    return [JSFunctionForAAAxisComposer chartConfigurationWithSelectedIndex:selectedIndex];
 }
 
 @end
