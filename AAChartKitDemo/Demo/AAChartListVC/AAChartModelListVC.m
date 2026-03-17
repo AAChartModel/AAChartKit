@@ -13,6 +13,8 @@
 #import "MixedChartVC.h"
 #import "CustomStyleForScatterChartVC.h"
 #import "CustomStyleForBubbleChartVC.h"
+#import "CustomTableViewCell.h"
+#import "AAEasyTool.h"
 
 @interface AAChartModelListVC ()
 
@@ -144,18 +146,51 @@
         
         /*Custom Style For Scatter Chart*/
         @[
-            @"customScatterChartMarkerSymbolContent",
-            @"drawLineMixedScatterChartWithPointsCoordinates2",
+            @"customScatterChartMarkerSymbolContent---自定义散点图的标志点内容",
+            @"drawLineMixedScatterChartWithPointsCoordinates2---通过点坐标绘制折线混合散点图",
         ],
         /*Custom Style For Bubble Chart*/
         @[
-            @"negativeColorMixedBubbleChart",
-            @"showAARadialGradientPositionAllEnumValuesWithBubbleChart",
+            @"negativeColorMixedBubbleChart---基准线以下异色混合气泡图",
+            @"showAARadialGradientPositionAllEnumValuesWithBubbleChart---气泡图径向渐变位置枚举示例",
         ],
     ];
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpMainTableView];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomTableViewCell"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
+    cell.numberLabel.layer.masksToBounds = true;
+    cell.numberLabel.layer.cornerRadius = 10;
+    UIColor *numBgColor = [AAEasyTool colorWithHexString:@[@"#5470c6",
+                                                           @"#91cc75",
+                                                           @"#fac858",
+                                                           @"#ee6666",
+                                                           @"#73c0de",
+                                                           @"#3ba272",
+                                                           @"#fc8452",
+                                                           @"#9a60b4",
+                                                           @"#ea7ccc"][indexPath.section % 9]];
+    cell.numberLabel.backgroundColor = numBgColor;
+    cell.numberLabel.textColor = UIColor.whiteColor;
+
+    NSString *textStr = self.chartTypeTitleArr[(NSUInteger)indexPath.section][(NSUInteger)indexPath.row];
+    NSArray<NSString *> *textStrArr = [textStr componentsSeparatedByString:@"---"];
+    cell.titleLabel.text = textStrArr.firstObject;
+    cell.subtitleLabel.text = textStrArr.count > 1 ? textStrArr[1] : @"";
+
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
+    } else {
+        cell.backgroundColor = UIColor.whiteColor;
+    }
+
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
