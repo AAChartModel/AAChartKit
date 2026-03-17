@@ -49,15 +49,6 @@
 #import "DataSortingWithAnimationChartVC.h"
 #import "ChartAdvancedUpdatingFeatureVC.h"
 #import "TestAAChartViewForXibVC.h"
-#import "PieChartOptionsVC.h"
-#import "PolarChartOptionsVC.h"
-#import "MultiYAxesChartOptionsVC.h"
-#import "PlotLinesBandsZonesOptionsVC.h"
-#import "AreasplineChartOptionsVC.h"
-#import "TooltipOptionsVC.h"
-#import "DataLabelsOptionsVC.h"
-#import "XAxisYAxisLabelsOptionsVC.h"
-#import "XAxisYAxisTypeOptionsVC.h"
 #import "JSFunctionForAAAxisVC.h"
 #import "JSFunctionForAALegendVC.h"
 #import "JSFunctionForAAChartEventsVC.h"
@@ -325,95 +316,6 @@
             break;
             
         case 12: {
-            /*通过 AAOptions 自定义饼图"*/
-            PieChartOptionsVC *vc = PieChartOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 13: {
-            /*通过 AAOptions 自定义极地图"*/
-            PolarChartOptionsVC *vc = PolarChartOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 14: {
-            /*通过 AAOptions 自定义多 Y 轴图表"*/
-            MultiYAxesChartOptionsVC *vc = MultiYAxesChartOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 15: {
-            /*颜色线-颜色带-值颜色分区图表"*/
-            PlotLinesBandsZonesOptionsVC *vc = PlotLinesBandsZonesOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 16: {
-            /*通过 AAOptions 自定义饼图"*/
-            AreasplineChartOptionsVC *vc = AreasplineChartOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 17: {
-            /*通过 AAOptions 自定义 tooltip 浮动提示框*/
-            TooltipOptionsVC *vc = TooltipOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 18: {
-            /*通过 AAOptions 自定义 DataLabels 数据标签*/
-            DataLabelsOptionsVC *vc = DataLabelsOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 19: {
-            /*通过 AAOptions 自定义 X 轴 Y 轴的文字标签*/
-            XAxisYAxisLabelsOptionsVC *vc = XAxisYAxisLabelsOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 20: {
-            /*通过 AAOptions 自定义 X 轴 Y 轴的轴类型*/
-            XAxisYAxisTypeOptionsVC *vc = XAxisYAxisTypeOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case 21: {
             /*通过 AAOptions 自定义 X 轴 Y 轴的 Labels*/
             JSFunctionForAAAxisVC *vc = JSFunctionForAAAxisVC.new;
             vc.selectedIndex = row;
@@ -422,7 +324,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 22: {
+        case 13: {
             /*通过 AAOptions 自定义 AALegend*/
             JSFunctionForAALegendVC *vc = JSFunctionForAALegendVC.new;
             vc.selectedIndex = row;
@@ -431,7 +333,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 23: {
+        case 14: {
             /*通过 AAOptions 自定义 AAChartEvents*/
             JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
             vc.selectedIndex = row;
@@ -441,7 +343,7 @@
         }
             break;
             
-        case 24: {
+        case 15: {
             /*通过 AAOptions 自定义折线图*/
             LineChartViewController *vc = LineChartViewController.new;
             vc.selectedIndex = row;
@@ -451,7 +353,7 @@
         }
             break;
                         
-        case 25: {
+        case 16: {
             /*完全自定义图表交互事件回调的信息*/
             if (row == 0) {
                 CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
@@ -469,7 +371,7 @@
         }
             break;
 
-        case 26: {
+        case 17: {
             /*AAOptions Composer Provider 测试入口*/
             AAOptionsComposerChartListVC *vc = AAOptionsComposerChartListVC.new;
             vc.hidesBottomBarWhenPushed = YES;
@@ -498,15 +400,6 @@
             @"Data Sorting Chart With Animation---图表动态排序",
             @"Chart Options Advanced Updating---图表高级更新",
             @"XIB AAChartView---在 XIB 中创建 AAChartView",
-            @"Pie Chart Options---通过 AAOptions 自定义饼图",
-            @"Polar Chart Options---通过 AAOptions 自定义极地图",
-            @"Multi YAxes Chart Options---通过 AAOptions 自定义多 Y 轴图表",
-            @"Plot Lines Bands Zones Options---颜色线-颜色带-值颜色分区图表",
-            @"Areaspline Chart Options---通过 AAOptions 自定义曲线区域面积图",
-            @"Tooltip Options---通过 AAOptions 自定义 tooltip 浮动提示框",
-            @"DataLabels Options---通过 AAOptions 自定义 DataLabels 数据标签",
-            @"X Axis Y Axis Labels Options---通过 AAOptions 自定义 X 轴 Y 轴的文字标签",
-            @"X Axis Y Axis Type Options---通过 AAOptions 自定义 X 轴 Y 轴的轴类型",
             @"JS Function For AAAxis Labels---通过 JSFunction 自定义 AAAxis 的 Labels",
             @"JS Function For AALegend Click Events---通过 JSFunction 自定义 Legend  图例的点击事件",
             @"JS Function For AAChartEvents---通过 JSFunction 自定义 AAChartEvents 的事件",
@@ -637,84 +530,6 @@
             /*在 XIB 中创建 AAChartView*/
             @[@"XIB AAChartView---在 XIB 中创建 AAChartView",
             ],
-            /*自定义饼图*/
-            @[@"configurePieChartTitle---自定义饼图的标题",
-              @"adjustPieChartTitleAndDataLabelFontStyle---自定义饼图的标题和 DataLabels",
-              @"adjustPieChartTitleAndDataLabelFontStyle2---自定义饼图的标题和 DataLabels",
-              @"configurePieChartFormatProperty---配置饼图的 dataLabels 的 format 属性",
-              @"doubleLayerHalfPieChart---双层嵌套的玉阕图",
-              @"adjustPieChartDataLabelStyleAndPostion---调整饼图的 dataLabels 样式及位置使其居中",
-              @"showPieChartPointNamePointYAndPointPercentForDataLabels---自定义饼图 dataLabels 显示 point.name, point.x, point.percent",
-
-            ],
-            /*polar chart 极地图*/
-            @[@"configureThePolygonPolarChart---简单的多边形雷达图",
-              @"adjustGroupPaddingForPolarChart---调整柱状极地图的 GroupPadding",
-              @"configureTriangleRadarChart---带有颜色标志带的三角形雷达图",
-              @"configureQuadrangleRadarChart---带有颜色标志带的四角形雷达图",
-              @"configurePentagonRadarChart---带有颜色标志带的五角形雷达图",
-              @"configureHexagonRadarChart---带有颜色标志带的六角形雷达图",
-              @"configureSpiderWebRadarChart---带有颜色标志带的🕸蜘蛛网状雷达图",
-//                      case 7: return [self radarChartWithCategories];//五边形雷达图示例(带有类别文字)
-              @"radarChartWithCategories---五边形雷达图示例(带有类别文字)",
-            ],
-            /*多 Y 轴图表*/
-            @[@"configureDoubleYAxesAreasplineMixedColumnChart---双Y轴曲线面积-柱形混合图",
-              @"configureTripleYAxesColumnMixedSplineChart---三条Y轴柱形-曲线混合图",
-              @"configureDoubleYAxesColumnMixedSplineChart---双Y轴柱形-曲线混合图",
-              @"configureDoubleYAxesMarketDepthChart---双Y轴市场深度图",
-              @"Mirror Column Chart ---镜像效果的柱状图📊",
-              @"Mirror Column Chart With No Any Gap---没有任何衔接缝隙的镜像柱状图📊",
-            ],
-            /*颜色线-颜色带-值颜色分区图表*/
-            @[@"simpleGaugeChart---简易仪表图",
-              @"gaugeChartWithPlotBand---带有颜色标志带的仪表图",
-              @"configureAAPlotBandsForChart---带有颜色标志带的曲线图",
-              @"configureAAPlotLinesForChart---带有颜色标志线及文字的折线图表",
-              @"configureAASeriesElementZones---数据分区 Zones",
-              @"configureAASeriesElementZonesMixedAAPlotLines---数据分区 Zones 和颜色标志线混合",
-              @"configureXAxisPlotBandAreaMixedColumnChart---X轴有 plotBand 的区域面积与柱形混合图",
-              @"configureXAxisPlotLinesForChart---X 轴有 plotLines 的图表",
-              @"configureXAxisPlotLinesForChart2---X 轴有 plotLines 的图表2",
-              //        case 9: return [self configureGradientPlotBandForChart];//渐变色的 plotBand
-              @"configureGradientPlotBandForChart---渐变色的 plotBand",
-            ],
-            /*自定义曲线区域面积图*/
-            @[@"configureComplicatedCustomAreasplineChart---复杂自定义曲线填充图 1",
-              @"configureComplicatedCustomAreasplineChart2---复杂自定义曲线填充图 2",
-              @"configureComplicatedCustomAreasplineChart3---复杂自定义曲线填充图 3",
-              @"fanChart---折扇图",
-            ],
-            /*自定义 tooltip 浮动提示框*/
-            @[@"customTooltipStyleByFormatProperties---通过 tooltip 的 format 属性自定义 tooltip 样式内容",
-              @"customAreaChartTooltipStyleLikeHTMLTable---自定义 tooltip 提示框为 HTML 表格样式",
-              @"customAreasplineChartTooltipContentWithHeaderFormat---通过 tooltip 的 headerFormat 属性来自定义 曲线填充图的 tooltip",
-              @"customAreaChartTooltipStyleWithTotalValueHeader---浮动提示框 header 显示总值信息",
-              @"customBoxplotTooltipContent---自定义箱线图的浮动提示框头部内容",
-            ],
-            /*自定义 DataLabels 数据标签*/
-            @[@"adjustChartDataLabelsStyle---自定义DataLabels样式",
-              @"customizeEveryDataLabelBySinglely---单独自定义指定的data的DataLabels样式",
-              @"configureStackingColumnChartDataLabelsOverflow---允许DataLabels文字溢出绘图区",
-              @"configureReversedBarChartDataLabelsStyle---调整Y轴倒转的条形图的DataLabels风格样式",
-              @"configureColumnChartDataLabelsLayout---配置柱状图📊的 dataLabels 布局",
-            ],
-            /*自定义 X 轴 Y 轴文字标签*/
-            @[@"configureXAxisLabelsFontColorWithHTMLString---通过HTML字符串自定义X轴文字颜色",
-              @"configureXAxisLabelsFontColorAndFontSizeWithHTMLString---通过HTML字符串自定义X轴文字颜色和字体大小",
-              @"customXAxisLabelsBeImages---自定义曲线面积图 X 轴 labels 为一组图片🖼",
-              @"configureYAxisLabelsNumericSymbolsMagnitudeOfAerasplineChart---自定义 Y 轴的 Labels 国际单位符基数及国际单位符",
-            ],
-            /*自定义 X 轴 Y 轴的轴类型*/
-            @[@"dateTimeTypeStepLineChart---时间轴类型的阶梯型折线图📈",
-              @"timeDataWithIrregularIntervalsChart---X 轴时间不连续的折线图",
-              @"logarithmicAxisLineChart---对数轴折线图📈",
-              @"logarithmicAxisScatterChart---对数轴散点图",
-              @"dashedAxisAndCustomAxisTitlePositionLineChart---虚线轴 + 自定义轴标题位置折线图",
-              @"dashedAxisAndCustomAxisTitlePositionLineChart2---虚线轴 + 自定义轴标题位置折线图2",
-
-            ],
-          
             /*通过 JSFunction 自定义 AAAxis 的 Labels*/
             @[@"customYAxisLabels---自定义Y轴文字",
               @"customYAxisLabels2---自定义Y轴文字2",
