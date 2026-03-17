@@ -36,19 +36,25 @@
 
 @interface SpecialChartComposer : NSObject
 
++ (AAChartModel *)polarColumnChart;
++ (AAChartModel *)polarBarChart;
++ (AAChartModel *)polarLineChart;
++ (AAChartModel *)polarAreaChart;
++ (AAChartModel *)stepLineChart;
++ (AAChartModel *)stepAreaChart;
 + (AAChartModel *)pieChart;
 + (AAChartModel *)bubbleChart;
 + (AAChartModel *)packedbubbleChart;
 + (AAChartModel *)scatterChart;
 + (AAChartModel *)arearangeChart;
-+ (AAChartModel *)areaslinerangeChart;
++ (AAChartModel *)areasplinerangeChart;
 + (AAChartModel *)columnpyramidChart;
 + (AAChartModel *)columnrangeChart;
 + (AAChartModel *)boxplotChart;
 + (AAChartModel *)waterfallChart;
 + (AAChartModel *)pyramidChart;
 + (AAChartModel *)funnelChart;
-+ (AAChartModel *)errorBarChart;
++ (AAChartModel *)errorbarChart;
 + (AAChartModel *)gaugeChart;
 + (AAChartModel *)polygonChart;
 

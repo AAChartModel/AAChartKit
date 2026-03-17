@@ -51,7 +51,6 @@
 		44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */; };
 		44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711744217E2C87009D9FB0 /* SpecialChartComposer.m */; };
 		44711748217E2C88009D9FB0 /* MixedChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711745217E2C87009D9FB0 /* MixedChartComposer.m */; };
-		44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */; };
 		447B4B3321C9E04E00FDA965 /* AAEasyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447B4B3221C9E04E00FDA965 /* AAEasyTool.m */; };
 		448330BB24E272FB00368A30 /* NSString+toPureJSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 448330BA24E272FA00368A30 /* NSString+toPureJSString.m */; };
 		448330C124E2791400368A30 /* NSArray+toJSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 448330C024E2791400368A30 /* NSArray+toJSArray.m */; };
@@ -78,6 +77,35 @@
 		7172A3F11E763EA6000D5B99 /* AAChartKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3F01E763EA6000D5B99 /* AAChartKitTests.m */; };
 		7172A3FC1E763EA6000D5B99 /* AAChartKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7172A3FB1E763EA6000D5B99 /* AAChartKitUITests.m */; };
 		8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */; };
+		841F495B2F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49562F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m */; };
+		841F495C2F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49542F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m */; };
+		841F495D2F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49522F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m */; };
+		841F495E2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F495A2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m */; };
+		841F495F2F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49582F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m */; };
+		841F497C2F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49792F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.m */; };
+		841F497D2F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49712F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.m */; };
+		841F497E2F39F034007B01F0 /* TooltipOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49772F39F034007B01F0 /* TooltipOptionsComposer.m */; };
+		841F497F2F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49692F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.m */; };
+		841F49802F39F034007B01F0 /* PieChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F496F2F39F034007B01F0 /* PieChartOptionsComposer.m */; };
+		841F49812F39F034007B01F0 /* PolarChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49732F39F034007B01F0 /* PolarChartOptionsComposer.m */; };
+		841F49822F39F034007B01F0 /* DrawChartWithAAOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49672F39F034007B01F0 /* DrawChartWithAAOptionsComposer.m */; };
+		841F49832F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F497B2F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.m */; };
+		841F49842F39F034007B01F0 /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F496B2F39F034007B01F0 /* LineChartViewController.m */; };
+		841F49852F39F034007B01F0 /* MultiYAxesChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F496D2F39F034007B01F0 /* MultiYAxesChartOptionsComposer.m */; };
+		841F49862F39F034007B01F0 /* AreasplineChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49632F39F034007B01F0 /* AreasplineChartOptionsComposer.m */; };
+		841F49872F39F034007B01F0 /* SpecialStyleChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49752F39F034007B01F0 /* SpecialStyleChartOptionsComposer.m */; };
+		841F49882F39F034007B01F0 /* DataLabelsOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49652F39F034007B01F0 /* DataLabelsOptionsComposer.m */; };
+		841F499F2F39F04B007B01F0 /* TooltipOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F499A2F39F04B007B01F0 /* TooltipOptionsVC.m */; };
+		841F49A02F39F04B007B01F0 /* MultiYAxesChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49902F39F04B007B01F0 /* MultiYAxesChartOptionsVC.m */; };
+		841F49A12F39F04B007B01F0 /* PieChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49922F39F04B007B01F0 /* PieChartOptionsVC.m */; };
+		841F49A22F39F04B007B01F0 /* DrawChartWithAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F498E2F39F04B007B01F0 /* DrawChartWithAAOptionsVC.m */; };
+		841F49A32F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49942F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.m */; };
+		841F49A42F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F499C2F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.m */; };
+		841F49A52F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F499E2F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.m */; };
+		841F49A62F39F04B007B01F0 /* PolarChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49962F39F04B007B01F0 /* PolarChartOptionsVC.m */; };
+		841F49A72F39F04B007B01F0 /* DataLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F498C2F39F04B007B01F0 /* DataLabelsOptionsVC.m */; };
+		841F49A82F39F04B007B01F0 /* SpecialStyleChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F49982F39F04B007B01F0 /* SpecialStyleChartOptionsVC.m */; };
+		841F49A92F39F04B007B01F0 /* AreasplineChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F498A2F39F04B007B01F0 /* AreasplineChartOptionsVC.m */; };
 		843E5E162E7B9F230030D36E /* AAAxisTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E5E152E7B9F230030D36E /* AAAxisTitle.m */; };
 		844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 844F11432B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.m */; };
 		84526E0E2CEC733600EB2563 /* AAGauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E0D2CEC733600EB2563 /* AAGauge.m */; };
@@ -128,22 +156,11 @@
 		8492D9B22C819CEC007EB8D0 /* AAChartView+shareInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9B12C819CEC007EB8D0 /* AAChartView+shareInstance.m */; };
 		8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492D9B42C81A321007EB8D0 /* AAChartViewManager.m */; };
 		84AE6B1C26A1775A001F0755 /* AADateTimeLabelFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */; };
-		84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B526F1CD4E00D4CAFC /* PieChartOptionsVC.m */; };
-		84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548B826F1F08300D4CAFC /* PolarChartOptionsVC.m */; };
-		84B548BC26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548BB26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m */; };
-		84B548BF26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548BE26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m */; };
-		84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548C126F2E19900D4CAFC /* AreasplineChartOptionsVC.m */; };
-		84B548C526F2E74800D4CAFC /* TooltipOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548C426F2E74800D4CAFC /* TooltipOptionsVC.m */; };
-		84B548C826F2EE2C00D4CAFC /* DataLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548C726F2EE2C00D4CAFC /* DataLabelsOptionsVC.m */; };
-		84B548CB26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */; };
-		84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */; };
 		84D01E712B1202B50017E90B /* AAArearange.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D01E702B1202B50017E90B /* AAArearange.m */; };
 		84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D56E15283928F6000064AA /* AAOptionsConfigurationGenerator.m */; };
 		84DC910C2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DC910B2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m */; };
 		84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */; };
-		84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */; };
 		84E0D36F28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */; };
-		84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E41D592E65707A00AA6D19 /* LineChartViewController.m */; };
 		84F998022EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998012EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m */; };
 		84F998252EB365E300D41382 /* MixedChartComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998242EB365E300D41382 /* MixedChartComposer2.m */; };
 		84F998312EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9982B2EB37DCA00D41382 /* BarOrColumnChartOptionsComposer.m */; };
@@ -157,6 +174,10 @@
 		84F998622EB38C8F00D41382 /* CustomStyleForSplineChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998522EB38C8F00D41382 /* CustomStyleForSplineChartComposer.m */; };
 		84F998632EB38C8F00D41382 /* CustomStyleForAreaChartComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998372EB38C8F00D41382 /* CustomStyleForAreaChartComposer.m */; };
 		84F998662EB38C8F00D41382 /* CustomStyleForLineChartComposer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F998492EB38C8F00D41382 /* CustomStyleForLineChartComposer2.m */; };
+		84F9986D2EB8A83000D41382 /* OfficalSamplesChartProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9986C2EB8A83000D41382 /* OfficalSamplesChartProvider.m */; };
+		84F998702EB8ACCE00D41382 /* CustomStyleChartModelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9986F2EB8ACCE00D41382 /* CustomStyleChartModelProvider.m */; };
+		85A0C0012F5A100100AA0001 /* AAOptionsComposerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A0C0032F5A100100AA0001 /* AAOptionsComposerProvider.m */; };
+		85A0C0312F5A300100AA0001 /* AAOptionsComposerChartListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A0C0332F5A300100AA0001 /* AAOptionsComposerChartListVC.m */; };
 		92445D871FDE1F2A00B3E576 /* MonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92445D861FDE1F2A00B3E576 /* MonitorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -239,7 +260,6 @@
 		272D80B21F91EC9E008A2D20 /* ShowManyChartViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowManyChartViewVC.m; sourceTree = "<group>"; };
 		2750145024C03372005A5D73 /* AAShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAShadow.h; sourceTree = "<group>"; };
 		2750145124C03372005A5D73 /* AAShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAShadow.m; sourceTree = "<group>"; };
-		27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsVC.h; sourceTree = "<group>"; };
 		278989B9204F8DBA003940CC /* ChartListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartListVC.h; sourceTree = "<group>"; };
 		278989BA204F8DBA003940CC /* ChartListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartListVC.m; sourceTree = "<group>"; };
 		27D874F4219AB55E0092A461 /* CustomStyleChartComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleChartComposer.h; sourceTree = "<group>"; };
@@ -267,7 +287,6 @@
 		44209B0821B0D2DD004EC321 /* HideOrShowChartSeriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HideOrShowChartSeriesVC.m; sourceTree = "<group>"; };
 		44711744217E2C87009D9FB0 /* SpecialChartComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialChartComposer.m; sourceTree = "<group>"; };
 		44711745217E2C87009D9FB0 /* MixedChartComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixedChartComposer.m; sourceTree = "<group>"; };
-		44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
 		447B4B3121C9E04E00FDA965 /* AAEasyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAEasyTool.h; sourceTree = "<group>"; };
 		447B4B3221C9E04E00FDA965 /* AAEasyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAEasyTool.m; sourceTree = "<group>"; };
 		448330B924E272FA00368A30 /* NSString+toPureJSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+toPureJSString.h"; sourceTree = "<group>"; };
@@ -325,6 +344,64 @@
 		7172A4581E763FDB000D5B99 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8418479A28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer.h; sourceTree = "<group>"; };
 		8418479B28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer.m; sourceTree = "<group>"; };
+		841F49512F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAAxisComposer.h; sourceTree = "<group>"; };
+		841F49522F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAAxisComposer.m; sourceTree = "<group>"; };
+		841F49532F39CE0E007B01F0 /* JSFunctionForAALegendComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAALegendComposer.h; sourceTree = "<group>"; };
+		841F49542F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAALegendComposer.m; sourceTree = "<group>"; };
+		841F49552F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAOptionsComposer.h; sourceTree = "<group>"; };
+		841F49562F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAOptionsComposer.m; sourceTree = "<group>"; };
+		841F49572F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipComposer.h; sourceTree = "<group>"; };
+		841F49582F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipComposer.m; sourceTree = "<group>"; };
+		841F49592F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipV2Composer.h; sourceTree = "<group>"; };
+		841F495A2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipV2Composer.m; sourceTree = "<group>"; };
+		841F49622F39F034007B01F0 /* AreasplineChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreasplineChartOptionsComposer.h; sourceTree = "<group>"; };
+		841F49632F39F034007B01F0 /* AreasplineChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreasplineChartOptionsComposer.m; sourceTree = "<group>"; };
+		841F49642F39F034007B01F0 /* DataLabelsOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLabelsOptionsComposer.h; sourceTree = "<group>"; };
+		841F49652F39F034007B01F0 /* DataLabelsOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataLabelsOptionsComposer.m; sourceTree = "<group>"; };
+		841F49662F39F034007B01F0 /* DrawChartWithAAOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsComposer.h; sourceTree = "<group>"; };
+		841F49672F39F034007B01F0 /* DrawChartWithAAOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsComposer.m; sourceTree = "<group>"; };
+		841F49682F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartFixedWidthUniformMarkerSample.h; sourceTree = "<group>"; };
+		841F49692F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartFixedWidthUniformMarkerSample.m; sourceTree = "<group>"; };
+		841F496A2F39F034007B01F0 /* LineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
+		841F496B2F39F034007B01F0 /* LineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartViewController.m; sourceTree = "<group>"; };
+		841F496C2F39F034007B01F0 /* MultiYAxesChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiYAxesChartOptionsComposer.h; sourceTree = "<group>"; };
+		841F496D2F39F034007B01F0 /* MultiYAxesChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiYAxesChartOptionsComposer.m; sourceTree = "<group>"; };
+		841F496E2F39F034007B01F0 /* PieChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieChartOptionsComposer.h; sourceTree = "<group>"; };
+		841F496F2F39F034007B01F0 /* PieChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieChartOptionsComposer.m; sourceTree = "<group>"; };
+		841F49702F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlotLinesBandsZonesOptionsComposer.h; sourceTree = "<group>"; };
+		841F49712F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlotLinesBandsZonesOptionsComposer.m; sourceTree = "<group>"; };
+		841F49722F39F034007B01F0 /* PolarChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolarChartOptionsComposer.h; sourceTree = "<group>"; };
+		841F49732F39F034007B01F0 /* PolarChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolarChartOptionsComposer.m; sourceTree = "<group>"; };
+		841F49742F39F034007B01F0 /* SpecialStyleChartOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialStyleChartOptionsComposer.h; sourceTree = "<group>"; };
+		841F49752F39F034007B01F0 /* SpecialStyleChartOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialStyleChartOptionsComposer.m; sourceTree = "<group>"; };
+		841F49762F39F034007B01F0 /* TooltipOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TooltipOptionsComposer.h; sourceTree = "<group>"; };
+		841F49772F39F034007B01F0 /* TooltipOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TooltipOptionsComposer.m; sourceTree = "<group>"; };
+		841F49782F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisLabelsOptionsComposer.h; sourceTree = "<group>"; };
+		841F49792F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisLabelsOptionsComposer.m; sourceTree = "<group>"; };
+		841F497A2F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisTypeOptionsComposer.h; sourceTree = "<group>"; };
+		841F497B2F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisTypeOptionsComposer.m; sourceTree = "<group>"; };
+		841F49892F39F04B007B01F0 /* AreasplineChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreasplineChartOptionsVC.h; sourceTree = "<group>"; };
+		841F498A2F39F04B007B01F0 /* AreasplineChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreasplineChartOptionsVC.m; sourceTree = "<group>"; };
+		841F498B2F39F04B007B01F0 /* DataLabelsOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLabelsOptionsVC.h; sourceTree = "<group>"; };
+		841F498C2F39F04B007B01F0 /* DataLabelsOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataLabelsOptionsVC.m; sourceTree = "<group>"; };
+		841F498D2F39F04B007B01F0 /* DrawChartWithAAOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawChartWithAAOptionsVC.h; sourceTree = "<group>"; };
+		841F498E2F39F04B007B01F0 /* DrawChartWithAAOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawChartWithAAOptionsVC.m; sourceTree = "<group>"; };
+		841F498F2F39F04B007B01F0 /* MultiYAxesChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiYAxesChartOptionsVC.h; sourceTree = "<group>"; };
+		841F49902F39F04B007B01F0 /* MultiYAxesChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiYAxesChartOptionsVC.m; sourceTree = "<group>"; };
+		841F49912F39F04B007B01F0 /* PieChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieChartOptionsVC.h; sourceTree = "<group>"; };
+		841F49922F39F04B007B01F0 /* PieChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieChartOptionsVC.m; sourceTree = "<group>"; };
+		841F49932F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlotLinesBandsZonesOptionsVC.h; sourceTree = "<group>"; };
+		841F49942F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlotLinesBandsZonesOptionsVC.m; sourceTree = "<group>"; };
+		841F49952F39F04B007B01F0 /* PolarChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolarChartOptionsVC.h; sourceTree = "<group>"; };
+		841F49962F39F04B007B01F0 /* PolarChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolarChartOptionsVC.m; sourceTree = "<group>"; };
+		841F49972F39F04B007B01F0 /* SpecialStyleChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialStyleChartOptionsVC.h; sourceTree = "<group>"; };
+		841F49982F39F04B007B01F0 /* SpecialStyleChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialStyleChartOptionsVC.m; sourceTree = "<group>"; };
+		841F49992F39F04B007B01F0 /* TooltipOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TooltipOptionsVC.h; sourceTree = "<group>"; };
+		841F499A2F39F04B007B01F0 /* TooltipOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TooltipOptionsVC.m; sourceTree = "<group>"; };
+		841F499B2F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisLabelsOptionsVC.h; sourceTree = "<group>"; };
+		841F499C2F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisLabelsOptionsVC.m; sourceTree = "<group>"; };
+		841F499D2F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisTypeOptionsVC.h; sourceTree = "<group>"; };
+		841F499E2F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisTypeOptionsVC.m; sourceTree = "<group>"; };
 		843E5E142E7B9F230030D36E /* AAAxisTitle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAxisTitle.h; sourceTree = "<group>"; };
 		843E5E152E7B9F230030D36E /* AAAxisTitle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAxisTitle.m; sourceTree = "<group>"; };
 		844F11422B639CB500ADEB1C /* JSFunctionForAAChartEventsComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer2.h; sourceTree = "<group>"; };
@@ -424,24 +501,6 @@
 		84AE6B1B26A1775A001F0755 /* AADateTimeLabelFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AADateTimeLabelFormats.m; sourceTree = "<group>"; };
 		84AE6B1D26A19E1E001F0755 /* AAChartAxisType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartAxisType.h; sourceTree = "<group>"; };
 		84AE6B2026A58D73001F0755 /* AAChartSymbolConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAChartSymbolConstant.h; sourceTree = "<group>"; };
-		84B548B426F1CD4E00D4CAFC /* PieChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieChartOptionsVC.h; sourceTree = "<group>"; };
-		84B548B526F1CD4E00D4CAFC /* PieChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieChartOptionsVC.m; sourceTree = "<group>"; };
-		84B548B726F1F08300D4CAFC /* PolarChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolarChartOptionsVC.h; sourceTree = "<group>"; };
-		84B548B826F1F08300D4CAFC /* PolarChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolarChartOptionsVC.m; sourceTree = "<group>"; };
-		84B548BA26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiYAxesChartOptionsVC.h; sourceTree = "<group>"; };
-		84B548BB26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiYAxesChartOptionsVC.m; sourceTree = "<group>"; };
-		84B548BD26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlotLinesBandsZonesOptionsVC.h; sourceTree = "<group>"; };
-		84B548BE26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlotLinesBandsZonesOptionsVC.m; sourceTree = "<group>"; };
-		84B548C026F2E19900D4CAFC /* AreasplineChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreasplineChartOptionsVC.h; sourceTree = "<group>"; };
-		84B548C126F2E19900D4CAFC /* AreasplineChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreasplineChartOptionsVC.m; sourceTree = "<group>"; };
-		84B548C326F2E74800D4CAFC /* TooltipOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TooltipOptionsVC.h; sourceTree = "<group>"; };
-		84B548C426F2E74800D4CAFC /* TooltipOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TooltipOptionsVC.m; sourceTree = "<group>"; };
-		84B548C626F2EE2C00D4CAFC /* DataLabelsOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLabelsOptionsVC.h; sourceTree = "<group>"; };
-		84B548C726F2EE2C00D4CAFC /* DataLabelsOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataLabelsOptionsVC.m; sourceTree = "<group>"; };
-		84B548C926F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisLabelsOptionsVC.h; sourceTree = "<group>"; };
-		84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisLabelsOptionsVC.m; sourceTree = "<group>"; };
-		84B548CC26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAxisYAxisTypeOptionsVC.h; sourceTree = "<group>"; };
-		84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAxisYAxisTypeOptionsVC.m; sourceTree = "<group>"; };
 		84D01E6F2B1202B50017E90B /* AAArearange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAArearange.h; sourceTree = "<group>"; };
 		84D01E702B1202B50017E90B /* AAArearange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAArearange.m; sourceTree = "<group>"; };
 		84D56E14283928F6000064AA /* AAOptionsConfigurationGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsConfigurationGenerator.h; sourceTree = "<group>"; };
@@ -450,12 +509,8 @@
 		84DC910B2D2E1C0F002EDC1F /* JSFunctionBeforeAndAfterRenderingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionBeforeAndAfterRenderingVC.m; sourceTree = "<group>"; };
 		84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAOptionsVC.h; sourceTree = "<group>"; };
 		84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAOptionsVC.m; sourceTree = "<group>"; };
-		84E0D36A28F2D9D3004031BE /* SpecialStyleChartOptionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecialStyleChartOptionsVC.h; sourceTree = "<group>"; };
-		84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpecialStyleChartOptionsVC.m; sourceTree = "<group>"; };
 		84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAATooltipVC2.h; sourceTree = "<group>"; };
 		84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAATooltipVC2.m; sourceTree = "<group>"; };
-		84E41D582E65707A00AA6D19 /* LineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
-		84E41D592E65707A00AA6D19 /* LineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartViewController.m; sourceTree = "<group>"; };
 		84F998002EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionForAAChartEventsComposer3.h; sourceTree = "<group>"; };
 		84F998012EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSFunctionForAAChartEventsComposer3.m; sourceTree = "<group>"; };
 		84F998232EB365BC00D41382 /* MixedChartComposer2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixedChartComposer2.h; sourceTree = "<group>"; };
@@ -482,6 +537,14 @@
 		84F9984C2EB38C8F00D41382 /* CustomStyleForPieChartComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleForPieChartComposer.m; sourceTree = "<group>"; };
 		84F998512EB38C8F00D41382 /* CustomStyleForSplineChartComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleForSplineChartComposer.h; sourceTree = "<group>"; };
 		84F998522EB38C8F00D41382 /* CustomStyleForSplineChartComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleForSplineChartComposer.m; sourceTree = "<group>"; };
+		84F9986B2EB8A83000D41382 /* OfficalSamplesChartProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfficalSamplesChartProvider.h; sourceTree = "<group>"; };
+		84F9986C2EB8A83000D41382 /* OfficalSamplesChartProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfficalSamplesChartProvider.m; sourceTree = "<group>"; };
+		84F9986E2EB8ACCE00D41382 /* CustomStyleChartModelProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomStyleChartModelProvider.h; sourceTree = "<group>"; };
+		84F9986F2EB8ACCE00D41382 /* CustomStyleChartModelProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomStyleChartModelProvider.m; sourceTree = "<group>"; };
+		85A0C0022F5A100100AA0001 /* AAOptionsComposerProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsComposerProvider.h; sourceTree = "<group>"; };
+		85A0C0032F5A100100AA0001 /* AAOptionsComposerProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsComposerProvider.m; sourceTree = "<group>"; };
+		85A0C0322F5A300100AA0001 /* AAOptionsComposerChartListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsComposerChartListVC.h; sourceTree = "<group>"; };
+		85A0C0332F5A300100AA0001 /* AAOptionsComposerChartListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsComposerChartListVC.m; sourceTree = "<group>"; };
 		92445D851FDE1F2A00B3E576 /* MonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorViewController.h; sourceTree = "<group>"; };
 		92445D861FDE1F2A00B3E576 /* MonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -615,6 +678,7 @@
 		713F54341E7B71C000D506C7 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				84F998692EB8A7F100D41382 /* AAGallery */,
 				844F4D3F2C0857670019F786 /* AAChartListVC */,
 				844F4D402C0857860019F786 /* AAChartModel */,
 				844F4D422C0857B20019F786 /* AAOptions */,
@@ -693,6 +757,102 @@
 			path = AAChartKitDemoUITests;
 			sourceTree = "<group>";
 		};
+		841F494F2F39CDD8007B01F0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */,
+				44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */,
+				84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */,
+				84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */,
+				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
+				8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */,
+				8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */,
+				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
+				84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */,
+				84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		841F49502F39CDE5007B01F0 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				841F49512F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.h */,
+				841F49522F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m */,
+				841F49532F39CE0E007B01F0 /* JSFunctionForAALegendComposer.h */,
+				841F49542F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m */,
+				841F49552F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.h */,
+				841F49562F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m */,
+				841F49572F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.h */,
+				841F49582F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m */,
+				841F49592F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.h */,
+				841F495A2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m */,
+			);
+			path = Composer;
+			sourceTree = "<group>";
+		};
+		841F49602F39E3A8007B01F0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				841F49892F39F04B007B01F0 /* AreasplineChartOptionsVC.h */,
+				841F498A2F39F04B007B01F0 /* AreasplineChartOptionsVC.m */,
+				841F498B2F39F04B007B01F0 /* DataLabelsOptionsVC.h */,
+				841F498C2F39F04B007B01F0 /* DataLabelsOptionsVC.m */,
+				841F498D2F39F04B007B01F0 /* DrawChartWithAAOptionsVC.h */,
+				841F498E2F39F04B007B01F0 /* DrawChartWithAAOptionsVC.m */,
+				841F498F2F39F04B007B01F0 /* MultiYAxesChartOptionsVC.h */,
+				841F49902F39F04B007B01F0 /* MultiYAxesChartOptionsVC.m */,
+				841F49912F39F04B007B01F0 /* PieChartOptionsVC.h */,
+				841F49922F39F04B007B01F0 /* PieChartOptionsVC.m */,
+				841F49932F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.h */,
+				841F49942F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.m */,
+				841F49952F39F04B007B01F0 /* PolarChartOptionsVC.h */,
+				841F49962F39F04B007B01F0 /* PolarChartOptionsVC.m */,
+				841F49972F39F04B007B01F0 /* SpecialStyleChartOptionsVC.h */,
+				841F49982F39F04B007B01F0 /* SpecialStyleChartOptionsVC.m */,
+				841F49992F39F04B007B01F0 /* TooltipOptionsVC.h */,
+				841F499A2F39F04B007B01F0 /* TooltipOptionsVC.m */,
+				841F499B2F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.h */,
+				841F499C2F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.m */,
+				841F499D2F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.h */,
+				841F499E2F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		841F49612F39E3B3007B01F0 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				841F49622F39F034007B01F0 /* AreasplineChartOptionsComposer.h */,
+				841F49632F39F034007B01F0 /* AreasplineChartOptionsComposer.m */,
+				841F49642F39F034007B01F0 /* DataLabelsOptionsComposer.h */,
+				841F49652F39F034007B01F0 /* DataLabelsOptionsComposer.m */,
+				841F49662F39F034007B01F0 /* DrawChartWithAAOptionsComposer.h */,
+				841F49672F39F034007B01F0 /* DrawChartWithAAOptionsComposer.m */,
+				841F49682F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.h */,
+				841F49692F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.m */,
+				841F496A2F39F034007B01F0 /* LineChartViewController.h */,
+				841F496B2F39F034007B01F0 /* LineChartViewController.m */,
+				841F496C2F39F034007B01F0 /* MultiYAxesChartOptionsComposer.h */,
+				841F496D2F39F034007B01F0 /* MultiYAxesChartOptionsComposer.m */,
+				841F496E2F39F034007B01F0 /* PieChartOptionsComposer.h */,
+				841F496F2F39F034007B01F0 /* PieChartOptionsComposer.m */,
+				841F49702F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.h */,
+				841F49712F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.m */,
+				841F49722F39F034007B01F0 /* PolarChartOptionsComposer.h */,
+				841F49732F39F034007B01F0 /* PolarChartOptionsComposer.m */,
+				841F49742F39F034007B01F0 /* SpecialStyleChartOptionsComposer.h */,
+				841F49752F39F034007B01F0 /* SpecialStyleChartOptionsComposer.m */,
+				841F49762F39F034007B01F0 /* TooltipOptionsComposer.h */,
+				841F49772F39F034007B01F0 /* TooltipOptionsComposer.m */,
+				841F49782F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.h */,
+				841F49792F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.m */,
+				841F497A2F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.h */,
+				841F497B2F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.m */,
+			);
+			path = Composer;
+			sourceTree = "<group>";
+		};
 		8441C0AD2C733A0300A6F784 /* AAAxis */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,6 +902,8 @@
 				8461422F2C8AF5320032FBD3 /* AAChartModelListVC.m */,
 				846142072C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.h */,
 				846142082C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m */,
+				85A0C0322F5A300100AA0001 /* AAOptionsComposerChartListVC.h */,
+				85A0C0332F5A300100AA0001 /* AAOptionsComposerChartListVC.m */,
 			);
 			path = AAChartListVC;
 			sourceTree = "<group>";
@@ -758,30 +920,8 @@
 		844F4D422C0857B20019F786 /* AAOptions */ = {
 			isa = PBXGroup;
 			children = (
-				27746B1D1F3B0224009354A7 /* DrawChartWithAAOptionsVC.h */,
-				44711746217E2C87009D9FB0 /* DrawChartWithAAOptionsVC.m */,
-				84B548B426F1CD4E00D4CAFC /* PieChartOptionsVC.h */,
-				84B548B526F1CD4E00D4CAFC /* PieChartOptionsVC.m */,
-				84B548B726F1F08300D4CAFC /* PolarChartOptionsVC.h */,
-				84B548B826F1F08300D4CAFC /* PolarChartOptionsVC.m */,
-				84B548BA26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.h */,
-				84B548BB26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m */,
-				84B548BD26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.h */,
-				84B548BE26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m */,
-				84B548C026F2E19900D4CAFC /* AreasplineChartOptionsVC.h */,
-				84B548C126F2E19900D4CAFC /* AreasplineChartOptionsVC.m */,
-				84B548C326F2E74800D4CAFC /* TooltipOptionsVC.h */,
-				84B548C426F2E74800D4CAFC /* TooltipOptionsVC.m */,
-				84B548C626F2EE2C00D4CAFC /* DataLabelsOptionsVC.h */,
-				84B548C726F2EE2C00D4CAFC /* DataLabelsOptionsVC.m */,
-				84B548C926F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.h */,
-				84B548CA26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m */,
-				84B548CC26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.h */,
-				84B548CD26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m */,
-				84E0D36A28F2D9D3004031BE /* SpecialStyleChartOptionsVC.h */,
-				84E0D36B28F2D9D3004031BE /* SpecialStyleChartOptionsVC.m */,
-				84E41D582E65707A00AA6D19 /* LineChartViewController.h */,
-				84E41D592E65707A00AA6D19 /* LineChartViewController.m */,
+				841F49602F39E3A8007B01F0 /* ViewController */,
+				841F49612F39E3B3007B01F0 /* Composer */,
 			);
 			path = AAOptions;
 			sourceTree = "<group>";
@@ -789,16 +929,8 @@
 		844F4D432C08580A0019F786 /* AAOptionsWithJS */ = {
 			isa = PBXGroup;
 			children = (
-				44C8C48F226F4D4100AB9E50 /* JSFunctionForAATooltipVC.h */,
-				44C8C490226F4D4100AB9E50 /* JSFunctionForAATooltipVC.m */,
-				84E0D36D28F2DBBD004031BE /* JSFunctionForAATooltipVC2.h */,
-				84E0D36E28F2DBBD004031BE /* JSFunctionForAATooltipVC2.m */,
-				8463FDDC28CB1D5300392C50 /* JSFunctionForAAAxisVC.h */,
-				8463FDDD28CB1D5300392C50 /* JSFunctionForAAAxisVC.m */,
-				8463FDDF28CB1F5F00392C50 /* JSFunctionForAALegendVC.h */,
-				8463FDE028CB1F5F00392C50 /* JSFunctionForAALegendVC.m */,
-				84E0D36428F2D690004031BE /* JSFunctionForAAOptionsVC.h */,
-				84E0D36528F2D690004031BE /* JSFunctionForAAOptionsVC.m */,
+				841F494F2F39CDD8007B01F0 /* ViewController */,
+				841F49502F39CDE5007B01F0 /* Composer */,
 			);
 			path = AAOptionsWithJS;
 			sourceTree = "<group>";
@@ -1119,6 +1251,27 @@
 			path = Composer;
 			sourceTree = "<group>";
 		};
+		84F998692EB8A7F100D41382 /* AAGallery */ = {
+			isa = PBXGroup;
+			children = (
+				84F9986A2EB8A7F700D41382 /* Provider */,
+			);
+			path = AAGallery;
+			sourceTree = "<group>";
+		};
+		84F9986A2EB8A7F700D41382 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				84F9986B2EB8A83000D41382 /* OfficalSamplesChartProvider.h */,
+				84F9986C2EB8A83000D41382 /* OfficalSamplesChartProvider.m */,
+				84F9986E2EB8ACCE00D41382 /* CustomStyleChartModelProvider.h */,
+				84F9986F2EB8ACCE00D41382 /* CustomStyleChartModelProvider.m */,
+				85A0C0022F5A100100AA0001 /* AAOptionsComposerProvider.h */,
+				85A0C0032F5A100100AA0001 /* AAOptionsComposerProvider.m */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1261,11 +1414,18 @@
 				845F42912E8BE1BA00CE65AB /* AAJsonConverter.m in Sources */,
 				8481C2E32DF98039006EFC41 /* BasicChartComposer.m in Sources */,
 				44711747217E2C88009D9FB0 /* SpecialChartComposer.m in Sources */,
-				84B548B626F1CD4E00D4CAFC /* PieChartOptionsVC.m in Sources */,
+				841F495B2F39CE0E007B01F0 /* JSFunctionForAAOptionsComposer.m in Sources */,
+				841F495C2F39CE0E007B01F0 /* JSFunctionForAALegendComposer.m in Sources */,
+				841F495D2F39CE0E007B01F0 /* JSFunctionForAAAxisComposer.m in Sources */,
+				841F495E2F39CE0E007B01F0 /* JSFunctionForAATooltipV2Composer.m in Sources */,
+				841F495F2F39CE0E007B01F0 /* JSFunctionForAATooltipComposer.m in Sources */,
 				1E66D213210AF4ED007EAB8C /* AAPie.m in Sources */,
 				449D447A21CFDF5D00E43D9C /* AAPlotBandsElement.m in Sources */,
 				1E66D200210AF4ED007EAB8C /* AAPlotOptions.m in Sources */,
 				272D80B31F91EC9E008A2D20 /* ShowManyChartViewVC.m in Sources */,
+				84F9986D2EB8A83000D41382 /* OfficalSamplesChartProvider.m in Sources */,
+				85A0C0012F5A100100AA0001 /* AAOptionsComposerProvider.m in Sources */,
+				85A0C0312F5A300100AA0001 /* AAOptionsComposerChartListVC.m in Sources */,
 				845FC2392EA0CF67002FC670 /* JSFunctionBeforeAndAfterRenderingComposer7.m in Sources */,
 				1E66D202210AF4ED007EAB8C /* AALine.m in Sources */,
 				848FEAFC265E170C006E4F25 /* TestAAChartViewForXibVC.m in Sources */,
@@ -1277,20 +1437,17 @@
 				1E66D218210AF4ED007EAB8C /* AASeriesElement.m in Sources */,
 				1E66D205210AF4ED007EAB8C /* AAYAxis.m in Sources */,
 				713F543E1E7B71C000D506C7 /* BasicChartVC.m in Sources */,
-				44711749217E2C88009D9FB0 /* DrawChartWithAAOptionsVC.m in Sources */,
+				84F998702EB8ACCE00D41382 /* CustomStyleChartModelProvider.m in Sources */,
 				278989BB204F8DBA003940CC /* ChartListVC.m in Sources */,
 				4486C50D23DE02A900B54849 /* DoubleChartsLinkedWorkVC.m in Sources */,
 				27F0CA7921018998004BD904 /* AADateUTCTool.m in Sources */,
 				1E66D20E210AF4ED007EAB8C /* AAAnimation.m in Sources */,
 				8461422A2C8AEEC40032FBD3 /* CustomStyleForScatterChartVC.m in Sources */,
 				27D874F6219AB55E0092A461 /* CustomStyleChartComposer.m in Sources */,
-				84B548BF26F1FEC800D4CAFC /* PlotLinesBandsZonesOptionsVC.m in Sources */,
 				1E66D20A210AF4ED007EAB8C /* AAStyle.m in Sources */,
 				846142242C8AEB340032FBD3 /* CustomStyleForScatterChartComposer.m in Sources */,
 				846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */,
-				84B548C226F2E19900D4CAFC /* AreasplineChartOptionsVC.m in Sources */,
 				84790F422CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m in Sources */,
-				84E0D36C28F2D9D4004031BE /* SpecialStyleChartOptionsVC.m in Sources */,
 				846142062C8831FA0032FBD3 /* AABaseListVC.m in Sources */,
 				84526E142CEDBDCB00EB2563 /* JSFunctionBeforeAndAfterRenderingComposer3.m in Sources */,
 				84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */,
@@ -1325,6 +1482,17 @@
 				44E4137323C339160097D0ED /* AAStates.m in Sources */,
 				1E66D20C210AF4ED007EAB8C /* AATitle.m in Sources */,
 				84526E0E2CEC733600EB2563 /* AAGauge.m in Sources */,
+				841F499F2F39F04B007B01F0 /* TooltipOptionsVC.m in Sources */,
+				841F49A02F39F04B007B01F0 /* MultiYAxesChartOptionsVC.m in Sources */,
+				841F49A12F39F04B007B01F0 /* PieChartOptionsVC.m in Sources */,
+				841F49A22F39F04B007B01F0 /* DrawChartWithAAOptionsVC.m in Sources */,
+				841F49A32F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.m in Sources */,
+				841F49A42F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.m in Sources */,
+				841F49A52F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.m in Sources */,
+				841F49A62F39F04B007B01F0 /* PolarChartOptionsVC.m in Sources */,
+				841F49A72F39F04B007B01F0 /* DataLabelsOptionsVC.m in Sources */,
+				841F49A82F39F04B007B01F0 /* SpecialStyleChartOptionsVC.m in Sources */,
+				841F49A92F39F04B007B01F0 /* AreasplineChartOptionsVC.m in Sources */,
 				84526E1D2CEECBC200EB2563 /* JSFunctionBeforeAndAfterRenderingComposer5.m in Sources */,
 				44F5F9A121D80BDB002A8D25 /* AALabel.m in Sources */,
 				8492D9B22C819CEC007EB8D0 /* AAChartView+shareInstance.m in Sources */,
@@ -1332,7 +1500,6 @@
 				84526E232CEF256C00EB2563 /* TripleChartsLinkedWorkVC.m in Sources */,
 				8418479C28B8D0E300094106 /* JSFunctionForAAChartEventsComposer.m in Sources */,
 				8461422D2C8AEED90032FBD3 /* CustomStyleForBubbleChartVC.m in Sources */,
-				84B548B926F1F08300D4CAFC /* PolarChartOptionsVC.m in Sources */,
 				449A0ED423771436009F8FE1 /* ScrollingUpdateDataVC.m in Sources */,
 				84790F4A2CCB7ABB0047C133 /* JSFunctionBeforeAndAfterRenderingComposer.m in Sources */,
 				1E66D20F210AF4ED007EAB8C /* AALegend.m in Sources */,
@@ -1356,7 +1523,6 @@
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
 				8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */,
-				84E41D5A2E65707A00AA6D19 /* LineChartViewController.m in Sources */,
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
 				84D56E16283928F6000064AA /* AAOptionsConfigurationGenerator.m in Sources */,
@@ -1371,20 +1537,29 @@
 				8481C2E62DF98790006EFC41 /* CustomStyleChartVC.m in Sources */,
 				1E66D1FD210AF4ED007EAB8C /* AALabels.m in Sources */,
 				7172A3D81E763EA6000D5B99 /* main.m in Sources */,
-				84B548C826F2EE2C00D4CAFC /* DataLabelsOptionsVC.m in Sources */,
 				2750145224C03372005A5D73 /* AAShadow.m in Sources */,
 				8463FDDE28CB1D5300392C50 /* JSFunctionForAAAxisVC.m in Sources */,
 				846142122C883DB20032FBD3 /* JSFunctionForMixedEventsVC.m in Sources */,
 				8492D9A52C7DB63A007EB8D0 /* JSFunctionForAAPointEventsComposer.m in Sources */,
 				8492D9AC2C7EF1A3007EB8D0 /* JSFunctionForAASeriesEventsComposer.m in Sources */,
-				84B548CB26F31B5600D4CAFC /* XAxisYAxisLabelsOptionsVC.m in Sources */,
 				1E66D1FE210AF4ED007EAB8C /* AASeries.m in Sources */,
-				84B548C526F2E74800D4CAFC /* TooltipOptionsVC.m in Sources */,
 				44209B0921B0D2DD004EC321 /* HideOrShowChartSeriesVC.m in Sources */,
 				44C07B9A22A4C6BB00FE7184 /* AlgorithmVC.m in Sources */,
 				84811E1F2E4B1B80003C14B1 /* DynamicTooltipAfterClickRequestVC.m in Sources */,
-				84B548BC26F1F62300D4CAFC /* MultiYAxesChartOptionsVC.m in Sources */,
 				844F11442B639CB600ADEB1C /* JSFunctionForAAChartEventsComposer2.m in Sources */,
+				841F497C2F39F034007B01F0 /* XAxisYAxisLabelsOptionsComposer.m in Sources */,
+				841F497D2F39F034007B01F0 /* PlotLinesBandsZonesOptionsComposer.m in Sources */,
+				841F497E2F39F034007B01F0 /* TooltipOptionsComposer.m in Sources */,
+				841F497F2F39F034007B01F0 /* LineChartFixedWidthUniformMarkerSample.m in Sources */,
+				841F49802F39F034007B01F0 /* PieChartOptionsComposer.m in Sources */,
+				841F49812F39F034007B01F0 /* PolarChartOptionsComposer.m in Sources */,
+				841F49822F39F034007B01F0 /* DrawChartWithAAOptionsComposer.m in Sources */,
+				841F49832F39F034007B01F0 /* XAxisYAxisTypeOptionsComposer.m in Sources */,
+				841F49842F39F034007B01F0 /* LineChartViewController.m in Sources */,
+				841F49852F39F034007B01F0 /* MultiYAxesChartOptionsComposer.m in Sources */,
+				841F49862F39F034007B01F0 /* AreasplineChartOptionsComposer.m in Sources */,
+				841F49872F39F034007B01F0 /* SpecialStyleChartOptionsComposer.m in Sources */,
+				841F49882F39F034007B01F0 /* DataLabelsOptionsComposer.m in Sources */,
 				713F543D1E7B71C000D506C7 /* MainVC.m in Sources */,
 				846142302C8AF5320032FBD3 /* AAChartModelListVC.m in Sources */,
 				1E66D20D210AF4ED007EAB8C /* AAArea.m in Sources */,
@@ -1392,7 +1567,6 @@
 				1E66D214210AF4ED007EAB8C /* AAChart.m in Sources */,
 				84F998022EA8BDBC00D41382 /* JSFunctionForAAChartEventsComposer3.m in Sources */,
 				84D01E712B1202B50017E90B /* AAArearange.m in Sources */,
-				84B548CE26F31D9B00D4CAFC /* XAxisYAxisTypeOptionsVC.m in Sources */,
 				44143D3921A1950300D44657 /* AAGradientColor+LinearGradient.m in Sources */,
 				1E66D217210AF4ED007EAB8C /* AAOptions.m in Sources */,
 				846142212C8AE6980032FBD3 /* AAGradientColor+RadialGradient.m in Sources */,
@@ -1575,14 +1749,20 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = BPAYP34L8N;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love5;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love006;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -1601,14 +1781,20 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = BPAYP34L8N;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AAChartKitDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love5;
+				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love006;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

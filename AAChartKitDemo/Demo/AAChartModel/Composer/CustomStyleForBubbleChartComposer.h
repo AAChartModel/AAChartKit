@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomStyleForBubbleChartComposer : NSObject
 
-+ (AAChartModel *)configureNegativeColorMixedBubbleChart;
++ (AAChartModel *)negativeColorMixedBubbleChart;
 + (AAChartModel *)showAARadialGradientPositionAllEnumValuesWithBubbleChart;
 
 @end

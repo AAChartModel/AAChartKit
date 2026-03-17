@@ -153,8 +153,18 @@
     NSMutableArray<NSArray<NSNumber *> *> *trendline = [NSMutableArray array]; // Array to store the trend line data points
     
     // Find the minimum and maximum x-values from the scatter plot data
-    double minX = [[data valueForKeyPath:@"@min.firstObject"] doubleValue];
-    double maxX = [[data valueForKeyPath:@"@max.firstObject"] doubleValue];
+    double minX = [data[0][0] doubleValue];
+    double maxX = [data[0][0] doubleValue];
+    
+    for (NSInteger i = 1; i < n; i++) {
+        double x = [data[i][0] doubleValue];
+        if (x < minX) {
+            minX = x;
+        }
+        if (x > maxX) {
+            maxX = x;
+        }
+    }
     
     // Calculate the corresponding y-values for the trend line using the slope
     // and intercept

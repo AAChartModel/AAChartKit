@@ -36,19 +36,19 @@
 
 @interface MixedChartComposer : NSObject
 
-+ (AAChartModel *)configureArearangeMixedLineChart;
-+ (AAChartModel *)configureColumnrangeMixedLineChart;
-+ (AAChartModel *)configureStackingColumnMixedLineChart;
-+ (AAChartModel *)configureDashStyleTypeMixedChart;
-+ (AAChartModel *)configureAllLineDashStyleTypesMixedChart;
-+ (AAChartModel *)configureNegativeColorMixedColumnChart;
-+ (AAChartModel *)configureScatterMixedLineChart;
-+ (AAChartModel *)configureNegativeColorMixedBubbleChart;
-+ (AAChartModel *)configurePolygonMixedScatterChart;
-+ (AAChartModel *)configurePolarMixedChart;
-+ (AAChartModel *)configureColumnMixedScatterChart;
-+ (AAChartModel *)configureNegativeColorMixedAreasplineChart;
-+ (AAChartModel *)configureNegativeColorMixedAreasChart;
-+ (AAChartModel *)configureAreaChartMixedStepAreaChart;
++ (AAChartModel *)arearangeMixedLineChart;
++ (AAChartModel *)columnrangeMixedLineChart;
++ (AAChartModel *)stackingColumnMixedLineChart;
++ (AAChartModel *)dashStyleTypeMixedChart;
++ (AAChartModel *)allLineDashStyleTypesMixedChart;
++ (AAChartModel *)negativeColorMixedColumnChart;
++ (AAChartModel *)scatterMixedLineChart;
++ (AAChartModel *)negativeColorMixedBubbleChart;
++ (AAChartModel *)polygonMixedScatterChart;
++ (AAChartModel *)polarMixedChart;
++ (AAChartModel *)columnMixedScatterChart;
++ (AAChartModel *)negativeColorMixedAreasplineChart;
++ (AAChartModel *)negativeColorMixedAreasChart;
++ (AAChartModel *)areaChartMixedStepAreaChart;
 
 @end

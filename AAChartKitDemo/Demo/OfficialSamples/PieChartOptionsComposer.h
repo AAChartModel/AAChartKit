@@ -4,7 +4,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PieChartOptionsComposer : NSObject
+@interface AAOfficialPieChartOptionsComposer : NSObject
 
 + (AAOptions *)basicPieChart;
 + (AAOptions *)basicPieChartWithLegend;

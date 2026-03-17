@@ -37,6 +37,7 @@
 @interface AABaseChartVC ()
 
 @property (nonatomic, strong) NSLayoutConstraint *topConstraint;
+@property (nonatomic, assign) BOOL usesSafeAreaLayoutGuideConstraints;
 
 @end
 
@@ -144,6 +145,23 @@
 
 - (NSArray *)configureTheConstraintArrayWithSonView:(UIView *)sonView
                                        toFatherView:(UIView *)fatherView {
+    if (@available(iOS 11.0, *)) {
+        self.usesSafeAreaLayoutGuideConstraints = YES;
+        UILayoutGuide *safeArea = fatherView.safeAreaLayoutGuide;
+
+        self.topConstraint = [sonView.topAnchor constraintEqualToAnchor:safeArea.topAnchor];
+        NSLayoutConstraint *leadingConstraint = [sonView.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor];
+        NSLayoutConstraint *trailingConstraint = [sonView.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor];
+        NSLayoutConstraint *bottomConstraint = [sonView.bottomAnchor constraintEqualToAnchor:safeArea.bottomAnchor];
+
+        return @[leadingConstraint,
+                 trailingConstraint,
+                 self.topConstraint,
+                 bottomConstraint];
+    }
+
+    self.usesSafeAreaLayoutGuideConstraints = NO;
+
     CGFloat topConstraintConstant;
     // 如果statusBarFrame为CGRectZero,说明状态栏是隐藏的
     CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
@@ -301,6 +319,12 @@
 
 //屏幕旋转后动态调整 autolayout 布局参数
 - (void)handleDeviceOrientationChangeEvent {
+    if (self.usesSafeAreaLayoutGuideConstraints) {
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+        return;
+    }
+
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
         if ([self isHairPhone]) {

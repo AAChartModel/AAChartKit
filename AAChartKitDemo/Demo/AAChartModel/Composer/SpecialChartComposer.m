@@ -35,6 +35,97 @@
 
 @implementation SpecialChartComposer
 
+
++ (AAChartModel *)basePolarChart {
+    AAChartModel *aaChartModel = AAChartModel.new
+    .polarSet(YES)
+    .dataLabelsEnabledSet(NO)
+    .categoriesSet(@[@"January", @"February", @"March", @"April", @"May", @"June",
+                     @"July", @"August", @"September", @"October", @"November", @"December"])
+    .marginSet(@{@"right": @30, @"left": @50})
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"2018")
+        .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
+        .colorByPointSet(@YES)
+    ]);
+    
+    return aaChartModel;
+}
+
++ (AAChartModel *)polarColumnChart {
+    return [self basePolarChart]
+    .chartTypeSet(AAChartTypeColumn);
+}
+
++ (AAChartModel *)polarBarChart {
+    return [self basePolarChart]
+    .chartTypeSet(AAChartTypeBar);
+}
+
++ (AAChartModel *)polarLineChart {
+    return [self basePolarChart]
+    .chartTypeSet(AAChartTypeLine);
+}
+
++ (AAChartModel *)polarAreaChart {
+    return [self basePolarChart]
+    .chartTypeSet(AAChartTypeArea);
+}
+
++ (AAChartModel *)stepLineChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeLine)//图形类型
+    .animationTypeSet(AAChartAnimationEaseOutCubic)//图形渲染动画类型为"easeOutCubic"
+    .titleSet(@"STEP LINE CHART")//图形标题
+    .subtitleSet(@"2020/08/08")//图形副标题
+    .dataLabelsEnabledSet(NO)//是否显示数字
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeBorderBlank)//折线连接点样式
+    .markerRadiusSet(@7)//折线连接点半径长度,为0时相当于没有折线连接点
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Berlin")
+        .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
+        .stepSet(@"right"), //折线连接点靠右👉
+        AASeriesElement.new
+        .nameSet(@"New York")
+        .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
+        .stepSet(@"center"),//折线连接点居中
+        AASeriesElement.new
+        .nameSet(@"Tokyo")
+        .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
+        .stepSet(@"left"),//折线连接点靠左边👈
+    ]);
+}
+
++ (AAChartModel *)stepAreaChart {
+    return AAChartModel.new
+    .chartTypeSet(AAChartTypeArea)//图形类型
+    .animationTypeSet(AAChartAnimationEaseOutCubic)//图形渲染动画类型为"easeOutCubic"
+    .titleSet(@"STEP AREA CHART")//图形标题
+    .subtitleSet(@"2049/08/08")//图形副标题
+    .dataLabelsEnabledSet(NO)//是否显示数字
+    .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)//折线连接点样式
+    .markerRadiusSet(@0)//折线连接点半径长度,为0时相当于没有折线连接点
+    .seriesSet(@[
+        AASeriesElement.new
+        .nameSet(@"Berlin")
+        .dataSet(@[@450, @432, @401, @454, @590, @530, @510])
+        .stepSet(@"true")//设置折线样式为直方折线,折线连接点位置靠左👈
+        ,
+        AASeriesElement.new
+        .nameSet(@"New York")
+        .dataSet(@[@220, @282, @201, @234, @290, @430, @410])
+        .stepSet(@"true")//设置折线样式为直方折线,折线连接点位置靠左👈
+        ,
+        AASeriesElement.new
+        .nameSet(@"Tokyo")
+        .dataSet(@[@120, @132, @101, @134, @90, @230, @210])
+        .stepSet(@"true")//设置折线样式为直方折线,折线连接点位置靠左👈
+        ,
+    ]);
+}
+
 + (AAChartModel *)pieChart {
     return AAChartModel.new
     .chartTypeSet(AAChartTypePie)
@@ -654,69 +745,87 @@
                ]);
 }
 
-+ (AAChartModel *)areaslinerangeChart {
-    return AAChartModel.new
+
++ (AAChartModel *)areasplinerangeChart {
+    AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeAreasplinerange)
-    .titleSet(@"黄昏别馆日气温起伏图")
-    .subtitleSet(@"实时监测")
-    .yAxisTitleSet(@"摄氏度")
-    .xAxisVisibleSet(false)
-    .dataLabelsEnabledSet(false)
-    .markerRadiusSet(@5)
+    .titleSet(@"Area spline range chart")
+    .subtitleSet(@"virtual data")
     .markerSymbolStyleSet(AAChartSymbolStyleTypeInnerBlank)
+    .yAxisTitleSet(@"℃")
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2020")
-        .typeSet(AAChartTypeAreasplinerange)
-        .colorSet((id)AAGradientColor.pixieDustColor)
+        .colorSet(AAColor.redColor)
+        .fillColorSet((id)AAGradientColor.pixieDustColor)
         .dataSet(@[
             /* 2014-03-01 */
-            @[@1393635600000, @2.1,  @8.9],
-            @[@1393722000000, @0.6,  @6.1],
-            @[@1393808400000, @1.2,  @9.4],
-            @[@1393894800000, @2.6,  @7.3],
-            @[@1393981200000, @3.9,  @9.5],
-            @[@1394067600000, @5.3,  @9.9],
-            @[@1394154000000, @2.7,  @7.1],
-            @[@1394240400000, @4.0,  @8.6],
-            @[@1394326800000, @6.1, @10.7],
-            @[@1394413200000, @4.2,  @7.6],
-            @[@1394499600000, @2.5,  @9.0],
-            @[@1394586000000, @0.2,  @7.0],
-            @[@1394672400000, @-1.2, @6.9],
-            @[@1394758800000, @0.4,  @6.7],
-            @[@1394845200000, @0.2,  @5.1],
-            @[@1394931600000, @-0.1, @6.0],
-            @[@1395018000000, @1.0,  @5.6],
-            @[@1395104400000, @-1.1, @6.3],
-            @[@1395190800000, @-1.9, @0.3],
-            @[@1395277200000, @0.3,  @4.5],
-            @[@1395363600000, @2.4,  @6.7],
-            @[@1395450000000, @3.2,  @9.2],
-            @[@1395536400000, @1.7,  @3.6],
+            @[ @13936356, @2.1, @8.9 ],
+            @[ @13937220, @0.6, @6.1 ],
+            @[ @13938084, @1.2, @9.4 ],
+            @[ @13938948, @2.6, @7.3 ],
+            @[ @13939812, @3.9, @9.5 ],
+            @[ @13940676, @5.3, @9.9 ],
+            @[ @13941540, @2.7, @7.1 ],
+            @[ @13942404, @4.0, @8.6 ],
+            @[ @13943268, @6.1, @10.7 ],
+            @[ @13944132, @4.2, @7.6 ],
+            @[ @13944996, @2.5, @9.0 ],
+            @[ @13945860, @0.2, @7.0 ],
+            @[ @13946724, @-1.2, @6.9 ],
+            @[ @13947588, @0.4, @6.7 ],
+            @[ @13948452, @0.2, @5.1 ],
+            @[ @13949316, @-0.1, @6.0 ],
+            @[ @13950180, @1.0, @5.6 ],
+            @[ @13951044, @-1.1, @6.3 ],
+            @[ @13951908, @-1.9, @0.3 ],
+            @[ @13952772, @0.3, @4.5 ],
+            @[ @13953636, @2.4, @6.7 ],
+            @[ @13954500, @3.2, @9.2 ],
+            @[ @13955364, @1.7, @3.6 ],
+            @[ @13956228, @-0.3, @7.9 ],
+            @[ @13957092, @-2.4, @8.6 ],
+            @[ @13957956, @-1.7, @10.3 ],
+            @[ @13958820, @4.1, @10.0 ],
+            @[ @13959684, @4.4, @14.0 ],
+            @[ @13960548, @3.3, @11.0 ],
+            @[ @13961412, @3.0, @12.5 ],
+            @[ @13962240, @1.4, @10.4 ],
             /* 2014-04-01 */
-            @[@1396310400000, @-1.2, @8.8],
-            @[@1396396800000, @2.2,  @7.6],
-            @[@1396483200000, @-1.0,@10.1],
-            @[@1396569600000, @-1.8, @9.5],
-            @[@1396656000000, @0.2,  @7.7],
-            @[@1396742400000, @3.7,  @6.4],
-            @[@1396828800000, @5.8, @11.4],
-            @[@1396915200000, @5.4,  @8.7],
-            @[@1397001600000, @4.5, @12.2],
-            @[@1397088000000, @3.9,  @8.4],
-            @[@1397174400000, @4.5,  @8.0],
-            @[@1397260800000, @6.6,  @8.4],
-            @[@1397347200000, @3.7,  @7.3],
-            @[@1397433600000, @3.6,  @6.7],
-            @[@1397520000000, @3.5,  @8.3],
-            @[@1397606400000, @1.5, @10.2],
-            @[@1397692800000, @4.9,  @9.4],
-            @[@1397779200000, @3.5, @12.0],
-            @[@1397865600000, @1.5, @13.1],
-            @[@1397952000000, @1.7, @15.6],
-                 ]),
-               ]);
+            @[ @13963104, @-1.2, @8.8 ],
+            @[ @13963968, @2.2, @7.6 ],
+            @[ @13964832, @-1.0, @10.1 ],
+            @[ @13965696, @-1.8, @9.5 ],
+            @[ @13966560, @0.2, @7.7 ],
+            @[ @13967424, @3.7, @6.4 ],
+            @[ @13968288, @5.8, @11.4 ],
+            @[ @13969152, @5.4, @8.7 ],
+            @[ @13970016, @4.5, @12.2 ],
+            @[ @13970880, @3.9, @8.4 ],
+            @[ @13971744, @4.5, @8.0 ],
+            @[ @13972608, @6.6, @8.4 ],
+            @[ @13973472, @3.7, @7.3 ],
+            @[ @13974336, @3.6, @6.7 ],
+            @[ @13975200, @3.5, @8.3 ],
+            @[ @13976064, @1.5, @10.2 ],
+            @[ @13976928, @4.9, @9.4 ],
+            @[ @13977792, @3.5, @12.0 ],
+            @[ @13978656, @1.5, @13.1 ],
+            @[ @13979520, @1.7, @15.6 ],
+            @[ @13980384, @1.4, @16.0 ],
+            @[ @13981248, @3.0, @18.4 ],
+            @[ @13982112, @5.6, @18.8 ],
+            @[ @13982976, @5.7, @17.2 ],
+            @[ @13983840, @4.5, @16.4 ],
+            @[ @13984704, @3.1, @17.6 ],
+            @[ @13985568, @4.7, @18.9 ],
+            @[ @13986432, @4.9, @16.6 ],
+            @[ @13987296, @6.8, @15.6 ],
+            @[ @13988160, @2.8, @9.2 ]
+        ])
+    ]);
+    
+    return aaChartModel;
 }
 
 + (AAChartModel *)columnpyramidChart {
@@ -851,7 +960,7 @@
                ]);
 }
 
-+ (AAChartModel *)errorBarChart {
++ (AAChartModel *)errorbarChart {
     return AAChartModel.new
     .categoriesSet(@[
         @"一月", @"二月", @"三月", @"四月", @"五月", @"六月",

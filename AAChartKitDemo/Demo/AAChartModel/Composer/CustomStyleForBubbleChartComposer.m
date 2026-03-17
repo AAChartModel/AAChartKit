@@ -13,7 +13,7 @@
 
 @implementation CustomStyleForBubbleChartComposer
 
-+ (AAChartModel *)configureNegativeColorMixedBubbleChart {
++ (AAChartModel *)negativeColorMixedBubbleChart {
     return AAChartModel.new
         .chartTypeSet(AAChartTypeBubble)
         .legendEnabledSet(false)
