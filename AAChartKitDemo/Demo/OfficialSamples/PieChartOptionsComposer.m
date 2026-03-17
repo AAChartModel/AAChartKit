@@ -1,7 +1,7 @@
 #import "PieChartOptionsComposer.h"
 #import "AAChartKit.h"
 
-@implementation PieChartOptionsComposer
+@implementation AAOfficialPieChartOptionsComposer
 
 + (AAOptions *)basicPieChart {
     return AAOptions.new

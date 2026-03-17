@@ -11,7 +11,7 @@
 // 导入相关的 Composer 类
 #import "AreaChartOptionsComposer.h"
 #import "BarOrColumnChartOptionsComposer.h"
-#import "PieChartOptionsComposer.h"
+#import "../../OfficialSamples/PieChartOptionsComposer.h"
 
 @implementation OfficalSamplesChartProvider
 
@@ -62,12 +62,12 @@
 
 + (NSArray<AAOptions *> *)pieChartSamples {
     return @[
-        [PieChartOptionsComposer basicPieChart],//基本饼状图
-        [PieChartOptionsComposer basicPieChartWithLegend],//带有图例的基本饼状图
-        [PieChartOptionsComposer basicPieChartWithGradientColor],//带有渐变色的基本饼状图
-        [PieChartOptionsComposer basicPieChartWithGradientColor2],//带有渐变色的基本饼状图
-        [PieChartOptionsComposer basicPieChartWithMonochromeColor],//带有单色的基本饼状图
-        [PieChartOptionsComposer customPieChartTitlePosition],//自定义饼状图标题位置
+        [AAOfficialPieChartOptionsComposer basicPieChart],//基本饼状图
+        [AAOfficialPieChartOptionsComposer basicPieChartWithLegend],//带有图例的基本饼状图
+        [AAOfficialPieChartOptionsComposer basicPieChartWithGradientColor],//带有渐变色的基本饼状图
+        [AAOfficialPieChartOptionsComposer basicPieChartWithGradientColor2],//带有渐变色的基本饼状图
+        [AAOfficialPieChartOptionsComposer basicPieChartWithMonochromeColor],//带有单色的基本饼状图
+        [AAOfficialPieChartOptionsComposer customPieChartTitlePosition],//自定义饼状图标题位置
     ];
 }
 
