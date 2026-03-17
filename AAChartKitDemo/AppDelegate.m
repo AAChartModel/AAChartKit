@@ -53,12 +53,11 @@
 
 #import "AppDelegate.h"
 //#import "AAChartModelListVC.h"
-//#import "AAOptionsListVC.h"
-//#import "AAOptionsWithJSListVC.h"
-//#import "OfficialSamplesListVC.h"
+#import "AAOptionsListVC.h"
+#import "AAOptionsWithJSListVC.h"
+#import "OfficialSamplesListVC.h"
 //#import "AdvancedFeaturesListVC.h"
 #import "MainVC.h"
-#import "AAOptionsWithJSForChartEventsListVC.h"
 #import "AAChartModelListVC.h"
 
 static const CGFloat kAASidebarOuterPadding = 12.0;
@@ -611,11 +610,17 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     UINavigationController *firstVC = [self createFirstNavigationController];
     [viewControllers addObject:firstVC];
 
+    UINavigationController *secondVC = [self createSecondNavigationController];
+    [viewControllers addObject:secondVC];
+
     UINavigationController *thirdVC = [self createThirdNavigationController];
     [viewControllers addObject:thirdVC];
 
-    UINavigationController *secondVC = [self createSecondNavigationController];
-    [viewControllers addObject:secondVC];
+    UINavigationController *fourthVC = [self createFourthNavigationController];
+    [viewControllers addObject:fourthVC];
+
+    UINavigationController *fifthVC = [self createFifthNavigationController];
+    [viewControllers addObject:fifthVC];
     
 //    UINavigationController *fourthVC = [self createFourthNavigationController];
 //    [viewControllers addObject:fourthVC];
@@ -636,6 +641,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     [navigationControllers addObject:[self createFirstNavigationController]];
     [navigationControllers addObject:[self createSecondNavigationController]];
     [navigationControllers addObject:[self createThirdNavigationController]];
+    [navigationControllers addObject:[self createFourthNavigationController]];
+    [navigationControllers addObject:[self createFifthNavigationController]];
 
     AASidebarListController *sidebarController = [[AASidebarListController alloc] initWithViewControllers:navigationControllers];
     AASidebarContainerController *containerController = [[AASidebarContainerController alloc] initWithSidebarController:sidebarController];
@@ -657,8 +664,11 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createSecondViewController {
     // 创建第二个视图控制器
-    AAOptionsWithJSForChartEventsListVC *secondVC = [[AAOptionsWithJSForChartEventsListVC alloc] init];
-    secondVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:1];
+    AAOptionsListVC *secondVC = [[AAOptionsListVC alloc] init];
+    secondVC.title = @"AAOptions";
+    secondVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAOptions"
+                                                        image:[UIImage systemImageNamed:@"chart.bar.doc.horizontal"]
+                                                selectedImage:[UIImage systemImageNamed:@"chart.bar.doc.horizontal"]];
     
     // 在这里添加第二个视图控制器的其他配置
     
@@ -668,12 +678,34 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createThirdViewController {
     // 创建第三个视图控制器
-    MainVC *thirdVC = [[MainVC alloc] init];
-    thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2];
+    AAOptionsWithJSListVC *thirdVC = [[AAOptionsWithJSListVC alloc] init];
+    thirdVC.title = @"AAOptionsWithJS";
+    thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAOptionsWithJS"
+                                                       image:[UIImage systemImageNamed:@"function"]
+                                               selectedImage:[UIImage systemImageNamed:@"function"]];
     
     // 在这里添加第三个视图控制器的其他配置
     
     return thirdVC;
+}
+
+- (UIViewController *)createFourthViewController {
+    // 创建第四个视图控制器
+    OfficialSamplesListVC *fourthVC = [[OfficialSamplesListVC alloc] init];
+    fourthVC.title = @"Offical Samples";
+    fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"OfficialSamples"
+                                                        image:[UIImage systemImageNamed:@"doc.text.image"]
+                                                selectedImage:[UIImage systemImageNamed:@"doc.text.image"]];
+
+    return fourthVC;
+}
+
+- (UIViewController *)createFifthViewController {
+    // 创建第五个视图控制器
+    MainVC *fifthVC = [[MainVC alloc] init];
+    fifthVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:4];
+
+    return fifthVC;
 }
 
 /*
@@ -720,6 +752,20 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     UIViewController *thirdViewController = [self createThirdViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:thirdViewController];
     navigationController.tabBarItem = thirdViewController.tabBarItem;
+    return navigationController;
+}
+
+- (UINavigationController *)createFourthNavigationController {
+    UIViewController *fourthViewController = [self createFourthViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fourthViewController];
+    navigationController.tabBarItem = fourthViewController.tabBarItem;
+    return navigationController;
+}
+
+- (UINavigationController *)createFifthNavigationController {
+    UIViewController *fifthViewController = [self createFifthViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fifthViewController];
+    navigationController.tabBarItem = fifthViewController.tabBarItem;
     return navigationController;
 }
 

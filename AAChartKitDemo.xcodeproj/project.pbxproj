@@ -117,6 +117,9 @@
 		84526E202CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E1F2CEED3F100EB2563 /* JSFunctionBeforeAndAfterRenderingComposer6.m */; };
 		84526E232CEF256C00EB2563 /* TripleChartsLinkedWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84526E212CEF256C00EB2563 /* TripleChartsLinkedWorkVC.m */; };
 		845589C928C3B27C009D1BC3 /* AAScatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845589C828C3B27C009D1BC3 /* AAScatter.m */; };
+		84565CCB2F6920CB00E47891 /* AAOptionsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84565CCA2F6920CB00E47891 /* AAOptionsListVC.m */; };
+		84565CCE2F69249200E47891 /* AAOptionsWithJSListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84565CCD2F69249200E47891 /* AAOptionsWithJSListVC.m */; };
+		84565CD12F692AC500E47891 /* OfficialSamplesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84565CD02F692AC500E47891 /* OfficialSamplesListVC.m */; };
 		845F42912E8BE1BA00CE65AB /* AAJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 845F42902E8BE1BA00CE65AB /* AAJsonConverter.m */; };
 		845FC2392EA0CF67002FC670 /* JSFunctionBeforeAndAfterRenderingComposer7.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FC2382EA0CF67002FC670 /* JSFunctionBeforeAndAfterRenderingComposer7.m */; };
 		846141F72C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 846141F62C86FC0F0032FBD3 /* JSFunctionForAAChartEventsVC.m */; };
@@ -423,6 +426,12 @@
 		84526E222CEF256C00EB2563 /* TripleChartsLinkedWorkVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripleChartsLinkedWorkVC.h; sourceTree = "<group>"; };
 		845589C728C3B27C009D1BC3 /* AAScatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAScatter.h; sourceTree = "<group>"; };
 		845589C828C3B27C009D1BC3 /* AAScatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAScatter.m; sourceTree = "<group>"; };
+		84565CC92F6920CB00E47891 /* AAOptionsListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsListVC.h; sourceTree = "<group>"; };
+		84565CCA2F6920CB00E47891 /* AAOptionsListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsListVC.m; sourceTree = "<group>"; };
+		84565CCC2F69249200E47891 /* AAOptionsWithJSListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAOptionsWithJSListVC.h; sourceTree = "<group>"; };
+		84565CCD2F69249200E47891 /* AAOptionsWithJSListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAOptionsWithJSListVC.m; sourceTree = "<group>"; };
+		84565CCF2F692AC500E47891 /* OfficialSamplesListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfficialSamplesListVC.h; sourceTree = "<group>"; };
+		84565CD02F692AC500E47891 /* OfficialSamplesListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfficialSamplesListVC.m; sourceTree = "<group>"; };
 		845F428F2E8BE1BA00CE65AB /* AAJsonConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAJsonConverter.h; sourceTree = "<group>"; };
 		845F42902E8BE1BA00CE65AB /* AAJsonConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAJsonConverter.m; sourceTree = "<group>"; };
 		845FC2372EA0CF67002FC670 /* JSFunctionBeforeAndAfterRenderingComposer7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunctionBeforeAndAfterRenderingComposer7.h; sourceTree = "<group>"; };
@@ -900,6 +909,12 @@
 				713F54381E7B71C000D506C7 /* MainVC.m */,
 				8461422E2C8AF5320032FBD3 /* AAChartModelListVC.h */,
 				8461422F2C8AF5320032FBD3 /* AAChartModelListVC.m */,
+				84565CC92F6920CB00E47891 /* AAOptionsListVC.h */,
+				84565CCA2F6920CB00E47891 /* AAOptionsListVC.m */,
+				84565CCC2F69249200E47891 /* AAOptionsWithJSListVC.h */,
+				84565CCD2F69249200E47891 /* AAOptionsWithJSListVC.m */,
+				84565CCF2F692AC500E47891 /* OfficialSamplesListVC.h */,
+				84565CD02F692AC500E47891 /* OfficialSamplesListVC.m */,
 				846142072C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.h */,
 				846142082C88330C0032FBD3 /* AAOptionsWithJSForChartEventsListVC.m */,
 				85A0C0322F5A300100AA0001 /* AAOptionsComposerChartListVC.h */,
@@ -1448,6 +1463,7 @@
 				846142242C8AEB340032FBD3 /* CustomStyleForScatterChartComposer.m in Sources */,
 				846141FA2C8700720032FBD3 /* JSFunctionForAAChartEventsVC2.m in Sources */,
 				84790F422CBFA63E0047C133 /* CustomTooltipClickEventCallbackVC.m in Sources */,
+				84565CD12F692AC500E47891 /* OfficialSamplesListVC.m in Sources */,
 				846142062C8831FA0032FBD3 /* AABaseListVC.m in Sources */,
 				84526E142CEDBDCB00EB2563 /* JSFunctionBeforeAndAfterRenderingComposer3.m in Sources */,
 				84E0D36628F2D690004031BE /* JSFunctionForAAOptionsVC.m in Sources */,
@@ -1486,6 +1502,7 @@
 				841F49A02F39F04B007B01F0 /* MultiYAxesChartOptionsVC.m in Sources */,
 				841F49A12F39F04B007B01F0 /* PieChartOptionsVC.m in Sources */,
 				841F49A22F39F04B007B01F0 /* DrawChartWithAAOptionsVC.m in Sources */,
+				84565CCE2F69249200E47891 /* AAOptionsWithJSListVC.m in Sources */,
 				841F49A32F39F04B007B01F0 /* PlotLinesBandsZonesOptionsVC.m in Sources */,
 				841F49A42F39F04B007B01F0 /* XAxisYAxisLabelsOptionsVC.m in Sources */,
 				841F49A52F39F04B007B01F0 /* XAxisYAxisTypeOptionsVC.m in Sources */,
@@ -1522,6 +1539,7 @@
 				1E66D208210AF4ED007EAB8C /* AAPlotLinesElement.m in Sources */,
 				64AF87601F0A981400A801C4 /* OnlyRefreshChartDataVC.m in Sources */,
 				7172A3DB1E763EA6000D5B99 /* AppDelegate.m in Sources */,
+				84565CCB2F6920CB00E47891 /* AAOptionsListVC.m in Sources */,
 				8492D9B52C81A321007EB8D0 /* AAChartViewManager.m in Sources */,
 				440B098024C189950056CE08 /* AACredits.m in Sources */,
 				27E38C651F0E47BA00FB52E1 /* ChartAnimationTypeVC.m in Sources */,
