@@ -39,6 +39,8 @@
 @property (nonatomic, strong) UIStackView *mainStackView;
 @property (nonatomic, strong) UIStackView *segmentedControlsStackView;
 @property (nonatomic, strong) UIStackView *switchesStackView;
+@property (nonatomic, strong) UIView *chartStateProbeView;
+@property (nonatomic, assign) BOOL shouldExposeUITestChartState;
 
 @end
 
@@ -62,6 +64,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
     self.view.accessibilityIdentifier = @"basic-chart.view";
+    self.shouldExposeUITestChartState = [[[NSProcessInfo processInfo] arguments] containsObject:@"-UITestExposeChartState"];
 
     AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
@@ -79,6 +82,7 @@
     AAChartType chartType = [self configureTheChartType];
     [self setupAAChartViewWithChartType:chartType];
     [_aaChartView aa_drawChartWithChartModel:_aaChartModel];
+    [self updateUITestChartStateProbe];
 }
 
 - (void)setupAAChartView {
@@ -105,9 +109,95 @@
     } else {
         // Fallback on earlier versions
     }
-    
+
+    [self setupUITestChartStateProbeIfNeeded];
     [self setupChartViewEventHandlers];
     [self setupMainStackView];
+}
+
+- (void)setupUITestChartStateProbeIfNeeded {
+    if (!self.shouldExposeUITestChartState || _chartStateProbeView != nil) {
+        return;
+    }
+
+    UIView *stateProbeView = [[UIView alloc] init];
+    stateProbeView.translatesAutoresizingMaskIntoConstraints = NO;
+    stateProbeView.backgroundColor = UIColor.clearColor;
+    stateProbeView.userInteractionEnabled = NO;
+    stateProbeView.isAccessibilityElement = YES;
+    stateProbeView.accessibilityIdentifier = @"basic-chart.state";
+    [self.view addSubview:stateProbeView];
+    [NSLayoutConstraint activateConstraints:@[
+        [stateProbeView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [stateProbeView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [stateProbeView.widthAnchor constraintEqualToConstant:1],
+        [stateProbeView.heightAnchor constraintEqualToConstant:1],
+    ]];
+    _chartStateProbeView = stateProbeView;
+}
+
+- (void)updateUITestChartStateProbe {
+    if (!self.shouldExposeUITestChartState) {
+        return;
+    }
+
+    [self setupUITestChartStateProbeIfNeeded];
+    _chartStateProbeView.accessibilityValue = [self serializedUITestChartState];
+}
+
+- (NSString *)serializedUITestChartState {
+    NSDictionary<NSString *, id> *state = [self currentUITestChartState];
+    NSArray<NSString *> *orderedKeys = @[
+        @"chartType",
+        @"stacking",
+        @"borderRadius",
+        @"xAxisReversed",
+        @"yAxisReversed",
+        @"inverted",
+        @"polar",
+        @"dataLabelsEnabled",
+    ];
+    NSMutableArray<NSString *> *pairs = [NSMutableArray arrayWithCapacity:orderedKeys.count];
+    for (NSString *key in orderedKeys) {
+        id value = state[key];
+        NSString *serializedValue = [self serializedUITestChartStateValue:value];
+        [pairs addObject:[NSString stringWithFormat:@"\"%@\":%@", key, serializedValue]];
+    }
+    return [NSString stringWithFormat:@"{%@}", [pairs componentsJoinedByString:@","]];
+}
+
+- (NSDictionary<NSString *, id> *)currentUITestChartState {
+    NSString *chartType = _aaChartModel.chartType ?: [self configureTheChartType];
+    NSString *stacking = [self normalizedUITestStackingValue:_aaChartModel.stacking];
+    NSNumber *borderRadius = _aaChartModel.borderRadius ?: @0;
+
+    return @{
+        @"chartType"         : chartType ?: @"",
+        @"stacking"          : stacking,
+        @"borderRadius"      : borderRadius,
+        @"xAxisReversed"     : @(_aaChartModel.xAxisReversed),
+        @"yAxisReversed"     : @(_aaChartModel.yAxisReversed),
+        @"inverted"          : @(_aaChartModel.inverted),
+        @"polar"             : @(_aaChartModel.polar),
+        @"dataLabelsEnabled" : @(_aaChartModel.dataLabelsEnabled),
+    };
+}
+
+- (NSString *)normalizedUITestStackingValue:(NSString *)stacking {
+    return stacking.length > 0 ? stacking : @"false";
+}
+
+- (NSString *)serializedUITestChartStateValue:(id)value {
+    if ([value isKindOfClass:[NSString class]]) {
+        NSString *escapedString = [(NSString *)value stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+        return [NSString stringWithFormat:@"\"%@\"", escapedString];
+    }
+
+    if (CFGetTypeID((__bridge CFTypeRef)value) == CFBooleanGetTypeID()) {
+        return [value boolValue] ? @"true" : @"false";
+    }
+
+    return [value stringValue];
 }
 
 - (void)setupMainStackView {
@@ -449,6 +539,7 @@
 
 - (void)refreshTheChartView {
     [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    [self updateUITestChartStateProbe];
 }
 
 - (void)setUpTheNextTypeChartButton {
@@ -494,6 +585,8 @@
     if (_chartType == BasicChartVCChartTypeScatter) {
         _chartType = -1;//重新开始
     }
+
+    [self updateUITestChartStateProbe];
 }
 
 - (BOOL)isHairPhone {
