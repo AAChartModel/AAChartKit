@@ -55,7 +55,7 @@
 //#import "AAChartModelListVC.h"
 #import "AAOptionsListVC.h"
 #import "AAOptionsWithJSListVC.h"
-//#import "OfficialSamplesListVC.h"
+#import "OfficialSamplesListVC.h"
 //#import "AdvancedFeaturesListVC.h"
 #import "MainVC.h"
 #import "AAChartModelListVC.h"
@@ -618,6 +618,9 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
     UINavigationController *fourthVC = [self createFourthNavigationController];
     [viewControllers addObject:fourthVC];
+
+    UINavigationController *fifthVC = [self createFifthNavigationController];
+    [viewControllers addObject:fifthVC];
     
 //    UINavigationController *fourthVC = [self createFourthNavigationController];
 //    [viewControllers addObject:fourthVC];
@@ -639,6 +642,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     [navigationControllers addObject:[self createSecondNavigationController]];
     [navigationControllers addObject:[self createThirdNavigationController]];
     [navigationControllers addObject:[self createFourthNavigationController]];
+    [navigationControllers addObject:[self createFifthNavigationController]];
 
     AASidebarListController *sidebarController = [[AASidebarListController alloc] initWithViewControllers:navigationControllers];
     AASidebarContainerController *containerController = [[AASidebarContainerController alloc] initWithSidebarController:sidebarController];
@@ -687,10 +691,21 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createFourthViewController {
     // 创建第四个视图控制器
-    MainVC *fourthVC = [[MainVC alloc] init];
-    fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:3];
+    OfficialSamplesListVC *fourthVC = [[OfficialSamplesListVC alloc] init];
+    fourthVC.title = @"Offical Samples";
+    fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"OfficialSamples"
+                                                        image:[UIImage systemImageNamed:@"doc.text.image"]
+                                                selectedImage:[UIImage systemImageNamed:@"doc.text.image"]];
 
     return fourthVC;
+}
+
+- (UIViewController *)createFifthViewController {
+    // 创建第五个视图控制器
+    MainVC *fifthVC = [[MainVC alloc] init];
+    fifthVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:4];
+
+    return fifthVC;
 }
 
 /*
@@ -744,6 +759,13 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     UIViewController *fourthViewController = [self createFourthViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fourthViewController];
     navigationController.tabBarItem = fourthViewController.tabBarItem;
+    return navigationController;
+}
+
+- (UINavigationController *)createFifthNavigationController {
+    UIViewController *fifthViewController = [self createFifthViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fifthViewController];
+    navigationController.tabBarItem = fifthViewController.tabBarItem;
     return navigationController;
 }
 
