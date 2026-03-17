@@ -1775,6 +1775,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love006;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1807,6 +1808,7 @@
 				INFOPLIST_FILE = AAChartKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AAChartKit.love006;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1819,50 +1821,76 @@
 			};
 			name = Release;
 		};
-		7172A4041E763EA6000D5B99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AAChartKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AAChartKitDemo.app/AAChartKitDemo";
+			7172A4041E763EA6000D5B99 /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					BUNDLE_LOADER = "$(TEST_HOST)";
+					"BUNDLE_LOADER[sdk=macosx*]" = "$(TEST_HOST)";
+					"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+					CODE_SIGN_STYLE = Automatic;
+					DEVELOPMENT_TEAM = BPAYP34L8N;
+					INFOPLIST_FILE = AAChartKitDemoTests/Info.plist;
+					IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+					LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+					MACOSX_DEPLOYMENT_TARGET = 13.0;
+					PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitTests;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AAChartKitDemo.app/AAChartKitDemo";
+					"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/AAChartKitDemo.app/Contents/MacOS/AAChartKitDemo";
+				};
+				name = Debug;
 			};
+			7172A4051E763EA6000D5B99 /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					BUNDLE_LOADER = "$(TEST_HOST)";
+					"BUNDLE_LOADER[sdk=macosx*]" = "$(TEST_HOST)";
+					"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+					CODE_SIGN_STYLE = Automatic;
+					DEVELOPMENT_TEAM = BPAYP34L8N;
+					INFOPLIST_FILE = AAChartKitDemoTests/Info.plist;
+					IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+					LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+					MACOSX_DEPLOYMENT_TARGET = 13.0;
+					PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitTests;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AAChartKitDemo.app/AAChartKitDemo";
+					"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/AAChartKitDemo.app/Contents/MacOS/AAChartKitDemo";
+				};
+				name = Release;
+			};
+			7172A4071E763EA6000D5B99 /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					CODE_SIGN_STYLE = Automatic;
+					DEVELOPMENT_TEAM = BPAYP34L8N;
+					INFOPLIST_FILE = AAChartKitDemoUITests/Info.plist;
+					IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+					LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+					MACOSX_DEPLOYMENT_TARGET = 13.0;
+					PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitUITests;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+					SUPPORTS_MACCATALYST = YES;
+					TEST_TARGET_NAME = AAChartKitDemo;
+				};
 			name = Debug;
 		};
-		7172A4051E763EA6000D5B99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AAChartKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AAChartKitDemo.app/AAChartKitDemo";
-			};
-			name = Release;
-		};
-		7172A4071E763EA6000D5B99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = AAChartKitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AAChartKit;
-			};
-			name = Debug;
-		};
-		7172A4081E763EA6000D5B99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = AAChartKitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AAChartKit;
-			};
+			7172A4081E763EA6000D5B99 /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					CODE_SIGN_STYLE = Automatic;
+					DEVELOPMENT_TEAM = BPAYP34L8N;
+					INFOPLIST_FILE = AAChartKitDemoUITests/Info.plist;
+					IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+					LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+					MACOSX_DEPLOYMENT_TARGET = 13.0;
+					PRODUCT_BUNDLE_IDENTIFIER = Hobbies.AAChartKitUITests;
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+					SUPPORTS_MACCATALYST = YES;
+					TEST_TARGET_NAME = AAChartKitDemo;
+				};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */

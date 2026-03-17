@@ -59,6 +59,7 @@
 //#import "AdvancedFeaturesListVC.h"
 #import "MainVC.h"
 #import "AAChartModelListVC.h"
+#import "BasicChartVC.h"
 
 static const CGFloat kAASidebarOuterPadding = 12.0;
 static const CGFloat kAASidebarColumnSpacing = 10.0;
@@ -592,11 +593,33 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 }
 
 - (UIViewController *)createRootViewController {
+    UIViewController *uiTestRootViewController = [self aa_createUITestRootViewController];
+    if (uiTestRootViewController) {
+        return uiTestRootViewController;
+    }
+
 #if TARGET_OS_MACCATALYST
     return [self createSidebarContainerController];
 #else
     return [self createTabBarController];
 #endif
+}
+
+- (UIViewController *)aa_createUITestRootViewController {
+    NSArray<NSString *> *arguments = [NSProcessInfo processInfo].arguments;
+    NSUInteger argumentIndex = [arguments indexOfObject:@"-UITestBasicChartType"];
+    if (argumentIndex == NSNotFound || argumentIndex + 1 >= arguments.count) {
+        return nil;
+    }
+
+    NSInteger rawChartType = [arguments[argumentIndex + 1] integerValue];
+    if (rawChartType < BasicChartVCChartTypeColumn || rawChartType > BasicChartVCChartTypeScatter) {
+        return nil;
+    }
+
+    BasicChartVC *viewController = [BasicChartVC new];
+    viewController.chartType = (BasicChartVCChartType)rawChartType;
+    return [[UINavigationController alloc] initWithRootViewController:viewController];
 }
 
 // 创建一个 UITabBarController

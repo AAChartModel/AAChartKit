@@ -33,6 +33,7 @@
 #import <XCTest/XCTest.h>
 
 @interface AAChartKitUITests : XCTestCase
+@property (nonatomic, strong) XCUIApplication *app;
 
 @end
 
@@ -40,27 +41,58 @@
 
 - (void)setUp {
     [super setUp];
-    
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-    // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
-    // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-    [[[XCUIApplication alloc] init] launch];
-    
-    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    
-    //Just for git push function test!!!
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testBasicChartVCColumnLayout {
+    XCUIApplication *app = [self aa_launchBasicChartWithType:0];
+
+    XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
+
+    XCUIElement *stackingControl = app.segmentedControls[@"basic-chart.segmented.0"];
+    XCUIElement *cornerControl = app.segmentedControls[@"basic-chart.segmented.1"];
+    XCUIElement *nextTypeButton = app.buttons[@"basic-chart.next-type"];
+    XCTAssertTrue(stackingControl.exists);
+    XCTAssertTrue(cornerControl.exists);
+    XCTAssertTrue(nextTypeButton.exists);
+    XCTAssertEqual(stackingControl.buttons.count, 3);
+    XCTAssertEqual(cornerControl.buttons.count, 3);
+
+    XCTAssertTrue(app.switches[@"basic-chart.switch.4"].exists);
+    XCTAssertFalse(app.switches[@"basic-chart.switch.5"].exists);
 }
 
-- (void)testExample {
-    // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testBasicChartVCLineInteractions {
+    XCUIApplication *app = [self aa_launchBasicChartWithType:4];
+
+    XCTAssertTrue([app.navigationBars.staticTexts[@"line chart"] waitForExistenceWithTimeout:5.0]);
+    XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
+
+    XCUIElement *stackingControl = app.segmentedControls[@"basic-chart.segmented.0"];
+    XCUIElement *markerControl = app.segmentedControls[@"basic-chart.segmented.1"];
+    XCTAssertEqual(stackingControl.buttons.count, 3);
+    XCTAssertEqual(markerControl.buttons.count, 5);
+
+    XCUIElement *triangleButton = markerControl.buttons[@"▲ ▲ ▲"];
+    XCTAssertTrue(triangleButton.exists);
+    [triangleButton tap];
+    XCTAssertTrue(triangleButton.isSelected);
+
+    XCUIElement *hideMarkerSwitch = app.switches[@"basic-chart.switch.5"];
+    XCTAssertTrue(hideMarkerSwitch.exists);
+    id initialValue = hideMarkerSwitch.value;
+    [hideMarkerSwitch tap];
+    XCTAssertNotEqualObjects(initialValue, hideMarkerSwitch.value);
+}
+
+- (XCUIApplication *)aa_launchBasicChartWithType:(NSInteger)chartType {
+    self.app = [[XCUIApplication alloc] init];
+    self.app.launchArguments = @[
+        @"-UITestBasicChartType",
+        [NSString stringWithFormat:@"%ld", (long)chartType],
+    ];
+    [self.app launch];
+    return self.app;
 }
 
 @end

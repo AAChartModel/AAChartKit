@@ -61,6 +61,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
+    self.view.accessibilityIdentifier = @"basic-chart.view";
 
     AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
@@ -86,6 +87,7 @@
     _aaChartView.scrollEnabled = NO; // 禁用 AAChartView 滚动效果
     _aaChartView.isClearBackgroundColor = YES; // 设置 AAChartView 的背景色是否为透明
     _aaChartView.translatesAutoresizingMaskIntoConstraints = NO; // 启用 Auto Layout
+    _aaChartView.accessibilityIdentifier = @"basic-chart.chart-view";
     
     // 将 AAChartView 添加到视图
     [self.view addSubview:_aaChartView];
@@ -116,6 +118,7 @@
     _mainStackView.alignment = UIStackViewAlignmentFill;
     _mainStackView.spacing = 10;
     _mainStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    _mainStackView.accessibilityIdentifier = @"basic-chart.controls";
     [self.view addSubview:_mainStackView];
     
     // 设置主 StackView 约束
@@ -196,6 +199,7 @@
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
         segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
+        segmentedControl.accessibilityIdentifier = [NSString stringWithFormat:@"basic-chart.segmented.%tu", i];
         [segmentedControl addTarget:self
                              action:@selector(customSegmentedControlCellValueBeChanged:)
                    forControlEvents:UIControlEventValueChanged];
@@ -267,6 +271,7 @@
         switchView.thumbTintColor = [UIColor whiteColor];
         switchView.on = NO;
         switchView.tag = i;
+        switchView.accessibilityIdentifier = [NSString stringWithFormat:@"basic-chart.switch.%tu", i];
         [switchView addTarget:self
                        action:@selector(switchViewClicked:)
              forControlEvents:UIControlEventValueChanged];
@@ -451,6 +456,7 @@
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(monitorTap)];
+    btnItem.accessibilityIdentifier = @"basic-chart.next-type";
     self.navigationItem.rightBarButtonItem = btnItem;
 }
 
