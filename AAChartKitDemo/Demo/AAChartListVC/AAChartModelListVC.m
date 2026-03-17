@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"AAChartModel";
     
     self.sectionTitleArr = @[
         @"Basic Type---基础类型",

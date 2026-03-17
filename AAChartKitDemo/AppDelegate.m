@@ -610,12 +610,12 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     
     UINavigationController *firstVC = [self createFirstNavigationController];
     [viewControllers addObject:firstVC];
-    
-    UINavigationController *secondVC = [self createSecondNavigationController];
-    [viewControllers addObject:secondVC];
-    
+
     UINavigationController *thirdVC = [self createThirdNavigationController];
     [viewControllers addObject:thirdVC];
+
+    UINavigationController *secondVC = [self createSecondNavigationController];
+    [viewControllers addObject:secondVC];
     
 //    UINavigationController *fourthVC = [self createFourthNavigationController];
 //    [viewControllers addObject:fourthVC];
@@ -644,8 +644,11 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createFirstViewController {
     // 创建第一个视图控制器
-    MainVC *firstVC = [[MainVC alloc] init];
-    firstVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:0];
+    AAChartModelListVC *firstVC = [[AAChartModelListVC alloc] init];
+    firstVC.title = @"AAChartModel";
+    firstVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAChartModel"
+                                                       image:[UIImage systemImageNamed:@"chart.xyaxis.line"]
+                                               selectedImage:[UIImage systemImageNamed:@"chart.xyaxis.line"]];
     
     // 在这里添加第一个视图控制器的其他配置
     
@@ -665,7 +668,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createThirdViewController {
     // 创建第三个视图控制器
-    AAChartModelListVC *thirdVC = [[AAChartModelListVC alloc] init];
+    MainVC *thirdVC = [[MainVC alloc] init];
     thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2];
     
     // 在这里添加第三个视图控制器的其他配置
