@@ -109,11 +109,19 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     return self.viewControllers.count;
 }
 
+- (UIColor *)aa_sidebarAccentColor {
+    if (@available(iOS 13.0, *)) {
+        return UIColor.systemBlueColor;
+    }
+    return UIColor.blueColor;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell" forIndexPath:indexPath];
     UINavigationController *nav = self.viewControllers[indexPath.row];
     NSString *title = nav.tabBarItem.title ?: nav.topViewController.title ?: @"";
     UIImage *icon = nav.tabBarItem.image;
+    BOOL isSelected = [indexPath isEqual:self.aa_selectedIndexPath];
 
 #if TARGET_OS_MACCATALYST
     cell.backgroundColor = UIColor.clearColor;
@@ -128,17 +136,17 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
         content.image = icon;
         content.imageToTextPadding = 10.0;
         content.textProperties.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
-        content.textProperties.color = UIColor.labelColor;
-        content.imageProperties.tintColor = UIColor.secondaryLabelColor;
+        content.textProperties.color = isSelected ? [self aa_sidebarAccentColor] : UIColor.labelColor;
+        content.imageProperties.tintColor = isSelected ? [self aa_sidebarAccentColor] : UIColor.secondaryLabelColor;
         content.imageProperties.preferredSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:15 weight:UIImageSymbolWeightSemibold];
         content.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(8, 12, 8, 12);
         cell.contentConfiguration = content;
     } else {
         cell.textLabel.text = title;
         cell.textLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
-        cell.textLabel.textColor = UIColor.blackColor;
+        cell.textLabel.textColor = isSelected ? [self aa_sidebarAccentColor] : UIColor.blackColor;
         cell.imageView.image = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = UIColor.grayColor;
+        cell.imageView.tintColor = isSelected ? [self aa_sidebarAccentColor] : UIColor.grayColor;
     }
 
     UIVisualEffect *selectionBlur = nil;
@@ -164,6 +172,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
         [selectedView.topAnchor constraintEqualToAnchor:selectedBackgroundView.topAnchor constant:3.0],
         [selectedView.bottomAnchor constraintEqualToAnchor:selectedBackgroundView.bottomAnchor constant:-3.0],
     ]];
+    selectedView.alpha = isSelected ? 1.0 : 0.0;
 
     UIView *strokeView = [[UIView alloc] initWithFrame:CGRectZero];
     strokeView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -197,6 +206,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     ]];
 
     cell.selectedBackgroundView = selectedBackgroundView;
+    [cell setSelected:isSelected animated:NO];
 #else
     cell.textLabel.text = title;
     cell.imageView.image = icon;
