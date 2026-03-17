@@ -53,7 +53,7 @@
 
 #import "AppDelegate.h"
 //#import "AAChartModelListVC.h"
-//#import "AAOptionsListVC.h"
+#import "AAOptionsListVC.h"
 //#import "AAOptionsWithJSListVC.h"
 //#import "OfficialSamplesListVC.h"
 //#import "AdvancedFeaturesListVC.h"
@@ -611,11 +611,14 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     UINavigationController *firstVC = [self createFirstNavigationController];
     [viewControllers addObject:firstVC];
 
+    UINavigationController *secondVC = [self createSecondNavigationController];
+    [viewControllers addObject:secondVC];
+
     UINavigationController *thirdVC = [self createThirdNavigationController];
     [viewControllers addObject:thirdVC];
 
-    UINavigationController *secondVC = [self createSecondNavigationController];
-    [viewControllers addObject:secondVC];
+    UINavigationController *fourthVC = [self createFourthNavigationController];
+    [viewControllers addObject:fourthVC];
     
 //    UINavigationController *fourthVC = [self createFourthNavigationController];
 //    [viewControllers addObject:fourthVC];
@@ -636,6 +639,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     [navigationControllers addObject:[self createFirstNavigationController]];
     [navigationControllers addObject:[self createSecondNavigationController]];
     [navigationControllers addObject:[self createThirdNavigationController]];
+    [navigationControllers addObject:[self createFourthNavigationController]];
 
     AASidebarListController *sidebarController = [[AASidebarListController alloc] initWithViewControllers:navigationControllers];
     AASidebarContainerController *containerController = [[AASidebarContainerController alloc] initWithSidebarController:sidebarController];
@@ -657,8 +661,11 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createSecondViewController {
     // 创建第二个视图控制器
-    AAOptionsWithJSForChartEventsListVC *secondVC = [[AAOptionsWithJSForChartEventsListVC alloc] init];
-    secondVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:1];
+    AAOptionsListVC *secondVC = [[AAOptionsListVC alloc] init];
+    secondVC.title = @"AAOptions";
+    secondVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAOptions"
+                                                        image:[UIImage systemImageNamed:@"chart.bar.doc.horizontal"]
+                                                selectedImage:[UIImage systemImageNamed:@"chart.bar.doc.horizontal"]];
     
     // 在这里添加第二个视图控制器的其他配置
     
@@ -674,6 +681,15 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     // 在这里添加第三个视图控制器的其他配置
     
     return thirdVC;
+}
+
+- (UIViewController *)createFourthViewController {
+    // 创建第四个视图控制器
+    AAOptionsWithJSForChartEventsListVC *fourthVC = [[AAOptionsWithJSForChartEventsListVC alloc] init];
+    fourthVC.title = @"AAOptions JS";
+    fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:3];
+
+    return fourthVC;
 }
 
 /*
@@ -720,6 +736,13 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     UIViewController *thirdViewController = [self createThirdViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:thirdViewController];
     navigationController.tabBarItem = thirdViewController.tabBarItem;
+    return navigationController;
+}
+
+- (UINavigationController *)createFourthNavigationController {
+    UIViewController *fourthViewController = [self createFourthViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fourthViewController];
+    navigationController.tabBarItem = fourthViewController.tabBarItem;
     return navigationController;
 }
 
