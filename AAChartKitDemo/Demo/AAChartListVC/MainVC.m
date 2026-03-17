@@ -35,7 +35,6 @@
 #import "MainVC.h"
 #import "OnlyRefreshChartDataVC.h"
 #import "ChartAnimationTypeVC.h"
-#import "DrawChartWithAAOptionsVC.h"
 #import "ShowManyChartViewVC.h"
 #import "ChartListVC.h"
 #import "HideOrShowChartSeriesVC.h"
@@ -213,16 +212,6 @@
             break;
         
         case 2: {
-            /*通过AAOptions实例对象来绘制图形*/
-            DrawChartWithAAOptionsVC *vc = DrawChartWithAAOptionsVC.new;
-            vc.selectedIndex = row;
-            vc.navigationItemTitleArr = self.chartTypeNameArr[section];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-            
-        case 3: {
             /*同时显示多个 AAChartView*/
             if (row == 0) {
                 ShowManyChartViewVC *vc = ShowManyChartViewVC.new;
@@ -248,7 +237,7 @@
         }
             break;
             
-        case 4: {
+        case 3: {
             HideOrShowChartSeriesVC *vc = HideOrShowChartSeriesVC.new;
             vc.chartTypeIndex = row;
             vc.hidesBottomBarWhenPushed = YES;
@@ -256,7 +245,7 @@
         }
             break;
             
-        case 5: {
+        case 4: {
             JSFunctionForAATooltipVC *vc = JSFunctionForAATooltipVC.new;
             vc.selectedIndex = row;
             vc.navigationItemTitleArr = self.chartTypeNameArr[section];
@@ -265,7 +254,7 @@
         }
             break;
             
-        case 6: {
+        case 5: {
             /*基础类型图表*/
             EvaluateJSStringFunctionVC *vc = EvaluateJSStringFunctionVC.new;
             vc.sampleChartTypeIndex = row;
@@ -274,7 +263,7 @@
         }
             break;
             
-        case 7: {
+        case 6: {
             /*基础类型图表*/
             ScrollingUpdateDataVC *vc = ScrollingUpdateDataVC.new;
             vc.selectedIndex = row;
@@ -284,7 +273,7 @@
         }
             break;
             
-        case 8: {
+        case 7: {
             /*基础类型图表*/
             DrawableChartVC *vc = DrawableChartVC.new;
             vc.selectedIndex = row;
@@ -296,7 +285,7 @@
         }
             break;
             
-        case 9: {
+        case 8: {
             /*基础类型图表*/
             DrawableChartVC *vc = DrawableChartVC.new;
             vc.selectedIndex = row;
@@ -308,7 +297,7 @@
         }
             break;
             
-        case 10: {
+        case 9: {
             /*基础类型图表*/
             DataSortingWithAnimationChartVC *vc = DataSortingWithAnimationChartVC.new;
             vc.selectedIndex = row;
@@ -318,7 +307,7 @@
         }
             break;
             
-        case 11: {
+        case 10: {
             /*基础类型图表*/
             ChartAdvancedUpdatingFeatureVC *vc = ChartAdvancedUpdatingFeatureVC.new;
             vc.chartType = row;
@@ -327,7 +316,7 @@
         }
             break;
             
-        case 12: {
+        case 11: {
             /*在 XIB 中创建 AAChartView*/
             TestAAChartViewForXibVC *vc = TestAAChartViewForXibVC.new;
             vc.hidesBottomBarWhenPushed = YES;
@@ -335,7 +324,7 @@
         }
             break;
             
-        case 13: {
+        case 12: {
             /*通过 AAOptions 自定义饼图"*/
             PieChartOptionsVC *vc = PieChartOptionsVC.new;
             vc.selectedIndex = row;
@@ -345,7 +334,7 @@
         }
             break;
             
-        case 14: {
+        case 13: {
             /*通过 AAOptions 自定义极地图"*/
             PolarChartOptionsVC *vc = PolarChartOptionsVC.new;
             vc.selectedIndex = row;
@@ -355,7 +344,7 @@
         }
             break;
             
-        case 15: {
+        case 14: {
             /*通过 AAOptions 自定义多 Y 轴图表"*/
             MultiYAxesChartOptionsVC *vc = MultiYAxesChartOptionsVC.new;
             vc.selectedIndex = row;
@@ -365,7 +354,7 @@
         }
             break;
             
-        case 16: {
+        case 15: {
             /*颜色线-颜色带-值颜色分区图表"*/
             PlotLinesBandsZonesOptionsVC *vc = PlotLinesBandsZonesOptionsVC.new;
             vc.selectedIndex = row;
@@ -375,7 +364,7 @@
         }
             break;
             
-        case 17: {
+        case 16: {
             /*通过 AAOptions 自定义饼图"*/
             AreasplineChartOptionsVC *vc = AreasplineChartOptionsVC.new;
             vc.selectedIndex = row;
@@ -385,7 +374,7 @@
         }
             break;
             
-        case 18: {
+        case 17: {
             /*通过 AAOptions 自定义 tooltip 浮动提示框*/
             TooltipOptionsVC *vc = TooltipOptionsVC.new;
             vc.selectedIndex = row;
@@ -395,7 +384,7 @@
         }
             break;
             
-        case 19: {
+        case 18: {
             /*通过 AAOptions 自定义 DataLabels 数据标签*/
             DataLabelsOptionsVC *vc = DataLabelsOptionsVC.new;
             vc.selectedIndex = row;
@@ -405,7 +394,7 @@
         }
             break;
             
-        case 20: {
+        case 19: {
             /*通过 AAOptions 自定义 X 轴 Y 轴的文字标签*/
             XAxisYAxisLabelsOptionsVC *vc = XAxisYAxisLabelsOptionsVC.new;
             vc.selectedIndex = row;
@@ -415,7 +404,7 @@
         }
             break;
             
-        case 21: {
+        case 20: {
             /*通过 AAOptions 自定义 X 轴 Y 轴的轴类型*/
             XAxisYAxisTypeOptionsVC *vc = XAxisYAxisTypeOptionsVC.new;
             vc.selectedIndex = row;
@@ -424,7 +413,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 22: {
+        case 21: {
             /*通过 AAOptions 自定义 X 轴 Y 轴的 Labels*/
             JSFunctionForAAAxisVC *vc = JSFunctionForAAAxisVC.new;
             vc.selectedIndex = row;
@@ -433,7 +422,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 23: {
+        case 22: {
             /*通过 AAOptions 自定义 AALegend*/
             JSFunctionForAALegendVC *vc = JSFunctionForAALegendVC.new;
             vc.selectedIndex = row;
@@ -442,7 +431,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 24: {
+        case 23: {
             /*通过 AAOptions 自定义 AAChartEvents*/
             JSFunctionForAAChartEventsVC *vc = JSFunctionForAAChartEventsVC.new;
             vc.selectedIndex = row;
@@ -452,7 +441,7 @@
         }
             break;
             
-        case 25: {
+        case 24: {
             /*通过 AAOptions 自定义折线图*/
             LineChartViewController *vc = LineChartViewController.new;
             vc.selectedIndex = row;
@@ -462,7 +451,7 @@
         }
             break;
                         
-        case 26: {
+        case 25: {
             /*完全自定义图表交互事件回调的信息*/
             if (row == 0) {
                 CustomClickEventCallbackMessageVC *vc = CustomClickEventCallbackMessageVC.new;
@@ -480,7 +469,7 @@
         }
             break;
 
-        case 27: {
+        case 26: {
             /*AAOptions Composer Provider 测试入口*/
             AAOptionsComposerChartListVC *vc = AAOptionsComposerChartListVC.new;
             vc.hidesBottomBarWhenPushed = YES;
@@ -499,7 +488,6 @@
         _sectionTypeArr = @[
             @"Only Refresh data---单纯刷新数据",
             @"Animation Type---渲染动画",
-            @"Draw Chart With AAOptions---通过Options绘图",
             @"Many ChartView simultaneously---同时显示多个AAChartView",
             @"Hide Or Show Chart Series---隐藏或显示内容",
             @"JS Function For AATooltip---支持 JS 函数属性",
@@ -556,25 +544,6 @@
               @"Scatter Chart---散点图",
               @"Pie Chart---扇形图"
             ],
-            /*通过AAOptions实例对象来绘制图形*/
-            @[@"configureTheAAOptionsOfAreaChart---绘制legend居顶部的区域填充图",
-              @"configureTheAAOptionsOfSpecialNestedColumnChart---绘制嵌套的柱状图",
-              @"configureTheNoGapColumnChart---缝隙很小的柱状图",
-              @"adjustChartLeftAndRightMargin---调整图表的左右边距",
-              @"configureChartWithBackgroundImage---设置图表绘图区的背景图片",
-              @"Adjust Data Accuracy---调整数据精度",
-              @"Custom Style Stacked Column---自定义堆积柱状图",
-              @"Disable Animation ---禁用动画效果",
-              @"Custom Legend Item Style---自定义图例样式",
-              @"configure_DataLabels_XAXis_YAxis_Legend_Style---配置DataLabels、XAXis、YAxis、Legend等图表元素样式",
-              @"custom Chart Style When No Data---数据为空的情况下,配置图表的 x 轴 y 轴等样式",
-              @"custom Chart Style When Every Data Value Is 0---所有数据都为 0 的情况下, 配置图表的 x 轴 y 轴等样式",
-              @"disable Spline Chart Hover Animation Effect---禁用手指点击曲线或者掠过曲线后,曲线变粗的动画效果",
-              @"yAxisOnTheRightSideChart---y轴在右侧的图表",
-              @"configureBoxplotChartWithSpecialStyle---配置盒须图特殊样式",
-              @"toFixHighchartsWithAThickLineAt0ValuesTheLineIsHalfHidden---修复 Highcharts 在数值为 0 的时候,线条会变粗,但是却被遮挡一半的问题",
-              @"clipForAASeriesElement---修复线条贴边时,但是却被遮挡一半的问题"
-        ],
             /*同时显示多个 AAChartView*/
             @[@"Show Two AAChartView On View---同时显示多个 AAChartView",
               @"Show Many AAChartView On UITableView---UITableView上显示多个 AAChartView",

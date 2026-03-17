@@ -24,8 +24,10 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"AAChartKit";
+
+    if (self.title.length == 0) {
+        self.title = @"AAChartKit";
+    }
     self.view.backgroundColor = UIColor.whiteColor;
     
     self.colorsArr = @[
@@ -138,7 +140,9 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
     }
     
     NSString *cellTitle = self.chartTypeTitleArr[indexPath.section][indexPath.row];
-    cell.titleLabel.text = cellTitle;
+    NSArray<NSString *> *titleParts = [cellTitle componentsSeparatedByString:@"---"];
+    cell.titleLabel.text = titleParts.firstObject;
+    cell.subtitleLabel.text = titleParts.count > 1 ? titleParts[1] : @"";
     cell.titleLabel.textColor = UIColor.blackColor;
     cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)(indexPath.row + 1)];
     
