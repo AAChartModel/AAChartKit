@@ -54,11 +54,10 @@
 #import "AppDelegate.h"
 //#import "AAChartModelListVC.h"
 #import "AAOptionsListVC.h"
-//#import "AAOptionsWithJSListVC.h"
+#import "AAOptionsWithJSListVC.h"
 //#import "OfficialSamplesListVC.h"
 //#import "AdvancedFeaturesListVC.h"
 #import "MainVC.h"
-#import "AAOptionsWithJSForChartEventsListVC.h"
 #import "AAChartModelListVC.h"
 
 static const CGFloat kAASidebarOuterPadding = 12.0;
@@ -675,8 +674,11 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createThirdViewController {
     // 创建第三个视图控制器
-    MainVC *thirdVC = [[MainVC alloc] init];
-    thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2];
+    AAOptionsWithJSListVC *thirdVC = [[AAOptionsWithJSListVC alloc] init];
+    thirdVC.title = @"AAOptionsWithJS";
+    thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAOptionsWithJS"
+                                                       image:[UIImage systemImageNamed:@"function"]
+                                               selectedImage:[UIImage systemImageNamed:@"function"]];
     
     // 在这里添加第三个视图控制器的其他配置
     
@@ -685,9 +687,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (UIViewController *)createFourthViewController {
     // 创建第四个视图控制器
-    AAOptionsWithJSForChartEventsListVC *fourthVC = [[AAOptionsWithJSForChartEventsListVC alloc] init];
-    fourthVC.title = @"AAOptions JS";
-    fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemHistory tag:3];
+    MainVC *fourthVC = [[MainVC alloc] init];
+    fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:3];
 
     return fourthVC;
 }
