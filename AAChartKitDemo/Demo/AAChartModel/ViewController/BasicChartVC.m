@@ -151,11 +151,14 @@
         @"chartType",
         @"stacking",
         @"borderRadius",
+        @"markerSymbol",
+        @"markerRadius",
         @"xAxisReversed",
         @"yAxisReversed",
         @"inverted",
         @"polar",
         @"dataLabelsEnabled",
+        @"seriesHasStep",
     ];
     NSMutableArray<NSString *> *pairs = [NSMutableArray arrayWithCapacity:orderedKeys.count];
     for (NSString *key in orderedKeys) {
@@ -170,16 +173,21 @@
     NSString *chartType = _aaChartModel.chartType ?: [self configureTheChartType];
     NSString *stacking = [self normalizedUITestStackingValue:_aaChartModel.stacking];
     NSNumber *borderRadius = _aaChartModel.borderRadius ?: @0;
+    NSString *markerSymbol = _aaChartModel.markerSymbol ?: @"";
+    NSNumber *markerRadius = _aaChartModel.markerRadius ?: @0;
 
     return @{
         @"chartType"         : chartType ?: @"",
         @"stacking"          : stacking,
         @"borderRadius"      : borderRadius,
+        @"markerSymbol"      : markerSymbol,
+        @"markerRadius"      : markerRadius,
         @"xAxisReversed"     : @(_aaChartModel.xAxisReversed),
         @"yAxisReversed"     : @(_aaChartModel.yAxisReversed),
         @"inverted"          : @(_aaChartModel.inverted),
         @"polar"             : @(_aaChartModel.polar),
         @"dataLabelsEnabled" : @(_aaChartModel.dataLabelsEnabled),
+        @"seriesHasStep"     : @([self aa_seriesHasStep]),
     };
 }
 
@@ -188,6 +196,10 @@
 }
 
 - (NSString *)serializedUITestChartStateValue:(id)value {
+    if (value == nil || value == NSNull.null) {
+        return @"null";
+    }
+
     if ([value isKindOfClass:[NSString class]]) {
         NSString *escapedString = [(NSString *)value stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
         return [NSString stringWithFormat:@"\"%@\"", escapedString];
@@ -198,6 +210,16 @@
     }
 
     return [value stringValue];
+}
+
+- (BOOL)aa_seriesHasStep {
+    for (AASeriesElement *seriesElement in _aaChartModel.series) {
+        if ([seriesElement.step respondsToSelector:@selector(boolValue)] && [seriesElement.step boolValue]) {
+            return YES;
+        }
+    }
+
+    return NO;
 }
 
 - (void)setupMainStackView {

@@ -112,9 +112,9 @@
 }
 
 - (void)testBasicChartVCLineInteractions {
-    XCUIApplication *app = [self aa_launchBasicChartWithType:4];
+    XCUIApplication *app = [self aa_launchBasicChartWithType:4 exposeChartState:YES];
 
-    XCTAssertTrue([app.navigationBars.staticTexts[@"line chart"] waitForExistenceWithTimeout:5.0]);
+    [self aa_assertNavigationTitle:@"line chart" inApp:app];
     XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
 
     XCUIElement *stackingControl = app.segmentedControls[@"basic-chart.segmented.0"];
@@ -125,13 +125,62 @@
     XCUIElement *triangleButton = markerControl.buttons[@"▲ ▲ ▲"];
     XCTAssertTrue(triangleButton.exists);
     [triangleButton tap];
-    XCTAssertTrue(triangleButton.isSelected);
+    [self aa_assertChartStateInApp:app matches:@{@"markerSymbol": @"triangle"}];
 
     XCUIElement *hideMarkerSwitch = app.switches[@"basic-chart.switch.5"];
     XCTAssertTrue(hideMarkerSwitch.exists);
-    id initialValue = hideMarkerSwitch.value;
     [hideMarkerSwitch tap];
-    XCTAssertNotEqualObjects(initialValue, hideMarkerSwitch.value);
+    [self aa_assertChartStateInApp:app matches:@{@"markerRadius": @0}];
+}
+
+- (void)testBasicChartVCNextTypeCyclesFromLineToColumn {
+    XCUIApplication *app = [self aa_launchBasicChartWithType:4 exposeChartState:YES];
+    XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
+    XCTAssertTrue([app.otherElements[@"basic-chart.state"] waitForExistenceWithTimeout:5.0]);
+
+    XCUIElement *nextTypeButton = app.buttons[@"basic-chart.next-type"];
+    XCTAssertTrue(nextTypeButton.exists);
+
+    [self aa_assertNavigationTitle:@"line chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"line",
+        @"seriesHasStep": @NO,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"spline chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"spline",
+        @"seriesHasStep": @NO,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"line chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"line",
+        @"seriesHasStep": @YES,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"area chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"area",
+        @"seriesHasStep": @YES,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"scatter chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"scatter",
+        @"seriesHasStep": @NO,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"column chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"column",
+        @"seriesHasStep": @NO,
+    }];
 }
 
 - (XCUIApplication *)aa_launchBasicChartWithType:(NSInteger)chartType {
@@ -179,6 +228,10 @@
     }
 
     XCTFail(@"Expected chart state %@, got %@", expectedState, lastState);
+}
+
+- (void)aa_assertNavigationTitle:(NSString *)title inApp:(XCUIApplication *)app {
+    XCTAssertTrue([app.navigationBars.staticTexts[title] waitForExistenceWithTimeout:5.0]);
 }
 
 - (NSDictionary<NSString *, id> *)aa_chartStateFromApp:(XCUIApplication *)app {

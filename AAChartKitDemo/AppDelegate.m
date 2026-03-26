@@ -593,7 +593,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 }
 
 - (UIViewController *)createRootViewController {
-    UIViewController *uiTestRootViewController = [self aa_createUITestRootViewController];
+    UIViewController *uiTestRootViewController = [self createUITestRootViewControllerIfNeeded];
     if (uiTestRootViewController) {
         return uiTestRootViewController;
     }
@@ -605,21 +605,21 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 #endif
 }
 
-- (UIViewController *)aa_createUITestRootViewController {
+- (UIViewController *)createUITestRootViewControllerIfNeeded {
     NSArray<NSString *> *arguments = [NSProcessInfo processInfo].arguments;
-    NSUInteger argumentIndex = [arguments indexOfObject:@"-UITestBasicChartType"];
-    if (argumentIndex == NSNotFound || argumentIndex + 1 >= arguments.count) {
+    NSUInteger chartTypeArgumentIndex = [arguments indexOfObject:@"-UITestBasicChartType"];
+    if (chartTypeArgumentIndex == NSNotFound || chartTypeArgumentIndex + 1 >= arguments.count) {
         return nil;
     }
 
-    NSInteger rawChartType = [arguments[argumentIndex + 1] integerValue];
-    if (rawChartType < BasicChartVCChartTypeColumn || rawChartType > BasicChartVCChartTypeScatter) {
-        return nil;
+    NSInteger chartType = [arguments[chartTypeArgumentIndex + 1] integerValue];
+    if (chartType < BasicChartVCChartTypeColumn || chartType > BasicChartVCChartTypeScatter) {
+        chartType = BasicChartVCChartTypeColumn;
     }
 
-    BasicChartVC *viewController = [BasicChartVC new];
-    viewController.chartType = (BasicChartVCChartType)rawChartType;
-    return [[UINavigationController alloc] initWithRootViewController:viewController];
+    BasicChartVC *basicChartVC = BasicChartVC.new;
+    basicChartVC.chartType = (BasicChartVCChartType)chartType;
+    return [[UINavigationController alloc] initWithRootViewController:basicChartVC];
 }
 
 // 创建一个 UITabBarController
