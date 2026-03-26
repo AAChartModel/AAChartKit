@@ -561,8 +561,6 @@
     CGFloat value = 15;         // 标志线的中心位置
     CGFloat lineWidth = 0.2;      // 标志线的视觉宽度
     NSArray *colors = @[@"#ff0000", @"#0000ff"]; // 渐变颜色
-    NSString *bandId = @"my-gradient-line-1"; // 为动态更新提供一个ID
-    
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeLine)
     .categoriesSet(@[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep"])

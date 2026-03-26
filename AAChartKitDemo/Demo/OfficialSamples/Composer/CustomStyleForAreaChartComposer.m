@@ -48,7 +48,7 @@
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"Tokyo Hot")
-                .colorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
+                .colorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToRight
                                                                  stopsArray:@[
                                                                      @[@0.0, @"#febc0f"],
                                                                      @[@0.5, @"#FF14d4"],
@@ -74,7 +74,7 @@
                 .nameSet(@"Tokyo Hot")
                 .lineWidthSet(@5.0)
                 .colorSet(AARgbaColor(220, 20, 60, 1))
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                 startColorString:AARgbaColor(255, 20, 147, 1)
                                                                   endColorString:AARgbaColor(255, 20, 147, 0.3)])
                 .dataSet(@[@7.0, @6.9, @2.5, @14.5, @18.2, @21.5, @5.2, @26.5, @23.3, @45.3, @13.9, @9.6]),
@@ -99,7 +99,7 @@
                 .dataSet(@[@106.4, @129.2, @269.9, @(-100.5), @144.0, @176.0, @135.6, @148.5, @216.4, @194.1, @95.6, @54.4])
                 .lineWidthSet(@6)
                 .colorSet(AARgbaColor(30, 144, 255, 1))
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                 startColorString:AARgbaColor(30, 144, 255, 1)
                                                                   endColorString:AARgbaColor(30, 144, 255, 0.1)])
         ])
@@ -120,7 +120,7 @@
                 .nameSet(@"Virtual Data")
                 .lineWidthSet(@6)
                 .colorSet(AARgbaColor(255, 215, 0, 1))
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                 startColorString:AARgbaColor(255, 215, 0, 0.1)
                                                                   endColorString:AARgbaColor(255, 215, 0, 0.6)])
                 .dataSet(@[
@@ -135,7 +135,7 @@
                             .styleSet(AAStyle.new
                                 .fontWeightSet(AAChartFontWeightTypeBold)
                                 .colorSet(AAColor.whiteColor)
-                                .fontSizeSet(@16))
+                                .fontSizeSet(@"16px"))
                             .ySet(@(-35))
                             .alignSet(AAChartAlignTypeCenter)
                             .verticalAlignSet(AAChartVerticalAlignTypeTop)
@@ -188,7 +188,7 @@
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"2017")
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                      stopsArray:@[
                                                                          @[@0.0, AARgbaColor(30, 144, 255, 1.0)],
                                                                          @[@0.6, AARgbaColor(30, 144, 255, 0.2)],
@@ -202,7 +202,7 @@
                 .dataSet(@[@2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
             AASeriesElement.new
                 .nameSet(@"2018")
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                      stopsArray:@[
                                                                          @[@0.0, AARgbaColor(255, 0, 0, 1.0)],
                                                                          @[@0.6, AARgbaColor(255, 0, 0, 0.2)],
@@ -216,7 +216,7 @@
                 .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
             AASeriesElement.new
                 .nameSet(@"2019")
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                      stopsArray:@[
                                                                          @[@0.0, AARgbaColor(255, 215, 0, 1.0)],
                                                                          @[@0.6, AARgbaColor(255, 215, 0, 0.2)],
@@ -230,7 +230,7 @@
                 .dataSet(@[@1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
             AASeriesElement.new
                 .nameSet(@"2020")
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                      stopsArray:@[
                                                                          @[@0.0, AARgbaColor(50, 205, 50, 1.0)],
                                                                          @[@0.6, AARgbaColor(50, 205, 50, 0.2)],
@@ -264,13 +264,13 @@
                 .lineWidthSet(@5)
                 .colorSet(AARgbaColor(30, 144, 255, 1.0))
                 .negativeColorSet(AARgbaColor(255, 0, 0, 1.0))
-                .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                                                      stopsArray:@[
                                                                          @[@0.0, AARgbaColor(30, 144, 255, 0.0)],
                                                                          @[@0.5, AARgbaColor(30, 144, 255, 0.0)],
                                                                          @[@1.0, AARgbaColor(30, 144, 255, 0.6)]
                                                                      ]])
-                .negativeFillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
+                .negativeFillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToTop
                                                                               stopsArray:@[
                                                                                   @[@0.0, AARgbaColor(255, 0, 0, 0.6)],
                                                                                   @[@0.5, AARgbaColor(255, 0, 0, 0.0)],
@@ -303,7 +303,7 @@
                     AAZonesElement.new
                         .valueSet(@2)
                         .colorSet(AAColor.redColor)
-                        .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                        .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                              stopsArray:@[
                                                                                  @[@0.0, AARgbaColor(255, 0, 0, 1.0)],
                                                                                  @[@1.0, AAColor.clearColor]
@@ -311,14 +311,14 @@
                     AAZonesElement.new
                         .valueSet(@5)
                         .colorSet(AAColor.greenColor)
-                        .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                        .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                              stopsArray:@[
                                                                                  @[@0.0, AARgbaColor(0, 255, 0, 1.0)],
                                                                                  @[@1.0, AAColor.clearColor]
                                                                              ]]),
                     AAZonesElement.new
                         .colorSet(AAColor.blueColor)
-                        .fillColorSet([AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
+                        .fillColorSet((id)[AAGradientColor gradientColorWithDirection:AALinearGradientDirectionToBottom
                                                                              stopsArray:@[
                                                                                  @[@0.0, AARgbaColor(0, 0, 255, 1.0)],
                                                                                  @[@1.0, AAColor.clearColor]

@@ -127,7 +127,7 @@
             AASeriesElement.new
                 .nameSet(@"所有专业")
                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, NSNull.null, NSNull.null, NSNull.null, NSNull.null, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-                .colorSet(AAGradientColor.firebrickColor)
+                .colorSet((id)AAGradientColor.firebrickColor)
         ])
         ;
 }
@@ -207,11 +207,11 @@
             AASeriesElement.new
                 .nameSet(@"Virtual Data")
                 .lineWidthSet(@6)
-                .colorSet(AAGradientColor.oceanBlueColor)
+                .colorSet((id)AAGradientColor.oceanBlueColor)
                 .dataSet(@[
                     @7.0, @6.9, @2.5, @14.5, @18.2,
                     AADataElement.new
-                        .colorSet(AAGradientColor.freshPapayaColor)
+                        .colorSet((id)AAGradientColor.freshPapayaColor)
                         .ySet(@49.5)
                         ,
                     @5.2, @26.5, @23.3, @26.5, @13.9, @9.6
@@ -278,7 +278,7 @@
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"Tokyo Hot")
-                .borderRadiusSet(@"50%")
+                .borderRadiusSet((id)@"50%")
                 .dataSet(@[@2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
             
             AASeriesElement.new
@@ -442,11 +442,11 @@
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"Virtual Data")
-                .colorSet(AAGradientColor.oceanBlueColor)
+                .colorSet((id)AAGradientColor.oceanBlueColor)
                 .dataSet(@[
                     @7.0, @6.9, @2.5, @14.5, @18.2,
                     AADataElement.new
-                        .colorSet(AAGradientColor.freshPapayaColor)
+                        .colorSet((id)AAGradientColor.freshPapayaColor)
                         .ySet(@49.5)
                         ,
                     @5.2, @26.5, @23.3, @26.5, @13.9, @9.6

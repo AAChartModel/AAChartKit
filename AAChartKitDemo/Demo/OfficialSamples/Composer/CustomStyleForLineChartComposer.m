@@ -105,7 +105,7 @@
 //                            .verticalAlignSet(AAVerticalAlignTypeMiddle)
                             .styleSet(AAStyle.new
                                 .colorSet(AAColor.redColor)
-                                .fontSizeSet(@20)
+                                .fontSizeSet(@"20px")
 //                                .fontWeightSet(AAFontWeightTypeBold)
 //                                .outlineSet(@"1px 1px contrast")
                     ))
@@ -327,7 +327,7 @@
                 .dataLabelsSet(AADataLabels.new
                     .styleSet(AAStyle.new
                         .colorSet(@"#1e90ff")
-                        .fontSizeSet(@11)))
+                        .fontSizeSet(@"11px")))
                 .dataSet(@[@2.10, @2.54, @2.78, @3.62, @4.41, @4.09, @3.83, @4.47, @4.20, @3.94, @3.80, @3.58, @3.19, @4.30, @3.69, @3.52, @3.02, @3.30]),
             AASeriesElement.new
                 .nameSet(@"2018")
@@ -336,7 +336,7 @@
                 .dataLabelsSet(AADataLabels.new
                     .styleSet(AAStyle.new
                         .colorSet(@"#ef476f")
-                        .fontSizeSet(@11)))
+                        .fontSizeSet(@"11px")))
                 .dataSet(@[@1.56, @1.91, @2.45, @3.87, @3.24, @4.90, @4.61, @4.10, @4.17, @3.85, @4.17, @3.46, @3.46, @3.55, @3.50, @4.13, @2.58, @2.28]),
             AASeriesElement.new
                 .nameSet(@"2019")
@@ -345,7 +345,7 @@
                 .dataLabelsSet(AADataLabels.new
                     .styleSet(AAStyle.new
                         .colorSet(@"#ffd066")
-                        .fontSizeSet(@11)))
+                        .fontSizeSet(@"11px")))
                 .dataSet(@[@1.16, @1.67, @2.64, @2.86, @3.00, @3.21, @4.14, @4.07, @3.68, @3.11, @3.41, @3.25, @3.32, @3.07, @3.92, @3.05, @2.18, @3.24]),
             AASeriesElement.new
                 .nameSet(@"2020")
@@ -354,7 +354,7 @@
                 .dataLabelsSet(AADataLabels.new
                     .styleSet(AAStyle.new
                         .colorSet(@"#04d69f")
-                        .fontSizeSet(@11)))
+                        .fontSizeSet(@"11px")))
                 .dataSet(@[@5.59, @3.09, @4.09, @6.14, @5.33, @6.05, @5.71, @6.22, @6.56, @4.75, @5.27, @6.02, @5.22, @5.77, @6.19, @5.68, @4.33, @5.48]),
         ])
         ;
@@ -393,7 +393,7 @@
 //        .shapeSet(AADataLabelsShapeTypeCallout)
         .styleSet(AAStyle.new
             .colorSet(AAColor.redColor)
-            .fontSizeSet(@15)
+            .fontSizeSet(@"15px")
 //            .fontWeightSet(AAFontWeightTypeBold)
                   )
         .backgroundColorSet(AAColor.whiteColor)
@@ -862,7 +862,7 @@
         .chartTypeSet(AAChartTypeLine)
         .dataLabelsStyleSet(AAStyle.new
             .colorSet(AAColor.whiteColor)
-            .fontSizeSet(@50)
+            .fontSizeSet(@"50px")
             .fontWeightSet(AAChartFontWeightTypeBold))
         .seriesSet(@[
             AASeriesElement.new

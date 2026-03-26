@@ -14,7 +14,7 @@
 //        .xAxisSet(AAXAxis.new
 //            .allowDecimalsSet(@false))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"核武库国家"))
             .labelsSet(AALabels.new
                 .formatterSet(@"function () { return this.value / 1000 + 'k'; }")))
@@ -93,7 +93,7 @@
 //            .tickmarkPlacementSet(AAChartAxisTickmarkPlacementOn)
                   )
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"十亿"))
             .labelsSet(AALabels.new
                 .formatterSet(@"function () { return this.value / 1000; }")))
@@ -142,11 +142,11 @@
 //            .tickmarkPlacementSet(AAChartAxisTickmarkPlacementOn)
                   )
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"百分比")))
         .tooltipSet(AATooltip.new
             .pointFormatSet(@"<span style=\"color:{series.color}\">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f} 百万)<br/>".aa_toPureJSString)
-            .sharedSet(@true))
+            .sharedSet(true))
 //        .plotOptionsSet(AAPlotOptions.new
 //            .areaSet(AAArea.new
 //                .stackingSet(AAChartStackingTypePercent)
@@ -194,14 +194,14 @@
             .verticalAlignSet(AAChartVerticalAlignTypeTop)
             .xSet(@150)
             .ySet(@100)
-            .floatingSet(@true)
+            .floatingSet(true)
             .borderWidthSet(@1)
 //            .backgroundColorSet(AAColor.whiteColor)
                    )
         .xAxisSet(AAXAxis.new
             .categoriesSet(@[@"苹果", @"梨", @"橘子", @"香蕉", @"葡萄", @"李子", @"草莓", @"树莓"]))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"Y-Axis"))
             .labelsSet(AALabels.new
                 .formatterSet(@"function () {return this.value;}")))
@@ -212,7 +212,7 @@
 //                .fillOpacitySet(@0.5)
                      ))
         .creditsSet(AACredits.new
-            .enabledSet(@false))
+            .enabledSet(false))
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"小张")
@@ -228,7 +228,7 @@
     return AAOptions.new
         .chartSet(AAChart.new
             .typeSet(AAChartTypeArea)
-            .invertedSet(@true))
+            .invertedSet(true))
         .titleSet(AATitle.new
             .textSet(@"不同家庭一周水果平均消费面积图"))
         .legendSet(AALegend.new
@@ -237,14 +237,14 @@
             .verticalAlignSet(AAChartVerticalAlignTypeTop)
             .xSet(@-150)
             .ySet(@100)
-            .floatingSet(@true)
+            .floatingSet(true)
             .borderWidthSet(@1)
 //            .backgroundColorSet(AAColor.whiteColor)
                    )
         .xAxisSet(AAXAxis.new
             .categoriesSet(@[@"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日"]))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"单位数量"))
             .minSet(@0))
 //        .plotOptionsSet(AAPlotOptions.new
@@ -273,7 +273,7 @@
             .verticalAlignSet(AAChartVerticalAlignTypeTop)
             .xSet(@150)
             .ySet(@100)
-            .floatingSet(@true)
+            .floatingSet(true)
             .borderWidthSet(@1)
 //            .backgroundColorSet(AAColor.whiteColor)
                    )
@@ -286,10 +286,10 @@
 //                    .colorSet([AAColor rgbaColorWithRed:68 green:170 blue:213 alpha:0.2])
             ]))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"水果 单位")))
         .tooltipSet(AATooltip.new
-            .sharedSet(@true)
+            .sharedSet(true)
             .valueSuffixSet(@" 单位"))
 //        .plotOptionsSet(AAPlotOptions.new
 //            .areasplineSet(AAAreaspline.new
@@ -320,13 +320,13 @@
                 .colorSet(AAColor.redColor)
                 .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"")))
         .tooltipSet(AATooltip.new
-            .sharedSet(@true)
+            .sharedSet(true)
             .valueSuffixSet(@"°C"))
         .legendSet(AALegend.new
-            .enabledSet(@false))
+            .enabledSet(false))
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"2020")
@@ -784,10 +784,10 @@
                 .colorSet(@"#1E90FF")
                 .dashStyleSet(AAChartLineDashStyleTypeLongDashDotDot)))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"")))
         .tooltipSet(AATooltip.new
-            .sharedSet(@true)
+            .sharedSet(true)
             .valueSuffixSet(@"°C"))
         .seriesSet(@[
             AASeriesElement.new
@@ -797,17 +797,17 @@
                 .markerSet(AAMarker.new
                     .fillColorSet(@"#ffffff")
                     .lineWidthSet(@2)
-                    .lineColorSet([AAGradientColor oceanBlueColor])),
+                    .lineColorSet((id)[AAGradientColor oceanBlueColor])),
             AASeriesElement.new
                 .nameSet(@"范围")
                 .dataSet(ranges)
                 .typeSet(AAChartTypeArearange)
                 .lineWidthSet(@0)
-                .colorSet([AAGradientColor oceanBlueColor])
+                .colorSet((id)[AAGradientColor oceanBlueColor])
                 .fillOpacitySet(@0.3)
                 .zIndexSet(@0)
                 .markerSet(AAMarker.new
-                    .enabledSet(@false)),
+                    .enabledSet(false)),
         ])
         ;
 }

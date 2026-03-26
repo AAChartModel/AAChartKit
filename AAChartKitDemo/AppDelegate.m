@@ -64,6 +64,20 @@
 static const CGFloat kAASidebarOuterPadding = 12.0;
 static const CGFloat kAASidebarColumnSpacing = 10.0;
 
+static UITableViewStyle AASidebarListTableStyle(void) {
+    if (@available(iOS 13.0, *)) {
+        return UITableViewStyleInsetGrouped;
+    }
+    return UITableViewStyleGrouped;
+}
+
+static UIImage *AASystemSymbolImageNamed(NSString *name) {
+    if (@available(iOS 13.0, *)) {
+        return [UIImage systemImageNamed:name];
+    }
+    return nil;
+}
+
 @interface AASidebarListController : UITableViewController
 
 @property (nonatomic, copy) NSArray<UINavigationController *> *viewControllers;
@@ -81,7 +95,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 @implementation AASidebarListController
 
 - (instancetype)initWithViewControllers:(NSArray<UINavigationController *> *)viewControllers {
-    self = [super initWithStyle:UITableViewStyleInsetGrouped];
+    self = [super initWithStyle:AASidebarListTableStyle()];
     if (self) {
         _viewControllers = [viewControllers copy];
         self.title = @"AAChartKit";
@@ -121,9 +135,9 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     UINavigationController *nav = self.viewControllers[indexPath.row];
     NSString *title = nav.tabBarItem.title ?: nav.topViewController.title ?: @"";
     UIImage *icon = nav.tabBarItem.image;
-    BOOL isSelected = [indexPath isEqual:self.aa_selectedIndexPath];
 
 #if TARGET_OS_MACCATALYST
+    BOOL isSelected = [indexPath isEqual:self.aa_selectedIndexPath];
     cell.backgroundColor = UIColor.clearColor;
     cell.contentView.backgroundColor = UIColor.clearColor;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -250,6 +264,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (instancetype)initWithSidebarController:(AASidebarListController *)sidebarController NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 @end
@@ -452,12 +467,9 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 }
 
 - (UIBarButtonItem *)aa_sidebarToggleBarButtonItem {
-    UIImage *image = nil;
-    if (@available(iOS 13.0, *)) {
-        image = [UIImage systemImageNamed:@"sidebar.left"];
-        if (!image) {
-            image = [UIImage systemImageNamed:@"line.3.horizontal"];
-        }
+    UIImage *image = AASystemSymbolImageNamed(@"sidebar.left");
+    if (!image) {
+        image = AASystemSymbolImageNamed(@"line.3.horizontal");
     }
 
     UIBarButtonItem *item = nil;
@@ -677,8 +689,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     AAChartModelListVC *firstVC = [[AAChartModelListVC alloc] init];
     firstVC.title = @"AAChartModel";
     firstVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAChartModel"
-                                                       image:[UIImage systemImageNamed:@"chart.xyaxis.line"]
-                                               selectedImage:[UIImage systemImageNamed:@"chart.xyaxis.line"]];
+                                                       image:AASystemSymbolImageNamed(@"chart.xyaxis.line")
+                                               selectedImage:AASystemSymbolImageNamed(@"chart.xyaxis.line")];
     
     // 在这里添加第一个视图控制器的其他配置
     
@@ -690,8 +702,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     AAOptionsListVC *secondVC = [[AAOptionsListVC alloc] init];
     secondVC.title = @"AAOptions";
     secondVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAOptions"
-                                                        image:[UIImage systemImageNamed:@"chart.bar.doc.horizontal"]
-                                                selectedImage:[UIImage systemImageNamed:@"chart.bar.doc.horizontal"]];
+                                                        image:AASystemSymbolImageNamed(@"chart.bar.doc.horizontal")
+                                                selectedImage:AASystemSymbolImageNamed(@"chart.bar.doc.horizontal")];
     
     // 在这里添加第二个视图控制器的其他配置
     
@@ -704,8 +716,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     AAOptionsWithJSListVC *thirdVC = [[AAOptionsWithJSListVC alloc] init];
     thirdVC.title = @"AAOptionsWithJS";
     thirdVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"AAOptionsWithJS"
-                                                       image:[UIImage systemImageNamed:@"function"]
-                                               selectedImage:[UIImage systemImageNamed:@"function"]];
+                                                       image:AASystemSymbolImageNamed(@"function")
+                                               selectedImage:AASystemSymbolImageNamed(@"function")];
     
     // 在这里添加第三个视图控制器的其他配置
     
@@ -717,8 +729,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     OfficialSamplesListVC *fourthVC = [[OfficialSamplesListVC alloc] init];
     fourthVC.title = @"Offical Samples";
     fourthVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"OfficialSamples"
-                                                        image:[UIImage systemImageNamed:@"doc.text.image"]
-                                                selectedImage:[UIImage systemImageNamed:@"doc.text.image"]];
+                                                        image:AASystemSymbolImageNamed(@"doc.text.image")
+                                                selectedImage:AASystemSymbolImageNamed(@"doc.text.image")];
 
     return fourthVC;
 }

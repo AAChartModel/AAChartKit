@@ -58,7 +58,7 @@
                 .markerSet(AAMarker.new
                     .symbolSet(AAChartSymbolTypeDiamond)
                     .fillColorSet(@"transparent")
-                    .lineColorSet(NSNull.null)
+                    .lineColorSet((id)NSNull.null)
                     .radiusSet(@7)
                     .lineWidthSet(@2))
                 .dashStyleSet(AAChartLineDashStyleTypeDashDot)

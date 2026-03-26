@@ -298,27 +298,24 @@
                   .formatterSet(@AAJSFunc(function() {
                       const points = this.points;
 
-                      let htmlPoints = ``;
+                      let htmlPoints = "";
 
                       points.forEach(function(point) {
-                          htmlPoints += `
-                              <div>
-                                  <span style="color:${point.color}">\u25CF</span> ${point.y}
-                              </div>
-                          `;
+                          htmlPoints += "<div>"
+                              + "<span style='color:" + point.color + "'>\u25CF</span> "
+                              + point.y
+                              + "</div>";
                       });
                       
-                      return `
-                          <div style="
-                              border-radius: 0.5rem 0.5rem 0.5rem 0;
-                              background-color: white;
-                              box-shadow: #b1c7ff 0px 3px 10px 0px;
-                              padding: 0.5rem;
-                              line-height: 18px;
-                          ">
-                              ${htmlPoints}
-                          </div>
-                      `;
+                      return "<div style='"
+                          + "border-radius: 0.5rem 0.5rem 0.5rem 0;"
+                          + "background-color: white;"
+                          + "box-shadow: #b1c7ff 0px 3px 10px 0px;"
+                          + "padding: 0.5rem;"
+                          + "line-height: 18px;"
+                          + "'>"
+                          + htmlPoints
+                          + "</div>";
                   }))
                 .positionerSet(@AAJSFunc((function(labelWidth, labelHeight) {
                     const chart = this.chart,
@@ -362,7 +359,7 @@ NSDate *getDateUTC(NSInteger hour, NSInteger minute) {
             .backgroundColorSet(@"#333333") // Dark background for the chart area
         )
         .titleSet(AATitle.new
-            .textSet(@"Speed(km\/h)") // Title with HTML
+            .textSet(@"Speed(km/h)") // Title with HTML
             .alignSet(AAChartAlignTypeLeft) // Align title to the left
             .styleSet(AAStyle.new
                 .colorSet(@"#E0E0E3") // Light text color
