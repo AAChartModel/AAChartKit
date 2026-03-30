@@ -70,13 +70,21 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        // Let system handle navigation bar appearance in dark mode
+    } else {
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"AAChartKit";
-    self.view.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
     _colorsArr = @[
         @"#5470c6",
         @"#91cc75",
@@ -166,10 +174,20 @@
     cell.titleLabel.text = textStrArr[0];
     cell.subtitleLabel.text = textStrArr[1];
     
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
+    if (@available(iOS 13.0, *)) {
+        cell.titleLabel.textColor = UIColor.labelColor;
+        cell.subtitleLabel.textColor = UIColor.secondaryLabelColor;
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.systemBackgroundColor;
+        } else {
+            cell.backgroundColor = UIColor.secondarySystemBackgroundColor;
+        }
     } else {
-        cell.backgroundColor = UIColor.whiteColor;
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
+        } else {
+            cell.backgroundColor = UIColor.whiteColor;
+        }
     }
 
     return cell;

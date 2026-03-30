@@ -156,7 +156,11 @@
         ],
     ];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
     [self setUpMainTableView];
 }
 
@@ -184,10 +188,20 @@
     cell.titleLabel.text = textStrArr.firstObject;
     cell.subtitleLabel.text = textStrArr.count > 1 ? textStrArr[1] : @"";
 
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
+    if (@available(iOS 13.0, *)) {
+        cell.titleLabel.textColor = UIColor.labelColor;
+        cell.subtitleLabel.textColor = UIColor.secondaryLabelColor;
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.systemBackgroundColor;
+        } else {
+            cell.backgroundColor = UIColor.secondarySystemBackgroundColor;
+        }
     } else {
-        cell.backgroundColor = UIColor.whiteColor;
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
+        } else {
+            cell.backgroundColor = UIColor.whiteColor;
+        }
     }
 
     return cell;
