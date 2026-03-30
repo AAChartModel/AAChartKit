@@ -176,24 +176,23 @@
     
     if (@available(iOS 13.0, *)) {
         cell.titleLabel.textColor = UIColor.labelColor;
-        cell.subtitleLabel.textColor = UIColor.secondaryLabelColor;
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.systemBackgroundColor;
-        } else {
-            cell.backgroundColor = UIColor.secondarySystemBackgroundColor;
-        }
+        cell.subtitleLabel.textColor = UIColor.tertiaryLabelColor;
+        cell.backgroundColor = (indexPath.row % 2 == 0)
+            ? UIColor.systemBackgroundColor
+            : UIColor.secondarySystemBackgroundColor;
     } else {
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
-        } else {
-            cell.backgroundColor = UIColor.whiteColor;
-        }
+        cell.titleLabel.textColor = UIColor.blackColor;
+        cell.subtitleLabel.textColor = UIColor.grayColor;
+        cell.backgroundColor = (indexPath.row % 2 == 0)
+            ? [AAEasyTool colorWithHexString:@"#FFF0F5"]
+            : UIColor.whiteColor;
     }
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
    NSUInteger row = (NSUInteger) indexPath.row;
    NSUInteger section = (NSUInteger) indexPath.section;
 
