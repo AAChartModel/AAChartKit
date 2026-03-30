@@ -17,6 +17,7 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
 //@property (nonatomic, strong) NSArray<NSArray<NSString *> *> *chartTypeTitleArr;
 @property (nonatomic, strong) NSArray<NSArray *> *chartTypeArr;
 @property (nonatomic, strong) NSArray<NSString *> *colorsArr;
+@property (nonatomic, strong) UITableView *mainTableView;
 
 @end
 
@@ -28,7 +29,12 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
     if (self.title.length == 0) {
         self.title = @"AAChartKit";
     }
-    self.view.backgroundColor = UIColor.whiteColor;
+    
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        self.view.backgroundColor = UIColor.whiteColor;
+    }
     
     self.colorsArr = @[
         @"#5470c6", @"#91cc75", @"#fac858", @"#ee6666",
@@ -52,11 +58,16 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.backgroundColor = UIColor.whiteColor;
+    if (@available(iOS 13.0, *)) {
+        tableView.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        tableView.backgroundColor = UIColor.whiteColor;
+    }
     tableView.sectionHeaderHeight = 45;
     tableView.sectionIndexColor = UIColor.redColor;
     [tableView registerNib:[UINib nibWithNibName:kCustomTableViewCell bundle:NSBundle.mainBundle] forCellReuseIdentifier:kCustomTableViewCell];
     [self.view addSubview:tableView];
+    self.mainTableView = tableView;
 }
 
 - (UIColor *)kRGBColorFromHex:(int)rgbValue {
@@ -133,17 +144,29 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomTableViewCell];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = UIColor.whiteColor;
+    if (@available(iOS 13.0, *)) {
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.systemBackgroundColor;
+        } else {
+            cell.backgroundColor = UIColor.secondarySystemBackgroundColor;
+        }
     } else {
-        cell.backgroundColor = [self kRGBColorFromHex:0xE6E6FA];
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.whiteColor;
+        } else {
+            cell.backgroundColor = [self kRGBColorFromHex:0xE6E6FA];
+        }
     }
     
     NSString *cellTitle = self.chartTypeTitleArr[indexPath.section][indexPath.row];
     NSArray<NSString *> *titleParts = [cellTitle componentsSeparatedByString:@"---"];
     cell.titleLabel.text = titleParts.firstObject;
     cell.subtitleLabel.text = titleParts.count > 1 ? titleParts[1] : @"";
-    cell.titleLabel.textColor = UIColor.blackColor;
+    if (@available(iOS 13.0, *)) {
+        cell.titleLabel.textColor = UIColor.labelColor;
+    } else {
+        cell.titleLabel.textColor = UIColor.blackColor;
+    }
     cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)(indexPath.row + 1)];
     
     UIColor *bgColor = [self kColorWithHexString:self.colorsArr[indexPath.section % 18]];
@@ -154,6 +177,25 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Implement selection logic here
+}
+
+#pragma mark - Dark Mode Support
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            [self aa_updateDynamicColors];
+        }
+    }
+}
+
+- (void)aa_updateDynamicColors {
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+        self.mainTableView.backgroundColor = UIColor.systemBackgroundColor;
+        [self.mainTableView reloadData];
+    }
 }
 
 @end

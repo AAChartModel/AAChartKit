@@ -12,7 +12,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    if (@available(iOS 13.0, *)) {
+        self.titleLabel.textColor = UIColor.labelColor;
+        self.subtitleLabel.textColor = UIColor.secondaryLabelColor;
+        self.numberLabel.textColor = UIColor.whiteColor;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
