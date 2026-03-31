@@ -81,9 +81,9 @@
     [super viewDidLoad];
     self.title = @"AAChartKit";
     if (@available(iOS 13.0, *)) {
-        self.view.backgroundColor = UIColor.systemBackgroundColor;
+        self.view.backgroundColor = UIColor.systemGroupedBackgroundColor;
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:247/255.0 alpha:1.0];
     }
     _colorsArr = @[
         @"#5470c6",
@@ -116,7 +116,16 @@
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.sectionHeaderHeight = 50;
+    tableView.sectionHeaderHeight = 56;
+    tableView.estimatedRowHeight = 92;
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.separatorInset = UIEdgeInsetsMake(0, 48, 0, 0);
+    if (@available(iOS 13.0, *)) {
+        tableView.backgroundColor = UIColor.systemGroupedBackgroundColor;
+        tableView.separatorColor = UIColor.separatorColor;
+    } else {
+        tableView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:247/255.0 alpha:1.0];
+    }
     [tableView registerNib:[UINib nibWithNibName:@"CustomTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"customCell"];
     [self.view addSubview:tableView];
 }
@@ -127,22 +136,77 @@
 
 #pragma mark -- UITableViewDelegate && UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *sectionHeaderView = [[UIView alloc]init];
+    UIColor *baseColor = [AAEasyTool colorWithHexString:_colorsArr[section % 18]];
+    CGFloat tableW = tableView.bounds.size.width;
     
-    UILabel *sectionTitleLabel = [[UILabel alloc]init];
-    sectionTitleLabel.frame = sectionHeaderView.bounds;
-    sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    UIColor *bgColor = [AAEasyTool colorWithHexString:_colorsArr[section % 18]];
-    sectionTitleLabel.backgroundColor = bgColor;
-    NSString *titleStr = self.sectionTypeArr[(NSUInteger) section];
+    // Transparent container
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableW, 56)];
+    container.backgroundColor = UIColor.clearColor;
+    
+    // Floating card
+    CGFloat margin = 12;
+    UIView *card = [[UIView alloc] initWithFrame:CGRectMake(margin, 4, tableW - margin * 2, 48)];
+    card.layer.cornerRadius = 12;
+    card.clipsToBounds = NO;
+    
+    // Diagonal gradient
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = card.bounds;
+    gradient.cornerRadius = 12;
+    gradient.startPoint = CGPointMake(0, 0);
+    gradient.endPoint   = CGPointMake(1, 1);
+    CGFloat r, g, b, a;
+    [baseColor getRed:&r green:&g blue:&b alpha:&a];
+    UIColor *lighterColor = [UIColor colorWithRed:MIN(r + 0.12, 1.0)
+                                            green:MIN(g + 0.12, 1.0)
+                                             blue:MIN(b + 0.12, 1.0)
+                                            alpha:a];
+    gradient.colors = @[(id)baseColor.CGColor, (id)lighterColor.CGColor];
+    [card.layer insertSublayer:gradient atIndex:0];
+    
+    // Colored shadow
+    card.layer.shadowColor   = baseColor.CGColor;
+    card.layer.shadowOffset  = CGSizeMake(0, 3);
+    card.layer.shadowRadius  = 6;
+    card.layer.shadowOpacity = 0.35;
+    
+    // Decorative translucent circles
+    CGFloat cardW = card.bounds.size.width;
+    CGFloat cardH = card.bounds.size.height;
+    
+    CAShapeLayer *circle1 = [CAShapeLayer layer];
+    circle1.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(cardW - 60, -10, 50, 50)].CGPath;
+    circle1.fillColor = [UIColor colorWithWhite:1.0 alpha:0.08].CGColor;
+    [card.layer addSublayer:circle1];
+    
+    CAShapeLayer *circle2 = [CAShapeLayer layer];
+    circle2.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(cardW - 35, cardH - 30, 40, 40)].CGPath;
+    circle2.fillColor = [UIColor colorWithWhite:1.0 alpha:0.06].CGColor;
+    [card.layer addSublayer:circle2];
+    
+    // Section number badge
+    UILabel *badge = [[UILabel alloc] initWithFrame:CGRectMake(14, (cardH - 24) / 2, 24, 24)];
+    badge.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+    badge.layer.cornerRadius = 12;
+    badge.layer.masksToBounds = YES;
+    badge.text = [NSString stringWithFormat:@"%ld", (long)(section + 1)];
+    badge.textColor = UIColor.whiteColor;
+    badge.font = [UIFont monospacedDigitSystemFontOfSize:11 weight:UIFontWeightBold];
+    badge.textAlignment = NSTextAlignmentCenter;
+    [card addSubview:badge];
+    
+    // Title label
+    NSString *titleStr = self.sectionTypeArr[(NSUInteger)section];
     titleStr = [titleStr stringByReplacingOccurrencesOfString:@"---" withString:@" | "];
-    sectionTitleLabel.text = titleStr;
-    sectionTitleLabel.textColor = UIColor.whiteColor; //255 48 48
-    sectionTitleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
-    [sectionHeaderView addSubview:sectionTitleLabel];
-
-    return sectionHeaderView;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(46, 0, cardW - 70, cardH)];
+    titleLabel.text = titleStr;
+    titleLabel.textColor = UIColor.whiteColor;
+    titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+    titleLabel.numberOfLines = 1;
+    [card addSubview:titleLabel];
+    
+    [container addSubview:card];
+    return container;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -163,29 +227,18 @@
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    UIColor *themeColor = [AAEasyTool colorWithHexString:_colorsArr[indexPath.section % 18]];
+    cell.sectionColor = themeColor;
     cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
-    cell.numberLabel.layer.masksToBounds = true;
-    cell.numberLabel.layer.cornerRadius = 10;
-    UIColor *numBgColor = [AAEasyTool colorWithHexString:_colorsArr[indexPath.section % 18]];
-    cell.numberLabel.backgroundColor = numBgColor;
-    cell.numberLabel.textColor = UIColor.whiteColor;
     NSString *textStr = self.chartTypeNameArr[(NSUInteger) indexPath.section][(NSUInteger) indexPath.row];
     NSArray *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.titleLabel.text = textStrArr[0];
     cell.subtitleLabel.text = textStrArr[1];
     
     if (@available(iOS 13.0, *)) {
-        cell.titleLabel.textColor = UIColor.labelColor;
-        cell.subtitleLabel.textColor = UIColor.tertiaryLabelColor;
-        cell.backgroundColor = (indexPath.row % 2 == 0)
-            ? UIColor.systemBackgroundColor
-            : UIColor.secondarySystemBackgroundColor;
+        cell.backgroundColor = UIColor.secondarySystemGroupedBackgroundColor;
     } else {
-        cell.titleLabel.textColor = UIColor.blackColor;
-        cell.subtitleLabel.textColor = UIColor.grayColor;
-        cell.backgroundColor = (indexPath.row % 2 == 0)
-            ? [AAEasyTool colorWithHexString:@"#FFF0F5"]
-            : UIColor.whiteColor;
+        cell.backgroundColor = UIColor.whiteColor;
     }
 
     return cell;
