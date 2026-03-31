@@ -11,6 +11,7 @@
 @interface CustomTableViewCell ()
 
 @property (nonatomic, strong) UIView *accentBarView;
+@property (nonatomic, strong) UIView *badgeBackgroundView;
 @property (nonatomic, strong) CAGradientLayer *badgeGradient;
 
 @end
@@ -26,19 +27,23 @@
     self.accentBarView.layer.masksToBounds = YES;
     [self.contentView addSubview:self.accentBarView];
     
-    // ── Number badge ──
-    self.numberLabel.layer.cornerRadius = 10;
-    self.numberLabel.layer.masksToBounds = YES;
-    self.numberLabel.font = [UIFont monospacedDigitSystemFontOfSize:11 weight:UIFontWeightBold];
-    self.numberLabel.textColor = UIColor.whiteColor;
-    self.numberLabel.textAlignment = NSTextAlignmentCenter;
+    // ── Number badge background (gradient view behind label) ──
+    self.badgeBackgroundView = [[UIView alloc] init];
+    self.badgeBackgroundView.layer.cornerRadius = 10;
+    self.badgeBackgroundView.layer.masksToBounds = YES;
+    [self.contentView insertSubview:self.badgeBackgroundView belowSubview:self.numberLabel];
     
-    // Diagonal gradient on badge
     self.badgeGradient = [CAGradientLayer layer];
     self.badgeGradient.cornerRadius = 10;
     self.badgeGradient.startPoint = CGPointMake(0, 0);
     self.badgeGradient.endPoint = CGPointMake(1, 1);
-    [self.numberLabel.layer insertSublayer:self.badgeGradient atIndex:0];
+    [self.badgeBackgroundView.layer addSublayer:self.badgeGradient];
+    
+    // ── Number label (transparent bg, text on top of gradient) ──
+    self.numberLabel.backgroundColor = UIColor.clearColor;
+    self.numberLabel.font = [UIFont monospacedDigitSystemFontOfSize:11 weight:UIFontWeightBold];
+    self.numberLabel.textColor = UIColor.whiteColor;
+    self.numberLabel.textAlignment = NSTextAlignmentCenter;
     
     // ── Title typography ──
     self.titleLabel.font = [UIFont systemFontOfSize:15.5 weight:UIFontWeightSemibold];
@@ -93,25 +98,22 @@
     CGFloat barY = (self.contentView.bounds.size.height - barH) / 2.0;
     self.accentBarView.frame = CGRectMake(2.5, barY, barW, barH);
     
-    // Badge gradient must match label bounds
-    self.badgeGradient.frame = self.numberLabel.bounds;
+    // Badge background matches numberLabel frame
+    self.badgeBackgroundView.frame = self.numberLabel.frame;
+    self.badgeGradient.frame = self.badgeBackgroundView.bounds;
 }
 
 #pragma mark - Preserve Colors During Selection / Highlight
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    UIColor *badgeColor  = self.numberLabel.backgroundColor;
     UIColor *accentColor = self.accentBarView.backgroundColor;
     [super setSelected:selected animated:animated];
-    self.numberLabel.backgroundColor  = badgeColor;
     self.accentBarView.backgroundColor = accentColor;
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    UIColor *badgeColor  = self.numberLabel.backgroundColor;
     UIColor *accentColor = self.accentBarView.backgroundColor;
     [super setHighlighted:highlighted animated:animated];
-    self.numberLabel.backgroundColor  = badgeColor;
     self.accentBarView.backgroundColor = accentColor;
 }
 
