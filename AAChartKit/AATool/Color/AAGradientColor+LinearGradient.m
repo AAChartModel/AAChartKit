@@ -54,9 +54,7 @@
     return ^(NSString *endColor) {
         NSAssert(self.stops != nil, @"You should set startColor before setting endColor");
         NSMutableArray *mutableArray = self.stops.mutableCopy;
-        [mutableArray addObject:@[
-            @[@(1), endColor]
-        ]];
+        [mutableArray addObject:@[@(1), endColor]];
         self.stops = mutableArray;
         return self;
     };
@@ -120,5 +118,4 @@
 }
 
 @end
-
 
