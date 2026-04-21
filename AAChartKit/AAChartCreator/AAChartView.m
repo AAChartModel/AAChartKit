@@ -537,7 +537,7 @@ WKScriptMessageHandler
         //beforeDrawChartJavaScript 执行完毕后置空，防止重复调用
         _beforeDrawChartJavaScript = nil;
     }
-    
+
     NSString *jsStr = [NSString stringWithFormat:@"loadTheHighChartView('%@','%f','%f')",
                        _optionJson,
                        self.contentWidth,
@@ -762,8 +762,6 @@ WKScriptMessageHandler
 }
 
 @end
-
-
 
 
 
