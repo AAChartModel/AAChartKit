@@ -14,9 +14,6 @@
 
 @implementation PolarChartOptionsComposer
 
-
-
-
 + (AAOptions *)configureThePolygonPolarChart {
     AAChartModel *aaChartModel = AAChartModel.new
     .chartTypeSet(AAChartTypeArea)//图表类型
@@ -94,8 +91,10 @@
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     aaOptions.yAxis.gridLineInterpolation = AAChartYAxisGridLineInterpolationTypePolygon;
     
+    aaOptions.xAxis.tickInterval = @1;
     aaOptions.xAxis.lineWidth = @0;//避免多边形外环之外有额外套了一层无用的外环
     aaOptions.xAxis.gridLineColor = AARgbaColor(30, 144, 255, 0.6);
+    aaOptions.yAxis.lineWidth = @0;
     aaOptions.yAxis.gridLineColor = AARgbaColor(30, 144, 255, 1.0);
     
     NSArray *aaPlotBandsArr = @[
