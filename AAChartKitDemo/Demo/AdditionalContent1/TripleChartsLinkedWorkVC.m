@@ -52,16 +52,26 @@
     [self setUpTheAAChartView1];
     [self setUpTheAAChartView2];
     [self setUpTheAAChartView3];
+    
+    UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[_aaChartView1, _aaChartView2, _aaChartView3]];
+    stackView.axis = UILayoutConstraintAxisVertical;
+    stackView.distribution = UIStackViewDistributionFillEqually;
+    stackView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:stackView];
+    
+    UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+    [NSLayoutConstraint activateConstraints:@[
+        [stackView.topAnchor constraintEqualToAnchor:safeArea.topAnchor],
+        [stackView.bottomAnchor constraintEqualToAnchor:safeArea.bottomAnchor],
+        [stackView.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor],
+        [stackView.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor],
+    ]];
 }
 
 //配置第 1 个 AAChartView
 - (void)setUpTheAAChartView1 {
-    CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat screenHeight = self.view.frame.size.height;
-    CGRect frame = CGRectMake(0, 60, chartViewWidth, screenHeight / 3);
-    AAChartView *aaChartView1 = [[AAChartView alloc]initWithFrame:frame];
+    AAChartView *aaChartView1 = [[AAChartView alloc] init];
     aaChartView1.scrollEnabled = NO;
-    [self.view addSubview:aaChartView1];
     _aaChartView1 = aaChartView1;
     [self setupChartViewHandler];
     
@@ -87,12 +97,8 @@
 
 //配置第 2 个 AAChartView
 - (void)setUpTheAAChartView2 {
-    CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat screenHeight = self.view.frame.size.height;
-    CGRect frame = CGRectMake(0, screenHeight / 3 + 60, chartViewWidth, screenHeight / 3 - 60);
-    AAChartView *aaChartView2 = [[AAChartView alloc]initWithFrame:frame];
+    AAChartView *aaChartView2 = [[AAChartView alloc] init];
     aaChartView2.scrollEnabled = NO;
-    [self.view addSubview:aaChartView2];
     _aaChartView2 = aaChartView2;
     [self setupChartViewHandler2];
 
@@ -118,12 +124,8 @@
 
 //配置第 3 个 AAChartView
 - (void)setUpTheAAChartView3 {
-    CGFloat chartViewWidth  = self.view.frame.size.width;
-    CGFloat screenHeight = self.view.frame.size.height;
-    CGRect frame = CGRectMake(0, (screenHeight / 3) * 2 + 60, chartViewWidth, screenHeight / 3 - 60);
-    AAChartView *aaChartView3 = [[AAChartView alloc]initWithFrame:frame];
+    AAChartView *aaChartView3 = [[AAChartView alloc] init];
     aaChartView3.scrollEnabled = NO;
-    [self.view addSubview:aaChartView3];
     _aaChartView3 = aaChartView3;
     [self setupChartViewHandler3];
     

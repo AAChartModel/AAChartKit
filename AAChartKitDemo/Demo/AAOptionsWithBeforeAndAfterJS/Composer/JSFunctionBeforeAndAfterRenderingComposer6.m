@@ -257,7 +257,7 @@
 ////                                              .exposeAsGroupOnlySet(true)
 ////                                              )
 //                            )
-                    .barSet(@{
+                    .barSet((id)@{
                         @"headSize": @6,
                         @"stacking": @"normal",
                         @"dataLabels": @{
@@ -292,7 +292,7 @@
                 .labelsSet(AALabels.new
                              .enabledSet(false)
                              )
-                .titleSet((id)AATitle.new
+                .titleSet(AAAxisTitle.new
                             .textSet(@"")
 //                            .accessibilitySet(AAAccessibility.new
 //                                            .descriptionSet(@"")
@@ -311,7 +311,7 @@
                 )
     .xAxisSet(AAXAxis.new
                 .visibleSet(false)
-                .titleSet(@"")
+                .titleSet(AAAxisTitle.new.textSet(@""))
 //                .accessibilitySet(AAAccessibility.new
 //                                .descriptionSet(@"")
 //                                )

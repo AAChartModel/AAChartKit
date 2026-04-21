@@ -17,6 +17,7 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
 //@property (nonatomic, strong) NSArray<NSArray<NSString *> *> *chartTypeTitleArr;
 @property (nonatomic, strong) NSArray<NSArray *> *chartTypeArr;
 @property (nonatomic, strong) NSArray<NSString *> *colorsArr;
+@property (nonatomic, strong) UITableView *mainTableView;
 
 @end
 
@@ -28,7 +29,12 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
     if (self.title.length == 0) {
         self.title = @"AAChartKit";
     }
-    self.view.backgroundColor = UIColor.whiteColor;
+    
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemGroupedBackgroundColor;
+    } else {
+        self.view.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:247/255.0 alpha:1.0];
+    }
     
     self.colorsArr = @[
         @"#5470c6", @"#91cc75", @"#fac858", @"#ee6666",
@@ -52,11 +58,22 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.backgroundColor = UIColor.whiteColor;
-    tableView.sectionHeaderHeight = 45;
+    if (@available(iOS 13.0, *)) {
+        tableView.backgroundColor = UIColor.systemGroupedBackgroundColor;
+    } else {
+        tableView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:247/255.0 alpha:1.0];
+    }
+    tableView.sectionHeaderHeight = 56;
+    tableView.estimatedRowHeight = 92;
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.separatorInset = UIEdgeInsetsMake(0, 48, 0, 0);
+    if (@available(iOS 13.0, *)) {
+        tableView.separatorColor = UIColor.separatorColor;
+    }
     tableView.sectionIndexColor = UIColor.redColor;
     [tableView registerNib:[UINib nibWithNibName:kCustomTableViewCell bundle:NSBundle.mainBundle] forCellReuseIdentifier:kCustomTableViewCell];
     [self.view addSubview:tableView];
+    self.mainTableView = tableView;
 }
 
 - (UIColor *)kRGBColorFromHex:(int)rgbValue {
@@ -114,46 +131,126 @@ NSString *const kCustomTableViewCell = @"CustomTableViewCell";
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *sectionHeaderView = [[UIView alloc] init];
-    UIColor *bgColor = [self kColorWithHexString:self.colorsArr[section % 18]];
-    sectionHeaderView.backgroundColor = bgColor;
+    UIColor *baseColor = [self kColorWithHexString:self.colorsArr[section % 18]];
+    CGFloat tableW = tableView.bounds.size.width;
     
-    UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:sectionHeaderView.bounds];
-    sectionTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    sectionTitleLabel.text = self.sectionTitleArr[section];
-    sectionTitleLabel.textColor = UIColor.whiteColor;
-    sectionTitleLabel.font = [UIFont boldSystemFontOfSize:17];
-    sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
-    [sectionHeaderView addSubview:sectionTitleLabel];
+    // Transparent container
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableW, 56)];
+    container.backgroundColor = UIColor.clearColor;
     
-    return sectionHeaderView;
+    // Floating card
+    CGFloat margin = 12;
+    UIView *card = [[UIView alloc] initWithFrame:CGRectMake(margin, 4, tableW - margin * 2, 48)];
+    card.layer.cornerRadius = 12;
+    card.clipsToBounds = NO;
+    
+    // Diagonal gradient
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = card.bounds;
+    gradient.cornerRadius = 12;
+    gradient.startPoint = CGPointMake(0, 0);
+    gradient.endPoint   = CGPointMake(1, 1);
+    UIColor *lighterColor = [self aa_lightenColor:baseColor byAmount:0.12];
+    gradient.colors = @[(id)baseColor.CGColor, (id)lighterColor.CGColor];
+    [card.layer insertSublayer:gradient atIndex:0];
+    
+    // Colored shadow
+    card.layer.shadowColor   = baseColor.CGColor;
+    card.layer.shadowOffset  = CGSizeMake(0, 3);
+    card.layer.shadowRadius  = 6;
+    card.layer.shadowOpacity = 0.35;
+    
+    // Decorative translucent circles
+    CGFloat cardW = card.bounds.size.width;
+    CGFloat cardH = card.bounds.size.height;
+    
+    CAShapeLayer *circle1 = [CAShapeLayer layer];
+    circle1.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(cardW - 60, -10, 50, 50)].CGPath;
+    circle1.fillColor = [UIColor colorWithWhite:1.0 alpha:0.08].CGColor;
+    [card.layer addSublayer:circle1];
+    
+    CAShapeLayer *circle2 = [CAShapeLayer layer];
+    circle2.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(cardW - 35, cardH - 30, 40, 40)].CGPath;
+    circle2.fillColor = [UIColor colorWithWhite:1.0 alpha:0.06].CGColor;
+    [card.layer addSublayer:circle2];
+    
+    // Section number badge
+    UILabel *badge = [[UILabel alloc] initWithFrame:CGRectMake(14, (cardH - 24) / 2, 24, 24)];
+    badge.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+    badge.layer.cornerRadius = 12;
+    badge.layer.masksToBounds = YES;
+    badge.text = [NSString stringWithFormat:@"%ld", (long)(section + 1)];
+    badge.textColor = UIColor.whiteColor;
+    badge.font = [UIFont monospacedDigitSystemFontOfSize:11 weight:UIFontWeightBold];
+    badge.textAlignment = NSTextAlignmentCenter;
+    [card addSubview:badge];
+    
+    // Title label
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(46, 0, cardW - 70, cardH)];
+    titleLabel.text = self.sectionTitleArr[section];
+    titleLabel.textColor = UIColor.whiteColor;
+    titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+    titleLabel.numberOfLines = 1;
+    [card addSubview:titleLabel];
+    
+    [container addSubview:card];
+    return container;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomTableViewCell];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = UIColor.whiteColor;
-    } else {
-        cell.backgroundColor = [self kRGBColorFromHex:0xE6E6FA];
-    }
+    UIColor *themeColor = [self kColorWithHexString:self.colorsArr[indexPath.section % 18]];
+    cell.sectionColor = themeColor;
+    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)(indexPath.row + 1)];
     
     NSString *cellTitle = self.chartTypeTitleArr[indexPath.section][indexPath.row];
     NSArray<NSString *> *titleParts = [cellTitle componentsSeparatedByString:@"---"];
     cell.titleLabel.text = titleParts.firstObject;
     cell.subtitleLabel.text = titleParts.count > 1 ? titleParts[1] : @"";
-    cell.titleLabel.textColor = UIColor.blackColor;
-    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", (long)(indexPath.row + 1)];
     
-    UIColor *bgColor = [self kColorWithHexString:self.colorsArr[indexPath.section % 18]];
-    cell.numberLabel.backgroundColor = bgColor;
+    if (@available(iOS 13.0, *)) {
+        cell.backgroundColor = UIColor.secondarySystemGroupedBackgroundColor;
+    } else {
+        cell.backgroundColor = UIColor.whiteColor;
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Implement selection logic here
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Dark Mode Support
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            [self aa_updateDynamicColors];
+        }
+    }
+}
+
+- (void)aa_updateDynamicColors {
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemGroupedBackgroundColor;
+        self.mainTableView.backgroundColor = UIColor.systemGroupedBackgroundColor;
+        [self.mainTableView reloadData];
+    }
+}
+
+#pragma mark - Color Helpers
+
+- (UIColor *)aa_lightenColor:(UIColor *)color byAmount:(CGFloat)amount {
+    CGFloat r, g, b, a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:MIN(r + amount, 1.0)
+                           green:MIN(g + amount, 1.0)
+                            blue:MIN(b + amount, 1.0)
+                           alpha:a];
 }
 
 @end

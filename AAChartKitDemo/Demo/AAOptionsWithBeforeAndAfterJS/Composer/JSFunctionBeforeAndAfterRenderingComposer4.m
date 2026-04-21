@@ -201,90 +201,6 @@
     NSArray *stops = @[@[@0, @"#00ff00"],
                        @[@0.5, @"#ffff00"],
                        @[@1, @"#ff0000"]];
-    NSNumber *max = @200;
-    NSString *jsStr = @AAJSFunc((let each = Highcharts.each,
-                                 merge = Highcharts.merge,
-                                 pInt = Highcharts.pInt,
-                                 isNumber = Highcharts.isNumber,
-                                 pick = Highcharts.pick;
-                             Highcharts.seriesTypes.gauge.prototype.translate = function () {
-                                 var series = this,
-                                     yAxis = series.yAxis,
-                                     options = series.options,
-                                     center = yAxis.center;
-                                 series.generatePoints();
-                                 each(series.points, function (point) {
-                                     var dialOptions = merge(options.dial, point.dial),
-                                         radius = (pInt(pick(dialOptions.radius, 80)) * center[2]) /
-                                         200,
-                                         baseLength = (pInt(pick(dialOptions.baseLength, 70)) * radius) /
-                                         100,
-                                         rearLength = (pInt(pick(dialOptions.rearLength, 10)) * radius) /
-                                         100,
-                                         baseWidth = dialOptions.baseWidth || 3,
-                                         overshoot = options.overshoot,
-                                         rotation = yAxis.startAngleRad +
-                                         yAxis.translate(point.y, null, null, null, true);
-                                     // Handle the wrap and overshoot options
-                                     if (isNumber(overshoot)) {
-                                         overshoot = overshoot / 180 * Math.PI;
-                                         rotation = Math.max(
-                                             yAxis.startAngleRad - overshoot,
-                                             Math.min(yAxis.endAngleRad + overshoot, rotation)
-                                         );
-                                     } else if (options.wrap === false) {
-                                         rotation = Math.max(
-                                             yAxis.startAngleRad,
-                                             Math.min(yAxis.endAngleRad, rotation)
-                                         );
-                                     }
-                                     rotation = rotation * 180 / Math.PI;
-                                     point.shapeType = 'path';
-                                     // 主要修改了这里，自定义指针 path
-                                     point.shapeArgs = {
-                                         d: dialOptions.path || [
-                                             'M',
-                                             -rearLength, -baseWidth / 2,
-                                             'L',
-                                             baseLength, -baseWidth / 2,
-                                             radius, 0,
-                                             //radius, topWidth / 2,
-                                             baseLength, baseWidth / 2,
-                                             -rearLength, baseWidth / 2,
-                                             -rearLength - baseWidth + 2, 0,
-                                             'z'
-                                         ],
-                                         translateX: center[0],
-                                         translateY: center[1],
-                                         rotation: rotation
-                                     };
-                                     // Positions for data label
-                                     point.plotX = center[0];
-                                     point.plotY = center[1];
-                                 });
-                             };
-                             var stops = [
-                                 [0, '#00ff00'],
-                                 [0.5, '#ffff00'],
-                                 [1, '#ff0000']
-                             ],
-                                 max = 200;
-                             function getColor(val) {
-                                 let pos = val / max,
-                                     i = stops.length -1,
-                                     startStop,
-                                     endStop;
-                                 for(; i >= 0; i--) {
-                                     if(stops[i][0] <pos) {
-                                         startStop = stops[i];
-                                         endStop = stops[i +1];
-                                         break;
-                                     }
-                                 }
-                                 pos = (pos - startStop[0]) / (endStop[0] - startStop[0]);
-                                 return new Highcharts.Color(startStop[1]).tweenTo(new Highcharts.Color(endStop[1]), pos);
-                             }));
-    
     AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
               .typeSet(AAChartTypeGauge)
@@ -327,10 +243,10 @@
              )
     .yAxisSet(AAYAxis.new
                 .lineWidthSet(@0)
-                .minorTickIntervalSet(@"null")
+                .minorTickIntervalSet((id)NSNull.null)
 //                .tickPixelIntervalSet(@400)
                 .tickWidthSet(@0)
-                .titleSet(AATitle.new
+                .titleSet(AAAxisTitle.new
                           .ySet(@-70))
                 .labelsSet(AALabels.new
                            .ySet(@16))
@@ -347,8 +263,8 @@
                 .lineWidthSet(@0)
                 .labelsSet(AALabels.new
                            .stepSet(@2)
-                           .rotationSet(@"auto"))
-                .titleSet(AATitle.new
+                           .rotationSet((id)@"auto"))
+                .titleSet(AAAxisTitle.new
                           .textSet(@"null"))
 //                .plotBandsSet(@[AAPlotBandsElement.new
 //                                .fromSet(@0)
@@ -370,7 +286,7 @@
                                           .stopsSet(stops))])
              )
     .tooltipSet(AATooltip.new
-                .enabledSet(@false))
+                .enabledSet(false))
     .seriesSet(@[
         AASeriesElement.new
                  .nameSet(@"Speed")

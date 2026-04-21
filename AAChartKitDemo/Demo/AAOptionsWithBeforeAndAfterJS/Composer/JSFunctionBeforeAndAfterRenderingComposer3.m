@@ -59,8 +59,6 @@
 }
 
 + (AAOptions *)synchronizedChart {
-    NSString *jsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:[self singleChartOptions]];
-    
     return AAOptions.new
 //    .beforeDrawChartJavaScriptSet(@AAJSFunc((/**
 //                                             The purpose of this demo is to demonstrate how multiple charts on the same page

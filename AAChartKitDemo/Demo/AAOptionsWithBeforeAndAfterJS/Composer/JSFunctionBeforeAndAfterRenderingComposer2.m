@@ -153,7 +153,7 @@
 //将以上的 JavaScript 代码转换为 OC 代码
 + (AAOptions *)speedometerChart {
     AAOptions *aaOptions = AAOptions.new
-    .chartSet(
+    .chartSet((id)
 //              AAChart.new
 //              .typeSet(AAChartTypeGauge)
 //              .plotBorderWidthSet(@1)
@@ -180,8 +180,7 @@
                                     @[@1, @"#FFF4C6"]]
                 },
                 @"height": @200
-              }
-              )
+              })
     .titleSet(AATitle.new
               .textSet(@"VU meter"))
     .paneSet((id)@[
@@ -201,25 +200,25 @@
 //    .exportingSet(AAExporting.new.enabledSet(false))
     .tooltipSet(AATooltip.new
                 .enabledSet(false))
-    .yAxisSet(@[
+    .yAxisSet((id)@[
         AAYAxis.new
         .minSet(@-20)
         .maxSet(@6)
         .minorTickPositionSet(@"outside")
         .tickPositionSet(@"outside")
         .labelsSet(AALabels.new
-                   .rotationSet(@"auto")
+                   .rotationSet((id)@"auto")
                    .distanceSet(@20)
                    )
         .plotBandsSet(@[AAPlotBandsElement.new
                         .fromSet(@0)
                         .toSet(@6)
                         .colorSet(@"#C02316")
-                        .innerRadiusSet(@"100%")
-                        .outerRadiusSet(@"105%")
+                        .innerRadiusSet((id)@"100%")
+                        .outerRadiusSet((id)@"105%")
                         ])
         .paneSet(@0)
-        .titleSet(AATitle.new
+        .titleSet(AAAxisTitle.new
                   .textSet(@"VU<br/><span style='font-size:8px'>Channel A</span>".aa_toPureJSString)
                   .ySet(@-40)
                     ),
@@ -229,18 +228,18 @@
         .minorTickPositionSet(@"outside")
         .tickPositionSet(@"outside")
         .labelsSet(AALabels.new
-                   .rotationSet(@"auto")
+                   .rotationSet((id)@"auto")
                    .distanceSet(@20)
                    )
         .plotBandsSet(@[AAPlotBandsElement.new
                         .fromSet(@0)
                         .toSet(@6)
                         .colorSet(@"#C02316")
-                        .innerRadiusSet(@"100%")
-                        .outerRadiusSet(@"105%")
+                        .innerRadiusSet((id)@"100%")
+                        .outerRadiusSet((id)@"105%")
                         ])
         .paneSet(@1)
-        .titleSet(AATitle.new
+        .titleSet(AAAxisTitle.new
                   .textSet(@"VU<br/><span style='font-size:8px'>Channel B</span>".aa_toPureJSString)
                   .ySet(@-40)
                   ),

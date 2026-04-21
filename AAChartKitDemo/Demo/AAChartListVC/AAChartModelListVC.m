@@ -156,7 +156,11 @@
         ],
     ];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
     [self setUpMainTableView];
 }
 
@@ -164,10 +168,7 @@
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomTableViewCell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
-    cell.numberLabel.layer.masksToBounds = true;
-    cell.numberLabel.layer.cornerRadius = 10;
-    UIColor *numBgColor = [AAEasyTool colorWithHexString:@[@"#5470c6",
+    UIColor *themeColor = [AAEasyTool colorWithHexString:@[@"#5470c6",
                                                            @"#91cc75",
                                                            @"#fac858",
                                                            @"#ee6666",
@@ -176,16 +177,16 @@
                                                            @"#fc8452",
                                                            @"#9a60b4",
                                                            @"#ea7ccc"][indexPath.section % 9]];
-    cell.numberLabel.backgroundColor = numBgColor;
-    cell.numberLabel.textColor = UIColor.whiteColor;
+    cell.sectionColor = themeColor;
+    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
 
     NSString *textStr = self.chartTypeTitleArr[(NSUInteger)indexPath.section][(NSUInteger)indexPath.row];
     NSArray<NSString *> *textStrArr = [textStr componentsSeparatedByString:@"---"];
     cell.titleLabel.text = textStrArr.firstObject;
     cell.subtitleLabel.text = textStrArr.count > 1 ? textStrArr[1] : @"";
 
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [AAEasyTool colorWithHexString:@"#FFF0F5"];
+    if (@available(iOS 13.0, *)) {
+        cell.backgroundColor = UIColor.secondarySystemGroupedBackgroundColor;
     } else {
         cell.backgroundColor = UIColor.whiteColor;
     }
@@ -194,6 +195,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSUInteger row = (NSUInteger) indexPath.row;
     NSUInteger section = (NSUInteger) indexPath.section;
 

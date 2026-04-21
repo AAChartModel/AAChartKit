@@ -42,7 +42,7 @@
     .dataLabelsEnabledSet(NO)
     .categoriesSet(@[@"January", @"February", @"March", @"April", @"May", @"June",
                      @"July", @"August", @"September", @"October", @"November", @"December"])
-    .marginSet(@{@"right": @30, @"left": @50})
+    .marginSet(@[@0, @30, @0, @50])
     .seriesSet(@[
         AASeriesElement.new
         .nameSet(@"2018")

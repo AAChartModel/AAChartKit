@@ -39,6 +39,8 @@
 @property (nonatomic, strong) UIStackView *mainStackView;
 @property (nonatomic, strong) UIStackView *segmentedControlsStackView;
 @property (nonatomic, strong) UIStackView *switchesStackView;
+@property (nonatomic, strong) UIView *chartStateProbeView;
+@property (nonatomic, assign) BOOL shouldExposeUITestChartState;
 
 @end
 
@@ -61,6 +63,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [AAEasyTool colorWithHexString:@"#4b2b7f"];
+    self.view.accessibilityIdentifier = @"basic-chart.view";
+    self.shouldExposeUITestChartState = [[[NSProcessInfo processInfo] arguments] containsObject:@"-UITestExposeChartState"];
 
     AAChartType chartType = [self configureTheChartType];
     self.title = [NSString stringWithFormat:@"%@ chart",chartType];
@@ -78,6 +82,7 @@
     AAChartType chartType = [self configureTheChartType];
     [self setupAAChartViewWithChartType:chartType];
     [_aaChartView aa_drawChartWithChartModel:_aaChartModel];
+    [self updateUITestChartStateProbe];
 }
 
 - (void)setupAAChartView {
@@ -86,6 +91,7 @@
     _aaChartView.scrollEnabled = NO; // 禁用 AAChartView 滚动效果
     _aaChartView.isClearBackgroundColor = YES; // 设置 AAChartView 的背景色是否为透明
     _aaChartView.translatesAutoresizingMaskIntoConstraints = NO; // 启用 Auto Layout
+    _aaChartView.accessibilityIdentifier = @"basic-chart.chart-view";
     
     // 将 AAChartView 添加到视图
     [self.view addSubview:_aaChartView];
@@ -103,9 +109,117 @@
     } else {
         // Fallback on earlier versions
     }
-    
+
+    [self setupUITestChartStateProbeIfNeeded];
     [self setupChartViewEventHandlers];
     [self setupMainStackView];
+}
+
+- (void)setupUITestChartStateProbeIfNeeded {
+    if (!self.shouldExposeUITestChartState || _chartStateProbeView != nil) {
+        return;
+    }
+
+    UIView *stateProbeView = [[UIView alloc] init];
+    stateProbeView.translatesAutoresizingMaskIntoConstraints = NO;
+    stateProbeView.backgroundColor = UIColor.clearColor;
+    stateProbeView.userInteractionEnabled = NO;
+    stateProbeView.isAccessibilityElement = YES;
+    stateProbeView.accessibilityIdentifier = @"basic-chart.state";
+    [self.view addSubview:stateProbeView];
+    [NSLayoutConstraint activateConstraints:@[
+        [stateProbeView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [stateProbeView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [stateProbeView.widthAnchor constraintEqualToConstant:1],
+        [stateProbeView.heightAnchor constraintEqualToConstant:1],
+    ]];
+    _chartStateProbeView = stateProbeView;
+}
+
+- (void)updateUITestChartStateProbe {
+    if (!self.shouldExposeUITestChartState) {
+        return;
+    }
+
+    [self setupUITestChartStateProbeIfNeeded];
+    _chartStateProbeView.accessibilityValue = [self serializedUITestChartState];
+}
+
+- (NSString *)serializedUITestChartState {
+    NSDictionary<NSString *, id> *state = [self currentUITestChartState];
+    NSArray<NSString *> *orderedKeys = @[
+        @"chartType",
+        @"stacking",
+        @"borderRadius",
+        @"markerSymbol",
+        @"markerRadius",
+        @"xAxisReversed",
+        @"yAxisReversed",
+        @"inverted",
+        @"polar",
+        @"dataLabelsEnabled",
+        @"seriesHasStep",
+    ];
+    NSMutableArray<NSString *> *pairs = [NSMutableArray arrayWithCapacity:orderedKeys.count];
+    for (NSString *key in orderedKeys) {
+        id value = state[key];
+        NSString *serializedValue = [self serializedUITestChartStateValue:value];
+        [pairs addObject:[NSString stringWithFormat:@"\"%@\":%@", key, serializedValue]];
+    }
+    return [NSString stringWithFormat:@"{%@}", [pairs componentsJoinedByString:@","]];
+}
+
+- (NSDictionary<NSString *, id> *)currentUITestChartState {
+    NSString *chartType = _aaChartModel.chartType ?: [self configureTheChartType];
+    NSString *stacking = [self normalizedUITestStackingValue:_aaChartModel.stacking];
+    NSNumber *borderRadius = _aaChartModel.borderRadius ?: @0;
+    NSString *markerSymbol = _aaChartModel.markerSymbol ?: @"";
+    NSNumber *markerRadius = _aaChartModel.markerRadius ?: @0;
+
+    return @{
+        @"chartType"         : chartType ?: @"",
+        @"stacking"          : stacking,
+        @"borderRadius"      : borderRadius,
+        @"markerSymbol"      : markerSymbol,
+        @"markerRadius"      : markerRadius,
+        @"xAxisReversed"     : @(_aaChartModel.xAxisReversed),
+        @"yAxisReversed"     : @(_aaChartModel.yAxisReversed),
+        @"inverted"          : @(_aaChartModel.inverted),
+        @"polar"             : @(_aaChartModel.polar),
+        @"dataLabelsEnabled" : @(_aaChartModel.dataLabelsEnabled),
+        @"seriesHasStep"     : @([self aa_seriesHasStep]),
+    };
+}
+
+- (NSString *)normalizedUITestStackingValue:(NSString *)stacking {
+    return stacking.length > 0 ? stacking : @"false";
+}
+
+- (NSString *)serializedUITestChartStateValue:(id)value {
+    if (value == nil || value == NSNull.null) {
+        return @"null";
+    }
+
+    if ([value isKindOfClass:[NSString class]]) {
+        NSString *escapedString = [(NSString *)value stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+        return [NSString stringWithFormat:@"\"%@\"", escapedString];
+    }
+
+    if (CFGetTypeID((__bridge CFTypeRef)value) == CFBooleanGetTypeID()) {
+        return [value boolValue] ? @"true" : @"false";
+    }
+
+    return [value stringValue];
+}
+
+- (BOOL)aa_seriesHasStep {
+    for (AASeriesElement *seriesElement in _aaChartModel.series) {
+        if ([seriesElement.step respondsToSelector:@selector(boolValue)] && [seriesElement.step boolValue]) {
+            return YES;
+        }
+    }
+
+    return NO;
 }
 
 - (void)setupMainStackView {
@@ -116,6 +230,7 @@
     _mainStackView.alignment = UIStackViewAlignmentFill;
     _mainStackView.spacing = 10;
     _mainStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    _mainStackView.accessibilityIdentifier = @"basic-chart.controls";
     [self.view addSubview:_mainStackView];
     
     // 设置主 StackView 约束
@@ -196,6 +311,7 @@
         segmentedControl.selectedSegmentIndex = 0;
         segmentedControl.tag = i;
         segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
+        segmentedControl.accessibilityIdentifier = [NSString stringWithFormat:@"basic-chart.segmented.%tu", i];
         [segmentedControl addTarget:self
                              action:@selector(customSegmentedControlCellValueBeChanged:)
                    forControlEvents:UIControlEventValueChanged];
@@ -267,6 +383,7 @@
         switchView.thumbTintColor = [UIColor whiteColor];
         switchView.on = NO;
         switchView.tag = i;
+        switchView.accessibilityIdentifier = [NSString stringWithFormat:@"basic-chart.switch.%tu", i];
         [switchView addTarget:self
                        action:@selector(switchViewClicked:)
              forControlEvents:UIControlEventValueChanged];
@@ -444,6 +561,7 @@
 
 - (void)refreshTheChartView {
     [_aaChartView aa_refreshChartWithChartModel:_aaChartModel];
+    [self updateUITestChartStateProbe];
 }
 
 - (void)setUpTheNextTypeChartButton {
@@ -451,6 +569,7 @@
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(monitorTap)];
+    btnItem.accessibilityIdentifier = @"basic-chart.next-type";
     self.navigationItem.rightBarButtonItem = btnItem;
 }
 
@@ -488,6 +607,8 @@
     if (_chartType == BasicChartVCChartTypeScatter) {
         _chartType = -1;//重新开始
     }
+
+    [self updateUITestChartStateProbe];
 }
 
 - (BOOL)isHairPhone {

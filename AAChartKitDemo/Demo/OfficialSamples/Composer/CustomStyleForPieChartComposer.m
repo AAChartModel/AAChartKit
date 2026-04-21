@@ -40,7 +40,7 @@
         .seriesSet(@[
             AASeriesElement.new
                 .nameSet(@"Past")
-                .sizeSet(@"40%")
+                .sizeSet((id)@"40%")
                 .innerSizeSet(@"30%")
                 .borderWidthSet(@0)
                 .allowPointSelectSet(false)
@@ -53,7 +53,7 @@
                 ]),
             AASeriesElement.new
                 .nameSet(@"Now")
-                .sizeSet(@"80%")
+                .sizeSet((id)@"80%")
                 .innerSizeSet(@"70%")
                 .borderWidthSet(@0)
                 .allowPointSelectSet(false)
@@ -88,7 +88,7 @@
                 ])
                 .dataLabelsSet(AADataLabels.new
                     .enabledSet(false))
-                .sizeSet(@"25%")
+                .sizeSet((id)@"25%")
                 .innerSizeSet(@"20%")
                 .borderWidthSet(@0)
                 .allowPointSelectSet(false)
@@ -115,7 +115,7 @@
                     .connectorShapeSet(@"crookedLine")
                     .crookDistanceSet(@"90%")
                     .styleSet(AAStyleColorSize(AARgbaColor(30, 144, 255, 1.0), 0)))
-                .sizeSet(@"40%")
+                .sizeSet((id)@"40%")
                 .innerSizeSet(@"80%")
                 .borderWidthSet(@0)
                 .allowPointSelectSet(false)
@@ -147,17 +147,17 @@
 
 + (AAChartModel *)pieChartWithRoundedCorners {
     return [self pieChart]
-        .borderRadiusSet(@"50%");
+        .borderRadiusSet((id)@"50%");
 }
 
 + (AAChartModel *)doubleLayerPieChartWithRoundedCorners {
     return [self doubleLayerPieChart]
-        .borderRadiusSet(@"50%");
+        .borderRadiusSet((id)@"50%");
 }
 
 + (AAChartModel *)doubleLayerDoubleColorsPieChartWithRoundedCorners {
     return [self doubleLayerDoubleColorsPieChart]
-        .borderRadiusSet(@"50%");
+        .borderRadiusSet((id)@"50%");
 }
 
 @end

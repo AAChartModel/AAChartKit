@@ -96,7 +96,7 @@
          */
         const extractNumbers = (path) => {
             const numbers = [];
-            let temp = '';
+            let temp = "";
             
             for (let i = 0; i < path.length; i++) {
                 const char = path[i];
@@ -104,7 +104,7 @@
                     temp += char;
                 } else if (temp) {
                     numbers.push(parseFloat(temp));
-                    temp = '';
+                    temp = "";
                 }
             }
             

@@ -62,6 +62,200 @@
 
 static const CGFloat kAASidebarOuterPadding = 12.0;
 static const CGFloat kAASidebarColumnSpacing = 10.0;
+static const CGFloat kAASidebarMinWidth = 200.0;
+static const CGFloat kAASidebarMaxWidth = 400.0;
+
+#if TARGET_OS_MACCATALYST
+
+#pragma mark - AASidebarCell (Custom cell to avoid recreating views on every reuse)
+
+@interface AASidebarCell : UITableViewCell
+
+@property (nonatomic, strong) UIVisualEffectView *blurSelectionView;
+@property (nonatomic, strong) UIView *strokeView;
+@property (nonatomic, strong) UIView *highlightView;
+@property (nonatomic, strong) UIView *hoverBackgroundView;
+@property (nonatomic, assign) BOOL aa_isHighlighted;
+
+- (void)aa_updateAppearanceSelected:(BOOL)isSelected
+                         accentColor:(UIColor *)accentColor
+                               title:(NSString *)title
+                                icon:(UIImage *)icon;
+
+@end
+
+@implementation AASidebarCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self aa_setupSubviews];
+    }
+    return self;
+}
+
+- (void)aa_setupSubviews {
+    self.backgroundColor = UIColor.clearColor;
+    self.contentView.backgroundColor = UIColor.clearColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.accessoryType = UITableViewCellAccessoryNone;
+    self.layoutMargins = UIEdgeInsetsMake(0, 10, 0, 10);
+
+    // Hover background (shown on mouse hover)
+    self.hoverBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.hoverBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.hoverBackgroundView.backgroundColor = UIColor.clearColor;
+    self.hoverBackgroundView.layer.cornerRadius = 12.0;
+    if (@available(iOS 13.0, *)) {
+        self.hoverBackgroundView.layer.cornerCurve = kCACornerCurveContinuous;
+    }
+    self.hoverBackgroundView.alpha = 0.0;
+    [self insertSubview:self.hoverBackgroundView atIndex:0];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.hoverBackgroundView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:6.0],
+        [self.hoverBackgroundView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-6.0],
+        [self.hoverBackgroundView.topAnchor constraintEqualToAnchor:self.topAnchor constant:3.0],
+        [self.hoverBackgroundView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-3.0],
+    ]];
+
+    // Selection blur background (built once, reused)
+    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    selectedBackgroundView.backgroundColor = UIColor.clearColor;
+
+    UIVisualEffect *selectionBlur = nil;
+    if (@available(iOS 13.0, *)) {
+        selectionBlur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemUltraThinMaterial];
+    } else {
+        selectionBlur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    }
+    self.blurSelectionView = [[UIVisualEffectView alloc] initWithEffect:selectionBlur];
+    self.blurSelectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.blurSelectionView.layer.cornerRadius = 12.0;
+    if (@available(iOS 13.0, *)) {
+        self.blurSelectionView.layer.cornerCurve = kCACornerCurveContinuous;
+    }
+    self.blurSelectionView.clipsToBounds = YES;
+    [selectedBackgroundView addSubview:self.blurSelectionView];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.blurSelectionView.leadingAnchor constraintEqualToAnchor:selectedBackgroundView.leadingAnchor constant:6.0],
+        [self.blurSelectionView.trailingAnchor constraintEqualToAnchor:selectedBackgroundView.trailingAnchor constant:-6.0],
+        [self.blurSelectionView.topAnchor constraintEqualToAnchor:selectedBackgroundView.topAnchor constant:3.0],
+        [self.blurSelectionView.bottomAnchor constraintEqualToAnchor:selectedBackgroundView.bottomAnchor constant:-3.0],
+    ]];
+
+    self.strokeView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.strokeView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.strokeView.backgroundColor = UIColor.clearColor;
+    self.strokeView.layer.cornerRadius = 12.0;
+    if (@available(iOS 13.0, *)) {
+        self.strokeView.layer.cornerCurve = kCACornerCurveContinuous;
+    }
+    self.strokeView.layer.borderWidth = 0.6;
+    [self.blurSelectionView.contentView addSubview:self.strokeView];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.strokeView.leadingAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.leadingAnchor],
+        [self.strokeView.trailingAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.trailingAnchor],
+        [self.strokeView.topAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.topAnchor],
+        [self.strokeView.bottomAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.bottomAnchor],
+    ]];
+
+    self.highlightView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.highlightView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.highlightView.userInteractionEnabled = NO;
+    [self.blurSelectionView.contentView addSubview:self.highlightView];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.highlightView.leadingAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.leadingAnchor],
+        [self.highlightView.trailingAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.trailingAnchor],
+        [self.highlightView.topAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.topAnchor],
+        [self.highlightView.heightAnchor constraintEqualToAnchor:self.blurSelectionView.contentView.heightAnchor multiplier:0.45],
+    ]];
+
+    self.selectedBackgroundView = selectedBackgroundView;
+
+    [self aa_updateDynamicColors];
+
+    // Add pointer interaction for hover effect (macCatalyst)
+    if (@available(iOS 13.4, *)) {
+        UIPointerInteraction *pointerInteraction = [[UIPointerInteraction alloc] initWithDelegate:(id<UIPointerInteractionDelegate>)self];
+        [self addInteraction:pointerInteraction];
+    }
+}
+
+- (void)aa_updateDynamicColors {
+    if (@available(iOS 13.0, *)) {
+        self.strokeView.layer.borderColor = [UIColor.separatorColor colorWithAlphaComponent:0.35].CGColor;
+        BOOL isDark = (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark);
+        self.highlightView.backgroundColor = isDark
+            ? [UIColor.whiteColor colorWithAlphaComponent:0.04]
+            : [UIColor.whiteColor colorWithAlphaComponent:0.06];
+        self.hoverBackgroundView.backgroundColor = isDark
+            ? [UIColor.whiteColor colorWithAlphaComponent:0.06]
+            : [UIColor.blackColor colorWithAlphaComponent:0.04];
+    } else {
+        self.strokeView.layer.borderColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.35].CGColor;
+        self.highlightView.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.06];
+        self.hoverBackgroundView.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.04];
+    }
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            [self aa_updateDynamicColors];
+        }
+    }
+}
+
+- (void)aa_updateAppearanceSelected:(BOOL)isSelected
+                         accentColor:(UIColor *)accentColor
+                               title:(NSString *)title
+                                icon:(UIImage *)icon {
+    if (@available(iOS 14.0, *)) {
+        UIListContentConfiguration *content = [UIListContentConfiguration sidebarCellConfiguration];
+        content.text = title;
+        content.image = icon;
+        content.imageToTextPadding = 10.0;
+        content.textProperties.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
+        content.textProperties.color = isSelected ? accentColor : UIColor.labelColor;
+        content.imageProperties.tintColor = isSelected ? accentColor : UIColor.secondaryLabelColor;
+        content.imageProperties.preferredSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:15 weight:UIImageSymbolWeightSemibold];
+        content.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(8, 12, 8, 12);
+        self.contentConfiguration = content;
+    } else {
+        self.textLabel.text = title;
+        self.textLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
+        self.textLabel.textColor = isSelected ? accentColor : UIColor.blackColor;
+        self.imageView.image = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.imageView.tintColor = isSelected ? accentColor : UIColor.grayColor;
+    }
+
+    self.blurSelectionView.alpha = isSelected ? 1.0 : 0.0;
+    [self setSelected:isSelected animated:NO];
+}
+
+#pragma mark - UIPointerInteractionDelegate
+
+- (nullable UIPointerRegion *)pointerInteraction:(UIPointerInteraction *)interaction
+                                regionForRequest:(UIPointerRegionRequest *)request
+                               defaultRegion:(UIPointerRegion *)defaultRegion API_AVAILABLE(ios(13.4)) {
+    return defaultRegion;
+}
+
+- (nullable UIPointerStyle *)pointerInteraction:(UIPointerInteraction *)interaction
+                           styleForRegion:(UIPointerRegion *)region API_AVAILABLE(ios(13.4)) {
+    UITargetedPreview *preview = [[UITargetedPreview alloc] initWithView:self];
+    UIPointerHoverEffect *hoverEffect = [UIPointerHoverEffect effectWithPreview:preview];
+    hoverEffect.prefersScaledContent = NO;
+    hoverEffect.prefersShadow = NO;
+    return [UIPointerStyle styleWithEffect:hoverEffect shape:nil];
+}
+
+@end
+
+#endif /* TARGET_OS_MACCATALYST */
+
+#pragma mark - AASidebarListController
 
 @interface AASidebarListController : UITableViewController
 
@@ -90,9 +284,9 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SidebarCell"];
 
 #if TARGET_OS_MACCATALYST
+    [self.tableView registerClass:[AASidebarCell class] forCellReuseIdentifier:@"SidebarCell"];
     self.tableView.backgroundColor = UIColor.clearColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -101,6 +295,8 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
         self.tableView.sectionHeaderTopPadding = 0;
     }
     self.tableView.contentInset = UIEdgeInsetsMake(6, 0, 6, 0);
+#else
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SidebarCell"];
 #endif
 }
 
@@ -116,112 +312,36 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell" forIndexPath:indexPath];
     UINavigationController *nav = self.viewControllers[indexPath.row];
     NSString *title = nav.tabBarItem.title ?: nav.topViewController.title ?: @"";
     UIImage *icon = nav.tabBarItem.image;
     BOOL isSelected = [indexPath isEqual:self.aa_selectedIndexPath];
 
 #if TARGET_OS_MACCATALYST
-    cell.backgroundColor = UIColor.clearColor;
-    cell.contentView.backgroundColor = UIColor.clearColor;
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.layoutMargins = UIEdgeInsetsMake(0, 10, 0, 10);
-
-    if (@available(iOS 14.0, *)) {
-        UIListContentConfiguration *content = [UIListContentConfiguration sidebarCellConfiguration];
-        content.text = title;
-        content.image = icon;
-        content.imageToTextPadding = 10.0;
-        content.textProperties.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
-        content.textProperties.color = isSelected ? [self aa_sidebarAccentColor] : UIColor.labelColor;
-        content.imageProperties.tintColor = isSelected ? [self aa_sidebarAccentColor] : UIColor.secondaryLabelColor;
-        content.imageProperties.preferredSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:15 weight:UIImageSymbolWeightSemibold];
-        content.directionalLayoutMargins = NSDirectionalEdgeInsetsMake(8, 12, 8, 12);
-        cell.contentConfiguration = content;
-    } else {
-        cell.textLabel.text = title;
-        cell.textLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
-        cell.textLabel.textColor = isSelected ? [self aa_sidebarAccentColor] : UIColor.blackColor;
-        cell.imageView.image = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = isSelected ? [self aa_sidebarAccentColor] : UIColor.grayColor;
-    }
-
-    UIVisualEffect *selectionBlur = nil;
-    if (@available(iOS 13.0, *)) {
-        selectionBlur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemUltraThinMaterial];
-    } else {
-        selectionBlur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    }
-    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-    selectedBackgroundView.backgroundColor = UIColor.clearColor;
-
-    UIVisualEffectView *selectedView = [[UIVisualEffectView alloc] initWithEffect:selectionBlur];
-    selectedView.translatesAutoresizingMaskIntoConstraints = NO;
-    selectedView.layer.cornerRadius = 12.0;
-    if (@available(iOS 13.0, *)) {
-        selectedView.layer.cornerCurve = kCACornerCurveContinuous;
-    }
-    selectedView.clipsToBounds = YES;
-    [selectedBackgroundView addSubview:selectedView];
-    [NSLayoutConstraint activateConstraints:@[
-        [selectedView.leadingAnchor constraintEqualToAnchor:selectedBackgroundView.leadingAnchor constant:6.0],
-        [selectedView.trailingAnchor constraintEqualToAnchor:selectedBackgroundView.trailingAnchor constant:-6.0],
-        [selectedView.topAnchor constraintEqualToAnchor:selectedBackgroundView.topAnchor constant:3.0],
-        [selectedView.bottomAnchor constraintEqualToAnchor:selectedBackgroundView.bottomAnchor constant:-3.0],
-    ]];
-    selectedView.alpha = isSelected ? 1.0 : 0.0;
-
-    UIView *strokeView = [[UIView alloc] initWithFrame:CGRectZero];
-    strokeView.translatesAutoresizingMaskIntoConstraints = NO;
-    strokeView.backgroundColor = UIColor.clearColor;
-    strokeView.layer.cornerRadius = 12.0;
-    if (@available(iOS 13.0, *)) {
-        strokeView.layer.cornerCurve = kCACornerCurveContinuous;
-        strokeView.layer.borderColor = [UIColor.separatorColor colorWithAlphaComponent:0.35].CGColor;
-    } else {
-        strokeView.layer.borderColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.35].CGColor;
-    }
-    strokeView.layer.borderWidth = 0.6;
-    [selectedView.contentView addSubview:strokeView];
-    [NSLayoutConstraint activateConstraints:@[
-        [strokeView.leadingAnchor constraintEqualToAnchor:selectedView.contentView.leadingAnchor],
-        [strokeView.trailingAnchor constraintEqualToAnchor:selectedView.contentView.trailingAnchor],
-        [strokeView.topAnchor constraintEqualToAnchor:selectedView.contentView.topAnchor],
-        [strokeView.bottomAnchor constraintEqualToAnchor:selectedView.contentView.bottomAnchor],
-    ]];
-
-    UIView *highlightView = [[UIView alloc] initWithFrame:CGRectZero];
-    highlightView.translatesAutoresizingMaskIntoConstraints = NO;
-    highlightView.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.06];
-    highlightView.userInteractionEnabled = NO;
-    [selectedView.contentView addSubview:highlightView];
-    [NSLayoutConstraint activateConstraints:@[
-        [highlightView.leadingAnchor constraintEqualToAnchor:selectedView.contentView.leadingAnchor],
-        [highlightView.trailingAnchor constraintEqualToAnchor:selectedView.contentView.trailingAnchor],
-        [highlightView.topAnchor constraintEqualToAnchor:selectedView.contentView.topAnchor],
-        [highlightView.heightAnchor constraintEqualToAnchor:selectedView.contentView.heightAnchor multiplier:0.45],
-    ]];
-
-    cell.selectedBackgroundView = selectedBackgroundView;
-    [cell setSelected:isSelected animated:NO];
+    AASidebarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell" forIndexPath:indexPath];
+    [cell aa_updateAppearanceSelected:isSelected
+                           accentColor:[self aa_sidebarAccentColor]
+                                 title:title
+                                  icon:icon];
+    return cell;
 #else
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SidebarCell" forIndexPath:indexPath];
     cell.textLabel.text = title;
     cell.imageView.image = icon;
-#endif
-
     return cell;
+#endif
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #if TARGET_OS_MACCATALYST
     NSIndexPath *previous = self.aa_selectedIndexPath;
     self.aa_selectedIndexPath = indexPath;
+    NSMutableArray<NSIndexPath *> *pathsToReload = [NSMutableArray array];
     if (previous && ![previous isEqual:indexPath]) {
-        [tableView reloadRowsAtIndexPaths:@[previous] withRowAnimation:UITableViewRowAnimationNone];
+        [pathsToReload addObject:previous];
     }
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [pathsToReload addObject:indexPath];
+    [tableView reloadRowsAtIndexPaths:pathsToReload withRowAnimation:UITableViewRowAnimationNone];
 #endif
     UINavigationController *nav = self.viewControllers[indexPath.row];
     if (self.onSelectViewController) {
@@ -265,9 +385,11 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 @property (nonatomic, strong) UIView *sidebarOverlayView;
 @property (nonatomic, strong) CAGradientLayer *sidebarGradientLayer;
 @property (nonatomic, strong) UIView *sidebarDividerView;
+@property (nonatomic, strong) UIView *dividerDragHandleView;
 @property (nonatomic, strong) NSLayoutConstraint *contentLeadingConstraint;
 @property (nonatomic, assign) BOOL sidebarHidden;
 @property (nonatomic, assign) CGFloat lastExpandedSidebarWidth;
+@property (nonatomic, assign) BOOL isDraggingDivider;
 
 @end
 
@@ -299,11 +421,6 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     if (@available(iOS 13.0, *)) {
         self.sidebarHostView.layer.cornerCurve = kCACornerCurveContinuous;
     }
-    if (@available(iOS 13.0, *)) {
-        self.sidebarHostView.layer.borderColor = [UIColor.separatorColor colorWithAlphaComponent:0.20].CGColor;
-    } else {
-        self.sidebarHostView.layer.borderColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.20].CGColor;
-    }
     self.sidebarHostView.layer.borderWidth = 0.5;
 
     UIVisualEffect *blurEffect = nil;
@@ -317,15 +434,9 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
     self.sidebarOverlayView = [[UIView alloc] initWithFrame:CGRectZero];
     self.sidebarOverlayView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.sidebarOverlayView.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.02];
     self.sidebarOverlayView.userInteractionEnabled = NO;
 
     self.sidebarGradientLayer = [CAGradientLayer layer];
-    self.sidebarGradientLayer.colors = @[
-        (__bridge id)[UIColor.whiteColor colorWithAlphaComponent:0.08].CGColor,
-        (__bridge id)[UIColor.whiteColor colorWithAlphaComponent:0.005].CGColor,
-        (__bridge id)[UIColor.clearColor CGColor],
-    ];
     self.sidebarGradientLayer.locations = @[@0.0, @0.45, @1.0];
     self.sidebarGradientLayer.startPoint = CGPointMake(0.0, 0.0);
     self.sidebarGradientLayer.endPoint = CGPointMake(1.0, 1.0);
@@ -335,7 +446,6 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     self.sidebarShadowWrapperView = [[UIView alloc] initWithFrame:CGRectZero];
     self.sidebarShadowWrapperView.translatesAutoresizingMaskIntoConstraints = NO;
     self.sidebarShadowWrapperView.backgroundColor = UIColor.clearColor;
-    self.sidebarShadowWrapperView.layer.shadowColor = [UIColor.blackColor colorWithAlphaComponent:0.12].CGColor;
     self.sidebarShadowWrapperView.layer.shadowOpacity = 1.0;
     self.sidebarShadowWrapperView.layer.shadowRadius = 14.0;
     self.sidebarShadowWrapperView.layer.shadowOffset = CGSizeMake(0, 6);
@@ -416,13 +526,9 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     [self.sidebarController loadViewIfNeeded];
     [self.sidebarController aa_setSelectedIndex:0 animated:NO notify:YES];
 
+    // Divider line
     self.sidebarDividerView = [[UIView alloc] initWithFrame:CGRectZero];
     self.sidebarDividerView.translatesAutoresizingMaskIntoConstraints = NO;
-    if (@available(iOS 13.0, *)) {
-        self.sidebarDividerView.backgroundColor = [UIColor.separatorColor colorWithAlphaComponent:0.35];
-    } else {
-        self.sidebarDividerView.backgroundColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.35];
-    }
     [self.view addSubview:self.sidebarDividerView];
     [NSLayoutConstraint activateConstraints:@[
         [self.sidebarDividerView.leadingAnchor constraintEqualToAnchor:self.sidebarHostView.trailingAnchor constant:kAASidebarColumnSpacing / 2.0],
@@ -430,6 +536,80 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
         [self.sidebarDividerView.topAnchor constraintEqualToAnchor:safeArea.topAnchor constant:kAASidebarOuterPadding],
         [self.sidebarDividerView.bottomAnchor constraintEqualToAnchor:safeArea.bottomAnchor constant:-kAASidebarOuterPadding],
     ]];
+
+    // Draggable divider handle (wider invisible hit area overlaying the thin divider)
+    self.dividerDragHandleView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.dividerDragHandleView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.dividerDragHandleView.backgroundColor = UIColor.clearColor;
+    [self.view addSubview:self.dividerDragHandleView];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.dividerDragHandleView.centerXAnchor constraintEqualToAnchor:self.sidebarDividerView.centerXAnchor],
+        [self.dividerDragHandleView.widthAnchor constraintEqualToConstant:12.0],
+        [self.dividerDragHandleView.topAnchor constraintEqualToAnchor:self.sidebarDividerView.topAnchor],
+        [self.dividerDragHandleView.bottomAnchor constraintEqualToAnchor:self.sidebarDividerView.bottomAnchor],
+    ]];
+
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(aa_handleDividerPan:)];
+    [self.dividerDragHandleView addGestureRecognizer:panGesture];
+
+    // Pointer interaction: show resize cursor on the divider
+    if (@available(iOS 13.4, *)) {
+        UIPointerInteraction *dividerPointer = [[UIPointerInteraction alloc] initWithDelegate:(id<UIPointerInteractionDelegate>)self];
+        [self.dividerDragHandleView addInteraction:dividerPointer];
+    }
+
+    // Apply initial dynamic colors
+    [self aa_updateContainerDynamicColors];
+}
+
+#pragma mark - Dark Mode adaptation
+
+- (void)aa_updateContainerDynamicColors {
+    if (@available(iOS 13.0, *)) {
+        BOOL isDark = (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark);
+
+        // Sidebar host border
+        self.sidebarHostView.layer.borderColor = [UIColor.separatorColor colorWithAlphaComponent:0.20].CGColor;
+
+        // Shadow: lighter in dark mode to avoid excessive darkness
+        CGFloat shadowAlpha = isDark ? 0.30 : 0.12;
+        self.sidebarShadowWrapperView.layer.shadowColor = [UIColor.blackColor colorWithAlphaComponent:shadowAlpha].CGColor;
+
+        // Overlay tint adapts to color scheme
+        UIColor *overlayBase = isDark ? UIColor.whiteColor : UIColor.whiteColor;
+        self.sidebarOverlayView.backgroundColor = [overlayBase colorWithAlphaComponent:isDark ? 0.01 : 0.02];
+
+        // Gradient adapts to color scheme
+        CGFloat g1 = isDark ? 0.04 : 0.08;
+        CGFloat g2 = isDark ? 0.002 : 0.005;
+        self.sidebarGradientLayer.colors = @[
+            (__bridge id)[overlayBase colorWithAlphaComponent:g1].CGColor,
+            (__bridge id)[overlayBase colorWithAlphaComponent:g2].CGColor,
+            (__bridge id)[UIColor.clearColor CGColor],
+        ];
+
+        // Divider
+        self.sidebarDividerView.backgroundColor = [UIColor.separatorColor colorWithAlphaComponent:0.35];
+    } else {
+        self.sidebarHostView.layer.borderColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.20].CGColor;
+        self.sidebarShadowWrapperView.layer.shadowColor = [UIColor.blackColor colorWithAlphaComponent:0.12].CGColor;
+        self.sidebarOverlayView.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.02];
+        self.sidebarGradientLayer.colors = @[
+            (__bridge id)[UIColor.whiteColor colorWithAlphaComponent:0.08].CGColor,
+            (__bridge id)[UIColor.whiteColor colorWithAlphaComponent:0.005].CGColor,
+            (__bridge id)[UIColor.clearColor CGColor],
+        ];
+        self.sidebarDividerView.backgroundColor = [UIColor.lightGrayColor colorWithAlphaComponent:0.35];
+    }
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            [self aa_updateContainerDynamicColors];
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -438,9 +618,10 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     CGFloat viewWidth = self.view.bounds.size.width;
     if (viewWidth <= 0) { return; }
 
-    CGFloat desiredWidth = viewWidth * 0.25;
-    desiredWidth = MAX(220, MIN(desiredWidth, 320));
-    if (!self.sidebarHidden) {
+    // Only auto-size when user hasn't manually dragged
+    if (!self.sidebarHidden && !self.isDraggingDivider) {
+        CGFloat desiredWidth = viewWidth * 0.25;
+        desiredWidth = MAX(kAASidebarMinWidth, MIN(desiredWidth, kAASidebarMaxWidth));
         self.lastExpandedSidebarWidth = desiredWidth;
         if (fabs(self.sidebarWidthConstraint.constant - desiredWidth) > 0.5) {
             self.sidebarWidthConstraint.constant = desiredWidth;
@@ -449,6 +630,54 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
 
     self.sidebarGradientLayer.frame = self.sidebarOverlayView.bounds;
 }
+
+#pragma mark - Draggable divider
+
+- (void)aa_handleDividerPan:(UIPanGestureRecognizer *)gesture {
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+            self.isDraggingDivider = YES;
+            break;
+        case UIGestureRecognizerStateChanged: {
+            CGPoint location = [gesture locationInView:self.view];
+            CGFloat safeLeading = self.view.safeAreaInsets.left + kAASidebarOuterPadding;
+            CGFloat newWidth = location.x - safeLeading;
+            newWidth = MAX(kAASidebarMinWidth, MIN(newWidth, kAASidebarMaxWidth));
+            self.sidebarWidthConstraint.constant = newWidth;
+            self.lastExpandedSidebarWidth = newWidth;
+            break;
+        }
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+            // Keep isDraggingDivider YES to prevent auto-resize overriding user preference
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - UIPointerInteractionDelegate (divider resize cursor)
+
+- (nullable UIPointerRegion *)pointerInteraction:(UIPointerInteraction *)interaction
+                                regionForRequest:(UIPointerRegionRequest *)request
+                               defaultRegion:(UIPointerRegion *)defaultRegion API_AVAILABLE(ios(13.4)) {
+    if (interaction.view == self.dividerDragHandleView) {
+        return defaultRegion;
+    }
+    return nil;
+}
+
+- (nullable UIPointerStyle *)pointerInteraction:(UIPointerInteraction *)interaction
+                           styleForRegion:(UIPointerRegion *)region API_AVAILABLE(ios(13.4)) {
+    if (interaction.view == self.dividerDragHandleView) {
+        // Show a vertical resize bar shape as the cursor
+        UIPointerShape *shape = [UIPointerShape shapeWithRoundedRect:CGRectMake(0, 0, 4, 24) cornerRadius:2.0];
+        return [UIPointerStyle styleWithShape:shape constrainedAxes:UIAxisHorizontal];
+    }
+    return nil;
+}
+
+#pragma mark - Sidebar toggle
 
 - (UIBarButtonItem *)aa_sidebarToggleBarButtonItem {
     UIImage *image = nil;
@@ -473,11 +702,30 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     [self aa_setSidebarHidden:!self.sidebarHidden animated:YES];
 }
 
+#pragma mark - Keyboard shortcut (Cmd+Shift+L to toggle sidebar)
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *> *)keyCommands {
+    UIKeyCommand *toggleCommand = [UIKeyCommand keyCommandWithInput:@"l"
+                                                     modifierFlags:UIKeyModifierCommand | UIKeyModifierShift
+                                                            action:@selector(aa_toggleSidebar)];
+    if (@available(iOS 13.0, *)) {
+        toggleCommand.title = @"Toggle Sidebar";
+    }
+    if (@available(iOS 15.0, *)) {
+        toggleCommand.wantsPriorityOverSystemBehavior = YES;
+    }
+    return @[toggleCommand];
+}
+
 - (void)aa_setSidebarHidden:(BOOL)hidden animated:(BOOL)animated {
     if (self.sidebarHidden == hidden) { return; }
     self.sidebarHidden = hidden;
 
-    CGFloat targetWidth = hidden ? 0.0 : MAX(200.0, self.lastExpandedSidebarWidth);
+    CGFloat targetWidth = hidden ? 0.0 : MAX(kAASidebarMinWidth, self.lastExpandedSidebarWidth);
     CGFloat targetAlpha = hidden ? 0.0 : 1.0;
     CGFloat targetDividerAlpha = hidden ? 0.0 : 1.0;
     CGFloat targetLeadingConstant = hidden ? 0.0 : (kAASidebarOuterPadding + kAASidebarColumnSpacing);
@@ -488,12 +736,14 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     void (^animations)(void) = ^{
         self.sidebarShadowWrapperView.alpha = targetAlpha;
         self.sidebarDividerView.alpha = targetDividerAlpha;
+        self.dividerDragHandleView.alpha = targetDividerAlpha;
         [self.view layoutIfNeeded];
     };
 
     void (^completion)(BOOL) = ^(__unused BOOL finished) {
         self.sidebarShadowWrapperView.hidden = hidden;
         self.sidebarDividerView.hidden = hidden;
+        self.dividerDragHandleView.hidden = hidden;
         self.sidebarHostView.userInteractionEnabled = !hidden;
     };
 
@@ -506,6 +756,7 @@ static const CGFloat kAASidebarColumnSpacing = 10.0;
     if (!hidden) {
         self.sidebarShadowWrapperView.hidden = NO;
         self.sidebarDividerView.hidden = NO;
+        self.dividerDragHandleView.hidden = NO;
     }
 
     [UIView animateWithDuration:0.22

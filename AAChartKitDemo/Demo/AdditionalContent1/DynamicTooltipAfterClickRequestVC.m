@@ -78,7 +78,11 @@
     self.loadingHUD = hud;
     
     // 指示器
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    UIActivityIndicatorViewStyle indicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    if (@available(iOS 13.0, *)) {
+        indicatorStyle = UIActivityIndicatorViewStyleLarge;
+    }
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:indicatorStyle];
     indicator.color = [UIColor whiteColor];
     [hud addSubview:indicator];
     self.loadingIndicator = indicator; // 复用旧属性

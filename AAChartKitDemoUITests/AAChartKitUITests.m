@@ -33,6 +33,7 @@
 #import <XCTest/XCTest.h>
 
 @interface AAChartKitUITests : XCTestCase
+@property (nonatomic, strong) XCUIApplication *app;
 
 @end
 
@@ -40,27 +41,225 @@
 
 - (void)setUp {
     [super setUp];
-    
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-    // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
-    // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-    [[[XCUIApplication alloc] init] launch];
-    
-    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    
-    //Just for git push function test!!!
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testBasicChartVCColumnComprehensiveInteractions {
+    XCUIApplication *app = [self aa_launchBasicChartWithType:0 exposeChartState:YES];
+
+    XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
+    XCTAssertTrue([app.otherElements[@"basic-chart.state"] waitForExistenceWithTimeout:5.0]);
+
+    XCUIElement *stackingControl = app.segmentedControls[@"basic-chart.segmented.0"];
+    XCUIElement *cornerControl = app.segmentedControls[@"basic-chart.segmented.1"];
+    XCUIElement *nextTypeButton = app.buttons[@"basic-chart.next-type"];
+    XCTAssertTrue(stackingControl.exists);
+    XCTAssertTrue(cornerControl.exists);
+    XCTAssertTrue(nextTypeButton.exists);
+    XCTAssertEqual(stackingControl.buttons.count, 3);
+    XCTAssertEqual(cornerControl.buttons.count, 3);
+    XCTAssertTrue(app.switches[@"basic-chart.switch.0"].exists);
+    XCTAssertTrue(app.switches[@"basic-chart.switch.1"].exists);
+    XCTAssertTrue(app.switches[@"basic-chart.switch.2"].exists);
+    XCTAssertTrue(app.switches[@"basic-chart.switch.3"].exists);
+    XCTAssertTrue(app.switches[@"basic-chart.switch.4"].exists);
+    XCTAssertFalse(app.switches[@"basic-chart.switch.5"].exists);
+
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"column",
+        @"stacking": @"false",
+        @"borderRadius": @0,
+        @"xAxisReversed": @NO,
+        @"yAxisReversed": @NO,
+        @"inverted": @NO,
+        @"polar": @NO,
+        @"dataLabelsEnabled": @NO,
+    }];
+
+    [stackingControl.buttons[@"Normal stacking"] tap];
+    [self aa_assertChartStateInApp:app matches:@{@"stacking": @"normal"}];
+
+    [stackingControl.buttons[@"Percent stacking"] tap];
+    [self aa_assertChartStateInApp:app matches:@{@"stacking": @"percent"}];
+
+    [stackingControl.buttons[@"No stacking"] tap];
+    [self aa_assertChartStateInApp:app matches:@{@"stacking": @"false"}];
+
+    [cornerControl.buttons[@"Rounded corners"] tap];
+    [self aa_assertChartStateInApp:app matches:@{@"borderRadius": @10}];
+
+    [cornerControl.buttons[@"Wedge"] tap];
+    [self aa_assertChartStateInApp:app matches:@{@"borderRadius": @100}];
+
+    [cornerControl.buttons[@"Square corners"] tap];
+    [self aa_assertChartStateInApp:app matches:@{@"borderRadius": @0}];
+
+    [self aa_assertSwitchWithIdentifier:@"basic-chart.switch.0"
+                         togglesStateKey:@"xAxisReversed"
+                                   inApp:app];
+    [self aa_assertSwitchWithIdentifier:@"basic-chart.switch.1"
+                         togglesStateKey:@"yAxisReversed"
+                                   inApp:app];
+    [self aa_assertSwitchWithIdentifier:@"basic-chart.switch.2"
+                         togglesStateKey:@"inverted"
+                                   inApp:app];
+    [self aa_assertSwitchWithIdentifier:@"basic-chart.switch.3"
+                         togglesStateKey:@"polar"
+                                   inApp:app];
+    [self aa_assertSwitchWithIdentifier:@"basic-chart.switch.4"
+                         togglesStateKey:@"dataLabelsEnabled"
+                                   inApp:app];
 }
 
-- (void)testExample {
-    // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testBasicChartVCLineInteractions {
+    XCUIApplication *app = [self aa_launchBasicChartWithType:4 exposeChartState:YES];
+
+    [self aa_assertNavigationTitle:@"line chart" inApp:app];
+    XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
+
+    XCUIElement *stackingControl = app.segmentedControls[@"basic-chart.segmented.0"];
+    XCUIElement *markerControl = app.segmentedControls[@"basic-chart.segmented.1"];
+    XCTAssertEqual(stackingControl.buttons.count, 3);
+    XCTAssertEqual(markerControl.buttons.count, 5);
+
+    XCUIElement *triangleButton = markerControl.buttons[@"▲ ▲ ▲"];
+    XCTAssertTrue(triangleButton.exists);
+    [triangleButton tap];
+    [self aa_assertChartStateInApp:app matches:@{@"markerSymbol": @"triangle"}];
+
+    XCUIElement *hideMarkerSwitch = app.switches[@"basic-chart.switch.5"];
+    XCTAssertTrue(hideMarkerSwitch.exists);
+    [hideMarkerSwitch tap];
+    [self aa_assertChartStateInApp:app matches:@{@"markerRadius": @0}];
+}
+
+- (void)testBasicChartVCNextTypeCyclesFromLineToColumn {
+    XCUIApplication *app = [self aa_launchBasicChartWithType:4 exposeChartState:YES];
+    XCTAssertTrue([app.webViews[@"basic-chart.chart-view"] waitForExistenceWithTimeout:5.0]);
+    XCTAssertTrue([app.otherElements[@"basic-chart.state"] waitForExistenceWithTimeout:5.0]);
+
+    XCUIElement *nextTypeButton = app.buttons[@"basic-chart.next-type"];
+    XCTAssertTrue(nextTypeButton.exists);
+
+    [self aa_assertNavigationTitle:@"line chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"line",
+        @"seriesHasStep": @NO,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"spline chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"spline",
+        @"seriesHasStep": @NO,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"line chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"line",
+        @"seriesHasStep": @YES,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"area chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"area",
+        @"seriesHasStep": @YES,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"scatter chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"scatter",
+        @"seriesHasStep": @NO,
+    }];
+
+    [nextTypeButton tap];
+    [self aa_assertNavigationTitle:@"column chart" inApp:app];
+    [self aa_assertChartStateInApp:app matches:@{
+        @"chartType": @"column",
+        @"seriesHasStep": @NO,
+    }];
+}
+
+- (XCUIApplication *)aa_launchBasicChartWithType:(NSInteger)chartType {
+    return [self aa_launchBasicChartWithType:chartType exposeChartState:NO];
+}
+
+- (XCUIApplication *)aa_launchBasicChartWithType:(NSInteger)chartType exposeChartState:(BOOL)exposeChartState {
+    self.app = [[XCUIApplication alloc] init];
+    NSMutableArray<NSString *> *launchArguments = [NSMutableArray arrayWithArray:@[
+        @"-UITestBasicChartType",
+        [NSString stringWithFormat:@"%ld", (long)chartType],
+    ]];
+    if (exposeChartState) {
+        [launchArguments addObject:@"-UITestExposeChartState"];
+    }
+    self.app.launchArguments = launchArguments;
+    [self.app launch];
+    return self.app;
+}
+
+- (void)aa_assertSwitchWithIdentifier:(NSString *)identifier
+                      togglesStateKey:(NSString *)stateKey
+                                inApp:(XCUIApplication *)app {
+    XCUIElement *switchElement = app.switches[identifier];
+    XCTAssertTrue(switchElement.exists);
+
+    [switchElement tap];
+    [self aa_assertChartStateInApp:app matches:@{stateKey: @YES}];
+
+    [switchElement tap];
+    [self aa_assertChartStateInApp:app matches:@{stateKey: @NO}];
+}
+
+- (void)aa_assertChartStateInApp:(XCUIApplication *)app matches:(NSDictionary<NSString *, id> *)expectedState {
+    NSDate *deadline = [NSDate dateWithTimeIntervalSinceNow:5.0];
+    NSDictionary<NSString *, id> *lastState = nil;
+
+    while (deadline.timeIntervalSinceNow > 0) {
+        lastState = [self aa_chartStateFromApp:app];
+        if ([self aa_chartState:lastState containsExpectedEntries:expectedState]) {
+            return;
+        }
+
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+
+    XCTFail(@"Expected chart state %@, got %@", expectedState, lastState);
+}
+
+- (void)aa_assertNavigationTitle:(NSString *)title inApp:(XCUIApplication *)app {
+    XCTAssertTrue([app.navigationBars.staticTexts[title] waitForExistenceWithTimeout:5.0]);
+}
+
+- (NSDictionary<NSString *, id> *)aa_chartStateFromApp:(XCUIApplication *)app {
+    XCUIElement *stateElement = app.otherElements[@"basic-chart.state"];
+    XCTAssertTrue(stateElement.exists);
+
+    id rawValue = stateElement.value;
+    XCTAssertTrue([rawValue isKindOfClass:[NSString class]]);
+
+    NSError *error;
+    NSData *jsonData = [(NSString *)rawValue dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary<NSString *, id> *state = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                           options:0
+                                                                             error:&error];
+    XCTAssertNil(error);
+    XCTAssertTrue([state isKindOfClass:[NSDictionary class]]);
+    return state;
+}
+
+- (BOOL)aa_chartState:(NSDictionary<NSString *, id> *)state
+ containsExpectedEntries:(NSDictionary<NSString *, id> *)expectedState {
+    for (NSString *key in expectedState) {
+        if (![state[key] isEqual:expectedState[key]]) {
+            return NO;
+        }
+    }
+
+    return YES;
 }
 
 @end

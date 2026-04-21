@@ -53,7 +53,7 @@
             .categoriesSet(@[@"苹果", @"橘子", @"梨", @"葡萄", @"香蕉"]))
         .yAxisSet(AAYAxis.new
             .minSet(@0)
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"水果消费总量")))
 //        .legendSet(AALegend.new
 //            .reversedSet(true))
@@ -83,7 +83,7 @@
         .subtitleSet(AASubtitle.new
 //            .useHTMLSet(true)
             .textSet(@"数据来源: <a href=\"http://populationpyramid.net/germany/2015/\">1950 ~ 2100 年世界人口金字塔</a>"))
-        .xAxisSet(@[
+        .xAxisSet((id)@[
             AAXAxis.new
                 .categoriesSet(@[@"0-4", @"5-9", @"10-14", @"15-19",
                                  @"20-24", @"25-29", @"30-34", @"35-39", @"40-44",
@@ -106,7 +106,7 @@
                     .stepSet(@1)),
         ])
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(nil))
             .labelsSet(AALabels.new
                 .formatterSet(@"function () {\nreturn (Math.abs(this.value) / 1000000) + 'M';\n}"))
@@ -144,7 +144,7 @@
             .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
         .yAxisSet(AAYAxis.new
             .minSet(@0)
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"降雨量 (mm)")))
         .tooltipSet(AATooltip.new
             .headerFormatSet(@"<span style=\"font-size:10px\">{point.key}</span><table>")
@@ -204,7 +204,7 @@
             .categoriesSet(@[@"苹果", @"橘子", @"梨", @"葡萄", @"香蕉"]))
         .yAxisSet(AAYAxis.new
             .minSet(@0)
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"水果消费总量"))
             .stackLabelsSet(AALabels.new
                 .enabledSet(true)
@@ -257,7 +257,7 @@
         .yAxisSet(AAYAxis.new
             .allowDecimalsSet(false)
             .minSet(@0)
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"水果数量")))
         .tooltipSet(AATooltip.new
             .formatterSet(@"function () {\n    return '<b>' + this.x + '</b><br/>' +\n        this.series.name + ': ' + this.y + '<br/>' +\n        '总量: ' + this.point.stackTotal;\n}"))
@@ -295,7 +295,7 @@
             .categoriesSet(@[@"苹果", @"橘子", @"梨", @"葡萄", @"香蕉"]))
         .yAxisSet(AAYAxis.new
             .minSet(@0)
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"水果消费总量")))
         .tooltipSet(AATooltip.new
             .pointFormatSet(@"<span style=\"color:{series.color}\">{series.name}</span>: <b>{point.y}</b>({point.percentage:.0f}%)<br/>")
@@ -331,7 +331,7 @@
                 .rotationSet(@-45)))
         .yAxisSet(AAYAxis.new
             .minSet(@0)
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"人口 (百万)")))
         .legendSet(AALegend.new
             .enabledSet(false))
@@ -420,13 +420,13 @@
                 @"上海分部",
                 @"北京分部",
             ]))
-        .yAxisSet(@[
+        .yAxisSet((id)@[
             AAYAxis.new
                 .minSet(@0)
-                .titleSet(AATitle.new
+                .titleSet(AAAxisTitle.new
                     .textSet(@"雇员")),
             AAYAxis.new
-                .titleSet(AATitle.new
+                .titleSet(AAAxisTitle.new
                     .textSet(@"利润 (millions)"))
                 .oppositeSet(true),
         ])
@@ -453,7 +453,7 @@
         .xAxisSet(AAXAxis.new
             .categoriesSet(@[@"一月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月", @"九月", @"十月", @"十一月", @"十二月"]))
         .yAxisSet(AAYAxis.new
-            .titleSet(AATitle.new
+            .titleSet(AAAxisTitle.new
                 .textSet(@"温度 ( °C )")))
         .tooltipSet(AATooltip.new
             .valueSuffixSet(@"°C"))

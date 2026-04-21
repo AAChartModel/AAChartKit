@@ -23,7 +23,11 @@ static NSString * const kAAOptionsComposerChartCellId = @"AAOptionsComposerChart
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = UIColor.whiteColor;
+        if (@available(iOS 13.0, *)) {
+            self.backgroundColor = UIColor.systemBackgroundColor;
+        } else {
+            self.backgroundColor = UIColor.whiteColor;
+        }
 
         _aaChartView = [[AAChartView alloc] initWithFrame:CGRectZero];
         _aaChartView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -58,7 +62,11 @@ static NSString * const kAAOptionsComposerChartCellId = @"AAOptionsComposerChart
     [super viewDidLoad];
 
     self.title = @"AAOptions Composer List";
-    self.view.backgroundColor = UIColor.whiteColor;
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        self.view.backgroundColor = UIColor.whiteColor;
+    }
 
     self.optionsItems = [AAOptionsComposerProvider aaOptionsComposerItems];
     [self setUpTableView];
@@ -70,7 +78,11 @@ static NSString * const kAAOptionsComposerChartCellId = @"AAOptionsComposerChart
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = UIColor.whiteColor;
+    if (@available(iOS 13.0, *)) {
+        self.tableView.backgroundColor = UIColor.systemBackgroundColor;
+    } else {
+        self.tableView.backgroundColor = UIColor.whiteColor;
+    }
     [self.tableView registerClass:[AAOptionsComposerChartCell class] forCellReuseIdentifier:kAAOptionsComposerChartCellId];
     [self.view addSubview:self.tableView];
 }
