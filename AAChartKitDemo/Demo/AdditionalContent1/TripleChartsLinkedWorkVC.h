@@ -34,6 +34,7 @@
 
 @interface TripleChartsLinkedWorkVC : UIViewController
 
-@end
+@property (nonatomic, assign) BOOL singleChartViewMode;
 
+@end
 

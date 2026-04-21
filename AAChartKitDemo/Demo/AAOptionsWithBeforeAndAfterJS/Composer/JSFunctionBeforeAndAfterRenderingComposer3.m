@@ -8,6 +8,7 @@
 
 #import "JSFunctionBeforeAndAfterRenderingComposer3.h"
 #import "AAChartKit.h"
+#import "AAJsonConverter.h"
 #import "NSString+toPureJSString.h"
 
 @implementation JSFunctionBeforeAndAfterRenderingComposer3
@@ -43,7 +44,7 @@
         for (int i = 0; i < data.count; i++) {
             NSArray *val = data[i];
             NSArray *xData = activityDic[@"xData"];
-            newData[i] = @[xData[i], val];
+            [newData addObject:@[xData[i], val]];
         }
         
         AASeriesElement *seriesElement = AASeriesElement.new
@@ -52,172 +53,262 @@
             .typeSet(AAChartTypeArea)
             .colorSet(colorsArr[idx]);
         
-        finalDatasets[idx] = seriesElement;
+        [finalDatasets addObject:seriesElement];
     }];
     
     return finalDatasets;
 }
 
-+ (AAOptions *)synchronizedChart {
-    return AAOptions.new
-//    .beforeDrawChartJavaScriptSet(@AAJSFunc((/**
-//                                             The purpose of this demo is to demonstrate how multiple charts on the same page
-//                                             can be linked through DOM and Highcharts events and API methods. It takes a
-//                                             standard Highcharts config with a small variation for each data set, and a
-//                                             mouse/touch event handler to bind the charts together.
-//                                             */
-//
-//
-//                                             /**
-//                                              * In order to synchronize tooltips and crosshairs, override the
-//                                              * built-in events with handlers defined on the parent element.
-//                                              */
-//                                             ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
-//                                                 document.getElementById('container').addEventListener(
-//                                                     eventType,
-//                                                     function (e) {
-//                                                         let chart,
-//                                                             point,
-//                                                             i,
-//                                                             event;
-//
-//                                                         for (i = 0; i < Highcharts.charts.length; i = i + 1) {
-//                                                             chart = Highcharts.charts[i];
-//                                                             // Find coordinates within the chart
-//                                                             event = chart.pointer.normalize(e);
-//                                                             // Get the hovered point
-//                                                             point = chart.series[0].searchPoint(event, true);
-//
-//                                                             if (point) {
-//                                                                 point.highlight(e);
-//                                                             }
-//                                                         }
-//                                                     }
-//                                                 );
-//                                             });
-//
-//                                             /**
-//                                              * Override the reset function, we don't need to hide the tooltips and
-//                                              * crosshairs.
-//                                              */
-//                                             Highcharts.Pointer.prototype.reset = function () {
-//                                                 return undefined;
-//                                             };
-//
-//                                             /**
-//                                              * Highlight a point by showing tooltip, setting hover state and draw crosshair
-//                                              */
-//                                             Highcharts.Point.prototype.highlight = function (event) {
-//                                                 event = this.series.chart.pointer.normalize(event);
-//                                                 this.onMouseOver(); // Show the hover marker
-//                                                 this.series.chart.tooltip.refresh(this); // Show the tooltip
-//                                                 this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
-//                                             };
-//                                             )))
-
-    .seriesSet([self configureSeriesArray])
-    .plotOptionsSet(AAPlotOptions.new
-              .seriesSet(AASeries.new
-                         .stackingSet(AAChartStackingTypePercent)))
-//    .seriesSet(@[
-//        AASeriesElement.new
-//            .nameSet(@"Tokyo")
-//            .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-//            .colorByPointSet(@true)
-//    ])
-//    .afterDrawChartJavaScriptSet([NSString stringWithFormat:@AAJSFunc(
-//        for (var i = 0; i < 3; i++) {
-//            var chartDiv = document.createElement('div');
-//            chartDiv.className = 'chart';
-//            document.getElementById('container').appendChild(chartDiv);
-//            
-//            Highcharts.chart(chartDiv, %@);
-//        }
-//    ), jsonStr])
-    ;
++ (NSArray *)configureSeriesDataArray {
+    NSMutableArray *randomNumArrA = [NSMutableArray array];
+    CGFloat y1 = 0.f;
+    int q = arc4random() % 38;
+    NSUInteger length = ((AASeriesElement *)[self configureSeriesArray][0]).data.count;
+    for (NSUInteger x = 0; x < length; x++) {
+        y1 = sin(q * (x * M_PI / 180.0)) + x * 2.0 * 0.01 - 1;
+        [randomNumArrA addObject:AADataElement.new.ySet(@(y1))];
+    }
+    return randomNumArrA;
 }
 
++ (AAOptions *)singleChartOptionsWithChartRank:(NSInteger)chartRank {
+    NSArray *seriesArray = [self configureSeriesArray];
+    NSInteger safeIndex = MAX(0, MIN(chartRank - 1, (NSInteger)seriesArray.count - 1));
+    AASeriesElement *aaSeriesElement = seriesArray[safeIndex];
 
-+ (AAOptions *)singleChartOptions {
-    return AAOptions.new
+    AAChartEvents *chartEvents = AAChartEvents.new
+    .selectionSet(@AAJSFunc(function (e) {
+        if (e.resetSelection) {
+            return;
+        }
+
+        Highcharts.charts.forEach(chart => {
+            if (chart !== e.target) {
+                chart.zoomOut();
+            }
+        });
+    }));
+
+    AAOptions *aaOptions = AAOptions.new
     .chartSet(AAChart.new
+              .typeSet(AAChartTypeArea)
               .marginLeftSet(@40)
               .spacingTopSet(@20)
               .spacingBottomSet(@20)
-//              .zoomTypeSet(AAZoomTypeX)
-              .eventsSet(AAChartEvents.new
-//                         .selectionSet(@AAJSFunc(/**
-//                                                  * Resets chart zoom on selection event.
-//                                                  */
-//                                                 function resetZoom(e) {
-//                                                     // Prevent feedback loop
-//                                                     if (e.resetSelection) {
-//                                                         return;
-//                                                     }
-//
-//                                                     // Zoom out all other charts on selection
-//                                                     Highcharts.charts.forEach(chart => {
-//                                                         if (chart !== e.target) {
-//                                                             chart.zoomOut();
-//                                                         }
-//                                                     });
-//                                                 }))
-                         )
-              )
+              .eventsSet(chartEvents))
     .titleSet(AATitle.new
-              .textSet(@"dataset.name")
+              .textSet(aaSeriesElement.name)
               .alignSet(AAChartAlignTypeLeft)
-//              .marginSet(@0)
-              .xSet(@30)
-              )
+              .styleSet(AAStyle.new
+                        .colorSet((NSString *)aaSeriesElement.color)
+                        .fontWeightSet(AAChartFontWeightTypeBold)
+                        .fontSizeSet(@"30px"))
+              .xSet(@30))
     .creditsSet(AACredits.new
                 .enabledSet(false))
     .legendSet(AALegend.new
-                .enabledSet(false))
+               .enabledSet(false))
     .xAxisSet(AAXAxis.new
-                .crosshairSet(AACrosshair.new
-                              .colorSet(AAColor.redColor))
-//                .eventsSet(AAEvents.new
-//                             .setExtremesSet(@"syncExtremes")
-//                             )
-                .labelsSet(AALabels.new
-                             .formatSet(@"{value} km")
-                             )
-//                .accessibilitySet(AAAccessibility.new
-//                                    .descriptionSet(@"Kilometers")
-//                                    .rangeDescriptionSet(@"0km to 6.5km")
-//                                    )
-                )
+              .crosshairSet(AACrosshair.new
+                            .colorSet(AAColor.greenColor)
+                            .widthSet(@2)
+                            .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                            .zIndexSet(@5))
+              .labelsSet(AALabels.new
+                         .formatSet(@"{value} km")))
     .yAxisSet(AAYAxis.new
-                .titleSet(AAAxisTitle.new
-                            .textSet(nil)
-                            )
-                )
+              .titleSet(AAAxisTitle.new
+                        .textSet(@"")))
     .tooltipSet(AATooltip.new
-//                .positionerSet(@"function () {\
-//                                return {\
-//                                // right aligned\
-//                                x: this.chart.chartWidth - this.label.width,\
-//                                y: 10 // align to title\
-//                                };\
-//                                }")
                 .borderWidthSet(@0)
-                .backgroundColorSet(@"none")
-                .pointFormatSet(@"{point.y}")
+                .backgroundColorSet(AAColor.blackColor)
+                .borderColorSet(AAColor.blackColor)
                 .headerFormatSet(@"")
-                .shadowSet(false)
                 .styleSet(AAStyle.new
                           .fontSizeSet(@"18px")
-                          )
-                .valueDecimalsSet(@2)
-                )
+                          .colorSet(AAColor.redColor))
+                .valueDecimalsSet(@8))
+    .seriesSet(@[
+        aaSeriesElement
+    ]);
+
+    return aaOptions;
+}
+
++ (AAOptions *)synchronizedChart {
+    NSString *aaOptions1JsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:[self singleChartOptionsWithChartRank:1]];
+    NSString *aaOptions2JsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:[self singleChartOptionsWithChartRank:2]];
+    NSString *aaOptions3JsonStr = [AAJsonConverter pureOptionsJsonStringWithOptionsInstance:[self singleChartOptionsWithChartRank:3]];
+
+    NSString *beforeDrawJS = @AAJSFunc((function() {
+        const parentContainer = document.getElementById('container').parentElement;
+
+        ['mousemove', 'touchmove', 'touchstart'].forEach(function (eventType) {
+            parentContainer.addEventListener(eventType, function (e) {
+                let chart, point, i, event;
+
+                for (i = 0; i < Highcharts.charts.length; i = i + 1) {
+                    chart = Highcharts.charts[i];
+                    event = chart.pointer.normalize(e);
+                    point = chart.series[0].searchPoint(event, true);
+
+                    if (point) {
+                        point.highlight(e);
+                    }
+                }
+            });
+        });
+
+        Highcharts.Pointer.prototype.reset = function () {
+            return undefined;
+        };
+
+        Highcharts.Point.prototype.highlight = function (event) {
+            event = this.series.chart.pointer.normalize(event);
+            this.onMouseOver();
+            this.series.chart.tooltip.refresh(this);
+            this.series.chart.xAxis[0].drawCrosshair(event, this);
+        };
+
+        return "JavaScript execution completed successfully";
+    })());
+
+    NSString *afterDrawTemplate = @AAJSFunc((function() {
+        const container = document.getElementById('container');
+        const parentContainer = container.parentElement;
+
+        function resetZoom(e) {
+            if (e.resetSelection) {
+                return;
+            }
+
+            Highcharts.charts.forEach(chart => {
+                if (chart !== e.target) {
+                    chart.zoomOut();
+                }
+            });
+        }
+
+        function syncExtremes(e) {
+            const thisChart = this.chart;
+
+            if (e.trigger !== 'syncExtremes') {
+                Highcharts.charts.forEach(chart => {
+                    if (chart !== thisChart) {
+                        if (chart.xAxis[0].setExtremes) {
+                            chart.xAxis[0].setExtremes(
+                                e.min,
+                                e.max,
+                                undefined,
+                                false,
+                                { trigger: 'syncExtremes' }
+                            );
+                        }
+                    }
+                });
+            }
+        }
+
+        container.style.position = 'static';
+
+        function setContainerHeight() {
+            const parentHeight = parentContainer.clientHeight;
+            container.style.height = (parentHeight / 4) + 'px';
+        }
+
+        setContainerHeight();
+        window.addEventListener('resize', setContainerHeight);
+
+        if (aaGlobalChart) {
+            Highcharts.addEvent(aaGlobalChart, 'selection', resetZoom);
+            Highcharts.addEvent(aaGlobalChart.xAxis[0], 'setExtremes', syncExtremes);
+        }
+
+        for (let i = 0; i < 3; i++) {
+            const chartDiv = document.createElement('div');
+            chartDiv.className = 'chart';
+            chartDiv.style.display = 'block';
+            chartDiv.style.width = '100%';
+            chartDiv.style.height = (parentContainer.clientHeight / 4) + 'px';
+            chartDiv.style.marginBottom = '0';
+            chartDiv.style.position = 'static';
+
+            parentContainer.appendChild(chartDiv);
+
+            function setChartHeight() {
+                const parentHeight = parentContainer.clientHeight;
+                chartDiv.style.height = (parentHeight / 4) + 'px';
+            }
+
+            setChartHeight();
+            window.addEventListener('resize', setChartHeight);
+
+            let chartOptionsJsonObj;
+            if (i == 0) {
+                chartOptionsJsonObj = __AA_OPTIONS1__;
+            } else if (i == 1) {
+                chartOptionsJsonObj = __AA_OPTIONS2__;
+            } else {
+                chartOptionsJsonObj = __AA_OPTIONS3__;
+            }
+
+            let sender = JSON.stringify(chartOptionsJsonObj);
+            let aaOptions = JSON.parse(sender, function (key, value) {
+                if (typeof(value) == 'string' && value.indexOf('function') !== -1) {
+                    return eval(value);
+                }
+                return value;
+            });
+
+            aaOptions.chart = aaOptions.chart || {};
+            aaOptions.chart.events = aaOptions.chart.events || {};
+            aaOptions.chart.events.selection = resetZoom;
+
+            aaOptions.xAxis = aaOptions.xAxis || {};
+            aaOptions.xAxis.events = aaOptions.xAxis.events || {};
+            aaOptions.xAxis.events.setExtremes = syncExtremes;
+
+            Highcharts.chart(chartDiv, aaOptions);
+        }
+
+        return "JavaScript execution completed successfully";
+    })());
+
+    NSString *afterDrawJS = [[[afterDrawTemplate stringByReplacingOccurrencesOfString:@"__AA_OPTIONS1__"
+                                                                          withString:aaOptions1JsonStr]
+                              stringByReplacingOccurrencesOfString:@"__AA_OPTIONS2__"
+                              withString:aaOptions2JsonStr]
+                             stringByReplacingOccurrencesOfString:@"__AA_OPTIONS3__"
+                             withString:aaOptions3JsonStr];
+
+    return AAOptions.new
+    .beforeDrawChartJavaScriptSet(beforeDrawJS)
+    .titleSet(AATitle.new
+              .textSet(@"Rainfall")
+              .alignSet(AAChartAlignTypeLeft)
+              .styleSet(AAStyle.new
+                        .colorSet(AAColor.greenColor)
+                        .fontWeightSet(AAChartFontWeightTypeBold)
+                        .fontSizeSet(@"30px"))
+              .xSet(@30))
+    .xAxisSet(AAXAxis.new
+              .crosshairSet(AACrosshair.new
+                            .colorSet(AAColor.greenColor)
+                            .widthSet(@2)
+                            .dashStyleSet(AAChartLineDashStyleTypeLongDashDot)
+                            .zIndexSet(@5))
+              .labelsSet(AALabels.new
+                         .formatSet(@"{value} km")))
+    .legendSet(AALegend.new
+               .enabledSet(false))
     .seriesSet(@[
         AASeriesElement.new
-            .nameSet(@"Tokyo")
-            .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])
-            .colorByPointSet(@true)
+        .typeSet(AAChartTypeArea)
+        .nameSet(@"Berlin Hot")
+        .colorSet((id)AAGradientColor.lusciousLimeColor)
+        .dataSet([self configureSeriesDataArray])
     ])
-    ;
+    .afterDrawChartJavaScriptSet(afterDrawJS);
 }
 
 /**

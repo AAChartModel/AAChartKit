@@ -289,6 +289,12 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }  else if (row == 4) {
                 TripleChartsLinkedWorkVC *vc = TripleChartsLinkedWorkVC.new;
+                vc.singleChartViewMode = NO;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else if (row == 5) {
+                TripleChartsLinkedWorkVC *vc = TripleChartsLinkedWorkVC.new;
+                vc.singleChartViewMode = YES;
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
@@ -468,7 +474,8 @@
               @"Show Many AAChartView On UITableView---UITableView上显示多个 AAChartView",
               @"Double Charts Linked Working---双表联动",
               @"Double Charts Linked Working2---双表联动2",
-              @"Triple Charts Linked Working---三表联动"
+              @"Quadra Charts Linked Working---四表联动(多个 AAChartView)",
+              @"Quadra Charts Linked Working2---四表联动2(单个 AAChartView, 多个 div)"
             ],
             /*隐藏或显示图表的Series*/
             @[@"Column Chart---柱形图",
