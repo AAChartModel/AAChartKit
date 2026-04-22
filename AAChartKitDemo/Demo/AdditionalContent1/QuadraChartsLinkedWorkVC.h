@@ -1,5 +1,5 @@
 //
-//  DoubleChartsLinkedWorkVC.h
+//  QuadraChartsLinkedWorkVC.h
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2020/1/27.
@@ -32,9 +32,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TripleChartsLinkedWorkVC : UIViewController
+@interface QuadraChartsLinkedWorkVC : UIViewController
 
 @property (nonatomic, assign) BOOL singleChartViewMode;
 
 @end
-

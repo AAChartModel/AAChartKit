@@ -1,16 +1,16 @@
 //
-//  TripleChartsLinkedWorkVC.m
+//  QuadraChartsLinkedWorkVC.m
 //  AAChartKitDemo
 //
 //  Created by AnAn on 2020/1/27.
 //  Copyright © 2020 AnAn. All rights reserved.
 //
 
-#import "TripleChartsLinkedWorkVC.h"
+#import "QuadraChartsLinkedWorkVC.h"
 #import "AAChartKit.h"
 #import "JSFunctionBeforeAndAfterRenderingComposer3.h"
 
-@interface TripleChartsLinkedWorkVC () <AAChartViewEventDelegate>
+@interface QuadraChartsLinkedWorkVC () <AAChartViewEventDelegate>
 
 @property (nonatomic, strong) AAChartView *aaChartView0;
 @property (nonatomic, strong) AAChartView *aaChartView1;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation TripleChartsLinkedWorkVC
+@implementation QuadraChartsLinkedWorkVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
