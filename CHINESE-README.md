@@ -81,8 +81,8 @@
 
 
 ### 手动安装
-1. 将项目`Demo`中的文件夹`AAChartKitLib`拖入到所需项目中.
-1. 在你的项目的 `.pch` 全局宏定义文件中添加
+1. 将仓库根目录下的 `AAChartKit` 源码文件夹拖入你的项目中。
+2. 在你的项目的 `.pch` 全局宏定义文件中添加
 ```objective-c
 #import "AAGlobalMacro.h"
 ```
