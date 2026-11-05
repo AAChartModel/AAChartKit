@@ -108,7 +108,7 @@ pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
 
 
 ### Manually (old school way)
-1. Drag the `AAChartKitLib` folder into your project.
+1. Drag the `AAChartKit` source folder from the repository root into your project.
 
 2. Add the following to your `.pch` file.
 ```objective-c
